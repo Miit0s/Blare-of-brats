@@ -14,6 +14,10 @@ config/name="Blare of Brats"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+
 [file_customization]
 
 folder_colors={
