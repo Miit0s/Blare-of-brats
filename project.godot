@@ -11,20 +11,45 @@ config_version=5
 [application]
 
 config/name="Blare of Brats"
-run/main_scene="uid://c53l85gqm0mi1"
+run/main_scene="uid://uyjk8iv813ww"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c381lrnwn0b16"
 
 [autoload]
 
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+AppConfig="*uid://cjke6crjg14a0"
+SceneLoader="*uid://cbwmrnp0af35y"
+ProjectMusicController="*uid://r5t485lr3p7t"
+ProjectUISoundController="*uid://cc37235kj4384"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
+"res://MenuTemplate/": "green",
 "res://Scene/": "red"
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
+
+[maaacks_menus_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
+copy_path="res://MenuTemplate/"
 
 [physics]
 

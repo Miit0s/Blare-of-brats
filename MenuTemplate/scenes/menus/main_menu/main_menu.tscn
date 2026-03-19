@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://uyjk8iv813ww"]
+
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_0uvec"]
+[ext_resource type="Script" uid="uid://caltcrnr3r7vc" path="res://MenuTemplate/scenes/menus/main_menu/main_menu.gd" id="2_axvpw"]
+[ext_resource type="PackedScene" uid="uid://cmnh71fd3m0le" path="res://MenuTemplate/scenes/windows/main_menu_options_window.tscn" id="3_4ibo4"]
+[ext_resource type="PackedScene" uid="uid://d06sbk2jcuix6" path="res://MenuTemplate/scenes/windows/main_menu_credits_window.tscn" id="4_8bn6t"]
+
+[node name="MainMenu" unique_id=869232425 instance=ExtResource("1_0uvec")]
+script = ExtResource("2_axvpw")
+options_packed_scene = ExtResource("3_4ibo4")
+credits_packed_scene = ExtResource("4_8bn6t")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=359406872]
+text = "Blare of Brats"
