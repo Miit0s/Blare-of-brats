@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Blare of Brats"
+run/main_scene="uid://c53l85gqm0mi1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,3 +33,9 @@ folder_colors={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[wwise]
+
+common_user_settings/root_output_path="res://GeneratedSoundBanks"
+project_settings/windows_platform_info="res://Wwise/resources/Windows.tres"
+project_settings/linux_platform_info="res://Wwise/resources/Linux.tres"
