@@ -1,0 +1,7 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://0enuw8vcefrl"]
+
+[resource]
+name = "Play_test_sample"
+id = 3550029299
+guid = "{830FDA6C-2F0F-41F7-A873-FA7DABAC341B}"
+dummy = true
