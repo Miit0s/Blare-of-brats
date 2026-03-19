@@ -9,7 +9,7 @@ To revisit any part of the initial setup, find the `Setup Wizard` at `Project > 
 
     1.  Open `main_menu_with_animations.tscn`.
     2.  Select the `TitleLabel` node.
-    3.  The `Text` should match the project's name (in the project's settings).
+	3.  The `Text` should match the project's name (in the project's settings).
         1. If `Text` is customized, set `Auto Update` to false.
     4.  Select the `SubtitleLabelNode` node and customize the `Text` as desired.
     5.  Save the scene.
@@ -20,22 +20,22 @@ To revisit any part of the initial setup, find the `Setup Wizard` at `Project > 
 
     1.  Open `main_menu_with_animations.tscn`.
     2.  Select the `MainMenu` node.
-    3.  Update `Game Scene Path` to the path of the project's game scene.
-    4.  Save the scene.
-    
+	3.  Update `Game Scene Path` to the path of the project's game scene.
+	4.  Save the scene.
+	
 
 3.  Add / remove configurable settings to / from menus.
-    
+	
 
-    1.  Open `mini_options_menu.tscn` or `[audio|visual|input|game]_options_menu.tscn` scenes to edit their options.
-    2.  If an option is not desired, it can always be hidden, or removed entirely (sometimes with some additional work).
-    3.  If a new option is desired, refer to [Adding Custom Options.](/addons/maaacks_menus_template/docs/AddingCustomOptions.md)
+	1.  Open `mini_options_menu.tscn` or `[audio|visual|input|game]_options_menu.tscn` scenes to edit their options.
+	2.  If an option is not desired, it can always be hidden, or removed entirely (sometimes with some additional work).
+	3.  If a new option is desired, refer to [Adding Custom Options.](/addons/maaacks_menus_template/docs/AddingCustomOptions.md)
 
 
 4.  Update the game credits / attribution.
-    
+	
 
-    1.  Update the example `ATTRIBUTION.md` with the project's credits.
+	1.  Update the example `ATTRIBUTION.md` with the project's credits.
     2.  Open `credits_label.tscn`.
     3.  Check the `CreditsLabel` has updated with the text.
     4.  Optionally, disable `Auto Update` and customize the text.
