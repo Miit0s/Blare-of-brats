@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://c53l85gqm0mi1"]
 
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
+
 [node name="Node2D" type="Node2D" unique_id=456750830]
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
+
+[node name="Player" parent="." unique_id=99407332 instance=ExtResource("1_j4qrl")]
+position = Vector2(392, 314)
