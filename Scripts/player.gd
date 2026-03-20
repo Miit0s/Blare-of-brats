@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-@export var device_id: int = 0
+@export_range(0,3) var device_id: int = 0
 @export_category("Basic Movement")
 @export var speed: float = 300.0
-@export var deadzone: float = 0.2
 @export_category("Dash")
 @export var dash_speed: float = 1500.0
 @export var dash_cooldown: float = 0.5
@@ -12,23 +11,22 @@ var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
 var _last_direction: Vector2 = Vector2.RIGHT
 
-func _physics_process(delta: float) -> void:
+var _suffix: String = ""
+
+func _ready() -> void:
+	_suffix = "_" + str(device_id)
+
+func _physics_process(_delta: float) -> void:
 	#Basic movement
-	var direction: Vector2 = Vector2(
-		Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X) - Input.get_joy_axis(device_id, JOY_AXIS_RIGHT_X),
-		Input.get_joy_axis(device_id, JOY_AXIS_LEFT_Y) - Input.get_joy_axis(device_id, JOY_AXIS_RIGHT_Y)
-	).limit_length()
-	
-	if direction.x >= -deadzone and direction.x <= deadzone : direction.x = 0
-	if direction.y >= -deadzone and direction.y <= deadzone : direction.y = 0
+	var direction: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
 	
 	#Dash
-	if Input.is_action_just_pressed("Dash") and _dash_can_be_use:
+	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use:
 		dash()
 
 	if _is_dashing:
-		if direction: velocity = direction * dash_speed
-		else: velocity = _last_direction * dash_speed
+		if direction: velocity = direction.normalized() * dash_speed
+		else: velocity = _last_direction.normalized() * dash_speed
 	elif direction:
 		velocity = direction * speed
 		_last_direction = direction
