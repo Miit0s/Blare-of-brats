@@ -38,10 +38,11 @@ folder_colors={
 "res://Assets/": "purple",
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
-"res://MenuTemplate/": "green",
+"res://MenuTemplate/": "teal",
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
-"res://Scripts/": "teal"
+"res://Scripts/": "yellow",
+"res://UI/": "green"
 }
 
 [input]
