@@ -1,5 +1,22 @@
 [gd_scene format=3 uid="uid://c53l85gqm0mi1"]
 
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
+[ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="3_06yma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06yma"]
+radius = 35.0
+
 [node name="Node2D" type="Node2D" unique_id=456750830]
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
+
+[node name="Player" parent="." unique_id=99407332 instance=ExtResource("1_j4qrl")]
+position = Vector2(392, 314)
+
+[node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("2_31fxm")]
+position = Vector2(756, 459)
+collision_size = 80.0
+attack_shape = SubResource("CircleShape2D_06yma")
+object_texture = ExtResource("3_06yma")
+object_texture_size = 0.08

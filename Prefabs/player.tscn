@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dx4tdd5dj8w6p"]
+
+[ext_resource type="Script" uid="uid://b3br2bol6pjbc" path="res://Scripts/player.gd" id="1_y6xdh"]
+[ext_resource type="Texture2D" uid="uid://c1ks31boikjxa" path="res://icon.svg" id="2_5wxv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wxv7"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wxv7"]
+radius = 100.0
+
+[node name="Player" type="CharacterBody2D" unique_id=99407332]
+z_index = 1
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_y6xdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531490507]
+texture = ExtResource("2_5wxv7")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1651023988]
+shape = SubResource("RectangleShape2D_5wxv7")
+
+[node name="PickUpArea" type="Area2D" parent="." unique_id=941904935]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea" unique_id=1816465864]
+shape = SubResource("CircleShape2D_5wxv7")
