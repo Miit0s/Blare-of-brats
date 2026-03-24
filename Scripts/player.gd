@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var pick_up_area: Area2D = $PickUpArea
 
@@ -14,6 +15,11 @@ extends CharacterBody2D
 @export var picked_up_movement_smoothing_factor: float = 30
 var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
+@export_category("Attack")
+@export var slash_arc: float = 120
+var attack_cooldown: float = 1
+var _can_attack: bool = true
+
 var _last_direction: Vector2 = Vector2.RIGHT
 
 var _suffix: String = ""
@@ -28,11 +34,12 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use: dash()
 	if Input.is_action_just_pressed("PickUp_Throw" + _suffix):
-		if current_picked_item:
+		if current_picked_item and not current_picked_item.is_attacking:
 			current_picked_item.throw(direction if direction else _last_direction)
 			current_picked_item = null
 		else:
 			pick_up()
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack: attack(direction if direction else _last_direction)
 
 	if _is_dashing:
 		if direction: velocity = direction.normalized() * dash_speed
@@ -46,7 +53,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if current_picked_item:
+	if current_picked_item and not current_picked_item.is_attacking:
 		var item_direction: Vector2 = direction if direction else _last_direction
 		var item_position: Vector2 = self.global_position + item_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
@@ -78,3 +85,50 @@ func pick_up():
 			closest_item = item
 	
 	current_picked_item = closest_item
+
+func attack(direction: Vector2):
+	if current_picked_item == null: return
+	
+	_can_attack = false
+	current_picked_item.attack()
+	make_attack_movement(direction)
+	await get_tree().create_timer(attack_cooldown).timeout
+	_can_attack = true
+
+func make_attack_movement(direction: Vector2):
+	var base_angle: float = direction.angle()
+	
+	var start_angle: float
+	var end_angle: float
+	
+	var full_circle_angle = fposmod(base_angle, 2 * PI)
+	
+	if PI / 2 < full_circle_angle and full_circle_angle < PI + (PI / 2):
+		start_angle = base_angle + deg_to_rad(slash_arc / 2)
+		end_angle = base_angle - deg_to_rad(slash_arc / 2)
+	else:
+		start_angle = base_angle - deg_to_rad(slash_arc / 2)
+		end_angle = base_angle + deg_to_rad(slash_arc / 2)
+	
+	var slash_tween: Tween = create_tween() \
+		.set_trans(Tween.TRANS_QUART) \
+		.set_ease(Tween.EASE_OUT)
+	
+	slash_tween.tween_method(
+		_animate_slash,
+		start_angle,
+		end_angle,
+		current_picked_item.attack_duration
+	)
+	
+	await slash_tween.finished
+	current_picked_item.rotation = 0
+
+func _animate_slash(current_angle: float):
+	#current_picked_item.rotation = current_angle
+	
+	var offset = Vector2.from_angle(current_angle) * picked_up_item_distance
+	current_picked_item.global_position = global_position + offset
+
+func hit():
+	pass
