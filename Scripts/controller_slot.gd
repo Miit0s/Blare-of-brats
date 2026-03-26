@@ -19,3 +19,7 @@ func remove_player():
 	
 	player_skin.hide()
 	label.show()
+
+## Return the player id connected to this slot, and null if there is any
+func get_player_id() -> int:
+	return _player_id if _player_id != -1 else null
