@@ -4,31 +4,49 @@ class_name Player
 @onready var pick_up_area: Area2D = $PickUpArea
 
 @export_range(0,3) var device_id: int = 0
+
 @export_category("Basic Movement")
 @export var speed: float = 300.0
+
 @export_category("Dash")
 @export var dash_speed: float = 1500.0
 @export var dash_cooldown: float = 0.5
 @export var dash_duration: float = 0.08
+
 @export_category("Item")
 @export var picked_up_item_distance: float = 100
 @export var picked_up_movement_smoothing_factor: float = 30
 var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
+
 @export_category("Attack")
 @export var slash_arc: float = 120
 var attack_cooldown: float = 1
 var _can_attack: bool = true
+
+@export_category("Stun")
+@export var stun_duration: float = 1
+
+@export_category("Knockback")
+@export var knockback_speed: float = 1500.0
+@export var knockback_duration: float = 0.05
+var _is_in_knockback: bool = false
+var _knockback_direction: Vector2 = Vector2.ZERO
 
 var _last_direction: Vector2 = Vector2.RIGHT
 
 var _suffix: String = ""
 var current_picked_item: Item = null
 
+var _is_stun: bool = false
+var _is_invincible: bool = false
+
 func _ready() -> void:
 	_suffix = "_" + str(device_id)
 
 func _physics_process(delta: float) -> void:
+	if _is_stun: return
+	
 	#Basic movement
 	var direction: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
 	
@@ -40,10 +58,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			pick_up()
 	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack: attack(direction if direction else _last_direction)
-
-	if _is_dashing:
-		if direction: velocity = direction.normalized() * dash_speed
-		else: velocity = _last_direction.normalized() * dash_speed
+	if Input.is_key_pressed(KEY_A) : knockback(_last_direction)
+	
+	if _is_in_knockback:
+		velocity = _knockback_direction.normalized() * knockback_speed
+	elif _is_dashing:
+		var dash_direction: Vector2 = direction if direction else _last_direction
+		velocity = dash_direction.normalized() * dash_speed
 	elif direction:
 		velocity = direction * speed
 		_last_direction = direction
@@ -61,8 +82,14 @@ func _physics_process(delta: float) -> void:
 func dash():
 	_dash_can_be_use = false
 	_is_dashing = true
+	_is_invincible = true
+	
 	get_tree().create_timer(dash_cooldown).timeout.connect(func(): _dash_can_be_use = true)
-	get_tree().create_timer(dash_duration).timeout.connect(func(): _is_dashing = false)
+	get_tree().create_timer(dash_duration).timeout.connect(
+		func(): 
+		_is_dashing = false
+		_is_invincible = false
+	)
 	
 
 func pick_up():
@@ -91,11 +118,11 @@ func attack(direction: Vector2):
 	
 	_can_attack = false
 	current_picked_item.attack()
-	make_attack_movement(direction)
+	_make_attack_movement(direction)
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true
 
-func make_attack_movement(direction: Vector2):
+func _make_attack_movement(direction: Vector2):
 	var base_angle: float = direction.angle()
 	
 	var start_angle: float
@@ -131,4 +158,16 @@ func _animate_slash(current_angle: float):
 	current_picked_item.global_position = global_position + offset
 
 func hit():
+	if _is_invincible: return
 	pass
+
+func knockback(hit_direction: Vector2):
+	_knockback_direction = -hit_direction
+	_is_in_knockback = true
+	await get_tree().create_timer(knockback_duration).timeout
+	_is_in_knockback = false
+
+func stun():
+	_is_stun = true
+	await get_tree().create_timer(stun_duration).timeout
+	_is_stun = false
