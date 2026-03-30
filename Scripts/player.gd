@@ -33,6 +33,9 @@ var _can_attack: bool = true
 var _is_in_knockback: bool = false
 var _knockback_direction: Vector2 = Vector2.ZERO
 
+@export_category("Aim")
+@export var lock_after_aim_duration: float = 0.1
+
 var _last_direction: Vector2 = Vector2.RIGHT
 
 var _suffix: String = ""
@@ -40,6 +43,7 @@ var current_picked_item: Item = null
 
 var _is_stun: bool = false
 var _is_invincible: bool = false
+var _is_aiming: bool = false
 
 func _ready() -> void:
 	_suffix = "_" + str(device_id)
@@ -51,21 +55,29 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
 	
 	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use: dash()
+	
 	if Input.is_action_just_pressed("PickUp_Throw" + _suffix):
-		if current_picked_item and not current_picked_item.is_attacking:
-			current_picked_item.throw(direction if direction else _last_direction)
-			current_picked_item = null
-		else:
-			pick_up()
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack: attack(direction if direction else _last_direction)
-	if Input.is_key_pressed(KEY_A) : knockback(_last_direction)
+		#if current_picked_item and not current_picked_item.is_attacking:
+			#current_picked_item.throw(direction if direction else _last_direction)
+			#current_picked_item = null
+			#_is_aiming = false
+		#else:
+		pick_up()
+	
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming: attack(direction if direction else _last_direction)
+	
+	if Input.is_action_just_pressed("Aim" + _suffix) and current_picked_item != null: _is_aiming = true
+	if Input.is_action_just_released("Aim" + _suffix) and current_picked_item != null:
+		current_picked_item.throw(direction if direction else _last_direction)
+		current_picked_item = null 
+		get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
 	
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
-	elif _is_dashing:
+	elif _is_dashing and not _is_aiming:
 		var dash_direction: Vector2 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * dash_speed
-	elif direction:
+	elif direction and not _is_aiming:
 		velocity = direction * speed
 		_last_direction = direction
 	else:
