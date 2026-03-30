@@ -6,7 +6,7 @@ class_name ControllerSlot
 
 var _player_id: int = -1
 var is_slot_available: bool:
-	get(): return _player_id != -1
+	get(): return _player_id == -1
 
 func set_player_id(new_id: int):
 	_player_id = new_id
@@ -20,6 +20,6 @@ func remove_player():
 	player_skin.hide()
 	label.show()
 
-## Return the player id connected to this slot, and null if there is any
+## Return the player id connected to this slot, and -1 if there is any
 func get_player_id() -> int:
-	return _player_id if _player_id != -1 else null
+	return _player_id
