@@ -38,10 +38,11 @@ folder_colors={
 "res://Assets/": "purple",
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
-"res://MenuTemplate/": "green",
+"res://MenuTemplate/": "teal",
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
-"res://Scripts/": "teal"
+"res://Scripts/": "yellow",
+"res://UI/": "green"
 }
 
 [input]
@@ -189,6 +190,11 @@ Right_2={
 Right_3={
 "deadzone": 0.2,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":3,"axis":0,"axis_value":1.0,"script":null)
+]
+}
+JoinGame={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 
