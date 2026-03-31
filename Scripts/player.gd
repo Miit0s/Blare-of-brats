@@ -113,7 +113,9 @@ func pick_up():
 	var closest_item: Item = null
 	var highest_score: float = -1.0
 	
-	for item in item_in_range:
+	for item: Item in item_in_range:
+		if item.is_already_pick: continue
+		
 		#Direction joueur - item
 		var direction_to_item: Vector2 = (item.global_position - global_position).normalized()
 		#Alignement item - direction joueur
@@ -123,7 +125,10 @@ func pick_up():
 			highest_score = alignement_score
 			closest_item = item
 	
+	if not closest_item: return
+	
 	current_picked_item = closest_item
+	current_picked_item.is_already_pick = true
 
 func attack(direction: Vector2):
 	if current_picked_item == null: return

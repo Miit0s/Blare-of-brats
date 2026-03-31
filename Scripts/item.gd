@@ -43,6 +43,7 @@ var minimal_speed: float = 50
 var has_been_throw: bool = false
 
 var is_attacking: bool = false
+var is_already_pick: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -75,6 +76,7 @@ func throw(direction: Vector2):
 	apply_central_impulse(direction.normalized() * throw_force)
 	await get_tree().create_timer(0.1).timeout
 	has_been_throw = true
+	is_already_pick = false
 
 func attack():
 	is_attacking = true
