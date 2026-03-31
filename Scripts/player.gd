@@ -4,6 +4,7 @@ class_name Player
 @onready var pick_up_area: Area2D = $PickUpArea
 
 @export_range(0,3) var device_id: int = 0
+@export var two_joystick_controller: bool = false
 
 @export_category("Basic Movement")
 @export var speed: float = 300.0
@@ -37,9 +38,11 @@ var _knockback_direction: Vector2 = Vector2.ZERO
 @export var lock_after_aim_duration: float = 0.1
 
 var _last_direction: Vector2 = Vector2.RIGHT
+var _last_aiming_direction: Vector2 = Vector2.RIGHT
 
 var _suffix: String = ""
 var current_picked_item: Item = null
+var _item_just_picked: bool = false
 
 var _is_stun: bool = false
 var _is_invincible: bool = false
@@ -57,20 +60,36 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use: dash()
 	
 	if Input.is_action_just_pressed("PickUp_Throw" + _suffix):
-		#if current_picked_item and not current_picked_item.is_attacking:
-			#current_picked_item.throw(direction if direction else _last_direction)
-			#current_picked_item = null
-			#_is_aiming = false
-		#else:
-		pick_up()
+		if two_joystick_controller:
+			if not current_picked_item: 
+				pick_up()
+				_item_just_picked = true
+		else:
+			if current_picked_item and not current_picked_item.is_attacking:
+				_is_aiming = true
+			else:
+				pick_up()
+	if Input.is_action_just_released("PickUp_Throw" + _suffix) and current_picked_item != null:
+		if two_joystick_controller:
+			if current_picked_item and not current_picked_item.is_attacking:
+				if _item_just_picked:
+					_item_just_picked = false
+				else:
+					current_picked_item.throw(_last_aiming_direction)
+					current_picked_item = null
+					_is_aiming = true
+					get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+		else:
+			if current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+				current_picked_item.throw(direction if direction else _last_direction)
+				current_picked_item = null
+				get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
 	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming: attack(direction if direction else _last_direction)
-	
-	if Input.is_action_just_pressed("Aim" + _suffix) and current_picked_item != null: _is_aiming = true
-	if Input.is_action_just_released("Aim" + _suffix) and current_picked_item != null:
-		current_picked_item.throw(direction if direction else _last_direction)
-		current_picked_item = null 
-		get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
+		if two_joystick_controller:
+			attack(_last_aiming_direction)
+		else: 
+			attack(direction if direction else _last_direction)
 	
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
@@ -87,8 +106,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if current_picked_item and not current_picked_item.is_attacking:
-		var item_direction: Vector2 = direction if direction else _last_direction
-		var item_position: Vector2 = self.global_position + item_direction.normalized() * picked_up_item_distance
+		var aim_direction: Vector2 = Vector2.ZERO
+		if two_joystick_controller:
+			aim_direction = Input.get_vector("LeftAim" + _suffix, "RightAim" + _suffix, "UpAim" + _suffix, "DownAim" + _suffix)
+			if aim_direction: 
+				_last_aiming_direction = aim_direction
+			else:
+				aim_direction = _last_aiming_direction
+		else:
+			aim_direction = direction if direction else _last_direction
+		
+		var item_position: Vector2 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 
 func dash():
