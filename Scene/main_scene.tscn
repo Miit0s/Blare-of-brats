@@ -8,6 +8,10 @@
 resource_local_to_scene = true
 radius = 35.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kvl3"]
+resource_local_to_scene = true
+radius = 35.0
+
 [node name="Node2D" type="Node2D" unique_id=456750830]
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
@@ -17,7 +21,7 @@ position = Vector2(392, 314)
 
 [node name="Player2" parent="." unique_id=149230811 instance=ExtResource("1_j4qrl")]
 position = Vector2(793, 162)
-device_id = 1
+player_id = 1
 
 [node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("2_31fxm")]
 position = Vector2(756, 459)
@@ -29,6 +33,6 @@ object_texture_size = 0.08
 [node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("2_31fxm")]
 position = Vector2(191, 437)
 collision_size = 80.0
-attack_shape = SubResource("CircleShape2D_06yma")
+attack_shape = SubResource("CircleShape2D_4kvl3")
 object_texture = ExtResource("3_06yma")
 object_texture_size = 0.08
