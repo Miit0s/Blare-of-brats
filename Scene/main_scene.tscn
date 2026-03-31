@@ -18,7 +18,6 @@ position = Vector2(392, 314)
 [node name="Player2" parent="." unique_id=149230811 instance=ExtResource("1_j4qrl")]
 position = Vector2(793, 162)
 device_id = 1
-two_joystick_controller = true
 
 [node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("2_31fxm")]
 position = Vector2(756, 459)
