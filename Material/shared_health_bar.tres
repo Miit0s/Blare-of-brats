@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://lerg8c4lpmj4"]
+
+[ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="1_fipdv"]
+
+[resource]
+shader = ExtResource("1_fipdv")
+shader_parameter/progress = 0.5
+shader_parameter/color_left = Color(0, 0, 1, 1)
+shader_parameter/color_right = Color(1, 0, 0, 1)
+shader_parameter/wave_amplitude = 0.00400000019
+shader_parameter/wave_frequency = 4.00000019
+shader_parameter/wave_speed = 3.50000016625
+shader_parameter/transition_blur = 0.001

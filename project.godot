@@ -42,6 +42,7 @@ folder_colors={
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
 "res://Scripts/": "yellow",
+"res://Shader/": "pink",
 "res://UI/": "green"
 }
 
