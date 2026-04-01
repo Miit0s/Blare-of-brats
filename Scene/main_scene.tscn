@@ -3,16 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
 [ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="3_06yma"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_06yma"]
-resource_local_to_scene = true
-radius = 35.0
+[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/shared_life_bar.tscn" id="4_4kvl3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kvl3"]
 resource_local_to_scene = true
 radius = 35.0
 
-[node name="Node2D" type="Node2D" unique_id=456750830]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lttqn"]
+resource_local_to_scene = true
+radius = 35.0
+
+[node name="MainScene" type="Node2D" unique_id=456750830]
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
 
@@ -26,13 +27,28 @@ player_id = 1
 [node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("2_31fxm")]
 position = Vector2(756, 459)
 collision_size = 80.0
-attack_shape = SubResource("CircleShape2D_06yma")
+attack_shape = SubResource("CircleShape2D_4kvl3")
 object_texture = ExtResource("3_06yma")
 object_texture_size = 0.08
 
 [node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("2_31fxm")]
 position = Vector2(191, 437)
 collision_size = 80.0
-attack_shape = SubResource("CircleShape2D_4kvl3")
+attack_shape = SubResource("CircleShape2D_lttqn")
 object_texture = ExtResource("3_06yma")
 object_texture_size = 0.08
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
+
+[node name="SharedLifeBar" parent="CanvasLayer" unique_id=1316874460 instance=ExtResource("4_4kvl3")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -400.0
+offset_top = 40.0
+offset_right = 400.0
+offset_bottom = 70.0
+grow_vertical = 1
+
+[connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
