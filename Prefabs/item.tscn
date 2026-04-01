@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fih3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wuwdn"]
-radius = 5.0
+radius = 40.0
 
 [node name="Item" type="RigidBody2D" unique_id=2042118855 node_paths=PackedStringArray("collision_shape_2d", "attack_collision_area", "attack_collision_shape_2d")]
 collision_layer = 4
@@ -32,5 +32,3 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCollisionArea" unique_id=2110213233]
 shape = SubResource("CircleShape2D_8fih3")
 debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
-
-[connection signal="body_entered" from="AttackCollisionArea" to="." method="_on_attack_collision_area_body_entered"]

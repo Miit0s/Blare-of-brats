@@ -18,16 +18,16 @@ class_name Item
 		new_value.changed.connect(_init_item_instance)
 		_init_item_instance()
 @export var attack_speed: float = 0.5
-@export var damage: int = 1
+@export var damage: float = 1
 
 @export_category("Throw")
 @export var throw_force: float = 20
-@export var throw_damage: int = 5
+@export var throw_damage: float = 5
 
 @export_category("Sound")
-@export var sound_on_attack: int = 1
-@export var sound_on_throw: int = 2
-@export var sound_on_break: int = 10
+@export var sound_on_attack: float = 1
+@export var sound_on_throw: float = 2
+@export var sound_on_break: float = 10
 
 @export_category("Lifetime")
 @export var nb_use_before_break: int = 20
@@ -59,6 +59,8 @@ var has_been_throw: bool = false
 var is_attacking: bool = false
 var is_already_pick: bool = false
 
+var _attacked_players: Array[Player]
+
 signal sound_made(value: int)
 
 # Called when the node enters the scene tree for the first time.
@@ -83,19 +85,28 @@ func _physics_process(_delta: float) -> void:
 		linear_velocity = Vector2.ZERO
 		has_been_throw = false
 
-func _on_attack_collision_area_body_entered(body: Node2D) -> void:
-	var player_hit: Player = body
-	if player_hit.player_id != owner_player:
-		if has_been_throw:
-			player_hit.hit(throw_damage)
-			destroy()
-		elif is_attacking:
-			player_hit.hit(damage)
+func _process(_delta: float) -> void:
+	var attack_area_overlapping_bodies: Array = attack_collision_area.get_overlapping_bodies()
+	
+	if attack_area_overlapping_bodies.is_empty(): return
+	
+	for body in attack_area_overlapping_bodies:
+		var player_hit: Player = body
+		if player_hit.player_id != owner_player and _attacked_players.count(player_hit) == 0:
+			if has_been_throw:
+				_attacked_players.append(player_hit)
+				player_hit.hit(throw_damage)
+				destroy()
+			elif is_attacking:
+				_attacked_players.append(player_hit)
+				player_hit.hit(damage)
 
 func throw(direction: Vector2):
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw)
+	
 	await get_tree().create_timer(0.1).timeout
+	
 	has_been_throw = true
 	is_already_pick = false
 	owner_player = -1
@@ -107,6 +118,7 @@ func attack():
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
+	_attacked_players = []
 	
 	if _nb_time_used >= nb_use_before_break: destroy()
 

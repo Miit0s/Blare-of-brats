@@ -45,7 +45,7 @@ var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
 
-signal has_been_hit(player_id: int, damage: int)
+signal has_been_hit(player_id: int, damage: float)
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
@@ -176,7 +176,7 @@ func _animate_slash(current_angle: float):
 	var offset = Vector2.from_angle(current_angle) * picked_up_item_distance
 	current_picked_item.global_position = global_position + offset
 
-func hit(damage: int):
+func hit(damage: float):
 	if _is_invincible: return
 	print("Player " + str(player_id) + " has take " + str(damage))
 	
