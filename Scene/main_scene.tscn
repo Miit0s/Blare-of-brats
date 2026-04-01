@@ -49,3 +49,6 @@ offset_top = 40.0
 offset_right = 400.0
 offset_bottom = 70.0
 grow_vertical = 1
+
+[connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
