@@ -3,7 +3,7 @@ class_name Player
 
 @onready var pick_up_area: Area2D = $PickUpArea
 
-@export_range(0,3) var device_id: int = 0
+@export_range(0,3) var player_id: int = 0
 
 @export_category("Basic Movement")
 @export var speed: float = 300.0
@@ -45,8 +45,10 @@ var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
 
+signal has_been_hit(player_id: int, damage: int)
+
 func _ready() -> void:
-	_suffix = "_" + str(device_id)
+	_suffix = "_" + str(player_id)
 
 func _physics_process(delta: float) -> void:
 	if _is_stun: return
@@ -128,7 +130,7 @@ func pick_up():
 	if not closest_item: return
 	
 	current_picked_item = closest_item
-	current_picked_item.is_already_pick = true
+	current_picked_item.item_picked_up(player_id)
 
 func attack(direction: Vector2):
 	if current_picked_item == null: return
@@ -162,7 +164,7 @@ func _make_attack_movement(direction: Vector2):
 		_animate_slash,
 		start_angle,
 		end_angle,
-		current_picked_item.attack_duration
+		current_picked_item.attack_speed
 	)
 	
 	await slash_tween.finished
@@ -174,9 +176,11 @@ func _animate_slash(current_angle: float):
 	var offset = Vector2.from_angle(current_angle) * picked_up_item_distance
 	current_picked_item.global_position = global_position + offset
 
-func hit():
+func hit(damage: int):
 	if _is_invincible: return
-	pass
+	print("Player " + str(player_id) + " has take " + str(damage))
+	
+	has_been_hit.emit(player_id, damage)
 
 func knockback(hit_direction: Vector2):
 	_knockback_direction = -hit_direction
