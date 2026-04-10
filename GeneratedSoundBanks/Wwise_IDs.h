@@ -13,7 +13,9 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID TEST = 3157003241U;
+        static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID GRABOBJECT = 1719710198U;
+        static const AkUniqueID SWITCHOBJECT = 2476125396U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

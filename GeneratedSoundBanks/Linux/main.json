@@ -10,24 +10,107 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{2396A753-31B0-26D2-1663-4435CBA4D954}",
+    "Hash": "{7A74E500-244F-8030-958C-469994227C4D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
+    "Media": [
+     {
+      "Id": "351924758",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GrabObject.wav",
+      "CachePath": "37/{37F302C6-DD95-336A-20CC-698E0665DDE8}.wem"
+     },
+     {
+      "Id": "675508919",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SwitchObject.wav",
+      "CachePath": "59/{59948056-32A3-9619-EEB3-90EE09515883}.wem"
+     },
+     {
+      "Id": "734518376",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v1.1.wav",
+      "CachePath": "FE/{FED72E2D-09AB-11B5-3743-9175E04B949E}.wem"
+     },
+     {
+      "Id": "849293141",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v1.3.wav",
+      "CachePath": "56/{56AE5122-A8B5-2DFE-4A5C-BCD6734953FA}.wem"
+     },
+     {
+      "Id": "950730316",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v1.2.wav",
+      "CachePath": "5B/{5B6487E8-2E4E-7344-0E62-13D5600372A9}.wem"
+     }
+    ],
     "Events": [
      {
-      "Id": "3157003241",
-      "Name": "test",
-      "ObjectPath": "\\Events\\Default Work Unit\\test",
-      "GUID": "{A1A853ED-7B7B-4370-9998-FA19A5BA5DCC}",
-      "MaxAttenuation": "0",
+      "Id": "1942692385",
+      "Name": "Dash",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Mov\\Dash",
+      "GUID": "{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}",
+      "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "0.15396908",
+      "DurationMax": "0.21538325",
+      "MediaRefs": [
+       {
+        "Id": "734518376"
+       },
+       {
+        "Id": "849293141"
+       },
+       {
+        "Id": "950730316"
+       }
+      ]
+     },
+     {
+      "Id": "1719710198",
+      "Name": "GrabObject",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\GrabObject",
+      "GUID": "{524CA488-AD1A-4601-87EB-4FAA2BED2E10}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.27638587",
+      "DurationMax": "0.29282063",
+      "MediaRefs": [
+       {
+        "Id": "351924758"
+       }
+      ]
+     },
+     {
+      "Id": "2476125396",
+      "Name": "SwitchObject",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\SwitchObject",
+      "GUID": "{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.38978037",
+      "DurationMax": "0.41295794",
+      "MediaRefs": [
+       {
+        "Id": "675508919"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{AC24FA45-4CFC-93C3-540A-429C358CBC0C}"
+  "FileHash": "{C07D21B5-788E-4D58-F038-E9C8F381C5C6}"
  }
 }

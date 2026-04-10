@@ -1,3 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3157003241	test			\Default Work Unit\test	
+	1719710198	GrabObject			\ALL_EVENTS\SFX\Chara\Interac\GrabObject	
+	1942692385	Dash			\ALL_EVENTS\SFX\Chara\Mov\Dash	
+	2476125396	SwitchObject			\ALL_EVENTS\SFX\Chara\Interac\SwitchObject	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	351924758	GrabObject	.cache\37\{37F302C6-DD95-336A-20CC-698E0665DDE8}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\GrabObject		50280
+	675508919	SwitchObject	.cache\59\{59948056-32A3-9619-EEB3-90EE09515883}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\SwitchObject		70868
+	734518376	Chara_Mov_Dash_v1	.cache\FE\{FED72E2D-09AB-11B5-3743-9175E04B949E}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1		37008
+	849293141	Chara_Mov_Dash_v1_02	.cache\56\{56AE5122-A8B5-2DFE-4A5C-BCD6734953FA}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_02		32432
+	950730316	Chara_Mov_Dash_v1_01	.cache\5B\{5B6487E8-2E4E-7344-0E62-13D5600372A9}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_01		28052
 
