@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://uhduf12ydte6"]
+
+[ext_resource type="Shader" uid="uid://dyojie6fy44rt" path="res://Shader/game_sound_bar.gdshader" id="1_yncwp"]
+
+[resource]
+shader = ExtResource("1_yncwp")
+shader_parameter/progress = 0.0
+shader_parameter/progress_range = 0.1
+shader_parameter/frequency = 8.80000013113056
+shader_parameter/rippleRate = 20.0000002905734
+shader_parameter/ripple_amplitude = 1.999999955296
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/alpha_falloff_power = 2.0
+shader_parameter/rect_size = Vector2(300, 30)

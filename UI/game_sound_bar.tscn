@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://5k41jagbqylw"]
+
+[ext_resource type="Script" uid="uid://b6cg43soqmd3b" path="res://Scripts/game_sound_bar.gd" id="1_a8aka"]
+[ext_resource type="Material" uid="uid://uhduf12ydte6" path="res://Material/game_sound_bar.tres" id="1_yxq7v"]
+
+[node name="GameSoundBar" type="Control" unique_id=1894340611]
+custom_minimum_size = Vector2(800, 30)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -15.0
+offset_right = 400.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a8aka")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1429219733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.11764706)
+
+[node name="SoundBar" type="ColorRect" parent="." unique_id=475285239]
+material = ExtResource("1_yxq7v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

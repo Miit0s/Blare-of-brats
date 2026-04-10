@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/shared_life_bar.tscn" id="4_4kvl3"]
+[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/game_sound_bar.tscn" id="4_lttqn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -71,6 +72,14 @@ offset_right = 400.0
 offset_bottom = 70.0
 grow_vertical = 1
 
+[node name="GameSoundBar" parent="CanvasLayer" unique_id=1894340611 instance=ExtResource("4_lttqn")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 100.0
+offset_bottom = 130.00002
+grow_vertical = 1
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
 transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
 
@@ -84,3 +93,5 @@ mesh = SubResource("PlaneMesh_06yma")
 
 [connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
 [connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[connection signal="sound_made" from="Bell" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell2" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
