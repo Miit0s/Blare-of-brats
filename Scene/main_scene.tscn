@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
+[ext_resource type="WwiseEvent" uid="uid://dvi7clwfqeck7" path="res://Wwise/resources/Event/{524CA488-AD1A-4601-87EB-4FAA2BED2E10}.tres" id="2_lttqn"]
+[ext_resource type="WwiseEvent" uid="uid://dxxbqb8uf44mf" path="res://Wwise/resources/Event/{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}.tres" id="3_1d8q1"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/shared_life_bar.tscn" id="4_4kvl3"]
 [ext_resource type="WwiseEvent" uid="uid://cych2pu6tf8cv" path="res://Wwise/resources/Event/{A1A853ED-7B7B-4370-9998-FA19A5BA5DCC}.tres" id="4_lttqn"]
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_lee88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,7 +24,7 @@ glow_enabled = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
 radius = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_lee88"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kvl3"]
 resource_local_to_scene = true
 radius = 0.3
 
@@ -39,10 +42,10 @@ environment = SubResource("Environment_lttqn")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="AkListener3D" type="AkListener3D" parent="." unique_id=1753984299]
-
 [node name="Player" parent="." unique_id=99407332 instance=ExtResource("1_j4qrl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1.351)
+pickup_sound = ExtResource("2_lttqn")
+dash_sound = ExtResource("3_1d8q1")
 
 [node name="Player2" parent="." unique_id=149230811 instance=ExtResource("1_j4qrl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2282286, 0.8, 0)
@@ -57,7 +60,7 @@ object_texture_size = 0.08
 [node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("2_31fxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6771142, 0.7672627, 0)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_lee88")
+attack_shape = SubResource("SphereShape3D_4kvl3")
 object_texture_size = 0.08
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
@@ -75,6 +78,9 @@ grow_vertical = 1
 [node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
 transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
 
+[node name="AkListener3D" type="AkListener3D" parent="Camera3D" unique_id=1753984299]
+transform = Transform3D(1, 0, 0, 0, 0.90357465, -0.4284305, 0, 0.4284305, 0.90357465, 0, -1.6009564, -7.59753)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1127344690]
@@ -85,6 +91,10 @@ mesh = SubResource("PlaneMesh_06yma")
 
 [node name="AkEvent3D" type="AkEvent3D" parent="." unique_id=1622351321]
 event = ExtResource("4_lttqn")
+
+[node name="AkBank" type="AkBank" parent="." unique_id=1355641048]
+bank = ExtResource("6_lee88")
+load_on = 1
 
 [connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
 [connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]

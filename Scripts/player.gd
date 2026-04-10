@@ -37,6 +37,10 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
 
+@export_category("SFX")
+@export var pickup_sound : WwiseEvent
+@export var dash_sound : WwiseEvent
+
 var _last_direction: Vector3 = Vector3.RIGHT
 
 var _suffix: String = ""
@@ -113,6 +117,8 @@ func dash():
 		_is_invincible = false
 	)
 	
+	dash_sound.post(self)
+	
 
 func pick_up():
 	var current_direction: Vector3 = velocity.normalized() if velocity else _last_direction.normalized()
@@ -139,6 +145,8 @@ func pick_up():
 	
 	current_picked_item = closest_item
 	current_picked_item.item_picked_up(player_id)
+	
+	pickup_sound.post(self)
 
 func attack(direction: Vector3):
 	if current_picked_item == null: return
