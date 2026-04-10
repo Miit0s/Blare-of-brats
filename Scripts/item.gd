@@ -1,8 +1,8 @@
 @tool
-extends RigidBody2D
+extends RigidBody3D
 class_name Item
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 @export var collision_size: float = 10:
 	set(new_value):
@@ -10,7 +10,7 @@ class_name Item
 		_init_item_instance()
 
 @export_category("Attack")
-@export var attack_shape: Shape2D:
+@export var attack_shape: Shape3D:
 	set(new_value):
 		if attack_shape: attack_shape.changed.disconnect(_init_item_instance)
 		
@@ -21,8 +21,8 @@ class_name Item
 @export var damage: float = 1
 
 @export_category("Throw")
-@export var throw_force: float = 20
-@export var throw_damage: float = 5
+@export var throw_force: float = 20.0
+@export var throw_damage: float = 5.0
 
 @export_category("Sound")
 @export var sound_on_attack: float = 1
@@ -44,16 +44,16 @@ var _nb_time_used: int = 0
 		object_texture_size = new_value
 		_init_item_instance()
 
-@export var collision_shape_2d: CollisionShape2D
+@export var collision_shape_3d: CollisionShape3D
 
-@export var attack_collision_area: Area2D
-@export var attack_collision_shape_2d: CollisionShape2D
+@export var attack_collision_area: Area3D
+@export var attack_collision_shape_3d: CollisionShape3D
 
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
 
 ##The minimal speed the item should have. When the speed is under this threshold, the speed is set to zero
-var minimal_speed: float = 50
+var minimal_speed: float = 2
 var has_been_throw: bool = false
 
 var is_attacking: bool = false
@@ -70,19 +70,19 @@ func _ready() -> void:
 func _init_item_instance():
 	if not is_inside_tree(): return
 	
-	var collision_shape: CircleShape2D = collision_shape_2d.shape
+	var collision_shape: SphereShape3D = collision_shape_3d.shape
 	collision_shape.radius = collision_size / 2
 	
-	sprite_2d.texture = object_texture
-	sprite_2d.scale = Vector2(object_texture_size, object_texture_size)
-	attack_collision_shape_2d.shape = attack_shape
+	sprite_3d.texture = object_texture
+	sprite_3d.scale = Vector3(object_texture_size, object_texture_size, object_texture_size)
+	attack_collision_shape_3d.shape = attack_shape
 
 func _physics_process(_delta: float) -> void:
 	if not has_been_throw: return
 	
 	if linear_velocity.length() < minimal_speed:
 		destroy()
-		linear_velocity = Vector2.ZERO
+		linear_velocity = Vector3.ZERO
 		has_been_throw = false
 
 func _process(_delta: float) -> void:
@@ -101,7 +101,7 @@ func _process(_delta: float) -> void:
 				_attacked_players.append(player_hit)
 				player_hit.hit(damage)
 
-func throw(direction: Vector2):
+func throw(direction: Vector3):
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw)
 	
