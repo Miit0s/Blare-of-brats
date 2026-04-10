@@ -1,21 +1,22 @@
-extends CharacterBody2D
+extends CharacterBody3D
 class_name Player
 
-@onready var pick_up_area: Area2D = $PickUpArea
+@onready var pick_up_area: Area3D = $PickUpArea
 
 @export_range(0,3) var player_id: int = 0
 
 @export_category("Basic Movement")
-@export var speed: float = 300.0
+@export var speed: float = 8.0
+@export var fall_speed: float = 100.0
 
 @export_category("Dash")
-@export var dash_speed: float = 1500.0
+@export var dash_speed: float = 20.0
 @export var dash_cooldown: float = 0.5
 @export var dash_duration: float = 0.08
 
 @export_category("Item")
-@export var picked_up_item_distance: float = 100
-@export var picked_up_movement_smoothing_factor: float = 30
+@export var picked_up_item_distance: float = 1.0
+@export var picked_up_movement_smoothing_factor: float = 30.0
 var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
 
@@ -28,15 +29,15 @@ var _can_attack: bool = true
 @export var stun_duration: float = 1
 
 @export_category("Knockback")
-@export var knockback_speed: float = 1500.0
+@export var knockback_speed: float = 20.0
 @export var knockback_duration: float = 0.05
 var _is_in_knockback: bool = false
-var _knockback_direction: Vector2 = Vector2.ZERO
+var _knockback_direction: Vector3 = Vector3.ZERO
 
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
 
-var _last_direction: Vector2 = Vector2.RIGHT
+var _last_direction: Vector3 = Vector3.RIGHT
 
 var _suffix: String = ""
 var current_picked_item: Item = null
@@ -51,10 +52,17 @@ func _ready() -> void:
 	_suffix = "_" + str(player_id)
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+		velocity.y = -fall_speed * delta
+	
 	if _is_stun: return
 	
 	#Basic movement
-	var direction: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
+	var input: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
+	var direction: Vector3 = Vector3.ZERO
+	
+	direction.x = input.x
+	direction.z = input.y
 	
 	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use: dash()
 	
@@ -75,22 +83,22 @@ func _physics_process(delta: float) -> void:
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
 	elif _is_dashing and not _is_aiming:
-		var dash_direction: Vector2 = direction if direction else _last_direction
+		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * dash_speed
 	elif direction and not _is_aiming:
 		velocity = direction * speed
 		_last_direction = direction
 	else:
 		velocity.x = 0
-		velocity.y = 0
+		velocity.z = 0
 
 	move_and_slide()
 	
 	if current_picked_item and not current_picked_item.is_attacking:
-		var aim_direction: Vector2 = Vector2.ZERO
+		var aim_direction: Vector3 = Vector3.ZERO
 		aim_direction = direction if direction else _last_direction
 		
-		var item_position: Vector2 = self.global_position + aim_direction.normalized() * picked_up_item_distance
+		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 
 func dash():
@@ -107,8 +115,8 @@ func dash():
 	
 
 func pick_up():
-	var current_direction: Vector2 = velocity.normalized() if velocity else _last_direction.normalized()
-	var item_in_range: Array[Node2D] = pick_up_area.get_overlapping_bodies()
+	var current_direction: Vector3 = velocity.normalized() if velocity else _last_direction.normalized()
+	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
 	
 	if item_in_range.is_empty(): return
 	
@@ -119,7 +127,7 @@ func pick_up():
 		if item.is_already_pick: continue
 		
 		#Direction joueur - item
-		var direction_to_item: Vector2 = (item.global_position - global_position).normalized()
+		var direction_to_item: Vector3 = (item.global_position - global_position).normalized()
 		#Alignement item - direction joueur
 		var alignement_score: float = current_direction.dot(direction_to_item)
 		
@@ -132,7 +140,7 @@ func pick_up():
 	current_picked_item = closest_item
 	current_picked_item.item_picked_up(player_id)
 
-func attack(direction: Vector2):
+func attack(direction: Vector3):
 	if current_picked_item == null: return
 	
 	_can_attack = false
@@ -141,8 +149,8 @@ func attack(direction: Vector2):
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true
 
-func _make_attack_movement(direction: Vector2):
-	var base_angle: float = direction.angle()
+func _make_attack_movement(direction: Vector3):
+	var base_angle: float = atan2(direction.x, direction.z)
 	
 	var start_angle: float
 	var end_angle: float
@@ -168,12 +176,9 @@ func _make_attack_movement(direction: Vector2):
 	)
 	
 	await slash_tween.finished
-	current_picked_item.rotation = 0
 
 func _animate_slash(current_angle: float):
-	#current_picked_item.rotation = current_angle
-	
-	var offset = Vector2.from_angle(current_angle) * picked_up_item_distance
+	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
 	current_picked_item.global_position = global_position + offset
 
 func hit(damage: float):
@@ -182,7 +187,7 @@ func hit(damage: float):
 	
 	has_been_hit.emit(player_id, damage)
 
-func knockback(hit_direction: Vector2):
+func knockback(hit_direction: Vector3):
 	_knockback_direction = -hit_direction
 	_is_in_knockback = true
 	await get_tree().create_timer(knockback_duration).timeout

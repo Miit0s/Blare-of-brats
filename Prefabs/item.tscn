@@ -1,34 +1,45 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/item.gd" id="1_4h7a4"]
+[ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="2_okjcq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8fih3"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
+resource_local_to_scene = true
+radius = 0.8
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wuwdn"]
-radius = 40.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_fnt8b"]
+resource_local_to_scene = true
+radius = 0.4
 
-[node name="Item" type="RigidBody2D" unique_id=2042118855 node_paths=PackedStringArray("collision_shape_2d", "attack_collision_area", "attack_collision_shape_2d")]
+[node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
 collision_mask = 5
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 gravity_scale = 0.0
 linear_damp = 2.5
 script = ExtResource("1_4h7a4")
-attack_shape = SubResource("CircleShape2D_8fih3")
-throw_force = 800.0
-collision_shape_2d = NodePath("CollisionShape2D")
+collision_size = 2.0
+attack_shape = SubResource("SphereShape3D_okjcq")
+object_texture = ExtResource("2_okjcq")
+object_texture_size = 0.2
+collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
-attack_collision_shape_2d = NodePath("AttackCollisionArea/CollisionShape2D")
+attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288574325]
-shape = SubResource("CircleShape2D_wuwdn")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1358719798]
+shape = SubResource("SphereShape3D_fnt8b")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2113230702]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=563304622]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("2_okjcq")
 
-[node name="AttackCollisionArea" type="Area2D" parent="." unique_id=565552945]
+[node name="AttackCollisionArea" type="Area3D" parent="." unique_id=843248323]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCollisionArea" unique_id=2110213233]
-shape = SubResource("CircleShape2D_8fih3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackCollisionArea" unique_id=1264135062]
+shape = SubResource("SphereShape3D_okjcq")
 debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)

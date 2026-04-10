@@ -2,40 +2,61 @@
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
-[ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="3_06yma"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/shared_life_bar.tscn" id="4_4kvl3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4kvl3"]
-resource_local_to_scene = true
-radius = 35.0
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lttqn"]
-resource_local_to_scene = true
-radius = 35.0
+[sub_resource type="Sky" id="Sky_4kvl3"]
+sky_material = SubResource("ProceduralSkyMaterial_06yma")
 
-[node name="MainScene" type="Node2D" unique_id=456750830]
+[sub_resource type="Environment" id="Environment_lttqn"]
+background_mode = 2
+sky = SubResource("Sky_4kvl3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kvl3"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_06yma"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_06yma"]
+size = Vector2(50, 50)
+
+[node name="MainScene" type="Node3D" unique_id=1646683385]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=344086588]
+environment = SubResource("Environment_lttqn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1614572949]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
 
 [node name="Player" parent="." unique_id=99407332 instance=ExtResource("1_j4qrl")]
-position = Vector2(392, 314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1.351)
 
 [node name="Player2" parent="." unique_id=149230811 instance=ExtResource("1_j4qrl")]
-position = Vector2(793, 162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2282286, 0.8, 0)
 player_id = 1
 
 [node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("2_31fxm")]
-position = Vector2(756, 459)
-collision_size = 80.0
-attack_shape = SubResource("CircleShape2D_4kvl3")
-object_texture = ExtResource("3_06yma")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7427354, 0)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_06yma")
 object_texture_size = 0.08
 
 [node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("2_31fxm")]
-position = Vector2(191, 437)
-collision_size = 80.0
-attack_shape = SubResource("CircleShape2D_lttqn")
-object_texture = ExtResource("3_06yma")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6771142, 0.7672627, 0)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_4kvl3")
 object_texture_size = 0.08
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
@@ -49,6 +70,17 @@ offset_top = 40.0
 offset_right = 400.0
 offset_bottom = 70.0
 grow_vertical = 1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
+transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1127344690]
+shape = SubResource("WorldBoundaryShape3D_06yma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1550448585]
+mesh = SubResource("PlaneMesh_06yma")
 
 [connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
 [connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
