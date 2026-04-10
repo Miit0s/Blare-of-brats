@@ -20,7 +20,7 @@
        "Id": "2317455096",
        "Name": "No_Output",
        "ObjectPath": "\\Devices\\Default Work Unit\\No_Output",
-       "GUID": "{D90DD021-529E-4F92-B944-2EDFB6CD8BE7}",
+       "GUID": "{09330B39-05E5-4D32-AA5B-AC059DC0DD30}",
        "LibName": "No Output",
        "LibId": "11862023"
       },
@@ -28,7 +28,7 @@
        "Id": "3859886410",
        "Name": "System",
        "ObjectPath": "\\Devices\\Default Work Unit\\System",
-       "GUID": "{E938F229-8F0E-4FEC-97B3-97585D92B8B2}",
+       "GUID": "{8C03DAD0-AC97-40F1-911B-677092C10060}",
        "LibName": "System",
        "LibId": "11403271"
       }
@@ -583,6 +583,6 @@
     ]
    }
   ],
-  "FileHash": "{DDB36BA8-FAA2-20B7-6FA2-5DE28C657A03}"
+  "FileHash": "{141C7D9E-FF32-C3E4-A8FE-BEE1FE456CDC}"
  }
 }
