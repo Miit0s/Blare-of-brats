@@ -11,8 +11,10 @@ class_name Player
 
 @export_category("Dash")
 @export var dash_speed: float = 20.0
+@export var min_dash_speed: float = 5.0
 @export var dash_cooldown: float = 0.5
-@export var dash_duration: float = 0.08
+@export var dash_duration: float = 0.3
+var _dash_speed_to_apply: float = 0
 
 @export_category("Item")
 @export var picked_up_item_distance: float = 1.0
@@ -50,6 +52,7 @@ signal has_been_hit(player_id: int, damage: float)
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
+	_dash_speed_to_apply = dash_speed
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
@@ -84,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		velocity = _knockback_direction.normalized() * knockback_speed
 	elif _is_dashing and not _is_aiming:
 		var dash_direction: Vector3 = direction if direction else _last_direction
-		velocity = dash_direction.normalized() * dash_speed
+		velocity = dash_direction.normalized() * _dash_speed_to_apply
 	elif direction and not _is_aiming:
 		velocity = direction * speed
 		_last_direction = direction
@@ -106,11 +109,17 @@ func dash():
 	_is_dashing = true
 	_is_invincible = true
 	
+	var dash_speed_tween: Tween = create_tween()
+	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)
+	dash_speed_tween.set_trans(Tween.TRANS_CUBIC)
+	dash_speed_tween.set_ease(Tween.EASE_OUT)
+	
 	get_tree().create_timer(dash_cooldown).timeout.connect(func(): _dash_can_be_use = true)
-	get_tree().create_timer(dash_duration).timeout.connect(
+	dash_speed_tween.finished.connect(
 		func(): 
 		_is_dashing = false
 		_is_invincible = false
+		_dash_speed_to_apply = dash_speed
 	)
 	
 
