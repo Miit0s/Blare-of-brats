@@ -61,7 +61,7 @@ var is_already_pick: bool = false
 
 var _attacked_players: Array[Player]
 
-signal sound_made(value: int)
+signal sound_made(value: float)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
