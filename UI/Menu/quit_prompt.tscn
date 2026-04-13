@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b1o7haxohxulb"]
+
+[node name="QuitPrompt" type="PanelContainer" unique_id=1394676149]
+custom_minimum_size = Vector2(200, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1641217913]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1764022820]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Are you sure you want to exit ?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=329772869]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2136262123]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Yes"
+
+[node name="No" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2049438415]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "No"

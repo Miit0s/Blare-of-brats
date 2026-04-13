@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b1nchn1fbud6v"]
 
-[ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/controller_slot.tscn" id="1_bhesk"]
+[ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/controller_connexion_scene.gd" id="1_kla7w"]
+
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bnfprdiqbhq53"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nyod"]
+font_size = 50
+
+[node name="MainMenu" type="Control" unique_id=1142648463]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainTitle" type="Label" parent="." unique_id=93902956]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_top = 75.0
+offset_right = 164.5
+offset_bottom = 144.0
+grow_horizontal = 2
+text = "Blare of Brats"
+label_settings = SubResource("LabelSettings_3nyod")
+
+[node name="MainButton" type="VBoxContainer" parent="." unique_id=145311421]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -84.5
+offset_right = 175.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Play" type="Button" parent="MainButton" unique_id=2021116146]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="MainButton" unique_id=2010219045]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="MainButton" unique_id=855816794]
+layout_mode = 2
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MainButton" unique_id=528740335]
+layout_mode = 2
+text = "Exit"
