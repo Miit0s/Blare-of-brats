@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="1_j4qrl"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="2_31fxm"]
-[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/shared_life_bar.tscn" id="4_4kvl3"]
-[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/game_sound_bar.tscn" id="4_lttqn"]
+[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_4kvl3"]
+[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="4_lttqn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

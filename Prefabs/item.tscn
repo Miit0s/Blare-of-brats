@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
-[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/item.gd" id="1_4h7a4"]
+[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
 [ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="2_okjcq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]

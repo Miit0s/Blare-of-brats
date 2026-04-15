@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dg75blg8sgpuf"]
+
+[ext_resource type="Script" uid="uid://datphtk4ldaal" path="res://Scripts/Game/shared_life_bar.gd" id="1_bcs32"]
+[ext_resource type="Material" uid="uid://lerg8c4lpmj4" path="res://Material/shared_health_bar.tres" id="1_flkbr"]
+
+
+[node name="SharedLifeBar" type="Control" unique_id=1316874460]
+custom_minimum_size = Vector2(800, 30)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcs32")
+shader_direction_change_speed = 0.5
+
+[node name="LifeBar" type="ColorRect" parent="." unique_id=1406738561]
+material = ExtResource("1_flkbr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MiddleBar" type="ColorRect" parent="." unique_id=974251526]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.5137255)
