@@ -32,7 +32,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
