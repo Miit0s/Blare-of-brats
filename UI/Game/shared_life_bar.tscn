@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dg75blg8sgpuf"]
 
-[ext_resource type="Script" uid="uid://datphtk4ldaal" path="res://Scripts/shared_life_bar.gd" id="1_bcs32"]
+[ext_resource type="Script" uid="uid://datphtk4ldaal" path="res://Scripts/Game/shared_life_bar.gd" id="1_bcs32"]
 [ext_resource type="Material" uid="uid://lerg8c4lpmj4" path="res://Material/shared_health_bar.tres" id="1_flkbr"]
+
 
 [node name="SharedLifeBar" type="Control" unique_id=1316874460]
 custom_minimum_size = Vector2(800, 30)

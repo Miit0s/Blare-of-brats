@@ -1,7 +1,28 @@
 [gd_scene format=3 uid="uid://b1o7haxohxulb"]
 
-[node name="QuitPrompt" type="PanelContainer" unique_id=1394676149]
+[ext_resource type="Script" uid="uid://dulsa5nqc4bnv" path="res://Scripts/UI/quit_prompt.gd" id="1_v04oj"]
+
+
+[node name="QuitPrompt" type="Control" unique_id=1873121876]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v04oj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1214248589]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoosePanel" type="Panel" parent="." unique_id=2106333533]
 custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -14,28 +35,34 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1641217913]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoosePanel" unique_id=1641217913]
+layout_mode = 0
+offset_top = 33.0
+offset_right = 400.0
+offset_bottom = 117.0
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1764022820]
+[node name="Label" type="Label" parent="ChoosePanel/VBoxContainer" unique_id=1764022820]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Are you sure you want to exit ?"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=329772869]
+[node name="HBoxContainer" type="HBoxContainer" parent="ChoosePanel/VBoxContainer" unique_id=329772869]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2136262123]
+[node name="Yes" type="Button" parent="ChoosePanel/VBoxContainer/HBoxContainer" unique_id=2136262123]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Yes"
 
-[node name="No" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2049438415]
+[node name="No" type="Button" parent="ChoosePanel/VBoxContainer/HBoxContainer" unique_id=2049438415]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "No"
+
+[connection signal="pressed" from="ChoosePanel/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="ChoosePanel/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]

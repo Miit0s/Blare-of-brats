@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bkj8meb4l8f3x"]
 
 [ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_fhcvt"]
-[ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/controller_slot.gd" id="1_ud3kx"]
+[ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/UI/controller_slot.gd" id="1_ud3kx"]
 [ext_resource type="Texture2D" uid="uid://dnynq2b1jk735" path="res://Assets/Sprite/mock_player_skin.png" id="2_vvl2r"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_vvl2r"]
 font_size = 40

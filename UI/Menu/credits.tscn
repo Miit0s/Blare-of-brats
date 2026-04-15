@@ -1,28 +1,56 @@
 [gd_scene format=3 uid="uid://d3viyj0v2mikj"]
 
+[ext_resource type="Script" uid="uid://n80q2r1uolwo" path="res://Scripts/UI/credits.gd" id="1_xnvx6"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ji6e8"]
 font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_xnvx6"]
-font_size = 25
+font_size = 15
 
-[node name="Credits" type="PanelContainer" unique_id=2141904736]
+[node name="Credits" type="Control" unique_id=572892282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xnvx6")
+
+[node name="Panel" type="Panel" parent="." unique_id=289880752]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=521228098]
 custom_minimum_size = Vector2(750, 500)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -250.0
+offset_right = 375.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1360943406]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel" unique_id=1360943406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 40
 
-[node name="Title" type="Label" parent="VBoxContainer" unique_id=1966671399]
-custom_minimum_size = Vector2(0, 80)
+[node name="Title" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1966671399]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Credits"
@@ -30,7 +58,7 @@ label_settings = SubResource("LabelSettings_ji6e8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="VBoxContainer" unique_id=539183864]
+[node name="Name" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=539183864]
 layout_mode = 2
 text = "Jules - Game Designer & Manager
 Victor - Game Designer & Ergo
@@ -42,9 +70,11 @@ Ewen - Programmeur"
 label_settings = SubResource("LabelSettings_xnvx6")
 horizontal_alignment = 1
 
-[node name="Close" type="Button" parent="VBoxContainer" unique_id=935695963]
+[node name="Close" type="Button" parent="CreditsPanel/VBoxContainer" unique_id=935695963]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Close"
+
+[connection signal="pressed" from="CreditsPanel/VBoxContainer/Close" to="." method="_on_close_pressed"]
