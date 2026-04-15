@@ -14,12 +14,20 @@ func _ready() -> void:
 		controller_slots.append(controller_slot)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventJoypadButton and event.is_action_pressed("JoinGame"):
+	if event is InputEventJoypadButton:
+		if event.is_action_pressed("JoinGame"):
+			if is_device_already_connected(event.device):
+				get_controller_slot_for_device(event.device).player_is_holding_ready_key = true
+			else:
+				connect_controller_to_slot(event.device)
+				get_viewport().set_input_as_handled()
 		
-		if is_device_already_connected(event.device): return
+		if event.is_action_pressed("Return") and is_device_already_connected(event.device):
+			remove_controller_slot(event.device)
 		
-		connect_controller_to_slot(event.device)
-		get_viewport().set_input_as_handled()
+		if event.is_action_released("JoinGame"):
+			if is_device_already_connected(event.device):
+				get_controller_slot_for_device(event.device).player_is_holding_ready_key = false
 
 func connect_controller_to_slot(device_id: int):
 	pick_existing_slot(device_id)
@@ -58,6 +66,11 @@ func remove_controller_slot(device_id: int):
 				var controller_slot: ControllerSlot = controller_slots.pop_at(i)
 				controller_slot_container.remove_child(controller_slot)
 				return
+
+func get_controller_slot_for_device(device_id: int) -> ControllerSlot:
+	for controller in controller_slots:
+		if controller.get_player_id() == device_id: return controller
+	return null
 
 func remove_first_empty_slot():
 	for i in controller_slots.size():
