@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
+[ext_resource type="PackedScene" uid="uid://c53l85gqm0mi1" path="res://Scene/main_scene.tscn" id="3_cwclv"]
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_kla7w")
 max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
+game_scene = ExtResource("3_cwclv")
 
 [node name="ControllerSlotContainer" type="HBoxContainer" parent="." unique_id=1841648818]
 layout_mode = 1
@@ -29,8 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Background_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
+[node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
 layout_mode = 2
 
-[node name="Background_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
+[node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
 layout_mode = 2
+
+[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_his_ready"]
+[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_no_more_ready"]
+[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_his_ready"]
+[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_no_more_ready"]

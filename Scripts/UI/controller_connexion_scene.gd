@@ -5,7 +5,11 @@ extends Control
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
+@export var game_scene: PackedScene
+
 var controller_slots: Array[ControllerSlot]
+
+var _player_ready: int = 0
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
@@ -51,6 +55,8 @@ func add_controller_slot():
 	var controller_slot_instance: ControllerSlot = controller_slot_prefab.instantiate()
 	controller_slots.append(controller_slot_instance)
 	controller_slot_container.add_child(controller_slot_instance)
+	controller_slot_instance.player_his_ready.connect(_on_controller_slot_player_his_ready)
+	controller_slot_instance.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
 
 func remove_controller_slot(device_id: int):
 	for i in controller_slots.size():
@@ -64,7 +70,7 @@ func remove_controller_slot(device_id: int):
 				return
 			else:
 				var controller_slot: ControllerSlot = controller_slots.pop_at(i)
-				controller_slot_container.remove_child(controller_slot)
+				remove_slot(controller_slot)
 				return
 
 func get_controller_slot_for_device(device_id: int) -> ControllerSlot:
@@ -76,8 +82,13 @@ func remove_first_empty_slot():
 	for i in controller_slots.size():
 		if controller_slots[i].is_slot_available:
 			var controller_slot: ControllerSlot = controller_slots.pop_at(i)
-			controller_slot_container.remove_child(controller_slot)
+			remove_slot(controller_slot)
 			return
+
+func remove_slot(controller_slot: ControllerSlot):
+	controller_slot.player_his_ready.disconnect(_on_controller_slot_player_his_ready)
+	controller_slot.player_no_more_ready.disconnect(_on_controller_slot_player_no_more_ready)
+	controller_slot_container.remove_child(controller_slot)
 
 func is_device_already_connected(device_id: int) -> bool:
 	for slot in controller_slots:
@@ -91,6 +102,19 @@ func is_all_slot_pick() -> bool:
 	
 	return true
 
+func start_game():
+	get_tree().change_scene_to_packed(game_scene)
+
 func _on_joy_connection_changed(device: int, connected: bool):
 	if not connected:
 		remove_controller_slot(device)
+
+func _on_controller_slot_player_his_ready() -> void:
+	_player_ready += 1
+	
+	if _player_ready >= controller_slots.size():
+		start_game()
+
+
+func _on_controller_slot_player_no_more_ready() -> void:
+	_player_ready -= 1
