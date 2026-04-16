@@ -11,7 +11,7 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x1yx4"]
 
-[node name="Background" type="TextureRect" unique_id=699056762]
+[node name="ControllerSlot" type="TextureRect" unique_id=699056762]
 custom_minimum_size = Vector2(200, 200)
 anchors_preset = 8
 anchor_left = 0.5

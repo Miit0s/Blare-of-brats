@@ -54,10 +54,9 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="Control/VBoxContainer" unique_id=1144581531]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 
 [node name="Game" type="Control" parent="Control/VBoxContainer/TabContainer" unique_id=946420954]
-visible = false
 layout_mode = 2
 script = ExtResource("1_7iiyf")
 metadata/_tab_index = 0
@@ -141,6 +140,7 @@ layout_mode = 2
 text = "Ambiance"
 
 [node name="Video" type="Control" parent="Control/VBoxContainer/TabContainer" unique_id=922843543]
+visible = false
 layout_mode = 2
 script = ExtResource("5_tk12k")
 metadata/_tab_index = 2
