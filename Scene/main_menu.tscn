@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dn1vxn1jlfrnp" path="res://Scripts/UI/main_menu.gd" id="1_wrubb"]
 [ext_resource type="PackedScene" uid="uid://d3viyj0v2mikj" path="res://UI/Menu/credits.tscn" id="2_4hclx"]
 [ext_resource type="PackedScene" uid="uid://cqrh561ygjx5r" path="res://UI/Menu/options.tscn" id="2_fmybh"]
-[ext_resource type="PackedScene" uid="uid://b1nchn1fbud6v" path="res://Scene/controller_connexion_scene.tscn" id="2_t0n6y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nyod"]
 font_size = 50
@@ -17,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wrubb")
-game_start_scene = ExtResource("2_t0n6y")
+game_start_scene_uid = "uid://b1nchn1fbud6v"
 
 [node name="MainTitle" type="Label" parent="." unique_id=93902956]
 layout_mode = 1

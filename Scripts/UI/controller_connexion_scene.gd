@@ -5,7 +5,7 @@ extends Control
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
-@export var game_scene: PackedScene
+@export var game_scene_uid: String
 
 var controller_slots: Array[ControllerSlot]
 
@@ -103,7 +103,7 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
-	get_tree().change_scene_to_packed(game_scene)
+	get_tree().change_scene_to_file(game_scene_uid)
 
 func _on_joy_connection_changed(device: int, connected: bool):
 	if not connected:

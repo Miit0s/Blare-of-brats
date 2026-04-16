@@ -9,13 +9,13 @@ extends Control
 @onready var credits: Control = $Credits
 @onready var options: Control = $Options
 
-@export var game_start_scene: PackedScene
+@export var game_start_scene_uid: String
 
 func _ready() -> void:
 	play_button.grab_focus()
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(game_start_scene)
+	get_tree().change_scene_to_file(game_start_scene_uid)
 
 
 func _on_options_pressed() -> void:

@@ -13,6 +13,8 @@ var _game_sound_bar_volume: float = 0:
 			_game_sound_bar_volume = clamped_value
 			sound_bar.material.set_shader_parameter("progress", clamped_value)
 
+signal sound_bar_fill()
+
 func add_sound_to_bar(sound_volume: float):
 	var final_sound_volume: float = (sound_volume / sound_bar_max_volume) + _game_sound_bar_volume
 	
@@ -23,3 +25,7 @@ func add_sound_to_bar(sound_volume: float):
 		final_sound_volume,
 		shader_value_change_speed
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	await tween.finished
+	
+	if _game_sound_bar_volume >= 1.0: sound_bar_fill.emit()
