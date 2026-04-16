@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 		
 		if event.is_action_pressed("Return") and is_device_already_connected(event.device):
-			remove_controller_slot(event.device)
+			get_controller_slot_for_device(event.device).back()
 		
 		if event.is_action_released("JoinGame"):
 			if is_device_already_connected(event.device):
