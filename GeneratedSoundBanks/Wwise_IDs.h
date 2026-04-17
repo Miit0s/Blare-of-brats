@@ -15,11 +15,30 @@ namespace AK
     {
         static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID GRABOBJECT = 1719710198U;
+        static const AkUniqueID MUSIC_FIGHT = 962867917U;
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
     } // namespace EVENTS
 
+    namespace STATES
+    {
+        namespace ROUND_STATE
+        {
+            static const AkUniqueID GROUP = 314125497U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FIGHT = 514064485U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PARENTS = 4261315644U;
+            } // namespace STATE
+        } // namespace ROUND_STATE
+
+    } // namespace STATES
+
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID LEAD = 54442139U;
+        static const AkUniqueID ROUND_TIME = 740280485U;
         static const AkUniqueID SS_AIR_FEAR = 1351367891U;
         static const AkUniqueID SS_AIR_FREEFALL = 3002758120U;
         static const AkUniqueID SS_AIR_FURY = 1029930033U;
