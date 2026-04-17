@@ -10,18 +10,58 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{7A74E500-244F-8030-958C-469994227C4D}",
+    "Hash": "{1023736F-6DB5-F332-29F4-2E553C62D77B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
     "Media": [
+     {
+      "Id": "61027230",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "loop_time_2.wav",
+      "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
+     },
+     {
+      "Id": "192332123",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "lead_P2.wav",
+      "CachePath": "98/{983FEB1C-1A52-4758-DE89-482538170A94}.wem"
+     },
+     {
+      "Id": "284610429",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "loop_time_1.wav",
+      "CachePath": "2E/{2EB655E3-6ABC-992B-A6BF-DEB6DC074192}.wem"
+     },
+     {
+      "Id": "344145984",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "lead_P1.wav",
+      "CachePath": "4A/{4A0D7403-6F5B-51DA-77EE-9A0DA6B79065}.wem"
+     },
      {
       "Id": "351924758",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "GrabObject.wav",
-      "CachePath": "37/{37F302C6-DD95-336A-20CC-698E0665DDE8}.wem"
+      "CachePath": "86/{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem"
+     },
+     {
+      "Id": "452965374",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "loop_time_3.wav",
+      "CachePath": "99/{999064A2-0085-7495-54FA-1C74904A1923}.wem"
      },
      {
       "Id": "675508919",
@@ -29,7 +69,23 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "SwitchObject.wav",
-      "CachePath": "59/{59948056-32A3-9619-EEB3-90EE09515883}.wem"
+      "CachePath": "8F/{8FFFBD4F-8ADB-E175-E317-B0347672CC4A}.wem"
+     },
+     {
+      "Id": "693540064",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Loop.wav",
+      "CachePath": "90/{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem"
+     },
+     {
+      "Id": "693680794",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "fill_parents_shh.wav",
+      "CachePath": "48/{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem"
      },
      {
       "Id": "734518376",
@@ -37,7 +93,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v1.1.wav",
-      "CachePath": "FE/{FED72E2D-09AB-11B5-3743-9175E04B949E}.wem"
+      "CachePath": "CE/{CEAC2840-5789-9038-4C20-74A55BB1FE7F}.wem"
      },
      {
       "Id": "849293141",
@@ -45,7 +101,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v1.3.wav",
-      "CachePath": "56/{56AE5122-A8B5-2DFE-4A5C-BCD6734953FA}.wem"
+      "CachePath": "70/{7095A57D-BF2C-D292-E5CD-A3CA283F2E29}.wem"
      },
      {
       "Id": "950730316",
@@ -53,7 +109,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v1.2.wav",
-      "CachePath": "5B/{5B6487E8-2E4E-7344-0E62-13D5600372A9}.wem"
+      "CachePath": "55/{551933D4-568F-03EC-70ED-1FF36039F858}.wem"
      }
     ],
     "Events": [
@@ -94,6 +150,56 @@
       ]
      },
      {
+      "Id": "962867917",
+      "Name": "Music_Fight",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\Music\\Music_Fight",
+      "GUID": "{37126D66-5473-4D4F-ADFA-6751DF78B6F7}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "314125497",
+         "Id": "514064485",
+         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "61027230"
+         },
+         {
+          "Id": "192332123"
+         },
+         {
+          "Id": "284610429"
+         },
+         {
+          "Id": "344145984"
+         },
+         {
+          "Id": "452965374"
+         },
+         {
+          "Id": "693540064"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "314125497",
+         "Id": "4261315644",
+         "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "693680794"
+         }
+        ]
+       }
+      ]
+     },
+     {
       "Id": "2476125396",
       "Name": "SwitchObject",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\SwitchObject",
@@ -108,9 +214,51 @@
        }
       ]
      }
+    ],
+    "GameParameters": [
+     {
+      "Id": "54442139",
+      "Name": "Lead",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Lead",
+      "GUID": "{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}"
+     },
+     {
+      "Id": "740280485",
+      "Name": "Round_Time",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Round_Time",
+      "GUID": "{7DA362F0-4F33-4B06-B6EF-54602E5F80BD}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "314125497",
+      "Name": "Round_State",
+      "ObjectPath": "\\States\\Default Work Unit\\Round_State",
+      "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
+      "States": [
+       {
+        "Id": "514064485",
+        "Name": "Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Fight",
+        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
+        "GUID": "{8688365A-4C92-46C0-A2BE-ADCFC000A9AC}"
+       },
+       {
+        "Id": "4261315644",
+        "Name": "Parents",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
+        "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{C07D21B5-788E-4D58-F038-E9C8F381C5C6}"
+  "FileHash": "{E0114D25-3E93-3414-08F3-48221F3C0708}"
  }
 }
