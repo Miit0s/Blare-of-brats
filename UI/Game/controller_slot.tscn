@@ -3,14 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_fhcvt"]
 [ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/UI/controller_slot.gd" id="1_ud3kx"]
 [ext_resource type="Texture2D" uid="uid://dnynq2b1jk735" path="res://Assets/Sprite/mock_player_skin.png" id="2_vvl2r"]
-
+[ext_resource type="Material" uid="uid://dmdte2gxtb2bc" path="res://Material/radial_progress_bar.tres" id="4_x1yx4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vvl2r"]
 font_size = 40
 font_color = Color(0, 0, 0, 1)
 
-[node name="Background" type="TextureRect" unique_id=699056762]
-custom_minimum_size = Vector2(150, 150)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x1yx4"]
+
+[node name="ControllerSlot" type="TextureRect" unique_id=699056762]
+custom_minimum_size = Vector2(200, 200)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,6 +48,7 @@ texture = ExtResource("2_vvl2r")
 expand_mode = 4
 
 [node name="Label" type="Label" parent="." unique_id=469642174]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,7 +61,52 @@ offset_right = 36.5
 offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Join
-\"A\""
+text = "Press \"A\" to join"
 label_settings = SubResource("LabelSettings_vvl2r")
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ReadyTexture" type="TextureRect" parent="." unique_id=968981738]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 37.0
+offset_right = 30.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_x1yx4")
+expand_mode = 3
+
+[node name="ReadyContainer" type="VBoxContainer" parent="." unique_id=1733481878]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.5
+offset_top = 10.0
+offset_right = 110.5
+offset_bottom = 97.00006
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ReadyContainer" unique_id=1099951555]
+layout_mode = 2
+text = "Hold \"A\" to be ready"
+horizontal_alignment = 1
+
+[node name="RadialProgressBar" type="ColorRect" parent="ReadyContainer" unique_id=174676728]
+material = ExtResource("4_x1yx4")
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

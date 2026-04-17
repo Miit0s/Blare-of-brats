@@ -23,6 +23,8 @@ var progress_bar_value: float = 0.5:
 		progress_bar_value = clamped_value
 		_progress_bar_value_changed(progress_bar_value)
 
+signal player_dead(dead_player_id: int)
+
 func _ready() -> void:
 	_progress_bar_value_changed(progress_bar_value)
 
@@ -66,3 +68,11 @@ func add_damage_to_player(player_id: int, damage: float):
 		progress_bar_with_damage,
 		shader_value_change_speed
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	await tween.finished
+	
+	if progress_bar_value <= 0: player_dead.emit(get_player_id_with_least_health())
+	elif progress_bar_value >= 1: player_dead.emit(get_player_id_with_least_health())
+
+func get_player_id_with_least_health() -> int:
+	return 0 if progress_bar_value <= 0.5 else 1

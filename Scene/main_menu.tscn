@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dn1vxn1jlfrnp" path="res://Scripts/UI/main_menu.gd" id="1_wrubb"]
 [ext_resource type="PackedScene" uid="uid://d3viyj0v2mikj" path="res://UI/Menu/credits.tscn" id="2_4hclx"]
 [ext_resource type="PackedScene" uid="uid://cqrh561ygjx5r" path="res://UI/Menu/options.tscn" id="2_fmybh"]
-[ext_resource type="PackedScene" uid="uid://b1nchn1fbud6v" path="res://Scene/controller_connexion_scene.tscn" id="2_t0n6y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nyod"]
 font_size = 50
@@ -17,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wrubb")
-game_start_scene = ExtResource("2_t0n6y")
+game_start_scene_uid = "uid://b1nchn1fbud6v"
 
 [node name="MainTitle" type="Label" parent="." unique_id=93902956]
 layout_mode = 1
@@ -50,18 +49,42 @@ theme_override_constants/separation = 15
 
 [node name="Play" type="Button" parent="MainButton" unique_id=2021116146]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath(".")
 text = "Play"
 
 [node name="Options" type="Button" parent="MainButton" unique_id=2010219045]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Credits")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Play")
 text = "Options"
 
 [node name="Credits" type="Button" parent="MainButton" unique_id=855816794]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Options")
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MainButton" unique_id=528740335]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../Credits")
 text = "Exit"
 
 [node name="Options" parent="." unique_id=1945916325 instance=ExtResource("2_fmybh")]
@@ -80,3 +103,5 @@ layout_mode = 1
 [connection signal="pressed" from="MainButton/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainButton/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MainButton/Exit" to="." method="_on_exit_pressed"]
+[connection signal="visibility_changed" from="QuitPrompt" to="." method="_on_quit_prompt_visibility_changed"]
+[connection signal="visibility_changed" from="Credits" to="." method="_on_credits_visibility_changed"]

@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://c53l85gqm0mi1"]
+
+[ext_resource type="Script" uid="uid://curiv2kllrs5x" path="res://Scripts/Game/game_scene.gd" id="1_f38sd"]
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="2_ugwxx"]
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="3_m5do6"]
+[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
+[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4kvl3"]
+sky_material = SubResource("ProceduralSkyMaterial_06yma")
+
+[sub_resource type="Environment" id="Environment_lttqn"]
+background_mode = 2
+sky = SubResource("Sky_4kvl3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f38sd"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ugwxx"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m5do6"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ee6vw"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mlt6n"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4832p"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k031u"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b5oy1"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_06yma"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_06yma"]
+size = Vector2(50, 50)
+
+[node name="GameScene" type="Node3D" unique_id=1646683385]
+script = ExtResource("1_f38sd")
+game_ended_scene_uid = "uid://b1nchn1fbud6v"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=344086588]
+environment = SubResource("Environment_lttqn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1614572949]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
+
+[node name="Player" parent="." unique_id=99407332 instance=ExtResource("2_ugwxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1.351)
+
+[node name="Player2" parent="." unique_id=149230811 instance=ExtResource("2_ugwxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2282286, 0.8, 0)
+player_id = 1
+
+[node name="Bell" parent="." unique_id=2042118855 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7427354, 0)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_06yma")
+object_texture_size = 0.08
+
+[node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6771142, 0.7672627, 0)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_f38sd")
+object_texture_size = 0.08
+
+[node name="Bell3" parent="." unique_id=2059959192 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3409548, 0.7672627, 1.7440906)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_ugwxx")
+object_texture_size = 0.08
+
+[node name="Bell4" parent="." unique_id=656031280 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.941108, 0.7672627, -1.6638684)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_m5do6")
+object_texture_size = 0.08
+
+[node name="Bell5" parent="." unique_id=680333883 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6770594, 0.7672627, -4.149799)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_ee6vw")
+object_texture_size = 0.08
+
+[node name="Bell6" parent="." unique_id=5117407 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3924644, 0.7672627, -0.71003246)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_mlt6n")
+object_texture_size = 0.08
+
+[node name="Bell7" parent="." unique_id=22782121 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21602249, 0.7672627, -4.130068)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_4832p")
+object_texture_size = 0.08
+
+[node name="Bell8" parent="." unique_id=19944939 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8985777, 0.7672627, -3.7967215)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_k031u")
+object_texture_size = 0.08
+
+[node name="Bell9" parent="." unique_id=840387951 instance=ExtResource("3_m5do6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98199344, 0.7672627, -6.978345)
+collision_size = 0.8
+attack_shape = SubResource("SphereShape3D_b5oy1")
+object_texture_size = 0.08
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
+
+[node name="SharedLifeBar" parent="CanvasLayer" unique_id=1316874460 instance=ExtResource("4_ee6vw")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -400.0
+offset_top = 40.0
+offset_right = 400.0
+offset_bottom = 70.0
+grow_vertical = 1
+
+[node name="GameSoundBar" parent="CanvasLayer" unique_id=1894340611 instance=ExtResource("5_mlt6n")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 100.0
+offset_bottom = 130.00002
+grow_vertical = 1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
+transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1127344690]
+shape = SubResource("WorldBoundaryShape3D_06yma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1550448585]
+mesh = SubResource("PlaneMesh_06yma")
+
+[connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[connection signal="sound_made" from="Bell" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell2" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell3" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell4" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell5" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell6" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell7" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell8" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="sound_made" from="Bell9" to="CanvasLayer/GameSoundBar" method="add_sound_to_bar"]
+[connection signal="player_dead" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_dead"]
+[connection signal="sound_bar_fill" from="CanvasLayer/GameSoundBar" to="." method="_on_game_sound_bar_sound_bar_fill"]
