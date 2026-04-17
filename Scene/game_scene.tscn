@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c53l85gqm0mi1"]
 
 [ext_resource type="Script" uid="uid://curiv2kllrs5x" path="res://Scripts/Game/game_scene.gd" id="1_f38sd"]
+[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="2_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="3_m5do6"]
+[ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
@@ -63,6 +65,8 @@ size = Vector2(50, 50)
 [node name="GameScene" type="Node3D" unique_id=1646683385]
 script = ExtResource("1_f38sd")
 game_ended_scene_uid = "uid://b1nchn1fbud6v"
+music_fight = ExtResource("2_ee6vw")
+lead = ExtResource("3_mlt6n")
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
