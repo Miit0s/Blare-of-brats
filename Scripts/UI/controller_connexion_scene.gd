@@ -1,10 +1,12 @@
 extends Control
 
 @onready var controller_slot_container: HBoxContainer = $ControllerSlotContainer
+@onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
 
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
+@export var main_menu_scene_uid: String
 @export var game_scene_uid: String
 
 var controller_slots: Array[ControllerSlot]
@@ -22,16 +24,32 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("JoinGame"):
 			if is_device_already_connected(event.device):
 				get_controller_slot_for_device(event.device).player_is_holding_ready_key = true
+				get_viewport().set_input_as_handled()
+				return
 			else:
 				connect_controller_to_slot(event.device)
 				get_viewport().set_input_as_handled()
+				return
 		
 		if event.is_action_pressed("Return") and is_device_already_connected(event.device):
 			get_controller_slot_for_device(event.device).back()
+			get_viewport().set_input_as_handled()
+			return
+		
+		if event.is_action_pressed("Return") and not is_device_already_connected(event.device):
+			return_radial_progress_bar.player_start_holding_key()
+			return
+			get_viewport().set_input_as_handled()
+		elif event.is_action_released("Return") and not is_device_already_connected(event.device):
+			return_radial_progress_bar.player_stop_holding_key()
+			get_viewport().set_input_as_handled()
+			return
 		
 		if event.is_action_released("JoinGame"):
 			if is_device_already_connected(event.device):
 				get_controller_slot_for_device(event.device).player_is_holding_ready_key = false
+				get_viewport().set_input_as_handled()
+				return
 
 func connect_controller_to_slot(device_id: int):
 	pick_existing_slot(device_id)
@@ -118,3 +136,7 @@ func _on_controller_slot_player_his_ready() -> void:
 
 func _on_controller_slot_player_no_more_ready() -> void:
 	_player_ready -= 1
+
+
+func _on_return_radial_progress_bar_hold_finish() -> void:
+	get_tree().change_scene_to_file(main_menu_scene_uid)
