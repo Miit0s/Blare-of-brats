@@ -11,7 +11,6 @@ class_name VideoMenu
 @onready var toggle_hud: ToggleButtonWithName = $Control/VBoxContainer/ToggleHUD
 @onready var hud_size: DropDownList = $Control/VBoxContainer/HUDSize
 
-
 var resolutions = {
 	"16:9": [
 		Vector2i(1280, 720), Vector2i(1600, 900), Vector2i(1920, 1080), 
@@ -30,6 +29,8 @@ var resolutions = {
 	]
 }
 
+var current_selected_resolution: Vector2i = Vector2i.ZERO
+
 signal fullscreen_change(fullscreen: bool)
 signal resolution_change(resolution: Vector2i)
 signal v_sync_change(is_vsync_activate: bool)
@@ -42,11 +43,14 @@ signal hud_toggle_change(is_hud_activate: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_selected_resolution = GameOptions.saved_options.resolution
 	setup_resolution_list()
 
 
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if toggled_on else Window.MODE_WINDOWED
+	refresh_resolution()
+	
 	fullscreen_change.emit(toggled_on)
 
 
@@ -59,9 +63,25 @@ func _on_v_sync_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_resolution_item_selected(index: int) -> void:
-	var new_selected_resolution: Vector2i = string_to_screen_res(drop_down_resolution.options_list[index])
-	DisplayServer.window_set_size(new_selected_resolution)
-	resolution_change.emit(new_selected_resolution)
+	current_selected_resolution = string_to_screen_res(drop_down_resolution.options_list[index])
+	
+	refresh_resolution()
+
+func refresh_resolution():
+	var screen_resolution = DisplayServer.screen_get_size()
+	var scale_factor = float(current_selected_resolution.x) / float(screen_resolution.x)
+	
+	#UI Scale
+	if get_window().mode != Window.MODE_EXCLUSIVE_FULLSCREEN:
+		DisplayServer.window_set_size(current_selected_resolution)
+		get_window().content_scale_factor = 1.0
+	else:
+		get_window().content_scale_factor = scale_factor
+	
+	#3D Resolution Scale
+	get_viewport().scaling_3d_scale = scale_factor
+	
+	resolution_change.emit(current_selected_resolution)
 
 func setup_resolution_list():
 	drop_down_resolution.options_list.clear()
