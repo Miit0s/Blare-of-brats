@@ -6,9 +6,12 @@ extends Node3D
 
 @export var music_fight: WwiseEvent
 @export var lead: WwiseRTPC
+@export var round_state: WwiseState
 
 func _ready() -> void: 
 	music_fight.post(self)
+	round_state.set_value()
+	
 
 func party_finish(dead_player_id: int):
 	print("Player with ID : " + str(dead_player_id) + " loose the game")

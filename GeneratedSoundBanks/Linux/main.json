@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{1023736F-6DB5-F332-29F4-2E553C62D77B}",
+    "Hash": "{D017DFAF-FC90-4499-BD72-A9A1BEC869A9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -243,12 +243,6 @@
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
        },
        {
-        "Id": "748895195",
-        "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
-        "GUID": "{8688365A-4C92-46C0-A2BE-ADCFC000A9AC}"
-       },
-       {
         "Id": "4261315644",
         "Name": "Parents",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
@@ -259,6 +253,6 @@
     ]
    }
   ],
-  "FileHash": "{E0114D25-3E93-3414-08F3-48221F3C0708}"
+  "FileHash": "{21DF67C3-B1E2-D48F-5EA4-AD3E6EBC1257}"
  }
 }

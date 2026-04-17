@@ -9,7 +9,6 @@ State Group	ID	Name			Wwise Object Path	Notes
 
 State	ID	Name	State Group			Notes
 	514064485	Fight	Round_State			
-	748895195	None	Round_State			
 	4261315644	Parents	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
