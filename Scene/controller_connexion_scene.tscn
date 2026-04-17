@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b1nchn1fbud6v"]
 
-[ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/controller_slot.tscn" id="1_bhesk"]
-[ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/controller_connexion_scene.gd" id="1_kla7w"]
+[ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
+[ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
+[ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -13,6 +14,8 @@ grow_vertical = 2
 script = ExtResource("1_kla7w")
 max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
+main_menu_scene_uid = "uid://bnfprdiqbhq53"
+game_scene_uid = "uid://c53l85gqm0mi1"
 
 [node name="ControllerSlotContainer" type="HBoxContainer" parent="." unique_id=1841648818]
 layout_mode = 1
@@ -29,8 +32,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Background_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
+[node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
 layout_mode = 2
 
-[node name="Background_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
+[node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
 layout_mode = 2
+
+[node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -70.0
+offset_right = 206.0
+offset_bottom = -20.0
+grow_vertical = 0
+hold_duration = 0.75
+text = "Go back to menu"
+
+[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_his_ready"]
+[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_no_more_ready"]
+[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_his_ready"]
+[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_no_more_ready"]
+[connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]

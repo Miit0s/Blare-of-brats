@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://l3csh8r7qkkt"]
+
+[ext_resource type="Script" uid="uid://caoe1k6ycjuxu" path="res://Scripts/UI/audio_scroll_bar.gd" id="1_5cqy6"]
+
+[node name="AudioScrollBar" type="HBoxContainer" unique_id=1893612886]
+script = ExtResource("1_5cqy6")
+
+[node name="Label" type="Label" parent="." unique_id=46339680]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Text"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1880565746]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="Control" type="Control" parent="." unique_id=790061756]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="." unique_id=1150214266]
+layout_mode = 2
+text = "100"
+
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

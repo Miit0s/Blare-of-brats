@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dqlxuyqor2fi8"]
+
+[ext_resource type="Script" uid="uid://btv7wrsq3a1yj" path="res://Scripts/UI/toggle_button_with_name.gd" id="1_tyovl"]
+
+[node name="ToggleButtonWithName" type="HBoxContainer" unique_id=1539490352]
+script = ExtResource("1_tyovl")
+
+[node name="Label" type="Label" parent="." unique_id=1652249449]
+layout_mode = 2
+text = "Text"
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=2087802069]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
