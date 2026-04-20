@@ -44,8 +44,17 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
 
+@export_category("Debug")
+@export var static_direction_dash: bool = false
+@export var dash_malus: bool = false
+@export var blend_static_and_move_direction: bool = false
+@export_range(0, 1) var blend_start_threshold: float = 0.5
+
+var _dash_elapsed_time: float = 0.0
+
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
+var _dash_direction: Vector3 = Vector3.RIGHT
 
 var _suffix: String = ""
 var current_picked_item: Item = null
@@ -78,8 +87,21 @@ func _physics_process(delta: float) -> void:
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
 	elif _is_dashing and not _is_aiming:
-		var dash_direction: Vector3 = direction if direction else _last_direction
-		velocity = dash_direction.normalized() * _dash_speed_to_apply
+		_dash_elapsed_time += delta
+		var final_dash_dir: Vector3 = _dash_direction
+		
+		if blend_static_and_move_direction:
+			var progress = clamp(_dash_elapsed_time / dash_duration, 0.0, 1.0)
+			
+			if progress > blend_start_threshold:
+				var mix_factor = (progress - blend_start_threshold) / (1.0 - blend_start_threshold)
+				var target_dir = direction if direction != Vector3.ZERO else _dash_direction
+				final_dash_dir = _dash_direction.lerp(target_dir, mix_factor)
+		if static_direction_dash:
+			velocity = _dash_direction.normalized() * _dash_speed_to_apply
+		else:
+			var d_dir = final_dash_dir if blend_static_and_move_direction else (direction if direction else _last_direction)
+			velocity = d_dir.normalized() * _dash_speed_to_apply
 	elif direction and not _is_aiming:
 		velocity = direction * speed
 		_last_direction = direction
@@ -116,6 +138,9 @@ func _process(delta: float) -> void:
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 
 func dash():
+	_dash_direction = _current_direction
+	_dash_elapsed_time = 0.0
+	
 	_dash_can_be_use = false
 	_is_dashing = true
 	_is_invincible = true
@@ -127,7 +152,11 @@ func dash():
 	
 	get_tree().create_timer(dash_cooldown).timeout.connect(func(): _dash_can_be_use = true)
 	dash_speed_tween.finished.connect(
-		func(): 
+		func():
+		if dash_malus:
+			_dash_speed_to_apply = 0.0
+			await get_tree().create_timer(0.15).timeout
+		
 		_is_dashing = false
 		_is_invincible = false
 		_dash_speed_to_apply = dash_speed
