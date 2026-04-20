@@ -24,6 +24,7 @@ var progress_bar_value: float = 0.5:
 		_progress_bar_value_changed(progress_bar_value)
 
 signal player_dead(dead_player_id: int)
+signal lifebar_value_change(new_value: float)
 
 func _ready() -> void:
 	_progress_bar_value_changed(progress_bar_value)
@@ -73,6 +74,8 @@ func add_damage_to_player(player_id: int, damage: float):
 	
 	if progress_bar_value <= 0: player_dead.emit(get_player_id_with_least_health())
 	elif progress_bar_value >= 1: player_dead.emit(get_player_id_with_least_health())
+	
+	lifebar_value_change.emit(progress_bar_value)
 
 func get_player_id_with_least_health() -> int:
 	return 0 if progress_bar_value <= 0.5 else 1

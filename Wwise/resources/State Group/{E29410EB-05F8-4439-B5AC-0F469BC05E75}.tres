@@ -1,0 +1,7 @@
+[gd_resource type="WwiseStateGroup" format=3 uid="uid://spvdjk05dgym"]
+
+[resource]
+name = "Round_State"
+id = 314125497
+guid = "{E29410EB-05F8-4439-B5AC-0F469BC05E75}"
+dummy = true

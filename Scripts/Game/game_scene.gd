@@ -4,6 +4,15 @@ extends Node3D
 
 @export var game_ended_scene_uid: String
 
+@export var music_fight: WwiseEvent
+@export var lead: WwiseRTPC
+@export var round_state: WwiseState
+
+func _ready() -> void: 
+	music_fight.post(self)
+	round_state.set_value()
+	
+
 func party_finish(dead_player_id: int):
 	print("Player with ID : " + str(dead_player_id) + " loose the game")
 	get_tree().change_scene_to_file(game_ended_scene_uid)
@@ -12,7 +21,9 @@ func _on_shared_life_bar_player_dead(dead_player_id: int) -> void:
 	print("No more health trigger")
 	party_finish(dead_player_id)
 
-
 func _on_game_sound_bar_sound_bar_fill() -> void:
 	print("Sound bar fill trigger")
 	party_finish(shared_life_bar.get_player_id_with_least_health())
+
+func lifebar_value_change(lifebar_value: float):
+	lead.set_value(self, lifebar_value * 100)

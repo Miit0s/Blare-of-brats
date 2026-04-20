@@ -13,22 +13,38 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_TEST_SAMPLE = 3550029299U;
+        static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID GRABOBJECT = 1719710198U;
+        static const AkUniqueID MUSIC_FIGHT = 962867917U;
+        static const AkUniqueID SWITCHOBJECT = 2476125396U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace ROUND_STATE
+        {
+            static const AkUniqueID GROUP = 314125497U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FIGHT = 514064485U;
+                static const AkUniqueID PARENTS = 4261315644U;
+            } // namespace STATE
+        } // namespace ROUND_STATE
+
+    } // namespace STATES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID SS_AIR_FEAR = 1351367891U;
-        static const AkUniqueID SS_AIR_FREEFALL = 3002758120U;
-        static const AkUniqueID SS_AIR_FURY = 1029930033U;
-        static const AkUniqueID SS_AIR_MONTH = 2648548617U;
-        static const AkUniqueID SS_AIR_PRESENCE = 3847924954U;
-        static const AkUniqueID SS_AIR_RPM = 822163944U;
-        static const AkUniqueID SS_AIR_SIZE = 3074696722U;
-        static const AkUniqueID SS_AIR_STORM = 3715662592U;
-        static const AkUniqueID SS_AIR_TIMEOFDAY = 3203397129U;
-        static const AkUniqueID SS_AIR_TURBULENCE = 4160247818U;
+        static const AkUniqueID LEAD = 54442139U;
+        static const AkUniqueID ROUND_TIME = 740280485U;
     } // namespace GAME_PARAMETERS
+
+    namespace BANKS
+    {
+        static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID MAIN = 3161908922U;
+    } // namespace BANKS
 
     namespace BUSSES
     {

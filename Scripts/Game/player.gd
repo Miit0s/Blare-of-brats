@@ -39,6 +39,11 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
 
+@export_category("SFX")
+@export var pickup_sound : WwiseEvent
+@export var dash_sound : WwiseEvent
+@export var switch_sound : WwiseEvent
+
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
 
@@ -56,7 +61,7 @@ func _ready() -> void:
 	_dash_speed_to_apply = dash_speed
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+	if not is_on_floor():
 		velocity.y = -fall_speed * delta
 	
 	if _is_stun: return
@@ -128,8 +133,9 @@ func dash():
 		_dash_speed_to_apply = dash_speed
 	)
 	
+	dash_sound.post(self)
 
-func pick_up():
+func pick_up(play_pickup_sound: bool = true):
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
 	if item_in_range.is_empty(): return
 	
@@ -138,6 +144,8 @@ func pick_up():
 	
 	current_picked_item = closest_item
 	current_picked_item.item_picked_up(player_id)
+	
+	if play_pickup_sound: pickup_sound.post(self)
 
 func _get_closest_item(item_in_range: Array[Node3D]) -> Item:
 	var current_direction: Vector3 = velocity.normalized() if velocity else _last_direction.normalized()
@@ -217,15 +225,28 @@ func stun():
 	_is_stun = false
 
 func switch_item():
-	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
-	if item_in_range.is_empty(): return
+	if not _pickable_item_nearby(): return
 	
 	current_picked_item.drop()
 	current_picked_item = null
 	
-	pick_up()
+	pick_up(false)
+	
+	switch_sound.post(self)
 
 func throw(direction: Vector3):
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+
+func _pickable_item_nearby() -> bool:
+	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
+	
+	var closest_item: Array[Item] = []
+	
+	for item: Item in item_in_range:
+		if item.is_already_pick or item.has_been_drop: continue
+		
+		closest_item.append(item)
+	
+	return !closest_item.is_empty()
