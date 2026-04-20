@@ -16,6 +16,8 @@ collision_mask = 3
 script = ExtResource("1_y6xdh")
 
 [node name="Sprite2D" type="Sprite3D" parent="." unique_id=1496403736]
+shaded = true
+alpha_cut = 1
 texture = ExtResource("2_5wxv7")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1854583806]

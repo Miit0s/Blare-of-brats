@@ -9,7 +9,7 @@ radius = 0.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fnt8b"]
 resource_local_to_scene = true
-radius = 0.4
+radius = 1.0
 
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
@@ -33,6 +33,8 @@ shape = SubResource("SphereShape3D_fnt8b")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=563304622]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shaded = true
+alpha_cut = 1
 texture = ExtResource("2_okjcq")
 
 [node name="AttackCollisionArea" type="Area3D" parent="." unique_id=843248323]
