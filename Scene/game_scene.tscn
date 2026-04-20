@@ -27,14 +27,6 @@ glow_enabled = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
 radius = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ee6vw"]
-resource_local_to_scene = true
-radius = 0.3
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_mlt6n"]
-resource_local_to_scene = true
-radius = 0.3
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_4832p"]
 resource_local_to_scene = true
 radius = 0.3
@@ -56,6 +48,14 @@ resource_local_to_scene = true
 radius = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gq40i"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e0rop"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xxap8"]
 resource_local_to_scene = true
 radius = 0.3
 
@@ -98,53 +98,53 @@ object_texture_size = 0.08
 [node name="Gun" parent="." unique_id=76598518 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6771142, 0.7672627, 0)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_f38sd")
+attack_shape = SubResource("SphereShape3D_4832p")
 object_texture = ExtResource("4_ugwxx")
 object_texture_size = 0.05
 
 [node name="Bell3" parent="." unique_id=2059959192 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3409548, 0.7672627, 1.7440906)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_mlt6n")
+attack_shape = SubResource("SphereShape3D_k031u")
 object_texture_size = 0.08
 
 [node name="Gun2" parent="." unique_id=656031280 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.941108, 0.7672627, -1.6638684)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_m5do6")
+attack_shape = SubResource("SphereShape3D_b5oy1")
 object_texture = ExtResource("4_ugwxx")
 object_texture_size = 0.05
 
 [node name="Bell5" parent="." unique_id=680333883 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6770594, 0.7672627, -4.149799)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_k031u")
+attack_shape = SubResource("SphereShape3D_k76w5")
 object_texture_size = 0.08
 
 [node name="Gun3" parent="." unique_id=5117407 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3924644, 0.7672627, -0.71003246)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_mlt6n")
+attack_shape = SubResource("SphereShape3D_hx36v")
 object_texture = ExtResource("4_ugwxx")
 object_texture_size = 0.05
 
 [node name="Bell7" parent="." unique_id=22782121 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21602249, 0.7672627, -4.130068)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_k76w5")
+attack_shape = SubResource("SphereShape3D_gq40i")
 object_texture_size = 0.08
 
 [node name="Gun4" parent="." unique_id=19944939 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8985777, 0.7672627, -3.7967215)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_k031u")
+attack_shape = SubResource("SphereShape3D_e0rop")
 object_texture = ExtResource("4_ugwxx")
 object_texture_size = 0.05
 
 [node name="Bell9" parent="." unique_id=840387951 instance=ExtResource("3_m5do6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98199344, 0.7672627, -6.978345)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_gq40i")
+attack_shape = SubResource("SphereShape3D_xxap8")
 object_texture_size = 0.08
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
