@@ -43,6 +43,7 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 
+var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
 
 var _suffix: String = ""
@@ -71,21 +72,7 @@ func _physics_process(delta: float) -> void:
 	direction.x = input.x
 	direction.z = input.y
 	
-	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use: dash()
-	
-	if Input.is_action_just_pressed("PickUp_Throw" + _suffix):
-		if current_picked_item and not current_picked_item.is_attacking:
-			_is_aiming = true
-		else:
-			pick_up()
-	if Input.is_action_just_released("PickUp_Throw" + _suffix) and current_picked_item != null:
-		if current_picked_item and not current_picked_item.is_attacking and _is_aiming:
-			current_picked_item.throw(direction if direction else _last_direction)
-			current_picked_item = null
-			get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
-	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
-		attack(direction if direction else _last_direction)
+	_current_direction = direction
 	
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
@@ -100,10 +87,29 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use:
+		dash()
+	
+	if Input.is_action_just_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		switch_item()
+	
+	if Input.is_action_just_pressed("PickUp" + _suffix) and not current_picked_item:
+		pick_up()
+	
+	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		_is_aiming = true
+	
+	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+		throw(_current_direction)
+	
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
+		attack(_current_direction if _current_direction else _last_direction)
 	
 	if current_picked_item and not current_picked_item.is_attacking:
 		var aim_direction: Vector3 = Vector3.ZERO
-		aim_direction = direction if direction else _last_direction
+		aim_direction = _current_direction if _current_direction else _last_direction
 		
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
@@ -130,16 +136,24 @@ func dash():
 	
 
 func pick_up():
-	var current_direction: Vector3 = velocity.normalized() if velocity else _last_direction.normalized()
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
-	
 	if item_in_range.is_empty(): return
 	
+	var closest_item: Item = _get_closest_item(item_in_range)
+	if not closest_item: return
+	
+	current_picked_item = closest_item
+	current_picked_item.item_picked_up(player_id)
+
+	pickup_sound.post(self)
+
+func _get_closest_item(item_in_range: Array[Node3D]) -> Item:
+	var current_direction: Vector3 = velocity.normalized() if velocity else _last_direction.normalized()
 	var closest_item: Item = null
 	var highest_score: float = -1.0
 	
 	for item: Item in item_in_range:
-		if item.is_already_pick: continue
+		if item.is_already_pick or item.has_been_drop: continue
 		
 		#Direction joueur - item
 		var direction_to_item: Vector3 = (item.global_position - global_position).normalized()
@@ -150,12 +164,7 @@ func pick_up():
 			highest_score = alignement_score
 			closest_item = item
 	
-	if not closest_item: return
-	
-	current_picked_item = closest_item
-	current_picked_item.item_picked_up(player_id)
-	
-	pickup_sound.post(self)
+	return closest_item
 
 func attack(direction: Vector3):
 	if current_picked_item == null: return
@@ -214,3 +223,17 @@ func stun():
 	_is_stun = true
 	await get_tree().create_timer(stun_duration).timeout
 	_is_stun = false
+
+func switch_item():
+	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
+	if item_in_range.is_empty(): return
+	
+	current_picked_item.drop()
+	current_picked_item = null
+	
+	pick_up()
+
+func throw(direction: Vector3):
+	current_picked_item.throw(direction if direction else _last_direction)
+	current_picked_item = null
+	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
