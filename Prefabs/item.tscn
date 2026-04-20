@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cgxrik5ollgn3"]
+
+[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
+[ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="2_okjcq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
+resource_local_to_scene = true
+radius = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fnt8b"]
+resource_local_to_scene = true
+radius = 1.0
+
+[node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
+collision_layer = 4
+collision_mask = 5
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+linear_damp = 2.5
+script = ExtResource("1_4h7a4")
+collision_size = 2.0
+attack_shape = SubResource("SphereShape3D_okjcq")
+object_texture = ExtResource("2_okjcq")
+object_texture_size = 0.2
+collision_shape_3d = NodePath("CollisionShape3D")
+attack_collision_area = NodePath("AttackCollisionArea")
+attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1358719798]
+shape = SubResource("SphereShape3D_fnt8b")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=563304622]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_okjcq")
+
+[node name="AttackCollisionArea" type="Area3D" parent="." unique_id=843248323]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackCollisionArea" unique_id=1264135062]
+shape = SubResource("SphereShape3D_okjcq")
+debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)

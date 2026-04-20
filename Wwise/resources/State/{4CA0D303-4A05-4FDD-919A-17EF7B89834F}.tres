@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" format=3 uid="uid://beojcn14o85ts"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_w4044"]
+
+[resource]
+group_ref = ExtResource("1_w4044")
+group_id = 314125497
+name = "Fight"
+id = 514064485
+guid = "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+dummy = true

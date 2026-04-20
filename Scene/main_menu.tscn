@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bnfprdiqbhq53"]
+
+[ext_resource type="PackedScene" uid="uid://b1o7haxohxulb" path="res://UI/Menu/quit_prompt.tscn" id="1_o5at2"]
+[ext_resource type="Script" uid="uid://dn1vxn1jlfrnp" path="res://Scripts/UI/main_menu.gd" id="1_wrubb"]
+[ext_resource type="PackedScene" uid="uid://d3viyj0v2mikj" path="res://UI/Menu/credits.tscn" id="2_4hclx"]
+[ext_resource type="PackedScene" uid="uid://cqrh561ygjx5r" path="res://UI/Menu/options.tscn" id="2_fmybh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nyod"]
+font_size = 50
+
+[node name="MainMenu" type="Control" unique_id=1142648463]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wrubb")
+game_start_scene_uid = "uid://b1nchn1fbud6v"
+
+[node name="MainTitle" type="Label" parent="." unique_id=93902956]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_top = 75.0
+offset_right = 164.5
+offset_bottom = 144.0
+grow_horizontal = 2
+text = "Blare of Brats"
+label_settings = SubResource("LabelSettings_3nyod")
+
+[node name="MainButton" type="VBoxContainer" parent="." unique_id=145311421]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -84.5
+offset_right = 175.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Play" type="Button" parent="MainButton" unique_id=2021116146]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath(".")
+text = "Play"
+
+[node name="Options" type="Button" parent="MainButton" unique_id=2010219045]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Credits")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Play")
+text = "Options"
+
+[node name="Credits" type="Button" parent="MainButton" unique_id=855816794]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Options")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MainButton" unique_id=528740335]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../Credits")
+text = "Exit"
+
+[node name="Options" parent="." unique_id=1945916325 instance=ExtResource("2_fmybh")]
+visible = false
+layout_mode = 1
+
+[node name="QuitPrompt" parent="." unique_id=1394676149 instance=ExtResource("1_o5at2")]
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="." unique_id=572892282 instance=ExtResource("2_4hclx")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainButton/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButton/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButton/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainButton/Exit" to="." method="_on_exit_pressed"]
+[connection signal="visibility_changed" from="QuitPrompt" to="." method="_on_quit_prompt_visibility_changed"]
+[connection signal="visibility_changed" from="Credits" to="." method="_on_credits_visibility_changed"]
