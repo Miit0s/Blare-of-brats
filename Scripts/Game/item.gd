@@ -55,6 +55,7 @@ var owner_player: int = -1
 ##The minimal speed the item should have. When the speed is under this threshold, the speed is set to zero
 var minimal_speed: float = 2
 var has_been_throw: bool = false
+var has_been_drop: bool = false
 
 var is_attacking: bool = false
 var is_already_pick: bool = false
@@ -129,3 +130,12 @@ func destroy():
 func item_picked_up(player_id: int):
 	owner_player = player_id
 	is_already_pick = true
+
+func drop():
+	has_been_drop = true
+	is_already_pick = false
+	owner_player = -1
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	has_been_drop = false
