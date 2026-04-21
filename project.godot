@@ -43,6 +43,7 @@ folder_colors={
 "res://Assets/": "purple",
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
+"res://Items/": "blue",
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
 "res://Scripts/": "yellow",
@@ -254,8 +255,11 @@ Throw_3={
 [layer_names]
 
 2d_physics/layer_1="Map"
+3d_physics/layer_1="Map"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Object"
+3d_physics/layer_2="Player"
+2d_physics/layer_3="Item"
+3d_physics/layer_3="Item"
 
 [maaacks_menus_template]
 

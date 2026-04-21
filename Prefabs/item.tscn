@@ -22,6 +22,7 @@ linear_damp = 2.5
 script = ExtResource("1_4h7a4")
 collision_size = 2.0
 attack_shape = SubResource("SphereShape3D_okjcq")
+durability = null
 object_texture = ExtResource("2_okjcq")
 object_texture_size = 0.2
 collision_shape_3d = NodePath("CollisionShape3D")

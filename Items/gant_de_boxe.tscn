@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bhmfwu2e856oa"]
+
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="1_8dmrf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8dmrf"]
+resource_local_to_scene = true
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fkw4f"]
+resource_local_to_scene = true
+
+[node name="Item" unique_id=2059959192 instance=ExtResource("1_8dmrf")]
+collision_size = 1.0
+attack_shape = SubResource("SphereShape3D_8dmrf")
+durability = 20
+object_texture_size = 0.1
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
+shape = SubResource("SphereShape3D_fkw4f")
+
+[node name="Sprite3D" parent="." index="1" unique_id=563304622]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
+shape = SubResource("SphereShape3D_8dmrf")

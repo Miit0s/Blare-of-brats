@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkwmgkavt7wpx"]
+
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="1_6axb7"]
+
+[node name="ItemSpawnSystem" type="Node" unique_id=1071498902]
+script = ExtResource("1_6axb7")

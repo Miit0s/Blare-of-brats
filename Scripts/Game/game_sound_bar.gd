@@ -1,4 +1,5 @@
 extends Control
+class_name GameSoundBar
 
 @onready var sound_bar: ColorRect = $SoundBar
 
