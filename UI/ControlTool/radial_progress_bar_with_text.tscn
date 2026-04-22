@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://b3183fatppyxn"]
 
 [ext_resource type="Script" uid="uid://qb6rvvpdjgug" path="res://Scripts/UI/radial_pogress_bar_with_text.gd" id="1_rihet"]
+[ext_resource type="Shader" uid="uid://doki7jt3gmrse" path="res://Shader/radial_progress_bar.gdshader" id="2_bmoep"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhe4"]
+shader = ExtResource("2_bmoep")
+shader_parameter/base_color = Color(0, 1, 0, 1)
+shader_parameter/outer_bound = 0.4
+shader_parameter/inner_bound = 0.15000000223518
+shader_parameter/fill_direction = -1.0
+shader_parameter/progress = 0.0
 
 [node name="RadialProgressBarWithText" type="HBoxContainer" unique_id=2147224469]
 script = ExtResource("1_rihet")
 
 [node name="RadialProgressBar" type="ColorRect" parent="." unique_id=1278139767]
+material = SubResource("ShaderMaterial_ifhe4")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 

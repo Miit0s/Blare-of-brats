@@ -25,10 +25,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _player_his_holding_key and not _progress_finish:
 		_hold_time = move_toward(_hold_time, 1.0, delta / hold_duration)
-		
+
 		if _hold_time >= 1:
 			_progress_finish = true 
-			hold_finish.emit()
 	elif not _progress_finish:
 		_hold_time = move_toward(_hold_time, 0.0, delta / hold_duration)
 	

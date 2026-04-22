@@ -12,10 +12,11 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x1yx4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0tve0"]
+resource_local_to_scene = true
 shader = ExtResource("4_x1yx4")
 shader_parameter/base_color = Color(0, 1, 0, 1)
 shader_parameter/outer_bound = 0.4
-shader_parameter/inner_bound = 0.3
+shader_parameter/inner_bound = 0.15000000223518
 shader_parameter/fill_direction = -1.0
 shader_parameter/progress = 0.0
 
