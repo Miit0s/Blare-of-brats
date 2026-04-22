@@ -27,7 +27,7 @@ glow_enabled = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
 radius = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_k2rys"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_0xtjt"]
 resource_local_to_scene = true
 radius = 0.3
 
@@ -88,7 +88,7 @@ object_texture_size = 0.08
 [node name="Bell2" parent="." unique_id=76598518 instance=ExtResource("2_31fxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6771142, 0.7672627, 0)
 collision_size = 0.8
-attack_shape = SubResource("SphereShape3D_k2rys")
+attack_shape = SubResource("SphereShape3D_0xtjt")
 object_texture_size = 0.08
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
@@ -112,7 +112,8 @@ offset_bottom = 130.00002
 grow_vertical = 1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
-transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
+transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, -1.9673038, 22.399847, 30.370125)
+fov = 45.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
 
@@ -129,7 +130,7 @@ alpha_cut = 1
 texture = ExtResource("5_lee88")
 
 [node name="Sprite3D7" type="Sprite3D" parent="." unique_id=676500576]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -10.256054, 3.3674114, 16.677746)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -10.225428, 3.3674133, 16.67566)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
@@ -160,13 +161,13 @@ alpha_cut = 1
 texture = ExtResource("6_k2rys")
 
 [node name="Sprite3D8" type="Sprite3D" parent="." unique_id=738186749]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, 8.656588, 3.3674114, 16.677746)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, 8.656588, 3.3674114, 14.065155)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
 
 [node name="Sprite3D9" type="Sprite3D" parent="." unique_id=1470335789]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -1.8429089, 3.3674114, 17.316444)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -1.8429089, 3.3674114, 18.170277)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
@@ -184,40 +185,27 @@ shaded = true
 alpha_cut = 1
 texture = ExtResource("7_0xtjt")
 
-[node name="Sprite3D32" type="Sprite3D" parent="." unique_id=399378852]
-transform = Transform3D(1.3375317, 0.09794251, 0.17131092, -0.13731088, 1.3049084, 0.32602572, -0.14172438, -0.3399327, 1.3008814, -8.105962, 1.7122788, 11.8927965)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("7_0xtjt")
-
-[node name="Sprite3D33" type="Sprite3D" parent="." unique_id=326872796]
-transform = Transform3D(-0.95602703, 0.02367834, -0.22252385, 0.04532097, 0.9766109, -0.09079286, 0.21914276, -0.09867462, -0.952001, -9.828362, 2.1644971, 15.293824)
-modulate = Color(0.92900515, 0.9328756, 0.29638147, 1)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("7_0xtjt")
-
 [node name="Sprite3D30" type="Sprite3D" parent="." unique_id=1644348236]
-transform = Transform3D(-0.22480863, 0.012081909, 0.30986762, -0.014076827, 0.3819352, -0.025104549, -0.30978358, -0.02612321, -0.2237291, 11.233085, 1.6021135, 0.8384533)
+transform = Transform3D(-0.36247915, -0.005233513, 0.12362999, -0.014076827, 0.3819352, -0.025104547, -0.12293762, -0.028302029, -0.36164662, 10.306885, 1.6021135, 1.43648)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_0xtjt")
 
 [node name="Sprite3D18" type="Sprite3D" parent="." unique_id=896259817]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -10.256054, 3.3674114, -13.200256)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -10.256054, 3.3674114, -8.195831)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
 
 [node name="Sprite3D28" type="Sprite3D" parent="." unique_id=189163096]
-transform = Transform3D(-0.11993879, 0, 0.25097176, 0, 0.2781585, 0, -0.25097176, 0, -0.11993879, 12.186583, 2.350505, 4.3476815)
+transform = Transform3D(-0.24290541, 0, 0.13553268, 0, 0.2781585, 0, -0.13553268, 0, -0.24290541, 13.1127825, 2.350505, 3.7496543)
 modulate = Color(0.4117647, 1, 1, 1)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_0xtjt")
 
 [node name="Sprite3D19" type="Sprite3D" parent="." unique_id=1757226030]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, 8.656588, 3.3674114, -13.200256)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, 8.656588, 3.3674114, -8.195831)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
@@ -265,7 +253,7 @@ alpha_cut = 1
 texture = ExtResource("5_lee88")
 
 [node name="Sprite3D10" type="Sprite3D" parent="." unique_id=423840310]
-transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -13.916719, 3.3674102, 15.557301)
+transform = Transform3D(-0.7262283, 0, -6.348889e-08, 0, 0.7262283, 0, 6.348889e-08, 0, -0.7262283, -13.916719, 3.3674102, 14.995312)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_lee88")
@@ -343,19 +331,13 @@ alpha_cut = 1
 texture = ExtResource("8_k2rys")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=60697386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7827921, 2.70744, -11.530891)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7827921, 2.70744, -6.5264664)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("6_1d8q1")
 
 [node name="sol2" type="Sprite3D" parent="." unique_id=294980991]
-transform = Transform3D(1.728, 0, 0, 0, 1.728, 0, 0, 0, 1.728, -1.3752398, 0.01, -3.9452734)
-axis = 1
-shaded = true
-texture = ExtResource("9_i64o6")
-
-[node name="sol3" type="Sprite3D" parent="." unique_id=1836299793]
-transform = Transform3D(1.728, 0, 0, 0, 1.728, 0, 0, 0, 1.728, -1.3752398, 0.01, 11.905072)
+transform = Transform3D(1.728, 0, 0, 0, 1.728, 0, 0, 0, 1.728, -1.3752398, 0.01, 1.9406567)
 axis = 1
 shaded = true
 texture = ExtResource("9_i64o6")
