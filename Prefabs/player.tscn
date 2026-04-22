@@ -6,9 +6,8 @@
 [ext_resource type="WwiseEvent" uid="uid://dxxbqb8uf44mf" path="res://Wwise/resources/Event/{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}.tres" id="3_knrd4"]
 [ext_resource type="WwiseEvent" uid="uid://v3kb26q6hck6" path="res://Wwise/resources/Event/{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}.tres" id="4_knrd4"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5wxv7"]
-radius = 0.7
-height = 1.5
+[sub_resource type="BoxShape3D" id="BoxShape3D_knrd4"]
+size = Vector3(1.3, 1.3, 0.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
@@ -30,7 +29,7 @@ alpha_cut = 1
 texture = ExtResource("2_5wxv7")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1854583806]
-shape = SubResource("CapsuleShape3D_5wxv7")
+shape = SubResource("BoxShape3D_knrd4")
 debug_color = Color(0.9984042, 0, 0.15430626, 0.41960785)
 
 [node name="PickUpArea" type="Area3D" parent="." unique_id=1268784046]

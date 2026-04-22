@@ -30,9 +30,12 @@ class_name Item
 @export var sound_on_break: float = 10
 
 @export_category("Lifetime")
-@export var nb_use_before_break: int = 20
+@export var durability: int = 20
 @export var break_on_throw: bool = true
-var _nb_time_used: int = 0
+var current_durability: int = 0:
+	set(new_value):
+		current_durability = new_value
+		has_loose_durability.emit(new_value)
 
 @export_category("Instance")
 @export var object_texture: Texture2D:
@@ -64,8 +67,13 @@ var _attacked_players: Array[Player]
 
 signal sound_made(value: float)
 
+signal has_loose_durability()
+signal will_be_destroy(item: Item)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_durability = durability
+	
 	_init_item_instance()
 
 func _init_item_instance():
@@ -114,16 +122,17 @@ func throw(direction: Vector3):
 
 func attack():
 	is_attacking = true
-	_nb_time_used += 1
+	current_durability -= 1
 	sound_made.emit(sound_on_attack)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
 	_attacked_players = []
 	
-	if _nb_time_used >= nb_use_before_break: destroy()
+	if current_durability <= 0: destroy()
 
 func destroy():
+	will_be_destroy.emit(self)
 	sound_made.emit(sound_on_break)
 	queue_free()
 
