@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 @export_range(0,3) var player_id: int = 0
 
@@ -43,6 +44,9 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
+
+@export_category("VFX")
+@export var hit_effect_duration: float = 0.2
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
@@ -211,6 +215,7 @@ func hit(damage: float):
 	if _is_invincible: return
 	print("Player " + str(player_id) + " has take " + str(damage))
 	
+	_override_color_effect()
 	has_been_hit.emit(player_id, damage)
 
 func knockback(hit_direction: Vector3):
@@ -250,3 +255,16 @@ func _pickable_item_nearby() -> bool:
 		closest_item.append(item)
 	
 	return !closest_item.is_empty()
+
+func _override_color_effect():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	
+	tween.tween_method(
+		func(value): sprite_3d.material_override.set_shader_parameter("blend_delta", value),
+		1.0,
+		0.0,
+		hit_effect_duration
+	)
+	
