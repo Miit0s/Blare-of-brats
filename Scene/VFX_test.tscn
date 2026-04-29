@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://5pg1ex8iehro"]
+
+[ext_resource type="Texture2D" uid="uid://dr17oamp56qhy" path="res://Assets/VFX/vfx_flags_ph.png" id="1_dv06c"]
+[ext_resource type="Texture2D" uid="uid://dowldholbti3d" path="res://Assets/VFX/vfx_balloon_ph.png" id="2_oiflv"]
+
+[sub_resource type="Animation" id="Animation_dv06c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VfxFlagsPh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2789.0002, -133)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VfxFlagsPh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VfxBalloonPh:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-93, 1957)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VfxBalloonPh2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2647, 986.0001)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VfxFlagsPh2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(102.00006, 0.00012207031)]
+}
+
+[sub_resource type="Animation" id="Animation_oiflv"]
+resource_name = "vfx_test"
+length = 2.0833333
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VfxFlagsPh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25),
+"transitions": PackedFloat32Array(1, 0.5, -2),
+"update": 0,
+"values": [Vector2(2789.0002, -133), Vector2(2789.0002, -133), Vector2(2304, 690)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VfxFlagsPh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VfxBalloonPh:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.041666668, 0.5, 1.1666666, 1.375),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 1),
+"update": 0,
+"values": [Vector2(-93, 1957), Vector2(-93, 1957), Vector2(264.99997, 677), Vector2(263.99997, 776.00006)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VfxFlagsPh2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.041666668, 1.6666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(102.00006, 0.00012207031), Vector2(679.99994, 666.99994)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VfxBalloonPh2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.083333336, 1.3333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2992, 1583), Vector2(2647, 986.0001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mticu"]
+_data = {
+&"RESET": SubResource("Animation_dv06c"),
+&"vfx_test": SubResource("Animation_oiflv")
+}
+
+[node name="VfxTest" type="Control" unique_id=198060493]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -552.0
+offset_top = -387.0
+offset_right = 749.33325
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1097851116]
+libraries/ = SubResource("AnimationLibrary_mticu")
+
+[node name="VfxFlagsPh" type="Sprite2D" parent="." unique_id=2017616089]
+position = Vector2(2789.0002, -133)
+scale = Vector2(0.27268296, 0.2738199)
+texture = ExtResource("1_dv06c")
+
+[node name="VfxFlagsPh2" type="Sprite2D" parent="." unique_id=107633853]
+position = Vector2(102.00006, 0.00012207031)
+scale = Vector2(0.27268296, 0.2738199)
+texture = ExtResource("1_dv06c")
+flip_h = true
+
+[node name="VfxBalloonPh" type="Sprite2D" parent="." unique_id=1991851780]
+position = Vector2(-93, 1957)
+rotation = 0.35437676
+scale = Vector2(0.2992828, 0.29928282)
+texture = ExtResource("2_oiflv")
+
+[node name="VfxBalloonPh2" type="Sprite2D" parent="." unique_id=1540204468]
+position = Vector2(2647, 986.0001)
+rotation = -0.5235988
+scale = Vector2(0.2992828, 0.29928282)
+texture = ExtResource("2_oiflv")
+flip_h = true
