@@ -6,6 +6,9 @@ class_name Item
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 
+@onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
+@onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
+
 @export var collision_size: float = 10:
 	set(new_value):
 		collision_size = new_value
@@ -72,9 +75,11 @@ signal sound_made(value: float)
 signal has_loose_durability()
 signal will_be_destroy(item: Item)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_durability = durability
+	
+	circle_spawn_particle.emitting = true
+	other_spawn_particle.emitting = true
 	
 	_init_item_instance()
 
