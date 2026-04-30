@@ -4,6 +4,7 @@ class_name Player
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
+@onready var dash_effect: GPUParticles3D = $DashEffect
 
 @export_range(0,3) var player_id: int = 0
 
@@ -127,6 +128,7 @@ func dash():
 	_dash_can_be_use = false
 	_is_dashing = true
 	_is_invincible = true
+	dash_effect.emitting = true
 	
 	var dash_speed_tween: Tween = create_tween()
 	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)

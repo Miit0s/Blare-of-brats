@@ -43,6 +43,20 @@ vertex_color_use_as_albedo = true
 [sub_resource type="SphereMesh" id="SphereMesh_kgmex"]
 material = SubResource("StandardMaterial3D_08u7w")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hck1p"]
+render_priority = 0
+shader = ExtResource("5_hck1p")
+shader_parameter/sprite_texture = ExtResource("2_5wxv7")
+shader_parameter/color_override = Color(1, 1, 1, 1)
+shader_parameter/blend_delta = 0.49999998882425
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_juxdh"]
+gravity = Vector3(0, 0, 0)
+scale_min = 1.1999999
+scale_max = 1.1999999
+
+[sub_resource type="QuadMesh" id="QuadMesh_4qbli"]
+
 [node name="Player" type="CharacterBody3D" unique_id=382022037]
 collision_layer = 2
 collision_mask = 3
@@ -79,3 +93,14 @@ lifetime = 0.5
 explosiveness = 0.2
 process_material = SubResource("ParticleProcessMaterial_4qbli")
 draw_pass_1 = SubResource("SphereMesh_kgmex")
+
+[node name="DashEffect" type="GPUParticles3D" parent="." unique_id=1682340740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+material_override = SubResource("ShaderMaterial_hck1p")
+cast_shadow = 0
+emitting = false
+amount = 4
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_juxdh")
+draw_pass_1 = SubResource("QuadMesh_4qbli")
