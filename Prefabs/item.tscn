@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
 [ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="2_okjcq"]
+[ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/TrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
 resource_local_to_scene = true
@@ -50,6 +51,13 @@ vertex_color_use_as_albedo = true
 [sub_resource type="QuadMesh" id="QuadMesh_fnt8b"]
 material = SubResource("StandardMaterial3D_2tfvo")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnd63"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3c2xw"]
+
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
 collision_mask = 5
@@ -94,3 +102,15 @@ explosiveness = 1.0
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_okjcq")
 draw_pass_1 = SubResource("QuadMesh_fnt8b")
+
+[node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
+visible = false
+material_override = SubResource("StandardMaterial3D_dnd63")
+mesh = SubResource("ImmediateMesh_3c2xw")
+script = ExtResource("3_fnt8b")
+trail_point_lifetime = 0.3
+points = Array[Vector3]([])
+end_thickness = 0.0
+end_color = Color(1, 1, 1, 0.19607843)
+use_start_and_end_color = true
+metadata/_custom_type_script = "uid://c2m87s7fgx1qk"

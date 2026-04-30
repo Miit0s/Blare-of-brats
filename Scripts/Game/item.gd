@@ -4,6 +4,7 @@ class_name Item
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
+@onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 
 @export var collision_size: float = 10:
 	set(new_value):
@@ -120,6 +121,7 @@ func throw(direction: Vector3):
 	has_been_throw = true
 	is_already_pick = false
 	owner_player = -1
+	trail_renderer_3d.show()
 
 func attack():
 	is_attacking = true
@@ -136,6 +138,7 @@ func destroy():
 	will_be_destroy.emit(self)
 	sound_made.emit(sound_on_break)
 	sprite_3d.hide()
+	trail_renderer_3d.hide()
 	explosion_particle.emitting = true
 	
 	await explosion_particle.finished
