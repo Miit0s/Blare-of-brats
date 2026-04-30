@@ -30,6 +30,37 @@ volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.955779, 0.82219213, 0.9269844, 1)
 volumetric_fog_anisotropy = 0.56
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g51t8"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id="Gradient_j1xvy"]
+offsets = PackedFloat32Array(0, 0.5588235, 0.8594771)
+colors = PackedColorArray(0.5238842, 0.08589422, 0.61759347, 1, 1, 1, 1, 1, 0.8271286, 0.7219637, 0.26759857, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7riyq"]
+gradient = SubResource("Gradient_j1xvy")
+
+[sub_resource type="Curve" id="Curve_k87s1"]
+_data = [Vector2(0.24731183, 0.7852349), 0.0, 0.0, 0, 0, Vector2(0.8924731, 0.16778529), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kx01p"]
+curve = SubResource("Curve_k87s1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g51t8"]
+emission_shape = 3
+emission_box_extents = Vector3(6.76, 10.37, 1)
+gravity = Vector3(5.67, -8.395, 0)
+scale_min = 0.04
+scale_max = 0.19999999
+color = Color(0.8852854, 0.85933805, 1, 1)
+color_ramp = SubResource("GradientTexture1D_7riyq")
+emission_curve = SubResource("CurveTexture_kx01p")
+turbulence_noise_strength = 5.92
+turbulence_noise_scale = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_c1vcm"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
 radius = 0.3
 
@@ -261,6 +292,14 @@ spot_angle = 35.763977
 transform = Transform3D(-0.9011266, 0.23758091, 0.36266565, 0.4261376, 0.3312717, 0.841823, 0.07986013, 0.91313434, -0.39975998, 0, 7.358506, 0)
 visible = false
 shadow_enabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1840038660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.730673, 13.084644, -2.0641603)
+material_override = SubResource("StandardMaterial3D_g51t8")
+amount = 500
+lifetime = 9.1
+process_material = SubResource("ParticleProcessMaterial_g51t8")
+draw_pass_1 = SubResource("QuadMesh_c1vcm")
 
 [node name="AkListener2D" type="AkListener2D" parent="." unique_id=1277114419]
 
