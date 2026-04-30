@@ -3,6 +3,7 @@ extends RigidBody3D
 class_name Item
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 
 @export var collision_size: float = 10:
 	set(new_value):
@@ -134,6 +135,11 @@ func attack():
 func destroy():
 	will_be_destroy.emit(self)
 	sound_made.emit(sound_on_break)
+	sprite_3d.hide()
+	explosion_particle.emitting = true
+	
+	await explosion_particle.finished
+	
 	queue_free()
 
 func item_picked_up(player_id: int):

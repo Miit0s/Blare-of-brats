@@ -11,6 +11,45 @@ radius = 0.8
 resource_local_to_scene = true
 radius = 1.0
 
+[sub_resource type="Gradient" id="Gradient_okjcq"]
+offsets = PackedFloat32Array(0, 0.37142858, 0.71428573, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.49411765, 0, 1, 1, 1, 0, 0.50980395, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fnt8b"]
+gradient = SubResource("Gradient_okjcq")
+
+[sub_resource type="Curve" id="Curve_dnd63"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4975124, 0.64044946), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3c2xw"]
+curve = SubResource("Curve_dnd63")
+
+[sub_resource type="Curve" id="Curve_6uwl0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50248754, 0.47191018), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k5kpw"]
+curve = SubResource("Curve_6uwl0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_okjcq"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_k5kpw")
+color_ramp = SubResource("GradientTexture1D_fnt8b")
+emission_curve = SubResource("CurveTexture_3c2xw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tfvo"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fnt8b"]
+material = SubResource("StandardMaterial3D_2tfvo")
+
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
 collision_mask = 5
@@ -22,7 +61,6 @@ linear_damp = 2.5
 script = ExtResource("1_4h7a4")
 collision_size = 2.0
 attack_shape = SubResource("SphereShape3D_okjcq")
-durability = null
 object_texture = ExtResource("2_okjcq")
 object_texture_size = 0.2
 collision_shape_3d = NodePath("CollisionShape3D")
@@ -46,3 +84,13 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackCollisionArea" unique_id=1264135062]
 shape = SubResource("SphereShape3D_okjcq")
 debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
+
+[node name="ExplosionParticle" type="GPUParticles3D" parent="." unique_id=422062356]
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_okjcq")
+draw_pass_1 = SubResource("QuadMesh_fnt8b")

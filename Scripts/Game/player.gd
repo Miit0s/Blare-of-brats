@@ -3,6 +3,7 @@ class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var walk_smoke: GPUParticles3D = $WalkSmoke
 
 @export_range(0,3) var player_id: int = 0
 
@@ -90,6 +91,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.z = 0
+	
+	if velocity.length() > 0: walk_smoke.emitting = true
+	else: walk_smoke.emitting = false
 
 	move_and_slide()
 
@@ -263,7 +267,7 @@ func _override_color_effect():
 	
 	tween.tween_method(
 		func(value): sprite_3d.material_override.set_shader_parameter("blend_delta", value),
-		1.0,
+		0.8,
 		0.0,
 		hit_effect_duration
 	)
