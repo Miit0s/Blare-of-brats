@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://eptfuhrfcgpk" path="res://Assets/EnvironmentSprite/ph_cube.png" id="7_0xtjt"]
 [ext_resource type="Texture2D" uid="uid://cel7lam6s0a28" path="res://Assets/EnvironmentSprite/ph_castle.png" id="8_k2rys"]
 [ext_resource type="Texture2D" uid="uid://p4ckog1r0o4i" path="res://Assets/EnvironmentSprite/ph_sol03.png" id="9_i64o6"]
+[ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="11_g51t8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,6 +24,11 @@ background_mode = 2
 sky = SubResource("Sky_4kvl3")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.14
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.955779, 0.82219213, 0.9269844, 1)
+volumetric_fog_anisotropy = 0.56
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_06yma"]
 radius = 0.3
@@ -36,13 +42,199 @@ radius = 0.3
 [sub_resource type="PlaneMesh" id="PlaneMesh_06yma"]
 size = Vector2(50, 50)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g51t8"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_g51t8")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.7590000360525
+shader_parameter/cutoff = 0.30200006184500006
+shader_parameter/falloff = 0.46800002223
+shader_parameter/edge_fade = 0.0400000019
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.6030000286425
+shader_parameter/color = Color(1.5153428, 1.7458255, 0.9175286, 0.61960787)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_g51t8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j1xvy"]
+gradient = SubResource("Gradient_g51t8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7riyq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_g51t8")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.7590000360525
+shader_parameter/cutoff = 0.30200006184500006
+shader_parameter/falloff = 0.46800002223
+shader_parameter/edge_fade = 0.0400000019
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.6030000286425
+shader_parameter/color = Color(0.9506734, 1.028023, 1.3322645, 0.61960787)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1xvy"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_g51t8")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.7590000360525
+shader_parameter/cutoff = 0.30200006184500006
+shader_parameter/falloff = 0.46800002223
+shader_parameter/edge_fade = 0.0400000019
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.6030000286425
+shader_parameter/color = Color(1.5598607, 0.8995701, 1.4938316, 0.61960787)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Animation" id="Animation_g51t8"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godrayspink")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -25.618446, 8.094153, 7.7012787)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godrayspink:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.17149602)]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Godrayspink2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 44.167767, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Godraysgreen")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -25.679907, 3.224769, 0)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Godraysgreen:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.171496)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Godrayspink2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.02937385)]
+}
+
+[sub_resource type="Animation" id="Animation_j1xvy"]
+resource_name = "god_rays_tests"
+length = 6.3333335
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godrayspink")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, -25.618446, 8.094153, 7.7012787, 1.9333333, 1, -11.10034, 14.123121, 7.7012787, 2.3666668, 1, -18.68334, 17.087458, 7.7012787, 2.9333334, 1, -31.775038, 17.087458, 7.7012787, 4.1666665, 1, 1.1349125, 17.087458, 7.7012787, 5.4, 1, -25.774473, 17.087458, 7.7012787)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godrayspink:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Godrayspink2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.06666667, 1, 31.39135, 12.932062, -1.0609446, 0.4, 1, 5.8020554, 10.09053, 0, 1.0666667, 1, -13.850197, 10.09053, 0, 2.4, 1, 12.04652, 10.09053, 2.3391628, 3, 1, 28.289146, 10.09053, 2.3391628, 3.2666667, 1, 28.289146, 10.09053, 2.3391628, 4.2, 1, -7.7339554, 10.09053, 2.3391628, 5.133333, 1, 19.372528, 10.09053, 2.3391628)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Godraysgreen")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.1, 1, -25.679907, 3.224769, 0, 1.2, 1, 4.108551, 7.7972674, -2.096953, 2.4, 1, -7.826624, 7.7972674, -2.096953, 3.0333333, 1, 3.0923824, 7.7972674, -2.096953, 4.0333333, 1, -20.764978, 7.7972674, -2.096953)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Godraysgreen:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.96666664, 1.7333333, 2.9666667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.171496), Vector3(0, 0, 0.31932545), Vector3(0, 0, -0.102276295), Vector3(0, 0, -1.0192723), Vector3(0, 0, 0.22692768)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Godrayspink2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.02937385)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7riyq"]
+_data = {
+&"RESET": SubResource("Animation_g51t8"),
+&"god_rays_tests": SubResource("Animation_j1xvy")
+}
+
 [node name="MainScene" type="Node3D" unique_id=1646683385]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=344086588]
 environment = SubResource("Environment_lttqn")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1744031116]
-transform = Transform3D(-0.6527117, -0.6642355, 0.36436084, 0.7086484, -0.36520407, 0.60369164, -0.26792732, 0.6522403, 0.7090823, 12.311444, 13.296722, 18.324207)
+transform = Transform3D(-0.6527117, -0.6642355, 0.36436084, 0.7086484, -0.36520407, 0.60369164, -0.26792732, 0.6522403, 0.7090823, 12.311444, 13.296722, 14.270054)
 light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
 light_energy = 13.0
 shadow_enabled = true
@@ -52,7 +244,7 @@ spot_angle = 37.07732
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1831975193]
 transform = Transform3D(0.9075741, -0.24557117, -0.34059364, 0.3201969, -0.1199715, 0.9397237, -0.27163056, -0.96192586, -0.03025189, -15.332857, 17.363535, -1.6175346)
 light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
-light_energy = 13.0
+light_energy = 15.0
 shadow_enabled = true
 spot_range = 25.86053
 spot_angle = 41.741062
@@ -60,7 +252,7 @@ spot_angle = 41.741062
 [node name="SpotLight3D" type="SpotLight3D" parent="SpotLight3D" unique_id=662642602]
 transform = Transform3D(0.41696435, -0.90328896, -0.1010432, 0.899344, 0.42610955, -0.09803596, 0.13161024, -0.049995072, 0.99004, -5.5222425, -11.377527, -1.3516445)
 light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
-light_energy = 13.0
+light_energy = 16.0
 shadow_enabled = true
 spot_range = 44.28585
 spot_angle = 35.763977
@@ -341,6 +533,31 @@ transform = Transform3D(1.728, 0, 0, 0, 1.728, 0, 0, 0, 1.728, -1.3752398, 0.01,
 axis = 1
 shaded = true
 texture = ExtResource("9_i64o6")
+
+[node name="Godrayspink" type="Sprite3D" parent="." unique_id=750060274]
+transform = Transform3D(35.807297, 6.2017274, 0, -6.2017274, 35.807297, 0, 0, 0, 77.787056, -25.618446, 8.094153, 7.7012787)
+material_override = SubResource("ShaderMaterial_g51t8")
+shaded = true
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_j1xvy")
+
+[node name="Godraysgreen" type="Sprite3D" parent="." unique_id=1969955573]
+transform = Transform3D(35.807297, 6.201727, 0, -6.201727, 35.807297, 0, 0, 0, 77.78706, -25.679907, 3.224769, 0)
+material_override = SubResource("ShaderMaterial_7riyq")
+shaded = true
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_j1xvy")
+
+[node name="Godrayspink2" type="Sprite3D" parent="." unique_id=1072488933]
+transform = Transform3D(36.324715, 1.0673037, 0, -1.0673037, 36.324715, 0, 0, 0, 77.787056, 44.167767, 0, 0)
+material_override = SubResource("ShaderMaterial_j1xvy")
+flip_v = true
+shaded = true
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_j1xvy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=542056880]
+libraries/ = SubResource("AnimationLibrary_7riyq")
 
 [connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
 [connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
