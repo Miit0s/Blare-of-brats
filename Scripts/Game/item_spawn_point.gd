@@ -1,7 +1,10 @@
 extends Node3D
 class_name ItemSpawnPoint
 
+@onready var spawn_particle: GPUParticles3D = $SpawnParticle
+
 @export var possible_items: Array[PackedScene]
+@export var spawn_delay: float = 1
 
 var is_item_currently_on_spawn: bool
 
@@ -15,6 +18,9 @@ func spawn_random_item() -> Item:
 
 func spawn(item: Item):
 	is_item_currently_on_spawn = true
+	
+	spawn_particle.emitting = true
+	await get_tree().create_timer(spawn_delay).timeout
 	
 	add_child(item)
 

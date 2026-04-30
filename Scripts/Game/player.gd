@@ -5,6 +5,7 @@ class_name Player
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var dash_effect: GPUParticles3D = $DashEffect
+@onready var switch_sprite: Sprite3D = $SwitchSprite
 
 @export_range(0,3) var player_id: int = 0
 
@@ -49,6 +50,7 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 
 @export_category("VFX")
 @export var hit_effect_duration: float = 0.2
+@export var switch_effect_duration: float = 0.4
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
@@ -242,6 +244,19 @@ func switch_item():
 	current_picked_item = null
 	
 	pick_up(false)
+	
+	var sprite_with_new_rotation: Vector3 = switch_sprite.rotation
+	sprite_with_new_rotation.z += deg_to_rad(180)
+	
+	switch_sprite.show()
+	var switch_tween: Tween = create_tween()
+	switch_tween.set_trans(Tween.TRANS_BACK)
+	switch_tween.set_ease(Tween.EASE_OUT)
+	switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
+	switch_tween.tween_callback(func():
+		await get_tree().create_timer(0.2).timeout
+		switch_sprite.hide()
+	)
 	
 	switch_sound.post(self)
 

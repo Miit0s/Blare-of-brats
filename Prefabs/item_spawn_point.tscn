@@ -7,6 +7,38 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vx47g"]
 
+[sub_resource type="Curve" id="Curve_nb24v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7412935, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vjh13"]
+curve = SubResource("Curve_nb24v")
+
+[sub_resource type="Curve" id="Curve_fwyty"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50248754, 1), 0.0, 0.0, 0, 0, Vector2(0.6865671, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_np6qv"]
+curve = SubResource("Curve_fwyty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nb24v"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.0
+scale_max = 0.19999999
+alpha_curve = SubResource("CurveTexture_vjh13")
+emission_curve = SubResource("CurveTexture_np6qv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb24v"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_vjh13"]
+material = SubResource("StandardMaterial3D_nb24v")
+
 [node name="ItemSpawnPoint" type="Marker3D" unique_id=635181024]
 gizmo_extents = 1.0
 script = ExtResource("1_vx47g")
@@ -19,6 +51,15 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemDetector" unique_id=1797131750]
 shape = SubResource("CylinderShape3D_vx47g")
+
+[node name="SpawnParticle" type="GPUParticles3D" parent="." unique_id=150251647]
+cast_shadow = 0
+emitting = false
+amount = 100
+one_shot = true
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_nb24v")
+draw_pass_1 = SubResource("SphereMesh_vjh13")
 
 [connection signal="body_entered" from="ItemDetector" to="." method="_on_item_detector_body_entered"]
 [connection signal="body_exited" from="ItemDetector" to="." method="_on_item_detector_body_exited"]
