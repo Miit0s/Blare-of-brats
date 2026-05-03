@@ -183,6 +183,7 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	current_picked_item.attack()
+	current_picked_item.slash_look_at(self.global_position)
 	_make_attack_movement(direction)
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true

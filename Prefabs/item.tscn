@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
+[ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
 [ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="4_dnd63"]
+[ext_resource type="Shader" uid="uid://c2uoqmhe3eg4o" path="res://addons/GPUTrail/shaders/trail_draw_pass_no_depth_test.gdshader" id="5_6uwl0"]
+[ext_resource type="Script" uid="uid://04ta3q4y8qhg" path="res://addons/GPUTrail/GPUTrail3D.gd" id="6_2tfvo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
 resource_local_to_scene = true
@@ -59,7 +62,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_fnt8b"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_k5kpw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c2xw"]
 transparency = 1
@@ -112,6 +115,37 @@ alpha_curve = SubResource("CurveTexture_uxst6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_cc1yy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8ux"]
+shader = ExtResource("4_6uwl0")
+
+[sub_resource type="Gradient" id="Gradient_cc1yy"]
+colors = PackedColorArray(4.415934, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_goa0p"]
+gradient = SubResource("Gradient_cc1yy")
+
+[sub_resource type="Curve" id="Curve_isaxv"]
+bake_resolution = 16
+_data = [Vector2(0, 0.49246573), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w7253"]
+curve = SubResource("Curve_isaxv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jewc"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("5_6uwl0")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_goa0p")
+shader_parameter/curve = SubResource("CurveTexture_w7253")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+
+[sub_resource type="QuadMesh" id="QuadMesh_dp0qm"]
+material = SubResource("ShaderMaterial_6jewc")
+
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
 collision_mask = 5
@@ -158,7 +192,7 @@ draw_pass_1 = SubResource("QuadMesh_fnt8b")
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false
 material_override = SubResource("StandardMaterial3D_dnd63")
-mesh = SubResource("ImmediateMesh_fnt8b")
+mesh = SubResource("ImmediateMesh_k5kpw")
 script = ExtResource("3_fnt8b")
 trail_point_lifetime = 0.3
 points = Array[Vector3]([])
@@ -189,3 +223,22 @@ explosiveness = 1.0
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0t8ux")
 draw_pass_1 = SubResource("QuadMesh_cc1yy")
+
+[node name="TrailPivot" type="Node3D" parent="." unique_id=1918250455]
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="TrailPivot" unique_id=1052939116]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+cast_shadow = 0
+amount = 200
+lifetime = 100.0
+explosiveness = 1.0
+fixed_fps = 143
+process_material = SubResource("ShaderMaterial_0t8ux")
+draw_pass_1 = SubResource("QuadMesh_dp0qm")
+script = ExtResource("6_2tfvo")
+length_seconds = 0.6993006993006993
+color_ramp = SubResource("GradientTexture1D_goa0p")
+curve = SubResource("CurveTexture_w7253")
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://04ta3q4y8qhg"

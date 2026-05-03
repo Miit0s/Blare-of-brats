@@ -5,9 +5,11 @@ class_name Item
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
+@onready var trail_pivot: Node3D = $TrailPivot
 
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
+@onready var gpu_trail_3d: GPUTrail3D = $TrailPivot/GPUTrail3D
 
 @export_category("Attack")
 @export var attack_shape: Shape3D:
@@ -123,11 +125,15 @@ func throw(direction: Vector3):
 func attack():
 	is_attacking = true
 	current_durability -= 1
+	gpu_trail_3d.show()
+	gpu_trail_3d.length = 100
 	sound_made.emit(sound_on_attack)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
 	_attacked_players = []
+	gpu_trail_3d.hide()
+	gpu_trail_3d.length = 0
 	
 	if current_durability <= 0: destroy()
 
@@ -154,3 +160,7 @@ func drop():
 	await get_tree().create_timer(0.1).timeout
 	
 	has_been_drop = false
+
+func slash_look_at(target_position: Vector3):
+	var fixed_target_pos: Vector3 = Vector3(target_position.x, trail_pivot.global_position.y, target_position.z)
+	trail_pivot.look_at(fixed_target_pos)
