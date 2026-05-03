@@ -9,11 +9,6 @@ class_name Item
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
 
-@export var collision_size: float = 10:
-	set(new_value):
-		collision_size = new_value
-		_init_item_instance()
-
 @export_category("Attack")
 @export var attack_shape: Shape3D:
 	set(new_value):
@@ -85,9 +80,6 @@ func _ready() -> void:
 
 func _init_item_instance():
 	if not is_inside_tree(): return
-	
-	var collision_shape: SphereShape3D = collision_shape_3d.shape
-	collision_shape.radius = collision_size / 2
 	
 	sprite_3d.texture = object_texture
 	sprite_3d.scale = Vector3(object_texture_size, object_texture_size, object_texture_size)

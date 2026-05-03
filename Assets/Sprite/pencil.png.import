@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4iy0lv7sedad"
-path.s3tc="res://.godot/imported/bell.png-8f42395bfb4621cc4d4d2eddffc33372.s3tc.ctex"
+uid="uid://cfbfodawjxe41"
+path.s3tc="res://.godot/imported/pencil.png-3f879062e48334b330ce08cd2067fcb8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprite/bell.png"
-dest_files=["res://.godot/imported/bell.png-8f42395bfb4621cc4d4d2eddffc33372.s3tc.ctex"]
+source_file="res://Assets/Sprite/pencil.png"
+dest_files=["res://.godot/imported/pencil.png-3f879062e48334b330ce08cd2067fcb8.s3tc.ctex"]
 
 [params]
 

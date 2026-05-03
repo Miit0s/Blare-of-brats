@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
-[ext_resource type="Texture2D" uid="uid://d4iy0lv7sedad" path="res://Assets/Sprite/bell.png" id="2_okjcq"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/TrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="4_dnd63"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
 resource_local_to_scene = true
 radius = 0.8
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fnt8b"]
+size = Vector2(100, 100)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fnt8b"]
 resource_local_to_scene = true
@@ -119,10 +121,8 @@ axis_lock_angular_z = true
 gravity_scale = 0.0
 linear_damp = 2.5
 script = ExtResource("1_4h7a4")
-collision_size = 2.0
 attack_shape = SubResource("SphereShape3D_okjcq")
-object_texture = ExtResource("2_okjcq")
-object_texture_size = 0.2
+object_texture = SubResource("PlaceholderTexture2D_fnt8b")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
@@ -131,10 +131,9 @@ attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
 shape = SubResource("SphereShape3D_fnt8b")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=563304622]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shaded = true
 alpha_cut = 1
-texture = ExtResource("2_okjcq")
+texture = SubResource("PlaceholderTexture2D_fnt8b")
 
 [node name="AttackCollisionArea" type="Area3D" parent="." unique_id=843248323]
 collision_layer = 0
