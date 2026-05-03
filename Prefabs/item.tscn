@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
-[ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/TrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
+[ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="4_dnd63"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]

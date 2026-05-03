@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be3u7amlues51"
-path="res://.godot/imported/TrailIcon3D.svg-461cddcc0e70e753768a4d2c46bbca96.ctex"
+uid="uid://fyiwnantjtre"
+path="res://.godot/imported/line_render_icon.svg-eecd12d94e092025fb24e24146dc9e63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/TrailRenderer3D/TrailIcon3D.svg"
-dest_files=["res://.godot/imported/TrailIcon3D.svg-461cddcc0e70e753768a4d2c46bbca96.ctex"]
+source_file="res://addons/SimpleTrailRenderer3D/line_render_icon.svg"
+dest_files=["res://.godot/imported/line_render_icon.svg-eecd12d94e092025fb24e24146dc9e63.ctex"]
 
 [params]
 
