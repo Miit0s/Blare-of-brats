@@ -1,3 +1,10 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	314125497	Round_State			\Default Work Unit\Round_State	
+
+State	ID	Name	State Group			Notes
+	514064485	Fight	Round_State			
+	4261315644	Parents	Round_State			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
 

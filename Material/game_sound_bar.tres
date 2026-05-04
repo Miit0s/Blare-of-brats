@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://dyojie6fy44rt" path="res://Shader/game_sound_bar.gdshader" id="1_yncwp"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_yncwp")
 shader_parameter/progress = 0.0
 shader_parameter/progress_range = 0.1

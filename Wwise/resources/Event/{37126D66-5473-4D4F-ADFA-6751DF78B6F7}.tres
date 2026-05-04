@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://b7sn5ck047w0g"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Music_Fight"
+id = 962867917
+guid = "{37126D66-5473-4D4F-ADFA-6751DF78B6F7}"
+dummy = true

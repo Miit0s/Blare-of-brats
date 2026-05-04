@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://dxxbqb8uf44mf"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Dash"
+id = 1942692385
+guid = "{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}"
+dummy = true

@@ -1,0 +1,31 @@
+Event	ID	Name			Wwise Object Path	Notes
+	962867917	Music_Fight			\ALL_EVENTS\Music\Music_Fight	
+	1719710198	GrabObject			\ALL_EVENTS\SFX\Chara\Interac\GrabObject	
+	1942692385	Dash			\ALL_EVENTS\SFX\Chara\Mov\Dash	
+	2476125396	SwitchObject			\ALL_EVENTS\SFX\Chara\Interac\SwitchObject	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	314125497	Round_State			\Default Work Unit\Round_State	
+
+State	ID	Name	State Group			Notes
+	514064485	Fight	Round_State			
+	4261315644	Parents	Round_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	54442139	Lead			\Default Work Unit\Lead	
+	740280485	Round_Time			\Default Work Unit\Round_Time	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	61027230	loop_time_2	.cache\95\{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_2		2841836
+	192332123	lead_P2	.cache\98\{983FEB1C-1A52-4758-DE89-482538170A94}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\lead_P2		3538252
+	284610429	loop_time_1	.cache\2E\{2EB655E3-6ABC-992B-A6BF-DEB6DC074192}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_1		2896964
+	344145984	lead_P1	.cache\4A\{4A0D7403-6F5B-51DA-77EE-9A0DA6B79065}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\lead_P1		3567652
+	351924758	GrabObject	.cache\86\{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\GrabObject		50280
+	452965374	loop_time_3	.cache\99\{999064A2-0085-7495-54FA-1C74904A1923}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_3		3398600
+	675508919	SwitchObject	.cache\8F\{8FFFBD4F-8ADB-E175-E317-B0347672CC4A}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\SwitchObject		70868
+	693540064	Loop	.cache\90\{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\Loop		3066932
+	693680794	fill_parents_shh	.cache\48\{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\fill_parents_shh\fill_parents_shh		546936
+	734518376	Chara_Mov_Dash_v1	.cache\CE\{CEAC2840-5789-9038-4C20-74A55BB1FE7F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1		37008
+	849293141	Chara_Mov_Dash_v1_02	.cache\70\{7095A57D-BF2C-D292-E5CD-A3CA283F2E29}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_02		32432
+	950730316	Chara_Mov_Dash_v1_01	.cache\55\{551933D4-568F-03EC-70ED-1FF36039F858}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_01		28052
+
