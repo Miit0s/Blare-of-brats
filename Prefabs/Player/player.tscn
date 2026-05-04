@@ -65,6 +65,7 @@ script = ExtResource("1_y6xdh")
 speed = 6.0
 dash_speed = 25.0
 min_dash_speed = 8.0
+stun_duration = 0.2
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")

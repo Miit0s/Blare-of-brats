@@ -69,6 +69,9 @@ var is_already_pick: bool = false
 
 var _attacked_players: Array[Player]
 
+var _attack_direction: Vector3 = Vector3.ZERO
+var _throw_direction: Vector3 = Vector3.ZERO
+
 signal sound_made(value: float)
 
 signal has_loose_durability()
@@ -108,13 +111,12 @@ func _process(_delta: float) -> void:
 		var player_hit: Player = body
 		if player_hit.player_id != owner_player and _attacked_players.count(player_hit) == 0:
 			if has_been_throw:
-				_attacked_players.append(player_hit)
-				player_hit.hit(throw_damage)
-				destroy()
+				_collide_with_player(player_hit)
 			elif is_attacking:
 				_attack_player(player_hit)
 
 func throw(direction: Vector3):
+	_throw_direction = direction
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw)
 	
@@ -125,7 +127,8 @@ func throw(direction: Vector3):
 	owner_player = -1
 	trail_renderer_3d.show()
 
-func attack():
+func attack(direction: Vector3):
+	_attack_direction = direction
 	is_attacking = true
 	gpu_trail_3d.show()
 	gpu_trail_3d.length = 100
@@ -194,5 +197,10 @@ func _add_hit_effect(target: Node3D):
 func _attack_player(player_hit: Player):
 	current_durability -= 1
 	_attacked_players.append(player_hit)
-	player_hit.hit(damage)
+	player_hit.hit(damage, _attack_direction)
 	_add_hit_effect(player_hit)
+
+func _collide_with_player(player_hit: Player):
+	_attacked_players.append(player_hit)
+	player_hit.hit(throw_damage, _throw_direction)
+	destroy()

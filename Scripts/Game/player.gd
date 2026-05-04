@@ -72,8 +72,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y = -fall_speed * delta
 	
-	if _is_stun: return
-	
 	#Basic movement
 	var input: Vector2 = Input.get_vector("Left" + _suffix, "Right" + _suffix, "Up" + _suffix, "Down" + _suffix)
 	var direction: Vector3 = Vector3.ZERO
@@ -85,10 +83,10 @@ func _physics_process(delta: float) -> void:
 	
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
-	elif _is_dashing and not _is_aiming:
+	elif _is_dashing and not _is_aiming and not _is_stun:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
-	elif direction and not _is_aiming:
+	elif direction and not _is_aiming and not _is_stun:
 		velocity = direction * speed
 		_last_direction = direction
 	else:
@@ -182,7 +180,7 @@ func attack(direction: Vector3):
 	if current_picked_item == null: return
 	
 	_can_attack = false
-	current_picked_item.attack()
+	current_picked_item.attack(direction)
 	current_picked_item.slash_look_at(self.global_position)
 	_make_attack_movement(direction)
 	await get_tree().create_timer(attack_cooldown).timeout
@@ -220,17 +218,19 @@ func _animate_slash(current_angle: float):
 	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
 	current_picked_item.global_position = global_position + offset
 
-func hit(damage: float):
+func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
 	print("Player " + str(player_id) + " has take " + str(damage))
 	
 	_override_color_effect()
+	knockback(hit_direction)
 	has_been_hit.emit(player_id, damage)
 
 func knockback(hit_direction: Vector3):
-	_knockback_direction = -hit_direction
+	_knockback_direction = hit_direction
 	_is_in_knockback = true
 	await get_tree().create_timer(knockback_duration).timeout
+	stun()
 	_is_in_knockback = false
 
 func stun():
