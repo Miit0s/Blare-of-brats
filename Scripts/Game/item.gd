@@ -3,11 +3,13 @@ extends RigidBody3D
 class_name Item
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var explosion_particle: GPUParticles3D = $ExplosionParticle
+@onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
+@onready var trail_pivot: Node3D = $TrailPivot
 
-@export var collision_size: float = 10:
-	set(new_value):
-		collision_size = new_value
-		_init_item_instance()
+@onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
+@onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
+@onready var gpu_trail_3d: GPUTrail3D = $TrailPivot/GPUTrail3D
 
 @export_category("Attack")
 @export var attack_shape: Shape3D:
@@ -52,6 +54,8 @@ var current_durability: int = 0:
 @export var attack_collision_area: Area3D
 @export var attack_collision_shape_3d: CollisionShape3D
 
+@export var hit_particle_prefab: PackedScene
+
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
 
@@ -70,17 +74,16 @@ signal sound_made(value: float)
 signal has_loose_durability()
 signal will_be_destroy(item: Item)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_durability = durability
+	
+	circle_spawn_particle.emitting = true
+	other_spawn_particle.emitting = true
 	
 	_init_item_instance()
 
 func _init_item_instance():
 	if not is_inside_tree(): return
-	
-	var collision_shape: SphereShape3D = collision_shape_3d.shape
-	collision_shape.radius = collision_size / 2
 	
 	sprite_3d.texture = object_texture
 	sprite_3d.scale = Vector3(object_texture_size, object_texture_size, object_texture_size)
@@ -95,6 +98,8 @@ func _physics_process(_delta: float) -> void:
 		has_been_throw = false
 
 func _process(_delta: float) -> void:
+	if not has_been_throw and not is_attacking: return
+	
 	var attack_area_overlapping_bodies: Array = attack_collision_area.get_overlapping_bodies()
 	
 	if attack_area_overlapping_bodies.is_empty(): return
@@ -109,6 +114,7 @@ func _process(_delta: float) -> void:
 			elif is_attacking:
 				_attacked_players.append(player_hit)
 				player_hit.hit(damage)
+				_add_hit_effect(player_hit)
 
 func throw(direction: Vector3):
 	apply_central_impulse(direction.normalized() * throw_force)
@@ -119,21 +125,32 @@ func throw(direction: Vector3):
 	has_been_throw = true
 	is_already_pick = false
 	owner_player = -1
+	trail_renderer_3d.show()
 
 func attack():
 	is_attacking = true
 	current_durability -= 1
+	gpu_trail_3d.show()
+	gpu_trail_3d.length = 100
 	sound_made.emit(sound_on_attack)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
 	_attacked_players = []
+	gpu_trail_3d.hide()
+	gpu_trail_3d.length = 0
 	
 	if current_durability <= 0: destroy()
 
 func destroy():
 	will_be_destroy.emit(self)
 	sound_made.emit(sound_on_break)
+	sprite_3d.hide()
+	trail_renderer_3d.hide()
+	explosion_particle.emitting = true
+	
+	await explosion_particle.finished
+	
 	queue_free()
 
 func item_picked_up(player_id: int):
@@ -148,3 +165,31 @@ func drop():
 	await get_tree().create_timer(0.1).timeout
 	
 	has_been_drop = false
+
+func slash_look_at(target_position: Vector3):
+	var fixed_target_pos: Vector3 = Vector3(target_position.x, trail_pivot.global_position.y, target_position.z)
+	trail_pivot.look_at(fixed_target_pos)
+
+func _get_hit_point(target: Node3D) -> Vector3:
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	
+	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(self.global_position, target.global_position)
+	query.exclude = [self]
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	if result.is_empty():
+		return Vector3.ZERO
+	
+	return result.position
+
+func _add_hit_effect(target: Node3D):
+	var hit_point: Vector3 = _get_hit_point(target)
+	if hit_point == Vector3.ZERO: return
+	
+	var hit_particle: GPUParticles3D = hit_particle_prefab.instantiate()
+	add_child(hit_particle)
+	
+	hit_particle.global_position = hit_point
+	hit_particle.finished.connect(hit_particle.queue_free)
+	
+	hit_particle.emitting = true

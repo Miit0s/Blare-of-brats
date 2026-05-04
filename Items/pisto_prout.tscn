@@ -11,10 +11,15 @@ radius = 0.35
 resource_local_to_scene = true
 radius = 0.45
 
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_6onc6"]
+
 [node name="Item" unique_id=2059959192 instance=ExtResource("1_7sgx4")]
 collision_size = 0.9
 attack_shape = SubResource("SphereShape3D_nyips")
-durability = 20
+damage = 4.0
+throw_damage = 2.0
+sound_on_attack = 3.0
+durability = 3
 object_texture = ExtResource("2_nyips")
 object_texture_size = 0.05
 
@@ -27,3 +32,6 @@ texture = ExtResource("2_nyips")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 shape = SubResource("SphereShape3D_nyips")
+
+[node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
+mesh = SubResource("ImmediateMesh_6onc6")
