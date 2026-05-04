@@ -11,19 +11,6 @@
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="9_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/item_spawn_point.tscn" id="10_4832p"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06yma"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_4kvl3"]
-sky_material = SubResource("ProceduralSkyMaterial_06yma")
-
-[sub_resource type="Environment" id="Environment_lttqn"]
-background_mode = 2
-sky = SubResource("Sky_4kvl3")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_06yma"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_06yma"]
@@ -41,13 +28,6 @@ round_state = ExtResource("4_mlt6n")
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
 load_on = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=344086588]
-environment = SubResource("Environment_lttqn")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1614572949]
-transform = Transform3D(0.9987088, -0.043995887, 0.025400981, 2.7805946e-08, 0.49999994, 0.86602545, -0.050802022, -0.8649072, 0.4993543, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Player" parent="." unique_id=99407332 instance=ExtResource("2_ugwxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.8, 0)
@@ -75,11 +55,6 @@ anchor_bottom = 0.0
 offset_top = 100.0
 offset_bottom = 130.00002
 grow_vertical = 1
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=766202864]
-transform = Transform3D(1, 0, 0, 0, 0.90357476, 0.42843056, 0, -0.42843056, 0.90357476, 0, 4.701598, 6.179038)
-
-[node name="AkListener3D" type="AkListener3D" parent="Camera3D" unique_id=1595129724]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
 
@@ -111,6 +86,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7676377, 0.83733225, -7.24
 
 [node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=634530316 instance=ExtResource("10_4832p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9373069, 0.83733225, -4.4276257)
+
+[node name="MainCamera3D" type="Camera3D" parent="." unique_id=481956209]
+transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 22.4, 30.37)
+current = true
+fov = 45.0
+
+[node name="AkListener3D" type="AkListener3D" parent="MainCamera3D" unique_id=1595129724]
+transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
 
 [connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
 [connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
