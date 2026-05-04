@@ -36,9 +36,13 @@ func lifebar_value_change(lifebar_value: float):
 	lead.set_value(self, lifebar_value * 100)
 
 
-func _on_item_spawn_system_new_item_spawn(new_item: Item) -> void:
+func _on_map_item_will_be_delete(item: Item) -> void:
+	item.sound_made.disconnect(game_sound_bar.add_sound_to_bar)
+
+
+func _on_map_new_item_spawn(new_item: Item) -> void:
 	new_item.sound_made.connect(game_sound_bar.add_sound_to_bar)
 
 
-func _on_item_spawn_system_item_will_be_delete(item: Item) -> void:
-	item.sound_made.disconnect(game_sound_bar.add_sound_to_bar)
+func _on_map_new_player_spawn(player: Player) -> void:
+	player.has_been_hit.connect(shared_life_bar.add_damage_to_player)

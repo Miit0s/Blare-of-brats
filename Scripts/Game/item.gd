@@ -170,8 +170,8 @@ func _distance_attack():
 	add_child(new_munition)
 
 func destroy():
-	will_be_destroy.emit(self)
 	sound_made.emit(sound_on_break)
+	will_be_destroy.emit(self)
 	sprite_3d.hide()
 	trail_renderer_3d.hide()
 	explosion_particle.emitting = true

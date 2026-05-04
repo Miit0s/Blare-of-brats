@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bdh15iseor34n"]
 
+[ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_4h2nc"]
 [ext_resource type="Texture2D" uid="uid://crpstf6c73cms" path="res://Assets/EnvironmentSprite/ph_wall.png" id="1_k8qvy"]
 [ext_resource type="Texture2D" uid="uid://div85yjn8rl0h" path="res://Assets/EnvironmentSprite/ph_balloon.png" id="2_lj6x0"]
 [ext_resource type="Texture2D" uid="uid://eptfuhrfcgpk" path="res://Assets/EnvironmentSprite/ph_cube.png" id="3_ycds1"]
@@ -262,6 +263,7 @@ size = Vector3(1, 30, 30)
 size = Vector3(40, 30, 1)
 
 [node name="TestMap" type="Node3D" unique_id=1814952881]
+script = ExtResource("1_4h2nc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111186574]
 environment = SubResource("Environment_e2w2p")
@@ -625,3 +627,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1913958, 0.3644774, 0)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("11_4h2nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 0.3644774, 0)
+
+[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
+[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
+[connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]

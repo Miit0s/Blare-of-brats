@@ -5,12 +5,12 @@ class_name Munition
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 
 var speed: float = 1
-var damage: int = 1
+var damage: float = 1
 var direction: Vector3 = Vector3.ZERO
 
 var _has_hit: bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _has_hit: return
 	
 	var motion = direction.normalized() * speed
