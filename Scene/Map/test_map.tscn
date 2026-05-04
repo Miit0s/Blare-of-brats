@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cel7lam6s0a28" path="res://Assets/EnvironmentSprite/ph_castle.png" id="5_svlak"]
 [ext_resource type="Texture2D" uid="uid://p4ckog1r0o4i" path="res://Assets/EnvironmentSprite/ph_sol03.png" id="6_d1br4"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="7_lj6x0"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="8_y0a5r"]
+[ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="9_svlak"]
+[ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="10_d1br4"]
+[ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="11_4h2nc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -248,6 +252,15 @@ size = Vector2(50, 50)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lj6x0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lj6x0"]
+size = Vector3(1, 30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycds1"]
+size = Vector3(1, 30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0a5r"]
+size = Vector3(40, 30, 1)
+
 [node name="TestMap" type="Node3D" unique_id=1814952881]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111186574]
@@ -258,7 +271,7 @@ transform = Transform3D(-0.9011266, 0.23758091, 0.36266565, 0.4261376, 0.3312717
 visible = false
 shadow_enabled = true
 
-[node name="Light" type="Node" parent="." unique_id=1598557746]
+[node name="Light" type="Node3D" parent="." unique_id=280054178]
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Light" unique_id=2016213608]
 transform = Transform3D(-0.6527117, -0.6642355, 0.36436084, 0.7086484, -0.36520407, 0.60369164, -0.26792732, 0.6522403, 0.7090823, 12.311444, 13.296722, 14.270054)
@@ -284,7 +297,7 @@ shadow_enabled = true
 spot_range = 25.86053
 spot_angle = 41.741062
 
-[node name="Sprite" type="Node" parent="." unique_id=303022714]
+[node name="Sprite" type="Node3D" parent="." unique_id=2099313172]
 
 [node name="Sprite3D2" type="Sprite3D" parent="Sprite" unique_id=2041155000]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.389807, 3.9101973, 8.892277)
@@ -506,7 +519,7 @@ shaded = true
 render_priority = -1
 texture = ExtResource("6_d1br4")
 
-[node name="GodRay" type="Node" parent="." unique_id=1483733402]
+[node name="GodRay" type="Node3D" parent="." unique_id=687245628]
 
 [node name="GodraysGreen" type="Sprite3D" parent="GodRay" unique_id=876745380]
 transform = Transform3D(35.807297, 6.2017274, 0, -6.2017274, 35.807297, 0, 0, 0, 77.787056, -25.618446, 8.094153, 7.7012787)
@@ -530,7 +543,7 @@ shaded = true
 alpha_cut = 1
 texture = SubResource("GradientTexture2D_y0a5r")
 
-[node name="Particles" type="Node" parent="." unique_id=1386886178]
+[node name="Particles" type="Node3D" parent="." unique_id=1784685170]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=662395263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.730673, 13.084644, -2.0641603)
@@ -555,3 +568,52 @@ mesh = SubResource("PlaneMesh_ycds1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapBound" unique_id=1438580290]
 shape = SubResource("WorldBoundaryShape3D_lj6x0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MapBound" unique_id=1072864963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.170473, 9.536743e-07, 5.2648854)
+shape = SubResource("BoxShape3D_lj6x0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MapBound" unique_id=1859363534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.513039, 9.536743e-07, 5.2648854)
+shape = SubResource("BoxShape3D_ycds1")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MapBound" unique_id=216081894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9831257)
+shape = SubResource("BoxShape3D_y0a5r")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="MapBound" unique_id=1910916674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.499088)
+shape = SubResource("BoxShape3D_y0a5r")
+
+[node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("8_y0a5r")
+spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint5"), NodePath("ItemSpawnPoint6")]
+
+[node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.695383, 0.8373332, 6.6726274)
+
+[node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1520047895 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.28329, 0.83733416, -2.5842729)
+
+[node name="ItemSpawnPoint3" parent="ItemSpawnSystem" unique_id=1519627424 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.08638, 0.8373332, -1.6832047)
+
+[node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=1508415361 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72618, 0.83733225, 2.541163)
+
+[node name="ItemSpawnPoint5" parent="ItemSpawnSystem" unique_id=820580870 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.083986, 0.8373313, 6.4402723)
+
+[node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=947071575 instance=ExtResource("9_svlak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9373069, 0.83733225, -4.4276257)
+
+[node name="PlayerSpawnSystem" type="Node3D" parent="." unique_id=877128500 node_paths=PackedStringArray("players_spawn", "player_parent_node")]
+script = ExtResource("10_d1br4")
+players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
+player_parent_node = NodePath("..")
+
+[node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("11_4h2nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1913958, 0.3644774, 0)
+
+[node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("11_4h2nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 0.3644774, 0)

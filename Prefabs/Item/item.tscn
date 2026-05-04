@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
-[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/item_hit_particles.tscn" id="2_k5kpw"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="2_k5kpw"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
 [ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="4_dnd63"]
@@ -63,7 +63,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2tfvo"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_k5kpw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c2xw"]
 transparency = 1
@@ -194,7 +194,7 @@ draw_pass_1 = SubResource("QuadMesh_fnt8b")
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false
 material_override = SubResource("StandardMaterial3D_dnd63")
-mesh = SubResource("ImmediateMesh_2tfvo")
+mesh = SubResource("ImmediateMesh_k5kpw")
 script = ExtResource("3_fnt8b")
 trail_point_lifetime = 0.3
 points = Array[Vector3]([])
@@ -206,7 +206,6 @@ metadata/_custom_type_script = "uid://c2m87s7fgx1qk"
 [node name="CircleSpawnParticle" type="GPUParticles3D" parent="." unique_id=1995072262]
 material_override = SubResource("StandardMaterial3D_3c2xw")
 cast_shadow = 0
-emitting = false
 amount = 1
 lifetime = 0.4
 one_shot = true
@@ -217,7 +216,6 @@ draw_pass_1 = SubResource("QuadMesh_dnd63")
 [node name="OtherSpawnParticle" type="GPUParticles3D" parent="." unique_id=1475634289]
 material_override = SubResource("StandardMaterial3D_6uwl0")
 cast_shadow = 0
-emitting = false
 amount = 25
 lifetime = 0.5
 one_shot = true
