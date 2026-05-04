@@ -54,6 +54,8 @@ var current_durability: int = 0:
 @export var attack_collision_area: Area3D
 @export var attack_collision_shape_3d: CollisionShape3D
 
+@export var hit_particle_prefab: PackedScene
+
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
 
@@ -96,6 +98,8 @@ func _physics_process(_delta: float) -> void:
 		has_been_throw = false
 
 func _process(_delta: float) -> void:
+	if not has_been_throw and not is_attacking: return
+	
 	var attack_area_overlapping_bodies: Array = attack_collision_area.get_overlapping_bodies()
 	
 	if attack_area_overlapping_bodies.is_empty(): return
@@ -110,6 +114,7 @@ func _process(_delta: float) -> void:
 			elif is_attacking:
 				_attacked_players.append(player_hit)
 				player_hit.hit(damage)
+				_add_hit_effect(player_hit)
 
 func throw(direction: Vector3):
 	apply_central_impulse(direction.normalized() * throw_force)
@@ -164,3 +169,27 @@ func drop():
 func slash_look_at(target_position: Vector3):
 	var fixed_target_pos: Vector3 = Vector3(target_position.x, trail_pivot.global_position.y, target_position.z)
 	trail_pivot.look_at(fixed_target_pos)
+
+func _get_hit_point(target: Node3D) -> Vector3:
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	
+	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(self.global_position, target.global_position)
+	query.exclude = [self]
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	if result.is_empty():
+		return Vector3.ZERO
+	
+	return result.position
+
+func _add_hit_effect(target: Node3D):
+	var hit_point: Vector3 = _get_hit_point(target)
+	if hit_point == Vector3.ZERO: return
+	
+	var hit_particle: GPUParticles3D = hit_particle_prefab.instantiate()
+	add_child(hit_particle)
+	
+	hit_particle.global_position = hit_point
+	hit_particle.finished.connect(hit_particle.queue_free)
+	
+	hit_particle.emitting = true

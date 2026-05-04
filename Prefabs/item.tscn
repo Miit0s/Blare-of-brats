@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/item_hit_particles.tscn" id="2_k5kpw"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
 [ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="4_dnd63"]
@@ -62,7 +63,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_k5kpw"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2tfvo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c2xw"]
 transparency = 1
@@ -160,6 +161,7 @@ object_texture = SubResource("PlaceholderTexture2D_fnt8b")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
+hit_particle_prefab = ExtResource("2_k5kpw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1358719798]
 shape = SubResource("SphereShape3D_fnt8b")
@@ -192,7 +194,7 @@ draw_pass_1 = SubResource("QuadMesh_fnt8b")
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false
 material_override = SubResource("StandardMaterial3D_dnd63")
-mesh = SubResource("ImmediateMesh_k5kpw")
+mesh = SubResource("ImmediateMesh_2tfvo")
 script = ExtResource("3_fnt8b")
 trail_point_lifetime = 0.3
 points = Array[Vector3]([])
@@ -230,7 +232,7 @@ draw_pass_1 = SubResource("QuadMesh_cc1yy")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 visible = false
 cast_shadow = 0
-amount = 200
+amount = 100
 lifetime = 100.0
 explosiveness = 1.0
 fixed_fps = 143
