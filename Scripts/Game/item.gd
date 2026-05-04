@@ -112,9 +112,7 @@ func _process(_delta: float) -> void:
 				player_hit.hit(throw_damage)
 				destroy()
 			elif is_attacking:
-				_attacked_players.append(player_hit)
-				player_hit.hit(damage)
-				_add_hit_effect(player_hit)
+				_attack_player(player_hit)
 
 func throw(direction: Vector3):
 	apply_central_impulse(direction.normalized() * throw_force)
@@ -129,7 +127,6 @@ func throw(direction: Vector3):
 
 func attack():
 	is_attacking = true
-	current_durability -= 1
 	gpu_trail_3d.show()
 	gpu_trail_3d.length = 100
 	sound_made.emit(sound_on_attack)
@@ -193,3 +190,9 @@ func _add_hit_effect(target: Node3D):
 	hit_particle.finished.connect(hit_particle.queue_free)
 	
 	hit_particle.emitting = true
+
+func _attack_player(player_hit: Player):
+	current_durability -= 1
+	_attacked_players.append(player_hit)
+	player_hit.hit(damage)
+	_add_hit_effect(player_hit)

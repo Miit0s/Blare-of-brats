@@ -297,6 +297,14 @@ shadow_enabled = true
 spot_range = 25.86053
 spot_angle = 41.741062
 
+[node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=1267250948]
+transform = Transform3D(0.9493028, -0.2729696, 0.15592259, -0.15824383, 0.013635129, 0.98730594, -0.27163056, -0.96192604, -0.030251889, 13.304586, 17.363535, -7.6686325)
+light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 25.86053
+spot_angle = 41.741062
+
 [node name="Sprite" type="Node3D" parent="." unique_id=2099313172]
 
 [node name="Sprite3D2" type="Sprite3D" parent="Sprite" unique_id=2041155000]
