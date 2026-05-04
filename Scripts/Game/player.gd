@@ -28,8 +28,12 @@ var _dash_can_be_use: bool = true
 
 @export_category("Attack")
 @export var slash_arc: float = 120
-var attack_cooldown: float = 1
+@export var attack_move_speed: float = 20.0
+@export var attack_move_duration: float = 0.05
+@export var attack_cooldown: float = 1
 var _can_attack: bool = true
+var _is_attacking: bool = false
+var _is_making_attack_move: bool = false
 
 @export_category("Stun")
 @export var stun_duration: float = 1
@@ -83,10 +87,12 @@ func _physics_process(delta: float) -> void:
 	
 	if _is_in_knockback:
 		velocity = _knockback_direction.normalized() * knockback_speed
-	elif _is_dashing and not _is_aiming and not _is_stun:
+	elif _is_making_attack_move:
+		velocity = _last_direction.normalized() * attack_move_speed
+	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
-	elif direction and not _is_aiming and not _is_stun:
+	elif direction and not _is_aiming and not _is_stun and not _is_attacking:
 		velocity = direction * speed
 		_last_direction = direction
 	else:
@@ -117,7 +123,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
 		attack(_current_direction if _current_direction else _last_direction)
 	
-	if current_picked_item and not current_picked_item.is_attacking:
+	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
 		var aim_direction: Vector3 = Vector3.ZERO
 		aim_direction = _current_direction if _current_direction else _last_direction
 		
@@ -180,11 +186,19 @@ func attack(direction: Vector3):
 	if current_picked_item == null: return
 	
 	_can_attack = false
+	
 	current_picked_item.attack(direction)
-	current_picked_item.slash_look_at(self.global_position)
-	_make_attack_movement(direction)
-	await get_tree().create_timer(attack_cooldown).timeout
-	_can_attack = true
+	
+	if not current_picked_item.distance:
+		_is_attacking = true
+		_is_making_attack_move = true
+		
+		current_picked_item.slash_look_at(self.global_position)
+		_make_attack_movement(direction)
+	
+	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
+	get_tree().create_timer(attack_move_duration).timeout.connect(func(): _is_making_attack_move = false)
+	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
 
 func _make_attack_movement(direction: Vector3):
 	var base_angle: float = atan2(direction.x, direction.z)
@@ -211,8 +225,6 @@ func _make_attack_movement(direction: Vector3):
 		end_angle,
 		current_picked_item.attack_speed
 	)
-	
-	await slash_tween.finished
 
 func _animate_slash(current_angle: float):
 	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance

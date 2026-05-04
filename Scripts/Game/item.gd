@@ -11,7 +11,10 @@ class_name Item
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
 @onready var gpu_trail_3d: GPUTrail3D = $TrailPivot/GPUTrail3D
 
-@export_category("Attack")
+@export_category("Type")
+@export var distance: bool = false
+
+@export_category("Melee Attack")
 @export var attack_shape: Shape3D:
 	set(new_value):
 		if attack_shape: attack_shape.changed.disconnect(_init_item_instance)
@@ -19,6 +22,12 @@ class_name Item
 		attack_shape = new_value
 		new_value.changed.connect(_init_item_instance)
 		_init_item_instance()
+
+@export_category("Distance Attack")
+@export var munition_prefab: PackedScene
+@export var munition_speed: float = 0.1
+
+@export_category("Attack")
 @export var attack_speed: float = 0.5
 @export var damage: float = 1
 
@@ -32,7 +41,7 @@ class_name Item
 @export var sound_on_break: float = 10
 
 @export_category("Lifetime")
-@export var durability: int = 20
+@export var durability: int = 5
 @export var break_on_throw: bool = true
 var current_durability: int = 0:
 	set(new_value):
@@ -65,6 +74,7 @@ var has_been_throw: bool = false
 var has_been_drop: bool = false
 
 var is_attacking: bool = false
+var is_melee_attacking: bool = false
 var is_already_pick: bool = false
 
 var _attacked_players: Array[Player]
@@ -101,18 +111,16 @@ func _physics_process(_delta: float) -> void:
 		has_been_throw = false
 
 func _process(_delta: float) -> void:
-	if not has_been_throw and not is_attacking: return
+	if not has_been_throw and not is_melee_attacking: return
 	
 	var attack_area_overlapping_bodies: Array = attack_collision_area.get_overlapping_bodies()
-	
 	if attack_area_overlapping_bodies.is_empty(): return
-	
 	for body in attack_area_overlapping_bodies:
 		var player_hit: Player = body
 		if player_hit.player_id != owner_player and _attacked_players.count(player_hit) == 0:
 			if has_been_throw:
 				_collide_with_player(player_hit)
-			elif is_attacking:
+			elif is_melee_attacking:
 				_attack_player(player_hit)
 
 func throw(direction: Vector3):
@@ -130,17 +138,36 @@ func throw(direction: Vector3):
 func attack(direction: Vector3):
 	_attack_direction = direction
 	is_attacking = true
-	gpu_trail_3d.show()
-	gpu_trail_3d.length = 100
 	sound_made.emit(sound_on_attack)
+	
+	if distance : _distance_attack()
+	else: _melee_attack()
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
+	
+	if current_durability <= 0: destroy()
+
+func _melee_attack():
+	is_melee_attacking = true
+	gpu_trail_3d.show()
+	gpu_trail_3d.length = 100
+	
+	await get_tree().create_timer(attack_speed).timeout
+	is_melee_attacking = false
 	_attacked_players = []
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
+
+func _distance_attack():
+	current_durability -= 1
+	var new_munition: Munition = munition_prefab.instantiate()
+	new_munition.direction = _attack_direction
+	new_munition.damage = damage
+	new_munition.speed = munition_speed
+	new_munition.position = global_position
 	
-	if current_durability <= 0: destroy()
+	add_child(new_munition)
 
 func destroy():
 	will_be_destroy.emit(self)
