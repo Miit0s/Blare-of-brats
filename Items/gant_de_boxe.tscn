@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bhmfwu2e856oa"]
 
-[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="1_8dmrf"]
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_8dmrf"]
 [ext_resource type="Texture2D" uid="uid://cgvpjui7dgnly" path="res://Assets/Sprite/boxing_glove.png" id="2_fkw4f"]
+
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8dmrf"]
 resource_local_to_scene = true

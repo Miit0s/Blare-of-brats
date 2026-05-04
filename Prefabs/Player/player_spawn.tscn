@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bh5am7bj2c0ag"]
+
+[ext_resource type="Script" uid="uid://clq8nxwjvqogx" path="res://Scripts/Game/player_spawn.gd" id="1_xxhj6"]
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="2_nqa8x"]
+
+[node name="PlayerSpawn" type="Marker3D" unique_id=89305068]
+gizmo_extents = 1.25
+script = ExtResource("1_xxhj6")
+player_prefab = ExtResource("2_nqa8x")

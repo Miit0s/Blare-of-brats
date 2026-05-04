@@ -2,19 +2,12 @@
 
 [ext_resource type="Script" uid="uid://curiv2kllrs5x" path="res://Scripts/Game/game_scene.gd" id="1_f38sd"]
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ee6vw"]
-[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/player.tscn" id="2_ugwxx"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="9_mlt6n"]
-[ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/item_spawn_point.tscn" id="10_4832p"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_06yma"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_06yma"]
-size = Vector2(50, 50)
+[ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar")]
 script = ExtResource("1_f38sd")
@@ -28,13 +21,6 @@ round_state = ExtResource("4_mlt6n")
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
 load_on = 1
-
-[node name="Player" parent="." unique_id=99407332 instance=ExtResource("2_ugwxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.8, 0)
-
-[node name="Player2" parent="." unique_id=149230811 instance=ExtResource("2_ugwxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.8, 0)
-player_id = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
 
@@ -56,37 +42,6 @@ offset_top = 100.0
 offset_bottom = 130.00002
 grow_vertical = 1
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1144936754]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1127344690]
-shape = SubResource("WorldBoundaryShape3D_06yma")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1550448585]
-mesh = SubResource("PlaneMesh_06yma")
-
-[node name="ItemSpawnSystem" type="Node" parent="." unique_id=824423400 node_paths=PackedStringArray("spawn_points")]
-script = ExtResource("9_mlt6n")
-spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint5"), NodePath("ItemSpawnPoint6")]
-metadata/_custom_type_script = "uid://g3ik4gukh82c"
-
-[node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83733416, 0)
-
-[node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1435575763 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.376936, 0.83733416, -3.7860217)
-
-[node name="ItemSpawnPoint3" parent="ItemSpawnSystem" unique_id=694300464 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.628827, 0.8373332, -6.7054577)
-
-[node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=608838818 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.947226, 0.8373332, 2.6315498)
-
-[node name="ItemSpawnPoint5" parent="ItemSpawnSystem" unique_id=995836369 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7676377, 0.83733225, -7.2495565)
-
-[node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=634530316 instance=ExtResource("10_4832p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9373069, 0.83733225, -4.4276257)
-
 [node name="MainCamera3D" type="Camera3D" parent="." unique_id=481956209]
 transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 22.4, 30.37)
 current = true
@@ -95,10 +50,9 @@ fov = 45.0
 [node name="AkListener3D" type="AkListener3D" parent="MainCamera3D" unique_id=1595129724]
 transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
 
-[connection signal="has_been_hit" from="Player" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
-[connection signal="has_been_hit" from="Player2" to="CanvasLayer/SharedLifeBar" method="add_damage_to_player"]
+[node name="TestMap" parent="." unique_id=1814952881 instance=ExtResource("8_ee6vw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.967, 0, 0)
+
 [connection signal="lifebar_value_change" from="CanvasLayer/SharedLifeBar" to="." method="lifebar_value_change"]
 [connection signal="player_dead" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_dead"]
 [connection signal="sound_bar_fill" from="CanvasLayer/GameSoundBar" to="." method="_on_game_sound_bar_sound_bar_fill"]
-[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
-[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]

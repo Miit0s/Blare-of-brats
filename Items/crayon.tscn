@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://0bbwwyp6o8jb"]
 
-[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/item.tscn" id="1_onh0j"]
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_onh0j"]
 [ext_resource type="Texture2D" uid="uid://cfbfodawjxe41" path="res://Assets/Sprite/pencil.png" id="2_njkn3"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_njkn3"]
 size = Vector3(2, 0.24, 0.1)
