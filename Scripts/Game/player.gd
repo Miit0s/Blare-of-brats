@@ -6,6 +6,7 @@ class_name Player
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var dash_effect: GPUParticles3D = $DashEffect
 @onready var switch_sprite: Sprite3D = $SwitchSprite
+@onready var feet: Node3D = $Feet
 
 @export_range(0,3) var player_id: int = 0
 

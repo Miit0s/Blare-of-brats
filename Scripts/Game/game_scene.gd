@@ -3,6 +3,7 @@ extends Node3D
 @export_category("Instance")
 @export var shared_life_bar: SharedLifeBar
 @export var game_sound_bar: GameSoundBar
+@export var camera_controller: CameraController
 
 @export_category("GameScene")
 @export var game_ended_scene_uid: String
@@ -15,6 +16,12 @@ extends Node3D
 func _ready() -> void: 
 	music_fight.post(self)
 	round_state.set_value()
+	
+	await get_tree().create_timer(1).timeout
+	camera_controller.start_tracking()
+
+func _exit_tree() -> void:
+	music_fight.stop(self)
 
 
 func party_finish(dead_player_id: int):
@@ -45,4 +52,5 @@ func _on_map_new_item_spawn(new_item: Item) -> void:
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
+	camera_controller.add_player(player)
 	player.has_been_hit.connect(shared_life_bar.add_damage_to_player)

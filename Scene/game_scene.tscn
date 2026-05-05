@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar")]
+[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
 shared_life_bar = NodePath("CanvasLayer/SharedLifeBar")
 game_sound_bar = NodePath("CanvasLayer/GameSoundBar")
+camera_controller = NodePath("CameraController")
 game_ended_scene_uid = "uid://b1nchn1fbud6v"
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
@@ -42,16 +44,20 @@ offset_top = 100.0
 offset_bottom = 130.00002
 grow_vertical = 1
 
-[node name="MainCamera3D" type="Camera3D" parent="." unique_id=481956209]
-transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 22.4, 30.37)
+[node name="TestMap" parent="." unique_id=1814952881 instance=ExtResource("8_ee6vw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.967, 0, 0)
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
+script = ExtResource("9_mlt6n")
+
+[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
+transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 0, 0)
 current = true
 fov = 45.0
 
-[node name="AkListener3D" type="AkListener3D" parent="MainCamera3D" unique_id=1595129724]
+[node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
 transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
-
-[node name="TestMap" parent="." unique_id=1814952881 instance=ExtResource("8_ee6vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.967, 0, 0)
 
 [connection signal="lifebar_value_change" from="CanvasLayer/SharedLifeBar" to="." method="lifebar_value_change"]
 [connection signal="player_dead" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_dead"]
