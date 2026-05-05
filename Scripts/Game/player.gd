@@ -56,6 +56,9 @@ var _knockback_direction: Vector3 = Vector3.ZERO
 @export var hit_effect_duration: float = 0.2
 @export var switch_effect_duration: float = 0.4
 
+@export_category("Visual")
+@export var sprites_lists: Array[Texture2D]
+
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
 
@@ -101,7 +104,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
-
+	
+	_update_sprite(direction)
+	
 	move_and_slide()
 
 func _process(delta: float) -> void:
@@ -301,4 +306,17 @@ func _override_color_effect():
 		0.0,
 		hit_effect_duration
 	)
-	
+
+func _update_sprite(current_direction: Vector3):
+	var sprite_index: int = _get_angle_zone(current_direction, sprites_lists.size())
+	_change_player_sprite(sprites_lists[sprite_index])
+
+func _get_angle_zone(direction: Vector3, steps: int) -> int:
+	var angle: float = atan2(direction.x, direction.z)
+	angle += TAU if angle < 0.0 else 0.0
+	return wrapi(round(angle * steps / TAU), 0, steps)
+
+func _change_player_sprite(new_sprite: Texture2D):
+	sprite_3d.texture = new_sprite
+	sprite_3d.material_override.set_shader_parameter("sprite_texture", new_sprite)
+	dash_effect.material_override.set_shader_parameter("sprite_texture", new_sprite)
