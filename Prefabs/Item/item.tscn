@@ -247,3 +247,6 @@ color_ramp = SubResource("GradientTexture1D_goa0p")
 curve = SubResource("CurveTexture_w7253")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://04ta3q4y8qhg"
+
+[node name="MunitionCache" parent="." unique_id=1567439643 instance=ExtResource("2_oe5v1")]
+visible = false
