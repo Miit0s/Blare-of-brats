@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
+@onready var wall_detection_area: Area3D = $WallDetectionArea
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var dash_effect: GPUParticles3D = $DashEffect
@@ -41,9 +42,11 @@ var _is_making_attack_move: bool = false
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
+@export var knockback_rebound_multiplier: float = 0.5
 @export var knockback_duration: float = 0.05
 @export var min_knockback_speed: float = 15.0
 var _is_in_knockback: bool = false
+var _has_hit_wall: bool = false
 var _knockback_direction: Vector3 = Vector3.ZERO
 var _knockback_speed_to_apply: float = 0
 
@@ -58,12 +61,14 @@ var _knockback_speed_to_apply: float = 0
 @export_category("VFX")
 @export var hit_effect_duration: float = 0.2
 @export var switch_effect_duration: float = 0.4
+@export var wall_bounce_particle_prefab: PackedScene
 
 @export_category("Visual")
 @export var sprites_lists: Array[Texture2D]
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
+var _last_wall_hit_normal: Vector3 = Vector3.ZERO
 
 var _suffix: String = ""
 var current_picked_item: Item = null
@@ -91,7 +96,10 @@ func _physics_process(delta: float) -> void:
 	_current_direction = direction
 	
 	if _is_in_knockback:
-		velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
+		if _has_hit_wall:
+			velocity = (_knockback_direction.bounce(_last_wall_hit_normal).normalized() * _knockback_speed_to_apply) * knockback_rebound_multiplier
+		else:
+			velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
 	elif _is_making_attack_move:
 		velocity = _last_direction.normalized() * attack_move_speed
 	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking:
@@ -259,6 +267,7 @@ func knockback(hit_direction: Vector3):
 	
 	stun()
 	_is_in_knockback = false
+	_has_hit_wall = false
 
 func stun():
 	_is_stun = true
@@ -330,3 +339,32 @@ func _change_player_sprite(new_sprite: Texture2D):
 	sprite_3d.texture = new_sprite
 	sprite_3d.material_override.set_shader_parameter("sprite_texture", new_sprite)
 	dash_effect.material_override.set_shader_parameter("sprite_texture", new_sprite)
+
+
+func _on_wall_detection_area_body_entered(_body: Node3D) -> void:
+	if not _is_in_knockback: return
+	
+	var ray_direction = _knockback_direction.normalized() * 2.0
+	var target_position = global_position + ray_direction
+	
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(
+		global_position, 
+		target_position, 
+		wall_detection_area.collision_mask,
+		[self]
+	)
+	
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	_last_wall_hit_normal = result.normal
+	_has_hit_wall = true
+	
+	var bounce_particle: GPUParticles3D = wall_bounce_particle_prefab.instantiate()
+	add_child(bounce_particle)
+	
+	bounce_particle.global_position = result.position
+	bounce_particle.look_at(result.position + result.normal)
+	bounce_particle.finished.connect(bounce_particle.queue_free)
+	
+	bounce_particle.emitting = true
