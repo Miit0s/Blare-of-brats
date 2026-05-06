@@ -64,7 +64,7 @@ var _knockback_speed_to_apply: float = 0
 @export var wall_bounce_particle_prefab: PackedScene
 
 @export_category("Visual")
-@export var sprites_lists: Array[Texture2D]
+@export var sprites_frames: SpriteFrames
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
@@ -351,8 +351,8 @@ func _override_color_effect():
 	)
 
 func _update_sprite(current_direction: Vector3):
-	var sprite_index: int = _get_angle_zone(current_direction, sprites_lists.size())
-	_change_player_sprite(sprites_lists[sprite_index])
+	var sprite_index: int = _get_angle_zone(current_direction, sprites_frames.get_frame_count("default"))
+	_change_player_sprite(sprites_frames.get_frame_texture("default", sprite_index))
 
 func _get_angle_zone(direction: Vector3, steps: int) -> int:
 	var angle: float = atan2(direction.x, direction.z)
@@ -361,8 +361,28 @@ func _get_angle_zone(direction: Vector3, steps: int) -> int:
 
 func _change_player_sprite(new_sprite: Texture2D):
 	sprite_3d.texture = new_sprite
-	sprite_3d.material_override.set_shader_parameter("sprite_texture", new_sprite)
-	dash_effect.material_override.set_shader_parameter("sprite_texture", new_sprite)
+	
+	var material_sprite: ShaderMaterial = sprite_3d.material_override
+	var material_dash: ShaderMaterial = dash_effect.material_override
+	
+	material_sprite.set_shader_parameter("sprite_texture", new_sprite)
+	material_sprite.set_shader_parameter("uv_offset", Vector2.ZERO)
+	material_sprite.set_shader_parameter("uv_scale", Vector2.ONE)
+	
+	if new_sprite is AtlasTexture:
+		var atlas_size: Vector2 = new_sprite.atlas.get_size()
+		var region: Rect2 = new_sprite.region
+		
+		var uv_offset: Vector2 = region.position / atlas_size
+		var uv_scale: Vector2 = region.size / atlas_size
+		
+		material_dash.set_shader_parameter("sprite_texture", new_sprite.atlas)
+		material_dash.set_shader_parameter("uv_offset", uv_offset)
+		material_dash.set_shader_parameter("uv_scale", uv_scale)
+	else:
+			material_dash.set_shader_parameter("sprite_texture", new_sprite)
+			material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
+			material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
 
 
 func _on_wall_detection_area_body_entered(_body: Node3D) -> void:

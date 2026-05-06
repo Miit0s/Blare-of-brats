@@ -43,7 +43,6 @@ folder_colors={
 "res://Assets/": "purple",
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
-"res://Items/": "blue",
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
 "res://Scripts/": "yellow",
