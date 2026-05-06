@@ -34,6 +34,7 @@ class_name Item
 @export_category("Throw")
 @export var throw_force: float = 20.0
 @export var throw_damage: float = 5.0
+@export var throw_max_distance: float = 20.0
 
 @export_category("Sound")
 @export var sound_on_attack: float = 1
@@ -82,6 +83,8 @@ var _attacked_players: Array[Player]
 var _attack_direction: Vector3 = Vector3.ZERO
 var _throw_direction: Vector3 = Vector3.ZERO
 
+var _throw_start_point: Vector3 = Vector3.ZERO
+
 signal sound_made(value: float)
 
 signal has_loose_durability()
@@ -105,10 +108,11 @@ func _init_item_instance():
 func _physics_process(_delta: float) -> void:
 	if not has_been_throw: return
 	
+	if global_position.distance_to(_throw_start_point) > throw_max_distance:
+		destroy()
+	
 	if linear_velocity.length() < minimal_speed:
 		destroy()
-		linear_velocity = Vector3.ZERO
-		has_been_throw = false
 
 func _process(_delta: float) -> void:
 	if not has_been_throw and not is_melee_attacking: return
@@ -125,6 +129,7 @@ func _process(_delta: float) -> void:
 
 func throw(direction: Vector3):
 	_throw_direction = direction
+	_throw_start_point = global_position
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(4, true)
 	apply_central_impulse(direction.normalized() * throw_force)
@@ -174,6 +179,9 @@ func _distance_attack():
 	sound_made.emit(sound_on_attack)
 
 func destroy():
+	linear_velocity = Vector3.ZERO
+	has_been_throw = false
+	
 	sound_made.emit(sound_on_break)
 	will_be_destroy.emit(self)
 	sprite_3d.hide()
