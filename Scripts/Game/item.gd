@@ -138,7 +138,6 @@ func throw(direction: Vector3):
 func attack(direction: Vector3):
 	_attack_direction = direction
 	is_attacking = true
-	sound_made.emit(sound_on_attack)
 	
 	if distance : _distance_attack()
 	else: _melee_attack()
@@ -161,6 +160,7 @@ func _melee_attack():
 
 func _distance_attack():
 	current_durability -= 1
+	
 	var new_munition: Munition = munition_prefab.instantiate()
 	new_munition.direction = _attack_direction
 	new_munition.damage = damage
@@ -168,6 +168,8 @@ func _distance_attack():
 	new_munition.position = global_position
 	
 	add_child(new_munition)
+	
+	sound_made.emit(sound_on_attack)
 
 func destroy():
 	sound_made.emit(sound_on_break)
@@ -223,6 +225,8 @@ func _add_hit_effect(target: Node3D):
 
 func _attack_player(player_hit: Player):
 	current_durability -= 1
+	sound_made.emit(sound_on_attack)
+	
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction)
 	_add_hit_effect(player_hit)
