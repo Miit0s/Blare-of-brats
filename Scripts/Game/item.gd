@@ -254,3 +254,10 @@ func _collide_with_player(player_hit: Player):
 	_attacked_players.append(player_hit)
 	player_hit.hit(throw_damage, _throw_direction)
 	destroy()
+
+func cancel_animation():
+	is_attacking = false
+	is_melee_attacking = false
+	
+	gpu_trail_3d.hide()
+	gpu_trail_3d.length = 0

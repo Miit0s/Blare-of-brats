@@ -77,6 +77,8 @@ var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
 
+var _attack_tween: Tween = null
+
 signal has_been_hit(player_id: int, damage: float)
 
 func _ready() -> void:
@@ -202,17 +204,20 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	current_picked_item.attack(direction)
-	
-	if not current_picked_item.distance:
+	if current_picked_item.distance:
+		current_picked_item.attack(direction)
+	else:
 		_is_attacking = true
 		_is_making_attack_move = true
 		
-		current_picked_item.slash_look_at(self.global_position)
-		_make_attack_movement(direction)
+		get_tree().create_timer(attack_move_duration).timeout.connect(func(): 
+			_is_making_attack_move = false
+			current_picked_item.slash_look_at(self.global_position)
+			current_picked_item.attack(direction)
+			_make_attack_movement(direction)
+		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
-	get_tree().create_timer(attack_move_duration).timeout.connect(func(): _is_making_attack_move = false)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
 
 func _make_attack_movement(direction: Vector3):
@@ -233,6 +238,7 @@ func _make_attack_movement(direction: Vector3):
 	var slash_tween: Tween = create_tween() \
 		.set_trans(Tween.TRANS_QUART) \
 		.set_ease(Tween.EASE_OUT)
+	_attack_tween = slash_tween
 	
 	slash_tween.tween_method(
 		_animate_slash,
@@ -240,10 +246,24 @@ func _make_attack_movement(direction: Vector3):
 		end_angle,
 		current_picked_item.attack_speed
 	)
+	
+	await slash_tween.finished
+	_attack_tween = null
 
 func _animate_slash(current_angle: float):
 	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
 	current_picked_item.global_position = global_position + offset
+
+func cancel_animation():
+	if _attack_tween:
+		_attack_tween.stop()
+	
+	if current_picked_item:
+		current_picked_item.cancel_animation()
+	
+	_is_attacking = false
+	_is_making_attack_move = false
+	_is_aiming = false
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
@@ -251,6 +271,10 @@ func hit(damage: float, hit_direction: Vector3):
 	
 	_override_color_effect()
 	knockback(hit_direction)
+	
+	if _is_attacking or _is_aiming:
+		cancel_animation()
+	
 	has_been_hit.emit(player_id, damage)
 
 func knockback(hit_direction: Vector3):
