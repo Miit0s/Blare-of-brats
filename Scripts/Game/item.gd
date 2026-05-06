@@ -179,8 +179,17 @@ func _distance_attack():
 	sound_made.emit(sound_on_attack)
 
 func destroy():
-	linear_velocity = Vector3.ZERO
+	collision_layer = 0
+	collision_mask = 0
+	freeze = true
+	
+	attack_collision_area.monitoring = false
+	attack_collision_area.monitorable = false
+	
 	has_been_throw = false
+	is_melee_attacking = false
+	
+	linear_velocity = Vector3.ZERO
 	
 	sound_made.emit(sound_on_break)
 	will_be_destroy.emit(self)

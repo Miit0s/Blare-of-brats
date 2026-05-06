@@ -42,8 +42,10 @@ var _is_making_attack_move: bool = false
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
 @export var knockback_duration: float = 0.05
+@export var min_knockback_speed: float = 15.0
 var _is_in_knockback: bool = false
 var _knockback_direction: Vector3 = Vector3.ZERO
+var _knockback_speed_to_apply: float = 0
 
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
@@ -74,7 +76,6 @@ signal has_been_hit(player_id: int, damage: float)
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
-	_dash_speed_to_apply = dash_speed
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -90,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	_current_direction = direction
 	
 	if _is_in_knockback:
-		velocity = _knockback_direction.normalized() * knockback_speed
+		velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
 	elif _is_making_attack_move:
 		velocity = _last_direction.normalized() * attack_move_speed
 	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking:
@@ -141,6 +142,7 @@ func dash():
 	_is_dashing = true
 	_is_invincible = true
 	dash_effect.emitting = true
+	_dash_speed_to_apply = dash_speed
 	
 	var dash_speed_tween: Tween = create_tween()
 	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)
@@ -152,7 +154,6 @@ func dash():
 		func(): 
 		_is_dashing = false
 		_is_invincible = false
-		_dash_speed_to_apply = dash_speed
 	)
 	
 	dash_sound.post(self)
@@ -247,7 +248,15 @@ func hit(damage: float, hit_direction: Vector3):
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction
 	_is_in_knockback = true
-	await get_tree().create_timer(knockback_duration).timeout
+	_knockback_speed_to_apply = knockback_speed
+	
+	var knockback_speed_tween: Tween = create_tween()
+	knockback_speed_tween.tween_property(self, "_knockback_speed_to_apply", min_dash_speed, knockback_duration)
+	knockback_speed_tween.set_trans(Tween.TRANS_CUBIC)
+	knockback_speed_tween.set_ease(Tween.EASE_OUT)
+	
+	await knockback_speed_tween.finished
+	
 	stun()
 	_is_in_knockback = false
 
