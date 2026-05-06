@@ -125,6 +125,8 @@ func _process(_delta: float) -> void:
 
 func throw(direction: Vector3):
 	_throw_direction = direction
+	set_collision_layer_value(4, true)
+	set_collision_mask_value(4, true)
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw)
 	
