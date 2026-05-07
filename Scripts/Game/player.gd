@@ -76,6 +76,7 @@ var current_picked_item: Item = null
 var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
+var _is_freeze: bool = false
 
 var _attack_tween: Tween = null
 
@@ -104,10 +105,10 @@ func _physics_process(delta: float) -> void:
 			velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
 	elif _is_making_attack_move:
 		velocity = _last_direction.normalized() * attack_move_speed
-	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking:
+	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
-	elif direction and not _is_aiming and not _is_stun and not _is_attacking:
+	elif direction and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
 		velocity = direction * speed
 		_last_direction = direction
 	else:
@@ -122,6 +123,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	if _is_freeze or _is_stun: return
+	
 	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use:
 		dash()
 	
@@ -412,3 +415,9 @@ func _on_wall_detection_area_body_entered(_body: Node3D) -> void:
 	bounce_particle.finished.connect(bounce_particle.queue_free)
 	
 	bounce_particle.emitting = true
+
+func freeze():
+	_is_freeze = true
+
+func unfreeze():
+	_is_freeze = false

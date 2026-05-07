@@ -30,3 +30,6 @@ func add_sound_to_bar(sound_volume: float):
 	await tween.finished
 	
 	if _game_sound_bar_volume >= 1.0: sound_bar_fill.emit()
+
+func reset():
+	_game_sound_bar_volume = 0

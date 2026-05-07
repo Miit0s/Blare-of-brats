@@ -23,7 +23,7 @@ var progress_bar_value: float = 0.5:
 		progress_bar_value = clamped_value
 		_progress_bar_value_changed(progress_bar_value)
 
-signal player_dead(dead_player_id: int)
+signal player_win(player_id: int)
 signal lifebar_value_change(new_value: float)
 
 func _ready() -> void:
@@ -72,10 +72,16 @@ func add_damage_to_player(player_id: int, damage: float):
 	
 	await tween.finished
 	
-	if progress_bar_value <= 0: player_dead.emit(get_player_id_with_least_health())
-	elif progress_bar_value >= 1: player_dead.emit(get_player_id_with_least_health())
+	if progress_bar_value <= 0: player_win.emit(get_player_id_with_most_health())
+	elif progress_bar_value >= 1: player_win.emit(get_player_id_with_most_health())
 	
 	lifebar_value_change.emit(progress_bar_value)
 
 func get_player_id_with_least_health() -> int:
 	return 0 if progress_bar_value <= 0.5 else 1
+
+func get_player_id_with_most_health() -> int:
+	return 0 if progress_bar_value >= 0.5 else 1
+
+func reset():
+	progress_bar_value = 0.5

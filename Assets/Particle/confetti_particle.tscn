@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dwtgkjjo7d1q5"]
+
+[sub_resource type="Gradient" id="Gradient_0xejm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d20h6"]
+gradient = SubResource("Gradient_0xejm")
+width = 32
+height = 32
+
+[sub_resource type="Curve" id="Curve_d20h6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84274185, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vekjp"]
+curve = SubResource("Curve_d20h6")
+
+[sub_resource type="Curve" id="Curve_0xejm"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0.008, -30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d20h6"]
+curve = SubResource("Curve_0xejm")
+
+[sub_resource type="Gradient" id="Gradient_vekjp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.26126125, 0.5495495, 0.8018018)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0.764262, 0.19730815, 1, 0.9999998, 0.81371903, 0.26502016, 1, 1, 0.18039216, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4aaa5"]
+gradient = SubResource("Gradient_vekjp")
+
+[sub_resource type="Curve" id="Curve_vekjp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2576923, 0.4959613), 0.0, 0.0, 0, 0, Vector2(1, 0.4959613), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4aaa5"]
+curve = SubResource("Curve_vekjp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2g5a"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+angle_curve = SubResource("CurveTexture_d20h6")
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 80, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+color_initial_ramp = SubResource("GradientTexture1D_4aaa5")
+alpha_curve = SubResource("CurveTexture_vekjp")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_speed_random = 2.0
+turbulence_influence_over_life = SubResource("CurveTexture_4aaa5")
+
+[node name="ConfettiParticle" type="GPUParticles2D" unique_id=759648193]
+emitting = false
+amount = 500
+texture = SubResource("GradientTexture2D_d20h6")
+lifetime = 10.0
+one_shot = true
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_f2g5a")
