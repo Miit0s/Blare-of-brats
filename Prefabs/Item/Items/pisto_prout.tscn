@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_7sgx4"]
 [ext_resource type="Texture2D" uid="uid://kbq4jiaeilgi" path="res://Assets/Sprite/gun.png" id="2_nyips"]
 
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_nyips"]
 resource_local_to_scene = true
 radius = 0.35
@@ -12,11 +11,12 @@ radius = 0.35
 resource_local_to_scene = true
 radius = 0.45
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_6onc6"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_nyips"]
 
 [node name="Item" unique_id=2059959192 instance=ExtResource("1_7sgx4")]
-collision_size = 0.9
+distance = true
 attack_shape = SubResource("SphereShape3D_nyips")
+munition_speed = 0.5
 damage = 4.0
 throw_damage = 2.0
 sound_on_attack = 3.0
@@ -35,4 +35,4 @@ texture = ExtResource("2_nyips")
 shape = SubResource("SphereShape3D_nyips")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_6onc6")
+mesh = SubResource("ImmediateMesh_nyips")

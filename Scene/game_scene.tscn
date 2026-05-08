@@ -6,17 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
+[ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="6_4832p"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
+[ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
+[ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar")]
+[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
 shared_life_bar = NodePath("CanvasLayer/SharedLifeBar")
 game_sound_bar = NodePath("CanvasLayer/GameSoundBar")
-game_ended_scene_uid = "uid://b1nchn1fbud6v"
+camera_controller = NodePath("CameraController")
+main_menu_scene_uid = "uid://bnfprdiqbhq53"
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
 round_state = ExtResource("4_mlt6n")
+possible_level = Array[PackedScene]([ExtResource("8_ee6vw")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
@@ -24,7 +30,17 @@ load_on = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
 
+[node name="RoundStart" parent="CanvasLayer" unique_id=58744202 instance=ExtResource("6_4832p")]
+visible = false
+
+[node name="RoundEnd" parent="CanvasLayer" unique_id=1185368454 instance=ExtResource("7_b5oy1")]
+visible = false
+
+[node name="GameEnd" parent="CanvasLayer" unique_id=748037380 instance=ExtResource("8_k76w5")]
+visible = false
+
 [node name="SharedLifeBar" parent="CanvasLayer" unique_id=1316874460 instance=ExtResource("4_ee6vw")]
+visible = false
 anchors_preset = 5
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -35,6 +51,7 @@ offset_bottom = 70.0
 grow_vertical = 1
 
 [node name="GameSoundBar" parent="CanvasLayer" unique_id=1894340611 instance=ExtResource("5_mlt6n")]
+visible = false
 anchors_preset = 5
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -42,17 +59,18 @@ offset_top = 100.0
 offset_bottom = 130.00002
 grow_vertical = 1
 
-[node name="MainCamera3D" type="Camera3D" parent="." unique_id=481956209]
-transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 22.4, 30.37)
+[node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
+script = ExtResource("9_mlt6n")
+
+[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
+transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, 0, 0, 0)
 current = true
 fov = 45.0
 
-[node name="AkListener3D" type="AkListener3D" parent="MainCamera3D" unique_id=1595129724]
+[node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
 transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
 
-[node name="TestMap" parent="." unique_id=1814952881 instance=ExtResource("8_ee6vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.967, 0, 0)
-
 [connection signal="lifebar_value_change" from="CanvasLayer/SharedLifeBar" to="." method="lifebar_value_change"]
-[connection signal="player_dead" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_dead"]
+[connection signal="player_win" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_win"]
 [connection signal="sound_bar_fill" from="CanvasLayer/GameSoundBar" to="." method="_on_game_sound_bar_sound_bar_fill"]

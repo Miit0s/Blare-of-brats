@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://b0odn7qlra422"]
+
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_dv0gy"]
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="2_d5jt0"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_7gx1u"]
+[ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="4_4ay72"]
+[ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="4_v7lpu"]
+[ext_resource type="PackedScene" uid="uid://cfdaia2abe34e" path="res://Prefabs/Item/munition.tscn" id="5_ot4os"]
+[ext_resource type="PackedScene" uid="uid://0bbwwyp6o8jb" path="res://Prefabs/Item/Items/crayon.tscn" id="6_3fhmk"]
+[ext_resource type="PackedScene" uid="uid://bhmfwu2e856oa" path="res://Prefabs/Item/Items/gant_de_boxe.tscn" id="7_v7lpu"]
+[ext_resource type="PackedScene" uid="uid://csrdjas8rt3ri" path="res://Prefabs/Item/Items/pisto_prout.tscn" id="8_k5wng"]
+[ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="9_ot4os"]
+[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="10_3fhmk"]
+[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="11_v7lpu"]
+[ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="12_3fhmk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k5wng"]
+resource_local_to_scene = true
+radius = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g8jtl"]
+resource_local_to_scene = true
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s0and"]
+resource_local_to_scene = true
+radius = 0.35
+
+[sub_resource type="Animation" id="Animation_ot4os"]
+resource_name = "Start"
+length = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemHitParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControllerSlot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameSoundBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SharedLifeBar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RadialProgressBarWithText:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WallBounceParticle:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fhmk"]
+_data = {
+&"Start": SubResource("Animation_ot4os")
+}
+
+[node name="ChaosScene" type="Node3D" unique_id=1673437573]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=333018492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Player" parent="." unique_id=382022037 instance=ExtResource("1_dv0gy")]
+
+[node name="Item" parent="." unique_id=2059959192 instance=ExtResource("2_d5jt0")]
+attack_shape = SubResource("SphereShape3D_k5wng")
+
+[node name="ItemHitParticles" parent="." unique_id=772188491 instance=ExtResource("3_7gx1u")]
+
+[node name="WallBounceParticle" parent="." unique_id=413813918 instance=ExtResource("4_v7lpu")]
+
+[node name="ItemSpawnPoint" parent="." unique_id=635181024 instance=ExtResource("4_4ay72")]
+
+[node name="Munition" parent="." unique_id=1567439643 instance=ExtResource("5_ot4os")]
+
+[node name="Item2" parent="." unique_id=585653132 instance=ExtResource("6_3fhmk")]
+
+[node name="Item3" parent="." unique_id=2000954409 instance=ExtResource("7_v7lpu")]
+attack_shape = SubResource("SphereShape3D_g8jtl")
+
+[node name="Item4" parent="." unique_id=1633312894 instance=ExtResource("8_k5wng")]
+attack_shape = SubResource("SphereShape3D_s0and")
+
+[node name="ControllerSlot" parent="." unique_id=699056762 instance=ExtResource("9_ot4os")]
+
+[node name="GameSoundBar" parent="." unique_id=1894340611 instance=ExtResource("10_3fhmk")]
+
+[node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("11_v7lpu")]
+
+[node name="RadialProgressBarWithText" parent="." unique_id=2147224469 instance=ExtResource("12_3fhmk")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1949731566]
+libraries/ = SubResource("AnimationLibrary_3fhmk")
+autoplay = &"Start"

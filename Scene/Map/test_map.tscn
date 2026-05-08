@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bdh15iseor34n"]
 
+[ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_4h2nc"]
 [ext_resource type="Texture2D" uid="uid://crpstf6c73cms" path="res://Assets/EnvironmentSprite/ph_wall.png" id="1_k8qvy"]
 [ext_resource type="Texture2D" uid="uid://div85yjn8rl0h" path="res://Assets/EnvironmentSprite/ph_balloon.png" id="2_lj6x0"]
 [ext_resource type="Texture2D" uid="uid://eptfuhrfcgpk" path="res://Assets/EnvironmentSprite/ph_cube.png" id="3_ycds1"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="9_svlak"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="10_d1br4"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="11_4h2nc"]
+[ext_resource type="PackedScene" uid="uid://fr4llv25pgj5" path="res://Prefabs/Player/Players/mia.tscn" id="13_xrtoq"]
+[ext_resource type="PackedScene" uid="uid://c7sp3sqengdxp" path="res://Prefabs/Player/Players/leo.tscn" id="14_sgnpj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -262,6 +265,7 @@ size = Vector3(1, 30, 30)
 size = Vector3(40, 30, 1)
 
 [node name="TestMap" type="Node3D" unique_id=1814952881]
+script = ExtResource("1_4h2nc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111186574]
 environment = SubResource("Environment_e2w2p")
@@ -291,6 +295,14 @@ spot_angle = 35.763977
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Light" unique_id=1081716665]
 transform = Transform3D(0.9075741, -0.24557117, -0.34059364, 0.3201969, -0.1199715, 0.9397237, -0.27163056, -0.96192586, -0.03025189, -15.332857, 17.363535, -1.6175346)
+light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 25.86053
+spot_angle = 41.741062
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=1267250948]
+transform = Transform3D(0.9493028, -0.2729696, 0.15592259, -0.15824383, 0.013635129, 0.98730594, -0.27163056, -0.96192604, -0.030251889, 13.304586, 17.363535, -7.6686325)
 light_color = Color(0.9197535, 0.89143777, 0.7169367, 1)
 light_energy = 15.0
 shadow_enabled = true
@@ -613,7 +625,13 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("11_4h2nc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1913958, 0.3644774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1913958, 1.1439927, 0)
+player_prefab = ExtResource("13_xrtoq")
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("11_4h2nc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 0.3644774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 1.1439927, 0)
+player_prefab = ExtResource("14_sgnpj")
+
+[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
+[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
+[connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]

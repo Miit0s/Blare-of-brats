@@ -2,25 +2,70 @@
 
 [ext_resource type="Script" uid="uid://b3br2bol6pjbc" path="res://Scripts/Game/player.gd" id="1_y6xdh"]
 [ext_resource type="WwiseEvent" uid="uid://dvi7clwfqeck7" path="res://Wwise/resources/Event/{524CA488-AD1A-4601-87EB-4FAA2BED2E10}.tres" id="2_2nftw"]
-[ext_resource type="Texture2D" uid="uid://c1ks31boikjxa" path="res://icon.svg" id="2_5wxv7"]
 [ext_resource type="WwiseEvent" uid="uid://dxxbqb8uf44mf" path="res://Wwise/resources/Event/{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}.tres" id="3_knrd4"]
 [ext_resource type="WwiseEvent" uid="uid://v3kb26q6hck6" path="res://Wwise/resources/Event/{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}.tres" id="4_knrd4"]
+[ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
+[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Leo/front.png" id="5_7m7dm"]
 [ext_resource type="Shader" uid="uid://cnl6sp0h736hy" path="res://Shader/color_override.gdshader" id="5_hck1p"]
+[ext_resource type="Texture2D" uid="uid://b5juhvy8bcar7" path="res://Assets/Player/Leo/3_4_right.png" id="6_4sfrm"]
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/Sprite/circle_arrow.png" id="7_juxdh"]
+[ext_resource type="Texture2D" uid="uid://cbokd44ovtctj" path="res://Assets/Player/Leo/side_right.png" id="7_r08wf"]
+[ext_resource type="Texture2D" uid="uid://dn7gas0do6aw1" path="res://Assets/Player/Leo/3_4_back_right.png" id="8_4sfrm"]
+[ext_resource type="Texture2D" uid="uid://b7uqdid42yvei" path="res://Assets/Player/Leo/back.png" id="8_ybo73"]
+[ext_resource type="Texture2D" uid="uid://ow52qjt1wwuq" path="res://Assets/Player/Leo/3_4_back_left.png" id="9_sf0qn"]
+[ext_resource type="Texture2D" uid="uid://b1vfkwhmxxybd" path="res://Assets/Player/Leo/side_left.png" id="10_j7wlx"]
+[ext_resource type="Texture2D" uid="uid://cd7j8pdiaikw2" path="res://Assets/Player/Leo/3_4_left.png" id="11_yi7wc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sfrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7m7dm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4sfrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r08wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4sfrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ybo73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sf0qn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j7wlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yi7wc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_juxdh"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_hck1p")
-shader_parameter/sprite_texture = ExtResource("2_5wxv7")
+shader_parameter/sprite_texture = ExtResource("5_7m7dm")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 0, 0, 1)
 shader_parameter/blend_delta = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knrd4"]
-size = Vector3(1.3, 1.3, 0.1)
+size = Vector3(1.3, 2, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7m7dm"]
+size = Vector3(1.35, 1, 1.05)
 
 [sub_resource type="Curve" id="Curve_hck1p"]
 _data = [Vector2(0, 0.49438208), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -47,7 +92,9 @@ material = SubResource("StandardMaterial3D_08u7w")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hck1p"]
 render_priority = 0
 shader = ExtResource("5_hck1p")
-shader_parameter/sprite_texture = ExtResource("2_5wxv7")
+shader_parameter/sprite_texture = ExtResource("5_7m7dm")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 1, 1, 1)
 shader_parameter/blend_delta = 0.49999998882425
 
@@ -57,6 +104,7 @@ scale_min = 1.1999999
 scale_max = 1.1999999
 
 [sub_resource type="QuadMesh" id="QuadMesh_4qbli"]
+size = Vector2(0.852, 1.497)
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037]
 collision_layer = 2
@@ -65,15 +113,21 @@ script = ExtResource("1_y6xdh")
 speed = 6.0
 dash_speed = 25.0
 min_dash_speed = 8.0
+stun_duration = 0.2
+knockback_speed = 25.0
+knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
+wall_bounce_particle_prefab = ExtResource("5_4sfrm")
+sprites_frames = SubResource("SpriteFrames_4sfrm")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1496403736]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_juxdh")
 shaded = true
 alpha_cut = 1
-texture = ExtResource("2_5wxv7")
+texture = ExtResource("5_7m7dm")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1854583806]
 shape = SubResource("BoxShape3D_knrd4")
@@ -86,6 +140,13 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickUpArea" unique_id=1700180393]
 shape = SubResource("SphereShape3D_5wxv7")
+
+[node name="WallDetectionArea" type="Area3D" parent="." unique_id=1515673127]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallDetectionArea" unique_id=945296247]
+shape = SubResource("BoxShape3D_7m7dm")
 
 [node name="WalkSmoke" type="GPUParticles3D" parent="." unique_id=1403398929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6114786, 0)
@@ -110,3 +171,8 @@ draw_pass_1 = SubResource("QuadMesh_4qbli")
 transform = Transform3D(-0.10606601, -0.10606601, 0, 0.10606601, -0.10606601, 0, 0, 0, 0.14999999, 0, 1.065298, 0)
 visible = false
 texture = ExtResource("7_juxdh")
+
+[node name="Feet" type="Node3D" parent="." unique_id=1786710906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99064595, 1.9213368)
+
+[connection signal="body_entered" from="WallDetectionArea" to="." method="_on_wall_detection_area_body_entered"]

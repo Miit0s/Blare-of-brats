@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://tk4btg4c6rlc"]
+
+[ext_resource type="Script" uid="uid://55up60dl4l06" path="res://Scripts/UI/round_end.gd" id="1_6h5qp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubh67"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_6h5qp"]
+font_size = 50
+
+[sub_resource type="Animation" id="Animation_6h5qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundEnd:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RoundWinner:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextRound:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ubh67"]
+resource_name = "round_finish"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundEnd:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RoundWinner:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.0666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_score"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextRound:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h5qp"]
+_data = {
+&"RESET": SubResource("Animation_6h5qp"),
+&"round_finish": SubResource("Animation_ubh67")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_wx704"]
+font_size = 50
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6h5qp"]
+size = Vector2(150, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb7ea"]
+font_size = 50
+
+[node name="RoundEnd" type="Control" unique_id=1185368454]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6h5qp")
+
+[node name="RoundEnd" type="Label" parent="." unique_id=2009046954]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Round End"
+label_settings = SubResource("LabelSettings_ubh67")
+horizontal_alignment = 1
+
+[node name="RoundWinner" type="Label" parent="." unique_id=547580541]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -34.5
+offset_right = 287.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player X win this round"
+label_settings = SubResource("LabelSettings_6h5qp")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2007299986]
+libraries/ = SubResource("AnimationLibrary_6h5qp")
+
+[node name="Control" type="Control" parent="." unique_id=446112245]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=502247179]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=783302663]
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_wx704")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1608726340]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1102759986]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_6h5qp")
+
+[node name="Player0" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=887528659]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+label_settings = SubResource("LabelSettings_xb7ea")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=1854141513]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+label_settings = SubResource("LabelSettings_xb7ea")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1456166768]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_6h5qp")
+
+[node name="NextRound" type="Button" parent="." unique_id=1189595702]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.5
+offset_top = -130.0
+offset_right = 89.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Next Round"
+
+[connection signal="pressed" from="NextRound" to="." method="_on_next_round_pressed"]

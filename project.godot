@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Blare of Brats"
-config/version="0.0.2"
+config/version="0.0.3"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -43,7 +43,6 @@ folder_colors={
 "res://Assets/": "purple",
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
-"res://Items/": "blue",
 "res://Prefabs/": "blue",
 "res://Scene/": "red",
 "res://Scripts/": "yellow",
@@ -260,6 +259,7 @@ Throw_3={
 3d_physics/layer_2="Player"
 2d_physics/layer_3="Item"
 3d_physics/layer_3="Item"
+3d_physics/layer_4="ItemFlying"
 
 [maaacks_menus_template]
 
