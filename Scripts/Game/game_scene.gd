@@ -13,6 +13,7 @@ extends Node3D
 @export_category("PartySetup")
 @export var player_number: int = 2
 @export var round_number: int = 3
+@export var round_duration_sec: int = 300
 
 @export_category("Sound")
 @export var music_fight: WwiseEvent
@@ -45,6 +46,8 @@ func _exit_tree() -> void:
 
 func start_round_animation():
 	round_end_ui.hide()
+	shared_life_bar.hide()
+	game_sound_bar.hide()
 	
 	setup_new_scene()
 	round_start_ui.show()
@@ -61,6 +64,7 @@ func start_round():
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
+	game_sound_bar.start_timer(round_duration_sec)
 	
 	music_fight.post(self)
 
