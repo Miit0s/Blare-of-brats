@@ -39,7 +39,7 @@ class_name Item
 @export_category("Sound")
 @export var sound_on_attack: float = 1
 @export var sound_on_throw: float = 2
-@export var sound_on_break: float = 10
+@export var sound_on_break: float = 5
 
 @export_category("Lifetime")
 @export var durability: int = 5

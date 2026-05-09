@@ -49,6 +49,7 @@ offset_top = 40.0
 offset_right = 400.0
 offset_bottom = 70.0
 grow_vertical = 1
+player_health = 75.0
 
 [node name="GameSoundBar" parent="CanvasLayer" unique_id=1894340611 instance=ExtResource("5_mlt6n")]
 visible = false
