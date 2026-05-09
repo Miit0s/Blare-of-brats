@@ -41,9 +41,6 @@ func _ready() -> void:
 	round_state.set_value()
 	start_round_animation()
 
-func _exit_tree() -> void:
-	music_fight.stop(self)
-
 func start_round_animation():
 	round_end_ui.hide()
 	shared_life_bar.hide()
@@ -97,6 +94,8 @@ func player_win(player_id: int):
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()
+	
+	music_fight.stop(self)
 	
 	round_end_ui.show()
 	round_end_ui.start_animation(players_win)
