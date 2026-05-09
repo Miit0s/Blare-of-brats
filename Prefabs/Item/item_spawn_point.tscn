@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bhmfwu2e856oa" path="res://Prefabs/Item/Items/gant_de_boxe.tscn" id="3_vjh13"]
 [ext_resource type="PackedScene" uid="uid://csrdjas8rt3ri" path="res://Prefabs/Item/Items/pisto_prout.tscn" id="4_fwyty"]
 
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vx47g"]
 radius = 0.7
 
