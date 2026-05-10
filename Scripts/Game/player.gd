@@ -180,6 +180,7 @@ func pick_up(play_pickup_sound: bool = true):
 	
 	current_picked_item = closest_item
 	current_picked_item.item_picked_up(player_id)
+	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
 	
 	if play_pickup_sound: pickup_sound.post(self)
 
@@ -325,6 +326,7 @@ func switch_item():
 	switch_sound.post(self)
 
 func throw(direction: Vector3):
+	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
@@ -421,3 +423,7 @@ func freeze():
 
 func unfreeze():
 	_is_freeze = false
+
+func item_will_be_destroy(_item: Item):
+	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
+	current_picked_item = null
