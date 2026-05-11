@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Leo/front.png" id="5_7m7dm"]
 [ext_resource type="Shader" uid="uid://cnl6sp0h736hy" path="res://Shader/color_override.gdshader" id="5_hck1p"]
+[ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_j7wlx"]
 [ext_resource type="Texture2D" uid="uid://b5juhvy8bcar7" path="res://Assets/Player/Leo/3_4_right.png" id="6_4sfrm"]
+[ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_yi7wc"]
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/Sprite/circle_arrow.png" id="7_juxdh"]
 [ext_resource type="Texture2D" uid="uid://cbokd44ovtctj" path="res://Assets/Player/Leo/side_right.png" id="7_r08wf"]
 [ext_resource type="Texture2D" uid="uid://dn7gas0do6aw1" path="res://Assets/Player/Leo/3_4_back_right.png" id="8_4sfrm"]
@@ -82,6 +84,8 @@ knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
+hit_wout_obj = ExtResource("5_j7wlx")
+launch = ExtResource("6_yi7wc")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
 sprites_frames = SubResource("SpriteFrames_4sfrm")
 
