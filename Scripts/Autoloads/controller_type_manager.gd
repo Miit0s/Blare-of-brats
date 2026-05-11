@@ -15,7 +15,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		var device_name: String = Input.get_joy_name(event.device).to_lower()
 		
-		if "ps5" in device_name:
+		if "ps5" in device_name or "dualsense" in device_name:
 			new_device = ControllerIconSet.PlatformName.PLAYSTATION
 		elif "xbox" in device_name:
 			new_device = ControllerIconSet.PlatformName.XBOX
@@ -31,7 +31,6 @@ func _input(event: InputEvent) -> void:
 		device_changed.emit(current_device)
 
 func get_icon_path_for_action(action_name: String) -> String:
-	print(InputMap.get_actions())
 	var event: InputEvent = InputMap.action_get_events(action_name)[0]
 	
 	var icon: Texture2D = icon_sets[current_device].get_icon_for_joybutton(event.button_index)
