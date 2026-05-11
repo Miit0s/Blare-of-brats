@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{D017DFAF-FC90-4499-BD72-A9A1BEC869A9}",
+    "Hash": "{C5EF543E-F6AB-F5BC-773B-DDA283ED833B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "loop_time_2.wav",
       "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
+     },
+     {
+      "Id": "79414803",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v2_2.wav",
+      "CachePath": "C3/{C3B30372-643C-4026-0A12-EEE0656038FB}.wem"
      },
      {
       "Id": "192332123",
@@ -64,6 +72,22 @@
       "CachePath": "99/{999064A2-0085-7495-54FA-1C74904A1923}.wem"
      },
      {
+      "Id": "548537568",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v2_3.wav",
+      "CachePath": "86/{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem"
+     },
+     {
+      "Id": "574240304",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v2.wav",
+      "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
+     },
+     {
       "Id": "675508919",
       "Language": "SFX",
       "Streaming": "false",
@@ -86,30 +110,6 @@
       "Location": "Memory",
       "ShortName": "fill_parents_shh.wav",
       "CachePath": "48/{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem"
-     },
-     {
-      "Id": "734518376",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v1.1.wav",
-      "CachePath": "CE/{CEAC2840-5789-9038-4C20-74A55BB1FE7F}.wem"
-     },
-     {
-      "Id": "849293141",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v1.3.wav",
-      "CachePath": "70/{7095A57D-BF2C-D292-E5CD-A3CA283F2E29}.wem"
-     },
-     {
-      "Id": "950730316",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v1.2.wav",
-      "CachePath": "55/{551933D4-568F-03EC-70ED-1FF36039F858}.wem"
      }
     ],
     "Events": [
@@ -120,17 +120,17 @@
       "GUID": "{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "0.15396908",
-      "DurationMax": "0.21538325",
+      "DurationMin": "0.33937526",
+      "DurationMax": "0.6069849",
       "MediaRefs": [
        {
-        "Id": "734518376"
+        "Id": "79414803"
        },
        {
-        "Id": "849293141"
+        "Id": "548537568"
        },
        {
-        "Id": "950730316"
+        "Id": "574240304"
        }
       ]
      },
@@ -243,6 +243,12 @@
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
        },
        {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
+        "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
+       },
+       {
         "Id": "4261315644",
         "Name": "Parents",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
@@ -253,6 +259,6 @@
     ]
    }
   ],
-  "FileHash": "{F49256F6-0B8E-2E12-761B-9674A39599AC}"
+  "FileHash": "{98F31B53-3F54-2FF8-ED06-FE258D57E51F}"
  }
 }
