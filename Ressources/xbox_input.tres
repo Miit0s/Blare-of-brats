@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ControllerIconSet" format=3 uid="uid://br26gdxuc7iu4"]
+
+[ext_resource type="Texture2D" uid="uid://do6pbnydgaau3" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_color_a.png" id="1_5tum2"]
+[ext_resource type="Texture2D" uid="uid://ce4dflof1q8x7" path="res://Assets/ControllerSprite/XboxSeries/xbox_dpad_down.png" id="1_gkjyx"]
+[ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="1_ww5tf"]
+[ext_resource type="Texture2D" uid="uid://s0aq0p6ncp5u" path="res://Assets/ControllerSprite/XboxSeries/xbox_stick_side_l.png" id="2_5t5j0"]
+[ext_resource type="Texture2D" uid="uid://ctcg104qai5g2" path="res://Assets/ControllerSprite/XboxSeries/xbox_dpad_left.png" id="2_sp7ox"]
+[ext_resource type="Texture2D" uid="uid://54qikpem76k" path="res://Assets/ControllerSprite/XboxSeries/xbox_stick_side_r.png" id="3_btx0g"]
+[ext_resource type="Texture2D" uid="uid://bqdw6wu47w1y1" path="res://Assets/ControllerSprite/XboxSeries/xbox_dpad_right.png" id="3_nyn6p"]
+[ext_resource type="Texture2D" uid="uid://1541g418bytl" path="res://Assets/ControllerSprite/XboxSeries/xbox_dpad_up.png" id="4_j73yq"]
+[ext_resource type="Texture2D" uid="uid://p8065vachhhb" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_color_x.png" id="4_lfrn0"]
+[ext_resource type="Texture2D" uid="uid://ds0rn5jkrexr2" path="res://Assets/ControllerSprite/XboxSeries/xbox_lb.png" id="5_0hy3p"]
+[ext_resource type="Texture2D" uid="uid://l55ips8131kl" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_color_b.png" id="6_g2iyb"]
+[ext_resource type="Texture2D" uid="uid://cnxay7alba3o2" path="res://Assets/ControllerSprite/XboxSeries/xbox_guide.png" id="6_r0uau"]
+[ext_resource type="Texture2D" uid="uid://gjxce2s5sfp8" path="res://Assets/ControllerSprite/XboxSeries/xbox_rb.png" id="7_mbun2"]
+[ext_resource type="Texture2D" uid="uid://b3l5twipgn2sf" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_color_y.png" id="9_gkjyx"]
+[ext_resource type="Texture2D" uid="uid://c7175xl435hjt" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_menu.png" id="14_bhvgg"]
+[ext_resource type="Texture2D" uid="uid://bfxf74x4nbas3" path="res://Assets/ControllerSprite/XboxSeries/xbox_button_view.png" id="15_k1tdv"]
+
+[resource]
+script = ExtResource("1_ww5tf")
+platform_name = 1
+home_btn = ExtResource("6_r0uau")
+start_btn = ExtResource("15_k1tdv")
+select_btn = ExtResource("14_bhvgg")
+up_btn = ExtResource("9_gkjyx")
+down_btn = ExtResource("1_5tum2")
+left_btn = ExtResource("4_lfrn0")
+right_btn = ExtResource("6_g2iyb")
+cross_up_btn = ExtResource("4_j73yq")
+cross_down_btn = ExtResource("1_gkjyx")
+cross_left_btn = ExtResource("2_sp7ox")
+cross_right_btn = ExtResource("3_nyn6p")
+joystick_left_btn = ExtResource("2_5t5j0")
+joystick_right_btn = ExtResource("3_btx0g")
+left_shoulder_btn = ExtResource("5_0hy3p")
+right_shoulder_btn = ExtResource("7_mbun2")
+metadata/_custom_type_script = "uid://ce5noloj2eese"
