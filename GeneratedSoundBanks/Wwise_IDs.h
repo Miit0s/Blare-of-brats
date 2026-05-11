@@ -40,6 +40,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID CHILDREN_PLAYING = 3084348855U;
         static const AkUniqueID LEAD = 54442139U;
         static const AkUniqueID ROUND_TIME = 740280485U;
     } // namespace GAME_PARAMETERS
@@ -52,7 +53,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID CHILDREN_PLAYING = 3084348855U;
         static const AkUniqueID MAIN_AUDIO_BUS = 2246998526U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
