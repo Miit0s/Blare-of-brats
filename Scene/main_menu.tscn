@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bnfprdiqbhq53"]
 
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="1_hptlk"]
 [ext_resource type="PackedScene" uid="uid://b1o7haxohxulb" path="res://UI/Menu/quit_prompt.tscn" id="1_o5at2"]
 [ext_resource type="Script" uid="uid://dn1vxn1jlfrnp" path="res://Scripts/UI/main_menu.gd" id="1_wrubb"]
 [ext_resource type="PackedScene" uid="uid://d3viyj0v2mikj" path="res://UI/Menu/credits.tscn" id="2_4hclx"]
@@ -10,6 +11,10 @@
 font_size = 50
 
 [node name="MainMenu" type="Node3D" unique_id=1265822772]
+
+[node name="AkBank" type="AkBank" parent="." unique_id=587703091]
+bank = ExtResource("1_hptlk")
+load_on = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 
