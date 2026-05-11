@@ -10,11 +10,27 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{C5EF543E-F6AB-F5BC-773B-DDA283ED833B}",
+    "Hash": "{4743044D-5912-B09A-F9D2-FE346F98DCCF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
     "Media": [
+     {
+      "Id": "16349992",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit_2.wav",
+      "CachePath": "5E/{5E440C45-95D8-F00E-C688-96E12E779B55}.wem"
+     },
+     {
+      "Id": "30562399",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "swoosh_rotation_2.wav",
+      "CachePath": "6C/{6C97DB69-0B78-5DA8-C79D-47FFE0C22FD3}.wem"
+     },
      {
       "Id": "61027230",
       "Language": "SFX",
@@ -38,6 +54,14 @@
       "Location": "Memory",
       "ShortName": "lead_P2.wav",
       "CachePath": "98/{983FEB1C-1A52-4758-DE89-482538170A94}.wem"
+     },
+     {
+      "Id": "225912809",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "swoosh_rotation_1.wav",
+      "CachePath": "4B/{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem"
      },
      {
       "Id": "284610429",
@@ -72,6 +96,22 @@
       "CachePath": "99/{999064A2-0085-7495-54FA-1C74904A1923}.wem"
      },
      {
+      "Id": "475093794",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit_4.wav",
+      "CachePath": "9F/{9FB04671-814C-C49C-B116-E940755819C9}.wem"
+     },
+     {
+      "Id": "477928144",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit_5.wav",
+      "CachePath": "DF/{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem"
+     },
+     {
       "Id": "548537568",
       "Language": "SFX",
       "Streaming": "false",
@@ -86,6 +126,14 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2.wav",
       "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
+     },
+     {
+      "Id": "663880264",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "funny_boing_sound.wav",
+      "CachePath": "66/{66FC4B06-40BD-6889-9ABA-8CECD5BA826F}.wem"
      },
      {
       "Id": "675508919",
@@ -110,9 +158,48 @@
       "Location": "Memory",
       "ShortName": "fill_parents_shh.wav",
       "CachePath": "48/{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem"
+     },
+     {
+      "Id": "703684940",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "swoosh_rotation_3.wav",
+      "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
+     },
+     {
+      "Id": "902723063",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit_3.wav",
+      "CachePath": "55/{558F8925-7F39-AD20-0512-F64D720D4B63}.wem"
+     },
+     {
+      "Id": "930276617",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit_1.wav",
+      "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "1076559162",
+      "Name": "Boxing_Glove",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Boxing_Glove",
+      "GUID": "{8EEAA15B-A805-4909-9B85-FE3E1D889573}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9765548",
+      "DurationMax": "1.2893163",
+      "MediaRefs": [
+       {
+        "Id": "663880264"
+       }
+      ]
+     },
      {
       "Id": "1942692385",
       "Name": "Dash",
@@ -146,6 +233,54 @@
       "MediaRefs": [
        {
         "Id": "351924758"
+       }
+      ]
+     },
+     {
+      "Id": "3713424412",
+      "Name": "Hit_Wout_object",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Hit_Wout_object",
+      "GUID": "{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.42831823",
+      "DurationMax": "0.53964716",
+      "MediaRefs": [
+       {
+        "Id": "16349992"
+       },
+       {
+        "Id": "475093794"
+       },
+       {
+        "Id": "477928144"
+       },
+       {
+        "Id": "902723063"
+       },
+       {
+        "Id": "930276617"
+       }
+      ]
+     },
+     {
+      "Id": "17302528",
+      "Name": "Launch",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Launch",
+      "GUID": "{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.40793848",
+      "DurationMax": "0.5609413",
+      "MediaRefs": [
+       {
+        "Id": "30562399"
+       },
+       {
+        "Id": "225912809"
+       },
+       {
+        "Id": "703684940"
        }
       ]
      },
@@ -259,6 +394,6 @@
     ]
    }
   ],
-  "FileHash": "{5795F8B0-085D-E5F7-788A-FE64C5212DE9}"
+  "FileHash": "{52D3FE95-3364-F649-AFCC-F6B2FBB5AA91}"
  }
 }

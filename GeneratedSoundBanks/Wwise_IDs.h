@@ -13,8 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BOXING_GLOVE = 1076559162U;
         static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID GRABOBJECT = 1719710198U;
+        static const AkUniqueID HIT_WOUT_OBJECT = 3713424412U;
+        static const AkUniqueID LAUNCH = 17302528U;
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
     } // namespace EVENTS
