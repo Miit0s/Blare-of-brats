@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="20px"
+   viewBox="0 -960 960 960"
+   width="20px"
+   fill="#fc7f7f"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="TrailIcon3D.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="40.3"
+     inkscape:cx="10"
+     inkscape:cy="10"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     d="m 257.64055,-206.32683 q -21.80833,0 -36.56102,-14.66718 -14.7527,-14.66717 -14.7527,-36.34721 0,-21.68005 14.7527,-36.64655 14.75269,-14.9665 36.56102,-14.9665 h 215.23254 q -19.95533,-27.08224 -34.92183,-57.01524 -14.9665,-29.93301 -20.66803,-62.71677 H 120.80397 q -21.80833,0 -36.561024,-14.66717 -14.752694,-14.66717 -14.752694,-36.34722 0,-21.68005 14.752694,-36.64655 14.752694,-14.9665 36.561024,-14.9665 h 296.47926 q 5.70153,-32.78376 20.66803,-62.71677 14.9665,-29.933 34.92183,-57.01524 H 257.64055 q -21.80833,0 -36.56102,-14.66717 -14.7527,-14.66717 -14.7527,-36.34722 0,-21.68004 14.7527,-36.64654 14.75269,-14.96651 36.56102,-14.96651 h 427.61432 q 113.57437,0 193.62377,80.14918 80.0494,80.13493 80.0494,193.85183 0,113.70265 -80.0494,193.52399 -80.0494,79.82134 -193.62377,79.82134 z m -205.254871,0 q -21.808331,0 -36.561025,-14.66718 -14.7526937,-14.66717 -14.7526937,-36.34721 0,-21.68005 14.7526937,-36.64655 14.752694,-14.9665 36.561025,-14.9665 h 34.209146 q 21.808325,0 36.561025,14.66717 14.75269,14.66717 14.75269,36.34722 0,21.68004 -14.75269,36.64654 -14.7527,14.96651 -36.561025,14.96651 z"
+     id="path1"
+     style="stroke-width:1.42538" />
+</svg>
