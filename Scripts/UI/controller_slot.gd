@@ -1,7 +1,7 @@
 extends Control
 class_name ControllerSlot
 
-@onready var label: Label = $Label
+@onready var rich_label: ControllerIconParser = $RichLabel
 @onready var player_skin: TextureRect = $PlayerSkin
 @onready var ready_container: VBoxContainer = $ReadyContainer
 @onready var radial_progress_bar: ColorRect = $ReadyContainer/RadialProgressBar
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 func set_player_id(new_id: int):
 	_player_id = new_id
 	
-	label.hide()
+	rich_label.hide()
 	player_skin.show()
 	ready_container.show()
 
@@ -42,7 +42,7 @@ func remove_player():
 	
 	player_skin.hide()
 	ready_container.hide()
-	label.show()
+	rich_label.show()
 
 ## Return the player id connected to this slot, and -1 if there is any
 func get_player_id() -> int:
