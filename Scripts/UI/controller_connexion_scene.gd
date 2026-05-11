@@ -38,8 +38,8 @@ func _input(event: InputEvent) -> void:
 		
 		if event.is_action_pressed("Return") and not is_device_already_connected(event.device):
 			return_radial_progress_bar.player_start_holding_key()
-			return
 			get_viewport().set_input_as_handled()
+			return
 		elif event.is_action_released("Return") and not is_device_already_connected(event.device):
 			return_radial_progress_bar.player_stop_holding_key()
 			get_viewport().set_input_as_handled()

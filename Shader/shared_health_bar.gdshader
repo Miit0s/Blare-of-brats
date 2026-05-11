@@ -20,7 +20,7 @@ void fragment() {
 	
 	vec2 moving_uv = corrected_uv + uv_offset;
 	
-	float mask = (1.0 - UV.x) + (progress * 2.0 - 1.0);
+	float mask = (progress - UV.x) + 0.5;
 	float noise = texture(noise_texture, moving_uv).r;
 	
 	float combined = mask + (noise - 0.5) * noise_intensity;

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Blare of Brats"
-config/version="0.0.2"
+config/version="0.0.4"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -35,7 +35,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg")
 
 [file_customization]
 
@@ -254,8 +254,12 @@ Throw_3={
 [layer_names]
 
 2d_physics/layer_1="Map"
+3d_physics/layer_1="Map"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Object"
+3d_physics/layer_2="Player"
+2d_physics/layer_3="Item"
+3d_physics/layer_3="Item"
+3d_physics/layer_4="ItemFlying"
 
 [maaacks_menus_template]
 
