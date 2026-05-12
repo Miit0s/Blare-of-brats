@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd7j8pdiaikw2"
-path="res://.godot/imported/3_4_left.png-a2d0b53c5bde25f01833a658a7eace49.ctex"
+uid="uid://dn7gas0do6aw1"
+path="res://.godot/imported/3_4_back_right.png-84ce1e2dd3733dfc3ef2da4781477a4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Leo/3_4_left.png"
-dest_files=["res://.godot/imported/3_4_left.png-a2d0b53c5bde25f01833a658a7eace49.ctex"]
+source_file="res://Assets/Player/Max/3_4_back_right.png"
+dest_files=["res://.godot/imported/3_4_back_right.png-84ce1e2dd3733dfc3ef2da4781477a4f.ctex"]
 
 [params]
 

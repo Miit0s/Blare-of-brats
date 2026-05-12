@@ -371,7 +371,7 @@ func _change_player_sprite(new_sprite: Texture2D):
 	var material_sprite: ShaderMaterial = sprite_3d.material_override
 	var material_dash: ShaderMaterial = dash_effect.material_override
 	
-	material_sprite.set_shader_parameter("sprite_texture", new_sprite)
+	material_sprite.set_shader_parameter("main_texture", new_sprite)
 	material_sprite.set_shader_parameter("uv_offset", Vector2.ZERO)
 	material_sprite.set_shader_parameter("uv_scale", Vector2.ONE)
 	
@@ -382,11 +382,11 @@ func _change_player_sprite(new_sprite: Texture2D):
 		var uv_offset: Vector2 = region.position / atlas_size
 		var uv_scale: Vector2 = region.size / atlas_size
 		
-		material_dash.set_shader_parameter("sprite_texture", new_sprite.atlas)
+		material_dash.set_shader_parameter("main_texture", new_sprite.atlas)
 		material_dash.set_shader_parameter("uv_offset", uv_offset)
 		material_dash.set_shader_parameter("uv_scale", uv_scale)
 	else:
-			material_dash.set_shader_parameter("sprite_texture", new_sprite)
+			material_dash.set_shader_parameter("main_texture", new_sprite)
 			material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
 			material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
 

@@ -1,0 +1,48 @@
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, depth_prepass_alpha;
+
+uniform sampler2D main_texture : source_color;
+
+uniform vec4 original_0 : source_color;
+uniform vec4 original_1 : source_color;
+uniform vec4 original_2 : source_color;
+uniform vec4 original_3 : source_color;
+uniform vec4 original_4 : source_color;
+
+uniform vec4 replace_0 : source_color;
+uniform vec4 replace_1 : source_color;
+uniform vec4 replace_2 : source_color;
+uniform vec4 replace_3 : source_color;
+uniform vec4 replace_4 : source_color;
+
+// Contrôle de la détection
+uniform float tolerance : hint_range(0.0, 1.0) = 0.1;
+// Contrôle du lissage (plus c'est haut, plus la transition est douce)
+uniform float softness : hint_range(0.0, 1.0) = 0.05;
+
+uniform vec2 uv_offset = vec2(0.0, 0.0);
+uniform vec2 uv_scale = vec2(1.0, 1.0);
+uniform vec4 color_override : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float blend_delta : hint_range(0.0, 1.0, 0.02) = 0.0;
+
+void fragment() {
+	vec2 real_uv = uv_offset + (UV * uv_scale);
+    vec4 tex_color = texture(main_texture, real_uv);
+	
+    vec3 current_rgb = tex_color.rgb;
+    
+    vec4 originals[5] = vec4[5](original_0, original_1, original_2, original_3, original_4);
+    vec4 replacements[5] = vec4[5](replace_0, replace_1, replace_2, replace_3, replace_4);
+    
+    for (int i = 0; i < 5; i++) {
+        float d = distance(current_rgb, originals[i].rgb);
+        float mask = 1.0 - smoothstep(tolerance - softness, tolerance + softness, d);
+		
+        current_rgb = mix(current_rgb, replacements[i].rgb, mask);
+    }
+	
+	vec3 final_rgb = mix(current_rgb, color_override.rgb, blend_delta);
+    
+    ALBEDO = final_rgb;
+    ALPHA = tex_color.a;
+}

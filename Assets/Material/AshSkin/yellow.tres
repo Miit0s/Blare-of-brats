@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c2r7u7ceeav2l"]
+
+[ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="1_hogtw"]
+[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="2_lt8kj"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_hogtw")
+shader_parameter/main_texture = ExtResource("2_lt8kj")
+shader_parameter/original_0 = Color(0.9882353, 0.64705884, 0.5294118, 1)
+shader_parameter/original_1 = Color(0.9607843, 0.31764707, 0.5254902, 1)
+shader_parameter/original_2 = Color(0.8627451, 0.45882353, 0.28235295, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.9882353, 0.93333334, 0.5294118, 1)
+shader_parameter/replace_1 = Color(0.8039216, 0.6313726, 0.91764706, 1)
+shader_parameter/replace_2 = Color(0.8980392, 0.7058824, 0.3882353, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.1600000076
+shader_parameter/softness = 0.05
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/color_override = Color(1, 0, 0, 1)
+shader_parameter/blend_delta = 0.0

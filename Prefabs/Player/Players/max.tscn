@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c7sp3sqengdxp"]
+
+[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_rsbiw"]
+
+[node name="Leo" unique_id=382022037 instance=ExtResource("1_rsbiw")]

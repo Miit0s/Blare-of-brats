@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4lukd3765t1"
-path="res://.godot/imported/chara_2_spritesheet.png-bcb36b817a9b8e4562a7c1dfa7de7ede.ctex"
+uid="uid://6ofha55cmh2c"
+path="res://.godot/imported/chara_1_spritesheet.png-9bd3b434018b78a7078df035cfd2afed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Mia/chara_2_spritesheet.png"
-dest_files=["res://.godot/imported/chara_2_spritesheet.png-bcb36b817a9b8e4562a7c1dfa7de7ede.ctex"]
+source_file="res://Assets/Player/Max/chara_1_spritesheet.png"
+dest_files=["res://.godot/imported/chara_1_spritesheet.png-9bd3b434018b78a7078df035cfd2afed.ctex"]
 
 [params]
 

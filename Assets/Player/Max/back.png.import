@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ofha55cmh2c"
-path="res://.godot/imported/chara_1_spritesheet.png-17dffc9aa85bf48e561bd36f62913ee7.ctex"
+uid="uid://b7uqdid42yvei"
+path="res://.godot/imported/back.png-3371adba3b5db80246cac7b1d4ecf0e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Leo/chara_1_spritesheet.png"
-dest_files=["res://.godot/imported/chara_1_spritesheet.png-17dffc9aa85bf48e561bd36f62913ee7.ctex"]
+source_file="res://Assets/Player/Max/back.png"
+dest_files=["res://.godot/imported/back.png-3371adba3b5db80246cac7b1d4ecf0e3.ctex"]
 
 [params]
 

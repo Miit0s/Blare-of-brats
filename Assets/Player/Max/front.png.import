@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4tqeaa0e2m54"
-path.s3tc="res://.godot/imported/front.png-260984aa14480fb614c502d0342a5820.s3tc.ctex"
+path.s3tc="res://.godot/imported/front.png-e8dd1b3c2763efc6cfa374d842274b25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Leo/front.png"
-dest_files=["res://.godot/imported/front.png-260984aa14480fb614c502d0342a5820.s3tc.ctex"]
+source_file="res://Assets/Player/Max/front.png"
+dest_files=["res://.godot/imported/front.png-e8dd1b3c2763efc6cfa374d842274b25.s3tc.ctex"]
 
 [params]
 
