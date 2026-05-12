@@ -305,6 +305,7 @@ func stun():
 func switch_item():
 	if not _pickable_item_nearby(): return
 	
+	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.drop()
 	current_picked_item = null
 	
