@@ -27,7 +27,7 @@ func _get_controller_plateform_from_id(device_id: int) -> ControllerIconSet.Plat
 	
 	if "ps5" in device_name or "dualsense" in device_name:
 		new_device = ControllerIconSet.PlatformName.PLAYSTATION
-	elif "xbox" in device_name:
+	elif "xbox" in device_name or "xinput" in device_name:
 		new_device = ControllerIconSet.PlatformName.XBOX
 	elif "steam" in device_name:
 		new_device = ControllerIconSet.PlatformName.STEAM
