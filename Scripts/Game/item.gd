@@ -149,7 +149,10 @@ func attack(direction: Vector3):
 	
 	if distance : _distance_attack()
 	else: _melee_attack()
-	attack_sound.post(self)
+	
+	if attack_sound:
+		attack_sound.post(self)
+	
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false

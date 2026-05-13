@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
-[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
+[ext_resource type="Script" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
