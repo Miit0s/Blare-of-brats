@@ -2,58 +2,61 @@
 
 [ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_fhcvt"]
 [ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/UI/controller_slot.gd" id="1_ud3kx"]
-[ext_resource type="Texture2D" uid="uid://dnynq2b1jk735" path="res://Assets/Sprite/mock_player_skin.png" id="2_vvl2r"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="4_0tve0"]
-[ext_resource type="Shader" uid="uid://doki7jt3gmrse" path="res://Shader/radial_progress_bar.gdshader" id="4_x1yx4"]
+[ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="4_5et8s"]
+[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_f1ni1"]
+[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_x1yx4"]
+[ext_resource type="Script" uid="uid://qn50oow5bbxi" path="res://Scripts/UI/selected_player.gd" id="5_37ya8"]
+[ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="6_7i0b3"]
+[ext_resource type="PackedScene" uid="uid://bv0thb4skdfjl" path="res://UI/ControllerConnection/color_options_max.tscn" id="6_f1ni1"]
+[ext_resource type="Script" uid="uid://cjirj2lxvamqj" path="res://Scripts/UI/color_picker.gd" id="6_jfjjs"]
+[ext_resource type="PackedScene" uid="uid://c1nr8wgvag3dy" path="res://UI/ControllerConnection/color_options_ash.tscn" id="9_iow0i"]
+[ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="10_7i0b3"]
+[ext_resource type="Material" uid="uid://djarnermio526" path="res://Assets/Material/AshSkin/2D/blue.tres" id="13_7vna0"]
+[ext_resource type="Material" uid="uid://c8g27i46paa55" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="14_oetyb"]
+[ext_resource type="Material" uid="uid://sjtriheka68w" path="res://Assets/Material/MaxSkin/2D/deep_blue.tres" id="15_l0730"]
+[ext_resource type="Material" uid="uid://chb735ujgnro4" path="res://Assets/Material/AshSkin/2D/violet.tres" id="16_3xb4p"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x1yx4"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0tve0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tve0"]
-resource_local_to_scene = true
-shader = ExtResource("4_x1yx4")
-shader_parameter/base_color = Color(0, 1, 0, 1)
-shader_parameter/outer_bound = 0.4
-shader_parameter/inner_bound = 0.15000000223518
-shader_parameter/fill_direction = -1.0
-shader_parameter/progress = 0.0
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f1ni1"]
 
-[node name="ControllerSlot" type="TextureRect" unique_id=699056762]
-custom_minimum_size = Vector2(200, 200)
+[sub_resource type="LabelSettings" id="LabelSettings_f1ni1"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1811407478]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("1_fhcvt")
-expand_mode = 1
 script = ExtResource("1_ud3kx")
+character_texture = Array[Texture2D]([ExtResource("4_f1ni1"), ExtResource("4_x1yx4")])
 
-[node name="PlayerSkin" type="TextureRect" parent="." unique_id=1194857427]
+[node name="ControllerSlot" type="TextureRect" parent="." unique_id=699056762]
 visible = false
-modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(350, 350)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vvl2r")
-expand_mode = 4
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_fhcvt")
+expand_mode = 1
 
-[node name="RichLabel" type="RichTextLabel" parent="." unique_id=213948769]
+[node name="RichLabel" type="RichTextLabel" parent="ControllerSlot" unique_id=213948769]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -61,14 +64,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -56.5
-offset_right = 75.0
-offset_bottom = 56.5
+offset_left = -142.5
+offset_top = -87.75
+offset_right = 142.5
+offset_bottom = 87.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "Press {JoinGame}"
 autowrap_mode = 2
@@ -78,52 +81,200 @@ script = ExtResource("4_0tve0")
 raw_text = "Press {JoinGame}"
 metadata/_custom_type_script = "uid://0suax27ohuw"
 
-[node name="ReadyTexture" type="TextureRect" parent="." unique_id=968981738]
-visible = false
-custom_minimum_size = Vector2(60, 60)
+[node name="BackPlayer" type="Control" parent="." unique_id=1692855599]
+modulate = Color(1, 1, 1, 0.74509805)
+custom_minimum_size = Vector2(250, 350)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = 37.0
-offset_right = 30.0
-offset_bottom = 97.0
+anchor_bottom = 0.5
+offset_left = -346.86
+offset_top = -310.615
+offset_right = -96.859985
+offset_bottom = 39.38501
 grow_horizontal = 2
-grow_vertical = 0
-texture = SubResource("PlaceholderTexture2D_x1yx4")
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="BackPlayer" unique_id=119903687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3529412, 0.4117647, 0.5294118, 1)
+
+[node name="TextureRect" type="TextureRect" parent="BackPlayer" unique_id=106763932]
+material = ExtResource("4_5et8s")
+custom_minimum_size = Vector2(0, 325)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_x1yx4")
 expand_mode = 3
 
-[node name="ReadyContainer" type="VBoxContainer" parent="." unique_id=1733481878]
-visible = false
+[node name="SelectedPlayer" type="Control" parent="." unique_id=1768330458]
+custom_minimum_size = Vector2(350, 494)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -126.5
+offset_right = 75.0
+offset_bottom = 126.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_37ya8")
+
+[node name="ColorRect" type="ColorRect" parent="SelectedPlayer" unique_id=1512686670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3529412, 0.4117647, 0.5294118, 1)
+
+[node name="TextureRect" type="TextureRect" parent="SelectedPlayer" unique_id=1483914749]
+material = ExtResource("6_7i0b3")
+custom_minimum_size = Vector2(0, 474)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_f1ni1")
+expand_mode = 3
+
+[node name="LeftArrow" type="TextureRect" parent="SelectedPlayer" unique_id=2098059727]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -49.0
+offset_bottom = 49.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_0tve0")
+
+[node name="RightArrow" type="TextureRect" parent="SelectedPlayer" unique_id=24151728]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_right = 98.0
+offset_bottom = 49.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_0tve0")
+
+[node name="UpArrow" type="TextureRect" parent="SelectedPlayer" unique_id=127599923]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = -98.0
+offset_right = 49.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_f1ni1")
+
+[node name="DownArrow" type="TextureRect" parent="SelectedPlayer" unique_id=2027163229]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -174.25
-offset_top = 12.3849945
-offset_right = 174.25
-offset_bottom = 113.0
+offset_left = -49.0
+offset_right = 49.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_f1ni1")
+
+[node name="ColorPicker" type="Control" parent="SelectedPlayer" unique_id=1336359641]
+anchors_preset = 0
+offset_left = -41.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 149.0
+script = ExtResource("6_jfjjs")
+color_options_for_skin = Dictionary[int, PackedScene]({
+0: ExtResource("6_f1ni1"),
+1: ExtResource("9_iow0i")
+})
+
+[node name="ColorRect" type="ColorRect" parent="SelectedPlayer/ColorPicker" unique_id=1110184345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[node name="ColorOptions" parent="SelectedPlayer/ColorPicker" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("10_7i0b3")]
+layout_mode = 1
+color_selector = {
+NodePath("VBoxContainer/ColorSelector1"): ExtResource("6_7i0b3"),
+NodePath("VBoxContainer/ColorSelector2"): ExtResource("13_7vna0"),
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("14_oetyb"),
+NodePath("VBoxContainer/ColorSelector4"): ExtResource("15_l0730"),
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("16_3xb4p")
+}
+
+[node name="ReadyState" type="Control" parent="SelectedPlayer" unique_id=29938384]
+custom_minimum_size = Vector2(0, 78)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 23.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="RichTextLabel" parent="ReadyContainer" unique_id=1605800902]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Hold {JoinGame} to be ready"
-scroll_active = false
-horizontal_alignment = 1
-script = ExtResource("4_0tve0")
-raw_text = "Hold {JoinGame} to be ready"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+[node name="ColorRect" type="ColorRect" parent="SelectedPlayer/ReadyState" unique_id=2078884668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 1)
 
-[node name="RadialProgressBar" type="ColorRect" parent="ReadyContainer" unique_id=174676728]
-material = SubResource("ShaderMaterial_0tve0")
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="Label" type="Label" parent="SelectedPlayer/ReadyState" unique_id=1376972120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ready"
+label_settings = SubResource("LabelSettings_f1ni1")
+horizontal_alignment = 1
+vertical_alignment = 1

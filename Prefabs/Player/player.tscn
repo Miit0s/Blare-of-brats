@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ow52qjt1wwuq" path="res://Assets/Player/Max/3_4_back_left.png" id="9_sf0qn"]
 [ext_resource type="Texture2D" uid="uid://b1vfkwhmxxybd" path="res://Assets/Player/Max/side_left.png" id="10_j7wlx"]
 [ext_resource type="Texture2D" uid="uid://cd7j8pdiaikw2" path="res://Assets/Player/Max/3_4_left.png" id="11_yi7wc"]
-[ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/green.tres" id="14_ybo73"]
+[ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
 

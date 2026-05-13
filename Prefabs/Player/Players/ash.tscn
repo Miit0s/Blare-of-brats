@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_d2n7p"]
 [ext_resource type="Texture2D" uid="uid://bi4lukd3765t1" path="res://Assets/Player/Ash/chara_2_spritesheet.png" id="2_klhvg"]
-[ext_resource type="Material" uid="uid://dui8e4faikyy3" path="res://Assets/Material/AshSkin/orange.tres" id="3_moyob"]
+[ext_resource type="Material" uid="uid://dui8e4faikyy3" path="res://Assets/Material/AshSkin/3D/orange.tres" id="3_moyob"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_k5cri"]
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="5_moyob"]
 
