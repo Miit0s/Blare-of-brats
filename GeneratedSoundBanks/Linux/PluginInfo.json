@@ -4,6 +4,13 @@
   "BasePlatform": "Linux",
   "PluginLibs": [
    {
+    "LibName": "Wwise Parametric EQ",
+    "LibId": "6881283",
+    "Type": "Effect",
+    "DLL": "AkParametricEQ",
+    "StaticLib": "AkParametricEQFX"
+   },
+   {
     "LibName": "Wwise Meter",
     "LibId": "8454147",
     "Type": "Effect",
@@ -21,6 +28,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{12795B97-F154-FAC0-CCE3-C784EE76BD5F}"
+  "FileHash": "{62C9B680-EAA5-C0F5-0F3D-811C3348045F}"
  }
 }

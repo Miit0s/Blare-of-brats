@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{EE7A238A-914F-457E-14CB-160C2741C42C}",
+    "Hash": "{08DA961A-BEB4-4450-C947-5DA9F87281AA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -46,6 +46,14 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2_2.wav",
       "CachePath": "C3/{C3B30372-643C-4026-0A12-EEE0656038FB}.wem"
+     },
+     {
+      "Id": "124687659",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pistogum_shoot_v1.wav",
+      "CachePath": "D3/{D3AD74DB-05B7-B062-6EF1-8664BE084646}.wem"
      },
      {
       "Id": "192332123",
@@ -184,11 +192,23 @@
       "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
      }
     ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "397200202",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\Chara\\Items\\Pistogum\\Pistogum_Master\\Pistogum_shoot_v1\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{F1FF33B4-EE9C-42F5-8B41-903D64D16919}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1076559162",
       "Name": "Boxing_Glove",
-      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Boxing_Glove",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Boxing_Glove\\Boxing_Glove",
       "GUID": "{8EEAA15B-A805-4909-9B85-FE3E1D889573}",
       "Color": "2",
       "DurationType": "OneShot",
@@ -335,6 +355,28 @@
       ]
      },
      {
+      "Id": "2746646177",
+      "Name": "PistoGum_Shoot",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\PistoGum\\PistoGum_Shoot",
+      "GUID": "{B3B07112-5F44-4E93-A723-73299493F2D2}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.456753",
+      "DurationMax": "2.0601597",
+      "MediaRefs": [
+       {
+        "Id": "124687659"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "397200202"
+        }
+       ]
+      }
+     },
+     {
       "Id": "2476125396",
       "Name": "SwitchObject",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\SwitchObject",
@@ -394,6 +436,6 @@
     ]
    }
   ],
-  "FileHash": "{DB2E5D9E-BE78-9C8C-F5FD-4182CD9D7EA2}"
+  "FileHash": "{A1D4CBAE-6ACC-772B-6C15-CBE375D53BF2}"
  }
 }

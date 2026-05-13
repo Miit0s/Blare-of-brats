@@ -19,6 +19,7 @@ namespace AK
         static const AkUniqueID HIT_WOUT_OBJECT = 3713424412U;
         static const AkUniqueID LAUNCH = 17302528U;
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
+        static const AkUniqueID PISTOGUM_SHOOT = 2746646177U;
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
     } // namespace EVENTS
 
