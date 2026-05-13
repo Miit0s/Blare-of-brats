@@ -34,7 +34,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	477928144	hit_5	.cache\DF\{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Hit\hit_5		84952
 	548537568	Chara_Mov_Dash_v1_02	.cache\86\{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_02		61716
 	574240304	Chara_Mov_Dash_v1	.cache\F0\{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1		104120
-	663880264	funny_boing_sound	.cache\66\{66FC4B06-40BD-6889-9ABA-8CECD5BA826F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Boxing_glove\funny_boing_sound		198596
+	663880264	funny_boing_sound	.cache\66\{66FC4B06-40BD-6889-9ABA-8CECD5BA826F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Boxing_glove\Boxing_Glove_Master\funny_boing_sound		198596
 	675508919	SwitchObject	.cache\8F\{8FFFBD4F-8ADB-E175-E317-B0347672CC4A}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\SwitchObject		70868
 	693540064	Loop	.cache\90\{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\Loop		3066932
 	693680794	fill_parents_shh	.cache\48\{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\fill_parents_shh\fill_parents_shh		546936

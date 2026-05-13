@@ -7,15 +7,24 @@ State	ID	Name	State Group			Notes
 	4261315644	Parents	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	3084348855	Children_Playing			\Default Work Unit\Children_Playing	
+	1342917059	Mid_Fct			\Default Work Unit\Mid_Fct	
+	2785096631	Low_Fct			\Default Work Unit\Low_Fct	
+	2988444587	High_Fct			\Default Work Unit\High_Fct	
+	3321746565	Children_Action			\Default Work Unit\Children_Action	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1326580637	Mid_Att			\Default Work Unit\Main Audio Bus\Mid_Att	
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+	2633362641	Low_Att			\Default Work Unit\Main Audio Bus\Low_Att	
 	3084348855	Children_Playing			\Default Work Unit\Main Audio Bus\Children_Playing	
+	3509095173	High_Att			\Default Work Unit\Main Audio Bus\High_Att	
 	3991942870	Music			\Default Work Unit\Main Audio Bus\Music	
 
 Effect plug-ins	ID	Name	Type				Notes
+	1702154852	Sidechain_Meter_High	Wwise Meter			
 	1992114213	Sidechain_Meter	Wwise Meter			
+	3605053926	Sidechain_Meter_Low	Wwise Meter			
+	4242750366	Sidechain_Meter_Mid	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

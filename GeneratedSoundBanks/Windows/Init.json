@@ -10,17 +10,41 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{19256E2B-BA0F-12A2-9C12-989F2F2015A7}",
+    "Hash": "{FD54AD7A-4F43-521D-7DC2-763C623525D0}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
      "ShareSets": [
       {
+       "Id": "1702154852",
+       "Name": "Sidechain_Meter_High",
+       "ObjectPath": "\\Effects\\Default Work Unit\\Sidechain_Meter_High",
+       "GUID": "{AAD86400-5E61-4C00-8524-05DA584AC438}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
        "Id": "1992114213",
        "Name": "Sidechain_Meter",
        "ObjectPath": "\\Effects\\Default Work Unit\\Sidechain_Meter",
        "GUID": "{26213773-3AC1-4D20-AAAD-75BA54B2481F}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
+       "Id": "3605053926",
+       "Name": "Sidechain_Meter_Low",
+       "ObjectPath": "\\Effects\\Default Work Unit\\Sidechain_Meter_Low",
+       "GUID": "{5AD73C3E-CF3F-45BE-83D4-2D2E421D0FDA}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
+       "Id": "4242750366",
+       "Name": "Sidechain_Meter_Mid",
+       "ObjectPath": "\\Effects\\Default Work Unit\\Sidechain_Meter_Mid",
+       "GUID": "{8FE6FAE0-A440-48AF-AC62-4A7FCFB8F1D2}",
        "LibName": "Wwise Meter",
        "LibId": "8454147"
       }
@@ -46,10 +70,36 @@
     },
     "Busses": [
      {
+      "Id": "1326580637",
+      "Name": "Mid_Att",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\Mid_Att",
+      "GUID": "{D6246AC9-0E59-4B6C-B96D-6199B31162AF}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "4242750366"
+        }
+       ]
+      }
+     },
+     {
       "Id": "2246998526",
       "Name": "Main Audio Bus",
       "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "2633362641",
+      "Name": "Low_Att",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\Low_Att",
+      "GUID": "{5A817C32-F053-40A2-AAAE-B7D4E3DAE00B}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "3605053926"
+        }
+       ]
+      }
      },
      {
       "Id": "3084348855",
@@ -60,6 +110,19 @@
        "ShareSets": [
         {
          "Id": "1992114213"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3509095173",
+      "Name": "High_Att",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\High_Att",
+      "GUID": "{D445151A-BA28-4E2C-97E2-359C55756665}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1702154852"
         }
        ]
       }
@@ -85,9 +148,27 @@
       "GUID": "{7DA362F0-4F33-4B06-B6EF-54602E5F80BD}"
      },
      {
-      "Id": "3084348855",
-      "Name": "Children_Playing",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Children_Playing",
+      "Id": "1342917059",
+      "Name": "Mid_Fct",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Mid_Fct",
+      "GUID": "{1EF76F75-C10C-4138-917F-696DAD3ECEB0}"
+     },
+     {
+      "Id": "2785096631",
+      "Name": "Low_Fct",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Low_Fct",
+      "GUID": "{6902E341-BDC2-4192-BB73-1D4CED233A7E}"
+     },
+     {
+      "Id": "2988444587",
+      "Name": "High_Fct",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\High_Fct",
+      "GUID": "{4D5D0662-81DE-42D0-A892-30E0903F5440}"
+     },
+     {
+      "Id": "3321746565",
+      "Name": "Children_Action",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Children_Action",
       "GUID": "{B58C732A-A2A9-47A8-A0E0-2F2DABB39BDF}"
      }
     ],
@@ -598,6 +679,6 @@
     ]
    }
   ],
-  "FileHash": "{2C2A6C00-612E-9C8C-F592-99EC48887952}"
+  "FileHash": "{3CEA5B5B-185F-4BE5-6AEF-DBABB7C97228}"
  }
 }
