@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{08DA961A-BEB4-4450-C947-5DA9F87281AA}",
+    "Hash": "{5A7475B8-246E-6752-C96B-334A0975F44F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -46,14 +46,6 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2_2.wav",
       "CachePath": "C3/{C3B30372-643C-4026-0A12-EEE0656038FB}.wem"
-     },
-     {
-      "Id": "124687659",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Pistogum_shoot_v1.wav",
-      "CachePath": "D3/{D3AD74DB-05B7-B062-6EF1-8664BE084646}.wem"
      },
      {
       "Id": "192332123",
@@ -184,21 +176,45 @@
       "CachePath": "55/{558F8925-7F39-AD20-0512-F64D720D4B63}.wem"
      },
      {
+      "Id": "903468965",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pistogum_shoot_v2.2.wav",
+      "CachePath": "8A/{8ADC6525-6E5F-6518-36BA-37F41E709C90}.wem"
+     },
+     {
       "Id": "930276617",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_1.wav",
       "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
+     },
+     {
+      "Id": "1005290781",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pistogum_shoot_v2.1.wav",
+      "CachePath": "D3/{D38E84A8-6571-68B8-E8F1-705EC9BAC476}.wem"
+     },
+     {
+      "Id": "1067369601",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pistogum_shoot_v2.3.wav",
+      "CachePath": "3C/{3CFBE847-F643-A992-F1E4-EEE448919310}.wem"
      }
     ],
     "Plugins": {
      "Custom": [
       {
-       "Id": "397200202",
+       "Id": "747094273",
        "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\Chara\\Items\\Pistogum\\Pistogum_Master\\Pistogum_shoot_v1\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
-       "GUID": "{F1FF33B4-EE9C-42F5-8B41-903D64D16919}",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\Chara\\Items\\Pistogum\\Pistogum_Master\\PistoGum_Shoot\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{F3DA4897-6B47-4C44-B0DF-4382E4896578}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
       }
@@ -361,17 +377,23 @@
       "GUID": "{B3B07112-5F44-4E93-A723-73299493F2D2}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "1.456753",
-      "DurationMax": "2.0601597",
+      "DurationMin": "0.8388518",
+      "DurationMax": "1.0838324",
       "MediaRefs": [
        {
-        "Id": "124687659"
+        "Id": "903468965"
+       },
+       {
+        "Id": "1005290781"
+       },
+       {
+        "Id": "1067369601"
        }
       ],
       "PluginRefs": {
        "Custom": [
         {
-         "Id": "397200202"
+         "Id": "747094273"
         }
        ]
       }
@@ -436,6 +458,6 @@
     ]
    }
   ],
-  "FileHash": "{A1D4CBAE-6ACC-772B-6C15-CBE375D53BF2}"
+  "FileHash": "{3C350A72-7812-154C-2C8F-76932E79EE52}"
  }
 }
