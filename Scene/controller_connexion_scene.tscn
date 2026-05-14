@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
+[ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="3_1plwt"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_4l4xg"]
+[ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="6_qbu2t"]
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -34,11 +36,13 @@ theme_override_constants/separation = 800
 
 [node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
 layout_mode = 2
+begin_material = ExtResource("3_1plwt")
 
 [node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
 layout_mode = 2
 character_texture = Array[Texture2D]([ExtResource("3_gka6h"), ExtResource("4_4l4xg")])
 begin_skin = 1
+begin_material = ExtResource("6_qbu2t")
 
 [node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
 layout_mode = 1

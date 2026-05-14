@@ -47,8 +47,9 @@ func set_ready_state():
 	
 	ready_state.show()
 
-func set_new_character(texture: Texture2D, skin: ControllerSlot.PossibleSkin):
+func set_new_character(texture: Texture2D, shader_material: ShaderMaterial, skin: ControllerSlot.PossibleSkin):
 	texture_rect.texture = texture
+	texture_rect.material = shader_material
 	color_picker.display_color_option_for_skin(skin)
 
 func apply_next_color():

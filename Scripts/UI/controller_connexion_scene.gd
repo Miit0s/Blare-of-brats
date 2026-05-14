@@ -19,6 +19,25 @@ func _ready() -> void:
 	for controller_slot in controller_slot_container.get_children():
 		controller_slots.append(controller_slot)
 
+func _process(_delta: float) -> void:
+	for i in max_player:
+		var suffix: String = "_" + str(i)
+		if (Input.is_action_just_pressed("NextCharacter" + suffix) or \
+			Input.is_action_just_pressed("PreviousCharacter" + suffix)) and \
+			is_device_already_connected(i):
+				var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+				if player_slot.current_state == ControllerSlot.SelectionState.CHARACTER_SELECTION:
+					player_slot.swap_character_texture()
+			
+		if Input.is_action_just_pressed("NextColor" + suffix) and is_device_already_connected(i):
+			var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
+				player_slot.next_character_color()
+		elif Input.is_action_just_pressed("PreviousColor" + suffix) and is_device_already_connected(i):
+			var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
+				player_slot.previous_character_color()
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
 		if event.is_action_pressed("JoinGame"):
@@ -56,7 +75,7 @@ func pick_existing_slot(device_id: int) -> bool:
 	for i in controller_slots.size():
 		
 		if controller_slots[i].is_slot_available:
-			controller_slots[i].switch_to_character_selection(device_id)
+			controller_slots[i].next_state(device_id)
 			return true
 	
 	return false

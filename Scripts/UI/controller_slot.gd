@@ -21,6 +21,7 @@ enum SelectionState {
 
 @export var character_texture: Array[Texture2D]
 @export var begin_skin: PossibleSkin = PossibleSkin.MAX
+@export var begin_material: ShaderMaterial
 
 var _player_id: int = -1
 var is_slot_available: bool:
@@ -30,12 +31,15 @@ var has_selected_character: bool = false
 var is_ready: bool = false
 
 var current_state: SelectionState = SelectionState.EMPTY
+var current_skin: PossibleSkin
 
 signal player_his_ready()
 signal player_no_more_ready()
 
 func _ready() -> void:
-	selected_player.set_new_character(character_texture[0], begin_skin)
+	current_skin = begin_skin
+	switch_to_empty_slot()
+	selected_player.set_new_character(character_texture[0], begin_material, begin_skin)
 	back_player_texture_rect.texture = character_texture[1]
 
 func switch_to_empty_slot():
@@ -80,11 +84,15 @@ func switch_to_player_ready():
 	player_his_ready.emit()
 
 func swap_character_texture():
-	var new_skin: PossibleSkin = PossibleSkin.MAX if begin_skin == PossibleSkin.ASH else PossibleSkin.ASH
+	var new_skin: PossibleSkin = PossibleSkin.MAX if current_skin == PossibleSkin.ASH else PossibleSkin.ASH
 	var temp_texture = back_player_texture_rect.texture
+	var temp_material = back_player.material
 	
 	back_player_texture_rect.texture = selected_player.texture_rect.texture
-	selected_player.set_new_character(temp_texture, new_skin)
+	back_player_texture_rect.material = selected_player.material
+	selected_player.set_new_character(temp_texture, temp_material, new_skin)
+	
+	current_skin = new_skin
 
 func next_character_color():
 	selected_player.apply_next_color()
@@ -97,13 +105,19 @@ func get_player_id() -> int:
 	return _player_id
 
 func back(player_id: int):
-	match SelectionState:
+	match current_state:
 		SelectionState.CHARACTER_SELECTION: switch_to_empty_slot()
 		SelectionState.COLOR_SELECTION: switch_to_character_selection(player_id)
 		SelectionState.READY: switch_to_color_selection()
 
 func next_state(player_id: int):
-	match SelectionState:
-		SelectionState.EMPTY: switch_to_character_selection(player_id)
-		SelectionState.CHARACTER_SELECTION: switch_to_color_selection()
-		SelectionState.COLOR_SELECTION: switch_to_player_ready()
+	match current_state:
+		SelectionState.EMPTY: 
+			switch_to_character_selection(player_id)
+			return
+		SelectionState.CHARACTER_SELECTION: 
+			switch_to_color_selection()
+			return
+		SelectionState.COLOR_SELECTION: 
+			switch_to_player_ready()
+			return
