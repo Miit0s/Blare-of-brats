@@ -86,10 +86,10 @@ func switch_to_player_ready():
 func swap_character_texture():
 	var new_skin: PossibleSkin = PossibleSkin.MAX if current_skin == PossibleSkin.ASH else PossibleSkin.ASH
 	var temp_texture = back_player_texture_rect.texture
-	var temp_material = back_player.material
+	var temp_material = back_player_texture_rect.material
 	
 	back_player_texture_rect.texture = selected_player.texture_rect.texture
-	back_player_texture_rect.material = selected_player.material
+	back_player_texture_rect.material = selected_player.texture_rect.material
 	selected_player.set_new_character(temp_texture, temp_material, new_skin)
 	
 	current_skin = new_skin

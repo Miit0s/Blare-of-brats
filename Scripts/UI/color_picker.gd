@@ -1,11 +1,17 @@
 extends Control
 class_name CharacterColorPicker
 
-@onready var color_options: ColorOptions = $ColorOptions
+@export var color_options_for_skin: Dictionary[ControllerSlot.PossibleSkin, ColorOptions]
 
-@export var color_options_for_skin: Dictionary[ControllerSlot.PossibleSkin, PackedScene]
+var current_color_option: ColorOptions
+
+func _ready() -> void:
+	for option: ColorOptions in color_options_for_skin.values():
+		option.hide()
+	
+	current_color_option = color_options_for_skin[ControllerSlot.PossibleSkin.MAX]
 
 func display_color_option_for_skin(skin: ControllerSlot.PossibleSkin):
-	color_options.queue_free()
-	color_options = color_options_for_skin[skin].instantiate()
-	add_child(color_options)
+	current_color_option.hide()
+	current_color_option = color_options_for_skin[skin]
+	current_color_option.show()

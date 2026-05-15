@@ -11,11 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bv0thb4skdfjl" path="res://UI/ControllerConnection/color_options_max.tscn" id="6_f1ni1"]
 [ext_resource type="Script" uid="uid://cjirj2lxvamqj" path="res://Scripts/UI/color_picker.gd" id="6_jfjjs"]
 [ext_resource type="PackedScene" uid="uid://c1nr8wgvag3dy" path="res://UI/ControllerConnection/color_options_ash.tscn" id="9_iow0i"]
-[ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="10_7i0b3"]
+[ext_resource type="Material" uid="uid://si1sx446u8ac" path="res://Assets/Material/MaxSkin/2D/blue.tres" id="12_3xb4p"]
 [ext_resource type="Material" uid="uid://djarnermio526" path="res://Assets/Material/AshSkin/2D/blue.tres" id="13_7vna0"]
 [ext_resource type="Material" uid="uid://c8g27i46paa55" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="14_oetyb"]
+[ext_resource type="Material" uid="uid://bn30eps4jrde0" path="res://Assets/Material/MaxSkin/2D/violet.tres" id="15_astin"]
 [ext_resource type="Material" uid="uid://sjtriheka68w" path="res://Assets/Material/MaxSkin/2D/deep_blue.tres" id="15_l0730"]
 [ext_resource type="Material" uid="uid://chb735ujgnro4" path="res://Assets/Material/AshSkin/2D/violet.tres" id="16_3xb4p"]
+[ext_resource type="Material" uid="uid://i3nq06p0cv1y" path="res://Assets/Material/AshSkin/2D/yellow.tres" id="16_shal0"]
+[ext_resource type="Material" uid="uid://8iwtskds1vm1" path="res://Assets/Material/AshSkin/2D/cyan.tres" id="17_q8gsb"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0tve0"]
 
@@ -215,17 +218,17 @@ grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = SubResource("PlaceholderTexture2D_f1ni1")
 
-[node name="ColorPicker" type="Control" parent="SelectedPlayer" unique_id=1336359641]
+[node name="ColorPicker" type="Control" parent="SelectedPlayer" unique_id=1336359641 node_paths=PackedStringArray("color_options_for_skin")]
 anchors_preset = 0
 offset_left = -41.0
 offset_top = 7.0
 offset_right = -6.0
 offset_bottom = 149.0
 script = ExtResource("6_jfjjs")
-color_options_for_skin = Dictionary[int, PackedScene]({
-0: ExtResource("6_f1ni1"),
-1: ExtResource("9_iow0i")
-})
+color_options_for_skin = {
+0: NodePath("ColorOptions"),
+1: NodePath("ColorOptions2")
+}
 
 [node name="ColorRect" type="ColorRect" parent="SelectedPlayer/ColorPicker" unique_id=1110184345]
 layout_mode = 1
@@ -236,14 +239,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 
-[node name="ColorOptions" parent="SelectedPlayer/ColorPicker" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("10_7i0b3")]
+[node name="ColorOptions" parent="SelectedPlayer/ColorPicker" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("6_f1ni1")]
 layout_mode = 1
 color_selector = {
 NodePath("VBoxContainer/ColorSelector1"): ExtResource("6_7i0b3"),
-NodePath("VBoxContainer/ColorSelector2"): ExtResource("13_7vna0"),
+NodePath("VBoxContainer/ColorSelector2"): ExtResource("12_3xb4p"),
 NodePath("VBoxContainer/ColorSelector3"): ExtResource("14_oetyb"),
 NodePath("VBoxContainer/ColorSelector4"): ExtResource("15_l0730"),
-NodePath("VBoxContainer/ColorSelector5"): ExtResource("16_3xb4p")
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("15_astin")
+}
+
+[node name="ColorOptions2" parent="SelectedPlayer/ColorPicker" unique_id=923699830 node_paths=PackedStringArray("color_selector") instance=ExtResource("9_iow0i")]
+layout_mode = 1
+color_selector = {
+NodePath("VBoxContainer/ColorSelector1"): ExtResource("4_5et8s"),
+NodePath("VBoxContainer/ColorSelector2"): ExtResource("16_shal0"),
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("17_q8gsb"),
+NodePath("VBoxContainer/ColorSelector4"): ExtResource("16_3xb4p"),
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("13_7vna0")
 }
 
 [node name="ReadyState" type="Control" parent="SelectedPlayer" unique_id=29938384]
