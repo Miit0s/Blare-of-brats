@@ -105,7 +105,7 @@ shader_parameter/seed = 5.0
 
 [sub_resource type="Curve" id="Curve_1w8lt"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0.02150537, -284.29535), 0.0, 0.0, 0, 0, Vector2(0.2204301, 360), 0.0, 0.0, 0, 0, Vector2(0.92473125, 134.49661), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.02150537, -284.29535), 0.0, 0.0, 0, 0, Vector2(0.3548387, 360), 0.0, 0.0, 0, 0, Vector2(0.7580645, 360), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_1r1nj"]
@@ -138,7 +138,7 @@ curve = SubResource("Curve_svlak")
 emission_shape = 3
 emission_box_extents = Vector3(6.76, 10.37, 1)
 angular_velocity_min = -1.0000161
-angular_velocity_max = 0.9999839
+angular_velocity_max = 19.999983
 angular_velocity_curve = SubResource("CurveTexture_1r1nj")
 directional_velocity_min = -1.0000161
 directional_velocity_max = 1.9999839
@@ -769,7 +769,7 @@ texture = SubResource("GradientTexture2D_y0a5r")
 [node name="Particles" type="Node3D" parent="." unique_id=1784685170]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=662395263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.969824, 4.8374157, -5.0345554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.597982, 4.8374157, -0.6560383)
 amount = 500
 lifetime = 1.11
 process_material = SubResource("ParticleProcessMaterial_d1br4")
