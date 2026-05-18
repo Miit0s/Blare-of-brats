@@ -30,6 +30,7 @@ var players_win: Array[int]
 var players_selection: Array[PlayerCharacterSelection] = []
 
 var _current_scene: MapScene
+var _round_ended: bool = false
 
 func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
@@ -49,6 +50,9 @@ func start_round_animation():
 	shared_life_bar.hide()
 	game_sound_bar.hide()
 	
+	shared_life_bar.change_player_data(players_selection[0], players_selection[1])
+	round_end_ui.change_player_data(players_selection[0], players_selection[1])
+	
 	setup_new_scene()
 	round_start_ui.show()
 	round_start_ui.start_animation()
@@ -56,6 +60,8 @@ func start_round_animation():
 func start_round():
 	shared_life_bar.reset()
 	game_sound_bar.reset()
+	
+	_round_ended = false
 	
 	shared_life_bar.show()
 	game_sound_bar.show()
@@ -93,6 +99,9 @@ func round_end_animaion_finish():
 		round_end_ui.show_next_round_button()
 
 func player_win(player_id: int):
+	if _round_ended: return
+	
+	_round_ended = true
 	players_win[player_id] += 1
 	
 	for player in players:
@@ -103,7 +112,7 @@ func player_win(player_id: int):
 	music_fight.stop(self)
 	
 	round_end_ui.show()
-	round_end_ui.start_animation(players_win)
+	round_end_ui.start_animation(players_win, players_selection[player_id])
 
 func return_to_main_menu():
 	get_tree().change_scene_to_file(main_menu_scene_uid)

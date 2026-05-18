@@ -1,44 +1,41 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://basmhn2476lpq"]
 
-[ext_resource type="Texture2D" uid="uid://bi4lukd3765t1" path="res://Assets/Player/Ash/chara_2_spritesheet.png" id="1_pncrp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow1ds"]
-atlas = ExtResource("1_pncrp")
-region = Rect2(1200, 0, 400, 676)
+[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="1_v3lvf"]
+[ext_resource type="Texture2D" uid="uid://bi4lukd3765t1" path="res://Assets/Player/Ash/chara_2_spritesheet.png" id="2_rq5gj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8iaj2"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(800, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ennnf"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(2000, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48kdv"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(2400, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k67tx"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(2800, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwyyy"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(0, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i8pv"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(400, 0, 400, 676)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sv38"]
-atlas = ExtResource("1_pncrp")
+atlas = ExtResource("2_rq5gj")
 region = Rect2(1600, 0, 400, 676)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ow1ds")
+"texture": ExtResource("1_v3lvf")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8iaj2")

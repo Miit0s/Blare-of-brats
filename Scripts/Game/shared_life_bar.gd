@@ -4,6 +4,9 @@ class_name SharedLifeBar
 @onready var life_bar: ColorRect = $LifeBar
 @onready var middle_bar: ColorRect = $MiddleBar
 
+@onready var texture_rect_left: TextureRect = $TextureRectLeft
+@onready var texture_rect_right: TextureRect = $TextureRectRight
+
 @export var player_health: float = 100
 
 @export_range(0, 1, 0.01) var min_middle_bar_hide: float = 0.48
@@ -84,3 +87,14 @@ func get_player_id_with_most_health() -> int:
 
 func reset():
 	progress_bar_value = 0.5
+
+func change_player_data(left: PlayerCharacterSelection, right: PlayerCharacterSelection):
+	life_bar.material.set_shader_parameter("color_left", left.color_skin.main_color)
+	life_bar.material.set_shader_parameter("color_right", right.color_skin.main_color)
+	
+	_set_texture_for(texture_rect_left, left)
+	_set_texture_for(texture_rect_right, right)
+
+func _set_texture_for(rect: TextureRect, data: PlayerCharacterSelection):
+	rect.texture = data.character_texture.get_frame_texture("default", 0)
+	rect.material = data.color_skin.color_shader_2d
