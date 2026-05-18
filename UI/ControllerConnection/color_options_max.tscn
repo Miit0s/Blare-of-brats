@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://bv0thb4skdfjl"]
 
 [ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="1_d8uxe"]
-[ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="2_kd544"]
-[ext_resource type="Material" uid="uid://si1sx446u8ac" path="res://Assets/Material/MaxSkin/2D/blue.tres" id="3_py4xd"]
-[ext_resource type="Material" uid="uid://c8g27i46paa55" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="4_fg376"]
-[ext_resource type="Material" uid="uid://sjtriheka68w" path="res://Assets/Material/MaxSkin/2D/deep_blue.tres" id="5_gtqxr"]
-[ext_resource type="Material" uid="uid://bn30eps4jrde0" path="res://Assets/Material/MaxSkin/2D/violet.tres" id="6_6q0cn"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Assets/Material/MaxSkin/green.tres" id="2_gpeau"]
+[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Assets/Material/MaxSkin/blue.tres" id="3_kd544"]
+[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Assets/Material/MaxSkin/pink.tres" id="4_py4xd"]
+[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Assets/Material/MaxSkin/deep_blue.tres" id="5_fg376"]
 
 [node name="ColorOptions" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("1_d8uxe")]
 color_selector = {
-NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_kd544"),
-NodePath("VBoxContainer/ColorSelector2"): ExtResource("3_py4xd"),
-NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_fg376"),
-NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_gtqxr"),
-NodePath("VBoxContainer/ColorSelector5"): ExtResource("6_6q0cn")
+NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_gpeau"),
+NodePath("VBoxContainer/ColorSelector2"): ExtResource("3_kd544"),
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_py4xd"),
+NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_fg376"),
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("4_py4xd")
 }

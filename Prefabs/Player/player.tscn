@@ -6,49 +6,11 @@
 [ext_resource type="WwiseEvent" uid="uid://v3kb26q6hck6" path="res://Wwise/resources/Event/{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}.tres" id="4_knrd4"]
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="5_7m7dm"]
-[ext_resource type="Texture2D" uid="uid://b5juhvy8bcar7" path="res://Assets/Player/Max/3_4_right.png" id="6_4sfrm"]
+[ext_resource type="SpriteFrames" uid="uid://0fk4nu8qwjbo" path="res://Prefabs/Player/Players/max_spriteframes.tres" id="6_tt850"]
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/Sprite/circle_arrow.png" id="7_juxdh"]
-[ext_resource type="Texture2D" uid="uid://cbokd44ovtctj" path="res://Assets/Player/Max/side_right.png" id="7_r08wf"]
-[ext_resource type="Texture2D" uid="uid://dn7gas0do6aw1" path="res://Assets/Player/Max/3_4_back_right.png" id="8_4sfrm"]
-[ext_resource type="Texture2D" uid="uid://b7uqdid42yvei" path="res://Assets/Player/Max/back.png" id="8_ybo73"]
-[ext_resource type="Texture2D" uid="uid://ow52qjt1wwuq" path="res://Assets/Player/Max/3_4_back_left.png" id="9_sf0qn"]
-[ext_resource type="Texture2D" uid="uid://b1vfkwhmxxybd" path="res://Assets/Player/Max/side_left.png" id="10_j7wlx"]
-[ext_resource type="Texture2D" uid="uid://cd7j8pdiaikw2" path="res://Assets/Player/Max/3_4_left.png" id="11_yi7wc"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4sfrm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_7m7dm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_4sfrm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_r08wf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_4sfrm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ybo73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_sf0qn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_j7wlx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_yi7wc")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knrd4"]
 size = Vector3(1.3, 2, 1)
@@ -59,7 +21,7 @@ radius = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_7m7dm"]
 size = Vector3(1.35, 1, 1.05)
 
-[node name="Player" type="CharacterBody3D" unique_id=382022037]
+[node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("sprite_3d", "dash_effect")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_y6xdh")
@@ -73,7 +35,9 @@ pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
-sprites_frames = SubResource("SpriteFrames_4sfrm")
+sprites_frames = ExtResource("6_tt850")
+sprite_3d = NodePath("Sprite3D")
+dash_effect = NodePath("DashEffect")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1496403736]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

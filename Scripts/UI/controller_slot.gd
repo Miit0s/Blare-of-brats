@@ -14,14 +14,16 @@ enum SelectionState {
 }
 
 @onready var controller_slot: TextureRect = $ControllerSlot
-@onready var selected_player: SelectedPlayerUI = $SelectedPlayer
+@onready var selected_player: MainCharacterSelection = $SelectedPlayer
 
-@onready var back_player: Control = $BackPlayer
-@onready var back_player_texture_rect: TextureRect = $BackPlayer/TextureRect
+@onready var back_player: CharacterSelection = $BackPlayer
 
 @export var character_texture: Array[Texture2D]
 @export var begin_skin: PossibleSkin = PossibleSkin.MAX
-@export var begin_material: ShaderMaterial
+@export var front_texture_begin_material: CharacterColorResource
+@export var back_texture_begin_material: CharacterColorResource
+
+@export var spriteframes_for_skin: Dictionary[PossibleSkin, SpriteFrames]
 
 var _player_id: int = -1
 var is_slot_available: bool:
@@ -39,8 +41,9 @@ signal player_no_more_ready()
 func _ready() -> void:
 	current_skin = begin_skin
 	switch_to_empty_slot()
-	selected_player.set_new_character(character_texture[0], begin_material, begin_skin)
-	back_player_texture_rect.texture = character_texture[1]
+	
+	selected_player.set_new_character(character_texture[0], front_texture_begin_material, begin_skin)
+	back_player.apply_color_and_texture(back_texture_begin_material, character_texture[1])
 
 func switch_to_empty_slot():
 	_player_id = -1
@@ -85,11 +88,10 @@ func switch_to_player_ready():
 
 func swap_character_texture():
 	var new_skin: PossibleSkin = PossibleSkin.MAX if current_skin == PossibleSkin.ASH else PossibleSkin.ASH
-	var temp_texture = back_player_texture_rect.texture
-	var temp_material = back_player_texture_rect.material
+	var temp_texture: Texture2D = back_player.texture_rect.texture
+	var temp_material: CharacterColorResource = back_player.current_character_color
 	
-	back_player_texture_rect.texture = selected_player.texture_rect.texture
-	back_player_texture_rect.material = selected_player.texture_rect.material
+	back_player.apply_color_and_texture(selected_player.current_character_color, selected_player.texture_rect.texture)
 	selected_player.set_new_character(temp_texture, temp_material, new_skin)
 	
 	current_skin = new_skin
@@ -121,3 +123,13 @@ func next_state(player_id: int):
 		SelectionState.COLOR_SELECTION: 
 			switch_to_player_ready()
 			return
+
+func get_player_selection() -> PlayerCharacterSelection:
+	var player_selection: PlayerCharacterSelection = PlayerCharacterSelection.new()
+	
+	player_selection.player_id = _player_id
+	player_selection.character_texture = spriteframes_for_skin[current_skin]
+	player_selection.color_skin = selected_player.get_current_material()
+	player_selection.skin = current_skin
+	
+	return player_selection

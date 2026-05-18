@@ -1,7 +1,7 @@
 extends Control
 class_name ColorOptions
 
-@export var color_selector: Dictionary[ColorSelector, ShaderMaterial]
+@export var color_selector: Dictionary[ColorSelector, CharacterColorResource]
 
 var _current_color: ColorSelector = null
 var _current_index: int = 0
@@ -16,17 +16,17 @@ func select_color(index: int):
 	_current_index = index
 	_current_color.selected = true
 
-func get_current_color_skin() -> ShaderMaterial:
+func get_current_color_skin() -> CharacterColorResource:
 	return color_selector[_current_color]
 
-func get_and_select_next_color() -> ShaderMaterial:
+func get_and_select_next_color() -> CharacterColorResource:
 	if _current_index >= color_selector.keys().size() - 1:
 		return null
 	
 	select_color(_current_index + 1)
 	return get_current_color_skin()
 
-func get_and_select_previous_color() -> ShaderMaterial:
+func get_and_select_previous_color() -> CharacterColorResource:
 	if _current_index <= 0:
 		return null
 	

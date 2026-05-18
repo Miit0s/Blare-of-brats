@@ -1,4 +1,5 @@
 extends Node3D
+class_name GameScene
 
 @onready var round_start_ui: RoundStartUI = $CanvasLayer/RoundStart
 @onready var round_end_ui: RoundEnd = $CanvasLayer/RoundEnd
@@ -25,6 +26,8 @@ extends Node3D
 
 var players: Array[Player]
 var players_win: Array[int]
+
+var players_selection: Array[PlayerCharacterSelection] = []
 
 var _current_scene: MapScene
 
@@ -74,6 +77,8 @@ func setup_new_scene():
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
+	
+	new_scene.player_spawn_system.spawn_players(players_selection)
 	
 	_current_scene = new_scene
 	

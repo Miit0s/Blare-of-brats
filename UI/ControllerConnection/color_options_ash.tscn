@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c1nr8wgvag3dy"]
 
 [ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="1_li633"]
-[ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="2_u0kt2"]
-[ext_resource type="Material" uid="uid://i3nq06p0cv1y" path="res://Assets/Material/AshSkin/2D/yellow.tres" id="3_qqprb"]
-[ext_resource type="Material" uid="uid://8iwtskds1vm1" path="res://Assets/Material/AshSkin/2D/cyan.tres" id="4_btrmt"]
-[ext_resource type="Material" uid="uid://chb735ujgnro4" path="res://Assets/Material/AshSkin/2D/violet.tres" id="5_v45po"]
-[ext_resource type="Material" uid="uid://djarnermio526" path="res://Assets/Material/AshSkin/2D/blue.tres" id="6_yv3op"]
+[ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Assets/Material/AshSkin/orange.tres" id="2_u0kt2"]
+[ext_resource type="Resource" uid="uid://o4ahs0qkjupm" path="res://Assets/Material/AshSkin/yellow.tres" id="3_qqprb"]
+[ext_resource type="Resource" uid="uid://cg4qd0ygpnuov" path="res://Assets/Material/AshSkin/cyan.tres" id="4_btrmt"]
+[ext_resource type="Resource" uid="uid://0ituf8tnbe8u" path="res://Assets/Material/AshSkin/violet.tres" id="5_v45po"]
+[ext_resource type="Resource" uid="uid://c18v12eefcbxo" path="res://Assets/Material/AshSkin/blue.tres" id="6_yv3op"]
 
 [node name="ColorOptions" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("1_li633")]
 color_selector = {

@@ -3,6 +3,9 @@ extends Control
 @onready var controller_slot_container: HBoxContainer = $ControllerSlotContainer
 @onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
 
+@onready var ready_texture: TextureRect = $ReadyTexture
+@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/RadialProgressBarWithText
+
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
@@ -17,6 +20,8 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
 	for controller_slot in controller_slot_container.get_children():
+		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
+		controller_slot.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
 		controller_slots.append(controller_slot)
 
 func _process(_delta: float) -> void:
@@ -37,6 +42,11 @@ func _process(_delta: float) -> void:
 			var player_slot: ControllerSlot = get_controller_slot_for_device(i)
 			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
 				player_slot.previous_character_color()
+	
+	if ready_texture.visible and Input.is_action_just_pressed("JoinGame"):
+		radial_progress_bar_with_text.player_start_holding_key()
+	if ready_texture.visible and Input.is_action_just_released("JoinGame"):
+		radial_progress_bar_with_text.player_stop_holding_key()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
@@ -134,7 +144,13 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
-	get_tree().change_scene_to_file(game_scene_uid)
+	var packed_game_scene: PackedScene = load(game_scene_uid)
+	var game_scene: GameScene = packed_game_scene.instantiate()
+	
+	for controller_slot in controller_slots:
+		game_scene.players_selection.append(controller_slot.get_player_selection())
+	
+	get_tree().change_scene_to_node(game_scene)
 
 func _on_joy_connection_changed(device: int, connected: bool):
 	if not connected:
@@ -144,11 +160,14 @@ func _on_controller_slot_player_his_ready() -> void:
 	_player_ready += 1
 	
 	if _player_ready >= controller_slots.size():
-		start_game()
+		ready_texture.show()
 
 
 func _on_controller_slot_player_no_more_ready() -> void:
 	_player_ready -= 1
+	
+	if _player_ready < controller_slots.size():
+		ready_texture.hide()
 
 
 func _on_return_radial_progress_bar_hold_finish() -> void:

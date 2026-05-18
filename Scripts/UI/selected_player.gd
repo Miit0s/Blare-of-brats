@@ -1,7 +1,5 @@
-extends Control
-class_name SelectedPlayerUI
-
-@onready var texture_rect: TextureRect = $TextureRect
+extends CharacterSelection
+class_name MainCharacterSelection
 
 @onready var up_arrow: TextureRect = $UpArrow
 @onready var down_arrow: TextureRect = $DownArrow
@@ -47,19 +45,18 @@ func set_ready_state():
 	
 	ready_state.show()
 
-func set_new_character(texture: Texture2D, shader_material: ShaderMaterial, skin: ControllerSlot.PossibleSkin):
-	texture_rect.texture = texture
-	texture_rect.material = shader_material
+func set_new_character(texture: Texture2D, character_color: CharacterColorResource, skin: ControllerSlot.PossibleSkin):
+	apply_color_and_texture(character_color, texture)
 	color_picker.display_color_option_for_skin(skin)
 
 func apply_next_color():
-	var shader_material: ShaderMaterial =  color_picker.current_color_option.get_and_select_next_color()
+	var new_character_color = color_picker.current_color_option.get_and_select_next_color()
 	
-	if shader_material:
-		texture_rect.material = shader_material
+	if new_character_color:
+		apply_color_and_texture(new_character_color)
 
 func apply_previous_color():
-	var shader_material: ShaderMaterial =  color_picker.current_color_option.get_and_select_previous_color()
+	var new_character_color = color_picker.current_color_option.get_and_select_previous_color()
 	
-	if shader_material:
-		texture_rect.material = shader_material
+	if new_character_color:
+		apply_color_and_texture(new_character_color)

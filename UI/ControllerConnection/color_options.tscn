@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cy1xmd7krk502" path="res://Scripts/UI/color_options.gd" id="1_1f740"]
 [ext_resource type="PackedScene" uid="uid://tkryevl5io66" path="res://UI/ControllerConnection/color_selector.tscn" id="1_d8uxe"]
-[ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="2_wggbc"]
-[ext_resource type="Material" uid="uid://si1sx446u8ac" path="res://Assets/Material/MaxSkin/2D/blue.tres" id="3_wggbc"]
-[ext_resource type="Material" uid="uid://c8g27i46paa55" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="4_2xd7r"]
-[ext_resource type="Material" uid="uid://sjtriheka68w" path="res://Assets/Material/MaxSkin/2D/deep_blue.tres" id="5_01pq1"]
-[ext_resource type="Material" uid="uid://bn30eps4jrde0" path="res://Assets/Material/MaxSkin/2D/violet.tres" id="6_c5h1g"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Assets/Material/MaxSkin/green.tres" id="2_fcmsv"]
+[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Assets/Material/MaxSkin/blue.tres" id="3_wggbc"]
+[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Assets/Material/MaxSkin/pink.tres" id="4_c5h1g"]
+[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Assets/Material/MaxSkin/deep_blue.tres" id="5_2xd7r"]
 
 [node name="ColorOptions" type="Control" unique_id=801785045 node_paths=PackedStringArray("color_selector")]
 layout_mode = 3
@@ -19,11 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1f740")
 color_selector = {
-NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_wggbc"),
+NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_fcmsv"),
 NodePath("VBoxContainer/ColorSelector2"): ExtResource("3_wggbc"),
-NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_2xd7r"),
-NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_01pq1"),
-NodePath("VBoxContainer/ColorSelector5"): ExtResource("6_c5h1g")
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_c5h1g"),
+NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_2xd7r"),
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("4_c5h1g")
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=890021754]

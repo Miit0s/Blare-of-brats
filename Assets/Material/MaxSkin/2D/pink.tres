@@ -1,20 +1,20 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://c8g27i46paa55"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bn30eps4jrde0"]
 
-[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_4s7rl"]
-[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="2_7c7uq"]
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_yuw3o"]
+[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="2_8kw15"]
 
 [resource]
 resource_local_to_scene = true
-shader = ExtResource("1_4s7rl")
-shader_parameter/main_texture = ExtResource("2_7c7uq")
+shader = ExtResource("1_yuw3o")
+shader_parameter/main_texture = ExtResource("2_8kw15")
 shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
 shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
 shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
 shader_parameter/original_3 = Color(0, 0, 0, 1)
 shader_parameter/original_4 = Color(0, 0, 0, 1)
-shader_parameter/replace_0 = Color(0.8784314, 0.5568628, 0.7921569, 1)
-shader_parameter/replace_1 = Color(0.99607843, 0.827451, 0.6156863, 1)
-shader_parameter/replace_2 = Color(0.7058824, 0.29803923, 0.6431373, 1)
+shader_parameter/replace_0 = Color(0.9254902, 0.3647059, 0.56078434, 1)
+shader_parameter/replace_1 = Color(1, 0.8352941, 0.5529412, 1)
+shader_parameter/replace_2 = Color(0.8156863, 0.39215687, 0.5411765, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.1600000076
