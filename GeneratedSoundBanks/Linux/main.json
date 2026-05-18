@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{5A7475B8-246E-6752-C96B-334A0975F44F}",
+    "Hash": "{9A83DFD9-A3C1-9852-C208-5C52011DD51E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -32,6 +32,14 @@
       "CachePath": "6C/{6C97DB69-0B78-5DA8-C79D-47FFE0C22FD3}.wem"
      },
      {
+      "Id": "31521035",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_1.wav",
+      "CachePath": "60/{6080526A-9468-68EE-E69C-AEAA6D253D12}.wem"
+     },
+     {
       "Id": "61027230",
       "Language": "SFX",
       "Streaming": "false",
@@ -46,6 +54,22 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2_2.wav",
       "CachePath": "C3/{C3B30372-643C-4026-0A12-EEE0656038FB}.wem"
+     },
+     {
+      "Id": "87882912",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Boy_Attack1.wav",
+      "CachePath": "89/{898B6F33-5F59-2F92-0B99-EB0599D769F5}.wem"
+     },
+     {
+      "Id": "120430976",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Boy_Attack_2.wav",
+      "CachePath": "BF/{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem"
      },
      {
       "Id": "192332123",
@@ -72,6 +96,14 @@
       "CachePath": "2E/{2EB655E3-6ABC-992B-A6BF-DEB6DC074192}.wem"
      },
      {
+      "Id": "322956192",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Boy_TakingDamage_2.wav",
+      "CachePath": "6B/{6B8DCFB4-2548-7CBD-6108-D1A4FAA4ECA1}.wem"
+     },
+     {
       "Id": "344145984",
       "Language": "SFX",
       "Streaming": "false",
@@ -86,6 +118,14 @@
       "Location": "Memory",
       "ShortName": "GrabObject.wav",
       "CachePath": "86/{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem"
+     },
+     {
+      "Id": "431723951",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Voice_Girl_Win.wav",
+      "CachePath": "0A/{0A41DF61-3B55-D1D2-AC69-82C8A9A1E628}.wem"
      },
      {
       "Id": "452965374",
@@ -112,12 +152,28 @@
       "CachePath": "DF/{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem"
      },
      {
+      "Id": "525872627",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_2.wav",
+      "CachePath": "69/{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem"
+     },
+     {
       "Id": "548537568",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2_3.wav",
       "CachePath": "86/{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem"
+     },
+     {
+      "Id": "570828258",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_3.wav",
+      "CachePath": "57/{5769F77B-A567-9A7E-4D50-00CC1FC745FD}.wem"
      },
      {
       "Id": "574240304",
@@ -128,12 +184,28 @@
       "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
      },
      {
+      "Id": "654877243",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Boy_Attack_3.wav",
+      "CachePath": "3F/{3F98F283-2818-5045-4EDF-5B4DA9CF0269}.wem"
+     },
+     {
       "Id": "663880264",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "funny_boing_sound.wav",
       "CachePath": "66/{66FC4B06-40BD-6889-9ABA-8CECD5BA826F}.wem"
+     },
+     {
+      "Id": "671088591",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Girl_Attack_3.wav",
+      "CachePath": "56/{5624A28E-EDAC-23FA-ABC1-9752192B8A21}.wem"
      },
      {
       "Id": "675508919",
@@ -168,6 +240,30 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
+      "Id": "813712222",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Voice_Boyl_Win.wav",
+      "CachePath": "A5/{A59F9A05-3F5F-B2D0-1D4D-66DD5592AD89}.wem"
+     },
+     {
+      "Id": "863843509",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Boy_TakingDamage_1.wav",
+      "CachePath": "01/{0163C130-C7E1-4B93-5935-CC08C9F3CFE6}.wem"
+     },
+     {
+      "Id": "887771243",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Girl_Attack_2.wav",
+      "CachePath": "90/{90FD7482-C03B-55D7-B6CD-7E83F7EC6C06}.wem"
+     },
+     {
       "Id": "902723063",
       "Language": "SFX",
       "Streaming": "false",
@@ -181,7 +277,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Pistogum_shoot_v2.2.wav",
-      "CachePath": "8A/{8ADC6525-6E5F-6518-36BA-37F41E709C90}.wem"
+      "CachePath": "AB/{ABE20E95-E4C4-66FD-581B-E88005795498}.wem"
      },
      {
       "Id": "930276617",
@@ -197,7 +293,23 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Pistogum_shoot_v2.1.wav",
-      "CachePath": "D3/{D38E84A8-6571-68B8-E8F1-705EC9BAC476}.wem"
+      "CachePath": "60/{6018DE96-F4C7-EA2F-385F-9E1D0DAFABA3}.wem"
+     },
+     {
+      "Id": "1011003732",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Attack\\Voice_Girl_Attack_1.wav",
+      "CachePath": "5A/{5AD7C8D1-EAF5-B5E2-F2C9-785EF99D85DB}.wem"
+     },
+     {
+      "Id": "1014821449",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TakingDamage\\Voice_Boy_TakingDamage_3.wav",
+      "CachePath": "2C/{2CF9A976-1508-73EC-C3FC-D66AED670365}.wem"
      },
      {
       "Id": "1067369601",
@@ -205,7 +317,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Pistogum_shoot_v2.3.wav",
-      "CachePath": "3C/{3CFBE847-F643-A992-F1E4-EEE448919310}.wem"
+      "CachePath": "EA/{EAE40C1C-B346-B134-ED91-7B216F4DE13E}.wem"
      }
     ],
     "Plugins": {
@@ -237,6 +349,63 @@
       ]
      },
      {
+      "Id": "3720092048",
+      "Name": "Boy_Attack",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Boy_Attack",
+      "GUID": "{C19A5677-6578-48F8-A9B4-CF2AA93852FB}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.19179139",
+      "DurationMax": "0.23228091",
+      "MediaRefs": [
+       {
+        "Id": "87882912"
+       },
+       {
+        "Id": "120430976"
+       },
+       {
+        "Id": "654877243"
+       }
+      ]
+     },
+     {
+      "Id": "628995931",
+      "Name": "Boy_TakingDamage",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Boy_TakingDamage",
+      "GUID": "{67F8C14D-7FA2-4E18-8443-073B7AAC7184}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.29764172",
+      "DurationMax": "0.39415982",
+      "MediaRefs": [
+       {
+        "Id": "322956192"
+       },
+       {
+        "Id": "863843509"
+       },
+       {
+        "Id": "1014821449"
+       }
+      ]
+     },
+     {
+      "Id": "767234350",
+      "Name": "Boy_Win",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Boy_Win",
+      "GUID": "{D553EE60-0427-4D58-8544-E5E16B49BDDC}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2666893",
+      "DurationMax": "1.2666893",
+      "MediaRefs": [
+       {
+        "Id": "813712222"
+       }
+      ]
+     },
+     {
       "Id": "1942692385",
       "Name": "Dash",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Mov\\Dash",
@@ -254,6 +423,63 @@
        },
        {
         "Id": "574240304"
+       }
+      ]
+     },
+     {
+      "Id": "763287926",
+      "Name": "Girl_Attack",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Girl_Attack",
+      "GUID": "{FB024F3B-177D-4226-9421-71167F4BE66B}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.18987657",
+      "DurationMax": "0.24172336",
+      "MediaRefs": [
+       {
+        "Id": "671088591"
+       },
+       {
+        "Id": "887771243"
+       },
+       {
+        "Id": "1011003732"
+       }
+      ]
+     },
+     {
+      "Id": "3981149377",
+      "Name": "Girl_TakingDamage",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Girl_TakingDamage",
+      "GUID": "{253CFBE0-D99A-4993-B960-7DB2537DC2D6}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.39114693",
+      "DurationMax": "0.6107483",
+      "MediaRefs": [
+       {
+        "Id": "31521035"
+       },
+       {
+        "Id": "525872627"
+       },
+       {
+        "Id": "570828258"
+       }
+      ]
+     },
+     {
+      "Id": "3547537728",
+      "Name": "Girl_Win",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Voice\\Girl_Win",
+      "GUID": "{3714748F-5CFF-45A9-AD56-7BAF2B42EE52}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.32",
+      "DurationMax": "1.32",
+      "MediaRefs": [
+       {
+        "Id": "431723951"
        }
       ]
      },
@@ -458,6 +684,6 @@
     ]
    }
   ],
-  "FileHash": "{3C350A72-7812-154C-2C8F-76932E79EE52}"
+  "FileHash": "{13C33856-5514-E3F5-C3A9-A994FE592E54}"
  }
 }

@@ -14,7 +14,13 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BOXING_GLOVE = 1076559162U;
+        static const AkUniqueID BOY_ATTACK = 3720092048U;
+        static const AkUniqueID BOY_TAKINGDAMAGE = 628995931U;
+        static const AkUniqueID BOY_WIN = 767234350U;
         static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID GIRL_ATTACK = 763287926U;
+        static const AkUniqueID GIRL_TAKINGDAMAGE = 3981149377U;
+        static const AkUniqueID GIRL_WIN = 3547537728U;
         static const AkUniqueID GRABOBJECT = 1719710198U;
         static const AkUniqueID HIT_WOUT_OBJECT = 3713424412U;
         static const AkUniqueID LAUNCH = 17302528U;
