@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{9A83DFD9-A3C1-9852-C208-5C52011DD51E}",
+    "Hash": "{5A9FAFC9-0200-E643-E45F-7D06F8C21A4B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -48,6 +48,14 @@
       "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
      },
      {
+      "Id": "62440136",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wood_impact_2.wav",
+      "CachePath": "CA/{CA2F313C-B237-FDE6-2DC8-9A44A16B1A7D}.wem"
+     },
+     {
       "Id": "79414803",
       "Language": "SFX",
       "Streaming": "false",
@@ -70,6 +78,14 @@
       "Location": "Memory",
       "ShortName": "Attack\\Voice_Boy_Attack_2.wav",
       "CachePath": "BF/{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem"
+     },
+     {
+      "Id": "149837831",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wood_impact.wav",
+      "CachePath": "AC/{AC56E292-C8A1-EF3B-9EA3-D85F5E78D359}.wem"
      },
      {
       "Id": "192332123",
@@ -125,7 +141,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Voice_Girl_Win.wav",
-      "CachePath": "0A/{0A41DF61-3B55-D1D2-AC69-82C8A9A1E628}.wem"
+      "CachePath": "47/{47FD76D2-77DE-94D9-EA97-E62D08BAFCCA}.wem"
      },
      {
       "Id": "452965374",
@@ -238,6 +254,14 @@
       "Location": "Memory",
       "ShortName": "swoosh_rotation_3.wav",
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
+     },
+     {
+      "Id": "758726403",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wood_impact_3.wav",
+      "CachePath": "C1/{C1E10258-FB5D-055C-E63C-C3ADEA9CE152}.wem"
      },
      {
       "Id": "813712222",
@@ -597,6 +621,27 @@
       ]
      },
      {
+      "Id": "1020083716",
+      "Name": "Pencil_Hit",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Pencil\\Pencil_Hit",
+      "GUID": "{FDA1AE4B-B233-49A2-811D-E84B633A8A9E}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.43563727",
+      "DurationMax": "0.48898637",
+      "MediaRefs": [
+       {
+        "Id": "62440136"
+       },
+       {
+        "Id": "149837831"
+       },
+       {
+        "Id": "758726403"
+       }
+      ]
+     },
+     {
       "Id": "2746646177",
       "Name": "PistoGum_Shoot",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\PistoGum\\PistoGum_Shoot",
@@ -684,6 +729,6 @@
     ]
    }
   ],
-  "FileHash": "{13C33856-5514-E3F5-C3A9-A994FE592E54}"
+  "FileHash": "{3B461F9C-FA48-33D9-A9D3-4B6B31C4FB94}"
  }
 }
