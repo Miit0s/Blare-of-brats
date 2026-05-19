@@ -12,16 +12,20 @@ class_name RoundEnd
 
 @onready var next_round: Button = $NextRound
 
+var left_player_id: int = -1
+var right_player_id: int = -1
 var _players_win: Array[int]
 
 signal animation_finish
 signal next_round_button_pressed
 
-func start_animation(players_win: Array[int], player_selection_data: PlayerCharacterSelection):
+func start_animation(winner_id: int, players_win: Array[int], player_main_color: Color):
 	_players_win = players_win
 	
-	var color_tag: String = "[color=#" + str(player_selection_data.color_skin.main_color.to_html()) + "]"
-	round_winner.text = color_tag + "Player " + str(players_win.find(players_win.max()) + 1) + "[/color] win this round"
+	var display_num: int = 1 if winner_id == left_player_id else 2
+	
+	var color_tag: String = "[color=#" + str(player_main_color.to_html()) + "]"
+	round_winner.text = color_tag + "Player " + str(display_num) + "[/color] win the round !"
 	
 	animation_player.play("round_finish")
 	
@@ -30,8 +34,8 @@ func start_animation(players_win: Array[int], player_selection_data: PlayerChara
 	animation_finish.emit()
 
 func update_score():
-	player_0.text = str(_players_win[0])
-	player_1.text = str(_players_win[1])
+	player_0.text = str(_players_win[left_player_id])
+	player_1.text = str(_players_win[right_player_id])
 
 func show_next_round_button():
 	next_round.show()
@@ -41,6 +45,9 @@ func _on_next_round_pressed() -> void:
 	next_round_button_pressed.emit()
 
 func change_player_data(left: PlayerCharacterSelection, right: PlayerCharacterSelection):
+	left_player_id = left.player_id
+	right_player_id = right.player_id
+	
 	_set_texture_for(texture_rect_left, left)
 	_set_texture_for(texture_rect_right, right)
 
