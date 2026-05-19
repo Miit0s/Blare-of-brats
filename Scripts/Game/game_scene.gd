@@ -28,7 +28,7 @@ var players: Array[Player]
 var players_win: Array[int]
 var _last_player_win_id: int = -1
 
-var players_selection: Array[PlayerCharacterSelection] = []
+var players_selection: Array[PlayerCharacterSelection] = [preload("uid://4w1f5mgj2e5s"), preload("uid://cligadeo7a6fk")]
 
 var _current_scene: MapScene
 var _round_ended: bool = false

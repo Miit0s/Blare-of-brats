@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bv0thb4skdfjl"]
 
 [ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="1_d8uxe"]
-[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Assets/Material/MaxSkin/green.tres" id="2_gpeau"]
-[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Assets/Material/MaxSkin/blue.tres" id="3_kd544"]
-[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Assets/Material/MaxSkin/pink.tres" id="4_py4xd"]
-[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Assets/Material/MaxSkin/deep_blue.tres" id="5_fg376"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="2_gpeau"]
+[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Ressources/CharacterSkin/Max/blue.tres" id="3_kd544"]
+[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Ressources/CharacterSkin/Max/pink.tres" id="4_py4xd"]
+[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Ressources/CharacterSkin/Max/deep_blue.tres" id="5_fg376"]
 
 [node name="ColorOptions" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("1_d8uxe")]
 color_selector = {

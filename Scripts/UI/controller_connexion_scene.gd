@@ -147,6 +147,7 @@ func start_game():
 	var packed_game_scene: PackedScene = load(game_scene_uid)
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	
+	game_scene.players_selection.clear()
 	for controller_slot in controller_slots:
 		game_scene.players_selection.append(controller_slot.get_player_selection())
 	

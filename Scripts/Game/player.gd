@@ -2,7 +2,6 @@ extends CharacterBody3D
 class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
-@onready var wall_detection_area: Area3D = $WallDetectionArea
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
@@ -124,6 +123,9 @@ func _physics_process(delta: float) -> void:
 	_update_sprite(direction)
 	
 	move_and_slide()
+	
+	if _is_in_knockback and is_on_wall() and not _has_hit_wall:
+		_detect_wall_bounce()
 
 func _process(delta: float) -> void:
 	if _is_freeze or _is_stun: return
@@ -398,38 +400,26 @@ func _change_player_sprite(new_sprite: Texture2D):
 		material_dash.set_shader_parameter("uv_offset", uv_offset)
 		material_dash.set_shader_parameter("uv_scale", uv_scale)
 	else:
-			material_dash.set_shader_parameter("main_texture", new_sprite)
-			material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
-			material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
+		material_dash.set_shader_parameter("main_texture", new_sprite)
+		material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
+		material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
 
-
-func _on_wall_detection_area_body_entered(_body: Node3D) -> void:
-	if not _is_in_knockback: return
+func _detect_wall_bounce():
+	var collision: KinematicCollision3D = get_last_slide_collision()
 	
-	var ray_direction = _knockback_direction.normalized() * 2.0
-	var target_position = global_position + ray_direction
-	
-	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(
-		global_position, 
-		target_position, 
-		wall_detection_area.collision_mask,
-		[self]
-	)
-	
-	var result: Dictionary = space_state.intersect_ray(query)
-	
-	_last_wall_hit_normal = result.normal
-	_has_hit_wall = true
-	
-	var bounce_particle: GPUParticles3D = wall_bounce_particle_prefab.instantiate()
-	add_child(bounce_particle)
-	
-	bounce_particle.global_position = result.position
-	bounce_particle.look_at(result.position + result.normal)
-	bounce_particle.finished.connect(bounce_particle.queue_free)
-	
-	bounce_particle.emitting = true
+	if collision:
+		_last_wall_hit_normal = collision.get_normal()
+		_has_hit_wall = true
+		
+		var bounce_particle: GPUParticles3D = wall_bounce_particle_prefab.instantiate()
+		add_child(bounce_particle)
+		
+		var collision_position: Vector3 = collision.get_position()
+		bounce_particle.global_position = Vector3(global_position.x, global_position.y, collision_position.z)
+		bounce_particle.look_at(bounce_particle.global_position + collision.get_normal())
+		bounce_particle.finished.connect(bounce_particle.queue_free)
+		
+		bounce_particle.emitting = true
 
 func freeze():
 	_is_freeze = true

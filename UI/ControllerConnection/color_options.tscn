@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cy1xmd7krk502" path="res://Scripts/UI/color_options.gd" id="1_1f740"]
 [ext_resource type="PackedScene" uid="uid://tkryevl5io66" path="res://UI/ControllerConnection/color_selector.tscn" id="1_d8uxe"]
-[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Assets/Material/MaxSkin/green.tres" id="2_fcmsv"]
-[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Assets/Material/MaxSkin/blue.tres" id="3_wggbc"]
-[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Assets/Material/MaxSkin/pink.tres" id="4_c5h1g"]
-[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Assets/Material/MaxSkin/deep_blue.tres" id="5_2xd7r"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="2_fcmsv"]
+[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Ressources/CharacterSkin/Max/blue.tres" id="3_wggbc"]
+[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Ressources/CharacterSkin/Max/pink.tres" id="4_c5h1g"]
+[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Ressources/CharacterSkin/Max/deep_blue.tres" id="5_2xd7r"]
 
 [node name="ColorOptions" type="Control" unique_id=801785045 node_paths=PackedStringArray("color_selector")]
 layout_mode = 3

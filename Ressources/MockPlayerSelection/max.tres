@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerCharacterSelection" format=3 uid="uid://4w1f5mgj2e5s"]
+
+[ext_resource type="Script" uid="uid://dn27rx7u3iaij" path="res://Scripts/Resources/player_character_selection.gd" id="1_356ic"]
+[ext_resource type="SpriteFrames" uid="uid://0fk4nu8qwjbo" path="res://Prefabs/Player/Players/max_spriteframes.tres" id="1_366c2"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="2_lob7k"]
+
+[resource]
+script = ExtResource("1_356ic")
+character_texture = ExtResource("1_366c2")
+color_skin = ExtResource("2_lob7k")
+metadata/_custom_type_script = "uid://dn27rx7u3iaij"

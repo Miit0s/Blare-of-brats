@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerCharacterSelection" format=3 uid="uid://cligadeo7a6fk"]
+
+[ext_resource type="SpriteFrames" uid="uid://basmhn2476lpq" path="res://Prefabs/Player/Players/ash_spriteframes.tres" id="1_rftok"]
+[ext_resource type="Script" uid="uid://dn27rx7u3iaij" path="res://Scripts/Resources/player_character_selection.gd" id="1_uwkiq"]
+[ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="2_mcnco"]
+
+[resource]
+script = ExtResource("1_uwkiq")
+player_id = 1
+skin = 1
+character_texture = ExtResource("1_rftok")
+color_skin = ExtResource("2_mcnco")
+metadata/_custom_type_script = "uid://dn27rx7u3iaij"
