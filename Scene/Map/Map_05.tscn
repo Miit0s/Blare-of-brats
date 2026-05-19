@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://fpjwiwdib534"]
+[gd_scene format=3 uid="uid://dfia36eaodd3r"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_q6yph"]
 [ext_resource type="Texture2D" uid="uid://cxe2bn6oa6rw4" path="res://Assets/EnvironmentSprite/star_item.png" id="2_nvygo"]
@@ -20,11 +20,10 @@
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="18_nftvo"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="19_bjv7v"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_66474"]
+[ext_resource type="PackedScene" uid="uid://bgtrj4twbbsht" path="res://Prefabs/Enviro/map_bound_prefab.tscn" id="20_frds3"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_e8vyn"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_4n7yr"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_qqrlj"]
-[ext_resource type="PackedScene" uid="uid://fr4llv25pgj5" path="res://Prefabs/Player/Players/mia.tscn" id="24_olmlo"]
-[ext_resource type="PackedScene" uid="uid://c7sp3sqengdxp" path="res://Prefabs/Player/Players/leo.tscn" id="25_2pdy3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
@@ -294,22 +293,9 @@ _data = {
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ycds1"]
-size = Vector2(50, 50)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lj6x0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lj6x0"]
-size = Vector3(1, 30, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ycds1"]
-size = Vector3(1, 30, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y0a5r"]
-size = Vector3(40, 30, 1)
-
-[node name="TestMap" type="Node3D" unique_id=1814952881]
+[node name="TestMap" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
 script = ExtResource("1_q6yph")
+player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111186574]
 environment = SubResource("Environment_e2w2p")
@@ -788,34 +774,7 @@ draw_pass_1 = SubResource("QuadMesh_7145y")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1729971056]
 libraries/ = SubResource("AnimationLibrary_lj6x0")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=210331122]
-transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, -1.9673038, 22.399847, 30.370125)
-fov = 45.0
-
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1769832902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9073486e-05, 0)
-mesh = SubResource("PlaneMesh_ycds1")
-
-[node name="MapBound" type="StaticBody3D" parent="." unique_id=47785823]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MapBound" unique_id=1438580290]
-shape = SubResource("WorldBoundaryShape3D_lj6x0")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MapBound" unique_id=1072864963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.170473, 9.536743e-07, 5.2648854)
-shape = SubResource("BoxShape3D_lj6x0")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="MapBound" unique_id=1859363534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.513039, 9.536743e-07, 5.2648854)
-shape = SubResource("BoxShape3D_ycds1")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="MapBound" unique_id=216081894]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9831257)
-shape = SubResource("BoxShape3D_y0a5r")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="MapBound" unique_id=1910916674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.499088)
-shape = SubResource("BoxShape3D_y0a5r")
+[node name="MapBound" parent="." unique_id=1728214558 instance=ExtResource("20_frds3")]
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_66474")
@@ -862,11 +821,9 @@ player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("23_qqrlj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.569729, 1.1439927, -1.9124224)
-player_prefab = ExtResource("24_olmlo")
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_qqrlj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.455781, 1.1439927, -1.9259863)
-player_prefab = ExtResource("25_2pdy3")
 
 [connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
 [connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]

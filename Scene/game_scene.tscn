@@ -8,10 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://dux4ds0vcumqc" path="res://Scene/Map/Map_10.tscn" id="5_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="6_4832p"]
+[ext_resource type="PackedScene" uid="uid://whp73wdkqr8b" path="res://Scene/Map/Map_03.tscn" id="6_g00sh"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
+[ext_resource type="PackedScene" uid="uid://promxhch3uqf" path="res://Scene/Map/Map_04.tscn" id="7_vk7uo"]
+[ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
-[ext_resource type="Script" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
+[ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/Map_05.tscn" id="8_walhf"]
+[ext_resource type="PackedScene" uid="uid://d3ffwya1ybdi7" path="res://Scene/Map/Map_06.tscn" id="9_gwqyt"]
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
+[ext_resource type="PackedScene" uid="uid://dknedcvbphhl5" path="res://Scene/Map/Map_07.tscn" id="10_5qsl7"]
+[ext_resource type="PackedScene" uid="uid://bt2cibhaceome" path="res://Scene/Map/Map_08.tscn" id="11_tw2pt"]
+[ext_resource type="PackedScene" uid="uid://bbej6o3miqfd3" path="res://Scene/Map/Map_09.tscn" id="12_hdg2p"]
+[ext_resource type="PackedScene" uid="uid://demh3of0nydlv" path="res://Scene/Map/Map_A2.tscn" id="14_7o1xo"]
+[ext_resource type="PackedScene" uid="uid://b48lul6k3ccsj" path="res://Scene/Map/Map_A3.tscn" id="15_vijqy"]
+[ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/Map_A4.tscn" id="16_ubkdv"]
+[ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/Map_A5.tscn" id="17_tit5h"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
@@ -22,7 +34,7 @@ main_menu_scene_uid = "uid://bnfprdiqbhq53"
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
 round_state = ExtResource("4_mlt6n")
-possible_level = Array[PackedScene]([ExtResource("5_b5oy1")])
+possible_level = Array[PackedScene]([ExtResource("8_ee6vw"), ExtResource("6_g00sh"), ExtResource("7_vk7uo"), ExtResource("8_walhf"), ExtResource("9_gwqyt"), ExtResource("10_5qsl7"), ExtResource("11_tw2pt"), ExtResource("12_hdg2p"), ExtResource("5_b5oy1"), ExtResource("14_7o1xo"), ExtResource("15_vijqy"), ExtResource("16_ubkdv"), ExtResource("17_tit5h")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
