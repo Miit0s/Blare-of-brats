@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ControllerIconSet" format=3 uid="uid://ce577jeai8fsd"]
+
+[ext_resource type="Texture2D" uid="uid://ruv1im8ftgaa" path="res://Assets/ControllerSprite/NintendoSwitch/switch_dpad_down.png" id="1_0b62h"]
+[ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="1_dmk4j"]
+[ext_resource type="Texture2D" uid="uid://dq0j38o6fyl81" path="res://Assets/ControllerSprite/NintendoSwitch/switch_dpad_left.png" id="2_gkt67"]
+[ext_resource type="Texture2D" uid="uid://ce3syhcati38p" path="res://Assets/ControllerSprite/NintendoSwitch/switch_dpad_right.png" id="3_b8q15"]
+[ext_resource type="Texture2D" uid="uid://c8stjusei5lmf" path="res://Assets/ControllerSprite/NintendoSwitch/switch_dpad_up.png" id="4_6xc0f"]
+[ext_resource type="Texture2D" uid="uid://dj3oghl3acxl" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_b.png" id="5_h5j1f"]
+[ext_resource type="Texture2D" uid="uid://b0jbsf7ajgxu2" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_home.png" id="6_bsgrj"]
+[ext_resource type="Texture2D" uid="uid://cwc3b35jg2g0k" path="res://Assets/ControllerSprite/NintendoSwitch/switch_stick_side_l.png" id="7_u5v6j"]
+[ext_resource type="Texture2D" uid="uid://b5ypncfkk88to" path="res://Assets/ControllerSprite/NintendoSwitch/switch_stick_side_r.png" id="8_xmmw7"]
+[ext_resource type="Texture2D" uid="uid://bhocm2v6whgj8" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_y.png" id="9_yrqla"]
+[ext_resource type="Texture2D" uid="uid://b2wg43illmqif" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_l.png" id="10_lw2ko"]
+[ext_resource type="Texture2D" uid="uid://b553oqrego2jm" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_a.png" id="11_3hyss"]
+[ext_resource type="Texture2D" uid="uid://cubvcewx1dqds" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_r.png" id="12_ipn27"]
+[ext_resource type="Texture2D" uid="uid://bb0l111nukmcq" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_plus.png" id="14_wrcha"]
+[ext_resource type="Texture2D" uid="uid://dsraplaxn1o75" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_minus.png" id="15_6cy8y"]
+[ext_resource type="Texture2D" uid="uid://dib6kjjtldlgp" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_x.png" id="16_bnbr8"]
+
+[resource]
+script = ExtResource("1_dmk4j")
+platform_name = 3
+home_btn = ExtResource("6_bsgrj")
+start_btn = ExtResource("15_6cy8y")
+select_btn = ExtResource("14_wrcha")
+up_btn = ExtResource("16_bnbr8")
+down_btn = ExtResource("5_h5j1f")
+left_btn = ExtResource("9_yrqla")
+right_btn = ExtResource("11_3hyss")
+cross_up_btn = ExtResource("4_6xc0f")
+cross_down_btn = ExtResource("1_0b62h")
+cross_left_btn = ExtResource("2_gkt67")
+cross_right_btn = ExtResource("3_b8q15")
+joystick_left_btn = ExtResource("7_u5v6j")
+joystick_right_btn = ExtResource("8_xmmw7")
+left_shoulder_btn = ExtResource("10_lw2ko")
+right_shoulder_btn = ExtResource("12_ipn27")
+metadata/_custom_type_script = "uid://ce5noloj2eese"

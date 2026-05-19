@@ -1,6 +1,8 @@
 extends Node3D
 class_name MapScene
 
+@export var player_spawn_system: PlayerSpawnSystem
+
 signal new_player_spawn(player: Player)
 signal new_item_spawn(new_item: Item)
 signal item_will_be_delete(item: Item)

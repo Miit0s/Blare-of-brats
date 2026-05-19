@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://8h6ild0muaaa"]
+
+[ext_resource type="Script" uid="uid://cy1xmd7krk502" path="res://Scripts/UI/color_options.gd" id="1_1f740"]
+[ext_resource type="PackedScene" uid="uid://tkryevl5io66" path="res://UI/ControllerConnection/color_selector.tscn" id="1_d8uxe"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Assets/Material/MaxSkin/green.tres" id="2_fcmsv"]
+[ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Assets/Material/MaxSkin/blue.tres" id="3_wggbc"]
+[ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Assets/Material/MaxSkin/pink.tres" id="4_c5h1g"]
+[ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Assets/Material/MaxSkin/deep_blue.tres" id="5_2xd7r"]
+
+[node name="ColorOptions" type="Control" unique_id=801785045 node_paths=PackedStringArray("color_selector")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1f740")
+color_selector = {
+NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_fcmsv"),
+NodePath("VBoxContainer/ColorSelector2"): ExtResource("3_wggbc"),
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_c5h1g"),
+NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_2xd7r"),
+NodePath("VBoxContainer/ColorSelector5"): ExtResource("4_c5h1g")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=890021754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ColorSelector1" parent="VBoxContainer" unique_id=1151932377 instance=ExtResource("1_d8uxe")]
+layout_mode = 2
+color = Color(0.5882353, 0.75686276, 0.39607844, 1)
+color_in = Color(0.5882353, 0.75686276, 0.39607844, 1)
+
+[node name="ColorSelector2" parent="VBoxContainer" unique_id=45951242 instance=ExtResource("1_d8uxe")]
+layout_mode = 2
+color = Color(0.5647059, 0.7490196, 0.88235295, 1)
+color_in = Color(0.5647059, 0.7490196, 0.88235295, 1)
+
+[node name="ColorSelector3" parent="VBoxContainer" unique_id=414331336 instance=ExtResource("1_d8uxe")]
+layout_mode = 2
+color = Color(0.8784314, 0.5647059, 0.79607844, 1)
+color_in = Color(0.8784314, 0.5647059, 0.79607844, 1)
+
+[node name="ColorSelector4" parent="VBoxContainer" unique_id=391525997 instance=ExtResource("1_d8uxe")]
+layout_mode = 2
+color = Color(0.5372549, 0.5529412, 0.9411765, 1)
+color_in = Color(0.5372549, 0.5529412, 0.9411765, 1)
+
+[node name="ColorSelector5" parent="VBoxContainer" unique_id=1332294701 instance=ExtResource("1_d8uxe")]
+layout_mode = 2
+color = Color(0.9254902, 0.36862746, 0.5647059, 1)
+color_in = Color(0.9254902, 0.36862746, 0.5647059, 1)

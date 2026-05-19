@@ -3,9 +3,7 @@ class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var wall_detection_area: Area3D = $WallDetectionArea
-@onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
-@onready var dash_effect: GPUParticles3D = $DashEffect
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
 
@@ -66,6 +64,10 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Visual")
 @export var sprites_frames: SpriteFrames
 
+@export_category("Instance")
+@export var sprite_3d: Sprite3D
+@export var dash_effect: GPUParticles3D
+
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.RIGHT
 var _last_wall_hit_normal: Vector3 = Vector3.ZERO
@@ -79,6 +81,8 @@ var _is_aiming: bool = false
 var _is_freeze: bool = false
 
 var _attack_tween: Tween = null
+
+var _current_character
 
 signal has_been_hit(player_id: int, damage: float)
 
@@ -305,6 +309,7 @@ func stun():
 func switch_item():
 	if not _pickable_item_nearby(): return
 	
+	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.drop()
 	current_picked_item = null
 	
@@ -370,7 +375,7 @@ func _change_player_sprite(new_sprite: Texture2D):
 	var material_sprite: ShaderMaterial = sprite_3d.material_override
 	var material_dash: ShaderMaterial = dash_effect.material_override
 	
-	material_sprite.set_shader_parameter("sprite_texture", new_sprite)
+	material_sprite.set_shader_parameter("main_texture", new_sprite)
 	material_sprite.set_shader_parameter("uv_offset", Vector2.ZERO)
 	material_sprite.set_shader_parameter("uv_scale", Vector2.ONE)
 	
@@ -381,11 +386,11 @@ func _change_player_sprite(new_sprite: Texture2D):
 		var uv_offset: Vector2 = region.position / atlas_size
 		var uv_scale: Vector2 = region.size / atlas_size
 		
-		material_dash.set_shader_parameter("sprite_texture", new_sprite.atlas)
+		material_dash.set_shader_parameter("main_texture", new_sprite.atlas)
 		material_dash.set_shader_parameter("uv_offset", uv_offset)
 		material_dash.set_shader_parameter("uv_scale", uv_scale)
 	else:
-			material_dash.set_shader_parameter("sprite_texture", new_sprite)
+			material_dash.set_shader_parameter("main_texture", new_sprite)
 			material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
 			material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
 
@@ -427,3 +432,13 @@ func unfreeze():
 func item_will_be_destroy(_item: Item):
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+
+func apply_skin_and_color(selection: PlayerCharacterSelection):
+	sprites_frames = selection.character_texture
+	sprite_3d.material_override = selection.color_skin.color_shader_3d
+	
+	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()
+	dash_material.set_shader_parameter("color_override", Color.WHITE)
+	dash_material.set_shader_parameter("blend_delta", 0.5)
+	
+	dash_effect.material_override = dash_material

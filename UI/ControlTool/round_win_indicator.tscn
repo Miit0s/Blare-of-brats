@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://pb1wrdhadmo0"]
+
+[ext_resource type="Script" uid="uid://bljrnm2vjof5f" path="res://Scripts/UI/round_win_indicator.gd" id="1_f3s1t"]
+[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_p5f26"]
+
+[node name="RoundWinIndicator" type="Control" unique_id=83471062]
+custom_minimum_size = Vector2(82, 40)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3s1t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=793618963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="One" type="TextureRect" parent="." unique_id=1489036567]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -12.5
+offset_right = 34.0
+offset_bottom = 12.5
+grow_vertical = 2
+texture = ExtResource("1_p5f26")
+expand_mode = 1
+
+[node name="Two" type="TextureRect" parent="." unique_id=1858321032]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -12.5
+offset_right = -8.0
+offset_bottom = 12.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_p5f26")
+expand_mode = 1
