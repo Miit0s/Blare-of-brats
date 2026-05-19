@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5juhvy8bcar7"
-path="res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"
+uid="uid://h36arh02nypq"
+path.s3tc="res://.godot/imported/book_01.png-bc89f4cc2d6b03a048274f7b0f7ff2c6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Max/3_4_right.png"
-dest_files=["res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"]
+source_file="res://Assets/EnvironmentSprite/book_01.png"
+dest_files=["res://.godot/imported/book_01.png-bc89f4cc2d6b03a048274f7b0f7ff2c6.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5juhvy8bcar7"
-path="res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"
+uid="uid://k5fo1nysyj81"
+path.s3tc="res://.godot/imported/floor_inside.png-f8ad4883e20d4479fe22de2a3246ebef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Max/3_4_right.png"
-dest_files=["res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"]
+source_file="res://Assets/EnvironmentSprite/floor_inside.png"
+dest_files=["res://.godot/imported/floor_inside.png-f8ad4883e20d4479fe22de2a3246ebef.s3tc.ctex"]
 
 [params]
 

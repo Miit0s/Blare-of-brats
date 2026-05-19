@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5juhvy8bcar7"
-path="res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"
+uid="uid://buwkjv1qn2r6w"
+path.s3tc="res://.godot/imported/ladybug_02.png-2cb059eb90453666edf572e34780f9bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Max/3_4_right.png"
-dest_files=["res://.godot/imported/3_4_right.png-8b231fece166aa7eafaa7a7e2c0a6671.ctex"]
+source_file="res://Assets/EnvironmentSprite/ladybug_02.png"
+dest_files=["res://.godot/imported/ladybug_02.png-2cb059eb90453666edf572e34780f9bd.s3tc.ctex"]
 
 [params]
 
