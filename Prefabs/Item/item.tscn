@@ -27,7 +27,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_kr0os"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_t4ted"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8ux"]
 shader = ExtResource("4_6uwl0")
@@ -71,6 +71,7 @@ attack_shape = SubResource("SphereShape3D_okjcq")
 munition_prefab = ExtResource("2_oe5v1")
 munition_speed = 5.0
 throw_force = 30.0
+throw_max_distance = 16.5
 object_texture = SubResource("PlaceholderTexture2D_fnt8b")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
@@ -99,7 +100,7 @@ debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false
 material_override = SubResource("StandardMaterial3D_dnd63")
-mesh = SubResource("ImmediateMesh_kr0os")
+mesh = SubResource("ImmediateMesh_t4ted")
 script = ExtResource("3_fnt8b")
 trail_point_lifetime = 0.3
 points = Array[Vector3]([])

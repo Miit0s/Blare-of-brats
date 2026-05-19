@@ -13,7 +13,7 @@ radius = 0.1
 height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2yolb"]
-radius = 0.11
+radius = 0.25
 
 [sub_resource type="Gradient" id="Gradient_ecide"]
 offsets = PackedFloat32Array(0, 0.36936936, 0.71428573, 1)

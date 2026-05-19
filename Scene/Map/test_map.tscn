@@ -27,9 +27,7 @@ background_mode = 2
 sky = SubResource("Sky_4kvl3")
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 fog_light_energy = 0.14
-volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.955779, 0.82219213, 0.9269844, 1)
 volumetric_fog_anisotropy = 0.56
 
