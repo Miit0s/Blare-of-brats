@@ -37,6 +37,7 @@ background_mode = 2
 sky = SubResource("Sky_4kvl3")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
 fog_light_energy = 0.14
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.955779, 0.82219213, 0.9269844, 1)
@@ -144,6 +145,7 @@ directional_velocity_curve = SubResource("CurveXYZTexture_kbr2b")
 gravity = Vector3(12.11, -15.19, 0)
 scale_min = 0.04
 scale_max = 0.19999999
+color = Color(0.8852854, 0.85933805, 1, 1)
 color_ramp = SubResource("GradientTexture1D_7riyq")
 emission_curve = SubResource("CurveTexture_kx01p")
 anim_offset_max = 1.0
@@ -291,9 +293,6 @@ _data = {
 &"RESET": SubResource("Animation_g51t8"),
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ycds1"]
-size = Vector2(50, 50)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lj6x0"]
 
@@ -735,12 +734,6 @@ axis = 1
 shaded = true
 render_priority = -1
 
-[node name="Mia" parent="Sprite" unique_id=382022037 instance=ExtResource("13_xrtoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0753765, 1.2480752, 3.807373)
-
-[node name="Leo" parent="Sprite" unique_id=282894252 instance=ExtResource("14_sgnpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.322477, 1.245276, 4.5221343)
-
 [node name="GodRay" type="Node3D" parent="." unique_id=687245628]
 
 [node name="GodraysGreen" type="Sprite3D" parent="GodRay" unique_id=876745380]
@@ -788,13 +781,10 @@ libraries/ = SubResource("AnimationLibrary_lj6x0")
 transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, -1.9673038, 22.399847, 30.370125)
 fov = 45.0
 
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1769832902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9073486e-05, 0)
-mesh = SubResource("PlaneMesh_ycds1")
-
 [node name="MapBound" type="StaticBody3D" parent="." unique_id=47785823]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapBound" unique_id=1438580290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254, 0)
 shape = SubResource("WorldBoundaryShape3D_lj6x0")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MapBound" unique_id=1072864963]
