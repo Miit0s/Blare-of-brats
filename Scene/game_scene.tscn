@@ -5,13 +5,15 @@
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_mlt6n"]
+[ext_resource type="PackedScene" uid="uid://ct6f6b00bdlid" path="res://Scene/Map/Map_03.tscn" id="5_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="6_4832p"]
+[ext_resource type="PackedScene" uid="uid://cc3ucopo6ej7n" path="res://Scene/Map/Map_02.tscn" id="6_hx36v"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
-[ext_resource type="Script" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
@@ -22,7 +24,7 @@ main_menu_scene_uid = "uid://bnfprdiqbhq53"
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
 round_state = ExtResource("4_mlt6n")
-possible_level = Array[PackedScene]([ExtResource("8_ee6vw")])
+possible_level = Array[PackedScene]([ExtResource("5_b5oy1"), ExtResource("6_hx36v"), ExtResource("8_ee6vw")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")

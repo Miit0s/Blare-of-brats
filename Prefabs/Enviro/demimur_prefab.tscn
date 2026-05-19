@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbqv54xqj70o3"]
+
+[ext_resource type="Texture2D" uid="uid://ctkqtv4wybls" path="res://Assets/EnvironmentSprite/wall_01.png" id="1_ygta1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1r1nj"]
+size = Vector3(27.021027, 6.515, 1)
+
+[node name="Mur_05" type="Sprite3D" unique_id=1436889650]
+transform = Transform3D(-0.118, 0, 1.730971e-08, 0, 0.198, 0, -1.0315888e-08, 0, -0.198, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_ygta1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1767005677]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=982039729]
+transform = Transform3D(0.9999998, 0, 7.1054274e-15, 0, 0.9999998, 0, -7.1054274e-15, 0, 0.9999998, 0.36623764, 0, 0)
+shape = SubResource("BoxShape3D_1r1nj")
