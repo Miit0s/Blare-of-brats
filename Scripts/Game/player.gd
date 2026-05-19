@@ -81,8 +81,7 @@ var _is_aiming: bool = false
 var _is_freeze: bool = false
 
 var _attack_tween: Tween = null
-
-var _current_character
+var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
 
@@ -144,7 +143,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
 	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
 		attack(_current_direction if _current_direction else _last_direction)
 	
 	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
@@ -218,11 +217,14 @@ func attack(direction: Vector3):
 		_is_attacking = true
 		_is_making_attack_move = true
 		
-		get_tree().create_timer(attack_move_duration).timeout.connect(func(): 
+		_attack_move_timer = create_tween()
+		_attack_move_timer.tween_interval(attack_move_duration)
+		_attack_move_timer.tween_callback(func(): 
 			_is_making_attack_move = false
 			current_picked_item.slash_look_at(self.global_position)
-			current_picked_item.attack(direction)
 			_make_attack_movement(direction)
+			current_picked_item.attack(direction)
+			_attack_move_timer = null
 		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
@@ -243,19 +245,20 @@ func _make_attack_movement(direction: Vector3):
 		start_angle = base_angle - deg_to_rad(slash_arc / 2)
 		end_angle = base_angle + deg_to_rad(slash_arc / 2)
 	
-	var slash_tween: Tween = create_tween() \
+	_animate_slash(start_angle)
+	
+	_attack_tween = create_tween() \
 		.set_trans(Tween.TRANS_QUART) \
 		.set_ease(Tween.EASE_OUT)
-	_attack_tween = slash_tween
 	
-	slash_tween.tween_method(
+	_attack_tween.tween_method(
 		_animate_slash,
 		start_angle,
 		end_angle,
 		current_picked_item.attack_speed
 	)
 	
-	await slash_tween.finished
+	await _attack_tween.finished
 	_attack_tween = null
 
 func _animate_slash(current_angle: float):
@@ -263,8 +266,7 @@ func _animate_slash(current_angle: float):
 	current_picked_item.global_position = global_position + offset
 
 func cancel_animation():
-	if _attack_tween:
-		_attack_tween.stop()
+	_kill_current_animation()
 	
 	if current_picked_item:
 		current_picked_item.cancel_animation()
@@ -272,6 +274,12 @@ func cancel_animation():
 	_is_attacking = false
 	_is_making_attack_move = false
 	_is_aiming = false
+
+func _kill_current_animation():
+	if _attack_tween:
+		_attack_tween.kill()
+	if _attack_move_timer:
+		_attack_move_timer.kill()
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
@@ -430,6 +438,7 @@ func unfreeze():
 	_is_freeze = false
 
 func item_will_be_destroy(_item: Item):
+	_kill_current_animation()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
 
