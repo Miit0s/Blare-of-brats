@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5juhvy8bcar7"
-path.s3tc="res://.godot/imported/3_4_right.png-4976f7899267f10fffd62ef32ca36166.s3tc.ctex"
+uid="uid://b3jtlug2ho6g5"
+path.s3tc="res://.godot/imported/floorv01.png-d7d95a8f47ba1162b63870441db3c8c2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Leo/3_4_right.png"
-dest_files=["res://.godot/imported/3_4_right.png-4976f7899267f10fffd62ef32ca36166.s3tc.ctex"]
+source_file="res://Assets/EnvironmentSprite/floorv01.png"
+dest_files=["res://.godot/imported/floorv01.png-d7d95a8f47ba1162b63870441db3c8c2.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5juhvy8bcar7"
-path.s3tc="res://.godot/imported/3_4_right.png-4976f7899267f10fffd62ef32ca36166.s3tc.ctex"
+uid="uid://lmp5a3kulcce"
+path.s3tc="res://.godot/imported/vfx_confetti_sprite2.png-61379a33abcff6fe3caac4c1ab117a74.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Leo/3_4_right.png"
-dest_files=["res://.godot/imported/3_4_right.png-4976f7899267f10fffd62ef32ca36166.s3tc.ctex"]
+source_file="res://Assets/VFX/vfx_confetti_sprite2.png"
+dest_files=["res://.godot/imported/vfx_confetti_sprite2.png-61379a33abcff6fe3caac4c1ab117a74.s3tc.ctex"]
 
 [params]
 
