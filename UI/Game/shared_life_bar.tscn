@@ -23,6 +23,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcs32")
+player_health = 25.0
 shader_direction_change_speed = 0.5
 
 [node name="LifeBar" type="ColorRect" parent="." unique_id=1406738561]

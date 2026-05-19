@@ -71,6 +71,7 @@ attack_shape = SubResource("SphereShape3D_okjcq")
 munition_prefab = ExtResource("2_oe5v1")
 munition_speed = 5.0
 throw_force = 30.0
+throw_max_distance = 16.5
 object_texture = SubResource("PlaceholderTexture2D_fnt8b")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")

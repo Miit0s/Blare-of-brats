@@ -22,10 +22,10 @@ radius = 1.0
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("sprite_3d", "dash_effect")]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_y6xdh")
-speed = 6.0
-dash_speed = 25.0
+speed = 9.0
+dash_speed = 30.0
 min_dash_speed = 8.0
 stun_duration = 0.2
 knockback_speed = 25.0

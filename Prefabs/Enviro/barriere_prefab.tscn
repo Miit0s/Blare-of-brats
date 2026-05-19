@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fe11xc6x8jfv"]
+
+[ext_resource type="Texture2D" uid="uid://t4qtxr6s7ifo" path="res://Assets/EnvironmentSprite/barriere_01.png" id="1_eftjq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1r1nj"]
+size = Vector3(27.021027, 6.515, 1)
+
+[node name="Barriere02" type="Sprite3D" unique_id=544332443]
+transform = Transform3D(-8.355837e-08, 0.021127017, 0.38243517, 5.5409477e-09, 0.38243517, -0.021127017, -0.3830182, 9.2349334e-10, -8.37368e-08, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_eftjq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=672626753]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1357558532]
+transform = Transform3D(0.9999998, 0, 7.1054274e-15, 0, 0.9999998, 0, -7.1054274e-15, 0, 0.9999998, 0.366, -3.42, 0)
+shape = SubResource("BoxShape3D_1r1nj")

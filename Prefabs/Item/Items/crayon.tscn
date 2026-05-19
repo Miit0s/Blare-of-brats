@@ -10,12 +10,11 @@ size = Vector3(2, 0.24, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfw6j"]
 size = Vector3(2, 0.24, 0.15)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_kjmd8"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_pu41r"]
 
 [node name="Item" unique_id=2059959192 instance=ExtResource("1_onh0j")]
 attack_shape = SubResource("BoxShape3D_njkn3")
 damage = 3.0
-throw_damage = 1.0
 sound_on_attack = 3.0
 sound_on_throw = 1.0
 attack_sound = ExtResource("2_btriy")
@@ -34,4 +33,4 @@ texture = ExtResource("2_njkn3")
 shape = SubResource("BoxShape3D_njkn3")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_kjmd8")
+mesh = SubResource("ImmediateMesh_pu41r")
