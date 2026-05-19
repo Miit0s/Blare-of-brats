@@ -4,6 +4,8 @@
 [ext_resource type="WwiseEvent" uid="uid://dvi7clwfqeck7" path="res://Wwise/resources/Event/{524CA488-AD1A-4601-87EB-4FAA2BED2E10}.tres" id="2_2nftw"]
 [ext_resource type="WwiseEvent" uid="uid://dxxbqb8uf44mf" path="res://Wwise/resources/Event/{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}.tres" id="3_knrd4"]
 [ext_resource type="WwiseEvent" uid="uid://v3kb26q6hck6" path="res://Wwise/resources/Event/{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}.tres" id="4_knrd4"]
+[ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_j7wlx"]
+[ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_yi7wc"]
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="5_7m7dm"]
 [ext_resource type="SpriteFrames" uid="uid://0fk4nu8qwjbo" path="res://Prefabs/Player/Players/max_spriteframes.tres" id="6_tt850"]
@@ -31,6 +33,8 @@ knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
+hit_wout_obj = ExtResource("5_j7wlx")
+launch = ExtResource("6_yi7wc")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
 sprites_frames = ExtResource("6_tt850")
 sprite_3d = NodePath("Sprite3D")

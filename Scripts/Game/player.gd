@@ -54,6 +54,8 @@ var _knockback_speed_to_apply: float = 0
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
+@export var hit_wout_obj: WwiseEvent
+@export var launch : WwiseEvent
 
 @export_category("VFX")
 @export var hit_effect_duration: float = 0.2
@@ -294,6 +296,7 @@ func hit(damage: float, hit_direction: Vector3):
 		cancel_animation()
 	
 	has_been_hit.emit(player_id, damage)
+	hit_wout_obj.post(self)
 
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction
@@ -345,6 +348,8 @@ func throw(direction: Vector3):
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+	launch.post(self)
+	
 
 func _pickable_item_nearby() -> bool:
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()

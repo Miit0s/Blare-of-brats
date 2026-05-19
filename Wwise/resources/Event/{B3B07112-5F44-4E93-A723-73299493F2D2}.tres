@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://b0ripsj8hfvvq"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "PistoGum_Shoot"
+id = 2746646177
+guid = "{B3B07112-5F44-4E93-A723-73299493F2D2}"
+dummy = true

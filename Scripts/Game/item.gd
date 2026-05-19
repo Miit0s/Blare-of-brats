@@ -40,6 +40,7 @@ class_name Item
 @export var sound_on_attack: float = 1
 @export var sound_on_throw: float = 2
 @export var sound_on_break: float = 5
+@export var attack_sound: WwiseEvent
 
 @export_category("Lifetime")
 @export var durability: int = 5
@@ -148,6 +149,10 @@ func attack(direction: Vector3):
 	
 	if distance : _distance_attack()
 	else: _melee_attack()
+	
+	if attack_sound:
+		attack_sound.post(self)
+	
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
