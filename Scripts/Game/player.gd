@@ -68,7 +68,7 @@ var _knockback_speed_to_apply: float = 0
 @export var dash_effect: GPUParticles3D
 
 var _current_direction: Vector3 = Vector3.RIGHT
-var _last_direction: Vector3 = Vector3.RIGHT
+var _last_direction: Vector3 = Vector3.BACK
 var _last_wall_hit_normal: Vector3 = Vector3.ZERO
 
 var _suffix: String = ""
@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	if velocity.length() > 0: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
 	
-	_update_sprite(direction)
+	_update_sprite(_last_direction if direction == Vector3.ZERO else direction)
 	
 	move_and_slide()
 	
