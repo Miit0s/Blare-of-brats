@@ -7,6 +7,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	922786755	UI_Menu_Back			\ALL_EVENTS\SFX\UI\Menu\UI_Menu_Back	
 	962867917	Music_Fight			\ALL_EVENTS\Music\Music_Fight	
 	1076559162	Boxing_Glove			\ALL_EVENTS\SFX\Items\Boxing_Glove\Boxing_Glove	
+	1505888634	Countdown			\ALL_EVENTS\SFX\UI\Party\Countdown	
 	1719710198	GrabObject			\ALL_EVENTS\SFX\Chara\Interac\GrabObject	
 	1942692385	Dash			\ALL_EVENTS\SFX\Chara\Mov\Dash	
 	2476125396	SwitchObject			\ALL_EVENTS\SFX\Chara\Interac\SwitchObject	
@@ -63,6 +64,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	693540064	Loop	.cache\90\{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\Loop		3066932
 	693680794	fill_parents_shh	.cache\48\{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\fill_parents_shh\fill_parents_shh		546936
 	703684940	swoosh_rotation_3	.cache\5A\{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_3		84104
+	790913363	Party_Countdown	.cache\81\{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\Party_Countdown		244984
 	813712222	Voice_Boyl_Win	.cache\A5\{A59F9A05-3F5F-B2D0-1D4D-66DD5592AD89}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Voice_Boyl_Win		223540
 	863843509	Voice_Boy_TakingDamage_1	.cache\01\{0163C130-C7E1-4B93-5935-CC08C9F3CFE6}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_TakingDamage\Voice_Boy_TakingDamage_1		59000
 	887771243	Voice_Girl_Attack_2	.cache\90\{90FD7482-C03B-55D7-B6CD-7E83F7EC6C06}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_Attacking\Voice_Girl_Attack_2		42736

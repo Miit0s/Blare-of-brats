@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{8114075E-B504-A2D6-A1E0-E7DDF736A4E6}",
+    "Hash": "{5F232512-F9ED-B0BA-169A-BCE60965DD06}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -256,6 +256,14 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
+      "Id": "790913363",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Countdown_V1.wav",
+      "CachePath": "81/{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem"
+     },
+     {
       "Id": "813712222",
       "Language": "SFX",
       "Streaming": "false",
@@ -426,6 +434,21 @@
       "MediaRefs": [
        {
         "Id": "813712222"
+       }
+      ]
+     },
+     {
+      "Id": "1505888634",
+      "Name": "Countdown",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\Countdown",
+      "GUID": "{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3882539",
+      "DurationMax": "1.3882539",
+      "MediaRefs": [
+       {
+        "Id": "790913363"
        }
       ]
      },
@@ -753,6 +776,6 @@
     ]
    }
   ],
-  "FileHash": "{6D0A8316-3866-42DA-A8AC-2E9915EC6F47}"
+  "FileHash": "{CA416297-FD1A-7813-3E66-E516498AB26D}"
  }
 }
