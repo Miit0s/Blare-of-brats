@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{5A9FAFC9-0200-E643-E45F-7D06F8C21A4B}",
+    "Hash": "{8114075E-B504-A2D6-A1E0-E7DDF736A4E6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -48,14 +48,6 @@
       "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
      },
      {
-      "Id": "62440136",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wood_impact_2.wav",
-      "CachePath": "CA/{CA2F313C-B237-FDE6-2DC8-9A44A16B1A7D}.wem"
-     },
-     {
       "Id": "79414803",
       "Language": "SFX",
       "Streaming": "false",
@@ -80,20 +72,20 @@
       "CachePath": "BF/{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem"
      },
      {
-      "Id": "149837831",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wood_impact.wav",
-      "CachePath": "AC/{AC56E292-C8A1-EF3B-9EA3-D85F5E78D359}.wem"
-     },
-     {
       "Id": "192332123",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "lead_P2.wav",
       "CachePath": "98/{983FEB1C-1A52-4758-DE89-482538170A94}.wem"
+     },
+     {
+      "Id": "195267026",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Back.wav",
+      "CachePath": "20/{205513AB-2741-CB1F-8DB4-2D3F220CA1EA}.wem"
      },
      {
       "Id": "225912809",
@@ -166,6 +158,14 @@
       "Location": "Memory",
       "ShortName": "hit_5.wav",
       "CachePath": "DF/{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem"
+     },
+     {
+      "Id": "498530264",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Select.wav",
+      "CachePath": "3B/{3BB2BD53-4302-502D-5F69-29103BF83AA2}.wem"
      },
      {
       "Id": "525872627",
@@ -256,14 +256,6 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
-      "Id": "758726403",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wood_impact_3.wav",
-      "CachePath": "C1/{C1E10258-FB5D-055C-E63C-C3ADEA9CE152}.wem"
-     },
-     {
       "Id": "813712222",
       "Language": "SFX",
       "Streaming": "false",
@@ -310,6 +302,14 @@
       "Location": "Memory",
       "ShortName": "hit_1.wav",
       "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
+     },
+     {
+      "Id": "976227419",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Nav.wav",
+      "CachePath": "EB/{EBC7D52A-311C-C012-673F-EC145881488E}.wem"
      },
      {
       "Id": "1005290781",
@@ -621,27 +621,6 @@
       ]
      },
      {
-      "Id": "1020083716",
-      "Name": "Pencil_Hit",
-      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Pencil\\Pencil_Hit",
-      "GUID": "{FDA1AE4B-B233-49A2-811D-E84B633A8A9E}",
-      "Color": "2",
-      "DurationType": "OneShot",
-      "DurationMin": "0.43563727",
-      "DurationMax": "0.48898637",
-      "MediaRefs": [
-       {
-        "Id": "62440136"
-       },
-       {
-        "Id": "149837831"
-       },
-       {
-        "Id": "758726403"
-       }
-      ]
-     },
-     {
       "Id": "2746646177",
       "Name": "PistoGum_Shoot",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\PistoGum\\PistoGum_Shoot",
@@ -681,6 +660,51 @@
       "MediaRefs": [
        {
         "Id": "675508919"
+       }
+      ]
+     },
+     {
+      "Id": "922786755",
+      "Name": "UI_Menu_Back",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Back",
+      "GUID": "{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15190476",
+      "DurationMax": "0.15278473",
+      "MediaRefs": [
+       {
+        "Id": "195267026"
+       }
+      ]
+     },
+     {
+      "Id": "17678017",
+      "Name": "UI_Menu_Nav",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Nav",
+      "GUID": "{B028A76E-DF34-418D-AF44-603DF661B703}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.13515808",
+      "DurationMax": "0.13672854",
+      "MediaRefs": [
+       {
+        "Id": "976227419"
+       }
+      ]
+     },
+     {
+      "Id": "3474566310",
+      "Name": "UI_Menu_Select",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Select",
+      "GUID": "{0ED4976A-854F-4128-AE55-AB976FEC9AA0}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.17066666",
+      "DurationMax": "0.17165533",
+      "MediaRefs": [
+       {
+        "Id": "498530264"
        }
       ]
      }
@@ -729,6 +753,6 @@
     ]
    }
   ],
-  "FileHash": "{074138F6-CB78-4891-EE6A-F194B729C79F}"
+  "FileHash": "{6D0A8316-3866-42DA-A8AC-2E9915EC6F47}"
  }
 }
