@@ -12,7 +12,7 @@ class_name GameSoundBar
 var _game_sound_bar_volume: float = 0:
 	set(new_value):
 		_game_sound_bar_volume = clampf(new_value, 0.0, 1.0)
-		sound_bar.material.set_shader_parameter("progress", _game_sound_bar_volume)
+		sound_bar.material.set_shader_parameter("value", _game_sound_bar_volume)
 
 var _timer_duration: int = 0
 var _target_value_by_time: float = 0

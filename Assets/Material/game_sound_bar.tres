@@ -2,14 +2,27 @@
 
 [ext_resource type="Shader" uid="uid://dyojie6fy44rt" path="res://Shader/game_sound_bar.gdshader" id="1_yncwp"]
 
+[sub_resource type="Gradient" id="Gradient_jkyf7"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2fwo2"]
+gradient = SubResource("Gradient_jkyf7")
+
+[sub_resource type="Gradient" id="Gradient_7lapw"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gwlbu"]
+gradient = SubResource("Gradient_7lapw")
+
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_yncwp")
-shader_parameter/progress = 0.0
-shader_parameter/progress_range = 0.1
-shader_parameter/frequency = 8.80000013113056
-shader_parameter/rippleRate = 20.0000002905734
-shader_parameter/ripple_amplitude = 1.999999955296
-shader_parameter/base_color = Color(1, 1, 1, 1)
-shader_parameter/alpha_falloff_power = 2.0
-shader_parameter/rect_size = Vector2(300, 30)
+shader_parameter/stepify = false
+shader_parameter/value = 1.0
+shader_parameter/count = 20
+shader_parameter/margin = Vector2(0.1, 0)
+shader_parameter/shear_angle = -0.009999952975000004
+shader_parameter/gradient_x = SubResource("GradientTexture1D_2fwo2")
+shader_parameter/gradient_y = SubResource("GradientTexture1D_gwlbu")
+shader_parameter/use_value_gradient = false
+shader_parameter/invert = false
