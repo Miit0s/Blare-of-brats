@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ControllerIconSet" format=3 uid="uid://civbv4rh0yifp"]
+
+[ext_resource type="Texture2D" uid="uid://beyxfcnhl25pp" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_dpad_down.png" id="1_pkpbj"]
+[ext_resource type="Texture2D" uid="uid://56pte8n75331" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_dpad_left.png" id="2_4j0hp"]
+[ext_resource type="Texture2D" uid="uid://cor3gvjrkrax2" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_dpad_right.png" id="3_j2u0l"]
+[ext_resource type="Texture2D" uid="uid://23dt38w537gv" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_dpad_up.png" id="4_bk2s7"]
+[ext_resource type="Texture2D" uid="uid://bnxn8pe647msw" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_a.png" id="5_d4y2k"]
+[ext_resource type="Texture2D" uid="uid://ces03sowpwcfm" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_guide.png" id="6_erh6j"]
+[ext_resource type="Texture2D" uid="uid://b2oepmyxju0cg" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_stick_side_l.png" id="7_tfuo8"]
+[ext_resource type="Texture2D" uid="uid://3wpfmqqcrvow" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_stick_side_r.png" id="8_3jo7j"]
+[ext_resource type="Texture2D" uid="uid://de4nl3nxxp5hi" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_x.png" id="9_eggah"]
+[ext_resource type="Texture2D" uid="uid://ru3reh4tad2e" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_l1.png" id="10_ht3jr"]
+[ext_resource type="Texture2D" uid="uid://be44pakwtb1br" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_b.png" id="11_oox1r"]
+[ext_resource type="Texture2D" uid="uid://cl45ln3o6bagv" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_r1.png" id="12_juoff"]
+[ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="13_2w8uu"]
+[ext_resource type="Texture2D" uid="uid://c5fhad8kj3vis" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_options.png" id="14_au2cx"]
+[ext_resource type="Texture2D" uid="uid://cybeda80ibx1v" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_view.png" id="15_s8s6j"]
+[ext_resource type="Texture2D" uid="uid://bp1h7t7nbovuq" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_y.png" id="16_tahit"]
+
+[resource]
+script = ExtResource("13_2w8uu")
+platform_name = 2
+home_btn = ExtResource("6_erh6j")
+start_btn = ExtResource("15_s8s6j")
+select_btn = ExtResource("14_au2cx")
+up_btn = ExtResource("16_tahit")
+down_btn = ExtResource("5_d4y2k")
+left_btn = ExtResource("9_eggah")
+right_btn = ExtResource("11_oox1r")
+cross_up_btn = ExtResource("4_bk2s7")
+cross_down_btn = ExtResource("1_pkpbj")
+cross_left_btn = ExtResource("2_4j0hp")
+cross_right_btn = ExtResource("3_j2u0l")
+joystick_left_btn = ExtResource("7_tfuo8")
+joystick_right_btn = ExtResource("8_3jo7j")
+left_shoulder_btn = ExtResource("10_ht3jr")
+right_shoulder_btn = ExtResource("12_juoff")
+metadata/_custom_type_script = "uid://ce5noloj2eese"

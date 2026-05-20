@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://si1sx446u8ac"]
+
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_v3hbf"]
+[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="2_s012w"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_v3hbf")
+shader_parameter/main_texture = ExtResource("2_s012w")
+shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
+shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
+shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.56078434, 0.74509805, 0.88235295, 1)
+shader_parameter/replace_1 = Color(0.58431375, 0.9647059, 0.8862745, 1)
+shader_parameter/replace_2 = Color(0.40392157, 0.5803922, 0.9254902, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.1600000076
+shader_parameter/softness = 0.05

@@ -3,6 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
+[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
+[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_4l4xg"]
+[ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
+[ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ob3uu"]
+font_size = 50
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -24,19 +34,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -75.0
-offset_right = 160.0
-offset_bottom = 75.0
+offset_left = -400.0
+offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 800
 
 [node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
 layout_mode = 2
 
 [node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
 layout_mode = 2
+character_texture = Array[Texture2D]([ExtResource("3_gka6h"), ExtResource("4_4l4xg")])
+begin_skin = 1
+front_texture_begin_material = ExtResource("5_qbu2t")
+back_texture_begin_material = ExtResource("6_o70qx")
 
 [node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
 layout_mode = 1
@@ -51,8 +63,69 @@ grow_vertical = 0
 hold_duration = 0.75
 text = "Go back to menu"
 
-[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_his_ready"]
-[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_0" to="." method="_on_controller_slot_player_no_more_ready"]
-[connection signal="player_his_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_his_ready"]
-[connection signal="player_no_more_ready" from="ControllerSlotContainer/ControllerSlot_1" to="." method="_on_controller_slot_player_no_more_ready"]
+[node name="ReadyTexture" type="TextureRect" parent="." unique_id=1902863830]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_o70qx")
+
+[node name="Label" type="Label" parent="ReadyTexture" unique_id=972162682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -34.5
+offset_right = 97.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "READY ?"
+label_settings = SubResource("LabelSettings_ob3uu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="ReadyTexture" unique_id=99086707]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.5
+offset_top = 34.960022
+offset_right = 230.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Hold {JoinGame} to start"
+horizontal_alignment = 1
+script = ExtResource("9_o70qx")
+raw_text = "Hold {JoinGame} to start"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="RadialProgressBarWithText" parent="ReadyTexture" unique_id=1846131576 instance=ExtResource("3_cwclv")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = 83.21002
+offset_right = 27.5
+offset_bottom = 133.21002
+grow_horizontal = 2
+grow_vertical = 2
+hold_duration = 1.0
+text = ""
+
 [connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
+[connection signal="hold_finish" from="ReadyTexture/RadialProgressBarWithText" to="." method="start_game"]

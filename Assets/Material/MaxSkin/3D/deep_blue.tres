@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cn8g4r8ev42j3"]
+
+[ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="1_cdtwy"]
+[ext_resource type="Texture2D" uid="uid://blwpm6jjrv88f" path="res://Assets/Player/Max/Idle/idle-left-animation-chara-1.png" id="2_aurwe"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_cdtwy")
+shader_parameter/main_texture = ExtResource("2_aurwe")
+shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
+shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
+shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.6156863, 0.6392157, 0.91764706, 1)
+shader_parameter/replace_1 = Color(0.98039216, 0.85490197, 0.44313726, 1)
+shader_parameter/replace_2 = Color(0.40392157, 0.45490196, 0.9254902, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.1600000076
+shader_parameter/softness = 0.05
+shader_parameter/color_override = Color(1, 0, 0, 1)
+shader_parameter/blend_delta = 0.0

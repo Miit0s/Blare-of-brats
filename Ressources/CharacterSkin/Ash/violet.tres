@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterColorResource" format=3 uid="uid://0ituf8tnbe8u"]
+
+[ext_resource type="Material" uid="uid://chb735ujgnro4" path="res://Assets/Material/AshSkin/2D/violet.tres" id="1_3oii2"]
+[ext_resource type="Script" uid="uid://dranqulqe0dbp" path="res://Scripts/Resources/character_color_resource.gd" id="1_jr80m"]
+[ext_resource type="Material" uid="uid://cxpoi6ku85y0m" path="res://Assets/Material/AshSkin/3D/violet.tres" id="2_38dvc"]
+
+[resource]
+script = ExtResource("1_jr80m")
+main_color = Color(0.88235295, 0.63529414, 0.9607843, 1)
+color_shader_2d = ExtResource("1_3oii2")
+color_shader_3d = ExtResource("2_38dvc")
+metadata/_custom_type_script = "uid://dranqulqe0dbp"

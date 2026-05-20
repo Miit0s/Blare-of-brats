@@ -2,37 +2,38 @@
 
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_7sgx4"]
 [ext_resource type="Texture2D" uid="uid://kbq4jiaeilgi" path="res://Assets/Sprite/gun.png" id="2_nyips"]
+[ext_resource type="WwiseEvent" uid="uid://b0ripsj8hfvvq" path="res://Wwise/resources/Event/{B3B07112-5F44-4E93-A723-73299493F2D2}.tres" id="2_o7b2h"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nyips"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_u17an"]
 resource_local_to_scene = true
 radius = 0.35
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gqoj1"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_o7b2h"]
 resource_local_to_scene = true
 radius = 0.45
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_nyips"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_8ntkk"]
 
 [node name="Item" unique_id=2059959192 instance=ExtResource("1_7sgx4")]
 distance = true
-attack_shape = SubResource("SphereShape3D_nyips")
+attack_shape = SubResource("SphereShape3D_u17an")
 munition_speed = 0.5
 damage = 4.0
-throw_damage = 2.0
 sound_on_attack = 3.0
+attack_sound = ExtResource("2_o7b2h")
 durability = 3
 object_texture = ExtResource("2_nyips")
 object_texture_size = 0.05
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
-shape = SubResource("SphereShape3D_gqoj1")
+shape = SubResource("SphereShape3D_o7b2h")
 
 [node name="Sprite3D" parent="." index="1" unique_id=563304622]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 texture = ExtResource("2_nyips")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
-shape = SubResource("SphereShape3D_nyips")
+shape = SubResource("SphereShape3D_u17an")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_nyips")
+mesh = SubResource("ImmediateMesh_8ntkk")

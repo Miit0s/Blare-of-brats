@@ -4,6 +4,13 @@ class_name SharedLifeBar
 @onready var life_bar: ColorRect = $LifeBar
 @onready var middle_bar: ColorRect = $MiddleBar
 
+@onready var texture_rect_left: TextureRect = $TextureRectLeft
+@onready var texture_rect_right: TextureRect = $TextureRectRight
+@onready var player_indicator_left: TextureRect = $PlayerIndicatorLeft
+@onready var player_indicator_right: TextureRect = $PlayerIndicatorRight
+@onready var round_win_indicator_left: RoundWinIndicator = $RoundWinIndicatorLeft
+@onready var round_win_indicator_right: RoundWinIndicator = $RoundWinIndicatorRight
+
 @export var player_health: float = 100
 
 @export_range(0, 1, 0.01) var min_middle_bar_hide: float = 0.48
@@ -17,10 +24,14 @@ class_name SharedLifeBar
 var shader_current_speed: Vector2 = Vector2(0.3, 0.1)
 var total_offset: Vector2 = Vector2.ZERO
 
+var target_progress_value: float = 0.5
 var progress_bar_value: float = 0.5:
 	set(new_value):
 		progress_bar_value = clampf(new_value, 0.0, 1.0)
 		_progress_bar_value_changed(progress_bar_value)
+
+var left_player_id: int = -1
+var right_player_id: int = -1
 
 signal player_win(player_id: int)
 signal lifebar_value_change(new_value: float)
@@ -56,19 +67,17 @@ func _get_life_bar_shader_material() -> ShaderMaterial:
 	return life_bar.material
 
 func add_damage_to_player(player_id: int, damage: float):
-	var progress_bar_with_damage: float = progress_bar_value
+	if player_id == left_player_id: target_progress_value -= damage / (player_health * 2)
+	elif player_id == right_player_id: target_progress_value += damage / (player_health * 2)
 	
-	if player_id == 0: progress_bar_with_damage -= damage / (player_health * 2)
-	elif player_id == 1: progress_bar_with_damage += damage / (player_health * 2)
-	
-	if progress_bar_with_damage <= 0: player_win.emit(get_player_id_with_most_health())
-	elif progress_bar_with_damage >= 1: player_win.emit(get_player_id_with_most_health())
+	if target_progress_value <= 0: player_win.emit(get_player_id_with_most_health())
+	elif target_progress_value >= 1: player_win.emit(get_player_id_with_most_health())
 	
 	var tween: Tween = create_tween()
 	tween.tween_property(
 		self,
 		"progress_bar_value",
-		progress_bar_with_damage,
+		target_progress_value,
 		shader_value_change_speed
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
@@ -77,10 +86,34 @@ func add_damage_to_player(player_id: int, damage: float):
 	lifebar_value_change.emit(progress_bar_value)
 
 func get_player_id_with_least_health() -> int:
-	return 0 if progress_bar_value <= 0.5 else 1
+	return left_player_id if target_progress_value <= 0.5 else right_player_id
 
 func get_player_id_with_most_health() -> int:
-	return 0 if progress_bar_value >= 0.5 else 1
+	return left_player_id if target_progress_value >= 0.5 else right_player_id
 
 func reset():
 	progress_bar_value = 0.5
+	target_progress_value = 0.5
+
+func add_player_win(player_id: int, color_to_apply: Color):
+	if player_id == left_player_id:
+		round_win_indicator_left.new_round_win(color_to_apply)
+	elif player_id == right_player_id:
+		round_win_indicator_right.new_round_win(color_to_apply)
+
+func change_player_data(left: PlayerCharacterSelection, right: PlayerCharacterSelection):
+	left_player_id = left.player_id
+	right_player_id = right.player_id
+	
+	life_bar.material.set_shader_parameter("color_left", left.color_skin.main_color)
+	life_bar.material.set_shader_parameter("color_right", right.color_skin.main_color)
+	
+	player_indicator_left.self_modulate = left.color_skin.main_color
+	player_indicator_right.self_modulate = right.color_skin.main_color
+	
+	_set_texture_for(texture_rect_left, left)
+	_set_texture_for(texture_rect_right, right)
+
+func _set_texture_for(rect: TextureRect, data: PlayerCharacterSelection):
+	rect.texture = data.front_texture
+	rect.material = data.color_skin.color_shader_2d

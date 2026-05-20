@@ -1,4 +1,5 @@
 extends Node3D
+class_name GameScene
 
 @onready var round_start_ui: RoundStartUI = $CanvasLayer/RoundStart
 @onready var round_end_ui: RoundEnd = $CanvasLayer/RoundEnd
@@ -25,8 +26,12 @@ extends Node3D
 
 var players: Array[Player]
 var players_win: Array[int]
+var _last_player_win_id: int = -1
+
+var players_selection: Array[PlayerCharacterSelection] = [preload("uid://4w1f5mgj2e5s"), preload("uid://cligadeo7a6fk")]
 
 var _current_scene: MapScene
+var _round_ended: bool = false
 
 func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
@@ -46,6 +51,9 @@ func start_round_animation():
 	shared_life_bar.hide()
 	game_sound_bar.hide()
 	
+	shared_life_bar.change_player_data(players_selection[0], players_selection[1])
+	round_end_ui.change_player_data(players_selection[0], players_selection[1])
+	
 	setup_new_scene()
 	round_start_ui.show()
 	round_start_ui.start_animation()
@@ -53,6 +61,8 @@ func start_round_animation():
 func start_round():
 	shared_life_bar.reset()
 	game_sound_bar.reset()
+	
+	_round_ended = false
 	
 	shared_life_bar.show()
 	game_sound_bar.show()
@@ -75,20 +85,29 @@ func setup_new_scene():
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
 	
+	new_scene.player_spawn_system.spawn_players(players_selection)
+	
 	_current_scene = new_scene
 	
 	add_child(new_scene)
 
 func round_end_animaion_finish():
+	var winner_data: PlayerCharacterSelection = _get_player_selection(_last_player_win_id)
+	shared_life_bar.add_player_win(_last_player_win_id, winner_data.color_skin.main_color)
+	
 	if _check_if_game_end():
 		round_end_ui.hide()
 		game_end_ui.show()
-		game_end_ui.start_animation(players_win.find(players_win.max()))
+		game_end_ui.start_animation(_last_player_win_id, winner_data.color_skin.main_color, players_selection[0].player_id)
 	else:
 		round_end_ui.show_next_round_button()
 
 func player_win(player_id: int):
+	if _round_ended: return
+	
+	_round_ended = true
 	players_win[player_id] += 1
+	_last_player_win_id = player_id
 	
 	for player in players:
 		player.freeze()
@@ -98,7 +117,7 @@ func player_win(player_id: int):
 	music_fight.stop(self)
 	
 	round_end_ui.show()
-	round_end_ui.start_animation(players_win)
+	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
 
 func return_to_main_menu():
 	get_tree().change_scene_to_file(main_menu_scene_uid)
@@ -146,3 +165,8 @@ func _check_if_game_end() -> bool:
 	if missing_round <= 0: return true
 	
 	return false
+
+func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
+	if players_selection[0].player_id == player_id:
+		return players_selection[0]
+	return players_selection[1]

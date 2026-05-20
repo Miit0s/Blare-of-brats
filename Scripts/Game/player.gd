@@ -2,10 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
-@onready var wall_detection_area: Area3D = $WallDetectionArea
-@onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
-@onready var dash_effect: GPUParticles3D = $DashEffect
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
 
@@ -57,6 +54,8 @@ var _knockback_speed_to_apply: float = 0
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
+@export var hit_wout_obj: WwiseEvent
+@export var launch : WwiseEvent
 
 @export_category("VFX")
 @export var hit_effect_duration: float = 0.2
@@ -64,10 +63,14 @@ var _knockback_speed_to_apply: float = 0
 @export var wall_bounce_particle_prefab: PackedScene
 
 @export_category("Visual")
-@export var sprites_frames: SpriteFrames
+@export var character_animation: CharacterAnimation
+
+@export_category("Instance")
+@export var player_animated_sprite_3d: AnimatedSprite3D
+@export var dash_effect: GPUParticles3D
 
 var _current_direction: Vector3 = Vector3.RIGHT
-var _last_direction: Vector3 = Vector3.RIGHT
+var _last_direction: Vector3 = Vector3.BACK
 var _last_wall_hit_normal: Vector3 = Vector3.ZERO
 
 var _suffix: String = ""
@@ -79,6 +82,7 @@ var _is_aiming: bool = false
 var _is_freeze: bool = false
 
 var _attack_tween: Tween = null
+var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
 
@@ -115,12 +119,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 	
-	if velocity.length() > 0: walk_smoke.emitting = true
+	var velocity_length: float = velocity.length()
+	if velocity_length > 0: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
 	
-	_update_sprite(direction)
+	var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
+	_update_sprite(sprite_direction, velocity_length > 0)
 	
 	move_and_slide()
+	
+	if _is_in_knockback and is_on_wall() and not _has_hit_wall:
+		_detect_wall_bounce()
 
 func _process(delta: float) -> void:
 	if _is_freeze or _is_stun: return
@@ -140,7 +149,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
 	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming:
+	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
 		attack(_current_direction if _current_direction else _last_direction)
 	
 	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
@@ -156,6 +165,8 @@ func dash():
 	_is_invincible = true
 	dash_effect.emitting = true
 	_dash_speed_to_apply = dash_speed
+	
+	_update_particle_to_current_sprite()
 	
 	var dash_speed_tween: Tween = create_tween()
 	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)
@@ -214,11 +225,14 @@ func attack(direction: Vector3):
 		_is_attacking = true
 		_is_making_attack_move = true
 		
-		get_tree().create_timer(attack_move_duration).timeout.connect(func(): 
+		_attack_move_timer = create_tween()
+		_attack_move_timer.tween_interval(attack_move_duration)
+		_attack_move_timer.tween_callback(func(): 
 			_is_making_attack_move = false
 			current_picked_item.slash_look_at(self.global_position)
-			current_picked_item.attack(direction)
 			_make_attack_movement(direction)
+			current_picked_item.attack(direction)
+			_attack_move_timer = null
 		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
@@ -239,19 +253,20 @@ func _make_attack_movement(direction: Vector3):
 		start_angle = base_angle - deg_to_rad(slash_arc / 2)
 		end_angle = base_angle + deg_to_rad(slash_arc / 2)
 	
-	var slash_tween: Tween = create_tween() \
+	_animate_slash(start_angle)
+	
+	_attack_tween = create_tween() \
 		.set_trans(Tween.TRANS_QUART) \
 		.set_ease(Tween.EASE_OUT)
-	_attack_tween = slash_tween
 	
-	slash_tween.tween_method(
+	_attack_tween.tween_method(
 		_animate_slash,
 		start_angle,
 		end_angle,
 		current_picked_item.attack_speed
 	)
 	
-	await slash_tween.finished
+	await _attack_tween.finished
 	_attack_tween = null
 
 func _animate_slash(current_angle: float):
@@ -259,8 +274,7 @@ func _animate_slash(current_angle: float):
 	current_picked_item.global_position = global_position + offset
 
 func cancel_animation():
-	if _attack_tween:
-		_attack_tween.stop()
+	_kill_current_animation()
 	
 	if current_picked_item:
 		current_picked_item.cancel_animation()
@@ -268,6 +282,12 @@ func cancel_animation():
 	_is_attacking = false
 	_is_making_attack_move = false
 	_is_aiming = false
+
+func _kill_current_animation():
+	if _attack_tween:
+		_attack_tween.kill()
+	if _attack_move_timer:
+		_attack_move_timer.kill()
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
@@ -280,6 +300,7 @@ func hit(damage: float, hit_direction: Vector3):
 		cancel_animation()
 	
 	has_been_hit.emit(player_id, damage)
+	hit_wout_obj.post(self)
 
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction
@@ -305,6 +326,7 @@ func stun():
 func switch_item():
 	if not _pickable_item_nearby(): return
 	
+	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.drop()
 	current_picked_item = null
 	
@@ -330,6 +352,8 @@ func throw(direction: Vector3):
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+	launch.post(self)
+	
 
 func _pickable_item_nearby() -> bool:
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
@@ -349,74 +373,75 @@ func _override_color_effect():
 	tween.set_trans(Tween.TRANS_CUBIC)
 	
 	tween.tween_method(
-		func(value): sprite_3d.material_override.set_shader_parameter("blend_delta", value),
+		func(value): player_animated_sprite_3d.material_override.set_shader_parameter("blend_delta", value),
 		0.8,
 		0.0,
 		hit_effect_duration
 	)
 
-func _update_sprite(current_direction: Vector3):
-	var sprite_index: int = _get_angle_zone(current_direction, sprites_frames.get_frame_count("default"))
-	_change_player_sprite(sprites_frames.get_frame_texture("default", sprite_index))
+func _update_sprite(current_direction: Vector3, is_moving: bool):
+	if not is_moving:
+		var animations_index: int = _get_angle_zone(current_direction, character_animation.idle_animation.get_animation_names().size())
+		match animations_index:
+			0: _change_player_sprite(character_animation.idle_animation, "left")
+			1: _change_player_sprite(character_animation.idle_animation, "right")
+			2: _change_player_sprite(character_animation.idle_animation, "back")
+	else:
+		var animations_index: int = _get_angle_zone(current_direction, character_animation.run_animation.get_animation_names().size())
+		match animations_index:
+			0: _change_player_sprite(character_animation.run_animation, "front")
+			1: _change_player_sprite(character_animation.run_animation, "front_right")
+			2: _change_player_sprite(character_animation.run_animation, "side_right")
+			3: _change_player_sprite(character_animation.run_animation, "back")
+			4: _change_player_sprite(character_animation.run_animation, "side_left")
+			5: _change_player_sprite(character_animation.run_animation, "front_left")
 
 func _get_angle_zone(direction: Vector3, steps: int) -> int:
 	var angle: float = atan2(direction.x, direction.z)
 	angle += TAU if angle < 0.0 else 0.0
 	return wrapi(round(angle * steps / TAU), 0, steps)
 
-func _change_player_sprite(new_sprite: Texture2D):
-	sprite_3d.texture = new_sprite
+func _change_player_sprite(new_sprite_frames: SpriteFrames, sprite_animation_name: String):
+	if player_animated_sprite_3d.sprite_frames == new_sprite_frames and player_animated_sprite_3d.animation == sprite_animation_name: return
 	
-	var material_sprite: ShaderMaterial = sprite_3d.material_override
+	player_animated_sprite_3d.sprite_frames = new_sprite_frames
+	player_animated_sprite_3d.animation = sprite_animation_name
+	player_animated_sprite_3d.play()
+
+	var material_sprite: ShaderMaterial = player_animated_sprite_3d.material_override
+	var atlas_texture: AtlasTexture = new_sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
+	material_sprite.set_shader_parameter("main_texture", atlas_texture)
+
+func _update_particle_to_current_sprite():
+	var atlas_texture: AtlasTexture = player_animated_sprite_3d.sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
 	var material_dash: ShaderMaterial = dash_effect.material_override
 	
-	material_sprite.set_shader_parameter("sprite_texture", new_sprite)
-	material_sprite.set_shader_parameter("uv_offset", Vector2.ZERO)
-	material_sprite.set_shader_parameter("uv_scale", Vector2.ONE)
+	var atlas_size: Vector2 = atlas_texture.atlas.get_size()
+	var region: Rect2 = atlas_texture.region
 	
-	if new_sprite is AtlasTexture:
-		var atlas_size: Vector2 = new_sprite.atlas.get_size()
-		var region: Rect2 = new_sprite.region
-		
-		var uv_offset: Vector2 = region.position / atlas_size
-		var uv_scale: Vector2 = region.size / atlas_size
-		
-		material_dash.set_shader_parameter("sprite_texture", new_sprite.atlas)
-		material_dash.set_shader_parameter("uv_offset", uv_offset)
-		material_dash.set_shader_parameter("uv_scale", uv_scale)
-	else:
-			material_dash.set_shader_parameter("sprite_texture", new_sprite)
-			material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
-			material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
+	var uv_offset: Vector2 = region.position / atlas_size
+	var uv_scale: Vector2 = region.size / atlas_size
+	
+	material_dash.set_shader_parameter("main_texture", atlas_texture.atlas)
+	material_dash.set_shader_parameter("uv_offset", uv_offset)
+	material_dash.set_shader_parameter("uv_scale", uv_scale)
 
-
-func _on_wall_detection_area_body_entered(_body: Node3D) -> void:
-	if not _is_in_knockback: return
+func _detect_wall_bounce():
+	var collision: KinematicCollision3D = get_last_slide_collision()
 	
-	var ray_direction = _knockback_direction.normalized() * 2.0
-	var target_position = global_position + ray_direction
-	
-	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(
-		global_position, 
-		target_position, 
-		wall_detection_area.collision_mask,
-		[self]
-	)
-	
-	var result: Dictionary = space_state.intersect_ray(query)
-	
-	_last_wall_hit_normal = result.normal
-	_has_hit_wall = true
-	
-	var bounce_particle: GPUParticles3D = wall_bounce_particle_prefab.instantiate()
-	add_child(bounce_particle)
-	
-	bounce_particle.global_position = result.position
-	bounce_particle.look_at(result.position + result.normal)
-	bounce_particle.finished.connect(bounce_particle.queue_free)
-	
-	bounce_particle.emitting = true
+	if collision:
+		_last_wall_hit_normal = collision.get_normal()
+		_has_hit_wall = true
+		
+		var bounce_particle: GPUParticles3D = wall_bounce_particle_prefab.instantiate()
+		add_child(bounce_particle)
+		
+		var collision_position: Vector3 = collision.get_position()
+		bounce_particle.global_position = Vector3(global_position.x, global_position.y, collision_position.z)
+		bounce_particle.look_at(bounce_particle.global_position + collision.get_normal())
+		bounce_particle.finished.connect(bounce_particle.queue_free)
+		
+		bounce_particle.emitting = true
 
 func freeze():
 	_is_freeze = true
@@ -425,5 +450,16 @@ func unfreeze():
 	_is_freeze = false
 
 func item_will_be_destroy(_item: Item):
+	_kill_current_animation()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+
+func apply_skin_and_color(selection: PlayerCharacterSelection):
+	character_animation = selection.character_texture
+	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d
+	
+	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()
+	dash_material.set_shader_parameter("color_override", Color.WHITE)
+	dash_material.set_shader_parameter("blend_delta", 0.5)
+	
+	dash_effect.material_override = dash_material

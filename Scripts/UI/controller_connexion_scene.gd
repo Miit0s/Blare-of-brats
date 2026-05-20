@@ -3,6 +3,9 @@ extends Control
 @onready var controller_slot_container: HBoxContainer = $ControllerSlotContainer
 @onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
 
+@onready var ready_texture: TextureRect = $ReadyTexture
+@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/RadialProgressBarWithText
+
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
@@ -17,13 +20,39 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
 	for controller_slot in controller_slot_container.get_children():
+		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
+		controller_slot.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
 		controller_slots.append(controller_slot)
+
+func _process(_delta: float) -> void:
+	for i in max_player:
+		var suffix: String = "_" + str(i)
+		if (Input.is_action_just_pressed("NextCharacter" + suffix) or \
+			Input.is_action_just_pressed("PreviousCharacter" + suffix)) and \
+			is_device_already_connected(i):
+				var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+				if player_slot.current_state == ControllerSlot.SelectionState.CHARACTER_SELECTION:
+					player_slot.swap_character_texture()
+			
+		if Input.is_action_just_pressed("NextColor" + suffix) and is_device_already_connected(i):
+			var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
+				player_slot.next_character_color()
+		elif Input.is_action_just_pressed("PreviousColor" + suffix) and is_device_already_connected(i):
+			var player_slot: ControllerSlot = get_controller_slot_for_device(i)
+			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
+				player_slot.previous_character_color()
+	
+	if ready_texture.visible and Input.is_action_just_pressed("JoinGame"):
+		radial_progress_bar_with_text.player_start_holding_key()
+	if ready_texture.visible and Input.is_action_just_released("JoinGame"):
+		radial_progress_bar_with_text.player_stop_holding_key()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
 		if event.is_action_pressed("JoinGame"):
 			if is_device_already_connected(event.device):
-				get_controller_slot_for_device(event.device).player_is_holding_ready_key = true
+				get_controller_slot_for_device(event.device).next_state(event.device)
 				get_viewport().set_input_as_handled()
 				return
 			else:
@@ -32,7 +61,7 @@ func _input(event: InputEvent) -> void:
 				return
 		
 		if event.is_action_pressed("Return") and is_device_already_connected(event.device):
-			get_controller_slot_for_device(event.device).back()
+			get_controller_slot_for_device(event.device).back(event.device)
 			get_viewport().set_input_as_handled()
 			return
 		
@@ -44,12 +73,6 @@ func _input(event: InputEvent) -> void:
 			return_radial_progress_bar.player_stop_holding_key()
 			get_viewport().set_input_as_handled()
 			return
-		
-		if event.is_action_released("JoinGame"):
-			if is_device_already_connected(event.device):
-				get_controller_slot_for_device(event.device).player_is_holding_ready_key = false
-				get_viewport().set_input_as_handled()
-				return
 
 func connect_controller_to_slot(device_id: int):
 	pick_existing_slot(device_id)
@@ -62,7 +85,7 @@ func pick_existing_slot(device_id: int) -> bool:
 	for i in controller_slots.size():
 		
 		if controller_slots[i].is_slot_available:
-			controller_slots[i].set_player_id(device_id)
+			controller_slots[i].next_state(device_id)
 			return true
 	
 	return false
@@ -81,10 +104,10 @@ func remove_controller_slot(device_id: int):
 		if controller_slots[i].get_player_id() == device_id:
 			if  controller_slots.size() == 3:
 				remove_first_empty_slot()
-				controller_slots[i].remove_player()
+				controller_slots[i].switch_to_empty_slot()
 				return
 			elif controller_slots.size() <= 2:
-				controller_slots[i].remove_player()
+				controller_slots[i].switch_to_empty_slot()
 				return
 			else:
 				var controller_slot: ControllerSlot = controller_slots.pop_at(i)
@@ -121,7 +144,14 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
-	get_tree().change_scene_to_file(game_scene_uid)
+	var packed_game_scene: PackedScene = load(game_scene_uid)
+	var game_scene: GameScene = packed_game_scene.instantiate()
+	
+	game_scene.players_selection.clear()
+	for controller_slot in controller_slots:
+		game_scene.players_selection.append(controller_slot.get_player_selection())
+	
+	get_tree().change_scene_to_node(game_scene)
 
 func _on_joy_connection_changed(device: int, connected: bool):
 	if not connected:
@@ -131,11 +161,14 @@ func _on_controller_slot_player_his_ready() -> void:
 	_player_ready += 1
 	
 	if _player_ready >= controller_slots.size():
-		start_game()
+		ready_texture.show()
 
 
 func _on_controller_slot_player_no_more_ready() -> void:
 	_player_ready -= 1
+	
+	if _player_ready < controller_slots.size():
+		ready_texture.hide()
 
 
 func _on_return_radial_progress_bar_hold_finish() -> void:
