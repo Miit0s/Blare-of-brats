@@ -90,3 +90,4 @@ cast_shadow = 0
 sprite_frames = SubResource("SpriteFrames_okxgy")
 frame = 5
 frame_progress = 1.0
+
