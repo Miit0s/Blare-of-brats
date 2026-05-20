@@ -6,14 +6,15 @@
 [ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="4_5et8s"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_f1ni1"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="4_q8gsb"]
-[ext_resource type="SpriteFrames" uid="uid://0fk4nu8qwjbo" path="res://Prefabs/Player/Players/max_spriteframes.tres" id="4_shal0"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_x1yx4"]
 [ext_resource type="Script" uid="uid://qn50oow5bbxi" path="res://Scripts/UI/selected_player.gd" id="5_37ya8"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_gtj21"]
-[ext_resource type="SpriteFrames" uid="uid://basmhn2476lpq" path="res://Prefabs/Player/Players/ash_spriteframes.tres" id="5_q8gsb"]
 [ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="6_7i0b3"]
+[ext_resource type="Script" uid="uid://cqnywcntyydc3" path="res://Scripts/Resources/character_animation.gd" id="6_d46oa"]
 [ext_resource type="PackedScene" uid="uid://bv0thb4skdfjl" path="res://UI/ControllerConnection/color_options_max.tscn" id="6_f1ni1"]
 [ext_resource type="Script" uid="uid://cjirj2lxvamqj" path="res://Scripts/UI/color_picker.gd" id="6_jfjjs"]
+[ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="7_o2f5v"]
+[ext_resource type="Resource" uid="uid://bv5wfucjjmow5" path="res://Ressources/CharacterAnimation/ash.tres" id="8_gk460"]
 [ext_resource type="PackedScene" uid="uid://c1nr8wgvag3dy" path="res://UI/ControllerConnection/color_options_ash.tscn" id="9_iow0i"]
 [ext_resource type="Script" uid="uid://c4gvnsbllg6jh" path="res://Scripts/UI/character_selection.gd" id="10_gtj21"]
 [ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Ressources/CharacterSkin/Max/blue.tres" id="15_q8gsb"]
@@ -45,9 +46,9 @@ script = ExtResource("1_ud3kx")
 character_texture = Array[Texture2D]([ExtResource("4_f1ni1"), ExtResource("4_x1yx4")])
 front_texture_begin_material = ExtResource("4_q8gsb")
 back_texture_begin_material = ExtResource("5_gtj21")
-spriteframes_for_skin = Dictionary[int, SpriteFrames]({
-0: ExtResource("4_shal0"),
-1: ExtResource("5_q8gsb")
+character_animation_for_skin = Dictionary[int, ExtResource("6_d46oa")]({
+0: ExtResource("7_o2f5v"),
+1: ExtResource("8_gk460")
 })
 
 [node name="ControllerSlot" type="TextureRect" parent="." unique_id=699056762]

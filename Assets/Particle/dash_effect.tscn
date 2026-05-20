@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://uhk7j57jg8s"]
 
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="1_lik0v"]
-[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="2_iuj0i"]
+[ext_resource type="Texture2D" uid="uid://blwpm6jjrv88f" path="res://Assets/Player/Max/Idle/idle-left-animation-chara-1.png" id="2_lik0v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iuj0i"]
 render_priority = 0
 shader = ExtResource("1_lik0v")
-shader_parameter/main_texture = ExtResource("2_iuj0i")
+shader_parameter/main_texture = ExtResource("2_lik0v")
 shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
 shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
 shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
@@ -20,7 +20,7 @@ shader_parameter/replace_4 = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.1600000076
 shader_parameter/softness = 0.05
 shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_scale = Vector2(0.2, 0.25)
 shader_parameter/color_override = Color(1, 1, 1, 1)
 shader_parameter/blend_delta = 0.49999998882425
 
@@ -30,7 +30,7 @@ scale_min = 1.1999999
 scale_max = 1.1999999
 
 [sub_resource type="QuadMesh" id="QuadMesh_4qbli"]
-size = Vector2(0.852, 1.497)
+size = Vector2(1.8, 2.16)
 
 [node name="DashEffect" type="GPUParticles3D" unique_id=2051336107]
 material_override = SubResource("ShaderMaterial_iuj0i")

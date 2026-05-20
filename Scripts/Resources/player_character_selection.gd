@@ -3,5 +3,6 @@ class_name PlayerCharacterSelection
 
 @export var player_id: int = 0
 @export var skin: ControllerSlot.PossibleSkin
-@export var character_texture: SpriteFrames
+@export var front_texture: Texture2D
+@export var character_texture: CharacterAnimation
 @export var color_skin: CharacterColorResource

@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://fr4llv25pgj5"]
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_d2n7p"]
-[ext_resource type="SpriteFrames" uid="uid://basmhn2476lpq" path="res://Prefabs/Player/Players/ash_spriteframes.tres" id="2_prvk8"]
+[ext_resource type="Resource" uid="uid://bv5wfucjjmow5" path="res://Ressources/CharacterAnimation/ash.tres" id="2_d0yyq"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_k5cri"]
+[ext_resource type="Texture2D" uid="uid://dkr2i67lh2n8l" path="res://Assets/Player/Ash/Idle/idle-front-left-animation-chara-2.png" id="5_d0yyq"]
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="5_moyob"]
+[ext_resource type="SpriteFrames" uid="uid://8ngev5u6m4uf" path="res://Ressources/CharacterAnimation/idles_ash.tres" id="6_3uwvs"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_moyob"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uwvs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_moyob")
-shader_parameter/main_texture = ExtResource("4_k5cri")
+shader_parameter/main_texture = ExtResource("5_d0yyq")
 shader_parameter/original_0 = Color(0.9882353, 0.64705884, 0.5294118, 1)
 shader_parameter/original_1 = Color(0.9607843, 0.31764707, 0.5254902, 1)
 shader_parameter/original_2 = Color(0.8627451, 0.45882353, 0.28235295, 1)
@@ -22,12 +24,10 @@ shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.1600000076
 shader_parameter/softness = 0.05
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 0, 0, 1)
 shader_parameter/blend_delta = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0yyq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0g7fe"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_moyob")
@@ -44,18 +44,18 @@ shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.1600000076
 shader_parameter/softness = 0.05
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 1, 1, 1)
 shader_parameter/blend_delta = 0.49999998882425
 
-[node name="Mia" unique_id=382022037 instance=ExtResource("1_d2n7p")]
-sprites_frames = ExtResource("2_prvk8")
+[node name="Ash" unique_id=382022037 instance=ExtResource("1_d2n7p")]
+character_animation = ExtResource("2_d0yyq")
 
-[node name="Sprite3D" parent="." index="0" unique_id=1496403736]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_moyob")
-texture = ExtResource("4_k5cri")
+[node name="AnimatedSprite3D" parent="." index="0" unique_id=932639487]
+material_override = SubResource("ShaderMaterial_3uwvs")
+sprite_frames = ExtResource("6_3uwvs")
+animation = &"left"
+frame = 6
+frame_progress = 0.8984469
 
-[node name="DashEffect" parent="." index="5" unique_id=2051336107]
-material_override = SubResource("ShaderMaterial_d0yyq")
+[node name="DashEffect" parent="." index="4" unique_id=2051336107]
+material_override = SubResource("ShaderMaterial_0g7fe")

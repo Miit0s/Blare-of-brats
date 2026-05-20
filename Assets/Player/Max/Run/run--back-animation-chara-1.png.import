@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd7j8pdiaikw2"
-path="res://.godot/imported/3_4_left.png-e0dfd5ffead83ed0f59a7ba98cfdb7ef.ctex"
+uid="uid://dmqyv5g8qyntu"
+path.bptc="res://.godot/imported/run--back-animation-chara-1.png-71679f7d18f467b47d9cd2d47d9af3c5.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Player/Max/3_4_left.png"
-dest_files=["res://.godot/imported/3_4_left.png-e0dfd5ffead83ed0f59a7ba98cfdb7ef.ctex"]
+source_file="res://Assets/Player/Max/Run/run--back-animation-chara-1.png"
+dest_files=["res://.godot/imported/run--back-animation-chara-1.png-71679f7d18f467b47d9cd2d47d9af3c5.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

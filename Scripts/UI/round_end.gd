@@ -52,5 +52,5 @@ func change_player_data(left: PlayerCharacterSelection, right: PlayerCharacterSe
 	_set_texture_for(texture_rect_right, right)
 
 func _set_texture_for(rect: TextureRect, data: PlayerCharacterSelection):
-	rect.texture = data.character_texture.get_frame_texture("default", 0)
+	rect.texture = data.front_texture
 	rect.material = data.color_skin.color_shader_2d

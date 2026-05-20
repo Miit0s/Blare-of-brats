@@ -23,7 +23,7 @@ enum SelectionState {
 @export var front_texture_begin_material: CharacterColorResource
 @export var back_texture_begin_material: CharacterColorResource
 
-@export var spriteframes_for_skin: Dictionary[PossibleSkin, SpriteFrames]
+@export var character_animation_for_skin: Dictionary[PossibleSkin, CharacterAnimation]
 
 var _player_id: int = -1
 var is_slot_available: bool:
@@ -128,7 +128,8 @@ func get_player_selection() -> PlayerCharacterSelection:
 	var player_selection: PlayerCharacterSelection = PlayerCharacterSelection.new()
 	
 	player_selection.player_id = _player_id
-	player_selection.character_texture = spriteframes_for_skin[current_skin]
+	player_selection.front_texture = selected_player.texture_rect.texture
+	player_selection.character_texture = character_animation_for_skin[current_skin]
 	player_selection.color_skin = selected_player.get_current_material()
 	player_selection.skin = current_skin
 	

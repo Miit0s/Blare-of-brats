@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn7gas0do6aw1"
-path="res://.godot/imported/3_4_back_right.png-84ce1e2dd3733dfc3ef2da4781477a4f.ctex"
+uid="uid://db7fk785ge3l6"
+path.bptc="res://.godot/imported/idle-back-animation-chara-1.png-dcec7c17e99cc6fe68caf1d2e5a5f824.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Player/Max/3_4_back_right.png"
-dest_files=["res://.godot/imported/3_4_back_right.png-84ce1e2dd3733dfc3ef2da4781477a4f.ctex"]
+source_file="res://Assets/Player/Max/Idle/idle-back-animation-chara-1.png"
+dest_files=["res://.godot/imported/idle-back-animation-chara-1.png-dcec7c17e99cc6fe68caf1d2e5a5f824.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -37,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ofha55cmh2c"
-path="res://.godot/imported/chara_1_spritesheet.png-9bd3b434018b78a7078df035cfd2afed.ctex"
+uid="uid://cbokd44ovtctj"
+path.s3tc="res://.godot/imported/side_right.png-011320cc354fb5162f3895a909c7df45.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Player/Max/chara_1_spritesheet.png"
-dest_files=["res://.godot/imported/chara_1_spritesheet.png-9bd3b434018b78a7078df035cfd2afed.ctex"]
+source_file="res://Assets/Player/Max/Static/side_right.png"
+dest_files=["res://.godot/imported/side_right.png-011320cc354fb5162f3895a909c7df45.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -37,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
