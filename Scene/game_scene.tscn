@@ -12,7 +12,7 @@
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://promxhch3uqf" path="res://Scene/Map/Map_04.tscn" id="7_vk7uo"]
-[ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
+[ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/Map_00.tscn" id="8_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
 [ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/Map_05.tscn" id="8_walhf"]
 [ext_resource type="PackedScene" uid="uid://d3ffwya1ybdi7" path="res://Scene/Map/Map_06.tscn" id="9_gwqyt"]
