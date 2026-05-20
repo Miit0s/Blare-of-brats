@@ -17,6 +17,7 @@ namespace AK
         static const AkUniqueID BOY_ATTACK = 3720092048U;
         static const AkUniqueID BOY_TAKINGDAMAGE = 628995931U;
         static const AkUniqueID BOY_WIN = 767234350U;
+        static const AkUniqueID COUNTDOWN = 1505888634U;
         static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID GIRL_ATTACK = 763287926U;
         static const AkUniqueID GIRL_TAKINGDAMAGE = 3981149377U;
