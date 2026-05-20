@@ -47,6 +47,7 @@ shaded = true
 alpha_cut = 1
 sprite_frames = ExtResource("8_tt850")
 animation = &"back"
+frame_progress = 0.33496234
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1854583806]
 shape = SubResource("BoxShape3D_knrd4")
