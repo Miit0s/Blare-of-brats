@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
-[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_4h7a4"]
-[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="2_k5kpw"]
+[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_0o2h0"]
 [ext_resource type="PackedScene" uid="uid://cfdaia2abe34e" path="res://Prefabs/Item/munition.tscn" id="2_oe5v1"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_t4ted"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
 [ext_resource type="PackedScene" uid="uid://di44tfpbu5w8n" path="res://Assets/Particle/item_explosion_particle.tscn" id="4_t4ted"]
 [ext_resource type="Shader" uid="uid://c2uoqmhe3eg4o" path="res://addons/GPUTrail/shaders/trail_draw_pass_no_depth_test.gdshader" id="5_6uwl0"]
@@ -11,16 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://r5jprl3f0qrb" path="res://Assets/Particle/item_circle_spawn_particle.tscn" id="6_qif1d"]
 [ext_resource type="PackedScene" uid="uid://ci1wlhg1v65n5" path="res://Assets/Particle/item_pop_spawn_particle.tscn" id="7_ufmye"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
-resource_local_to_scene = true
-radius = 0.8
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fnt8b"]
-size = Vector2(100, 100)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_fnt8b"]
 resource_local_to_scene = true
 radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_okjcq"]
+resource_local_to_scene = true
+radius = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnd63"]
 transparency = 1
@@ -60,31 +57,24 @@ shader_parameter/flags = 40
 [sub_resource type="QuadMesh" id="QuadMesh_dp0qm"]
 material = SubResource("ShaderMaterial_6jewc")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0o2h0"]
+resource_local_to_scene = true
+
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
-script = ExtResource("1_4h7a4")
-attack_shape = SubResource("SphereShape3D_okjcq")
+script = ExtResource("1_0o2h0")
 munition_prefab = ExtResource("2_oe5v1")
-munition_speed = 5.0
-throw_force = 30.0
-throw_max_distance = 16.5
-object_texture = SubResource("PlaceholderTexture2D_fnt8b")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
-hit_particle_prefab = ExtResource("2_k5kpw")
+hit_particle_prefab = ExtResource("3_t4ted")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1358719798]
 shape = SubResource("SphereShape3D_fnt8b")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=563304622]
-shaded = true
-alpha_cut = 1
-texture = SubResource("PlaceholderTexture2D_fnt8b")
 
 [node name="AttackCollisionArea" type="Area3D" parent="." unique_id=843248323]
 collision_layer = 0
@@ -134,3 +124,10 @@ metadata/_custom_type_script = "uid://04ta3q4y8qhg"
 
 [node name="MunitionCache" parent="." unique_id=1567439643 instance=ExtResource("2_oe5v1")]
 visible = false
+
+[node name="VisualAnchor" type="Marker3D" parent="." unique_id=1131579775]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="VisualAnchor" unique_id=187442146]
+shaded = true
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_0o2h0")

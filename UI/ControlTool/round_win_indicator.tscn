@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://pb1wrdhadmo0"]
 
 [ext_resource type="Script" uid="uid://bljrnm2vjof5f" path="res://Scripts/UI/round_win_indicator.gd" id="1_f3s1t"]
-[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_p5f26"]
+[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/MockSprite/white_circle.png" id="1_p5f26"]
+
 
 [node name="RoundWinIndicator" type="Control" unique_id=83471062]
 custom_minimum_size = Vector2(82, 40)

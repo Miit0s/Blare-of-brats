@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnynq2b1jk735"
-path="res://.godot/imported/mock_player_skin.png-7feebd5bbfb914a464200aeba130f580.ctex"
+uid="uid://dn2hb2bkt1fvj"
+path="res://.godot/imported/white_circle.png-def25748c96d91ff47849b66d97e627e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite/mock_player_skin.png"
-dest_files=["res://.godot/imported/mock_player_skin.png-7feebd5bbfb914a464200aeba130f580.ctex"]
+source_file="res://Assets/MockSprite/white_circle.png"
+dest_files=["res://.godot/imported/white_circle.png-def25748c96d91ff47849b66d97e627e.ctex"]
 
 [params]
 

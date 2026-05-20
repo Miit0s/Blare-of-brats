@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkj8meb4l8f3x"]
 
-[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/Sprite/white_circle.png" id="1_fhcvt"]
+[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/MockSprite/white_circle.png" id="1_fhcvt"]
 [ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/UI/controller_slot.gd" id="1_ud3kx"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="4_0tve0"]
 [ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="4_5et8s"]
@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://cg4qd0ygpnuov" path="res://Ressources/CharacterSkin/Ash/cyan.tres" id="20_gk460"]
 [ext_resource type="Resource" uid="uid://0ituf8tnbe8u" path="res://Ressources/CharacterSkin/Ash/violet.tres" id="21_1icc5"]
 [ext_resource type="Resource" uid="uid://c18v12eefcbxo" path="res://Ressources/CharacterSkin/Ash/blue.tres" id="22_sp2xh"]
+
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0tve0"]
 

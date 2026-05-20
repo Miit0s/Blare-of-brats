@@ -2,7 +2,7 @@
 extends RigidBody3D
 class_name Item
 
-@onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var animated_sprite_3d: AnimatedSprite3D = $VisualAnchor/AnimatedSprite3D
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 @onready var trail_pivot: Node3D = $TrailPivot
@@ -14,27 +14,18 @@ class_name Item
 @export_category("Type")
 @export var distance: bool = false
 
-@export_category("Melee Attack")
-@export var attack_shape: Shape3D:
-	set(new_value):
-		if attack_shape: attack_shape.changed.disconnect(_init_item_instance)
-		
-		attack_shape = new_value
-		new_value.changed.connect(_init_item_instance)
-		_init_item_instance()
-
 @export_category("Distance Attack")
 @export var munition_prefab: PackedScene
-@export var munition_speed: float = 0.1
+@export var munition_speed: float = 5.0
 
 @export_category("Attack")
 @export var attack_speed: float = 0.5
 @export var damage: float = 1
 
 @export_category("Throw")
-@export var throw_force: float = 20.0
+@export var throw_force: float = 30.0
 @export var throw_damage: float = 5.0
-@export var throw_max_distance: float = 20.0
+@export var throw_max_distance: float = 16.5
 
 @export_category("Sound")
 @export var sound_on_attack: float = 1
@@ -51,15 +42,6 @@ var current_durability: int = 0:
 		has_loose_durability.emit(new_value)
 
 @export_category("Instance")
-@export var object_texture: Texture2D:
-	set(new_value):
-		object_texture = new_value
-		_init_item_instance()
-@export var object_texture_size: float = 1:
-	set(new_value):
-		object_texture_size = new_value
-		_init_item_instance()
-
 @export var collision_shape_3d: CollisionShape3D
 
 @export var attack_collision_area: Area3D
@@ -96,15 +78,6 @@ func _ready() -> void:
 	
 	circle_spawn_particle.emitting = true
 	other_spawn_particle.emitting = true
-	
-	_init_item_instance()
-
-func _init_item_instance():
-	if not is_inside_tree(): return
-	
-	sprite_3d.texture = object_texture
-	sprite_3d.scale = Vector3(object_texture_size, object_texture_size, object_texture_size)
-	attack_collision_shape_3d.shape = attack_shape
 
 func _physics_process(_delta: float) -> void:
 	if not has_been_throw: return
@@ -147,8 +120,7 @@ func attack(direction: Vector3):
 	_attack_direction = direction
 	is_attacking = true
 	
-	if distance : _distance_attack()
-	else: _melee_attack()
+	_perform_attack(direction)
 	
 	if attack_sound:
 		attack_sound.post(self)
@@ -159,29 +131,8 @@ func attack(direction: Vector3):
 	
 	if current_durability <= 0: destroy()
 
-func _melee_attack():
-	is_melee_attacking = true
-	gpu_trail_3d.show()
-	gpu_trail_3d.length = 100
-	
-	await get_tree().create_timer(attack_speed).timeout
-	is_melee_attacking = false
-	_attacked_players = []
-	gpu_trail_3d.hide()
-	gpu_trail_3d.length = 0
-
-func _distance_attack():
-	current_durability -= 1
-	
-	var new_munition: Munition = munition_prefab.instantiate()
-	new_munition.direction = _attack_direction
-	new_munition.damage = damage
-	new_munition.speed = munition_speed
-	new_munition.position = global_position
-	
-	add_child(new_munition)
-	
-	sound_made.emit(sound_on_attack)
+func _perform_attack(direction: Vector3):
+	push_error("Perform attack should always be override")
 
 func destroy():
 	collision_layer = 0
@@ -198,7 +149,7 @@ func destroy():
 	
 	sound_made.emit(sound_on_break)
 	will_be_destroy.emit(self)
-	sprite_3d.hide()
+	animated_sprite_3d.hide()
 	trail_renderer_3d.hide()
 	explosion_particle.emitting = true
 	

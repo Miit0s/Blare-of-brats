@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bhmfwu2e856oa"]
+
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_1qhbe"]
+[ext_resource type="Texture2D" uid="uid://cgvpjui7dgnly" path="res://Assets/MockSprite/boxing_glove.png" id="2_ab0ye"]
+[ext_resource type="Script" uid="uid://cxab38nb5nglb" path="res://Scripts/Item/fighting_glove.gd" id="2_okxgy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f7lnn"]
+resource_local_to_scene = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ugyv"]
+resource_local_to_scene = true
+radius = 0.4
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xyeju"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okxgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ab0ye")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BoxingGlove" unique_id=2059959192 instance=ExtResource("1_1qhbe")]
+script = ExtResource("2_okxgy")
+damage = 4.0
+sound_on_attack = 3.0
+sound_on_throw = 1.0
+durability = 3
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
+shape = SubResource("SphereShape3D_f7lnn")
+
+[node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
+shape = SubResource("SphereShape3D_0ugyv")
+
+[node name="TrailRenderer3D" parent="." index="3" unique_id=1404749388]
+mesh = SubResource("ImmediateMesh_xyeju")
+
+[node name="AnimatedSprite3D" parent="VisualAnchor" parent_id_path=PackedInt32Array(1131579775) index="0" unique_id=187442146]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_okxgy")
