@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://curiv2kllrs5x" path="res://Scripts/Game/game_scene.gd" id="1_f38sd"]
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ee6vw"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_mlt6n"]
-[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="4_ee6vw"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dux4ds0vcumqc" path="res://Scene/Map/Map_10.tscn" id="5_b5oy1"]
-[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="5_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="6_4832p"]
 [ext_resource type="PackedScene" uid="uid://whp73wdkqr8b" path="res://Scene/Map/Map_03.tscn" id="6_g00sh"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="PackedScene" uid="uid://promxhch3uqf" path="res://Scene/Map/Map_04.tscn" id="7_vk7uo"]
-[ext_resource type="PackedScene" uid="uid://bdh15iseor34n" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
+[ext_resource type="PackedScene" path="res://Scene/Map/test_map.tscn" id="8_ee6vw"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
 [ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/Map_05.tscn" id="8_walhf"]
 [ext_resource type="PackedScene" uid="uid://d3ffwya1ybdi7" path="res://Scene/Map/Map_06.tscn" id="9_gwqyt"]
@@ -24,11 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://b48lul6k3ccsj" path="res://Scene/Map/Map_A3.tscn" id="15_vijqy"]
 [ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/Map_A4.tscn" id="16_ubkdv"]
 [ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/Map_A5.tscn" id="17_tit5h"]
+[ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="22_yaqu8"]
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("shared_life_bar", "game_sound_bar", "camera_controller")]
+[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller")]
 script = ExtResource("1_f38sd")
-shared_life_bar = NodePath("CanvasLayer/SharedLifeBar")
-game_sound_bar = NodePath("CanvasLayer/GameSoundBar")
+game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
 music_fight = ExtResource("2_ee6vw")
@@ -51,23 +49,13 @@ visible = false
 [node name="GameEnd" parent="CanvasLayer" unique_id=748037380 instance=ExtResource("8_k76w5")]
 visible = false
 
-[node name="SharedLifeBar" parent="CanvasLayer" unique_id=1316874460 instance=ExtResource("4_ee6vw")]
+[node name="GameBar" parent="CanvasLayer" unique_id=1611480018 instance=ExtResource("22_yaqu8")]
 anchors_preset = 5
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = -400.0
-offset_top = 40.0
-offset_right = 400.0
-offset_bottom = 70.0
-grow_vertical = 1
-
-[node name="GameSoundBar" parent="CanvasLayer" unique_id=1894340611 instance=ExtResource("5_mlt6n")]
-anchors_preset = 5
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 115.0
-offset_bottom = 145.00008
-grow_vertical = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_right = 768.0
+grow_horizontal = 2
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
@@ -80,7 +68,3 @@ fov = 45.0
 
 [node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
 transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
-
-[connection signal="lifebar_value_change" from="CanvasLayer/SharedLifeBar" to="." method="lifebar_value_change"]
-[connection signal="player_win" from="CanvasLayer/SharedLifeBar" to="." method="_on_shared_life_bar_player_win"]
-[connection signal="sound_bar_fill" from="CanvasLayer/GameSoundBar" to="." method="_on_game_sound_bar_sound_bar_fill"]

@@ -1,15 +1,17 @@
 extends Control
 class_name RoundWinIndicator
 
-@onready var one: TextureRect = $One
-@onready var two: TextureRect = $Two
+@onready var texture_rect: TextureRect = $TextureRect
 
 var round_win: int = 0
 
-func new_round_win(color_to_apply: Color):
+func new_round_win():
 	if round_win <= 0:
-		one.modulate = color_to_apply
+		texture_rect.material.set_shader_parameter("progress", 0.5)
 	else:
-		two.modulate = color_to_apply
+		texture_rect.material.set_shader_parameter("progress", 1)
 	
 	round_win += 1
+
+func apply_player_color(color: Color):
+	texture_rect.material.set_shader_parameter("color_left", color)

@@ -2,31 +2,199 @@
 
 [ext_resource type="Script" uid="uid://datphtk4ldaal" path="res://Scripts/Game/shared_life_bar.gd" id="1_bcs32"]
 [ext_resource type="Material" uid="uid://lerg8c4lpmj4" path="res://Assets/Material/shared_health_bar.tres" id="1_flkbr"]
-[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="3_r1hpj"]
-[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_m01ld"]
-[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/Sprite/player_indicator.png" id="5_gkif4"]
-[ext_resource type="PackedScene" uid="uid://pb1wrdhadmo0" path="res://UI/ControlTool/round_win_indicator.tscn" id="6_5xvwn"]
+[ext_resource type="Texture2D" uid="uid://bbg1aw5y054g" path="res://Assets/SpriteUI/mask_health_bar.png" id="3_5xvwn"]
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="4_gkif4"]
+[ext_resource type="Texture2D" uid="uid://chnydl2vj3x52" path="res://Assets/SpriteUI/spritesheet_healthbar.png" id="4_m01ld"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_gkif4"]
-font_size = 12
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkif4"]
+shader = ExtResource("4_gkif4")
+shader_parameter/main_texture = ExtResource("4_m01ld")
+shader_parameter/original_0 = Color(0.13333334, 0.13333334, 0.13333334, 1)
+shader_parameter/original_1 = Color(0.92156863, 0.92156863, 0.92156863, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 1, 1)
+shader_parameter/replace_1 = Color(1, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.50000002375
+shader_parameter/softness = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkif4"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xvwn"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qihrf"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0csjt"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(5760, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n6fd"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(7680, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqslb"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(0, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jix2i"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(1920, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpvo2"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(3840, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx6nn"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(5760, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_delh0"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(7680, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36wfa"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(0, 3840, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elaw8"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(1920, 3840, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpalj"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(3840, 3840, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0bwb"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(5760, 3840, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fybt7"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(7680, 3840, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fml5q"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(0, 5760, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f01qc"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(1920, 5760, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k65c"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(3840, 5760, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhirt"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(5760, 5760, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw4qi"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(7680, 5760, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbbkn"]
+atlas = ExtResource("4_m01ld")
+region = Rect2(0, 7680, 1920, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_722pa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkif4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xvwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qihrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0csjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n6fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqslb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jix2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpvo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx6nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_delh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36wfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elaw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpalj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0bwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fybt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fml5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f01qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k65c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhirt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw4qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbbkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="SharedLifeBar" type="Control" unique_id=1316874460]
-custom_minimum_size = Vector2(800, 30)
+custom_minimum_size = Vector2(800, 36)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -18.0
+offset_right = 400.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcs32")
 player_health = 25.0
-shader_direction_change_speed = 0.5
 
-[node name="LifeBar" type="ColorRect" parent="." unique_id=1406738561]
+[node name="LifeBar" type="TextureRect" parent="." unique_id=336857432]
 material = ExtResource("1_flkbr")
 layout_mode = 1
 anchors_preset = 15
@@ -34,6 +202,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_5xvwn")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MiddleBar" type="ColorRect" parent="." unique_id=974251526]
 custom_minimum_size = Vector2(2, 0)
@@ -46,120 +217,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.5137255)
 
-[node name="TextureRectLeft" type="TextureRect" parent="." unique_id=1036057910]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -35.0
-offset_right = -10.0
-offset_bottom = 5.0
-grow_vertical = 2
-texture = ExtResource("3_r1hpj")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRectRight" type="TextureRect" parent="." unique_id=652090693]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -35.0
-offset_right = 50.0
-offset_bottom = 5.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_m01ld")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="PlayerIndicatorLeft" type="TextureRect" parent="." unique_id=419415314]
-layout_mode = 0
-offset_top = -25.0
-offset_right = 20.0
-offset_bottom = -5.0
-texture = ExtResource("5_gkif4")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="PlayerIndicatorLeft" unique_id=1689809620]
+[node name="ColorVersusContainer" type="Control" parent="." unique_id=1969562210]
+z_index = 1
+custom_minimum_size = Vector2(67.2, 67.2)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7.5
-offset_top = -8.5
-offset_right = 7.5
-offset_bottom = 8.5
+offset_left = -33.600006
+offset_top = -33.6
+offset_right = 33.600006
+offset_bottom = 33.6
 grow_horizontal = 2
 grow_vertical = 2
-text = "P1"
-label_settings = SubResource("LabelSettings_gkif4")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="PlayerIndicatorRight" type="TextureRect" parent="." unique_id=1712844765]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -20.0
-offset_top = -25.0
-offset_bottom = -5.0
-grow_horizontal = 0
-texture = ExtResource("5_gkif4")
-expand_mode = 1
-flip_h = true
-
-[node name="Label2" type="Label" parent="PlayerIndicatorRight" unique_id=1460749224]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7.5
-offset_top = -8.5
-offset_right = 7.5
-offset_bottom = 8.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "P2"
-label_settings = SubResource("LabelSettings_gkif4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RoundWinIndicatorLeft" parent="." unique_id=83471062 instance=ExtResource("6_5xvwn")]
-layout_mode = 1
-anchors_preset = 2
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -5.0
-offset_right = 32.0
-offset_bottom = 35.0
-grow_horizontal = 1
-grow_vertical = 0
-scale = Vector2(0.5, 0.5)
-
-[node name="RoundWinIndicatorRight" parent="." unique_id=1049641832 instance=ExtResource("6_5xvwn")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -5.0
-offset_right = 92.0
-offset_bottom = 35.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.5, 0.5)
+[node name="ColorVersusAnimatedSprite2D" type="AnimatedSprite2D" parent="ColorVersusContainer" unique_id=377565418]
+material = SubResource("ShaderMaterial_gkif4")
+position = Vector2(5.955, -2.4)
+scale = Vector2(0.035, 0.035)
+sprite_frames = SubResource("SpriteFrames_722pa")
+autoplay = "default"
+frame_progress = 0.8149686
+centered = false
+offset = Vector2(0, -75)
