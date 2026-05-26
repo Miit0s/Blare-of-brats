@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{5F232512-F9ED-B0BA-169A-BCE60965DD06}",
+    "Hash": "{C446D479-C9C0-1152-2FA3-A619FCAA1D17}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -64,6 +64,14 @@
       "CachePath": "89/{898B6F33-5F59-2F92-0B99-EB0599D769F5}.wem"
      },
      {
+      "Id": "108175889",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle.wav",
+      "CachePath": "F3/{F3CA22C5-733D-F3EB-E778-B37E508690C3}.wem"
+     },
+     {
       "Id": "120430976",
       "Language": "SFX",
       "Streaming": "false",
@@ -96,6 +104,14 @@
       "CachePath": "4B/{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem"
      },
      {
+      "Id": "263518998",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_4.wav",
+      "CachePath": "76/{76B5CBAF-BB66-F6BB-ECE5-66525308CF19}.wem"
+     },
+     {
       "Id": "284610429",
       "Language": "SFX",
       "Streaming": "false",
@@ -126,6 +142,14 @@
       "Location": "Memory",
       "ShortName": "GrabObject.wav",
       "CachePath": "86/{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem"
+     },
+     {
+      "Id": "426434286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_3.wav",
+      "CachePath": "79/{79F1E6D7-A466-5C8F-7157-D8812884CEF7}.wem"
      },
      {
       "Id": "431723951",
@@ -184,6 +208,14 @@
       "CachePath": "86/{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem"
      },
      {
+      "Id": "568806651",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_2.wav",
+      "CachePath": "8B/{8BE35240-9F32-D63B-5DF4-84FB690F8C1C}.wem"
+     },
+     {
       "Id": "570828258",
       "Language": "SFX",
       "Streaming": "false",
@@ -206,6 +238,22 @@
       "Location": "Memory",
       "ShortName": "Attack\\Voice_Boy_Attack_3.wav",
       "CachePath": "3F/{3F98F283-2818-5045-4EDF-5B4DA9CF0269}.wem"
+     },
+     {
+      "Id": "658206308",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_2.wav",
+      "CachePath": "E2/{E20BD138-8BEC-3DD9-368D-232AAB0BFC5D}.wem"
+     },
+     {
+      "Id": "658447030",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_3.wav",
+      "CachePath": "B8/{B8FE5339-0997-AF09-2F89-BCE34509E1B6}.wem"
      },
      {
       "Id": "663880264",
@@ -262,6 +310,14 @@
       "Location": "Memory",
       "ShortName": "Countdown_V1.wav",
       "CachePath": "81/{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem"
+     },
+     {
+      "Id": "793598172",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_1.wav",
+      "CachePath": "41/{4195BFB8-B0AA-A53E-EB15-E223B8109860}.wem"
      },
      {
       "Id": "813712222",
@@ -365,6 +421,51 @@
      ]
     },
     "Events": [
+     {
+      "Id": "2381661991",
+      "Name": "Balloon_Idle",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Idle",
+      "GUID": "{46F4235E-DDEB-44D1-86B8-5435EE37B9EC}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5440579",
+      "DurationMax": "0.8337348",
+      "MediaRefs": [
+       {
+        "Id": "108175889"
+       },
+       {
+        "Id": "263518998"
+       },
+       {
+        "Id": "658206308"
+       },
+       {
+        "Id": "658447030"
+       }
+      ]
+     },
+     {
+      "Id": "124719886",
+      "Name": "Balloon_Pop",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Pop",
+      "GUID": "{3525CD8A-23F0-48E7-B481-72CCC038AE44}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.23360826",
+      "DurationMax": "0.3190837",
+      "MediaRefs": [
+       {
+        "Id": "426434286"
+       },
+       {
+        "Id": "568806651"
+       },
+       {
+        "Id": "793598172"
+       }
+      ]
+     },
      {
       "Id": "1076559162",
       "Name": "Boxing_Glove",
@@ -776,6 +877,6 @@
     ]
    }
   ],
-  "FileHash": "{269FBD1C-9C5B-B78E-294A-D4C1F0BEA84F}"
+  "FileHash": "{C467E853-71E1-79BF-BA35-BD69B0FCA626}"
  }
 }

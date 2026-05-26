@@ -13,6 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BALLOON_IDLE = 2381661991U;
+        static const AkUniqueID BALLOON_POP = 124719886U;
         static const AkUniqueID BOXING_GLOVE = 1076559162U;
         static const AkUniqueID BOY_ATTACK = 3720092048U;
         static const AkUniqueID BOY_TAKINGDAMAGE = 628995931U;
@@ -55,8 +57,11 @@ namespace AK
         static const AkUniqueID HIGH_FCT = 2988444587U;
         static const AkUniqueID LEAD = 54442139U;
         static const AkUniqueID LOW_FCT = 2785096631U;
+        static const AkUniqueID MASTER_VOLUME = 4179668880U;
         static const AkUniqueID MID_FCT = 1342917059U;
+        static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID ROUND_TIME = 740280485U;
+        static const AkUniqueID SFX_VOLUME = 1564184899U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
