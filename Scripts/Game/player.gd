@@ -26,7 +26,6 @@ var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
 
 @export_category("Attack")
-@export var slash_arc: float = 120
 @export var attack_move_speed: float = 20.0
 @export var attack_move_duration: float = 0.05
 @export var attack_cooldown: float = 1
@@ -158,6 +157,8 @@ func _process(delta: float) -> void:
 		
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
+		current_picked_item.look_at(current_picked_item.global_position + aim_direction)
+		current_picked_item.apply_billboard_and_angle_to_sprite(aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -229,49 +230,12 @@ func attack(direction: Vector3):
 		_attack_move_timer.tween_interval(attack_move_duration)
 		_attack_move_timer.tween_callback(func(): 
 			_is_making_attack_move = false
-			current_picked_item.slash_look_at(self.global_position)
-			_make_attack_movement(direction)
 			current_picked_item.attack(direction)
 			_attack_move_timer = null
 		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
-
-func _make_attack_movement(direction: Vector3):
-	var base_angle: float = atan2(direction.x, direction.z)
-	
-	var start_angle: float
-	var end_angle: float
-	
-	var full_circle_angle = fposmod(base_angle, 2 * PI)
-	
-	if PI / 2 < full_circle_angle and full_circle_angle < PI + (PI / 2):
-		start_angle = base_angle + deg_to_rad(slash_arc / 2)
-		end_angle = base_angle - deg_to_rad(slash_arc / 2)
-	else:
-		start_angle = base_angle - deg_to_rad(slash_arc / 2)
-		end_angle = base_angle + deg_to_rad(slash_arc / 2)
-	
-	_animate_slash(start_angle)
-	
-	_attack_tween = create_tween() \
-		.set_trans(Tween.TRANS_QUART) \
-		.set_ease(Tween.EASE_OUT)
-	
-	_attack_tween.tween_method(
-		_animate_slash,
-		start_angle,
-		end_angle,
-		current_picked_item.attack_speed
-	)
-	
-	await _attack_tween.finished
-	_attack_tween = null
-
-func _animate_slash(current_angle: float):
-	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
-	current_picked_item.global_position = global_position + offset
 
 func cancel_animation():
 	_kill_current_animation()

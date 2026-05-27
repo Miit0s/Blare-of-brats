@@ -6,6 +6,7 @@ class_name Item
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 @onready var trail_pivot: Node3D = $TrailPivot
+@onready var visual_anchor: Marker3D = $VisualAnchor
 
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
@@ -61,6 +62,8 @@ var is_attacking: bool = false
 var is_melee_attacking: bool = false
 var is_already_pick: bool = false
 
+var camera: Camera3D = null
+
 var _attacked_players: Array[Player]
 
 var _attack_direction: Vector3 = Vector3.ZERO
@@ -74,6 +77,7 @@ signal has_loose_durability()
 signal will_be_destroy(item: Item)
 
 func _ready() -> void:
+	camera = get_viewport().get_camera_3d()
 	current_durability = durability
 	
 	circle_spawn_particle.emitting = true
@@ -125,13 +129,12 @@ func attack(direction: Vector3):
 	if attack_sound:
 		attack_sound.post(self)
 	
-	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
 	
 	if current_durability <= 0: destroy()
 
-func _perform_attack(direction: Vector3):
+func _perform_attack(_direction: Vector3):
 	push_error("Perform attack should always be override")
 
 func destroy():
@@ -169,10 +172,6 @@ func drop():
 	await get_tree().create_timer(0.1).timeout
 	
 	has_been_drop = false
-
-func slash_look_at(target_position: Vector3):
-	var fixed_target_pos: Vector3 = Vector3(target_position.x, trail_pivot.global_position.y, target_position.z)
-	trail_pivot.look_at(fixed_target_pos)
 
 func _get_hit_point(target: Node3D) -> Vector3:
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -217,3 +216,11 @@ func cancel_animation():
 	
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
+
+func apply_billboard_and_angle_to_sprite(aim_direction: Vector3):
+	var aim_angle_2d = Vector2(aim_direction.x, aim_direction.z).angle()
+	
+	visual_anchor.global_basis = camera.global_basis
+	visual_anchor.rotate_object_local(Vector3(0,0,1), -aim_angle_2d)
+	
+	animated_sprite_3d.flip_v = true if aim_direction.x < 0 else false

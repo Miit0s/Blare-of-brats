@@ -3,56 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_nn2oi"]
 [ext_resource type="Script" uid="uid://bifwficr1athx" path="res://Scripts/Item/pisto_gum.gd" id="2_cg3nc"]
 [ext_resource type="WwiseEvent" uid="uid://b0ripsj8hfvvq" path="res://Wwise/resources/Event/{B3B07112-5F44-4E93-A723-73299493F2D2}.tres" id="2_fnye1"]
-[ext_resource type="Texture2D" uid="uid://dm27vejb7wcsk" path="res://Assets/MockSprite/SpriteSheetFightingGlove.png" id="2_nn2oi"]
+[ext_resource type="Texture2D" uid="uid://kbq4jiaeilgi" path="res://Assets/MockSprite/gun.png" id="4_cg3nc"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_c51hn"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_cg3nc"]
 resource_local_to_scene = true
 radius = 0.45
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_7p1mr"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_c51hn"]
 resource_local_to_scene = true
 radius = 0.35
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_sw0vh"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_7p1mr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7p1mr"]
-atlas = ExtResource("2_nn2oi")
-region = Rect2(0, 0, 1320, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sw0vh"]
-atlas = ExtResource("2_nn2oi")
-region = Rect2(0, 216, 1320, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_any3s"]
-atlas = ExtResource("2_nn2oi")
-region = Rect2(0, 432, 1320, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3qtxs"]
-atlas = ExtResource("2_nn2oi")
-region = Rect2(0, 648, 1320, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_so68n"]
-atlas = ExtResource("2_nn2oi")
-region = Rect2(0, 864, 1320, 216)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_any3s"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw0vh"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7p1mr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sw0vh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_any3s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3qtxs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_so68n")
+"texture": ExtResource("4_cg3nc")
 }],
 "loop": true,
 "name": &"default",
@@ -68,14 +36,14 @@ sound_on_attack = 3.0
 attack_sound = ExtResource("2_fnye1")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
-shape = SubResource("SphereShape3D_c51hn")
+shape = SubResource("SphereShape3D_cg3nc")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
-shape = SubResource("SphereShape3D_7p1mr")
+shape = SubResource("SphereShape3D_c51hn")
 
 [node name="TrailRenderer3D" parent="." index="3" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_sw0vh")
+mesh = SubResource("ImmediateMesh_7p1mr")
 
 [node name="AnimatedSprite3D" parent="VisualAnchor" parent_id_path=PackedInt32Array(1131579775) index="0" unique_id=187442146]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.7425318, 0, 0)
-sprite_frames = SubResource("SpriteFrames_any3s")
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_sw0vh")

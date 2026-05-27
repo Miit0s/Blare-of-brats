@@ -59,6 +59,12 @@ material = SubResource("ShaderMaterial_6jewc")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0o2h0"]
 resource_local_to_scene = true
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Item" type="RigidBody3D" unique_id=2059959192 node_paths=PackedStringArray("collision_shape_3d", "attack_collision_area", "attack_collision_shape_3d")]
 collision_layer = 4
