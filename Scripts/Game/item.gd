@@ -59,7 +59,6 @@ var has_been_throw: bool = false
 var has_been_drop: bool = false
 
 var is_attacking: bool = false
-var is_melee_attacking: bool = false
 var is_already_pick: bool = false
 
 var camera: Camera3D = null
@@ -96,7 +95,7 @@ func _physics_process(_delta: float) -> void:
 		destroy()
 
 func _process(_delta: float) -> void:
-	if not has_been_throw and not is_melee_attacking: return
+	if not has_been_throw and not is_attacking: return
 	
 	var attack_area_overlapping_bodies: Array = attack_collision_area.get_overlapping_bodies()
 	if attack_area_overlapping_bodies.is_empty(): return
@@ -105,7 +104,7 @@ func _process(_delta: float) -> void:
 		if player_hit.player_id != owner_player and _attacked_players.count(player_hit) == 0:
 			if has_been_throw:
 				_collide_with_player(player_hit)
-			elif is_melee_attacking:
+			elif is_attacking:
 				_attack_player(player_hit)
 
 func throw(direction: Vector3):
@@ -134,6 +133,7 @@ func attack(direction: Vector3):
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
+	_attacked_players.clear()
 	
 	if current_durability <= 0: destroy()
 
@@ -149,7 +149,7 @@ func destroy():
 	attack_collision_area.monitorable = false
 	
 	has_been_throw = false
-	is_melee_attacking = false
+	is_attacking = false
 	
 	linear_velocity = Vector3.ZERO
 	
@@ -215,7 +215,6 @@ func _collide_with_player(player_hit: Player):
 
 func cancel_animation():
 	is_attacking = false
-	is_melee_attacking = false
 	
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
