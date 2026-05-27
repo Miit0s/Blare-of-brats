@@ -74,7 +74,7 @@ shape = SubResource("SphereShape3D_ab0ye")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" index="0" unique_id=1264135062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8685608, -0.0009765625, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 shape = SubResource("BoxShape3D_ab0ye")
 
 [node name="TrailRenderer3D" parent="." index="3" unique_id=1404749388]

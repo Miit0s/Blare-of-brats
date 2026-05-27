@@ -217,10 +217,6 @@ func cancel_animation():
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
 
-func apply_billboard_and_angle_to_sprite(aim_direction: Vector3):
-	var aim_angle_2d = Vector2(aim_direction.x, aim_direction.z).angle()
-	
-	visual_anchor.global_basis = camera.global_basis
-	visual_anchor.rotate_object_local(Vector3(0,0,1), -aim_angle_2d)
-	
-	animated_sprite_3d.flip_v = true if aim_direction.x < 0 else false
+func rotate_sprite_to_face_camera():
+	var direction = camera.global_position - visual_anchor.global_position
+	visual_anchor.rotation.x = atan2(direction.y, -direction.z)
