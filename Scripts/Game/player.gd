@@ -158,7 +158,6 @@ func _process(delta: float) -> void:
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		current_picked_item.look_at(current_picked_item.global_position + aim_direction)
-		current_picked_item.apply_billboard_and_angle_to_sprite(aim_direction)
 
 func dash():
 	_dash_can_be_use = false
