@@ -30,6 +30,8 @@ namespace AK
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
         static const AkUniqueID PISTOGUM_SHOOT = 2746646177U;
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
+        static const AkUniqueID UI_COLORS_NAV = 1604317996U;
+        static const AkUniqueID UI_COLORS_SELECT = 2429118665U;
         static const AkUniqueID UI_MENU_BACK = 922786755U;
         static const AkUniqueID UI_MENU_NAV = 17678017U;
         static const AkUniqueID UI_MENU_SELECT = 3474566310U;

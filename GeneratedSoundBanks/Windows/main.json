@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{C446D479-C9C0-1152-2FA3-A619FCAA1D17}",
+    "Hash": "{6821E1A6-1EFA-A4A3-A66F-8C267E067A07}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -46,6 +46,14 @@
       "Location": "Memory",
       "ShortName": "loop_time_2.wav",
       "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
+     },
+     {
+      "Id": "71385639",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Colors.wav",
+      "CachePath": "A1/{A18E7006-2B21-09A8-F165-7ED57AD6B17D}.wem"
      },
      {
       "Id": "79414803",
@@ -230,6 +238,14 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2.wav",
       "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
+     },
+     {
+      "Id": "606337472",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Colors_select.wav",
+      "CachePath": "1B/{1B2407F7-E88F-940D-EF72-3D548A5E9EC4}.wem"
      },
      {
       "Id": "654877243",
@@ -788,6 +804,36 @@
       ]
      },
      {
+      "Id": "1604317996",
+      "Name": "UI_Colors_Nav",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\UI_Colors_Nav",
+      "GUID": "{9BD83C47-7024-49E9-A160-39AB9784E4B9}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.066734694",
+      "DurationMax": "0.066734694",
+      "MediaRefs": [
+       {
+        "Id": "71385639"
+       }
+      ]
+     },
+     {
+      "Id": "2429118665",
+      "Name": "UI_Colors_Select",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\UI_Colors_Select",
+      "GUID": "{949583D9-CD37-426A-9A69-DFC38D00223C}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.29321995",
+      "DurationMax": "0.29321995",
+      "MediaRefs": [
+       {
+        "Id": "606337472"
+       }
+      ]
+     },
+     {
       "Id": "922786755",
       "Name": "UI_Menu_Back",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Back",
@@ -877,6 +923,6 @@
     ]
    }
   ],
-  "FileHash": "{F18889F4-4A20-FF03-4398-01A111EFFC02}"
+  "FileHash": "{2407C717-9C10-0AC0-064F-78C186AB3949}"
  }
 }
