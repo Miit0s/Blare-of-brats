@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4lukd3765t1"
-path.s3tc="res://.godot/imported/chara_2_spritesheet.png-0b316f135ef0d00b4ba125fd4af25cc4.s3tc.ctex"
+uid="uid://p8iuanpq3j38"
+path.s3tc="res://.godot/imported/castle_test02.png-45c37fcd7bc0317db45dddbe0029dbc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Ash/Static/chara_2_spritesheet.png"
-dest_files=["res://.godot/imported/chara_2_spritesheet.png-0b316f135ef0d00b4ba125fd4af25cc4.s3tc.ctex"]
+source_file="res://Assets/EnvironmentSprite/castle_test02.png"
+dest_files=["res://.godot/imported/castle_test02.png-45c37fcd7bc0317db45dddbe0029dbc8.s3tc.ctex"]
 
 [params]
 
