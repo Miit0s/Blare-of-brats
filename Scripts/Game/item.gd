@@ -13,6 +13,7 @@ class_name Item
 @export_category("Attack")
 @export var attack_speed: float = 0.5
 @export var damage: float = 1
+@export var no_attack_dash: bool = false
 
 @export_category("Throw")
 @export var throw_force: float = 30.0

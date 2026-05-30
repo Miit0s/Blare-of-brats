@@ -7,7 +7,7 @@ extends Item
 
 func _perform_attack(_direction: Vector3):
 	current_durability -= 1
-	pisto_gum_shoot.emitting = true
+	pisto_gum_shoot.restart()
 
 func _attack_player(player_hit: Player):
 	super._attack_player(player_hit)

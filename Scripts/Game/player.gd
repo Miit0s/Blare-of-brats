@@ -159,7 +159,9 @@ func _process(delta: float) -> void:
 		
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
-		current_picked_item.look_at(current_picked_item.global_position + aim_direction)
+		
+		if aim_direction != Vector3.ZERO:
+			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -221,16 +223,19 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	_is_attacking = true
-	_is_making_attack_move = true
-
-	_attack_move_timer = create_tween()
-	_attack_move_timer.tween_interval(attack_move_duration)
-	_attack_move_timer.tween_callback(func(): 
-		_is_making_attack_move = false
+	if current_picked_item.no_attack_dash:
 		current_picked_item.attack(direction)
-		_attack_move_timer = null
-	)
+	else:
+		_is_attacking = true
+		_is_making_attack_move = true
+
+		_attack_move_timer = create_tween()
+		_attack_move_timer.tween_interval(attack_move_duration)
+		_attack_move_timer.tween_callback(func(): 
+			_is_making_attack_move = false
+			current_picked_item.attack(direction)
+			_attack_move_timer = null
+		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
