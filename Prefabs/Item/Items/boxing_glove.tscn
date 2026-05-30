@@ -10,7 +10,7 @@ resource_local_to_scene = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab0ye"]
 size = Vector3(0.5, 0.646, 0.5)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_ab0ye"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_okxgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeju"]
 atlas = ExtResource("3_ab0ye")
@@ -79,12 +79,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 shape = SubResource("BoxShape3D_ab0ye")
 
 [node name="TrailRenderer3D" parent="." index="3" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_ab0ye")
+mesh = SubResource("ImmediateMesh_okxgy")
 
-[node name="VisualAnchor" parent="." index="8" unique_id=1131579775]
+[node name="VisualAnchor" parent="." index="6" unique_id=1131579775]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 
-[node name="AnimatedSprite3D" parent="VisualAnchor" index="0" unique_id=187442146]
+[node name="AnimatedSprite3D" parent="VisualAnchor" index="1" unique_id=187442146]
 transform = Transform3D(0.2999998, 0, 0, 0, 0.29999992, 0, 0, 0, 0.2999999, 1.9999995, 0, 7.1054274e-15)
 cast_shadow = 0
 sprite_frames = SubResource("SpriteFrames_okxgy")

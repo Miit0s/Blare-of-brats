@@ -31,9 +31,9 @@ slash_arc_angle = 120.0
 damage = 3.0
 sound_on_attack = 3.0
 sound_on_throw = 5.0
-sound_on_break = 3
+sound_on_break = 3.0
 attack_sound = ExtResource("2_btriy")
-sound_always_made = null
+durability = 3
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
 shape = SubResource("SphereShape3D_ujcen")
