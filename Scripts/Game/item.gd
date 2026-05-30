@@ -83,9 +83,6 @@ func _ready() -> void:
 	other_spawn_particle.emitting = true
 
 func _physics_process(_delta: float) -> void:
-	if is_already_pick:
-		rotate_sprite_to_face_camera()
-	
 	if not has_been_throw: return
 	
 	if global_position.distance_to(_throw_start_point) > throw_max_distance:
@@ -218,6 +215,3 @@ func cancel_animation():
 	
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
-
-func rotate_sprite_to_face_camera():
-	pass
