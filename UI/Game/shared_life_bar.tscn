@@ -242,3 +242,4 @@ autoplay = "default"
 frame_progress = 0.8149686
 centered = false
 offset = Vector2(0, -75)
+

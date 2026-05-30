@@ -5,17 +5,17 @@
 [ext_resource type="WwiseEvent" uid="uid://dxxbqb8uf44mf" path="res://Wwise/resources/Event/{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}.tres" id="3_knrd4"]
 [ext_resource type="WwiseEvent" uid="uid://v3kb26q6hck6" path="res://Wwise/resources/Event/{4891941F-4F70-46DF-9E7C-FBD8D9E51CDE}.tres" id="4_knrd4"]
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
-[ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_j7wlx"]
-[ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_yi7wc"]
-[ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/Sprite/circle_arrow.png" id="7_juxdh"]
-[ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_nad7g"]
+[ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_nad7g"]
+[ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_7m7dm"]
+[ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
+[ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_knrd4"]
-size = Vector3(1.3, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nad7g"]
+radius = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
@@ -27,16 +27,17 @@ script = ExtResource("1_y6xdh")
 speed = 9.0
 dash_speed = 30.0
 min_dash_speed = 8.0
+picked_up_item_distance = 0.8
 stun_duration = 0.2
 knockback_speed = 25.0
 knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
-hit_wout_obj = ExtResource("5_j7wlx")
-launch = ExtResource("6_yi7wc")
+hit_wout_obj = ExtResource("5_nad7g")
+launch = ExtResource("6_7m7dm")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
-character_animation = ExtResource("8_nad7g")
+character_animation = ExtResource("8_4sfrm")
 player_animated_sprite_3d = NodePath("AnimatedSprite3D")
 dash_effect = NodePath("DashEffect")
 
@@ -49,7 +50,7 @@ sprite_frames = ExtResource("8_tt850")
 animation = &"back"
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1854583806]
-shape = SubResource("BoxShape3D_knrd4")
+shape = SubResource("CapsuleShape3D_nad7g")
 debug_color = Color(0.9984042, 0, 0.15430626, 0.41960785)
 
 [node name="PickUpArea" type="Area3D" parent="." unique_id=1268784046]

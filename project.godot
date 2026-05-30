@@ -44,7 +44,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg")
+enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg")
 
 [file_customization]
 
@@ -53,7 +53,6 @@ folder_colors={
 "res://Build/": "gray",
 "res://GeneratedSoundBanks/": "orange",
 "res://Prefabs/": "blue",
-"res://Ressources/": "teal",
 "res://Scene/": "red",
 "res://Scripts/": "yellow",
 "res://Shader/": "pink",

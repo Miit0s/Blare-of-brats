@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bt2cibhaceome"]
+
+[ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_vx28m"]
+[ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_5630m"]
+[ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="13_0xwvt"]
+[ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="14_w775o"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_hl6t2"]
+[ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_wwcvi"]
+[ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_die3c"]
+[ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_3jxla"]
+
+[node name="Map8" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
+script = ExtResource("1_vx28m")
+player_spawn_system = NodePath("PlayerSpawnSystem")
+
+[node name="BaseMap" parent="." unique_id=400149027 instance=ExtResource("8_5630m")]
+
+[node name="Wall" type="Node3D" parent="." unique_id=1767474082]
+
+[node name="Mur_03" parent="Wall" unique_id=1978970846 instance=ExtResource("13_0xwvt")]
+transform = Transform3D(-9.74764e-09, 0, -0.198, 0, 0.198, 0, 0.223, 0, -8.654855e-09, -9.548175, 1.0134239, 5.486705)
+
+[node name="Mur_04" parent="Wall" unique_id=346676616 instance=ExtResource("13_0xwvt")]
+transform = Transform3D(-9.74764e-09, 0, -0.198, 0, 0.198, 0, 0.223, 0, -8.654855e-09, -3.6156082, 1.0134239, 5.486705)
+
+[node name="Mur_05" parent="Wall" unique_id=1591806550 instance=ExtResource("13_0xwvt")]
+transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, 5.087679, 1.0134239, 4.0338135)
+
+[node name="Mur_06" parent="Wall" unique_id=350390241 instance=ExtResource("13_0xwvt")]
+transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, -7.845045, 1.0134239, -0.3299284)
+
+[node name="DemiMur_06" parent="Wall" unique_id=1436889650 instance=ExtResource("14_w775o")]
+transform = Transform3D(-0.024070175, 0, -0.1912533, 0, 0.19799997, 0, 0.08983109, 0, -0.05124618, 2.12712, 0.33136094, 2.781363)
+
+[node name="DemiMur_07" parent="Wall" unique_id=217028095 instance=ExtResource("14_w775o")]
+transform = Transform3D(-7.450581e-09, 0, -0.198, 0, 0.19799997, 0, 0.09299999, 0, -1.4901161e-08, -10.90006, 0.33136094, -1.6040225)
+
+[node name="Mur_07" parent="Wall" unique_id=2123695512 instance=ExtResource("13_0xwvt")]
+transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, 6.024246, 1.0134239, 8.2700815)
+
+[node name="DemiMur_08" parent="Wall" unique_id=68016812 instance=ExtResource("14_w775o")]
+transform = Transform3D(-7.450581e-09, 0, -0.198, 0, 0.19799997, 0, 0.09299999, 0, -1.4901161e-08, 8.775188, 0.33136094, 9.5098)
+
+[node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("20_hl6t2")
+spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint5")]
+
+[node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5244417, 0.8373332, 5.092341)
+
+[node name="ItemSpawnPoint5" parent="ItemSpawnSystem" unique_id=404678889 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.616927, 0.8373332, 3.3691568)
+
+[node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=142864672 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8200636, 0.8373332, 9.566755)
+
+[node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1520047895 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 0.99993205, 0.011658535, 0, -0.011658535, 0.99993205, -3.5558422, 0.83733416, 9.729276)
+
+[node name="ItemSpawnPoint3" parent="ItemSpawnSystem" unique_id=1519627424 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.601829, 0.8373332, -1.9320025)
+
+[node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=947071575 instance=ExtResource("21_wwcvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.624204, 0.83733225, -1.8505206)
+
+[node name="PlayerSpawnSystem" type="Node3D" parent="." unique_id=877128500 node_paths=PackedStringArray("players_spawn", "player_parent_node")]
+script = ExtResource("22_die3c")
+players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
+player_parent_node = NodePath("..")
+
+[node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("23_3jxla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.097215, 1.1439927, -1.7462959)
+
+[node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_3jxla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49961, 1.1439927, 9.587938)
+
+[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
+[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
+[connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]
