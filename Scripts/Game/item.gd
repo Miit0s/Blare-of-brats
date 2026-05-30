@@ -5,12 +5,11 @@ class_name Item
 @onready var animated_sprite_3d: AnimatedSprite3D = $VisualAnchor/AnimatedSprite3D
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
-@onready var trail_pivot: Node3D = $TrailPivot
 @onready var visual_anchor: Marker3D = $VisualAnchor
 
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
-@onready var gpu_trail_3d: GPUTrail3D = $TrailPivot/GPUTrail3D
+@onready var gpu_trail_3d: GPUTrail3D = $VisualAnchor/GPUTrail3D
 
 @export_category("Type")
 @export var distance: bool = false

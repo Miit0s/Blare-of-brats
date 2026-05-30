@@ -37,7 +37,7 @@ gradient = SubResource("Gradient_cc1yy")
 
 [sub_resource type="Curve" id="Curve_isaxv"]
 bake_resolution = 16
-_data = [Vector2(0, 0.49246573), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_w7253"]
@@ -109,10 +109,13 @@ metadata/_custom_type_script = "uid://c2m87s7fgx1qk"
 
 [node name="OtherSpawnParticle" parent="." unique_id=1689987180 instance=ExtResource("7_ufmye")]
 
-[node name="TrailPivot" type="Node3D" parent="." unique_id=1918250455]
+[node name="MunitionCache" parent="." unique_id=1567439643 instance=ExtResource("2_oe5v1")]
+visible = false
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="TrailPivot" unique_id=1052939116]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="VisualAnchor" type="Marker3D" parent="." unique_id=1131579775]
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="VisualAnchor" unique_id=1052939116]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
 visible = false
 cast_shadow = 0
 amount = 100
@@ -127,11 +130,6 @@ color_ramp = SubResource("GradientTexture1D_goa0p")
 curve = SubResource("CurveTexture_w7253")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://04ta3q4y8qhg"
-
-[node name="MunitionCache" parent="." unique_id=1567439643 instance=ExtResource("2_oe5v1")]
-visible = false
-
-[node name="VisualAnchor" type="Marker3D" parent="." unique_id=1131579775]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="VisualAnchor" unique_id=187442146]
 shaded = true
