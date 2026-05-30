@@ -4,8 +4,9 @@
 [ext_resource type="Material" uid="uid://lerg8c4lpmj4" path="res://Assets/Material/shared_health_bar.tres" id="1_flkbr"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="3_r1hpj"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="4_m01ld"]
-[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/Sprite/player_indicator.png" id="5_gkif4"]
+[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/MockSprite/player_indicator.png" id="5_gkif4"]
 [ext_resource type="PackedScene" uid="uid://pb1wrdhadmo0" path="res://UI/ControlTool/round_win_indicator.tscn" id="6_5xvwn"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_gkif4"]
 font_size = 12
