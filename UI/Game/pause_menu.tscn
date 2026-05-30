@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://xrslyais37id"]
+
+[ext_resource type="Texture2D" uid="uid://c4vxdokr00vcv" path="res://Assets/SpriteUI/background_pausemenu.png" id="1_ro1nt"]
+[ext_resource type="PackedScene" uid="uid://n74tvc5001lj" path="res://UI/ControlTool/pause_texture_button.tscn" id="2_s2k2e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ro1nt"]
+font_size = 64
+
+[node name="PauseMenu" type="Control" unique_id=1901131672]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 1000.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=961172986]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ro1nt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=774265809]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -475.9
+offset_right = 92.5
+offset_bottom = -387.89987
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_ro1nt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=58112519]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 228.82
+offset_bottom = 228.82
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="TextureButton" parent="VBoxContainer" unique_id=2021431068 instance=ExtResource("2_s2k2e")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/TextureButton" index="0" unique_id=35982695]
+text = "Resume"
+
+[node name="TextureButton2" parent="VBoxContainer" unique_id=1175576039 instance=ExtResource("2_s2k2e")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/TextureButton2" index="0" unique_id=35982695]
+text = "Restart"
+
+[node name="TextureButton3" parent="VBoxContainer" unique_id=1034424514 instance=ExtResource("2_s2k2e")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/TextureButton3" index="0" unique_id=35982695]
+text = "Options"
+
+[node name="TextureButton4" parent="VBoxContainer" unique_id=2110942703 instance=ExtResource("2_s2k2e")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/TextureButton4" index="0" unique_id=35982695]
+text = "Quit"
+
+[editable path="VBoxContainer/TextureButton"]
+[editable path="VBoxContainer/TextureButton2"]
+[editable path="VBoxContainer/TextureButton3"]
+[editable path="VBoxContainer/TextureButton4"]
