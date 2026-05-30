@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5thsxek61sxw"
-path.s3tc="res://.godot/imported/ring.png-5e561254e7b7dd3ae17ebfcffc057b6e.s3tc.ctex"
+uid="uid://cgvpjui7dgnly"
+path.s3tc="res://.godot/imported/boxing_glove.png-addcaf53345b9c3160ab53c28190024f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprite/ring.png"
-dest_files=["res://.godot/imported/ring.png-5e561254e7b7dd3ae17ebfcffc057b6e.s3tc.ctex"]
+source_file="res://Assets/MockSprite/boxing_glove.png"
+dest_files=["res://.godot/imported/boxing_glove.png-addcaf53345b9c3160ab53c28190024f.s3tc.ctex"]
 
 [params]
 

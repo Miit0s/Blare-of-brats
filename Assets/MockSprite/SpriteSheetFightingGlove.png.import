@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kbq4jiaeilgi"
-path.s3tc="res://.godot/imported/gun.png-d7a4748e56bc751393d4f5dffffe46f8.s3tc.ctex"
+uid="uid://dm27vejb7wcsk"
+path.s3tc="res://.godot/imported/SpriteSheetFightingGlove.png-ff503d8dd3b11e66a4c93dc3d489111e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprite/gun.png"
-dest_files=["res://.godot/imported/gun.png-d7a4748e56bc751393d4f5dffffe46f8.s3tc.ctex"]
+source_file="res://Assets/MockSprite/SpriteSheetFightingGlove.png"
+dest_files=["res://.godot/imported/SpriteSheetFightingGlove.png-ff503d8dd3b11e66a4c93dc3d489111e.s3tc.ctex"]
 
 [params]
 

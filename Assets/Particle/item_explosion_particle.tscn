@@ -35,6 +35,11 @@ emission_curve = SubResource("CurveTexture_t4ted")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufmye"]
 transparency = 1
 vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_fnt8b"]
 material = SubResource("StandardMaterial3D_ufmye")
@@ -46,6 +51,5 @@ amount = 100
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
-transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_okjcq")
 draw_pass_1 = SubResource("QuadMesh_fnt8b")

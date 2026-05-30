@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gy3dknjvs5td"
-path="res://.godot/imported/player_indicator.png-16b8c2b403590abe861259caaace69dd.ctex"
+uid="uid://patlfr6mhsao"
+path="res://.godot/imported/volume_logo.png-7137b90432acc669bc2e5493f8336818.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite/player_indicator.png"
-dest_files=["res://.godot/imported/player_indicator.png-16b8c2b403590abe861259caaace69dd.ctex"]
+source_file="res://Assets/MockSprite/volume_logo.png"
+dest_files=["res://.godot/imported/volume_logo.png-7137b90432acc669bc2e5493f8336818.ctex"]
 
 [params]
 

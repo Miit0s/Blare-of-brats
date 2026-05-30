@@ -11,6 +11,8 @@ class_name Player
 @export_category("Basic Movement")
 @export var speed: float = 8.0
 @export var fall_speed: float = 100.0
+@export var speed_change_transition: float = 0.2
+var _speed_multiplier: float = 1
 
 @export_category("Dash")
 @export var dash_speed: float = 20.0
@@ -26,7 +28,6 @@ var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
 
 @export_category("Attack")
-@export var slash_arc: float = 120
 @export var attack_move_speed: float = 20.0
 @export var attack_move_duration: float = 0.05
 @export var attack_cooldown: float = 1
@@ -113,7 +114,7 @@ func _physics_process(delta: float) -> void:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
 	elif direction and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
-		velocity = direction * speed
+		velocity = direction * (speed * _speed_multiplier)
 		_last_direction = direction
 	else:
 		velocity.x = 0
@@ -152,12 +153,15 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
 		attack(_current_direction if _current_direction else _last_direction)
 	
-	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
+	if current_picked_item and (not current_picked_item.is_attacking):
 		var aim_direction: Vector3 = Vector3.ZERO
 		aim_direction = _current_direction if _current_direction else _last_direction
 		
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
+		
+		if aim_direction != Vector3.ZERO:
+			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -219,59 +223,22 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	if current_picked_item.distance:
+	if current_picked_item.no_attack_dash:
 		current_picked_item.attack(direction)
 	else:
 		_is_attacking = true
 		_is_making_attack_move = true
-		
+
 		_attack_move_timer = create_tween()
 		_attack_move_timer.tween_interval(attack_move_duration)
 		_attack_move_timer.tween_callback(func(): 
 			_is_making_attack_move = false
-			current_picked_item.slash_look_at(self.global_position)
-			_make_attack_movement(direction)
 			current_picked_item.attack(direction)
 			_attack_move_timer = null
 		)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
-
-func _make_attack_movement(direction: Vector3):
-	var base_angle: float = atan2(direction.x, direction.z)
-	
-	var start_angle: float
-	var end_angle: float
-	
-	var full_circle_angle = fposmod(base_angle, 2 * PI)
-	
-	if PI / 2 < full_circle_angle and full_circle_angle < PI + (PI / 2):
-		start_angle = base_angle + deg_to_rad(slash_arc / 2)
-		end_angle = base_angle - deg_to_rad(slash_arc / 2)
-	else:
-		start_angle = base_angle - deg_to_rad(slash_arc / 2)
-		end_angle = base_angle + deg_to_rad(slash_arc / 2)
-	
-	_animate_slash(start_angle)
-	
-	_attack_tween = create_tween() \
-		.set_trans(Tween.TRANS_QUART) \
-		.set_ease(Tween.EASE_OUT)
-	
-	_attack_tween.tween_method(
-		_animate_slash,
-		start_angle,
-		end_angle,
-		current_picked_item.attack_speed
-	)
-	
-	await _attack_tween.finished
-	_attack_tween = null
-
-func _animate_slash(current_angle: float):
-	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
-	current_picked_item.global_position = global_position + offset
 
 func cancel_animation():
 	_kill_current_animation()
@@ -463,3 +430,9 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
+
+func apply_slow(speed_multiplier: float):
+	var slow_down_tween: Tween = create_tween()
+	slow_down_tween.set_ease(Tween.EASE_IN)
+	slow_down_tween.set_trans(Tween.TRANS_QUAD)
+	slow_down_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)
