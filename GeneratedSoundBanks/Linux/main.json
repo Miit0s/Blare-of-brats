@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{5A9FAFC9-0200-E643-E45F-7D06F8C21A4B}",
+    "Hash": "{6821E1A6-1EFA-A4A3-A66F-8C267E067A07}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -48,12 +48,12 @@
       "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
      },
      {
-      "Id": "62440136",
+      "Id": "71385639",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Wood_impact_2.wav",
-      "CachePath": "CA/{CA2F313C-B237-FDE6-2DC8-9A44A16B1A7D}.wem"
+      "ShortName": "UI_Colors.wav",
+      "CachePath": "A1/{A18E7006-2B21-09A8-F165-7ED57AD6B17D}.wem"
      },
      {
       "Id": "79414803",
@@ -72,20 +72,20 @@
       "CachePath": "89/{898B6F33-5F59-2F92-0B99-EB0599D769F5}.wem"
      },
      {
+      "Id": "108175889",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle.wav",
+      "CachePath": "F3/{F3CA22C5-733D-F3EB-E778-B37E508690C3}.wem"
+     },
+     {
       "Id": "120430976",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Attack\\Voice_Boy_Attack_2.wav",
       "CachePath": "BF/{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem"
-     },
-     {
-      "Id": "149837831",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wood_impact.wav",
-      "CachePath": "AC/{AC56E292-C8A1-EF3B-9EA3-D85F5E78D359}.wem"
      },
      {
       "Id": "192332123",
@@ -96,12 +96,28 @@
       "CachePath": "98/{983FEB1C-1A52-4758-DE89-482538170A94}.wem"
      },
      {
+      "Id": "195267026",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Back.wav",
+      "CachePath": "20/{205513AB-2741-CB1F-8DB4-2D3F220CA1EA}.wem"
+     },
+     {
       "Id": "225912809",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "swoosh_rotation_1.wav",
       "CachePath": "4B/{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem"
+     },
+     {
+      "Id": "263518998",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_4.wav",
+      "CachePath": "76/{76B5CBAF-BB66-F6BB-ECE5-66525308CF19}.wem"
      },
      {
       "Id": "284610429",
@@ -136,6 +152,14 @@
       "CachePath": "86/{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem"
      },
      {
+      "Id": "426434286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_3.wav",
+      "CachePath": "79/{79F1E6D7-A466-5C8F-7157-D8812884CEF7}.wem"
+     },
+     {
       "Id": "431723951",
       "Language": "SFX",
       "Streaming": "false",
@@ -168,6 +192,14 @@
       "CachePath": "DF/{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem"
      },
      {
+      "Id": "498530264",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Select.wav",
+      "CachePath": "3B/{3BB2BD53-4302-502D-5F69-29103BF83AA2}.wem"
+     },
+     {
       "Id": "525872627",
       "Language": "SFX",
       "Streaming": "false",
@@ -182,6 +214,14 @@
       "Location": "Memory",
       "ShortName": "Chara_Mov_Dash_v2_3.wav",
       "CachePath": "86/{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem"
+     },
+     {
+      "Id": "568806651",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_2.wav",
+      "CachePath": "8B/{8BE35240-9F32-D63B-5DF4-84FB690F8C1C}.wem"
      },
      {
       "Id": "570828258",
@@ -200,12 +240,36 @@
       "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
      },
      {
+      "Id": "606337472",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Colors_select.wav",
+      "CachePath": "1B/{1B2407F7-E88F-940D-EF72-3D548A5E9EC4}.wem"
+     },
+     {
       "Id": "654877243",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Attack\\Voice_Boy_Attack_3.wav",
       "CachePath": "3F/{3F98F283-2818-5045-4EDF-5B4DA9CF0269}.wem"
+     },
+     {
+      "Id": "658206308",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_2.wav",
+      "CachePath": "E2/{E20BD138-8BEC-3DD9-368D-232AAB0BFC5D}.wem"
+     },
+     {
+      "Id": "658447030",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_Idle_3.wav",
+      "CachePath": "B8/{B8FE5339-0997-AF09-2F89-BCE34509E1B6}.wem"
      },
      {
       "Id": "663880264",
@@ -256,12 +320,20 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
-      "Id": "758726403",
+      "Id": "790913363",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Wood_impact_3.wav",
-      "CachePath": "C1/{C1E10258-FB5D-055C-E63C-C3ADEA9CE152}.wem"
+      "ShortName": "Countdown_V1.wav",
+      "CachePath": "81/{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem"
+     },
+     {
+      "Id": "793598172",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Balloon_pop_1.wav",
+      "CachePath": "41/{4195BFB8-B0AA-A53E-EB15-E223B8109860}.wem"
      },
      {
       "Id": "813712222",
@@ -312,6 +384,14 @@
       "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
      },
      {
+      "Id": "976227419",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Menu_Nav.wav",
+      "CachePath": "EB/{EBC7D52A-311C-C012-673F-EC145881488E}.wem"
+     },
+     {
       "Id": "1005290781",
       "Language": "SFX",
       "Streaming": "false",
@@ -357,6 +437,51 @@
      ]
     },
     "Events": [
+     {
+      "Id": "2381661991",
+      "Name": "Balloon_Idle",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Idle",
+      "GUID": "{46F4235E-DDEB-44D1-86B8-5435EE37B9EC}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5440579",
+      "DurationMax": "0.8337348",
+      "MediaRefs": [
+       {
+        "Id": "108175889"
+       },
+       {
+        "Id": "263518998"
+       },
+       {
+        "Id": "658206308"
+       },
+       {
+        "Id": "658447030"
+       }
+      ]
+     },
+     {
+      "Id": "124719886",
+      "Name": "Balloon_Pop",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Pop",
+      "GUID": "{3525CD8A-23F0-48E7-B481-72CCC038AE44}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.23360826",
+      "DurationMax": "0.3190837",
+      "MediaRefs": [
+       {
+        "Id": "426434286"
+       },
+       {
+        "Id": "568806651"
+       },
+       {
+        "Id": "793598172"
+       }
+      ]
+     },
      {
       "Id": "1076559162",
       "Name": "Boxing_Glove",
@@ -426,6 +551,21 @@
       "MediaRefs": [
        {
         "Id": "813712222"
+       }
+      ]
+     },
+     {
+      "Id": "1505888634",
+      "Name": "Countdown",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\Countdown",
+      "GUID": "{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3882539",
+      "DurationMax": "1.3882539",
+      "MediaRefs": [
+       {
+        "Id": "790913363"
        }
       ]
      },
@@ -621,27 +761,6 @@
       ]
      },
      {
-      "Id": "1020083716",
-      "Name": "Pencil_Hit",
-      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Pencil\\Pencil_Hit",
-      "GUID": "{FDA1AE4B-B233-49A2-811D-E84B633A8A9E}",
-      "Color": "2",
-      "DurationType": "OneShot",
-      "DurationMin": "0.43563727",
-      "DurationMax": "0.48898637",
-      "MediaRefs": [
-       {
-        "Id": "62440136"
-       },
-       {
-        "Id": "149837831"
-       },
-       {
-        "Id": "758726403"
-       }
-      ]
-     },
-     {
       "Id": "2746646177",
       "Name": "PistoGum_Shoot",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\PistoGum\\PistoGum_Shoot",
@@ -681,6 +800,81 @@
       "MediaRefs": [
        {
         "Id": "675508919"
+       }
+      ]
+     },
+     {
+      "Id": "1604317996",
+      "Name": "UI_Colors_Nav",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\UI_Colors_Nav",
+      "GUID": "{9BD83C47-7024-49E9-A160-39AB9784E4B9}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.066734694",
+      "DurationMax": "0.066734694",
+      "MediaRefs": [
+       {
+        "Id": "71385639"
+       }
+      ]
+     },
+     {
+      "Id": "2429118665",
+      "Name": "UI_Colors_Select",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\UI_Colors_Select",
+      "GUID": "{949583D9-CD37-426A-9A69-DFC38D00223C}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.29321995",
+      "DurationMax": "0.29321995",
+      "MediaRefs": [
+       {
+        "Id": "606337472"
+       }
+      ]
+     },
+     {
+      "Id": "922786755",
+      "Name": "UI_Menu_Back",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Back",
+      "GUID": "{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15190476",
+      "DurationMax": "0.15278473",
+      "MediaRefs": [
+       {
+        "Id": "195267026"
+       }
+      ]
+     },
+     {
+      "Id": "17678017",
+      "Name": "UI_Menu_Nav",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Nav",
+      "GUID": "{B028A76E-DF34-418D-AF44-603DF661B703}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.13515808",
+      "DurationMax": "0.13672854",
+      "MediaRefs": [
+       {
+        "Id": "976227419"
+       }
+      ]
+     },
+     {
+      "Id": "3474566310",
+      "Name": "UI_Menu_Select",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Select",
+      "GUID": "{0ED4976A-854F-4128-AE55-AB976FEC9AA0}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.17066666",
+      "DurationMax": "0.17165533",
+      "MediaRefs": [
+       {
+        "Id": "498530264"
        }
       ]
      }
@@ -729,6 +923,6 @@
     ]
    }
   ],
-  "FileHash": "{3B461F9C-FA48-33D9-A9D3-4B6B31C4FB94}"
+  "FileHash": "{A50573F4-FF62-978A-15CD-72FF5AD17D33}"
  }
 }
