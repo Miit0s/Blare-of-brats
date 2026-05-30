@@ -1,15 +1,17 @@
-@tool
 extends Item
 
-func _perform_attack(direction: Vector3):
+@onready var pisto_gum_shoot: GPUParticles3D = $PistoGumShoot
+
+@export var player_speed_multiplier: float = 0.5
+@export var slow_duration: float = 1
+
+func _perform_attack(_direction: Vector3):
 	current_durability -= 1
+	pisto_gum_shoot.emitting = true
+
+func _attack_player(player_hit: Player):
+	super._attack_player(player_hit)
 	
-	var new_munition: Munition = munition_prefab.instantiate()
-	new_munition.direction = _attack_direction
-	new_munition.damage = damage
-	new_munition.speed = munition_speed
-	new_munition.position = global_position
-	
-	add_child(new_munition)
-	
-	sound_made.emit(sound_on_attack)
+	player_hit.apply_slow(player_speed_multiplier)
+	await get_tree().create_timer(slow_duration).timeout
+	player_hit.apply_slow(1)

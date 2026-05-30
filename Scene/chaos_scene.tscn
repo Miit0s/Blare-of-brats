@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_7gx1u"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="4_4ay72"]
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="4_v7lpu"]
-[ext_resource type="PackedScene" uid="uid://cfdaia2abe34e" path="res://Prefabs/Item/munition.tscn" id="5_ot4os"]
 [ext_resource type="PackedScene" uid="uid://0bbwwyp6o8jb" path="res://Prefabs/Item/Items/pencil.tscn" id="6_3fhmk"]
 [ext_resource type="PackedScene" uid="uid://bhmfwu2e856oa" path="res://Prefabs/Item/Items/boxing_glove.tscn" id="7_v7lpu"]
 [ext_resource type="PackedScene" uid="uid://csrdjas8rt3ri" path="res://Prefabs/Item/Items/pisto_gum.tscn" id="8_k5wng"]
@@ -19,20 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://di44tfpbu5w8n" path="res://Assets/Particle/item_explosion_particle.tscn" id="17_84fsj"]
 [ext_resource type="PackedScene" uid="uid://ci1wlhg1v65n5" path="res://Assets/Particle/item_pop_spawn_particle.tscn" id="18_7xoa5"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="19_70qbo"]
-
-
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_65jih"]
-resource_local_to_scene = true
-radius = 0.8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_7cnje"]
-resource_local_to_scene = true
-radius = 0.4
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_70h5j"]
-resource_local_to_scene = true
-radius = 0.35
 
 [sub_resource type="Animation" id="Animation_7irrw"]
 length = 0.001
@@ -223,7 +208,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [node name="Player" parent="." unique_id=382022037 instance=ExtResource("1_dv0gy")]
 
 [node name="Item" parent="." unique_id=2059959192 instance=ExtResource("2_d5jt0")]
-attack_shape = SubResource("SphereShape3D_65jih")
 
 [node name="ItemHitParticles" parent="." unique_id=772188491 instance=ExtResource("3_7gx1u")]
 
@@ -231,15 +215,15 @@ attack_shape = SubResource("SphereShape3D_65jih")
 
 [node name="ItemSpawnPoint" parent="." unique_id=635181024 instance=ExtResource("4_4ay72")]
 
-[node name="Munition" parent="." unique_id=1567439643 instance=ExtResource("5_ot4os")]
-
 [node name="Item2" parent="." unique_id=585653132 instance=ExtResource("6_3fhmk")]
+sound_on_throw = 5
+break_on_throw = true
 
 [node name="Item3" parent="." unique_id=2000954409 instance=ExtResource("7_v7lpu")]
-attack_shape = SubResource("SphereShape3D_7cnje")
+sound_on_throw = 5
 
 [node name="Item4" parent="." unique_id=1633312894 instance=ExtResource("8_k5wng")]
-attack_shape = SubResource("SphereShape3D_70h5j")
+sound_on_throw = 5
 
 [node name="ControllerSlot" parent="." unique_id=699056762 instance=ExtResource("9_ot4os")]
 

@@ -1,4 +1,3 @@
-@tool
 extends RigidBody3D
 class_name Item
 
@@ -10,13 +9,6 @@ class_name Item
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
 @onready var gpu_trail_3d: GPUTrail3D = $VisualAnchor/GPUTrail3D
-
-@export_category("Type")
-@export var distance: bool = false
-
-@export_category("Distance Attack")
-@export var munition_prefab: PackedScene
-@export var munition_speed: float = 5.0
 
 @export_category("Attack")
 @export var attack_speed: float = 0.5
@@ -32,6 +24,8 @@ class_name Item
 @export var sound_on_throw: float = 2
 @export var sound_on_break: float = 5
 @export var attack_sound: WwiseEvent
+### If true, sound will be added to the game sound bar for every attack
+@export var sound_always_made: bool = false
 
 @export_category("Lifetime")
 @export var durability: int = 5
@@ -126,6 +120,8 @@ func attack(direction: Vector3):
 	
 	if attack_sound:
 		attack_sound.post(self)
+	if sound_always_made:
+		sound_made.emit(sound_on_attack)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
@@ -198,7 +194,9 @@ func _add_hit_effect(target: Node3D):
 
 func _attack_player(player_hit: Player):
 	current_durability -= 1
-	sound_made.emit(sound_on_attack)
+	
+	if not sound_always_made:
+		sound_made.emit(sound_on_attack)
 	
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction)

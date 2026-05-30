@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_0o2h0"]
-[ext_resource type="PackedScene" uid="uid://cfdaia2abe34e" path="res://Prefabs/Item/munition.tscn" id="2_oe5v1"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_t4ted"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
@@ -24,7 +23,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_t4ted"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_0o2h0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t8ux"]
 shader = ExtResource("4_6uwl0")
@@ -73,7 +72,6 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
 script = ExtResource("1_0o2h0")
-munition_prefab = ExtResource("2_oe5v1")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
@@ -96,7 +94,7 @@ debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false
 material_override = SubResource("StandardMaterial3D_dnd63")
-mesh = SubResource("ImmediateMesh_t4ted")
+mesh = SubResource("ImmediateMesh_0o2h0")
 script = ExtResource("3_fnt8b")
 trail_point_lifetime = 0.3
 points = Array[Vector3]([])
@@ -108,9 +106,6 @@ metadata/_custom_type_script = "uid://c2m87s7fgx1qk"
 [node name="CircleSpawnParticle" parent="." unique_id=1667071481 instance=ExtResource("6_qif1d")]
 
 [node name="OtherSpawnParticle" parent="." unique_id=1689987180 instance=ExtResource("7_ufmye")]
-
-[node name="MunitionCache" parent="." unique_id=1567439643 instance=ExtResource("2_oe5v1")]
-visible = false
 
 [node name="VisualAnchor" type="Marker3D" parent="." unique_id=1131579775]
 

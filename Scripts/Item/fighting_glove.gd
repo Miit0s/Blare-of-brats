@@ -1,4 +1,3 @@
-@tool
 extends Item
 
 @export var min_collision_range: float = 0.5

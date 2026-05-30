@@ -1,4 +1,3 @@
-@tool
 extends Item
 
 @export var slash_arc_angle: float = 120

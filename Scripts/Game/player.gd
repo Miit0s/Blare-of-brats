@@ -11,6 +11,8 @@ class_name Player
 @export_category("Basic Movement")
 @export var speed: float = 8.0
 @export var fall_speed: float = 100.0
+@export var speed_change_transition: float = 0.2
+var _speed_multiplier: float = 1
 
 @export_category("Dash")
 @export var dash_speed: float = 20.0
@@ -112,7 +114,7 @@ func _physics_process(delta: float) -> void:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
 	elif direction and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
-		velocity = direction * speed
+		velocity = direction * (speed * _speed_multiplier)
 		_last_direction = direction
 	else:
 		velocity.x = 0
@@ -151,7 +153,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
 		attack(_current_direction if _current_direction else _last_direction)
 	
-	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
+	if current_picked_item and (not current_picked_item.is_attacking):
 		var aim_direction: Vector3 = Vector3.ZERO
 		aim_direction = _current_direction if _current_direction else _last_direction
 		
@@ -219,19 +221,16 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	if current_picked_item.distance:
+	_is_attacking = true
+	_is_making_attack_move = true
+
+	_attack_move_timer = create_tween()
+	_attack_move_timer.tween_interval(attack_move_duration)
+	_attack_move_timer.tween_callback(func(): 
+		_is_making_attack_move = false
 		current_picked_item.attack(direction)
-	else:
-		_is_attacking = true
-		_is_making_attack_move = true
-		
-		_attack_move_timer = create_tween()
-		_attack_move_timer.tween_interval(attack_move_duration)
-		_attack_move_timer.tween_callback(func(): 
-			_is_making_attack_move = false
-			current_picked_item.attack(direction)
-			_attack_move_timer = null
-		)
+		_attack_move_timer = null
+	)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
@@ -426,3 +425,9 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
+
+func apply_slow(speed_multiplier: float):
+	var slow_down_tween: Tween = create_tween()
+	slow_down_tween.set_ease(Tween.EASE_IN)
+	slow_down_tween.set_trans(Tween.TRANS_QUAD)
+	slow_down_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)

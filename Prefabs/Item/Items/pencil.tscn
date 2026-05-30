@@ -30,9 +30,10 @@ script = ExtResource("2_ujcen")
 slash_arc_angle = 120.0
 damage = 3.0
 sound_on_attack = 3.0
-sound_on_throw = 1.0
+sound_on_throw = 5.0
+sound_on_break = 3
 attack_sound = ExtResource("2_btriy")
-break_on_throw = 5
+sound_always_made = null
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1358719798]
 shape = SubResource("SphereShape3D_ujcen")
@@ -44,7 +45,7 @@ shape = SubResource("ConvexPolygonShape3D_ujcen")
 [node name="TrailRenderer3D" parent="." index="3" unique_id=1404749388]
 mesh = SubResource("ImmediateMesh_k0vxe")
 
-[node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
+[node name="VisualAnchor" parent="." index="6" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="GPUTrail3D" parent="VisualAnchor" index="0" unique_id=1052939116]
