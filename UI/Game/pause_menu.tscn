@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xrslyais37id"]
 
-[ext_resource type="Texture2D" uid="uid://c4vxdokr00vcv" path="res://Assets/SpriteUI/background_pausemenu.png" id="1_ro1nt"]
+[ext_resource type="Texture2D" uid="uid://c4vxdokr00vcv" path="res://Assets/SpriteUI/PauseMenu/background_pausemenu.png" id="1_ro1nt"]
 [ext_resource type="PackedScene" uid="uid://n74tvc5001lj" path="res://UI/ControlTool/pause_texture_button.tscn" id="2_s2k2e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ro1nt"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbg1aw5y054g"
-path="res://.godot/imported/mask_health_bar.png-8f753437473083be1f9cd86753cc258d.ctex"
+uid="uid://cvdc0uw2slhqf"
+path="res://.godot/imported/mask_portrait_right.png-28bc59fe661d3a87bcf30f61f867797f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/mask_health_bar.png"
-dest_files=["res://.godot/imported/mask_health_bar.png-8f753437473083be1f9cd86753cc258d.ctex"]
+source_file="res://Assets/SpriteUI/GameBar/mask_portrait_right.png"
+dest_files=["res://.godot/imported/mask_portrait_right.png-28bc59fe661d3a87bcf30f61f867797f.ctex"]
 
 [params]
 

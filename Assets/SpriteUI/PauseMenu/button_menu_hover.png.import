@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvob7nayrl8q4"
-path="res://.godot/imported/mask_round_left.png-b7930004d018231554e3fefc725d695e.ctex"
+uid="uid://cobxcfunq7pf"
+path="res://.godot/imported/button_menu_hover.png-6e13781d4b4b7022315bf2165b501d51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/mask_round_left.png"
-dest_files=["res://.godot/imported/mask_round_left.png-b7930004d018231554e3fefc725d695e.ctex"]
+source_file="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png"
+dest_files=["res://.godot/imported/button_menu_hover.png-6e13781d4b4b7022315bf2165b501d51.ctex"]
 
 [params]
 

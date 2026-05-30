@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca176t0sb72va"
-path="res://.godot/imported/mask_sound_bar.png-8214e46a64264c46e31d31aae180f533.ctex"
+uid="uid://benj67pt60i00"
+path="res://.godot/imported/banner_topscreen.png-789efde632f3324711c1e7d33d33650c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/mask_sound_bar.png"
-dest_files=["res://.godot/imported/mask_sound_bar.png-8214e46a64264c46e31d31aae180f533.ctex"]
+source_file="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png"
+dest_files=["res://.godot/imported/banner_topscreen.png-789efde632f3324711c1e7d33d33650c.ctex"]
 
 [params]
 

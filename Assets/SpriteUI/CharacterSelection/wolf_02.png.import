@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cocrf8f0aivr7"
-path="res://.godot/imported/mask_round_right.png-c091f009ea46a5c41a0b87d3d054ca06.ctex"
+uid="uid://cgqwgxsmxhnww"
+path="res://.godot/imported/wolf_02.png-ee4074759cc90986c6b8bfe3ed9c5626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/mask_round_right.png"
-dest_files=["res://.godot/imported/mask_round_right.png-c091f009ea46a5c41a0b87d3d054ca06.ctex"]
+source_file="res://Assets/SpriteUI/CharacterSelection/wolf_02.png"
+dest_files=["res://.godot/imported/wolf_02.png-ee4074759cc90986c6b8bfe3ed9c5626.ctex"]
 
 [params]
 

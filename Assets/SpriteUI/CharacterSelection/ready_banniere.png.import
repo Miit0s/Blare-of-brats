@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobxcfunq7pf"
-path="res://.godot/imported/button_menu_hover.png-2f669209db9ac024a4da2c90d688f759.ctex"
+uid="uid://jxdua4ndggn6"
+path="res://.godot/imported/ready_banniere.png-fdc06a7bc0ff11fa85a782f0848961a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/button_menu_hover.png"
-dest_files=["res://.godot/imported/button_menu_hover.png-2f669209db9ac024a4da2c90d688f759.ctex"]
+source_file="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png"
+dest_files=["res://.godot/imported/ready_banniere.png-fdc06a7bc0ff11fa85a782f0848961a0.ctex"]
 
 [params]
 

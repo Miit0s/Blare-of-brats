@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvdc0uw2slhqf"
-path="res://.godot/imported/mask_portrait_right.png-5034cbd1f93e39f37ec1d060f406bcc1.ctex"
+uid="uid://cvob7nayrl8q4"
+path="res://.godot/imported/mask_round_left.png-bc61672467b5f3b946f75b472ebb08ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/mask_portrait_right.png"
-dest_files=["res://.godot/imported/mask_portrait_right.png-5034cbd1f93e39f37ec1d060f406bcc1.ctex"]
+source_file="res://Assets/SpriteUI/GameBar/mask_round_left.png"
+dest_files=["res://.godot/imported/mask_round_left.png-bc61672467b5f3b946f75b472ebb08ab.ctex"]
 
 [params]
 

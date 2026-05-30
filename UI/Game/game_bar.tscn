@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dseh3ukvut8qj"]
 
 [ext_resource type="Script" uid="uid://depb482pew3fb" path="res://Scripts/UI/game_bar.gd" id="1_fs1sv"]
-[ext_resource type="Texture2D" uid="uid://x0tjmk0g5la0" path="res://Assets/SpriteUI/ui_border_health_sound_bar.png" id="1_ibwid"]
+[ext_resource type="Texture2D" uid="uid://x0tjmk0g5la0" path="res://Assets/SpriteUI/GameBar/ui_border_health_sound_bar.png" id="1_ibwid"]
 [ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="2_t1itt"]
 [ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="3_7nl3k"]
 [ext_resource type="PackedScene" uid="uid://pb1wrdhadmo0" path="res://UI/ControlTool/round_win_indicator.tscn" id="4_7nl3k"]
-[ext_resource type="Texture2D" uid="uid://cocrf8f0aivr7" path="res://Assets/SpriteUI/mask_round_right.png" id="5_85yq0"]
-[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/Sprite/player_indicator.png" id="6_mnl0s"]
+[ext_resource type="Texture2D" uid="uid://cocrf8f0aivr7" path="res://Assets/SpriteUI/GameBar/mask_round_right.png" id="5_85yq0"]
+[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/MockSprite/player_indicator.png" id="6_mnl0s"]
 [ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="6_ymab0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5803h"]

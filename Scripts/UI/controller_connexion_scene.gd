@@ -1,6 +1,6 @@
 extends Control
 
-@onready var controller_slot_container: HBoxContainer = $ControllerSlotContainer
+@onready var controller_slot_container: Control = $ControllerSlotContainer
 @onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
 
 @onready var ready_texture: TextureRect = $ReadyTexture

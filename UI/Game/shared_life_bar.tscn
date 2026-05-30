@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://datphtk4ldaal" path="res://Scripts/Game/shared_life_bar.gd" id="1_bcs32"]
 [ext_resource type="Material" uid="uid://lerg8c4lpmj4" path="res://Assets/Material/shared_health_bar.tres" id="1_flkbr"]
-[ext_resource type="Texture2D" uid="uid://bbg1aw5y054g" path="res://Assets/SpriteUI/mask_health_bar.png" id="3_5xvwn"]
+[ext_resource type="Texture2D" uid="uid://bbg1aw5y054g" path="res://Assets/SpriteUI/GameBar/mask_health_bar.png" id="3_5xvwn"]
 [ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="4_gkif4"]
-[ext_resource type="Texture2D" uid="uid://chnydl2vj3x52" path="res://Assets/SpriteUI/spritesheet_healthbar.png" id="4_m01ld"]
+[ext_resource type="Texture2D" uid="uid://chnydl2vj3x52" path="res://Assets/SpriteUI/GameBar/spritesheet_healthbar.png" id="4_m01ld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gkif4"]
 shader = ExtResource("4_gkif4")

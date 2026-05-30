@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pb1wrdhadmo0"]
 
 [ext_resource type="Script" uid="uid://bljrnm2vjof5f" path="res://Scripts/UI/round_win_indicator.gd" id="1_f3s1t"]
-[ext_resource type="Texture2D" uid="uid://cvob7nayrl8q4" path="res://Assets/SpriteUI/mask_round_left.png" id="2_f3s1t"]
+[ext_resource type="Texture2D" uid="uid://cvob7nayrl8q4" path="res://Assets/SpriteUI/GameBar/mask_round_left.png" id="2_f3s1t"]
 [ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="2_yxjfw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7d4su"]

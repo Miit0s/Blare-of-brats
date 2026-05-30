@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4vxdokr00vcv"
-path="res://.godot/imported/background_pausemenu.png-dcf4f37276ff82bfb9e2ef72765126f5.ctex"
+uid="uid://xgv7vbnwdr3l"
+path="res://.godot/imported/mask_portrait_left.png-011e6a814344cf99c8e0ed95b1f654ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/background_pausemenu.png"
-dest_files=["res://.godot/imported/background_pausemenu.png-dcf4f37276ff82bfb9e2ef72765126f5.ctex"]
+source_file="res://Assets/SpriteUI/GameBar/mask_portrait_left.png"
+dest_files=["res://.godot/imported/mask_portrait_left.png-011e6a814344cf99c8e0ed95b1f654ec.ctex"]
 
 [params]
 

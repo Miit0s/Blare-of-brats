@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x0tjmk0g5la0"
-path="res://.godot/imported/ui_border_health_sound_bar.png-d4295c1cc0ece88b31d69d2d91ac6a9f.ctex"
+uid="uid://c4vxdokr00vcv"
+path="res://.godot/imported/background_pausemenu.png-1560bd98df504900dd8268cc71f09f33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/ui_border_health_sound_bar.png"
-dest_files=["res://.godot/imported/ui_border_health_sound_bar.png-d4295c1cc0ece88b31d69d2d91ac6a9f.ctex"]
+source_file="res://Assets/SpriteUI/PauseMenu/background_pausemenu.png"
+dest_files=["res://.godot/imported/background_pausemenu.png-1560bd98df504900dd8268cc71f09f33.ctex"]
 
 [params]
 

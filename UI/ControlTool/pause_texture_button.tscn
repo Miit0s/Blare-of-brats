@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://n74tvc5001lj"]
 
-[ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/button_menu.png" id="1_auqjx"]
-[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/button_menu_hover.png" id="2_olmh8"]
+[ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="1_auqjx"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="2_olmh8"]
 
 [sub_resource type="GDScript" id="GDScript_auqjx"]
 resource_name = "change_color_on_over"

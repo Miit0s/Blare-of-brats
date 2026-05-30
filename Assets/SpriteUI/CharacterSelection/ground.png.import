@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chnydl2vj3x52"
-path="res://.godot/imported/spritesheet_healthbar.png-6a655a43d4945670c94450bfcef459fc.ctex"
+uid="uid://dh8mwj4a0uffu"
+path="res://.godot/imported/ground.png-77d1afaaaf60ddbcb267fc67328e3053.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/spritesheet_healthbar.png"
-dest_files=["res://.godot/imported/spritesheet_healthbar.png-6a655a43d4945670c94450bfcef459fc.ctex"]
+source_file="res://Assets/SpriteUI/CharacterSelection/ground.png"
+dest_files=["res://.godot/imported/ground.png-77d1afaaaf60ddbcb267fc67328e3053.ctex"]
 
 [params]
 
