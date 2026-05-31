@@ -1,59 +1,34 @@
 [gd_scene format=3 uid="uid://pb1wrdhadmo0"]
 
 [ext_resource type="Script" uid="uid://bljrnm2vjof5f" path="res://Scripts/UI/round_win_indicator.gd" id="1_f3s1t"]
-[ext_resource type="Texture2D" uid="uid://dn2hb2bkt1fvj" path="res://Assets/MockSprite/white_circle.png" id="1_p5f26"]
+[ext_resource type="Texture2D" uid="uid://cvob7nayrl8q4" path="res://Assets/SpriteUI/GameBar/mask_round_left.png" id="2_f3s1t"]
+[ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="2_yxjfw"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d4su"]
+resource_local_to_scene = true
+shader = ExtResource("2_yxjfw")
+shader_parameter/progress = 0.0
+shader_parameter/color_left = Color(1, 1, 1, 1)
+shader_parameter/color_right = Color(1, 1, 1, 1)
+shader_parameter/shear_angle = -0.18999996152499998
 
 [node name="RoundWinIndicator" type="Control" unique_id=83471062]
 custom_minimum_size = Vector2(82, 40)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -20.0
-offset_right = 41.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 82.0
+offset_bottom = 40.0
 script = ExtResource("1_f3s1t")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=793618963]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1060331592]
+material = SubResource("ShaderMaterial_7d4su")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
-
-[node name="One" type="TextureRect" parent="." unique_id=1489036567]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 9.0
-offset_top = -12.5
-offset_right = 34.0
-offset_bottom = 12.5
-grow_vertical = 2
-texture = ExtResource("1_p5f26")
+texture = ExtResource("2_f3s1t")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Two" type="TextureRect" parent="." unique_id=1858321032]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -12.5
-offset_right = -8.0
-offset_bottom = 12.5
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("1_p5f26")
-expand_mode = 1

@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="14_7145y"]
 [ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="16_kbr2b"]
 
-[node name="Map0" type="Node3D" unique_id=1814952881]
+[node name="Map0" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
 script = ExtResource("1_4h2nc")
+player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="BaseMap" parent="." unique_id=1917887806 instance=ExtResource("4_c5bas")]
 

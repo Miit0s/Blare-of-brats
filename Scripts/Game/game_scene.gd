@@ -6,8 +6,7 @@ class_name GameScene
 @onready var game_end_ui: GameEnd = $CanvasLayer/GameEnd
 
 @export_category("Instance")
-@export var shared_life_bar: SharedLifeBar
-@export var game_sound_bar: GameSoundBar
+@export var game_bar: GameBar
 @export var camera_controller: CameraController
 @export var main_menu_scene_uid: String
 
@@ -40,6 +39,10 @@ func _ready() -> void:
 	round_end_ui.next_round_button_pressed.connect(start_round_animation)
 	game_end_ui.to_main_menu_button_pressed.connect(return_to_main_menu)
 	
+	game_bar.player_win.connect(_on_shared_life_bar_player_win)
+	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
+	game_bar.lifebar_value_change.connect(lifebar_value_change)
+	
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
@@ -48,10 +51,9 @@ func _ready() -> void:
 
 func start_round_animation():
 	round_end_ui.hide()
-	shared_life_bar.hide()
-	game_sound_bar.hide()
+	game_bar.hide()
 	
-	shared_life_bar.change_player_data(players_selection[0], players_selection[1])
+	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	
 	setup_new_scene()
@@ -59,19 +61,17 @@ func start_round_animation():
 	round_start_ui.start_animation()
 
 func start_round():
-	shared_life_bar.reset()
-	game_sound_bar.reset()
+	game_bar.reset_all_bar()
 	
 	_round_ended = false
 	
-	shared_life_bar.show()
-	game_sound_bar.show()
+	game_bar.show()
 	
 	for player in players:
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
-	game_sound_bar.start_timer(round_duration_sec)
+	game_bar.game_sound_bar.start_timer(round_duration_sec)
 	
 	music_fight.post(self)
 
@@ -93,7 +93,7 @@ func setup_new_scene():
 
 func round_end_animaion_finish():
 	var winner_data: PlayerCharacterSelection = _get_player_selection(_last_player_win_id)
-	shared_life_bar.add_player_win(_last_player_win_id, winner_data.color_skin.main_color)
+	game_bar.add_player_win(_last_player_win_id)
 	
 	if _check_if_game_end():
 		round_end_ui.hide()
@@ -129,7 +129,7 @@ func _on_shared_life_bar_player_win(player_id: int) -> void:
 
 func _on_game_sound_bar_sound_bar_fill() -> void:
 	print("Sound bar fill trigger")
-	player_win(shared_life_bar.get_player_id_with_most_health())
+	player_win(game_bar.shared_life_bar.get_player_id_with_most_health())
 
 
 func lifebar_value_change(lifebar_value: float):
@@ -137,17 +137,17 @@ func lifebar_value_change(lifebar_value: float):
 
 
 func _on_map_item_will_be_delete(item: Item) -> void:
-	item.sound_made.disconnect(game_sound_bar.add_sound_to_bar)
+	item.sound_made.disconnect(game_bar.game_sound_bar.add_sound_to_bar)
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
-	new_item.sound_made.connect(game_sound_bar.add_sound_to_bar)
+	new_item.sound_made.connect(game_bar.game_sound_bar.add_sound_to_bar)
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
 	player.freeze()
 	camera_controller.add_player(player)
-	player.has_been_hit.connect(shared_life_bar.add_damage_to_player)
+	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)
 	
 	players.append(player)
 

@@ -13,7 +13,7 @@ class_name Item
 @export_category("Attack")
 @export var attack_speed: float = 0.5
 @export var damage: float = 1
-@export var no_attack_dash: bool = false
+@export var reverse_attack_dash: bool = false
 
 @export_category("Throw")
 @export var throw_force: float = 30.0
@@ -194,8 +194,6 @@ func _add_hit_effect(target: Node3D):
 	hit_particle.emitting = true
 
 func _attack_player(player_hit: Player):
-	current_durability -= 1
-	
 	if not sound_always_made:
 		sound_made.emit(sound_on_attack)
 	

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{8C4B311A-E16C-3DA7-0F8D-406FEDF2A32A}",
+    "Hash": "{527C393D-4B26-719C-699D-FC28C0477443}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -148,22 +148,10 @@
       "GUID": "{7DA362F0-4F33-4B06-B6EF-54602E5F80BD}"
      },
      {
-      "Id": "1006694123",
-      "Name": "Music_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Music_Volume",
-      "GUID": "{A26C8A62-C9D5-4973-BD6E-6D30BAA98CD2}"
-     },
-     {
       "Id": "1342917059",
       "Name": "Mid_Fct",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Mid_Fct",
       "GUID": "{1EF76F75-C10C-4138-917F-696DAD3ECEB0}"
-     },
-     {
-      "Id": "1564184899",
-      "Name": "SFX_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFX_Volume",
-      "GUID": "{3477CCB4-6515-45AE-A2BA-8F0F23C02B8D}"
      },
      {
       "Id": "2785096631",
@@ -182,12 +170,6 @@
       "Name": "Children_Action",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Children_Action",
       "GUID": "{B58C732A-A2A9-47A8-A0E0-2F2DABB39BDF}"
-     },
-     {
-      "Id": "4179668880",
-      "Name": "Master_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Master_Volume",
-      "GUID": "{7F904059-2BC2-4080-B2CD-01042F006706}"
      }
     ],
     "StateGroups": [
@@ -697,6 +679,6 @@
     ]
    }
   ],
-  "FileHash": "{88DF7796-69E3-E8FE-6BC2-70765D48C4D7}"
+  "FileHash": "{0BE02635-6FFD-BDE2-8209-F7BB510F4B7F}"
  }
 }

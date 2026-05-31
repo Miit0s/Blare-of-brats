@@ -25,6 +25,8 @@ enum SelectionState {
 
 @export var character_animation_for_skin: Dictionary[PossibleSkin, CharacterAnimation]
 
+@export var back_player_right_sided: bool = false
+
 var _player_id: int = -1
 var is_slot_available: bool:
 	get(): return _player_id == -1
@@ -39,6 +41,9 @@ signal player_his_ready()
 signal player_no_more_ready()
 
 func _ready() -> void:
+	if back_player_right_sided:
+		back_player.position.x = (back_player.position.x * -1) - back_player.size.x
+	
 	current_skin = begin_skin
 	switch_to_empty_slot()
 	
