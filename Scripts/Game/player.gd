@@ -346,11 +346,12 @@ func _override_color_effect():
 
 func _update_sprite(current_direction: Vector3, is_moving: bool):
 	if not is_moving:
-		var animations_index: int = _get_angle_zone(current_direction, character_animation.idle_animation.get_animation_names().size())
-		match animations_index:
-			0: _change_player_sprite(character_animation.idle_animation, "left")
-			1: _change_player_sprite(character_animation.idle_animation, "right")
-			2: _change_player_sprite(character_animation.idle_animation, "back")
+		if current_direction.z < 0:
+			_change_player_sprite(character_animation.idle_animation, "back")
+		elif current_direction.x < 0:
+			_change_player_sprite(character_animation.idle_animation, "left")
+		else:
+			_change_player_sprite(character_animation.idle_animation, "right")
 	else:
 		var animations_index: int = _get_angle_zone(current_direction, character_animation.run_animation.get_animation_names().size())
 		match animations_index:
