@@ -84,6 +84,7 @@ func setup_new_scene():
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
+	new_scene.balloon_pop.connect(game_bar.game_sound_bar.add_sound_to_bar)
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	

@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_4h2nc"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="4_c5bas"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="8_y0a5r"]
+[ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_hndmx"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="9_svlak"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="10_d1br4"]
+[ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_kt8kp"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="11_4h2nc"]
 [ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="14_7145y"]
 [ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="16_kbr2b"]
@@ -65,6 +67,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.747863, 1.1439927, 4.50156
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=921182767 instance=ExtResource("11_4h2nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 1.1439927, 4.8494954)
 
+[node name="BalloonManager" type="Node3D" parent="." unique_id=93648664 node_paths=PackedStringArray("balloons")]
+script = ExtResource("9_hndmx")
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon4")]
+metadata/_custom_type_script = "uid://bia4ppbrylfo"
+
+[node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_kt8kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5910367, 0.8758886, -0.27515283)
+
+[node name="Balloon2" parent="BalloonManager" unique_id=1058621012 instance=ExtResource("10_kt8kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.410137, 0.9880879, 9.866101)
+
+[node name="Balloon3" parent="BalloonManager" unique_id=309413288 instance=ExtResource("10_kt8kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4235754, 0.9880879, 4.2287607)
+
+[node name="Balloon4" parent="BalloonManager" unique_id=1288528648 instance=ExtResource("10_kt8kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.064918, 0.9880879, -0.17334777)
+
 [connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
 [connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]
+[connection signal="sound_emit" from="BalloonManager" to="." method="_on_balloon_manager_sound_emit"]
