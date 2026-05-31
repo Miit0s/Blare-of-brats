@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/MockSprite/player_indicator.png" id="6_mnl0s"]
 [ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="6_ymab0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5803h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymab0"]
 resource_local_to_scene = true
 shader = ExtResource("6_ymab0")
 shader_parameter/progress = 0.0
@@ -31,23 +31,22 @@ script = ExtResource("1_fs1sv")
 
 [node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("2_t1itt")]
 layout_mode = 1
-anchors_preset = 14
-anchor_left = 0.0
-anchor_right = 1.0
-offset_left = -6.33
-offset_top = -54.5
-offset_right = -6.329956
-offset_bottom = -8.5
+offset_left = -431.0
+offset_top = -52.5
+offset_right = 419.0
+offset_bottom = 2.5
 
 [node name="GameSoundBar" parent="." unique_id=1894340611 instance=ExtResource("3_7nl3k")]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 18.065002
-offset_right = 0.0
-offset_bottom = 66.44995
+offset_left = -303.0
+offset_top = 14.5
+offset_right = 307.0
+offset_bottom = 62.884995
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -59,7 +58,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ibwid")
-expand_mode = 4
+expand_mode = 1
 stretch_mode = 5
 
 [node name="RoundWinIndicatorLeft" parent="." unique_id=83471062 instance=ExtResource("4_7nl3k")]
@@ -69,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -578.42
-offset_top = -34.0
-offset_right = -432.4198
-offset_bottom = 44.0
+offset_left = -499.0
+offset_top = -47.0
+offset_right = -369.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -84,16 +83,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 506.0
-offset_top = -34.0
-offset_right = 652.0
-offset_bottom = 44.0
+offset_left = 435.0
+offset_top = -47.0
+offset_right = 565.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" parent="RoundWinIndicatorRight" index="0" unique_id=1060331592]
-material = SubResource("ShaderMaterial_5803h")
+material = SubResource("ShaderMaterial_ymab0")
 texture = ExtResource("5_85yq0")
 
 [node name="PlayerIndicatorLeft" type="TextureRect" parent="." unique_id=450559806]

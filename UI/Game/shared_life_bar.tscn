@@ -217,8 +217,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.5137255)
 
-[node name="ColorVersusContainer" type="Control" parent="." unique_id=1969562210]
+[node name="LifeBarMask" type="TextureRect" parent="." unique_id=1729510888]
+clip_children = 1
 z_index = 1
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5xvwn")
+expand_mode = 1
+
+[node name="ColorVersusContainer" type="Control" parent="LifeBarMask" unique_id=1969562210]
 custom_minimum_size = Vector2(67.2, 67.2)
 layout_mode = 1
 anchors_preset = 8
@@ -226,14 +238,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -33.600006
-offset_top = -33.6
-offset_right = 33.600006
-offset_bottom = 33.6
+offset_left = -33.599976
+offset_top = -33.600006
+offset_right = 33.600037
+offset_bottom = 33.59999
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorVersusAnimatedSprite2D" type="AnimatedSprite2D" parent="ColorVersusContainer" unique_id=377565418]
+[node name="ColorVersusAnimatedSprite2D" type="AnimatedSprite2D" parent="LifeBarMask/ColorVersusContainer" unique_id=377565418]
 material = SubResource("ShaderMaterial_gkif4")
 position = Vector2(5.955, -2.4)
 scale = Vector2(0.035, 0.035)
@@ -242,4 +254,3 @@ autoplay = "default"
 frame_progress = 0.8149686
 centered = false
 offset = Vector2(0, -75)
-

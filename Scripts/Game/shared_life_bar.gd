@@ -4,8 +4,8 @@ class_name SharedLifeBar
 @onready var life_bar: TextureRect = $LifeBar
 @onready var middle_bar: ColorRect = $MiddleBar
 
-@onready var color_versus_container: Control = $ColorVersusContainer
-@onready var color_versus_animated_sprite_2d: AnimatedSprite2D = $ColorVersusContainer/ColorVersusAnimatedSprite2D
+@onready var color_versus_container: Control = $LifeBarMask/ColorVersusContainer
+@onready var color_versus_animated_sprite_2d: AnimatedSprite2D = $LifeBarMask/ColorVersusContainer/ColorVersusAnimatedSprite2D
 
 @export var player_health: float = 100
 
