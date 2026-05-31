@@ -70,6 +70,8 @@ signal has_loose_durability()
 signal will_be_destroy(item: Item)
 
 func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	
 	camera = get_viewport().get_camera_3d()
 	current_durability = durability
 	
@@ -80,9 +82,6 @@ func _physics_process(_delta: float) -> void:
 	if not has_been_throw: return
 	
 	if global_position.distance_to(_throw_start_point) > throw_max_distance:
-		destroy()
-	
-	if linear_velocity.length() < minimal_speed:
 		destroy()
 
 func _process(_delta: float) -> void:
@@ -139,7 +138,7 @@ func destroy():
 	freeze = true
 	
 	attack_collision_area.monitoring = false
-	attack_collision_area.monitorable = false
+	attack_collision_area.set_deferred("monitorable", false)
 	
 	has_been_throw = false
 	is_attacking = false
@@ -213,3 +212,7 @@ func cancel_animation():
 	gpu_trail_3d.length = 0
 	
 	animated_sprite_3d.stop()
+
+func _on_body_entered(body: Node):
+	if has_been_throw and body is not Player:
+		destroy()
