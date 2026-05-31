@@ -5,6 +5,7 @@ class_name Player
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
+@onready var throw_direction: Node3D = $ThrowDirection
 
 @export_range(0,3) var player_id: int = 0
 
@@ -69,6 +70,7 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
 @export var dash_effect: GPUParticles3D
+@export var throw_arrow: Sprite3D
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.BACK
@@ -147,6 +149,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
 		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
+		throw_direction.show()
 	
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
@@ -163,6 +166,7 @@ func _process(delta: float) -> void:
 		
 		if aim_direction != Vector3.ZERO:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
+			throw_direction.look_at(throw_direction.global_position + aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -312,6 +316,7 @@ func switch_item():
 	switch_sound.post(self)
 
 func throw(direction: Vector3):
+	throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
@@ -428,6 +433,8 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
+	
+	throw_arrow.modulate = selection.color_skin.main_color
 
 func apply_slow(speed_multiplier: float):
 	var slow_down_tween: Tween = create_tween()
