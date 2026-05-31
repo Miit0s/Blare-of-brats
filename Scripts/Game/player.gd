@@ -109,7 +109,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
 	elif _is_making_attack_move:
-		velocity = _last_direction.normalized() * attack_move_speed
+		if current_picked_item.reverse_attack_dash: velocity = -(_last_direction.normalized()) * attack_move_speed
+		else: velocity = _last_direction.normalized() * attack_move_speed
 	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
@@ -223,19 +224,16 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	if current_picked_item.no_attack_dash:
-		current_picked_item.attack(direction)
-	else:
-		_is_attacking = true
-		_is_making_attack_move = true
+	_is_attacking = true
+	_is_making_attack_move = true
 
-		_attack_move_timer = create_tween()
-		_attack_move_timer.tween_interval(attack_move_duration)
-		_attack_move_timer.tween_callback(func(): 
-			_is_making_attack_move = false
-			current_picked_item.attack(direction)
-			_attack_move_timer = null
-		)
+	_attack_move_timer = create_tween()
+	_attack_move_timer.tween_interval(attack_move_duration)
+	_attack_move_timer.tween_callback(func(): 
+		_is_making_attack_move = false
+		current_picked_item.attack(direction)
+		_attack_move_timer = null
+	)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)

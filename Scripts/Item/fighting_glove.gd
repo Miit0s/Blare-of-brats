@@ -33,3 +33,7 @@ func item_picked_up(player_id: int):
 	super.item_picked_up(player_id)
 	
 	animated_sprite_3d.rotate_x(deg_to_rad(-90))
+
+func _attack_player(player_hit: Player):
+	current_durability -= 1
+	super._attack_player(player_hit)
