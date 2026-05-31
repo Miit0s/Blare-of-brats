@@ -211,3 +211,5 @@ func cancel_animation():
 	
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
+	
+	animated_sprite_3d.stop()

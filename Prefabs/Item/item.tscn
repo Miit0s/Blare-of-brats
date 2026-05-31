@@ -130,4 +130,3 @@ metadata/_custom_type_script = "uid://04ta3q4y8qhg"
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_0o2h0")
-

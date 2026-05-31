@@ -8,6 +8,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab0ye"]
+resource_local_to_scene = true
 size = Vector3(0.5, 0.646, 0.5)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_okxgy"]

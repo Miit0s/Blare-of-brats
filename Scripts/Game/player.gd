@@ -82,7 +82,6 @@ var _is_invincible: bool = false
 var _is_aiming: bool = false
 var _is_freeze: bool = false
 
-var _attack_tween: Tween = null
 var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
@@ -145,7 +144,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("PickUp" + _suffix) and not current_picked_item:
 		pick_up()
 	
-	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
 	
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
@@ -249,10 +249,9 @@ func cancel_animation():
 	_is_aiming = false
 
 func _kill_current_animation():
-	if _attack_tween:
-		_attack_tween.kill()
 	if _attack_move_timer:
 		_attack_move_timer.kill()
+		_attack_move_timer = null
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
