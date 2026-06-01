@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{6821E1A6-1EFA-A4A3-A66F-8C267E067A07}",
+    "Hash": "{CFB235EF-2F9A-6AE1-0D34-6990147AEB8E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "UI_Colors.wav",
-      "CachePath": "A1/{A18E7006-2B21-09A8-F165-7ED57AD6B17D}.wem"
+      "CachePath": "B2/{B270214A-7885-4F88-B1A4-9CC94D413317}.wem"
      },
      {
       "Id": "79414803",
@@ -923,6 +923,6 @@
     ]
    }
   ],
-  "FileHash": "{A50573F4-FF62-978A-15CD-72FF5AD17D33}"
+  "FileHash": "{BE383EAB-F7BF-487B-773E-4A3596F95681}"
  }
 }
