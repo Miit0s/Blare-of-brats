@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_rrmmq"]
 [ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_17qdp"]
 [ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_mf6fu"]
-[ext_resource type="PackedScene" path="res://Scene/base_map.tscn" id="8_t5h2n"]
+[ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_t5h2n"]
+[ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_mf6fu"]
+[ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_w1516"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_u5l5f"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_uqnfj"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_y7bbm"]
@@ -61,6 +63,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.684582, 1.1439927, 4.50156
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_x8kys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7877626, 1.1439927, 4.8494954)
+
+[node name="BalloonManager" type="Node3D" parent="." unique_id=940623202 node_paths=PackedStringArray("balloons")]
+script = ExtResource("9_mf6fu")
+balloons = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+
+[node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.359044, 0.8758886, 5.7637653)
+
+[node name="Balloon2" parent="BalloonManager" unique_id=1892374480 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0867481, 0.8758886, 5.7637653)
+
+[node name="Balloon5" parent="BalloonManager" unique_id=1305902320 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.635899, 0.8758886, 1.4883151)
+
+[node name="Balloon6" parent="BalloonManager" unique_id=1036326731 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.635899, 0.8758886, 2.1656477)
+
+[node name="Balloon7" parent="BalloonManager" unique_id=1608518120 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4310255, 0.8758886, -2.373719)
+
+[node name="Balloon8" parent="BalloonManager" unique_id=1748093570 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.266186, 0.8758886, -2.373719)
+
+[node name="Balloon9" parent="BalloonManager" unique_id=2010022413 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.768972, 0.8758886, -2.6882255)
+
+[node name="Balloon10" parent="BalloonManager" unique_id=232130717 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.768972, 0.8758886, -2.06488)
+
+[node name="Balloon11" parent="BalloonManager" unique_id=1297218562 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.768972, 0.8758886, -1.5250634)
+
+[node name="Balloon12" parent="BalloonManager" unique_id=606796333 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.768972, 0.8758886, -1.0846338)
+
+[node name="Balloon13" parent="BalloonManager" unique_id=2120129620 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.768972, 0.8758886, -0.6676006)
+
+[node name="Balloon3" parent="BalloonManager" unique_id=1616021214 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43735182, 0.8758886, 5.7637653)
+
+[node name="Balloon4" parent="BalloonManager" unique_id=411177850 instance=ExtResource("10_w1516")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8082913, 0.8758886, 5.7637653)
 
 [connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
 [connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
