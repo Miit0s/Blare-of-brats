@@ -7,10 +7,13 @@ State	ID	Name	State Group			Notes
 	4261315644	Parents	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	1006694123	Music_Volume			\Default Work Unit\Music_Volume	
 	1342917059	Mid_Fct			\Default Work Unit\Mid_Fct	
+	1564184899	SFX_Volume			\Default Work Unit\SFX_Volume	
 	2785096631	Low_Fct			\Default Work Unit\Low_Fct	
 	2988444587	High_Fct			\Default Work Unit\High_Fct	
 	3321746565	Children_Action			\Default Work Unit\Children_Action	
+	4179668880	Master_Volume			\Default Work Unit\Master_Volume	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1326580637	Mid_Att			\Default Work Unit\Main Audio Bus\Mid_Att	

@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
 [ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/map_5.tscn" id="8_walhf"]
 [ext_resource type="PackedScene" uid="uid://d3ffwya1ybdi7" path="res://Scene/Map/map_6.tscn" id="9_gwqyt"]
-[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
+[ext_resource type="Script" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dknedcvbphhl5" path="res://Scene/Map/map_7.tscn" id="10_5qsl7"]
 [ext_resource type="PackedScene" uid="uid://bt2cibhaceome" path="res://Scene/Map/map_8.tscn" id="11_tw2pt"]
 [ext_resource type="PackedScene" uid="uid://bbej6o3miqfd3" path="res://Scene/Map/map_9.tscn" id="12_hdg2p"]
@@ -36,6 +36,7 @@ possible_level = Array[PackedScene]([ExtResource("8_ee6vw"), ExtResource("6_g00s
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
 load_on = 1
+unload_on = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
 
