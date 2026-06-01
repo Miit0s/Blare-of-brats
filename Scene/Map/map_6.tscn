@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d3ffwya1ybdi7"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_hg8ol"]
+[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_xnos3"]
+[ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_8e4ms"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_6uadj"]
-[ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="13_upe6v"]
-[ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="14_1ami0"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_6wn3y"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_sch0l"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_gkyg7"]
@@ -17,23 +17,23 @@ player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="Wall" type="Node3D" parent="." unique_id=1102481145]
 
-[node name="Mur_03" parent="Wall" unique_id=1978970846 instance=ExtResource("13_upe6v")]
-transform = Transform3D(-0.09758074, 0, -0.14000711, 0, 0.198, 0, 0.09758073, 0, -0.14000717, 5.1992083, 1.0134239, 4.831026)
+[node name="ObstacleComplete" parent="Wall" unique_id=744248793 instance=ExtResource("3_xnos3")]
+transform = Transform3D(2.591041e-08, 0, -0.032601677, 0, 0.19758703, 0, 0.19758703, 0, 4.2751935e-09, -5.9408517, 1.048974, 2.889339)
 
-[node name="Mur_04" parent="Wall" unique_id=276579093 instance=ExtResource("13_upe6v")]
-transform = Transform3D(-8.873411e-09, 0, -0.198, 0, 0.198, 0, 0.203, 0, -8.654855e-09, -6.051468, 1.0134239, 2.885974)
+[node name="ObstacleComplete2" parent="Wall" unique_id=749747416 instance=ExtResource("3_xnos3")]
+transform = Transform3D(-0.10200989, 0, -0.02305287, 0, 0.19758703, 0, 0.102009915, 0, -0.023052862, 5.2200303, 1.048974, 4.821006)
 
-[node name="DemiMur_01" parent="Wall" unique_id=1436889650 instance=ExtResource("14_1ami0")]
-transform = Transform3D(-7.780627e-09, 0, -0.198, 0, 0.198, 0, 0.178, 0, -8.654855e-09, -1.5504065, 0.33136094, 8.228257)
+[node name="NewDemiMur" parent="Wall" unique_id=1564136151 instance=ExtResource("4_8e4ms")]
+transform = Transform3D(2.0713781e-08, 0, -0.031851534, 0, 0.19758703, 0, 0.1579587, 0, 4.176824e-09, -1.4381945, 0.31302506, 8.354499)
 
-[node name="DemiMur_02" parent="Wall" unique_id=39952676 instance=ExtResource("14_1ami0")]
-transform = Transform3D(-0.11799998, 0, 2.9897166e-08, 0, 0.198, 0, -1.7817502e-08, 0, -0.19799998, -11.063322, 0.33136094, 5.957802)
+[node name="NewDemiMur2" parent="Wall" unique_id=964636202 instance=ExtResource("4_8e4ms")]
+transform = Transform3D(0.12169339, 0, 5.569099e-09, 0, 0.19758703, 0, -2.1277547e-08, 0, 0.031851534, -11.124809, 0.31302506, 5.8757644)
 
-[node name="DemiMur_04" parent="Wall" unique_id=511283322 instance=ExtResource("14_1ami0")]
-transform = Transform3D(-0.178, 0, 2.989717e-08, 0, 0.198, 0, -2.6877254e-08, 0, -0.198, 8.88832, 0.33136094, -0.18006706)
+[node name="NewDemiMur4" parent="Wall" unique_id=293919289 instance=ExtResource("4_8e4ms")]
+transform = Transform3D(0.18711472, 0, 5.569099e-09, 0, 0.19758703, 0, -3.2716173e-08, 0, 0.031851534, 8.685105, 0.31302506, -0.3956293)
 
-[node name="DemiMur_03" parent="Wall" unique_id=676707630 instance=ExtResource("14_1ami0")]
-transform = Transform3D(-0.623, 0, 2.989717e-08, 0, 0.198, 0, -9.407039e-08, 0, -0.198, -5.6726627, 0.33136094, -0.025539875)
+[node name="NewDemiMur3" parent="Wall" unique_id=1462588023 instance=ExtResource("4_8e4ms")]
+transform = Transform3D(0.60853344, 0, 5.569099e-09, 0, 0.19758703, 0, -1.0639936e-07, 0, 0.031851534, -6.405013, 0.31302506, -0.1891893)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_6wn3y")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bt2cibhaceome"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_vx28m"]
+[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_ndj3r"]
+[ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_ubqfm"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_5630m"]
-[ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="13_0xwvt"]
-[ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="14_w775o"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_hl6t2"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_wwcvi"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_die3c"]
@@ -17,29 +17,29 @@ player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="Wall" type="Node3D" parent="." unique_id=1767474082]
 
-[node name="Mur_03" parent="Wall" unique_id=1978970846 instance=ExtResource("13_0xwvt")]
-transform = Transform3D(-9.74764e-09, 0, -0.198, 0, 0.198, 0, 0.223, 0, -8.654855e-09, -9.548175, 1.0134239, 5.486705)
+[node name="ObstacleComplete" parent="Wall" unique_id=744248793 instance=ExtResource("3_ndj3r")]
+transform = Transform3D(0.23189081, 0, 5.9287584e-09, 0, 0.19758703, 0, -4.054508e-08, 0, 0.033908546, 5.9785213, 1.038955, 8.1413145)
 
-[node name="Mur_04" parent="Wall" unique_id=346676616 instance=ExtResource("13_0xwvt")]
-transform = Transform3D(-9.74764e-09, 0, -0.198, 0, 0.198, 0, 0.223, 0, -8.654855e-09, -3.6156082, 1.0134239, 5.486705)
+[node name="ObstacleComplete2" parent="Wall" unique_id=447595890 instance=ExtResource("3_ndj3r")]
+transform = Transform3D(0.23189081, 0, 5.9287584e-09, 0, 0.19758703, 0, -4.054508e-08, 0, 0.033908546, 4.980231, 1.038955, 3.957764)
 
-[node name="Mur_05" parent="Wall" unique_id=1591806550 instance=ExtResource("13_0xwvt")]
-transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, 5.087679, 1.0134239, 4.0338135)
+[node name="ObstacleComplete3" parent="Wall" unique_id=357390876 instance=ExtResource("3_ndj3r")]
+transform = Transform3D(3.040881e-08, 0, -0.033908546, 0, 0.19758703, 0, 0.23189081, 0, 4.446569e-09, -3.473489, 1.038955, 5.7530036)
 
-[node name="Mur_06" parent="Wall" unique_id=350390241 instance=ExtResource("13_0xwvt")]
-transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, -7.845045, 1.0134239, -0.3299284)
+[node name="ObstacleComplete4" parent="Wall" unique_id=2089170350 instance=ExtResource("3_ndj3r")]
+transform = Transform3D(3.040881e-08, 0, -0.033908546, 0, 0.19758703, 0, 0.23189081, 0, 4.446569e-09, -9.433569, 1.038955, 5.563965)
 
-[node name="DemiMur_06" parent="Wall" unique_id=1436889650 instance=ExtResource("14_w775o")]
-transform = Transform3D(-0.024070175, 0, -0.1912533, 0, 0.19799997, 0, 0.08983109, 0, -0.05124618, 2.12712, 0.33136094, 2.781363)
+[node name="ObstacleComplete5" parent="Wall" unique_id=1777782675 instance=ExtResource("3_ndj3r")]
+transform = Transform3D(0.21686038, 0, 5.9287584e-09, 0, 0.19758703, 0, -3.7917076e-08, 0, 0.033908546, -8.13051, 1.038955, -0.51145864)
 
-[node name="DemiMur_07" parent="Wall" unique_id=217028095 instance=ExtResource("14_w775o")]
-transform = Transform3D(-7.450581e-09, 0, -0.198, 0, 0.19799997, 0, 0.09299999, 0, -1.4901161e-08, -10.90006, 0.33136094, -1.6040225)
+[node name="NewDemiMur" parent="Wall" unique_id=1564136151 instance=ExtResource("4_ubqfm")]
+transform = Transform3D(-0.025910053, 0, -0.030949147, 0, 0.19758703, 0, 0.10652165, 0, -0.0075279903, 2.3657908, 0.18644986, 2.6162794)
 
-[node name="Mur_07" parent="Wall" unique_id=2123695512 instance=ExtResource("13_0xwvt")]
-transform = Transform3D(-0.223, 0, 1.730971e-08, 0, 0.198, 0, -1.9495282e-08, 0, -0.19800003, 6.024246, 1.0134239, 8.2700815)
+[node name="NewDemiMur3" parent="Wall" unique_id=2114655144 instance=ExtResource("4_ubqfm")]
+transform = Transform3D(0.00059578056, 0, -0.03185077, 0, 0.19758703, 0, 0.08619828, 0, 0.00022014556, 8.88416, 0.18644986, 9.552383)
 
-[node name="DemiMur_08" parent="Wall" unique_id=68016812 instance=ExtResource("14_w775o")]
-transform = Transform3D(-7.450581e-09, 0, -0.198, 0, 0.19799997, 0, 0.09299999, 0, -1.4901161e-08, 8.775188, 0.33136094, 9.5098)
+[node name="NewDemiMur2" parent="Wall" unique_id=1324668277 instance=ExtResource("4_ubqfm")]
+transform = Transform3D(-4.7919713e-09, 0, -0.031851538, 0, 0.19758703, 0, 0.10962752, 0, -1.392275e-09, -10.875069, 0.18036637, -1.8094769)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_hl6t2")

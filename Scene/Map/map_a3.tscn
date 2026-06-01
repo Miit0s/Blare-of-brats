@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b48lul6k3ccsj"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_06al6"]
+[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_axf8h"]
+[ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_i0brd"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_vs5ie"]
-[ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="13_u2cu3"]
-[ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="14_84nba"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_t88qv"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_eujy0"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_eq1h6"]
@@ -17,38 +17,32 @@ player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="Wall" type="Node3D" parent="." unique_id=986442382]
 
-[node name="Mur_01" parent="Wall" unique_id=1978970846 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(0.19758704, 0, 0, 0, 0.19758704, 0, 0, 0, 0.19758704, -6.824214, 1.1, 2.151373)
+[node name="ObstacleComplete" parent="Wall" unique_id=744248793 instance=ExtResource("3_axf8h")]
+transform = Transform3D(-0.19758704, -5.820766e-11, -3.6003343e-09, -2.910383e-11, 0.19758683, -6.109631e-05, 1.7273692e-08, -0.00029312613, -0.041183043, -6.708559, 1.0090067, 2.1520555)
 
-[node name="Mur_03" parent="Wall" unique_id=169643306 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -9.572544, 1.1610863, -0.6083498)
+[node name="ObstacleComplete2" parent="Wall" unique_id=948898227 instance=ExtResource("3_axf8h")]
+transform = Transform3D(2.5910433e-08, -8.731149e-11, -0.041183084, 0.00029312613, 0.19758682, -7.275958e-12, 0.19758682, -0.00029312613, 5.4005156e-09, -9.547977, 1.0045084, -0.88016605)
 
-[node name="Mur_02" parent="Wall" unique_id=319688782 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 0.39320618, 1.1032538, 8.106141)
+[node name="ObstacleComplete3" parent="Wall" unique_id=306932094 instance=ExtResource("3_axf8h")]
+transform = Transform3D(2.5910433e-08, -8.731149e-11, -0.041183084, 0.00029312613, 0.19758682, -7.275958e-12, 0.19758682, -0.00029312613, 5.4005156e-09, 6.1562357, 1.0045084, -0.88016814)
 
-[node name="Mur_06" parent="Wall" unique_id=1101591506 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 5.8938193, 1.1032538, -0.48321152)
+[node name="ObstacleComplete4" parent="Wall" unique_id=1366479715 instance=ExtResource("3_axf8h")]
+transform = Transform3D(2.5910433e-08, -8.731149e-11, -0.041183084, 0.00029312613, 0.19758682, -7.275958e-12, 0.19758682, -0.00029312613, 5.4005156e-09, 6.1562366, 1.0175755, 7.9279337)
 
-[node name="Mur_07" parent="Wall" unique_id=925972776 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 5.8938193, 1.1032538, -0.48321152)
+[node name="ObstacleComplete5" parent="Wall" unique_id=1574945383 instance=ExtResource("3_axf8h")]
+transform = Transform3D(2.5910433e-08, -8.731149e-11, -0.041183084, 0.00029312613, 0.19758682, -7.275958e-12, 0.19758682, -0.00029312613, 5.4005156e-09, 0.4526472, 1.0175755, 7.9279346)
 
-[node name="Mur_04" parent="Wall" unique_id=1950267101 instance=ExtResource("13_u2cu3")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 5.911137, 1.1032538, 8.106141)
+[node name="NewDemiMur" parent="Wall" unique_id=1564136151 instance=ExtResource("4_i0brd")]
+transform = Transform3D(0.25600797, 0, 5.569099e-09, 0, 0.19758703, 0, -4.4761858e-08, 0, 0.031851534, -3.5507734, 0.5126911, 5.2076273)
 
-[node name="DemiMur_01" parent="Wall" unique_id=1436889650 instance=ExtResource("14_84nba")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 7.7806034, 0.33136094, 2.0492053)
+[node name="NewDemiMur3" parent="Wall" unique_id=381338554 instance=ExtResource("4_i0brd")]
+transform = Transform3D(0.25600797, 0, 5.569099e-09, 0, 0.19758703, 0, -4.4761858e-08, 0, 0.031851534, 5.852901, 0.32323608, 1.8221908)
 
-[node name="DemiMur_05" parent="Wall" unique_id=840540762 instance=ExtResource("14_84nba")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 4.0552435, 0.33136094, 2.0463157)
+[node name="NewDemiMur4" parent="Wall" unique_id=2140957662 instance=ExtResource("4_i0brd")]
+transform = Transform3D(0.13021392, 0, 5.569099e-09, 0, 0.19758703, 0, -2.2767326e-08, 0, 0.031851534, 9.484745, 0.32323608, 5.537657)
 
-[node name="DemiMur_02" parent="Wall" unique_id=1061613303 instance=ExtResource("14_84nba")]
-transform = Transform3D(-0.258, 0, 2.989717e-08, 0, 0.198, 0, -3.8956916e-08, 0, -0.198, -3.3230596, 0.33136094, 5.306873)
-
-[node name="DemiMur_03" parent="Wall" unique_id=1399995764 instance=ExtResource("14_84nba")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 9.612795, 0.33136094, 5.750878)
-
-[node name="DemiMur_04" parent="Wall" unique_id=247180979 instance=ExtResource("14_84nba")]
-transform = Transform3D(-0.13177, 0, 0.13739564, 0, 0.198, 0, -0.12698688, 0, -0.14257082, -10.119505, 0.10511601, 7.1175146)
+[node name="NewDemiMur2" parent="Wall" unique_id=1960488526 instance=ExtResource("4_i0brd")]
+transform = Transform3D(0.1311828, 0, -0.022522429, 0, 0.19758703, 0, 0.13118276, 0, 0.022522436, -10.090792, 0.5126911, 6.9128275)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_t88qv")
