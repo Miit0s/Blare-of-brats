@@ -58,7 +58,6 @@ character_animation = ExtResource("2_d0yyq")
 material_override = SubResource("ShaderMaterial_d0yyq")
 sprite_frames = ExtResource("6_3uwvs")
 animation = &"right"
-frame_progress = 0.0
 
 [node name="DashEffect" parent="." index="4" unique_id=2051336107]
 material_override = SubResource("ShaderMaterial_3uwvs")

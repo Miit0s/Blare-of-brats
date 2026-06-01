@@ -366,9 +366,11 @@ func _update_sprite(current_direction: Vector3, is_moving: bool):
 			0: _change_player_sprite(character_animation.run_animation, "front")
 			1: _change_player_sprite(character_animation.run_animation, "front_right")
 			2: _change_player_sprite(character_animation.run_animation, "side_right")
-			3: _change_player_sprite(character_animation.run_animation, "back")
-			4: _change_player_sprite(character_animation.run_animation, "side_left")
-			5: _change_player_sprite(character_animation.run_animation, "front_left")
+			3: _change_player_sprite(character_animation.run_animation, "back_right")
+			4: _change_player_sprite(character_animation.run_animation, "back")
+			5: _change_player_sprite(character_animation.run_animation, "back_left")
+			6: _change_player_sprite(character_animation.run_animation, "side_left")
+			7: _change_player_sprite(character_animation.run_animation, "front_left")
 
 func _get_angle_zone(direction: Vector3, steps: int) -> int:
 	var angle: float = atan2(direction.x, direction.z)
