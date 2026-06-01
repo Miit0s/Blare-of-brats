@@ -73,6 +73,7 @@ float map_range(float min1, float max1, float min2, float max2, float v) {
 }
 
 void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
 	vec2 uv = UV;
 	
 	float angle = 1.571 + (shear_angle * PI/4.0);
@@ -114,7 +115,5 @@ void fragment() {
 	gradient_color += gradient_color_x;
 	gradient_color = mix(gradient_color_x, gradient_color_y, gradient_color_y.a);
 	
-	
-	
-	COLOR = vec4(gradient_color.rgb, shape.x);
+	COLOR = vec4(gradient_color.rgb, shape.x * texture_color.a);
 }

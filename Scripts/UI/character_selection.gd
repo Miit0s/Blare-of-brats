@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name CharacterSelection
 
 @onready var texture_rect: TextureRect = $TextureRect
