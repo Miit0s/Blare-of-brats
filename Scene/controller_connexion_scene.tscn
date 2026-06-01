@@ -69,6 +69,32 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_ob3uu")
 centered = false
 
+[node name="Wolve" type="TextureRect" parent="Visual" unique_id=899493319]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_right = 1920.0
+offset_bottom = 540.0
+grow_vertical = 2
+texture = ExtResource("13_ot06r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wolve2" type="TextureRect" parent="Visual" unique_id=715630394]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -540.0
+offset_right = 1920.0
+offset_bottom = 540.0
+grow_vertical = 2
+texture = ExtResource("11_0hkld")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Flag2" type="TextureRect" parent="Visual" unique_id=301474625]
 layout_mode = 0
 offset_left = -50.0
@@ -120,32 +146,6 @@ offset_top = -29.0
 offset_right = 1849.0
 offset_bottom = 327.0
 texture = ExtResource("9_geu80")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Wolve" type="TextureRect" parent="Visual" unique_id=899493319]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -540.0
-offset_right = 1920.0
-offset_bottom = 540.0
-grow_vertical = 2
-texture = ExtResource("13_ot06r")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Wolve2" type="TextureRect" parent="Visual" unique_id=715630394]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -540.0
-offset_right = 1920.0
-offset_bottom = 540.0
-grow_vertical = 2
-texture = ExtResource("11_0hkld")
 expand_mode = 1
 stretch_mode = 5
 
