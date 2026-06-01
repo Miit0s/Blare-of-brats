@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_1qhbe"]
 [ext_resource type="Script" uid="uid://cxab38nb5nglb" path="res://Scripts/Item/fighting_glove.gd" id="2_okxgy"]
 [ext_resource type="Texture2D" uid="uid://dm27vejb7wcsk" path="res://Assets/MockSprite/SpriteSheetFightingGlove.png" id="3_ab0ye"]
+[ext_resource type="WwiseEvent" uid="uid://dkwv36grr47rk" path="res://Wwise/resources/Event/{8EEAA15B-A805-4909-9B85-FE3E1D889573}.tres" id="3_f7lnn"]
 [ext_resource type="Texture2D" uid="uid://dsh6ekwqw3wvl" path="res://Assets/MockSprite/boxing_glove_v2.png" id="3_okxgy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_okxgy"]
@@ -68,6 +69,7 @@ attack_speed = 0.3
 damage = 4.0
 sound_on_attack = 3.0
 sound_on_throw = 1.0
+attack_sound = ExtResource("3_f7lnn")
 durability = 3
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
