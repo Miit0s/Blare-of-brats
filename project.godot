@@ -19,7 +19,7 @@ quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
 [application]
 
 config/name="Blare of Brats"
-config/version="0.0.4"
+config/version="0.2.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
