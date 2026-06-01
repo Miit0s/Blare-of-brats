@@ -72,7 +72,7 @@ var _knockback_speed_to_apply: float = 0
 @export var dash_effect: GPUParticles3D
 @export var throw_arrow: Sprite3D
 
-var _current_direction: Vector3 = Vector3.RIGHT
+var _current_direction: Vector3 = Vector3.BACK
 var _last_direction: Vector3 = Vector3.BACK
 var _last_wall_hit_normal: Vector3 = Vector3.ZERO
 
@@ -149,7 +149,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
 		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
-		throw_direction.show()
+		#throw_direction.show()
 	
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
@@ -157,16 +157,19 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
 		attack(_current_direction if _current_direction else _last_direction)
 	
-	if current_picked_item and (not current_picked_item.is_attacking):
-		var aim_direction: Vector3 = Vector3.ZERO
-		aim_direction = _current_direction if _current_direction else _last_direction
+	var aim_direction: Vector3 = Vector3.ZERO
+	aim_direction = _current_direction if _current_direction else _last_direction
 		
+	if current_picked_item and (not current_picked_item.is_attacking):
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		
 		if aim_direction != Vector3.ZERO:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
-			throw_direction.look_at(throw_direction.global_position + aim_direction)
+			#throw_direction.look_at(throw_direction.global_position + aim_direction)
+	
+	if aim_direction != Vector3.ZERO:
+		throw_direction.look_at(throw_direction.global_position + aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -320,7 +323,7 @@ func switch_item():
 	switch_sound.post(self)
 
 func throw(direction: Vector3):
-	throw_direction.hide()
+	#throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
