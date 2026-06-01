@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://wllafbs8srb" path="res://Assets/EnvironmentSprite/floorv03.png" id="3_yghy2"]
 [ext_resource type="Texture2D" uid="uid://dqiv1ljmbjdsl" path="res://Assets/EnvironmentSprite/floor_insidev2.png" id="4_yghy2"]
 [ext_resource type="Texture2D" uid="uid://eptfuhrfcgpk" path="res://Assets/EnvironmentSprite/ph_cube.png" id="6_mt88d"]
+[ext_resource type="Texture2D" uid="uid://bq71d4oysn5oq" path="res://Assets/EnvironmentSprite/clouds_foreground.png" id="7_1k1nn"]
 [ext_resource type="Texture2D" uid="uid://ffrc0lye3c2c" path="res://Assets/EnvironmentSprite/cloud01.png" id="7_dsw8x"]
 [ext_resource type="Texture2D" uid="uid://t4qtxr6s7ifo" path="res://Assets/EnvironmentSprite/barriere_01.png" id="8_8ieg1"]
 [ext_resource type="Texture2D" uid="uid://c1rvcdekd2mx6" path="res://Assets/EnvironmentSprite/banner_star.png" id="9_03jmm"]
@@ -318,11 +319,11 @@ script = ExtResource("1_yghy2")
 environment = SubResource("Environment_e2w2p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=701142628]
-transform = Transform3D(0.19949323, 0.9741476, -0.10601311, -0.7594205, 0.22207014, 0.6115271, 0.61925995, -0.041486975, 0.7840893, 0, 7.358506, 0)
+transform = Transform3D(0.19949323, 0.9741477, -0.10601309, -0.7594205, 0.22207016, 0.611527, 0.61925995, -0.041486982, 0.7840892, -0.3064642, 7.358506, 0)
 light_color = Color(0.8742569, 0.58213884, 0.4690141, 1)
-light_energy = 5.571
+light_energy = 1.19
 light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.238
+light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 
@@ -339,16 +340,16 @@ spot_range = 175.933
 spot_angle = 37.07732
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Light" unique_id=215051657]
-transform = Transform3D(0.11274747, -0.90741396, -0.40483063, 0.35626805, -0.34341958, 0.86898565, -0.9275566, -0.24220416, 0.2845629, -17.090347, 15.690137, 10.867704)
+transform = Transform3D(0.11274747, -0.907414, -0.40483066, 0.35626805, -0.3434196, 0.86898565, -0.9275566, -0.24220417, 0.28456292, -11.823572, 15.907479, 10.867704)
 light_color = Color(0.9183297, 0.9072765, 0.5212632, 1)
-light_energy = 20.0
+light_energy = 7.429
 shadow_enabled = true
 spot_range = 32.904
 spot_attenuation = 0.76
 spot_angle = 35.763977
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Light" unique_id=1081716665]
-transform = Transform3D(0.9075741, -0.24557117, -0.34059364, 0.3201969, -0.1199715, 0.9397237, -0.27163056, -0.96192586, -0.03025189, -15.332857, 17.363535, -1.6175346)
+transform = Transform3D(0.9075741, -0.24557118, -0.34059367, 0.4183371, 0.5985643, 0.6831653, 0.036101528, -0.76250607, 0.645973, -19.094616, 14.93051, -1.6175346)
 light_color = Color(0.9882353, 0.6509804, 0.6745098, 1)
 light_energy = 16.0
 shadow_enabled = true
@@ -368,7 +369,17 @@ spot_attenuation = 0.76
 spot_angle = 41.741062
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Light" unique_id=737906786]
-transform = Transform3D(0.81732863, -0.570257, -0.082346514, 0.55865157, 0.8193164, -0.12895422, 0.14100493, 0.059394985, 0.98822564, -13.710437, 3.9071722, 6.95823)
+transform = Transform3D(0.81732863, -0.57025695, -0.08234655, 0.55865157, 0.81931627, -0.12895426, 0.14100493, 0.059394978, 0.98822564, -13.710437, 3.9071722, 6.7456236)
+light_color = Color(0.6897154, 0.70413756, 0.763465, 1)
+light_energy = 30.0
+light_volumetric_fog_energy = 7.794
+shadow_enabled = true
+spot_range = 21.215
+spot_attenuation = 1.87
+spot_angle = 16.74
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Light" unique_id=543210636]
+transform = Transform3D(-0.8293993, 0.55228543, -0.08412913, 0.5586516, 0.8193163, -0.1289543, -0.0022912025, -0.15395348, -0.9880755, -1.6352568, 13.654095, -16.545969)
 light_color = Color(0.6897154, 0.70413756, 0.763465, 1)
 light_energy = 30.0
 light_volumetric_fog_energy = 7.794
@@ -378,7 +389,7 @@ spot_attenuation = 1.87
 spot_angle = 16.74
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="Light" unique_id=407335873]
-transform = Transform3D(0.7068442, -0.49999014, 0.500381, 0.55486417, 0.8306572, 0.046200454, -0.4387448, 0.24498698, 0.8645718, -8.077917, 3.1555433, 13.356503)
+transform = Transform3D(0.7068442, -0.49999014, 0.500381, 0.55486417, 0.8306572, 0.046200447, -0.4387448, 0.24498698, 0.8645718, -2.940064, 6.55017, 13.356503)
 light_color = Color(0.8641965, 0.6528712, 0.57276076, 1)
 light_energy = 15.68
 shadow_enabled = true
@@ -407,13 +418,19 @@ spot_angle = 16.14
 [node name="Sprite" type="Node3D" parent="." unique_id=2099313172]
 
 [node name="shootingstar" type="Sprite3D" parent="Sprite" unique_id=428930177]
-transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 17.628372, 12.9808655, -4.49298)
+transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 17.628372, 16.070663, -4.49298)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("2_6pmgv")
 
 [node name="shootingstar2" type="Sprite3D" parent="Sprite" unique_id=650260385]
-transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 16.775745, 9.648448, -5.88391)
+transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 16.775745, 18.214012, -5.88391)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_6pmgv")
+
+[node name="shootingstar3" type="Sprite3D" parent="Sprite" unique_id=1037959665]
+transform = Transform3D(0.24986908, 0, 0.22737159, 0, 0.33783516, 0, -0.22737159, 0, 0.24986908, -13.786215, 18.214012, -5.88391)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("2_6pmgv")
@@ -443,10 +460,39 @@ alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="Cloud05" type="Sprite3D" parent="Sprite" unique_id=281362075]
-transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -17.022236, 2.7613125, 14.214143)
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -17.544369, 2.7613125, 15.119185)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_dsw8x")
+
+[node name="Cloud10" type="Sprite3D" parent="Sprite" unique_id=1666141713]
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -12.435814, 2.7613125, 14.214143)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_dsw8x")
+
+[node name="Cloud09" type="Sprite3D" parent="Sprite" unique_id=303372018]
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, 11.268532, 2.365985, 14.379613)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_dsw8x")
+
+[node name="FGClouds" type="Sprite3D" parent="Sprite" unique_id=1079159434]
+transform = Transform3D(-0.7849508, 1.7164098e-15, -2.0586779e-07, 1.1355521e-08, 0.7837559, -0.043297336, 2.0555434e-07, -0.043297336, -0.7837559, 16.636501, 4.9117403, 13.451278)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_1k1nn")
+region_enabled = true
+region_rect = Rect2(-293.19434, 537.93835, 2188.3848, 1845.8937)
+
+[node name="FGClouds2" type="Sprite3D" parent="Sprite" unique_id=465173405]
+transform = Transform3D(-0.7748884, 0.12509178, -0.006910698, 0.12528251, 0.7737088, -0.04274227, 2.0555434e-07, -0.04329734, -0.7837559, -17.080416, 4.9117403, 12.740081)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_1k1nn")
+region_enabled = true
+region_rect = Rect2(-293.19434, 537.93835, 2188.3848, 1845.8937)
 
 [node name="Cloud08" type="Sprite3D" parent="Sprite" unique_id=1498184287]
 transform = Transform3D(-0.7702476, 1.6842592e-15, -2.020116e-07, 1.11428164e-08, 0.7690751, -0.042486317, 2.0170404e-07, -0.042486317, -0.7690751, -21.44979, 2.5991, 11.6871805)
@@ -472,7 +518,7 @@ alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="Barriere01" type="Sprite3D" parent="Sprite" unique_id=526406951]
-transform = Transform3D(-0.3830182, 2.1173327e-15, -1.0045356e-07, 5.5409464e-09, 0.38243517, -0.021127015, 1.0030062e-07, -0.021127015, -0.38243517, -9.445532, 2.9432786, -3.7164602)
+transform = Transform3D(-0.38297042, -0.00033369218, -0.0060405005, 5.5409477e-09, 0.38243517, -0.021127017, 0.0060497085, -0.021124382, -0.38238746, -9.445532, 2.9432786, -3.7164602)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("8_8ieg1")
@@ -759,6 +805,15 @@ texture = ExtResource("13_6hbk0")
 region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
+[node name="BlueBook08" type="Sprite3D" parent="Sprite" unique_id=1087255364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.262497, 6.374593, -2.7562413)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_6hbk0")
+region_enabled = true
+region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
+
 [node name="BlueBook13" type="Sprite3D" parent="Sprite" unique_id=1263405899]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.721434, 3.6369352, 10.181625)
 flip_h = true
@@ -894,14 +949,14 @@ texture = SubResource("GradientTexture2D_y0a5r")
 [node name="Particles" type="Node3D" parent="." unique_id=1784685170]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=662395263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.209167, 4.8374157, -0.6560383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.48317, 8.305851, -0.6560383)
 amount = 500
 lifetime = 1.11
 process_material = SubResource("ParticleProcessMaterial_d1br4")
 draw_pass_1 = SubResource("QuadMesh_7145y")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Particles" unique_id=1326223353]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.460999, 4.8374157, -2.5021687)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.255169, 7.2497854, 1.5892467)
 amount = 500
 lifetime = 1.11
 process_material = SubResource("ParticleProcessMaterial_d1br4")
