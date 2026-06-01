@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://onctnqhs8rge"]
+
+[ext_resource type="Texture2D" uid="uid://ctkqtv4wybls" path="res://Assets/EnvironmentSprite/wall_01.png" id="1_tpihq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpihq"]
+size = Vector3(28.205, 7.3, 6.445)
+
+[node name="NewDemiMur" type="Sprite3D" unique_id=1564136151]
+transform = Transform3D(2.5910413e-08, 0, -0.031851534, 0, 0.19758703, 0, 0.19758706, 0, 4.176824e-09, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_tpihq")
+
+[node name="Mur_02" type="Sprite3D" parent="." unique_id=1439113198]
+transform = Transform3D(0.9999999, -8.742276e-08, 8.7422784e-08, 8.742277e-08, -4.3711385e-08, -0.9999999, 8.742277e-08, 0.9999999, -4.3711378e-08, -1.9073486e-06, 2.8942628, 4.603052)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_tpihq")
+
+[node name="Mur_04" type="Sprite3D" parent="." unique_id=1680527881]
+transform = Transform3D(2.4684624e-08, -1.3113412e-07, -0.9999998, -0.5647182, 8.9902485e-15, -4.3711392e-08, 7.234957e-15, 0.9999998, -1.3113414e-07, 14.400463, -1.1658273, 3.5116558)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_tpihq")
+region_enabled = true
+region_rect = Rect2(2111.261, 648.5502, 1365.5164, 1089.7445)
+
+[node name="Mur_05" type="Sprite3D" parent="." unique_id=2042686045]
+transform = Transform3D(2.4684624e-08, -1.3113412e-07, -0.9999998, -0.5647182, 8.9902485e-15, -4.3711392e-08, 7.234957e-15, 0.9999998, -1.3113414e-07, -13.36916, -1.1658273, 3.5116577)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_tpihq")
+region_enabled = true
+region_rect = Rect2(2111.261, 648.5502, 1365.5164, 1089.7445)
+
+[node name="Mur_03" type="Sprite3D" parent="." unique_id=806298268]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.9073486e-06, 0, 7.6843987)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_tpihq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2044402894]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2103045652]
+transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000001, 0.49476054, -0.649263, 3.7561295)
+shape = SubResource("BoxShape3D_tpihq")
