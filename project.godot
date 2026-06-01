@@ -19,7 +19,7 @@ quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
 [application]
 
 config/name="Blare of Brats"
-config/version="0.0.4"
+config/version="0.2.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -44,7 +44,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg")
+enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/brackeys_particle_controls/plugin.cfg")
 
 [file_customization]
 
@@ -351,13 +351,7 @@ PreviousColor_3={
 3d_physics/layer_3="Item"
 3d_physics/layer_4="ItemFlying"
 3d_physics/layer_5="DemiMur"
-
-[maaacks_menus_template]
-
-disable_install_audio_busses=true
-disable_update_check=false
-disable_install_wizard=true
-copy_path="res://MenuTemplate/"
+3d_physics/layer_6="PlayerDashing"
 
 [physics]
 
