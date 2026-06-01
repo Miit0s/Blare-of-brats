@@ -302,9 +302,6 @@ _data = {
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ycds1"]
-size = Vector2(50, 50)
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lj6x0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lj6x0"]
@@ -998,10 +995,6 @@ libraries/ = SubResource("AnimationLibrary_lj6x0")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=210331122]
 transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, -1.9673038, 22.399847, 30.370125)
 fov = 45.0
-
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1769832902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9073486e-05, 0)
-mesh = SubResource("PlaneMesh_ycds1")
 
 [node name="MapBound" type="StaticBody3D" parent="." unique_id=47785823]
 
