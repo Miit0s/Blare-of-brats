@@ -25,8 +25,8 @@ func _perform_attack(_direction: Vector3):
 		Vector3(max_collision_range, attack_collision_shape_size.y, attack_collision_shape_size.z),
 		attack_speed
 	)
-	animated_sprite_3d.speed_scale = animated_sprite_3d.sprite_frames.get_frame_count("default") / attack_speed
-	animated_sprite_3d.play()
+	item_animation.speed_scale = item_animation.sprite_frames.get_frame_count("default") / attack_speed
+	item_animation.play()
 	
 	await _extends_hitbox_tween.finished
 	attack_collision_shape_3d.shape.size.x = min_collision_range
@@ -35,7 +35,7 @@ func _perform_attack(_direction: Vector3):
 func item_picked_up(player_id: int):
 	super.item_picked_up(player_id)
 	
-	animated_sprite_3d.rotate_x(deg_to_rad(-90))
+	item_animation.rotate_x(deg_to_rad(-90))
 
 func _attack_player(player_hit: Player):
 	current_durability -= 1

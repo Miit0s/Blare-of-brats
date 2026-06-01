@@ -1,7 +1,8 @@
 extends RigidBody3D
 class_name Item
 
-@onready var animated_sprite_3d: AnimatedSprite3D = $VisualAnchor/AnimatedSprite3D
+@onready var item_visual: Sprite3D = $ItemVisual
+@onready var item_animation: AnimatedSprite3D = $VisualAnchor/ItemAnimation
 @onready var explosion_particle: GPUParticles3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 @onready var visual_anchor: Marker3D = $VisualAnchor
@@ -105,6 +106,10 @@ func throw(direction: Vector3):
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw)
 	
+	rotation = Vector3.ZERO
+	item_animation.hide()
+	item_visual.show()
+	
 	await get_tree().create_timer(0.1).timeout
 	
 	has_been_throw = true
@@ -147,7 +152,8 @@ func destroy():
 	
 	sound_made.emit(sound_on_break)
 	will_be_destroy.emit(self)
-	animated_sprite_3d.hide()
+	item_animation.hide()
+	item_visual.hide()
 	trail_renderer_3d.hide()
 	explosion_particle.emitting = true
 	
@@ -158,11 +164,18 @@ func destroy():
 func item_picked_up(player_id: int):
 	owner_player = player_id
 	is_already_pick = true
+	
+	item_visual.hide()
+	item_animation.show()
 
 func drop():
 	has_been_drop = true
 	is_already_pick = false
 	owner_player = -1
+	
+	rotation = Vector3.ZERO
+	item_animation.hide()
+	item_visual.show()
 	
 	await get_tree().create_timer(0.1).timeout
 	
@@ -211,7 +224,7 @@ func cancel_animation():
 	gpu_trail_3d.hide()
 	gpu_trail_3d.length = 0
 	
-	animated_sprite_3d.stop()
+	item_animation.stop()
 
 func _on_body_entered(body: Node):
 	if has_been_throw and body is not Player:
