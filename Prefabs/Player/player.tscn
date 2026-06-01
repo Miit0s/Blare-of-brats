@@ -22,8 +22,8 @@ radius = 0.6
 radius = 1.0
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "dash_effect", "throw_arrow")]
-collision_layer = 2
-collision_mask = 19
+collision_layer = 34
+collision_mask = 49
 script = ExtResource("1_y6xdh")
 speed = 9.0
 dash_speed = 30.0

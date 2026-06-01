@@ -174,6 +174,8 @@ func dash():
 	_is_invincible = true
 	dash_effect.emitting = true
 	_dash_speed_to_apply = dash_speed
+	set_collision_layer_value(6, false)
+	set_collision_mask_value(6, false)
 	
 	_update_particle_to_current_sprite()
 	
@@ -187,6 +189,8 @@ func dash():
 		func(): 
 		_is_dashing = false
 		_is_invincible = false
+		set_collision_layer_value(6, true)
+		set_collision_mask_value(6, true)
 	)
 	
 	dash_sound.post(self)
