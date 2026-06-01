@@ -39,7 +39,10 @@ func _trigger_spawn():
 	elif _item_that_need_to_spawn > 0:
 		_item_that_need_to_spawn -= 1
 	
-	var item_spawn_position: ItemSpawnPoint = spawn_points.filter(_spawn_point_available).pick_random()
+	var possible_spawn_points: Array[ItemSpawnPoint] = spawn_points.filter(_spawn_point_available)
+	if possible_spawn_points.is_empty(): return
+	
+	var item_spawn_position: ItemSpawnPoint = possible_spawn_points.pick_random()
 	
 	var item_spawned: Item = item_spawn_position.spawn_random_item()
 	item_spawned.has_loose_durability.connect(_item_has_loose_durability)

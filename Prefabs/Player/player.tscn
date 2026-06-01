@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
+[ext_resource type="Texture2D" uid="uid://8s2jtu04kkm1" path="res://Assets/MockSprite/arrow.svg" id="14_4sfrm"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
@@ -20,9 +21,9 @@ radius = 0.6
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
 
-[node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "dash_effect")]
-collision_layer = 2
-collision_mask = 19
+[node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "dash_effect", "throw_arrow")]
+collision_layer = 34
+collision_mask = 49
 script = ExtResource("1_y6xdh")
 speed = 9.0
 dash_speed = 30.0
@@ -40,6 +41,7 @@ wall_bounce_particle_prefab = ExtResource("5_4sfrm")
 character_animation = ExtResource("8_4sfrm")
 player_animated_sprite_3d = NodePath("AnimatedSprite3D")
 dash_effect = NodePath("DashEffect")
+throw_arrow = NodePath("ThrowDirection/ThrowArrow")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=932639487]
 transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
@@ -74,3 +76,11 @@ texture = ExtResource("7_juxdh")
 
 [node name="Feet" type="Node3D" parent="." unique_id=1786710906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99064595, 1.9213368)
+
+[node name="ThrowDirection" type="Node3D" parent="." unique_id=460067933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+
+[node name="ThrowArrow" type="Sprite3D" parent="ThrowDirection" unique_id=1758288301]
+transform = Transform3D(-8.742278e-09, 0.2, -8.742278e-09, 0, -8.742278e-09, -0.2, -0.2, -8.742278e-09, 3.821371e-16, 0, 0, -1.8971508)
+texture = ExtResource("14_4sfrm")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvys24umy50h"
-path.bptc="res://.godot/imported/idle-front-right-animation-chara-2.png-8cf144a71d9f7b64379847966b964d90.bptc.ctex"
+uid="uid://b5mbyvry47gey"
+path.bptc="res://.godot/imported/pistogum.png-8e60fe42944d4464c52be86d364f24d6.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Ash/Idle/idle-front-right-animation-chara-2.png"
-dest_files=["res://.godot/imported/idle-front-right-animation-chara-2.png-8cf144a71d9f7b64379847966b964d90.bptc.ctex"]
+source_file="res://Assets/Item/pistogum.png"
+dest_files=["res://.godot/imported/pistogum.png-8e60fe42944d4464c52be86d364f24d6.bptc.ctex"]
 
 [params]
 
@@ -24,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

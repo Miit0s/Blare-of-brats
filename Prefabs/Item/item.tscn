@@ -71,11 +71,16 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_0o2h0")
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
 hit_particle_prefab = ExtResource("3_t4ted")
+
+[node name="ItemVisual" type="Sprite3D" parent="." unique_id=512871286]
+transform = Transform3D(1, 0, 0, 0, 0.93969256, 0.3420201, 0, -0.3420201, 0.93969256, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1358719798]
 shape = SubResource("SphereShape3D_fnt8b")
@@ -126,8 +131,8 @@ curve = SubResource("CurveTexture_w7253")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://04ta3q4y8qhg"
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="VisualAnchor" unique_id=187442146]
+[node name="ItemAnimation" type="AnimatedSprite3D" parent="VisualAnchor" unique_id=187442146]
+visible = false
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_0o2h0")
-

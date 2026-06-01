@@ -5,6 +5,7 @@ class_name Player
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
+@onready var throw_direction: Node3D = $ThrowDirection
 
 @export_range(0,3) var player_id: int = 0
 
@@ -69,6 +70,7 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
 @export var dash_effect: GPUParticles3D
+@export var throw_arrow: Sprite3D
 
 var _current_direction: Vector3 = Vector3.RIGHT
 var _last_direction: Vector3 = Vector3.BACK
@@ -82,7 +84,6 @@ var _is_invincible: bool = false
 var _is_aiming: bool = false
 var _is_freeze: bool = false
 
-var _attack_tween: Tween = null
 var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
@@ -145,8 +146,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("PickUp" + _suffix) and not current_picked_item:
 		pick_up()
 	
-	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
+		throw_direction.show()
 	
 	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
@@ -163,6 +166,7 @@ func _process(delta: float) -> void:
 		
 		if aim_direction != Vector3.ZERO:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
+			throw_direction.look_at(throw_direction.global_position + aim_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -170,6 +174,8 @@ func dash():
 	_is_invincible = true
 	dash_effect.emitting = true
 	_dash_speed_to_apply = dash_speed
+	set_collision_layer_value(6, false)
+	set_collision_mask_value(6, false)
 	
 	_update_particle_to_current_sprite()
 	
@@ -183,6 +189,8 @@ func dash():
 		func(): 
 		_is_dashing = false
 		_is_invincible = false
+		set_collision_layer_value(6, true)
+		set_collision_mask_value(6, true)
 	)
 	
 	dash_sound.post(self)
@@ -249,10 +257,9 @@ func cancel_animation():
 	_is_aiming = false
 
 func _kill_current_animation():
-	if _attack_tween:
-		_attack_tween.kill()
 	if _attack_move_timer:
 		_attack_move_timer.kill()
+		_attack_move_timer = null
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
@@ -313,6 +320,7 @@ func switch_item():
 	switch_sound.post(self)
 
 func throw(direction: Vector3):
+	throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_picked_item = null
@@ -358,9 +366,11 @@ func _update_sprite(current_direction: Vector3, is_moving: bool):
 			0: _change_player_sprite(character_animation.run_animation, "front")
 			1: _change_player_sprite(character_animation.run_animation, "front_right")
 			2: _change_player_sprite(character_animation.run_animation, "side_right")
-			3: _change_player_sprite(character_animation.run_animation, "back")
-			4: _change_player_sprite(character_animation.run_animation, "side_left")
-			5: _change_player_sprite(character_animation.run_animation, "front_left")
+			3: _change_player_sprite(character_animation.run_animation, "back_right")
+			4: _change_player_sprite(character_animation.run_animation, "back")
+			5: _change_player_sprite(character_animation.run_animation, "back_left")
+			6: _change_player_sprite(character_animation.run_animation, "side_left")
+			7: _change_player_sprite(character_animation.run_animation, "front_left")
 
 func _get_angle_zone(direction: Vector3, steps: int) -> int:
 	var angle: float = atan2(direction.x, direction.z)
@@ -429,6 +439,8 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
+	
+	throw_arrow.modulate = selection.color_skin.main_color
 
 func apply_slow(speed_multiplier: float):
 	var slow_down_tween: Tween = create_tween()

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvys24umy50h"
-path.bptc="res://.godot/imported/idle-front-right-animation-chara-2.png-8cf144a71d9f7b64379847966b964d90.bptc.ctex"
+uid="uid://bqhv326fdx2fq"
+path.bptc="res://.godot/imported/run--34back-right-animation-chara-2.png-e23063acf6e2a0c54fcba3fcde3ed2a4.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Ash/Idle/idle-front-right-animation-chara-2.png"
-dest_files=["res://.godot/imported/idle-front-right-animation-chara-2.png-8cf144a71d9f7b64379847966b964d90.bptc.ctex"]
+source_file="res://Assets/Player/Ash/Run/run--34back-right-animation-chara-2.png"
+dest_files=["res://.godot/imported/run--34back-right-animation-chara-2.png-e23063acf6e2a0c54fcba3fcde3ed2a4.bptc.ctex"]
 
 [params]
 
@@ -38,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
