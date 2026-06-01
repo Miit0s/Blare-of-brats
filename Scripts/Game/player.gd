@@ -6,6 +6,7 @@ class_name Player
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var feet: Node3D = $Feet
 @onready var throw_direction: Node3D = $ThrowDirection
+@onready var current_item: Sprite3D = $CurrentItem
 
 @export_range(0,3) var player_id: int = 0
 
@@ -209,6 +210,11 @@ func pick_up(play_pickup_sound: bool = true):
 	current_picked_item.item_picked_up(player_id)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
 	
+	current_item.scale = current_picked_item.item_visual.scale * 0.7
+	current_item.rotation.z = current_picked_item.item_visual.rotation.z
+	current_item.texture = current_picked_item.item_visual.texture
+	current_item.show()
+	
 	if play_pickup_sound: pickup_sound.post(self)
 
 func _get_closest_item(item_in_range: Array[Node3D]) -> Item:
@@ -258,6 +264,8 @@ func cancel_animation():
 	_is_attacking = false
 	_is_making_attack_move = false
 	_is_aiming = false
+	
+	#throw_direction.hide()
 
 func _kill_current_animation():
 	if _attack_move_timer:
@@ -303,6 +311,7 @@ func switch_item():
 	
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.drop()
+	current_item.hide()
 	current_picked_item = null
 	
 	pick_up(false)
@@ -326,6 +335,7 @@ func throw(direction: Vector3):
 	#throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
+	current_item.hide()
 	current_picked_item = null
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
 	launch.post(self)
