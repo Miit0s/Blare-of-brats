@@ -88,7 +88,6 @@ func _set_color_versus_position_to_new_progress_bar_value():
 	
 	var scale_factor: float = min(rect_size.x / texture_size.x, rect_size.y / texture_size.y)
 	var actual_width: float = texture_size.x * scale_factor
-	var actual_height: float = texture_size.y * scale_factor
 	
 	var offset_x: float = (rect_size.x - actual_width) / 2.0
 	

@@ -10,6 +10,9 @@ class_name GameScene
 @export var camera_controller: CameraController
 @export var main_menu_scene_uid: String
 
+@export var tracking_spot_player_one: TrackingSpot
+@export var tracking_spot_player_two: TrackingSpot
+
 @export_category("PartySetup")
 @export var player_number: int = 2
 @export var round_number: int = 3
@@ -146,6 +149,11 @@ func _on_map_new_item_spawn(new_item: Item) -> void:
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
+	if tracking_spot_player_one.target:
+		tracking_spot_player_two.target = player
+	else:
+		tracking_spot_player_one.target = player
+	
 	player.freeze()
 	camera_controller.add_player(player)
 	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)

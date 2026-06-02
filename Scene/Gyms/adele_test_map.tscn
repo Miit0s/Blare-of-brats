@@ -8,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://ffrc0lye3c2c" path="res://Assets/EnvironmentSprite/cloud01.png" id="7_dsw8x"]
 [ext_resource type="Texture2D" uid="uid://t4qtxr6s7ifo" path="res://Assets/EnvironmentSprite/barriere_01.png" id="8_8ieg1"]
 [ext_resource type="Texture2D" uid="uid://bhsgsqw21qcau" path="res://Assets/EnvironmentSprite/barriere_02.png" id="8_mt88d"]
-[ext_resource type="Texture2D" uid="uid://c1rvcdekd2mx6" path="res://Assets/EnvironmentSprite/banner_star.png" id="9_03jmm"]
+[ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="9_dsw8x"]
+[ext_resource type="Texture2D" uid="uid://dfg66srmr0bs4" path="res://Assets/EnvironmentSprite/flag_orange.png" id="10_8ieg1"]
 [ext_resource type="Texture2D" uid="uid://l7d3fryhr0l1" path="res://Assets/EnvironmentSprite/banner_long01.png" id="10_kpkc6"]
+[ext_resource type="Texture2D" uid="uid://bdktmu4eilp8n" path="res://Assets/EnvironmentSprite/flag_moon.png" id="11_03jmm"]
 [ext_resource type="Texture2D" uid="uid://c5g2meodm7dvp" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="11_pjvhq"]
 [ext_resource type="Texture2D" uid="uid://cgv5eip1me1i7" path="res://Assets/EnvironmentSprite/bush_01.png" id="12_6pmgv"]
+[ext_resource type="Texture2D" uid="uid://cwr307sxoyug" path="res://Assets/EnvironmentSprite/flag_green.png" id="12_dsw8x"]
 [ext_resource type="Texture2D" uid="uid://h36arh02nypq" path="res://Assets/EnvironmentSprite/book_01.png" id="13_6hbk0"]
 [ext_resource type="Texture2D" uid="uid://1okbuubfdao7" path="res://Assets/EnvironmentSprite/bush_02.png" id="13_d0mhm"]
 [ext_resource type="Texture2D" uid="uid://bdhlpduo4umda" path="res://Assets/EnvironmentSprite/book_02.png" id="13_yghy2"]
@@ -45,7 +48,8 @@ tonemap_mode = 2
 glow_enabled = true
 fog_light_energy = 0.14
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.955779, 0.82219213, 0.9269844, 1)
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.92650056, 0.4565748, 0.4866439, 1)
 volumetric_fog_anisotropy = 0.56
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycds1"]
@@ -298,9 +302,6 @@ _data = {
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ycds1"]
-size = Vector2(50, 50)
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lj6x0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lj6x0"]
@@ -431,7 +432,7 @@ alpha_cut = 1
 texture = ExtResource("2_6pmgv")
 
 [node name="shootingstar3" type="Sprite3D" parent="Sprite" unique_id=1037959665]
-transform = Transform3D(0.24986908, 0, 0.22737159, 0, 0.33783516, 0, -0.22737159, 0, 0.24986908, -13.786215, 18.214012, -5.88391)
+transform = Transform3D(0.25152165, 0, 0.22887537, 0, 0.3400695, 0, -0.22887537, 0, 0.25152165, -13.786215, 18.214012, -5.88391)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("2_6pmgv")
@@ -444,6 +445,7 @@ texture = ExtResource("3_yghy2")
 
 [node name="Floor_inside" type="Sprite3D" parent="Sprite" unique_id=958032237]
 transform = Transform3D(-1.0563079, 0, -9.234536e-08, 9.234536e-08, -4.617268e-08, -1.0563079, -4.0365444e-15, -1.0563079, 4.617268e-08, -0.9356458, 0.2536652, 3.7402468)
+modulate = Color(0.8192276, 0.81922776, 0.8192277, 1)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("4_yghy2")
@@ -593,38 +595,54 @@ alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="BannerMoon" type="Sprite3D" parent="Sprite" unique_id=1504388185]
-transform = Transform3D(-0.5122991, 2.8320002e-15, -1.3435985e-07, 7.411193e-09, 0.51151925, -0.02825806, 1.3415529e-07, -0.02825806, -0.51151925, -11.192196, 13.231047, -6.5628157)
+transform = Transform3D(-0.37758473, 2.0872963e-15, -9.9028526e-08, 5.4623426e-09, 0.37700993, -0.020827308, 9.8877756e-08, -0.020827308, -0.37700993, -11.192196, 13.555832, -6.5628157)
 shaded = true
 alpha_cut = 1
-texture = ExtResource("9_03jmm")
+texture = ExtResource("9_dsw8x")
 region_enabled = true
-region_rect = Rect2(0, 141.58887, 823.9929, 1712.0641)
+region_rect = Rect2(402.81006, 30.287033, 871.79565, 2006.0193)
 
 [node name="BannerLong" type="Sprite3D" parent="Sprite" unique_id=1190259807]
-transform = Transform3D(-0.5369209, 2.9681102e-15, -1.4081739e-07, 7.767386e-09, 0.5361036, -0.02961618, 1.4060298e-07, -0.02961618, -0.5361036, -14.411342, 11.463896, -6.845474)
+transform = Transform3D(-0.4786272, 2.6458614e-15, -1.255288e-07, 6.9240778e-09, 0.4778986, -0.02640074, 1.2533765e-07, -0.02640074, -0.4778986, -13.357945, 12.582329, -6.4108863)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("10_8ieg1")
+region_enabled = true
+region_rect = Rect2(309.49414, -14.192337, 1085.2966, 2094.9783)
+
+[node name="BannerLong4" type="Sprite3D" parent="Sprite" unique_id=1104821920]
+transform = Transform3D(-0.37142202, 2.6935315e-15, -9.573407e-08, 5.3731903e-09, 0.48650885, -0.020134425, 9.726393e-08, -0.0268764, -0.3644676, 12.136501, 11.425547, -7.4621735)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("10_8ieg1")
+region_enabled = true
+region_rect = Rect2(309.49414, -14.192337, 1085.2966, 2094.9783)
+
+[node name="BannerLong3" type="Sprite3D" parent="Sprite" unique_id=1619324496]
+transform = Transform3D(-0.31440058, 1.738013e-15, -8.245734e-08, 4.5482875e-09, 0.313922, -0.017342115, 8.233179e-08, -0.017342115, -0.313922, -12.579493, 8.929351, -7.9258623)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("10_kpkc6")
 region_enabled = true
-region_rect = Rect2(2442.9321, 0, 773.65234, 2160)
+region_rect = Rect2(2493.7834, -47.976334, 676.0864, 2157.2493)
 
 [node name="BannerMoon2" type="Sprite3D" parent="Sprite" unique_id=831191675]
-transform = Transform3D(-0.5122991, 2.8320002e-15, -1.3435985e-07, 7.411193e-09, 0.51151925, -0.02825806, 1.3415529e-07, -0.02825806, -0.51151925, 9.193747, 13.231047, -6.5628157)
+transform = Transform3D(-0.5122991, 2.8320002e-15, -1.3435985e-07, 7.411193e-09, 0.51151925, -0.02825806, 1.3415529e-07, -0.02825806, -0.51151925, 8.91842, 13.231047, -6.0645723)
 flip_h = true
 shaded = true
 alpha_cut = 1
-texture = ExtResource("9_03jmm")
+texture = ExtResource("11_03jmm")
 region_enabled = true
-region_rect = Rect2(0, 141.58887, 823.9929, 1712.0641)
+region_rect = Rect2(385.0183, -5.296463, 916.2749, 2006.0195)
 
 [node name="BannerLong2" type="Sprite3D" parent="Sprite" unique_id=1900545204]
-transform = Transform3D(-0.5369209, 2.9681102e-15, -1.4081739e-07, 7.767386e-09, 0.5361036, -0.02961618, 1.4060298e-07, -0.02961618, -0.5361036, 12.58031, 11.463896, -6.845474)
+transform = Transform3D(-0.327699, 1.811527e-15, -8.5945096e-08, 4.7406696e-09, 0.32720017, -0.018075647, 8.581423e-08, -0.018075647, -0.32720017, 11.913459, 14.764309, -6.583431)
 flip_h = true
 shaded = true
 alpha_cut = 1
-texture = ExtResource("10_kpkc6")
+texture = ExtResource("12_dsw8x")
 region_enabled = true
-region_rect = Rect2(2442.9321, 0, 773.65234, 2160)
+region_rect = Rect2(460.724, 52.52672, 787.2848, 1930.4045)
 
 [node name="BigBannerStretch" type="Sprite3D" parent="Sprite" unique_id=2093539594]
 transform = Transform3D(-0.5369209, 2.9681102e-15, -1.4081739e-07, 7.767386e-09, 0.5361036, -0.02961618, 1.4060298e-07, -0.02961618, -0.5361036, -1.2162266, 10.344728, -6.701267)
@@ -977,10 +995,6 @@ libraries/ = SubResource("AnimationLibrary_lj6x0")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=210331122]
 transform = Transform3D(1, 0, 0, 0, 0.8613101, 0.5080797, 0, -0.5080797, 0.8613101, -1.9673038, 22.399847, 30.370125)
 fov = 45.0
-
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1769832902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9073486e-05, 0)
-mesh = SubResource("PlaneMesh_ycds1")
 
 [node name="MapBound" type="StaticBody3D" parent="." unique_id=47785823]
 

@@ -22,12 +22,15 @@
 [ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/map_a4.tscn" id="16_ubkdv"]
 [ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/map_a5.tscn" id="17_tit5h"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="23_yaqu8"]
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller")]
+[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_f38sd")
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
+tracking_spot_player_one = NodePath("TrackingSpot")
+tracking_spot_player_two = NodePath("TrackingSpot2")
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
 round_state = ExtResource("4_mlt6n")
@@ -67,3 +70,9 @@ fov = 45.0
 
 [node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
 transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
+
+[node name="TrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("23_yaqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 25, 0)
+
+[node name="TrackingSpot2" parent="." unique_id=705377044 instance=ExtResource("23_yaqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 25, 0)
