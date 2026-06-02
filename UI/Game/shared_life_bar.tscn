@@ -19,7 +19,7 @@ shader_parameter/replace_1 = Color(1, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
-shader_parameter/tolerance = 0.50000002375
+shader_parameter/tolerance = 0.1
 shader_parameter/softness = 0.05
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkif4"]
@@ -225,6 +225,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -11.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5xvwn")
