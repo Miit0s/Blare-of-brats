@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ctkqtv4wybls" path="res://Assets/EnvironmentSprite/wall_01.png" id="1_dnijv"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vkjq"]
+size = Vector3(28.19, 7.24, 7.755)
+
 [node name="ObstacleComplete" type="Sprite3D" unique_id=744248793]
 transform = Transform3D(2.591041e-08, 0, -0.19758703, 0, 0.19758703, 0, 0.19758703, 0, 2.591041e-08, 0, 0, 0)
 shaded = true
@@ -35,3 +38,9 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1
 shaded = true
 alpha_cut = 1
 texture = ExtResource("1_dnijv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=939716743]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1779086044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39999786, -0.76847285, 3.7977884)
+shape = SubResource("BoxShape3D_3vkjq")

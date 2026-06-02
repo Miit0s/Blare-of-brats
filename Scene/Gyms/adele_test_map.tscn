@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bdhlpduo4umda" path="res://Assets/EnvironmentSprite/book_02.png" id="13_yghy2"]
 [ext_resource type="Texture2D" uid="uid://deb37h00m816u" path="res://Assets/EnvironmentSprite/castle_test01.png" id="14_hx3d8"]
 [ext_resource type="Texture2D" uid="uid://p8iuanpq3j38" path="res://Assets/EnvironmentSprite/castle_test02.png" id="15_yghy2"]
-[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Scene/Gyms/obstacle_complete.tscn" id="16_1k1nn"]
+[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="16_1k1nn"]
 [ext_resource type="Texture2D" uid="uid://cm8xgognt0265" path="res://Assets/EnvironmentSprite/rainbow_V1.png" id="16_30x3q"]
 [ext_resource type="PackedScene" uid="uid://fr4llv25pgj5" path="res://Prefabs/Player/Players/ash.tscn" id="17_d6xd4"]
 [ext_resource type="PackedScene" uid="uid://c7sp3sqengdxp" path="res://Prefabs/Player/Players/max.tscn" id="18_0dqrb"]
