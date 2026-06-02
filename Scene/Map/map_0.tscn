@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_kt8kp"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="11_4h2nc"]
 
-[node name="Map0" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
+[node name="Map0" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager")]
 script = ExtResource("1_4h2nc")
 player_spawn_system = NodePath("PlayerSpawnSystem")
+balloon_manager = NodePath("BalloonManager")
 
 [node name="BaseMap" parent="." unique_id=1917887806 instance=ExtResource("4_c5bas")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012108803, 0.021040916, -0.016277313)
@@ -87,4 +88,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.064918, 0.9880879, -0.1733
 [connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
 [connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]
-[connection signal="sound_emit" from="BalloonManager" to="." method="_on_balloon_manager_sound_emit"]

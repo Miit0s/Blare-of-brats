@@ -11,9 +11,10 @@
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_58ced"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_w0use"]
 
-[node name="MapA2" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
+[node name="MapA2" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager")]
 script = ExtResource("1_sprpm")
 player_spawn_system = NodePath("PlayerSpawnSystem")
+balloon_manager = NodePath("BalloonManager")
 
 [node name="BaseMap" parent="." unique_id=2033658836 instance=ExtResource("8_cs4ek")]
 
