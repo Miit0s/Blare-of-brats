@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dyfln07itxma8"]
+
+[ext_resource type="Script" uid="uid://dijkvaexikkuo" path="res://Scripts/Game/tracking_spot.gd" id="1_outcv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_outcv"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.019607844)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_outcv"]
+material = SubResource("StandardMaterial3D_outcv")
+top_radius = 1.0
+bottom_radius = 2.35835
+height = 45.0
+radial_segments = 32
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[node name="TrackingSpot" type="Node3D" unique_id=1921504836 node_paths=PackedStringArray("mesh", "light")]
+script = ExtResource("1_outcv")
+distance = 45.0
+angle = 3.0
+color = Color(1, 1, 1, 0.019607844)
+enabled = true
+create_a_temp_target = true
+mesh = NodePath("SpotLight3D/SpotLight")
+light = NodePath("SpotLight3D")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=171626984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.18557e-06, 0)
+light_color = Color(1, 1, 1, 0.019607844)
+spot_range = 45.0
+spot_attenuation = 0.0
+spot_angle = 3.0
+
+[node name="SpotLight" type="MeshInstance3D" parent="SpotLight3D" unique_id=47915637]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18557e-06, -22.5)
+mesh = SubResource("CylinderMesh_outcv")
+skeleton = NodePath("../../..")
