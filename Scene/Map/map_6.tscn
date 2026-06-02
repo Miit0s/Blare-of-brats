@@ -69,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.507133, 1.1439927, 9.4260
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=458403854 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_8e4ms")
-balloons = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon4"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7"), NodePath("Balloon8"), NodePath("Balloon9"), NodePath("Balloon10"), NodePath("Balloon11"), NodePath("Balloon12"), NodePath("Balloon13")]
 
 [node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_iytj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.917597, 0.8758886, -2.7690763)
