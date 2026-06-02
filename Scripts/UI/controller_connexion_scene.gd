@@ -6,11 +6,17 @@ extends Control
 @onready var ready_texture: TextureRect = $ReadyTexture
 @onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/RadialProgressBarWithText
 
+@onready var stand_1: TextureRect = $Visual/Stand1
+@onready var stand_2: TextureRect = $Visual/Stand2
+
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
 
 @export var main_menu_scene_uid: String
 @export var game_scene_uid: String
+
+@export var stage_default: Texture2D
+@export var stage_ready: Texture2D
 
 var controller_slots: Array[ControllerSlot]
 
@@ -157,15 +163,21 @@ func _on_joy_connection_changed(device: int, connected: bool):
 	if not connected:
 		remove_controller_slot(device)
 
-func _on_controller_slot_player_his_ready() -> void:
+func _on_controller_slot_player_his_ready(controller_slot: ControllerSlot) -> void:
 	_player_ready += 1
+	
+	if controller_slots[0] == controller_slot: stand_1.texture = stage_ready
+	else: stand_2.texture = stage_ready
 	
 	if _player_ready >= controller_slots.size():
 		ready_texture.show()
 
 
-func _on_controller_slot_player_no_more_ready() -> void:
+func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -> void:
 	_player_ready -= 1
+	
+	if controller_slots[0] == controller_slot: stand_1.texture = stage_default
+	else: stand_2.texture = stage_default
 	
 	if _player_ready < controller_slots.size():
 		ready_texture.hide()

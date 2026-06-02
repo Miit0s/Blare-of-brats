@@ -22,8 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://k6vrxn8bnal7" path="res://Assets/SpriteUI/CharacterSelection/arrow_hover.png" id="16_gk460"]
 [ext_resource type="Resource" uid="uid://dn41vyjymalxc" path="res://Ressources/CharacterSkin/Max/pink.tres" id="16_gtj21"]
 [ext_resource type="Resource" uid="uid://7voljs7v5l8o" path="res://Ressources/CharacterSkin/Max/deep_blue.tres" id="17_d46oa"]
+[ext_resource type="Texture2D" uid="uid://qh1o1d761go6" path="res://Assets/SpriteUI/CharacterSelection/border_color_selection.png" id="18_sp2xh"]
 [ext_resource type="Resource" uid="uid://o4ahs0qkjupm" path="res://Ressources/CharacterSkin/Ash/yellow.tres" id="19_o2f5v"]
 [ext_resource type="Resource" uid="uid://cg4qd0ygpnuov" path="res://Ressources/CharacterSkin/Ash/cyan.tres" id="20_gk460"]
+[ext_resource type="Resource" uid="uid://bgl6bwx4oqh33" path="res://Ressources/CharacterSkin/Max/violet.tres" id="21_0sif0"]
 [ext_resource type="Resource" uid="uid://0ituf8tnbe8u" path="res://Ressources/CharacterSkin/Ash/violet.tres" id="21_1icc5"]
 [ext_resource type="Resource" uid="uid://c18v12eefcbxo" path="res://Ressources/CharacterSkin/Ash/blue.tres" id="22_sp2xh"]
 [ext_resource type="Texture2D" uid="uid://jxdua4ndggn6" path="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png" id="27_1icc5"]
@@ -245,37 +247,57 @@ stretch_mode = 5
 
 [node name="ColorPicker" type="Control" parent="SelectedPlayer" unique_id=1336359641 node_paths=PackedStringArray("color_options_for_skin")]
 anchors_preset = 0
-offset_left = -41.0
+offset_left = -78.999985
 offset_top = 7.0
-offset_right = -6.0
-offset_bottom = 149.0
+offset_right = 9.735001
+offset_bottom = 190.0
 script = ExtResource("6_jfjjs")
 color_options_for_skin = {
 0: NodePath("ColorOptions"),
 1: NodePath("ColorOptions2")
 }
 
-[node name="ColorRect" type="ColorRect" parent="SelectedPlayer/ColorPicker" unique_id=1110184345]
+[node name="TextureRect" type="TextureRect" parent="SelectedPlayer/ColorPicker" unique_id=1601854649]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+texture = ExtResource("18_sp2xh")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ColorOptions" parent="SelectedPlayer/ColorPicker" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("6_f1ni1")]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -0.00049209595
+offset_top = 80.0
+offset_right = -0.00049209595
+offset_bottom = 80.0
+grow_vertical = 1
 color_selector = {
 NodePath("VBoxContainer/ColorSelector1"): ExtResource("4_q8gsb"),
 NodePath("VBoxContainer/ColorSelector2"): ExtResource("15_q8gsb"),
-NodePath("VBoxContainer/ColorSelector3"): ExtResource("16_gtj21"),
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("21_0sif0"),
 NodePath("VBoxContainer/ColorSelector4"): ExtResource("17_d46oa"),
 NodePath("VBoxContainer/ColorSelector5"): ExtResource("16_gtj21")
 }
 
 [node name="ColorOptions2" parent="SelectedPlayer/ColorPicker" unique_id=923699830 node_paths=PackedStringArray("color_selector") instance=ExtResource("9_iow0i")]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -0.00049209595
+offset_top = 80.0
+offset_right = -0.00049209595
+offset_bottom = 80.0
+grow_vertical = 1
 color_selector = {
 NodePath("VBoxContainer/ColorSelector1"): ExtResource("5_gtj21"),
 NodePath("VBoxContainer/ColorSelector2"): ExtResource("19_o2f5v"),
