@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{F44CCC37-0FEB-D78A-4125-879E42BECED4}",
+    "Hash": "{9EDFADB8-9DEF-909B-DBE9-56C5BD68B303}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -164,6 +164,12 @@
       "Name": "SFX_Volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFX_Volume",
       "GUID": "{3477CCB4-6515-45AE-A2BA-8F0F23C02B8D}"
+     },
+     {
+      "Id": "1629633035",
+      "Name": "SoundBar_Value",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SoundBar_Value",
+      "GUID": "{0DEE1858-2463-4550-BF6A-045447464530}"
      },
      {
       "Id": "2785096631",
@@ -697,6 +703,6 @@
     ]
    }
   ],
-  "FileHash": "{EAFC529A-223A-0DA2-1C70-C91AC6583812}"
+  "FileHash": "{F3E830DC-8201-A55E-415E-9BCC94DEB125}"
  }
 }

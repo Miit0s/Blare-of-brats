@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{CFB235EF-2F9A-6AE1-0D34-6990147AEB8E}",
+    "Hash": "{82AAC0CD-375E-C931-B893-508575CB2956}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -56,14 +56,6 @@
       "CachePath": "B2/{B270214A-7885-4F88-B1A4-9CC94D413317}.wem"
      },
      {
-      "Id": "79414803",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v2_2.wav",
-      "CachePath": "C3/{C3B30372-643C-4026-0A12-EEE0656038FB}.wem"
-     },
-     {
       "Id": "87882912",
       "Language": "SFX",
       "Streaming": "false",
@@ -102,6 +94,14 @@
       "Location": "Memory",
       "ShortName": "UI_Menu_Back.wav",
       "CachePath": "20/{205513AB-2741-CB1F-8DB4-2D3F220CA1EA}.wem"
+     },
+     {
+      "Id": "206483376",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "L_Impact_3.wav",
+      "CachePath": "A0/{A02F486A-55C7-A407-E679-0BE4A3D10450}.wem"
      },
      {
       "Id": "225912809",
@@ -208,14 +208,6 @@
       "CachePath": "69/{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem"
      },
      {
-      "Id": "548537568",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v2_3.wav",
-      "CachePath": "86/{86B9D7D0-159E-2920-FDF3-4EC6CE75D25F}.wem"
-     },
-     {
       "Id": "568806651",
       "Language": "SFX",
       "Streaming": "false",
@@ -232,12 +224,12 @@
       "CachePath": "57/{5769F77B-A567-9A7E-4D50-00CC1FC745FD}.wem"
      },
      {
-      "Id": "574240304",
+      "Id": "588687141",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Chara_Mov_Dash_v2.wav",
-      "CachePath": "F0/{F0024B9D-B5CB-E9D2-2F45-B394E34DAD8E}.wem"
+      "ShortName": "L_Impact_1.wav",
+      "CachePath": "92/{9295DEDB-3777-DE67-49AD-14E4E8013EF5}.wem"
      },
      {
       "Id": "606337472",
@@ -246,6 +238,22 @@
       "Location": "Memory",
       "ShortName": "UI_Colors_select.wav",
       "CachePath": "1B/{1B2407F7-E88F-940D-EF72-3D548A5E9EC4}.wem"
+     },
+     {
+      "Id": "620587904",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v3_2.wav",
+      "CachePath": "EB/{EBA5FBC5-D92F-BB54-521D-FFAD243E46B3}.wem"
+     },
+     {
+      "Id": "636428501",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "L_Impact_2.wav",
+      "CachePath": "C3/{C321D281-82D0-950E-F9EC-F360157C70FA}.wem"
      },
      {
       "Id": "654877243",
@@ -320,6 +328,14 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
+      "Id": "755145517",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v3_1.wav",
+      "CachePath": "96/{962D14C9-5571-62B6-52A9-E81A6559C40E}.wem"
+     },
+     {
       "Id": "790913363",
       "Language": "SFX",
       "Streaming": "false",
@@ -334,6 +350,14 @@
       "Location": "Memory",
       "ShortName": "Balloon_pop_1.wav",
       "CachePath": "41/{4195BFB8-B0AA-A53E-EB15-E223B8109860}.wem"
+     },
+     {
+      "Id": "799162434",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Chara_Mov_Dash_v3_3.wav",
+      "CachePath": "A4/{A4DB87FE-9382-C920-4DD5-2492989E38CE}.wem"
      },
      {
       "Id": "813712222",
@@ -576,17 +600,17 @@
       "GUID": "{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "0.33937526",
-      "DurationMax": "0.6069849",
+      "DurationMin": "0.6383912",
+      "DurationMax": "0.7917225",
       "MediaRefs": [
        {
-        "Id": "79414803"
+        "Id": "620587904"
        },
        {
-        "Id": "548537568"
+        "Id": "755145517"
        },
        {
-        "Id": "574240304"
+        "Id": "799162434"
        }
       ]
      },
@@ -676,10 +700,19 @@
         "Id": "16349992"
        },
        {
+        "Id": "206483376"
+       },
+       {
         "Id": "475093794"
        },
        {
         "Id": "477928144"
+       },
+       {
+        "Id": "588687141"
+       },
+       {
+        "Id": "636428501"
        },
        {
         "Id": "902723063"
@@ -891,6 +924,12 @@
       "Name": "Round_Time",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Round_Time",
       "GUID": "{7DA362F0-4F33-4B06-B6EF-54602E5F80BD}"
+     },
+     {
+      "Id": "1629633035",
+      "Name": "SoundBar_Value",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SoundBar_Value",
+      "GUID": "{0DEE1858-2463-4550-BF6A-045447464530}"
      }
     ],
     "StateGroups": [
@@ -923,6 +962,6 @@
     ]
    }
   ],
-  "FileHash": "{BE383EAB-F7BF-487B-773E-4A3596F95681}"
+  "FileHash": "{BF9AF077-E9C6-BF92-9E18-84E4C6F53499}"
  }
 }
