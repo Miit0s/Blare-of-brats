@@ -26,15 +26,19 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="23_gwqyt"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="23_yaqu8"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="24_5qsl7"]
-[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="25_gwqyt"]
-
-[sub_resource type="Resource" id="Resource_tw2pt"]
-script = ExtResource("23_gwqyt")
+[ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="26_gwqyt"]
 
 [sub_resource type="Resource" id="Resource_5qsl7"]
-script = ExtResource("25_gwqyt")
-fov = 45.0
-metadata/_custom_type_script = "uid://b8hhnqsugykly"
+script = ExtResource("23_gwqyt")
+transition = 7
+ease = 1
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_gwqyt"]
+script = ExtResource("23_gwqyt")
+duration = 1.2
+transition = 10
+ease = 1
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_f38sd")
@@ -75,8 +79,31 @@ grow_horizontal = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
 script = ExtResource("9_mlt6n")
 
-[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
+[node name="FollowGroupPhantomCamera3D" type="Node3D" parent="CameraController" unique_id=1025208177]
 transform = Transform3D(1, 0, 0, 0, 0.8616292, 0.5075383, 0, -0.5075383, 0.8616292, 0, 22.4, 30.37)
+top_level = true
+script = ExtResource("22_walhf")
+follow_mode = 3
+tween_resource = SubResource("Resource_5qsl7")
+tween_on_load = false
+inactive_update_mode = 1
+camera_3d_resource = ExtResource("26_gwqyt")
+follow_damping = true
+auto_follow_distance = true
+auto_follow_distance_min = 14.0
+auto_follow_distance_max = 24.0
+
+[node name="GlobalScenePhantomCamera3D" type="Node3D" parent="CameraController" unique_id=53337214]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 0, 0)
+script = ExtResource("22_walhf")
+priority = 1
+tween_resource = SubResource("Resource_gwqyt")
+tween_on_load = false
+camera_3d_resource = ExtResource("26_gwqyt")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 22.4, 30.37)
 top_level = true
 current = true
 fov = 45.0
@@ -88,16 +115,6 @@ transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("24_5qsl7")
-
-[node name="PhantomCamera3D" type="Node3D" parent="CameraController/MainCamera3D" unique_id=1025208177]
-transform = Transform3D(1, 0, 0, 0, 0.8616292, 0.5075383, 0, -0.5075383, 0.8616292, 0, 22.4, 30.37)
-top_level = true
-script = ExtResource("22_walhf")
-follow_mode = 3
-tween_resource = SubResource("Resource_tw2pt")
-camera_3d_resource = SubResource("Resource_5qsl7")
-follow_axis_lock = 3
-auto_follow_distance = true
 
 [node name="TrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("23_yaqu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 25, 0)

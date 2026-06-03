@@ -149,13 +149,14 @@ func _on_map_new_item_spawn(new_item: Item) -> void:
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
+	camera_controller.add_player(player)
+	
 	if tracking_spot_player_one.target:
 		tracking_spot_player_two.target = player
 	else:
 		tracking_spot_player_one.target = player
 	
 	player.freeze()
-	camera_controller.add_player(player)
 	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)
 	
 	players.append(player)
