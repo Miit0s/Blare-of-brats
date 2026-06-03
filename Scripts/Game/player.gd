@@ -4,7 +4,6 @@ class_name Player
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var switch_sprite: Sprite3D = $SwitchSprite
-@onready var feet: Node3D = $Feet
 @onready var throw_direction: Node3D = $ThrowDirection
 @onready var current_item: Sprite3D = $CurrentItem
 
