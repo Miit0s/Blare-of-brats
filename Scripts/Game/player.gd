@@ -14,6 +14,7 @@ class_name Player
 @export var fall_speed: float = 100.0
 @export var speed_change_transition: float = 0.2
 var _speed_multiplier: float = 1
+var _slow_tween: Tween = null
 
 @export_category("Dash")
 @export var dash_speed: float = 20.0
@@ -454,8 +455,15 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	
 	throw_arrow.modulate = selection.color_skin.main_color
 
-func apply_slow(speed_multiplier: float):
-	var slow_down_tween: Tween = create_tween()
-	slow_down_tween.set_ease(Tween.EASE_IN)
-	slow_down_tween.set_trans(Tween.TRANS_QUAD)
-	slow_down_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)
+func apply_slow(speed_multiplier: float, duration: float):
+	if _slow_tween:
+		_slow_tween.kill()
+		_slow_tween = null
+	
+	_slow_tween = create_tween()
+	_slow_tween.set_ease(Tween.EASE_IN)
+	_slow_tween.set_trans(Tween.TRANS_QUAD)
+	_slow_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)
+	_slow_tween.tween_interval(duration)
+	_slow_tween.tween_property(self, "_speed_multiplier", 1, speed_change_transition)
+	_slow_tween.finished.connect(func(): _slow_tween = null)
