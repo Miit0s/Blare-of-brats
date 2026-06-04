@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3qls1mbs7ebq"]
+
+[ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="1_vwjk7"]
+
+[node name="BalloonManager" type="Node3D" unique_id=1694831927]
+script = ExtResource("1_vwjk7")

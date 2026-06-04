@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://dkwv36grr47rk"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Boxing_Glove"
+id = 1076559162
+guid = "{8EEAA15B-A805-4909-9B85-FE3E1D889573}"
+dummy = true

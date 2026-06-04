@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cvjugr8ia7an"]
 
-[ext_resource type="Texture2D" uid="uid://c5thsxek61sxw" path="res://Assets/Sprite/ring.png" id="1_pte8b"]
+[ext_resource type="Texture2D" uid="uid://8s2jtu04kkm1" path="res://Assets/MockSprite/arrow.svg" id="1_pte8b"]
+
+
 
 [sub_resource type="Curve" id="Curve_pte8b"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42338708, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

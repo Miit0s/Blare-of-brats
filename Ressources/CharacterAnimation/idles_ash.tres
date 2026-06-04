@@ -265,7 +265,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back",
-"speed": 24.0
+"speed": 19.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -324,7 +324,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
-"speed": 24.0
+"speed": 19.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -383,5 +383,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"right",
-"speed": 24.0
+"speed": 19.0
 }]

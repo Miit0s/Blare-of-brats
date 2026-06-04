@@ -1,12 +1,35 @@
 [gd_resource type="Resource" script_class="CharacterColorResource" format=3 uid="uid://dn41vyjymalxc"]
 
 [ext_resource type="Script" uid="uid://dranqulqe0dbp" path="res://Scripts/Resources/character_color_resource.gd" id="1_5fak4"]
-[ext_resource type="Material" uid="uid://c8g27i46paa55" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="1_15r7h"]
-[ext_resource type="Material" uid="uid://21jpvwabe88e" path="res://Assets/Material/MaxSkin/3D/pink.tres" id="2_vikl8"]
+[ext_resource type="Material" uid="uid://bn30eps4jrde0" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="1_diqsx"]
+[ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="2_eo7vr"]
+[ext_resource type="Texture2D" uid="uid://blwpm6jjrv88f" path="res://Assets/Player/Max/Idle/idle-left-animation-chara-1.png" id="3_ttasq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_124jd"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_eo7vr")
+shader_parameter/main_texture = ExtResource("3_ttasq")
+shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
+shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
+shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.8784314, 0.5568628, 0.7921569, 1)
+shader_parameter/replace_1 = Color(0.99607843, 0.827451, 0.6156863, 1)
+shader_parameter/replace_2 = Color(0.7058824, 0.29803923, 0.6431373, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.1600000076
+shader_parameter/softness = 0.05
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/color_override = Color(1, 0, 0, 1)
+shader_parameter/blend_delta = 0.0
 
 [resource]
 script = ExtResource("1_5fak4")
 main_color = Color(0.9254902, 0.3647059, 0.56078434, 1)
-color_shader_2d = ExtResource("1_15r7h")
-color_shader_3d = ExtResource("2_vikl8")
+color_shader_2d = ExtResource("1_diqsx")
+color_shader_3d = SubResource("ShaderMaterial_124jd")
 metadata/_custom_type_script = "uid://dranqulqe0dbp"

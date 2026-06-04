@@ -5,28 +5,18 @@ uniform float progress: hint_range(0.0, 1.0) = 0.5;
 uniform vec4 color_left: source_color = vec4(0, 0, 1, 1);
 uniform vec4 color_right: source_color = vec4(1, 0, 0, 1);
 
-uniform vec2 rect_size = vec2(200.0, 50.0);
-
-uniform sampler2D noise_texture: repeat_enable;
-uniform float noise_intensity: hint_range(0.0, 1.0) = 0.4;
-
-uniform float transition_blur: hint_range(0.0, 0.5) = 0.001;
-
-uniform vec2 uv_offset = vec2(0.0, 0.0);
+uniform float shear_angle : hint_range(-1.0, 1.0) = 0.0;
 
 void fragment() {
-	float aspect = rect_size.x / rect_size.y;
-	vec2 corrected_uv = vec2(UV.x * aspect, UV.y);
+	vec4 texture_color = texture(TEXTURE, UV);
 	
-	vec2 moving_uv = corrected_uv + uv_offset;
+	float adjusted_x = UV.x + (UV.y - 0.5) * shear_angle;
 	
-	float mask = (progress - UV.x) + 0.5;
-	float noise = texture(noise_texture, moving_uv).r;
-	
-	float combined = mask + (noise - 0.5) * noise_intensity;
-	
-	float edge = smoothstep(0.5 - transition_blur, 0.5 + transition_blur, combined);
+	float mask = progress - adjusted_x;
+	float edge = smoothstep(-0.005, 0.005, mask);
 	
 	vec4 final_color = mix(color_right, color_left, edge);
+	
 	COLOR = final_color;
+	COLOR.a = texture_color.a;
 }
