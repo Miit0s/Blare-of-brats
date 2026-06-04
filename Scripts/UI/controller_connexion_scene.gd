@@ -166,6 +166,8 @@ func _on_joy_connection_changed(device: int, connected: bool):
 func _on_controller_slot_player_his_ready(controller_slot: ControllerSlot) -> void:
 	_player_ready += 1
 	
+	_lock_color_for_all(controller_slot.get_player_selection().color_skin)
+	
 	if controller_slots[0] == controller_slot: stand_1.texture = stage_ready
 	else: stand_2.texture = stage_ready
 	
@@ -176,6 +178,8 @@ func _on_controller_slot_player_his_ready(controller_slot: ControllerSlot) -> vo
 func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -> void:
 	_player_ready -= 1
 	
+	_unlock_color_for_all(controller_slot.get_player_selection().color_skin)
+	
 	if controller_slots[0] == controller_slot: stand_1.texture = stage_default
 	else: stand_2.texture = stage_default
 	
@@ -185,3 +189,11 @@ func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -
 
 func _on_return_radial_progress_bar_hold_finish() -> void:
 	get_tree().change_scene_to_file(main_menu_scene_uid)
+
+func _lock_color_for_all(color: CharacterColorResource):
+	for controller_slot in controller_slots:
+		controller_slot.lock_color(color)
+
+func _unlock_color_for_all(color: CharacterColorResource):
+	for controller_slot in controller_slots:
+		controller_slot.unlock_color(color)

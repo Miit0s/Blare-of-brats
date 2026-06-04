@@ -140,3 +140,22 @@ func get_player_selection() -> PlayerCharacterSelection:
 	player_selection.skin = current_skin
 	
 	return player_selection
+
+func lock_color(color: CharacterColorResource):
+	if is_ready and get_player_selection().color_skin == color: return
+	
+	selected_player.lock_color(color)
+	
+	for color_option: ColorOptions in selected_player.color_picker.color_options_for_skin.values():
+		if color_option.get_current_color_skin() == color:
+			if color_option == selected_player.color_picker.current_color_option:
+				if not selected_player.apply_next_color():
+					selected_player.apply_previous_color()
+			else:
+				var new_back_player_color: CharacterColorResource = color_option.get_and_select_next_color()
+				if new_back_player_color == null:
+					new_back_player_color = color_option.get_and_select_previous_color()
+				back_player.apply_color_and_texture(new_back_player_color)
+
+func unlock_color(color: CharacterColorResource):
+	selected_player.unlock_color(color)

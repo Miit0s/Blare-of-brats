@@ -3,21 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://8h6ild0muaaa" path="res://UI/ControllerConnection/color_options.tscn" id="1_li633"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="2_u0kt2"]
 [ext_resource type="Resource" uid="uid://o4ahs0qkjupm" path="res://Ressources/CharacterSkin/Ash/yellow.tres" id="3_qqprb"]
-[ext_resource type="Resource" uid="uid://cg4qd0ygpnuov" path="res://Ressources/CharacterSkin/Ash/cyan.tres" id="4_btrmt"]
 [ext_resource type="Resource" uid="uid://0ituf8tnbe8u" path="res://Ressources/CharacterSkin/Ash/violet.tres" id="5_v45po"]
-[ext_resource type="Resource" uid="uid://c18v12eefcbxo" path="res://Ressources/CharacterSkin/Ash/blue.tres" id="6_yv3op"]
 
 [node name="ColorOptions" unique_id=801785045 node_paths=PackedStringArray("color_selector") instance=ExtResource("1_li633")]
 color_selector = {
 NodePath("VBoxContainer/ColorSelector1"): ExtResource("2_u0kt2"),
 NodePath("VBoxContainer/ColorSelector2"): ExtResource("3_qqprb"),
-NodePath("VBoxContainer/ColorSelector3"): ExtResource("4_btrmt"),
-NodePath("VBoxContainer/ColorSelector4"): ExtResource("5_v45po"),
-NodePath("VBoxContainer/ColorSelector5"): ExtResource("6_yv3op")
+NodePath("VBoxContainer/ColorSelector3"): ExtResource("5_v45po")
 }
 
 [node name="ColorSelector1" parent="VBoxContainer" parent_id_path=PackedInt32Array(890021754) index="0" unique_id=1151932377]
 size_flags_horizontal = 4
+selected = true
 color_in = Color(0.9843137, 0.64705884, 0.5294118, 1)
 
 [node name="ColorSelector2" parent="VBoxContainer" parent_id_path=PackedInt32Array(890021754) index="1" unique_id=45951242]
@@ -26,12 +23,4 @@ color_in = Color(0.99607843, 0.9372549, 0.5294118, 1)
 
 [node name="ColorSelector3" parent="VBoxContainer" parent_id_path=PackedInt32Array(890021754) index="2" unique_id=414331336]
 size_flags_horizontal = 4
-color_in = Color(0.41960785, 0.80784315, 0.78431374, 1)
-
-[node name="ColorSelector4" parent="VBoxContainer" parent_id_path=PackedInt32Array(890021754) index="3" unique_id=391525997]
-size_flags_horizontal = 4
-color_in = Color(0.8862745, 0.63529414, 0.9607843, 1)
-
-[node name="ColorSelector5" parent="VBoxContainer" parent_id_path=PackedInt32Array(890021754) index="4" unique_id=1332294701]
-size_flags_horizontal = 4
-color_in = Color(0.42352942, 0.6392157, 1, 1)
+color_in = Color(0.6039216, 0.6039216, 0.96862745, 1)
