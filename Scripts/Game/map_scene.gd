@@ -1,6 +1,8 @@
 extends Node3D
 class_name MapScene
 
+@onready var base_map: BaseMap = $BaseMap
+
 @export var player_spawn_system: PlayerSpawnSystem
 @export var balloon_manager: BalloonManager
 
@@ -26,3 +28,9 @@ func _on_player_spawn_system_new_player_spawn(player: Player) -> void:
 
 func _on_balloon_manager_sound_emit(value: float) -> void:
 	balloon_pop.emit(value)
+
+func activate_danger_phase():
+	base_map.desactivate_light()
+
+func activate_wolf_tracking_spot():
+	base_map.activate_wolf_light()

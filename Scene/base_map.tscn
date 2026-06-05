@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dn3cvaomvac61"]
 
+[ext_resource type="Script" uid="uid://d1yjclxqsurb3" path="res://Scripts/Game/base_map.gd" id="1_edfmf"]
+[ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="2_71olc"]
 [ext_resource type="Texture2D" uid="uid://cxe2bn6oa6rw4" path="res://Assets/EnvironmentSprite/star_item.png" id="2_jlt6a"]
 [ext_resource type="Texture2D" uid="uid://wllafbs8srb" path="res://Assets/EnvironmentSprite/floorv03.png" id="3_pkc4b"]
 [ext_resource type="Texture2D" uid="uid://dqiv1ljmbjdsl" path="res://Assets/EnvironmentSprite/floor_insidev2.png" id="4_nb8nd"]
@@ -295,7 +297,9 @@ _data = {
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
 
-[node name="BaseMap" type="Node3D" unique_id=1814952881]
+[node name="BaseMap" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("lights_to_control")]
+script = ExtResource("1_edfmf")
+lights_to_control = [NodePath("Light/SpotLight3D2"), NodePath("Light/SpotLight3D3"), NodePath("Light/SpotLight3D"), NodePath("Light/SpotLight3D4"), NodePath("Light/SpotLight3D5"), NodePath("Light/SpotLight3D9"), NodePath("Light/SpotLight3D7"), NodePath("Light/SpotLight3D8"), NodePath("Light/SpotLight3D6"), NodePath("DirectionalLight3D")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=692755360]
 environment = SubResource("Environment_jm4kh")
@@ -310,6 +314,13 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Light" type="Node3D" parent="." unique_id=1975594503]
+
+[node name="DangerSpotLight3D" type="SpotLight3D" parent="Light" unique_id=2113910738]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2185574, 7.5098977, 3.443757)
+light_energy = 2.0
+spot_range = 19.975542
+spot_angle = 64.42449
+spot_angle_attenuation = 0.0010396866
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Light" unique_id=1089444787]
 transform = Transform3D(-0.6527117, -0.6642355, 0.36436084, 0.7086484, -0.36520407, 0.60369164, -0.26792732, 0.6522403, 0.7090823, 12.311444, 13.296722, 14.270054)
@@ -961,3 +972,13 @@ draw_pass_1 = SubResource("QuadMesh_bt42q")
 libraries/ = SubResource("AnimationLibrary_gwlyy")
 
 [node name="MapBound" parent="." unique_id=1728214558 instance=ExtResource("21_2t2n1")]
+
+[node name="WolfTrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("2_71olc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.7904882, 5.6552505, -7.930383)
+visible = false
+start_radius = 0.5
+color = Color(1, 0, 0, 0.019607844)
+
+[node name="WolfEyeStartTarget" type="Marker3D" parent="." unique_id=874590691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3780439, 0.8744836, -6.9609594)
+gizmo_extents = 1.0

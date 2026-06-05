@@ -11,6 +11,7 @@ shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.019607844)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_outcv"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_outcv")
 top_radius = 1.0
 bottom_radius = 2.35835

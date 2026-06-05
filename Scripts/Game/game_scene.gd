@@ -125,14 +125,13 @@ func player_win(player_id: int):
 func return_to_main_menu():
 	get_tree().change_scene_to_file(main_menu_scene_uid)
 
+
 func _on_shared_life_bar_player_win(player_id: int) -> void:
-	print("No more health trigger")
 	player_win(player_id)
 
 
 func _on_game_sound_bar_sound_bar_fill() -> void:
-	print("Sound bar fill trigger")
-	player_win(game_bar.shared_life_bar.get_player_id_with_most_health())
+	_activate_the_danger_phase()
 
 
 func lifebar_value_change(lifebar_value: float):
@@ -179,3 +178,10 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 	if players_selection[0].player_id == player_id:
 		return players_selection[0]
 	return players_selection[1]
+
+func _activate_the_danger_phase():
+	_current_scene.activate_danger_phase()
+	
+	await get_tree().create_timer(2).timeout
+	
+	_current_scene.activate_wolf_tracking_spot()
