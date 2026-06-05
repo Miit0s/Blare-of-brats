@@ -22,6 +22,7 @@ class_name GameScene
 @export var music_fight: WwiseEvent
 @export var lead: WwiseRTPC
 @export var round_state: WwiseState
+@export var danger_phase_start: WwiseEvent
 
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
@@ -181,7 +182,9 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 
 func _activate_the_danger_phase():
 	_current_scene.activate_danger_phase()
+	#danger_phase_start.post(self)
 	
 	await get_tree().create_timer(2).timeout
 	
 	_current_scene.activate_wolf_tracking_spot()
+	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))

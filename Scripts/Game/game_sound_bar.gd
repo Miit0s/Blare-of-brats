@@ -58,3 +58,11 @@ func _check_if_last_lock_pass():
 	if _current_lock_area < new_lock_area:
 		_current_lock_area = new_lock_area
 		lock_area_pass.emit(new_lock_area)
+
+func change_sound_bar_color(color: Color):
+	var new_gradient: GradientTexture1D = GradientTexture1D.new()
+	new_gradient.gradient = Gradient.new()
+	new_gradient.gradient.set_color(0, color)
+	new_gradient.gradient.set_color(1, color)
+	
+	sound_bar.material.set_shader_parameter("gradient_x", new_gradient)
