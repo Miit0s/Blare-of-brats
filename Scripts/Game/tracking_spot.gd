@@ -5,8 +5,10 @@ class_name TrackingSpot extends Node3D
 @export_range(0,300) var distance : float = 50
 @export_range(1,10) var angle : float = 10
 @export_range(0,10) var start_radius: float = 1.0
-@export var color : Color = Color.ORANGE
-@export var enabled : bool
+@export_range(0,10) var end_radius: float = 5.0
+@export var use_given_end_radius: bool = false
+@export var color: Color = Color.ORANGE
+@export var enabled: bool
 @export var create_a_temp_target: bool = false
 @export var temp_target_lifetime: float = 10
 
@@ -29,7 +31,7 @@ func _process(_delta: float) -> void:
 	cylinder.height = distance
 	mesh.position.z = -distance/2
 	cylinder.top_radius = start_radius
-	cylinder.bottom_radius = distance * tan(deg_to_rad(angle))
+	cylinder.bottom_radius = distance * tan(deg_to_rad(angle)) if not use_given_end_radius else end_radius
 	var mat : StandardMaterial3D = cylinder.material
 	mat.albedo_color = color
 	light.light_color = color

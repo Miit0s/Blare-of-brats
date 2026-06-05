@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="23_vjobn"]
 [ext_resource type="PackedScene" uid="uid://bn3lnrd8rlgo1" path="res://Prefabs/Enviro/wolf_target.tscn" id="27_tax4x"]
 [ext_resource type="Script" uid="uid://k2hs1xqqot34" path="res://addons/spawn_area/game/spawn_area_3D.gd" id="28_l7xf8"]
+[ext_resource type="PackedScene" uid="uid://bsrm5tspv37qd" path="res://Prefabs/Enviro/wolf_tracking_spot.tscn" id="28_q5aaq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6ivv"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
@@ -982,7 +983,6 @@ libraries/ = SubResource("AnimationLibrary_gwlyy")
 
 [node name="WolfEyeStartTarget" type="Marker3D" parent="." unique_id=874590691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3780439, 0.8744836, -6.9609594)
-visible = false
 gizmo_extents = 1.0
 
 [node name="WolfTarget" parent="." unique_id=1343381387 instance=ExtResource("27_tax4x")]
@@ -997,3 +997,14 @@ plane_shape = 0
 size = Vector2(25.5, 14)
 is_raycast = false
 metadata/_custom_type_script = "uid://k2hs1xqqot34"
+
+[node name="WolfTrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("28_q5aaq")]
+transform = Transform3D(-0.1313823, -0.55178124, 0.8235752, 0, 0.8307766, 0.55660605, -0.9913316, 0.0731282, -0.10914936, 5.7862525, 5.7164097, -7.9104514)
+visible = false
+target = NodePath("../WolfTarget")
+distance = 35.0
+angle = 9.0
+start_radius = 0.8
+end_radius = 1.8
+use_given_end_radius = true
+color = Color(1, 0, 0, 0.19607843)
