@@ -2,6 +2,7 @@ extends Node3D
 class_name WolfTarget
 
 @onready var area_3d: Area3D = $Area3D
+@onready var spot_light_3d: SpotLight3D = $SpotLight3D
 
 @export var speed: float = 5
 @export var distance_for_slow_down: float = 5
@@ -40,6 +41,8 @@ func set_new_target_position(new_position: Vector3):
 
 func start_tracking():
 	_is_tracking = true
+	spot_light_3d.show()
 
 func stop_tracking():
 	_is_tracking = false
+	spot_light_3d.hide()
