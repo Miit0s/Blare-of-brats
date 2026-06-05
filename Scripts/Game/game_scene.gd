@@ -74,7 +74,6 @@ func start_round():
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
-	game_bar.game_sound_bar.start_timer(round_duration_sec)
 	
 	music_fight.post(self)
 
