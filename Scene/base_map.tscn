@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://bgtrj4twbbsht" path="res://Prefabs/Enviro/map_bound_prefab.tscn" id="21_2t2n1"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="22_gvxo6"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="23_vjobn"]
-[ext_resource type="PackedScene" uid="uid://bsrm5tspv37qd" path="res://Prefabs/Enviro/wolf_tracking_spot.tscn" id="26_l7xf8"]
 [ext_resource type="PackedScene" uid="uid://bn3lnrd8rlgo1" path="res://Prefabs/Enviro/wolf_target.tscn" id="27_tax4x"]
 [ext_resource type="Script" uid="uid://k2hs1xqqot34" path="res://addons/spawn_area/game/spawn_area_3D.gd" id="28_l7xf8"]
 
@@ -433,6 +432,12 @@ texture = ExtResource("2_jlt6a")
 
 [node name="Floor" type="Sprite3D" parent="Sprite" unique_id=102686002]
 transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.8429089, 0.22552514, 3.5785408)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_pkc4b")
+
+[node name="Floor2" type="Sprite3D" parent="Sprite" unique_id=360471518]
+transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.843, 0.227, 28.249)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("3_pkc4b")
@@ -974,13 +979,6 @@ draw_pass_1 = SubResource("QuadMesh_bt42q")
 libraries/ = SubResource("AnimationLibrary_gwlyy")
 
 [node name="MapBound" parent="." unique_id=1728214558 instance=ExtResource("21_2t2n1")]
-
-[node name="TrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("26_l7xf8")]
-transform = Transform3D(-0.13334633, -0.5434778, 0.8287645, 0, 0.8362323, 0.5483751, -0.9910691, 0.07312383, -0.111508586, 5.859441, 5.6633673, -7.934748)
-target = NodePath("../WolfTarget")
-distance = 28.0
-start_radius = 0.6
-color = Color(1, 0, 0, 0.19607843)
 
 [node name="WolfEyeStartTarget" type="Marker3D" parent="." unique_id=874590691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3780439, 0.8744836, -6.9609594)

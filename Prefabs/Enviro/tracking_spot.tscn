@@ -9,6 +9,7 @@ blend_mode = 1
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.019607844)
+proximity_fade_enabled = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_outcv"]
 resource_local_to_scene = true
