@@ -987,7 +987,6 @@ gizmo_extents = 1.0
 
 [node name="WolfTarget" parent="." unique_id=1343381387 instance=ExtResource("27_tax4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3780439, 0.8744836, -6.9609594)
-distance_for_slow_down = 2.0
 
 [node name="SpawnArea3D" type="Node3D" parent="." unique_id=753561572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4070578, 0.0023770332, 3.7114286)
@@ -999,7 +998,7 @@ is_raycast = false
 metadata/_custom_type_script = "uid://k2hs1xqqot34"
 
 [node name="WolfTrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("28_q5aaq")]
-transform = Transform3D(-0.1313823, -0.55178124, 0.8235752, 0, 0.8307766, 0.55660605, -0.9913316, 0.0731282, -0.10914936, 5.7862525, 5.7164097, -7.9104514)
+transform = Transform3D(-0.13138218, -0.5517813, 0.82357526, 0, 0.8307766, 0.55660605, -0.99133164, 0.073128134, -0.10914926, 5.7862525, 5.7164097, -7.9104514)
 visible = false
 target = NodePath("../WolfTarget")
 distance = 35.0
