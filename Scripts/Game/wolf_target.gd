@@ -25,7 +25,7 @@ signal has_reach_destination
 func _process(delta: float) -> void:
 	if not _is_tracking: return
 	
-	if global_position.is_equal_approx(_target_position):
+	if global_position.is_equal_approx(_target_position) and not _has_reach_destination:
 		_has_reach_destination = true
 		has_reach_destination.emit()
 	
@@ -38,7 +38,8 @@ func _process(delta: float) -> void:
 		global_position = global_position.move_toward(_target_position, delta * speed)
 
 func set_new_target_position(new_position: Vector3):
-	_target_position = new_position
+	var adjusted_position: Vector3 = Vector3(new_position.x, global_position.y, new_position.z)
+	_target_position = adjusted_position
 	
 	if _has_reach_destination:
 		_restart_move()

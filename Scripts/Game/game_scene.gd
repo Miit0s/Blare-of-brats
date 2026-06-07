@@ -87,7 +87,7 @@ func setup_new_scene():
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
-	new_scene.balloon_pop.connect(game_bar.game_sound_bar.add_sound_to_bar)
+	new_scene.balloon_pop.connect(_item_made_sound)
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	
@@ -140,11 +140,16 @@ func lifebar_value_change(lifebar_value: float):
 
 
 func _on_map_item_will_be_delete(item: Item) -> void:
-	item.sound_made.disconnect(game_bar.game_sound_bar.add_sound_to_bar)
+	item.sound_made.disconnect(_item_made_sound)
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
-	new_item.sound_made.connect(game_bar.game_sound_bar.add_sound_to_bar)
+	new_item.sound_made.connect(_item_made_sound)
+
+
+func _item_made_sound(value: float, sound_global_position: Vector3):
+	game_bar.game_sound_bar.add_sound_to_bar(value)
+	_current_scene.sound_made_at_location(sound_global_position)
 
 
 func _on_map_new_player_spawn(player: Player) -> void:

@@ -8,8 +8,11 @@ class_name BaseMap
 
 @export var lights_to_control: Array[Light3D]
 
+@export_category("Wolf Eye Timer")
+@export var wait_time: float = 1
+
 func _ready() -> void:
-	wolf_target.has_reach_destination.connect(set_random_target_for_wolf)
+	wolf_target.has_reach_destination.connect(wait_and_set_random_target)
 
 func desactivate_light():
 	for light in lights_to_control:
@@ -36,3 +39,7 @@ func reset_wolf_light(duration: float):
 	desactivate_wolf_light()
 	await get_tree().create_timer(duration).timeout
 	activate_wolf_light()
+
+func wait_and_set_random_target():
+	await get_tree().create_timer(wait_time).timeout
+	set_random_target_for_wolf()

@@ -9,7 +9,7 @@ class_name MapScene
 signal new_player_spawn(player: Player)
 signal new_item_spawn(new_item: Item)
 signal item_will_be_delete(item: Item)
-signal balloon_pop(value: float)
+signal balloon_pop(value: float, global_position: Vector3)
 
 func _ready() -> void:
 	balloon_manager.sound_emit.connect(_on_balloon_manager_sound_emit)
@@ -26,11 +26,14 @@ func _on_player_spawn_system_new_player_spawn(player: Player) -> void:
 	new_player_spawn.emit(player)
 
 
-func _on_balloon_manager_sound_emit(value: float) -> void:
-	balloon_pop.emit(value)
+func _on_balloon_manager_sound_emit(value: float, balloon_global_position: Vector3) -> void:
+	balloon_pop.emit(value, balloon_global_position)
 
 func activate_danger_phase():
 	base_map.desactivate_light()
 
 func activate_wolf_tracking_spot():
 	base_map.activate_wolf_light()
+
+func sound_made_at_location(sound_global_position: Vector3):
+	base_map.set_new_wolf_eye_target(sound_global_position)

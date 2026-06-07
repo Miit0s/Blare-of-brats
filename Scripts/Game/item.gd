@@ -65,7 +65,7 @@ var _throw_direction: Vector3 = Vector3.ZERO
 
 var _throw_start_point: Vector3 = Vector3.ZERO
 
-signal sound_made(value: float)
+signal sound_made(value: float, global_position: Vector3)
 
 signal has_loose_durability()
 signal will_be_destroy(item: Item)
@@ -104,7 +104,7 @@ func throw(direction: Vector3):
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(4, true)
 	apply_central_impulse(direction.normalized() * throw_force)
-	sound_made.emit(sound_on_throw)
+	sound_made.emit(sound_on_throw, global_position)
 	
 	rotation = Vector3.ZERO
 	item_animation.hide()
@@ -126,7 +126,7 @@ func attack(direction: Vector3):
 	if attack_sound:
 		attack_sound.post(self)
 	if sound_always_made:
-		sound_made.emit(sound_on_attack)
+		sound_made.emit(sound_on_attack, global_position)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
@@ -150,7 +150,7 @@ func destroy():
 	
 	linear_velocity = Vector3.ZERO
 	
-	sound_made.emit(sound_on_break)
+	sound_made.emit(sound_on_break, global_position)
 	will_be_destroy.emit(self)
 	item_animation.hide()
 	item_visual.hide()
@@ -207,7 +207,7 @@ func _add_hit_effect(target: Node3D):
 
 func _attack_player(player_hit: Player):
 	if not sound_always_made:
-		sound_made.emit(sound_on_attack)
+		sound_made.emit(sound_on_attack, global_position)
 	
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction)

@@ -9,7 +9,7 @@ class_name Balloon
 
 var _already_pop: bool = false
 
-signal sound_emit(value: float)
+signal sound_emit(value: float, global_position: Vector3)
 
 func _ready() -> void:
 	area_3d.body_entered.connect(_on_body_area_entered)
@@ -19,7 +19,7 @@ func _on_body_area_entered(_body: Node3D):
 	
 	_already_pop = true
 	sprite_3d.hide()
-	sound_emit.emit(sound_on_pop)
+	sound_emit.emit(sound_on_pop, global_position)
 	
 	gpu_particles_3d.restart()
 	await gpu_particles_3d.finished
