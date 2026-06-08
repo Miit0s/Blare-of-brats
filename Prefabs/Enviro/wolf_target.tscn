@@ -19,10 +19,9 @@ shape = SubResource("CylinderShape3D_oevxu")
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=172434695]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.2141411, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.1805458, 0)
 light_color = Color(1, 0, 0, 1)
 light_energy = 3.0
 spot_range = 4.107014
-spot_angle = 58.79919
+spot_angle = 41.0771
 spot_angle_attenuation = 0.09410126
