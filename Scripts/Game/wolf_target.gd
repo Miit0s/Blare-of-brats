@@ -1,10 +1,11 @@
 extends Node3D
 class_name WolfTarget
 
-@onready var area_3d: Area3D = $Area3D
+@onready var player_stun_area: Area3D = $PlayerStunArea
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
 
 @export var speed: float = 5
+@export var stun_duration: float = 2
 
 @export_category("Tween")
 @export var distance_for_slow_down: float = 2
@@ -21,6 +22,10 @@ var _slow_down_tween: Tween = null
 var _speed_up_tween: Tween = null
 
 signal has_reach_destination
+signal has_hit_player
+
+func _ready() -> void:
+	player_stun_area.body_entered.connect(_on_player_stun_area_body_entered)
 
 func _process(delta: float) -> void:
 	if not _is_tracking: return
@@ -72,3 +77,12 @@ func _restart_move():
 		_has_finish_restart_move = true
 		_speed_up_tween = null
 	)
+
+func go_directly_to(location: Vector3):
+	var adjusted_position: Vector3 = Vector3(location.x, global_position.y, location.z)
+	global_position = adjusted_position
+
+func _on_player_stun_area_body_entered(body: Node3D):
+	var player: Player = body
+	player.stun(stun_duration)
+	has_hit_player.emit()

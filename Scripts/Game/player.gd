@@ -38,7 +38,7 @@ var _is_attacking: bool = false
 var _is_making_attack_move: bool = false
 
 @export_category("Stun")
-@export var stun_duration: float = 1
+@export var knockback_stun_duration: float = 1
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
@@ -297,13 +297,13 @@ func knockback(hit_direction: Vector3):
 	
 	await knockback_speed_tween.finished
 	
-	stun()
+	stun(knockback_stun_duration)
 	_is_in_knockback = false
 	_has_hit_wall = false
 
-func stun():
+func stun(duration: float):
 	_is_stun = true
-	await get_tree().create_timer(stun_duration).timeout
+	await get_tree().create_timer(duration).timeout
 	_is_stun = false
 
 func switch_item():

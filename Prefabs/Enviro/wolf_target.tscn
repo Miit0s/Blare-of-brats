@@ -4,17 +4,17 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oevxu"]
 height = 0.5
-radius = 2.0
+radius = 1.5
 
 [node name="WolfTarget" type="Node3D" unique_id=1343381387]
 script = ExtResource("1_oevxu")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1239140214]
+[node name="PlayerStunArea" type="Area3D" parent="." unique_id=1239140214]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1599492533]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerStunArea" unique_id=1599492533]
 shape = SubResource("CylinderShape3D_oevxu")
 debug_color = Color(1, 0, 0, 0.41960785)
 
