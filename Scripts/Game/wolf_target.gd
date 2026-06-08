@@ -83,6 +83,7 @@ func go_directly_to(location: Vector3):
 	global_position = adjusted_position
 
 func _on_player_stun_area_body_entered(body: Node3D):
-	var player: Player = body
-	player.stun(stun_duration)
-	has_hit_player.emit()
+	if _is_tracking:
+		var player: Player = body
+		player.stun(stun_duration)
+		has_hit_player.emit()
