@@ -8,7 +8,7 @@ class_name GameScene
 @export_category("Instance")
 @export var game_bar: GameBar
 @export var camera_controller: CameraController
-@export var main_menu_scene_uid: String
+@export var next_scene_uid: String
 
 @export var tracking_spot_player_one: TrackingSpot
 @export var tracking_spot_player_two: TrackingSpot
@@ -16,7 +16,6 @@ class_name GameScene
 @export_category("PartySetup")
 @export var player_number: int = 2
 @export var round_number: int = 3
-@export var round_duration_sec: int = 300
 
 @export_category("Sound")
 @export var music_fight: WwiseEvent
@@ -41,7 +40,7 @@ func _ready() -> void:
 	round_start_ui.animation_finish.connect(round_start_ui.hide)
 	round_end_ui.animation_finish.connect(round_end_animaion_finish)
 	round_end_ui.next_round_button_pressed.connect(start_round_animation)
-	game_end_ui.to_main_menu_button_pressed.connect(return_to_main_menu)
+	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene)
 	
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
@@ -123,8 +122,8 @@ func player_win(player_id: int):
 	round_end_ui.show()
 	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
 
-func return_to_main_menu():
-	get_tree().change_scene_to_file(main_menu_scene_uid)
+func go_to_next_scene():
+	get_tree().change_scene_to_file(next_scene_uid)
 
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:

@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://3wpfmqqcrvow" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_stick_side_r.png" id="8_3jo7j"]
 [ext_resource type="Texture2D" uid="uid://de4nl3nxxp5hi" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_x.png" id="9_eggah"]
 [ext_resource type="Texture2D" uid="uid://ru3reh4tad2e" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_l1.png" id="10_ht3jr"]
+[ext_resource type="Texture2D" uid="uid://bbd47j101unv8" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_stick_l.png" id="10_sl0oh"]
 [ext_resource type="Texture2D" uid="uid://be44pakwtb1br" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_b.png" id="11_oox1r"]
 [ext_resource type="Texture2D" uid="uid://cl45ln3o6bagv" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_r1.png" id="12_juoff"]
 [ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="13_2w8uu"]
+[ext_resource type="Texture2D" uid="uid://b272m3onn4bu0" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_stick_r.png" id="13_3ceuj"]
 [ext_resource type="Texture2D" uid="uid://c5fhad8kj3vis" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_options.png" id="14_au2cx"]
 [ext_resource type="Texture2D" uid="uid://cybeda80ibx1v" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_view.png" id="15_s8s6j"]
 [ext_resource type="Texture2D" uid="uid://bp1h7t7nbovuq" path="res://Assets/ControllerSprite/SteamDeck/steamdeck_button_y.png" id="16_tahit"]
@@ -35,4 +37,6 @@ joystick_left_btn = ExtResource("7_tfuo8")
 joystick_right_btn = ExtResource("8_3jo7j")
 left_shoulder_btn = ExtResource("10_ht3jr")
 right_shoulder_btn = ExtResource("12_juoff")
+left_joystick = ExtResource("10_sl0oh")
+right_joystick = ExtResource("13_3ceuj")
 metadata/_custom_type_script = "uid://ce5noloj2eese"

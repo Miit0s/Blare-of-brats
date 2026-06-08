@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dxbra0gmi7c5e"]
+
+[ext_resource type="Texture2D" uid="uid://cyv8onm7ikex3" path="res://Assets/MockSprite/close.png" id="1_11bfp"]
+[ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="1_r2mic"]
+[ext_resource type="Texture2D" uid="uid://ct22ot813v1kw" path="res://Assets/MockSprite/check.png" id="2_hohlh"]
+
+[node name="Task" type="Control" unique_id=1960353569]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r2mic")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2090353070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cross" type="TextureRect" parent="HBoxContainer" unique_id=2043636763]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_11bfp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Check" type="TextureRect" parent="HBoxContainer" unique_id=1291482582]
+visible = false
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_hohlh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=265601073]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TaskText" type="Label" parent="HBoxContainer" unique_id=1672430373]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "This is a task"

@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://36tccmd3uybf"]
+
+[ext_resource type="Script" uid="uid://cbhul4xaw6l4n" path="res://Scripts/Game/onboarding_scene.gd" id="1_d4n33"]
+[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
+[ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
+[ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
+[ext_resource type="PackedScene" uid="uid://cy40wk4ytaouk" path="res://Scene/Map/map_onboarding.tscn" id="5_hq2bc"]
+[ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="17_a665e"]
+[ext_resource type="PackedScene" uid="uid://ccwaslq30aelh" path="res://UI/Onboarding/input_reminder.tscn" id="17_bkpdd"]
+[ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="18_cou5v"]
+[ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="19_frks1"]
+[ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="20_2lo1k"]
+[ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_ggapv"]
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="22_262ls"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="23_ixgyd"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="24_8name"]
+[ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="25_ski87"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_3s3gr"]
+[ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="27_yqp28"]
+
+[sub_resource type="Resource" id="Resource_5qsl7"]
+script = ExtResource("24_8name")
+transition = 7
+ease = 1
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_gwqyt"]
+script = ExtResource("24_8name")
+duration = 1.2
+transition = 10
+ease = 1
+
+[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
+script = ExtResource("1_d4n33")
+input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
+task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
+game_bar = NodePath("CanvasLayer/GameBar")
+camera_controller = NodePath("CameraController")
+next_scene_uid = "uid://c53l85gqm0mi1"
+tracking_spot_player_one = NodePath("TrackingSpot")
+tracking_spot_player_two = NodePath("TrackingSpot2")
+round_number = 1
+music_fight = ExtResource("2_ts878")
+lead = ExtResource("3_aongf")
+round_state = ExtResource("4_5felv")
+possible_level = Array[PackedScene]([ExtResource("5_hq2bc")])
+
+[node name="AkBank" type="AkBank" parent="." unique_id=753158615]
+bank = ExtResource("17_a665e")
+load_on = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
+
+[node name="RoundStart" parent="CanvasLayer" unique_id=58744202 instance=ExtResource("18_cou5v")]
+visible = false
+
+[node name="GameBar" parent="CanvasLayer" unique_id=1611480018 instance=ExtResource("21_ggapv")]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_right = 768.0
+grow_horizontal = 2
+
+[node name="RoundEnd" parent="CanvasLayer" unique_id=1185368454 instance=ExtResource("19_frks1")]
+visible = false
+
+[node name="GameEnd" parent="CanvasLayer" unique_id=748037380 instance=ExtResource("20_2lo1k")]
+visible = false
+
+[node name="InputReminder" parent="CanvasLayer" unique_id=763382896 instance=ExtResource("17_bkpdd")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -400.0
+offset_right = -159.99976
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputReminder2" parent="CanvasLayer" unique_id=1958092779 instance=ExtResource("17_bkpdd")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = -400.0
+offset_right = 760.00024
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TaskList" parent="CanvasLayer" unique_id=904087515 instance=ExtResource("12_u0bvv")]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="TaskList2" parent="CanvasLayer" unique_id=1534165648 instance=ExtResource("12_u0bvv")]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -230.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
+script = ExtResource("22_262ls")
+
+[node name="FollowGroupPhantomCamera3D" type="Node3D" parent="CameraController" unique_id=1025208177]
+transform = Transform3D(1, 0, 0, 0, 0.8616292, 0.5075383, 0, -0.5075383, 0.8616292, 0, 22.4, 30.37)
+top_level = true
+script = ExtResource("23_ixgyd")
+follow_mode = 3
+tween_resource = SubResource("Resource_5qsl7")
+tween_on_load = false
+inactive_update_mode = 1
+camera_3d_resource = ExtResource("25_ski87")
+follow_damping = true
+auto_follow_distance = true
+auto_follow_distance_min = 14.0
+auto_follow_distance_max = 24.0
+
+[node name="GlobalScenePhantomCamera3D" type="Node3D" parent="CameraController" unique_id=53337214]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 0, 0)
+script = ExtResource("23_ixgyd")
+priority = 1
+tween_resource = SubResource("Resource_gwqyt")
+tween_on_load = false
+camera_3d_resource = ExtResource("25_ski87")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 22.4, 30.37)
+top_level = true
+current = true
+fov = 45.0
+
+[node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
+transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
+
+[node name="PhantomCameraHost" type="Node" parent="CameraController/MainCamera3D" unique_id=157906285]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("26_3s3gr")
+
+[node name="TrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("27_yqp28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 25, 0)
+
+[node name="TrackingSpot2" parent="." unique_id=705377044 instance=ExtResource("27_yqp28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 25, 0)

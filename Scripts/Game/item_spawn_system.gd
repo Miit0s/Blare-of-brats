@@ -22,7 +22,6 @@ func _ready() -> void:
 func _item_has_loose_durability(new_durability: int):
 	if new_durability == minimal_durability:
 		_trigger_spawn()
-	bas
 
 func _item_destroy(item: Item):
 	item.has_loose_durability.disconnect(_item_has_loose_durability)
