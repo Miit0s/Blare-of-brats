@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
+[ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="13_r08wf"]
 [ext_resource type="Texture2D" uid="uid://8s2jtu04kkm1" path="res://Assets/MockSprite/arrow.svg" id="14_4sfrm"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
@@ -48,7 +49,7 @@ speed = 9.0
 dash_speed = 30.0
 min_dash_speed = 8.0
 picked_up_item_distance = 0.8
-stun_duration = 0.2
+knockback_stun_duration = 0.2
 knockback_speed = 25.0
 knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
@@ -92,6 +93,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6114786, 0)
 
 [node name="DashEffect" parent="." unique_id=2051336107 instance=ExtResource("16_ybo73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04046938, -0.10652523)
+
+[node name="StunParticle" parent="." unique_id=1759464147 instance=ExtResource("13_r08wf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0154343, 0)
 
 [node name="SwitchSprite" type="Sprite3D" parent="." unique_id=2090515683]
 transform = Transform3D(-0.10606601, -0.10606601, 0, 0.10606601, -0.10606601, 0, 0, 0, 0.14999999, 0, 1.065298, 0)

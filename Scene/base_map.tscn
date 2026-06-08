@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dn3cvaomvac61"]
 
+[ext_resource type="Script" uid="uid://d1yjclxqsurb3" path="res://Scripts/Game/base_map.gd" id="1_edfmf"]
 [ext_resource type="Texture2D" uid="uid://cxe2bn6oa6rw4" path="res://Assets/EnvironmentSprite/star_item.png" id="2_jlt6a"]
 [ext_resource type="Texture2D" uid="uid://wllafbs8srb" path="res://Assets/EnvironmentSprite/floorv03.png" id="3_pkc4b"]
 [ext_resource type="Texture2D" uid="uid://dqiv1ljmbjdsl" path="res://Assets/EnvironmentSprite/floor_insidev2.png" id="4_nb8nd"]
@@ -24,6 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://bgtrj4twbbsht" path="res://Prefabs/Enviro/map_bound_prefab.tscn" id="21_2t2n1"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="22_gvxo6"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="23_vjobn"]
+[ext_resource type="PackedScene" uid="uid://bn3lnrd8rlgo1" path="res://Prefabs/Enviro/wolf_target.tscn" id="27_tax4x"]
+[ext_resource type="Script" uid="uid://k2hs1xqqot34" path="res://addons/spawn_area/game/spawn_area_3D.gd" id="28_l7xf8"]
+[ext_resource type="PackedScene" uid="uid://bsrm5tspv37qd" path="res://Prefabs/Enviro/wolf_tracking_spot.tscn" id="28_q5aaq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6ivv"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
@@ -295,7 +299,9 @@ _data = {
 &"god_rays_tests": SubResource("Animation_j1xvy")
 }
 
-[node name="BaseMap" type="Node3D" unique_id=1814952881]
+[node name="BaseMap" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("lights_to_control")]
+script = ExtResource("1_edfmf")
+lights_to_control = [NodePath("Light/SpotLight3D2"), NodePath("Light/SpotLight3D3"), NodePath("Light/SpotLight3D"), NodePath("Light/SpotLight3D4"), NodePath("Light/SpotLight3D5"), NodePath("Light/SpotLight3D9"), NodePath("Light/SpotLight3D7"), NodePath("Light/SpotLight3D8"), NodePath("Light/SpotLight3D6"), NodePath("DirectionalLight3D")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=692755360]
 environment = SubResource("Environment_jm4kh")
@@ -310,6 +316,13 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Light" type="Node3D" parent="." unique_id=1975594503]
+
+[node name="DangerSpotLight3D" type="SpotLight3D" parent="Light" unique_id=2113910738]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2185574, 7.5098977, 3.443757)
+light_energy = 2.0
+spot_range = 19.975542
+spot_angle = 64.42449
+spot_angle_attenuation = 0.0010396866
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Light" unique_id=1089444787]
 transform = Transform3D(-0.6527117, -0.6642355, 0.36436084, 0.7086484, -0.36520407, 0.60369164, -0.26792732, 0.6522403, 0.7090823, 12.311444, 13.296722, 14.270054)
@@ -420,6 +433,12 @@ texture = ExtResource("2_jlt6a")
 
 [node name="Floor" type="Sprite3D" parent="Sprite" unique_id=102686002]
 transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.8429089, 0.22552514, 3.5785408)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_pkc4b")
+
+[node name="Floor2" type="Sprite3D" parent="Sprite" unique_id=360471518]
+transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.843, 0.227, 28.249)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("3_pkc4b")
@@ -961,3 +980,30 @@ draw_pass_1 = SubResource("QuadMesh_bt42q")
 libraries/ = SubResource("AnimationLibrary_gwlyy")
 
 [node name="MapBound" parent="." unique_id=1728214558 instance=ExtResource("21_2t2n1")]
+
+[node name="WolfEyeStartTarget" type="Marker3D" parent="." unique_id=874590691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.378, 0.254, -6.961)
+gizmo_extents = 1.0
+
+[node name="WolfTarget" parent="." unique_id=1343381387 instance=ExtResource("27_tax4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.378, 0.254, -6.961)
+
+[node name="SpawnArea3D" type="Node3D" parent="." unique_id=753561572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4070578, 0.0023770332, 3.7114286)
+script = ExtResource("28_l7xf8")
+spawn_location = 0
+plane_shape = 0
+size = Vector2(25.5, 14)
+is_raycast = false
+metadata/_custom_type_script = "uid://k2hs1xqqot34"
+
+[node name="WolfTrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("28_q5aaq")]
+transform = Transform3D(-0.13137755, -0.59775364, 0.7908417, 0, 0.7977563, 0.60298, -0.9913321, 0.07921806, -0.1048073, 5.7862525, 5.7164097, -7.9104514)
+visible = false
+target = NodePath("../WolfTarget")
+distance = 35.0
+angle = 9.0
+start_radius = 0.8
+end_radius = 1.8
+use_given_end_radius = true
+color = Color(1, 0, 0, 0.19607843)

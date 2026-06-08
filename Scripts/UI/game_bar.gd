@@ -43,6 +43,9 @@ func reset_all_bar():
 	shared_life_bar.reset()
 	game_sound_bar.reset()
 
+func change_sound_bar_color(color: Color):
+	game_sound_bar.change_sound_bar_color(color)
+
 func _on_sound_bar_fill():
 	sound_bar_fill.emit()
 

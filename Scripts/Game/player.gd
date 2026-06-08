@@ -6,6 +6,7 @@ class_name Player
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var throw_direction: Node3D = $ThrowDirection
 @onready var current_item: Sprite3D = $CurrentItem
+@onready var stun_particle: GPUParticles3D = $StunParticle
 
 @export_range(0,3) var player_id: int = 0
 
@@ -38,7 +39,7 @@ var _is_attacking: bool = false
 var _is_making_attack_move: bool = false
 
 @export_category("Stun")
-@export var stun_duration: float = 1
+@export var knockback_stun_duration: float = 1
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
@@ -127,8 +128,9 @@ func _physics_process(delta: float) -> void:
 	if velocity_length > 0: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
 	
-	var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
-	_update_sprite(sprite_direction, velocity_length > 0)
+	if not _is_stun and not _is_freeze:
+		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
+		_update_sprite(sprite_direction, velocity_length > 0)
 	
 	move_and_slide()
 	
@@ -291,20 +293,30 @@ func knockback(hit_direction: Vector3):
 	_knockback_speed_to_apply = knockback_speed
 	
 	var knockback_speed_tween: Tween = create_tween()
-	knockback_speed_tween.tween_property(self, "_knockback_speed_to_apply", min_dash_speed, knockback_duration)
 	knockback_speed_tween.set_trans(Tween.TRANS_CUBIC)
 	knockback_speed_tween.set_ease(Tween.EASE_OUT)
+	knockback_speed_tween.tween_property(self, "_knockback_speed_to_apply", min_dash_speed, knockback_duration)
 	
 	await knockback_speed_tween.finished
 	
-	stun()
+	stun(knockback_stun_duration)
 	_is_in_knockback = false
 	_has_hit_wall = false
 
-func stun():
+func stun(duration: float):
 	_is_stun = true
-	await get_tree().create_timer(stun_duration).timeout
+	
+	stun_particle.emitting = true
+	stun_particle.restart()
+	stun_particle.show()
+	_update_sprite(_last_direction, false)
+	
+	await get_tree().create_timer(duration).timeout
 	_is_stun = false
+	
+	player_animated_sprite_3d.play()
+	stun_particle.hide()
+	stun_particle.emitting = false
 
 func switch_item():
 	if not _pickable_item_nearby(): return

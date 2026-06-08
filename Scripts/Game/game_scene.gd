@@ -22,6 +22,7 @@ class_name GameScene
 @export var music_fight: WwiseEvent
 @export var lead: WwiseRTPC
 @export var round_state: WwiseState
+@export var danger_phase_start: WwiseEvent
 
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
@@ -74,7 +75,6 @@ func start_round():
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
-	game_bar.game_sound_bar.start_timer(round_duration_sec)
 	
 	music_fight.post(self)
 
@@ -87,7 +87,7 @@ func setup_new_scene():
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
-	new_scene.balloon_pop.connect(game_bar.game_sound_bar.add_sound_to_bar)
+	new_scene.balloon_pop.connect(_item_made_sound)
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	
@@ -126,14 +126,13 @@ func player_win(player_id: int):
 func return_to_main_menu():
 	get_tree().change_scene_to_file(main_menu_scene_uid)
 
+
 func _on_shared_life_bar_player_win(player_id: int) -> void:
-	print("No more health trigger")
 	player_win(player_id)
 
 
 func _on_game_sound_bar_sound_bar_fill() -> void:
-	print("Sound bar fill trigger")
-	player_win(game_bar.shared_life_bar.get_player_id_with_most_health())
+	_activate_the_danger_phase()
 
 
 func lifebar_value_change(lifebar_value: float):
@@ -141,11 +140,16 @@ func lifebar_value_change(lifebar_value: float):
 
 
 func _on_map_item_will_be_delete(item: Item) -> void:
-	item.sound_made.disconnect(game_bar.game_sound_bar.add_sound_to_bar)
+	item.sound_made.disconnect(_item_made_sound)
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
-	new_item.sound_made.connect(game_bar.game_sound_bar.add_sound_to_bar)
+	new_item.sound_made.connect(_item_made_sound)
+
+
+func _item_made_sound(value: float, sound_global_position: Vector3):
+	game_bar.game_sound_bar.add_sound_to_bar(value)
+	_current_scene.sound_made_at_location(sound_global_position)
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
@@ -180,3 +184,12 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 	if players_selection[0].player_id == player_id:
 		return players_selection[0]
 	return players_selection[1]
+
+func _activate_the_danger_phase():
+	_current_scene.activate_danger_phase()
+	#danger_phase_start.post(self)
+	
+	await get_tree().create_timer(2).timeout
+	
+	_current_scene.activate_wolf_tracking_spot()
+	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
