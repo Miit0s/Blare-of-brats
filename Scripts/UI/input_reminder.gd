@@ -1,13 +1,13 @@
 extends Control
 class_name InputReminder
 
-@onready var move_rich_text_label: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer/MoveRichTextLabel
-@onready var attack_rich_text_label_2: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer/AttackRichTextLabel2
-@onready var pickup_rich_text_label_3: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer/PickupRichTextLabel3
-@onready var dash_rich_text_label_4: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer/DashRichTextLabel4
-@onready var throw_rich_text_label_5: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer/ThrowRichTextLabel5
+@onready var move_rich_text_label: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer/MoveRichTextLabel
+@onready var attack_rich_text_label_2: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer/AttackRichTextLabel2
+@onready var pickup_rich_text_label_3: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer/PickupRichTextLabel3
+@onready var dash_rich_text_label_4: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer/DashRichTextLabel4
+@onready var throw_rich_text_label_5: ControllerIconParser = $ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer/ThrowRichTextLabel5
 
-@onready var not_ready: ControllerIconParser = $NotReady
+@onready var not_ready: TextureRect = $NotReady
 @onready var ready_texture: TextureRect = $Ready
 
 @export var player_input_id: int = 0:

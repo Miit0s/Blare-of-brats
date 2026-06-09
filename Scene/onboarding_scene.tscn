@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://36tccmd3uybf"]
 
 [ext_resource type="Script" uid="uid://cbhul4xaw6l4n" path="res://Scripts/Game/onboarding_scene.gd" id="1_d4n33"]
+[ext_resource type="PackedScene" uid="uid://dxbra0gmi7c5e" path="res://UI/ControlTool/task.tscn" id="2_qhsjr"]
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
@@ -35,6 +36,7 @@ ease = 1
 script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
+task_prefab = ExtResource("2_qhsjr")
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 next_scene_uid = "uid://c53l85gqm0mi1"
@@ -101,8 +103,10 @@ visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -230.0
-offset_bottom = 0.0
+offset_left = 20.0
+offset_top = -250.0
+offset_right = 720.0
+offset_bottom = -20.0
 grow_vertical = 0
 
 [node name="TaskList2" parent="CanvasLayer" unique_id=1534165648 instance=ExtResource("12_u0bvv")]
@@ -113,9 +117,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -700.0
-offset_top = -230.0
+offset_top = -250.0
 offset_right = 0.0
-offset_bottom = 0.0
+offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
 

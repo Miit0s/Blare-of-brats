@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bvmh4edtdn5hf" path="res://Scripts/UI/task_list.gd" id="1_37qrt"]
 
 [node name="TaskList" type="Control" unique_id=904087515]
-custom_minimum_size = Vector2(700, 230)
+custom_minimum_size = Vector2(500, 230)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 700.0
+offset_right = 500.0
 offset_bottom = 230.0
 script = ExtResource("1_37qrt")
 

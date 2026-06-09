@@ -90,6 +90,11 @@ var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
 
+signal did_dash()
+signal pick_up_object()
+signal did_attack()
+signal did_throw()
+
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
 
@@ -185,6 +190,8 @@ func dash():
 	
 	_update_particle_to_current_sprite()
 	
+	did_dash.emit()
+	
 	var dash_speed_tween: Tween = create_tween()
 	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)
 	dash_speed_tween.set_trans(Tween.TRANS_CUBIC)
@@ -216,6 +223,8 @@ func pick_up(play_pickup_sound: bool = true):
 	current_item.rotation.z = current_picked_item.item_visual.rotation.z
 	current_item.texture = current_picked_item.item_visual.texture
 	current_item.show()
+	
+	pick_up_object.emit()
 	
 	if play_pickup_sound: pickup_sound.post(self)
 
@@ -256,6 +265,8 @@ func attack(direction: Vector3):
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
+	
+	did_attack.emit()
 
 func cancel_animation():
 	_kill_current_animation()
@@ -349,9 +360,11 @@ func throw(direction: Vector3):
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_item.hide()
 	current_picked_item = null
-	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
-	launch.post(self)
 	
+	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+	
+	launch.post(self)
+	did_throw.emit()
 
 func _pickable_item_nearby() -> bool:
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()

@@ -2,6 +2,7 @@ extends GameScene
 
 @export var input_reminders: Array[InputReminder]
 @export var task_lists: Array[TaskList]
+@export var task_prefab: PackedScene
 
 var has_already_made_sound: bool = false
 
@@ -61,6 +62,15 @@ func _trigger_dash_quest():
 	
 	for player in players:
 		player.unfreeze()
+	
+	for i in task_lists.size():
+		task_lists[i].show()
+		
+		var task: Task = task_prefab.instantiate()
+		task.task_text.text = "Make a Dash"
+		players[i].did_dash.connect(task.task_complete)
+		
+		task_lists[i].add_new_task(task)
 
 func _trigger_item_quest():
 	pass

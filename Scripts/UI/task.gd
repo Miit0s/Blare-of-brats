@@ -1,10 +1,9 @@
 extends Control
 class_name Task
 
-@onready var task_text: Label = $HBoxContainer/TaskText
+@onready var check: TextureRect = $HBoxContainer/CheckBox/Check
 
-@onready var cross: TextureRect = $HBoxContainer/Cross
-@onready var check: TextureRect = $HBoxContainer/Check
+@export var task_text: Label
 
 var is_task_complete: bool = false
 
@@ -15,10 +14,10 @@ func _ready() -> void:
 
 func task_complete():
 	is_task_complete = true
-	cross.hide()
 	check.show()
+	
+	task_marked_as_complete.emit()
 
 func task_incomplete():
 	is_task_complete = false
 	check.hide()
-	check.show()
