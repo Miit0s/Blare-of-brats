@@ -7,6 +7,7 @@
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
 [ext_resource type="PackedScene" uid="uid://cy40wk4ytaouk" path="res://Scene/Map/map_onboarding.tscn" id="5_hq2bc"]
 [ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
+[ext_resource type="PackedScene" uid="uid://6d56jb0v178f" path="res://UI/Onboarding/onboarding_text_display.tscn" id="14_nh8k7"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="17_a665e"]
 [ext_resource type="PackedScene" uid="uid://ccwaslq30aelh" path="res://UI/Onboarding/input_reminder.tscn" id="17_bkpdd"]
 [ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="18_cou5v"]
@@ -19,6 +20,22 @@
 [ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="25_ski87"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_3s3gr"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="27_yqp28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhsjr"]
+draw_center = false
+border_width_left = 590
+border_width_top = 100
+border_width_right = 590
+border_width_bottom = 870
+border_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh8k7"]
+draw_center = false
+border_width_left = 530
+border_width_top = 39
+border_width_right = 530
+border_width_bottom = 965
+border_color = Color(0, 0, 0, 0.5882353)
 
 [sub_resource type="Resource" id="Resource_5qsl7"]
 script = ExtResource("24_8name")
@@ -37,6 +54,8 @@ script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
 task_prefab = ExtResource("2_qhsjr")
+sound_texts = Array[String](["[color=red]CAUTION ![/color][br]The Big Bad Wolf is coming after you when you [color=red]fill the sound bar[/color] !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color] !"])
+health_texts = Array[String](["You and your sibling share a [color=red]health bar[/color].[br]Whoever [color=red]fills it first[/color] wins !", "The health bar get [color=red]filled[/color] by [color=red]hitting[/color] your sibbling with [color=red]objects[/color] !"])
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 next_scene_uid = "uid://c53l85gqm0mi1"
@@ -122,6 +141,41 @@ offset_right = 0.0
 offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="ShowSoundBar" type="Panel" parent="CanvasLayer" unique_id=1443891398]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qhsjr")
+
+[node name="ShowLifeBar" type="Panel" parent="CanvasLayer" unique_id=758485711]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nh8k7")
+
+[node name="OnboardingTextDisplay" parent="CanvasLayer" unique_id=994587446 instance=ExtResource("14_nh8k7")]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -237.5
+offset_right = 620.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)

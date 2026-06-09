@@ -13,6 +13,8 @@ func _ready() -> void:
 	task_incomplete()
 
 func task_complete():
+	if is_task_complete: return
+	
 	is_task_complete = true
 	check.show()
 	

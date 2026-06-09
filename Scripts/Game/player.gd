@@ -459,9 +459,11 @@ func _detect_wall_bounce():
 
 func freeze():
 	_is_freeze = true
+	player_animated_sprite_3d.pause()
 
 func unfreeze():
 	_is_freeze = false
+	player_animated_sprite_3d.play()
 
 func item_will_be_destroy(_item: Item):
 	_kill_current_animation()
