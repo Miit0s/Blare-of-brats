@@ -27,6 +27,11 @@ enum SelectionState {
 
 @export var back_player_right_sided: bool = false
 
+@export_category("SFX")
+@export var color_select_sound : WwiseEvent
+@export var color_back_sound : WwiseEvent
+
+
 var _player_id: int = -1
 var is_slot_available: bool:
 	get(): return _player_id == -1
@@ -113,12 +118,15 @@ func get_player_id() -> int:
 	return _player_id
 
 func back(player_id: int):
+	
 	match current_state:
 		SelectionState.CHARACTER_SELECTION: switch_to_empty_slot()
 		SelectionState.COLOR_SELECTION: switch_to_character_selection(player_id)
 		SelectionState.READY: switch_to_color_selection()
+	color_back_sound.post(self)
 
 func next_state(player_id: int):
+	color_select_sound.post(self)
 	match current_state:
 		SelectionState.EMPTY: 
 			switch_to_character_selection(player_id)
@@ -129,6 +137,7 @@ func next_state(player_id: int):
 		SelectionState.COLOR_SELECTION: 
 			switch_to_player_ready()
 			return
+	
 
 func get_player_selection() -> PlayerCharacterSelection:
 	var player_selection: PlayerCharacterSelection = PlayerCharacterSelection.new()

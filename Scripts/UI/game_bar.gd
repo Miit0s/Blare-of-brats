@@ -15,9 +15,11 @@ signal sound_bar_fill
 
 signal player_win(player_id: int)
 signal lifebar_value_change(new_value: float)
+signal lock_area_pass(lock_phase: int)
 
 func _ready() -> void:
 	game_sound_bar.sound_bar_fill.connect(_on_sound_bar_fill)
+	game_sound_bar.lock_area_pass.connect(lock_area_pass.emit)
 	shared_life_bar.player_win.connect(_on_player_win)
 	shared_life_bar.lifebar_value_change.connect(_on_lifebar_value_change)
 
