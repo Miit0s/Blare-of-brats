@@ -5,10 +5,11 @@
 [ext_resource type="Script" uid="uid://dn1vxn1jlfrnp" path="res://Scripts/UI/main_menu.gd" id="1_wrubb"]
 [ext_resource type="PackedScene" uid="uid://d3viyj0v2mikj" path="res://UI/Menu/credits.tscn" id="2_4hclx"]
 [ext_resource type="PackedScene" uid="uid://cqrh561ygjx5r" path="res://UI/Menu/options.tscn" id="2_fmybh"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="2_yok32"]
+[ext_resource type="Texture2D" uid="uid://cuo8muvgbp055" path="res://Assets/SpriteUI/Menu/menu bg.png" id="3_oqads"]
+[ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="4_ejkra"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="4_s2f1d"]
 [ext_resource type="PackedScene" uid="uid://b0odn7qlra422" path="res://Scene/chaos_scene.tscn" id="6_hptlk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3nyod"]
-font_size = 50
 
 [node name="MainMenu" type="Node3D" unique_id=1265822772]
 
@@ -25,48 +26,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_yok32")
 script = ExtResource("1_wrubb")
 game_start_scene_uid = "uid://b1nchn1fbud6v"
 
-[node name="Background" type="ColorRect" parent="CanvasLayer/Menu" unique_id=369665984]
+[node name="BackBackground" type="ColorRect" parent="CanvasLayer/Menu" unique_id=1529439020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.019607844, 0.09411765, 0.18039216, 1)
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Menu" unique_id=37604025]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.29803923, 0.29803923, 0.29803923, 1)
-
-[node name="MainTitle" type="Label" parent="CanvasLayer/Menu" unique_id=93902956]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -164.5
-offset_top = 75.0
-offset_right = 164.5
-offset_bottom = 144.0
-grow_horizontal = 2
-text = "Blare of Brats"
-label_settings = SubResource("LabelSettings_3nyod")
+texture = ExtResource("3_oqads")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MainButton" type="VBoxContainer" parent="CanvasLayer/Menu" unique_id=145311421]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -84.5
-offset_right = 175.0
-offset_bottom = 84.5
-grow_horizontal = 2
+offset_left = 133.0
+offset_top = -60.0
+offset_right = 483.0
+offset_bottom = 370.00012
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 
-[node name="Play" type="Button" parent="CanvasLayer/Menu/MainButton" unique_id=2021116146]
+[node name="Play" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=1543955564]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -74,9 +76,31 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath(".")
-text = "Play"
+texture_normal = ExtResource("4_ejkra")
+texture_hover = ExtResource("4_s2f1d")
+texture_focused = ExtResource("4_s2f1d")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Options" type="Button" parent="CanvasLayer/Menu/MainButton" unique_id=2010219045]
+[node name="Label" type="Label" parent="CanvasLayer/Menu/MainButton/Play" unique_id=354849746]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -34.5
+offset_right = 42.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=1222185785]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../Play")
@@ -84,9 +108,31 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Credits")
 focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Play")
-text = "Options"
+texture_normal = ExtResource("4_ejkra")
+texture_hover = ExtResource("4_s2f1d")
+texture_focused = ExtResource("4_s2f1d")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Credits" type="Button" parent="CanvasLayer/Menu/MainButton" unique_id=855816794]
+[node name="Label2" type="Label" parent="CanvasLayer/Menu/MainButton/Options" unique_id=1996307831]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -34.5
+offset_right = 71.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=784675985]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../Options")
@@ -94,9 +140,31 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Exit")
 focus_next = NodePath("../Exit")
 focus_previous = NodePath("../Options")
-text = "Credits"
+texture_normal = ExtResource("4_ejkra")
+texture_hover = ExtResource("4_s2f1d")
+texture_focused = ExtResource("4_s2f1d")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Exit" type="Button" parent="CanvasLayer/Menu/MainButton" unique_id=528740335]
+[node name="Label3" type="Label" parent="CanvasLayer/Menu/MainButton/Credits" unique_id=1474114888]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -34.5
+offset_right = 68.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=2066980384]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../Credits")
@@ -104,7 +172,28 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath("../Credits")
-text = "Exit"
+texture_normal = ExtResource("4_ejkra")
+texture_hover = ExtResource("4_s2f1d")
+texture_focused = ExtResource("4_s2f1d")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/Menu/MainButton/Exit" unique_id=593392593]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -34.5
+offset_right = 175.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Options" parent="CanvasLayer/Menu" unique_id=1945916325 instance=ExtResource("2_fmybh")]
 visible = false
