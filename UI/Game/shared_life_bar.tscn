@@ -192,7 +192,7 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcs32")
-player_health = 25.0
+player_health = 12.5
 
 [node name="LifeBar" type="TextureRect" parent="." unique_id=336857432]
 material = ExtResource("1_flkbr")

@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://demh3of0nydlv" path="res://Scene/Map/map_a2.tscn" id="14_7o1xo"]
 [ext_resource type="PackedScene" uid="uid://b48lul6k3ccsj" path="res://Scene/Map/map_a3.tscn" id="15_vijqy"]
 [ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/map_a4.tscn" id="16_ubkdv"]
+[ext_resource type="PackedScene" uid="uid://cngsdo46ho7ij" path="res://Scene/Map/map_7_bis.tscn" id="17_hdg2p"]
 [ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/map_a5.tscn" id="17_tit5h"]
+[ext_resource type="PackedScene" uid="uid://ck8weopbblctr" path="res://Scene/Map/map_6_bis.tscn" id="18_7o1xo"]
+[ext_resource type="PackedScene" uid="uid://0jhk5ubn5h5t" path="res://Scene/Map/map_0_bis.tscn" id="19_vijqy"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="22_walhf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="23_gwqyt"]
@@ -50,7 +53,7 @@ tracking_spot_player_two = NodePath("TrackingSpot2")
 music_fight = ExtResource("2_ee6vw")
 lead = ExtResource("3_mlt6n")
 round_state = ExtResource("4_mlt6n")
-possible_level = Array[PackedScene]([ExtResource("8_ee6vw"), ExtResource("6_g00sh"), ExtResource("7_vk7uo"), ExtResource("8_walhf"), ExtResource("9_gwqyt"), ExtResource("10_5qsl7"), ExtResource("11_tw2pt"), ExtResource("12_hdg2p"), ExtResource("14_7o1xo"), ExtResource("15_vijqy"), ExtResource("16_ubkdv"), ExtResource("17_tit5h")])
+possible_level = Array[PackedScene]([ExtResource("8_ee6vw"), ExtResource("6_g00sh"), ExtResource("7_vk7uo"), ExtResource("8_walhf"), ExtResource("9_gwqyt"), ExtResource("10_5qsl7"), ExtResource("11_tw2pt"), ExtResource("12_hdg2p"), ExtResource("14_7o1xo"), ExtResource("15_vijqy"), ExtResource("16_ubkdv"), ExtResource("17_tit5h"), ExtResource("17_hdg2p"), ExtResource("18_7o1xo"), ExtResource("19_vijqy")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
