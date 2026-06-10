@@ -14,6 +14,7 @@ extends Control
 
 @export var main_menu_scene_uid: String
 @export var game_scene_uid: String
+@export var onboarding_scene_uid: String
 
 @export var stage_default: Texture2D
 @export var stage_ready: Texture2D
@@ -150,7 +151,12 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
-	var packed_game_scene: PackedScene = load(game_scene_uid)
+	var packed_game_scene: PackedScene
+	if GameOptions.have_played_tutorial and not GameOptions.saved_options.activate_on_boarding:
+		packed_game_scene = load(game_scene_uid)
+	else: 
+		packed_game_scene = load(onboarding_scene_uid)
+	
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	
 	game_scene.players_selection.clear()

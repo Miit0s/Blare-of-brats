@@ -4,6 +4,8 @@ const OPTION_SAVE_PATH := "user://options_save.tres"
 
 var saved_options: OptionsResource
 
+var have_played_tutorial: bool = false
+
 var _did_options_has_been_apply: bool = false
 
 func _ready() -> void:

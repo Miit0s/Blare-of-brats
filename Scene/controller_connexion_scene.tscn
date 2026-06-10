@@ -40,6 +40,7 @@ max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
 game_scene_uid = "uid://c53l85gqm0mi1"
+onboarding_scene_uid = "uid://36tccmd3uybf"
 stage_default = ExtResource("15_hhwhx")
 stage_ready = ExtResource("4_ho3je")
 

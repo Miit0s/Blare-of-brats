@@ -2,7 +2,7 @@ extends Resource
 class_name OptionsResource
 
 #Game Page
-@export var desactivate_on_boarding: bool = false
+@export var activate_on_boarding: bool = false
 @export var activate_player_marker: bool = true
 
 #Audio Page
