@@ -10,16 +10,36 @@
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
+[ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="13_r08wf"]
 [ext_resource type="Texture2D" uid="uid://8s2jtu04kkm1" path="res://Assets/MockSprite/arrow.svg" id="14_4sfrm"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
+[ext_resource type="Script" uid="uid://6t84m8kgsqsb" path="res://Scripts/Tools/sprite_3d_with_bloom.gd" id="16_sf0qn"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4sfrm"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/pistogum.png-8e60fe42944d4464c52be86d364f24d6.bptc.ctex"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nad7g"]
 radius = 0.6
+height = 2.05
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ybo73"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/aura moon.png-347ee4c30c8b8a34a5150c5a771b6a71.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7wlx"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_ybo73")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = SubResource("CompressedTexture2D_ybo73")
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "dash_effect", "throw_arrow")]
 collision_layer = 34
@@ -29,7 +49,7 @@ speed = 9.0
 dash_speed = 30.0
 min_dash_speed = 8.0
 picked_up_item_distance = 0.8
-stun_duration = 0.2
+knockback_stun_duration = 0.2
 knockback_speed = 25.0
 knockback_duration = 0.15
 pickup_sound = ExtResource("2_2nftw")
@@ -42,6 +62,11 @@ character_animation = ExtResource("8_4sfrm")
 player_animated_sprite_3d = NodePath("AnimatedSprite3D")
 dash_effect = NodePath("DashEffect")
 throw_arrow = NodePath("ThrowDirection/ThrowArrow")
+
+[node name="CurrentItem" type="Sprite3D" parent="." unique_id=578480651]
+transform = Transform3D(0.100000486, 0, 0, 0, 0.07333182, 0.067988954, 0, -0.067989275, 0.073331475, 0, -0.8, 0.757)
+visible = false
+texture = SubResource("CompressedTexture2D_4sfrm")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=932639487]
 transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
@@ -69,17 +94,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6114786, 0)
 [node name="DashEffect" parent="." unique_id=2051336107 instance=ExtResource("16_ybo73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04046938, -0.10652523)
 
+[node name="StunParticle" parent="." unique_id=1759464147 instance=ExtResource("13_r08wf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0154343, 0)
+
 [node name="SwitchSprite" type="Sprite3D" parent="." unique_id=2090515683]
 transform = Transform3D(-0.10606601, -0.10606601, 0, 0.10606601, -0.10606601, 0, 0, 0, 0.14999999, 0, 1.065298, 0)
 visible = false
 texture = ExtResource("7_juxdh")
 
-[node name="Feet" type="Node3D" parent="." unique_id=1786710906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99064595, 1.9213368)
+[node name="PlayerMarkerWithBloom" type="Sprite3D" parent="." unique_id=1989972902]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_j7wlx")
+flip_v = true
+texture = SubResource("CompressedTexture2D_ybo73")
+script = ExtResource("16_sf0qn")
+bloom_force = 2.0
+metadata/_custom_type_script = "uid://6t84m8kgsqsb"
 
 [node name="ThrowDirection" type="Node3D" parent="." unique_id=460067933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-visible = false
 
 [node name="ThrowArrow" type="Sprite3D" parent="ThrowDirection" unique_id=1758288301]
 transform = Transform3D(-8.742278e-09, 0.2, -8.742278e-09, 0, -8.742278e-09, -0.2, -0.2, -8.742278e-09, 3.821371e-16, 0, 0, -1.8971508)

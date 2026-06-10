@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dxbra0gmi7c5e"]
+
+[ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="1_r2mic"]
+[ext_resource type="Texture2D" uid="uid://ct22ot813v1kw" path="res://Assets/MockSprite/check.png" id="2_hohlh"]
+
+[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text")]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r2mic")
+task_text = NodePath("HBoxContainer/TaskText")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=55320036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2090353070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox" type="Control" parent="HBoxContainer" unique_id=1817019686]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/CheckBox" unique_id=350125842]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+
+[node name="Check" type="TextureRect" parent="HBoxContainer/CheckBox" unique_id=1291482582]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_hohlh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=265601073]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TaskText" type="Label" parent="HBoxContainer" unique_id=1672430373]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "This is a task"

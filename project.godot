@@ -14,12 +14,12 @@ quick_scenes/quick_run_shortcut=Object(Shortcut,"resource_local_to_scene":false,
 ],"script":null)
 
 quick_scenes/selected_scene=0
-quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
+quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1", "uid://36tccmd3uybf")
 
 [application]
 
 config/name="Blare of Brats"
-config/version="0.2.0"
+config/version="0.3.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -33,6 +33,7 @@ buses/default_bus_layout="uid://c381lrnwn0b16"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 GameOptions="*uid://cnmbx5iaeo7g"
 ControllerTypeManager="*uid://jahsyrcq7etx"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 
@@ -40,11 +41,12 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+display_server/driver.linuxbsd="x11"
 window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/brackeys_particle_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/spawn_area/plugin.cfg")
 
 [file_customization]
 
@@ -353,9 +355,17 @@ PreviousColor_3={
 3d_physics/layer_5="DemiMur"
 3d_physics/layer_6="PlayerDashing"
 
+[maaacks_menus_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
+copy_path="res://MenuTemplate/"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

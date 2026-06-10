@@ -24,6 +24,8 @@ var progress_bar_value: float = 0.5:
 var left_player_id: int = -1
 var right_player_id: int = -1
 
+var _is_lock: bool = false
+
 signal player_win(player_id: int)
 signal lifebar_value_change(new_value: float)
 
@@ -40,6 +42,8 @@ func _get_life_bar_shader_material() -> ShaderMaterial:
 	return life_bar.material
 
 func add_damage_to_player(player_id: int, damage: float):
+	if _is_lock: return
+	
 	if player_id == left_player_id: target_progress_value -= damage / (player_health * 2)
 	elif player_id == right_player_id: target_progress_value += damage / (player_health * 2)
 	
@@ -88,7 +92,6 @@ func _set_color_versus_position_to_new_progress_bar_value():
 	
 	var scale_factor: float = min(rect_size.x / texture_size.x, rect_size.y / texture_size.y)
 	var actual_width: float = texture_size.x * scale_factor
-	var actual_height: float = texture_size.y * scale_factor
 	
 	var offset_x: float = (rect_size.x - actual_width) / 2.0
 	
@@ -96,3 +99,9 @@ func _set_color_versus_position_to_new_progress_bar_value():
 	final_x -= color_versus_container.size.x / 2.0
 	
 	color_versus_container.position.x = final_x
+
+func lock():
+	_is_lock = true
+
+func unlock():
+	_is_lock = false

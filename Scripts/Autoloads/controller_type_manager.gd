@@ -49,7 +49,11 @@ func _input(event: InputEvent) -> void:
 func get_icon_path_for_action(action_name: String) -> String:
 	var event: InputEvent = InputMap.action_get_events(action_name)[0]
 	
-	var icon: Texture2D = icon_sets[current_device].get_icon_for_joybutton(event.button_index)
+	var icon: Texture2D
+	if event is InputEventJoypadButton:
+		icon = icon_sets[current_device].get_icon_for_joybutton(event.button_index)
+	else:
+		icon = icon_sets[current_device].get_icon_for_joyaxis(event.axis)
 	return icon.resource_path
 
 func get_icon_path_for_input(input_name: JoyButton) -> String:

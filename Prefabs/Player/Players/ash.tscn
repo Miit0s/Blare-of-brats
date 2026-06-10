@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dkr2i67lh2n8l" path="res://Assets/Player/Ash/Idle/idle-front-left-animation-chara-2.png" id="5_d0yyq"]
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="5_moyob"]
 [ext_resource type="SpriteFrames" uid="uid://8ngev5u6m4uf" path="res://Ressources/CharacterAnimation/idles_ash.tres" id="6_3uwvs"]
+[ext_resource type="Texture2D" uid="uid://btjap5yqpk4vs" path="res://Assets/VFX/aura star.png" id="7_3uwvs"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0yyq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uwvs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_moyob")
@@ -29,7 +30,7 @@ shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 0, 0, 1)
 shader_parameter/blend_delta = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uwvs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0g7fe"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_moyob")
@@ -51,13 +52,29 @@ shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 1, 1, 1)
 shader_parameter/blend_delta = 0.49999998882425
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0htc"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("7_3uwvs")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("7_3uwvs")
+
 [node name="Ash" unique_id=382022037 instance=ExtResource("1_d2n7p")]
 character_animation = ExtResource("2_d0yyq")
 
-[node name="AnimatedSprite3D" parent="." index="0" unique_id=932639487]
-material_override = SubResource("ShaderMaterial_d0yyq")
+[node name="CurrentItem" parent="." index="0" unique_id=578480651]
+transform = Transform3D(0.100000486, 0, 0, 0, 0.07333182, 0.067988954, 0, -0.067989275, 0.073331475, 0, -0.8, 0.757)
+
+[node name="AnimatedSprite3D" parent="." index="1" unique_id=932639487]
+material_override = SubResource("ShaderMaterial_3uwvs")
 sprite_frames = ExtResource("6_3uwvs")
 animation = &"right"
 
-[node name="DashEffect" parent="." index="4" unique_id=2051336107]
-material_override = SubResource("ShaderMaterial_3uwvs")
+[node name="DashEffect" parent="." index="5" unique_id=2051336107]
+material_override = SubResource("ShaderMaterial_0g7fe")
+
+[node name="PlayerMarkerWithBloom" parent="." index="7" unique_id=1989972902]
+material_override = SubResource("StandardMaterial3D_a0htc")
+texture = ExtResource("7_3uwvs")

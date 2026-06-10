@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://btev0l7kfr5mw"]
+
+[ext_resource type="Texture2D" uid="uid://ctkqtv4wybls" path="res://Assets/EnvironmentSprite/wall_01.png" id="1_dnijv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vkjq"]
+size = Vector3(28.19, 7.24, 7.755)
+
+[node name="ObstacleComplete" type="Sprite3D" unique_id=744248793]
+transform = Transform3D(2.591041e-08, 0, -0.19758703, 0, 0.19758703, 0, 0.19758703, 0, 2.591041e-08, 0, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_dnijv")
+
+[node name="Mur_02" type="Sprite3D" parent="." unique_id=1166197198]
+transform = Transform3D(0.9999999, -8.742276e-08, 8.7422784e-08, 8.742277e-08, -4.3711385e-08, -0.9999999, 8.742277e-08, 0.9999999, -4.3711378e-08, -1.9073486e-06, 2.8942628, 4.603052)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_dnijv")
+
+[node name="Mur_04" type="Sprite3D" parent="." unique_id=1082487781]
+transform = Transform3D(2.4684624e-08, -1.3113412e-07, -0.9999998, -0.5647182, 8.9902485e-15, -4.3711392e-08, 7.234957e-15, 0.9999998, -1.3113414e-07, 14.400463, -1.1658273, 3.5116558)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_dnijv")
+region_enabled = true
+region_rect = Rect2(2111.261, 648.5502, 1365.5164, 1089.7445)
+
+[node name="Mur_05" type="Sprite3D" parent="." unique_id=1521712168]
+transform = Transform3D(2.4684624e-08, -1.3113412e-07, -0.9999998, -0.5647182, 8.9902485e-15, -4.3711392e-08, 7.234957e-15, 0.9999998, -1.3113414e-07, -13.36916, -1.1658273, 3.5116577)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_dnijv")
+region_enabled = true
+region_rect = Rect2(2111.261, 648.5502, 1365.5164, 1089.7445)
+
+[node name="Mur_03" type="Sprite3D" parent="." unique_id=1011024010]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.9073486e-06, 0, 7.6843987)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_dnijv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=939716743]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1779086044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39999786, -0.76847285, 3.7977884)
+shape = SubResource("BoxShape3D_3vkjq")

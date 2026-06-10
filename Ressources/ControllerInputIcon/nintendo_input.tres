@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://b5ypncfkk88to" path="res://Assets/ControllerSprite/NintendoSwitch/switch_stick_side_r.png" id="8_xmmw7"]
 [ext_resource type="Texture2D" uid="uid://bhocm2v6whgj8" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_y.png" id="9_yrqla"]
 [ext_resource type="Texture2D" uid="uid://b2wg43illmqif" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_l.png" id="10_lw2ko"]
+[ext_resource type="Texture2D" uid="uid://bkcilly1hqup3" path="res://Assets/ControllerSprite/NintendoSwitch/switch_stick_l.png" id="10_qwrkk"]
 [ext_resource type="Texture2D" uid="uid://b553oqrego2jm" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_a.png" id="11_3hyss"]
 [ext_resource type="Texture2D" uid="uid://cubvcewx1dqds" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_r.png" id="12_ipn27"]
+[ext_resource type="Texture2D" uid="uid://gchybnhj5047" path="res://Assets/ControllerSprite/NintendoSwitch/switch_stick_r.png" id="13_wgabm"]
 [ext_resource type="Texture2D" uid="uid://bb0l111nukmcq" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_plus.png" id="14_wrcha"]
 [ext_resource type="Texture2D" uid="uid://dsraplaxn1o75" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_minus.png" id="15_6cy8y"]
 [ext_resource type="Texture2D" uid="uid://dib6kjjtldlgp" path="res://Assets/ControllerSprite/NintendoSwitch/switch_button_x.png" id="16_bnbr8"]
@@ -35,4 +37,6 @@ joystick_left_btn = ExtResource("7_u5v6j")
 joystick_right_btn = ExtResource("8_xmmw7")
 left_shoulder_btn = ExtResource("10_lw2ko")
 right_shoulder_btn = ExtResource("12_ipn27")
+left_joystick = ExtResource("10_qwrkk")
+right_joystick = ExtResource("13_wgabm")
 metadata/_custom_type_script = "uid://ce5noloj2eese"

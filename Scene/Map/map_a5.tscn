@@ -1,69 +1,67 @@
 [gd_scene format=3 uid="uid://dcsf5isp333xv"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_lwqde"]
+[ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_pnrqa"]
+[ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_wcpeu"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_sj2vt"]
-[ext_resource type="PackedScene" uid="uid://erkrevjyjmyp" path="res://Prefabs/Enviro/mur_prefab.tscn" id="13_b7boi"]
-[ext_resource type="PackedScene" uid="uid://bbqv54xqj70o3" path="res://Prefabs/Enviro/demimur_prefab.tscn" id="14_4vpcv"]
+[ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_wcpeu"]
+[ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_gk1y0"]
 [ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_c34sm"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_8wumg"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_gou4h"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_5lwx4"]
 
-[node name="MapA5" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system")]
+[node name="MapA5" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_lwqde")
 player_spawn_system = NodePath("PlayerSpawnSystem")
+balloon_manager = NodePath("BalloonManager")
+item_spawn_system = NodePath("ItemSpawnSystem")
 
 [node name="BaseMap" parent="." unique_id=997279873 instance=ExtResource("8_sj2vt")]
 
 [node name="Wall" type="Node3D" parent="." unique_id=1893881732]
 
-[node name="Mur_01" parent="Wall" unique_id=1978970846 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -9.625319, 1.1, 4.898136)
+[node name="ObstacleComplete" parent="Wall" unique_id=744248793 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -9.466546, 1.0760388, 4.7846975)
 
-[node name="Mur_03" parent="Wall" unique_id=825569529 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -9.572544, 1.1610863, -0.6083498)
+[node name="ObstacleComplete8" parent="Wall" unique_id=1046873819 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -3.6212168, 1.0760388, 8.414383)
 
-[node name="Mur_02" parent="Wall" unique_id=272388559 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -3.716663, 1.1032538, 8.242416)
+[node name="ObstacleComplete2" parent="Wall" unique_id=328230880 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -9.466547, 1.0760388, -0.810256)
 
-[node name="Mur_06" parent="Wall" unique_id=295116562 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 5.8938193, 1.1032538, -0.48321152)
+[node name="ObstacleComplete3" parent="Wall" unique_id=1994019227 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -4.493218, 1.0760388, -0.81025666)
 
-[node name="Mur_09" parent="Wall" unique_id=1625720036 instance=ExtResource("13_b7boi")]
-transform = Transform3D(0.15, 0, 0, 0, 0.198, 0, 0, 0, 0.198, 4.3088584, 1.1032538, 7.8531857)
+[node name="ObstacleComplete4" parent="Wall" unique_id=588340545 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -1.7920341, 1.0760388, -0.810257)
 
-[node name="Mur_07" parent="Wall" unique_id=397931094 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, 5.8938193, 1.1032538, -0.48321152)
+[node name="ObstacleComplete5" parent="Wall" unique_id=1539969812 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, 6.161742, 1.0760388, -0.81025803)
 
-[node name="Mur_08" parent="Wall" unique_id=1092004113 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -4.7356725, 1.1032538, -0.38167858)
+[node name="ObstacleComplete6" parent="Wall" unique_id=1646125787 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(0.09489228, 0, 6.841984e-09, 0, 0.19758703, 0, -1.6591494e-08, 0, 0.039131586, -3.3366528, 1.0760388, 2.2412782)
 
-[node name="Mur_10" parent="Wall" unique_id=1702472373 instance=ExtResource("13_b7boi")]
-transform = Transform3D(-8.636804e-09, 0, 0.19758704, 0, 0.19758704, 0, -0.19758704, 0, -8.636804e-09, -1.8986635, 1.1032538, -0.42355394)
+[node name="ObstacleComplete7" parent="Wall" unique_id=1128670540 instance=ExtResource("3_pnrqa")]
+transform = Transform3D(0.15763468, 0, 6.841984e-09, 0, 0.19758703, 0, -2.7561724e-08, 0, 0.039131586, 4.3733063, 1.0760388, 7.7685966)
 
-[node name="Mur_11" parent="Wall" unique_id=1727401452 instance=ExtResource("13_b7boi")]
-transform = Transform3D(0.1, 0, 0, 0, 0.198, 0, 0, 0, 0.198, -3.3645172, 1.1032536, 2.3022094)
+[node name="NewDemiMur" parent="Wall" unique_id=1564136151 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.26301003, 0, 5.569099e-09, 0, 0.19758703, 0, -4.5986138e-08, 0, 0.031851534, 5.765314, 0.4326024, 2.0238714)
 
-[node name="DemiMur_01" parent="Wall" unique_id=1436889650 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 7.7806034, 0.33136094, 2.0492053)
+[node name="NewDemiMur2" parent="Wall" unique_id=1223777792 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.10222579, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7873727e-08, 0, 0.031851534, 0.8973608, 0.4326024, 7.7766347)
 
-[node name="DemiMur_05" parent="Wall" unique_id=567211 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 4.0552435, 0.33136094, 2.0463157)
+[node name="NewDemiMur3" parent="Wall" unique_id=1467962120 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.10222579, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7873727e-08, 0, 0.031851534, 7.9819016, 0.4326024, 7.7766333)
 
-[node name="DemiMur_02" parent="Wall" unique_id=1585186472 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.258, 0, 2.989717e-08, 0, 0.198, 0, -3.8956916e-08, 0, -0.198, -3.3230596, 0.33136094, 5.306873)
+[node name="NewDemiMur4" parent="Wall" unique_id=1306000219 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.13147108, 0, 5.569099e-09, 0, 0.19758703, 0, -2.298714e-08, 0, 0.031851534, 9.5273285, 0.4326024, 5.5595555)
 
-[node name="DemiMur_03" parent="Wall" unique_id=805846114 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.118, 0, 2.989717e-08, 0, 0.198, 0, -1.7817506e-08, 0, -0.198, 9.612795, 0.33136094, 5.750878)
+[node name="NewDemiMur5" parent="Wall" unique_id=132725934 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.2660985, 0, 5.569099e-09, 0, 0.19758703, 0, -4.652615e-08, 0, 0.031851534, -3.5287342, 0.4326024, 5.4651327)
 
-[node name="DemiMur_07" parent="Wall" unique_id=956199910 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.1, 0, 2.989717e-08, 0, 0.198, 0, -1.509958e-08, 0, -0.198, 0.87349176, 0.33136094, 7.864138)
-
-[node name="DemiMur_06" parent="Wall" unique_id=489896975 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(-0.1, 0, 2.989717e-08, 0, 0.198, 0, -1.509958e-08, 0, -0.198, 7.939514, 0.33136094, 7.8336015)
-
-[node name="DemiMur_04" parent="Wall" unique_id=1001931680 instance=ExtResource("14_4vpcv")]
-transform = Transform3D(0.11999999, 0, 0, 0, 0.198, 0, 0, 0, 0.198, -9.8375225, 0.10511553, 7.612607)
+[node name="NewDemiMur6" parent="Wall" unique_id=1876066922 instance=ExtResource("4_wcpeu")]
+transform = Transform3D(0.13428254, 0, 5.569099e-09, 0, 0.19758703, 0, -2.347871e-08, 0, 0.031851534, -9.843557, 0.4326024, 7.601789)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_c34sm")
@@ -104,6 +102,86 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8062363, 1.1439927, 4.0712
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_5lwx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4809837, 1.1439922, 4.0946465)
 
-[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
-[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
+[node name="BalloonManager" type="Node3D" parent="." unique_id=1743919635 node_paths=PackedStringArray("balloons")]
+script = ExtResource("9_wcpeu")
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon4"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7"), NodePath("Balloon8"), NodePath("Balloon9"), NodePath("Balloon10"), NodePath("Balloon11"), NodePath("Balloon12"), NodePath("Balloon13"), NodePath("Balloon14"), NodePath("Balloon15"), NodePath("Balloon16"), NodePath("Balloon17"), NodePath("Balloon18"), NodePath("Balloon19"), NodePath("Balloon20"), NodePath("Balloon21"), NodePath("Balloon22"), NodePath("Balloon23"), NodePath("Balloon24"), NodePath("Balloon25"), NodePath("Balloon26")]
+
+[node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.02781, 0.8758886, 7.89342)
+
+[node name="Balloon2" parent="BalloonManager" unique_id=1311146057 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.758568, 0.8758886, 7.89342)
+
+[node name="Balloon3" parent="BalloonManager" unique_id=2063603234 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.093136, 0.8758886, 5.682046)
+
+[node name="Balloon4" parent="BalloonManager" unique_id=770118517 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2975283, 0.8758886, 5.682046)
+
+[node name="Balloon5" parent="BalloonManager" unique_id=2091196070 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1076221, 0.8758886, 5.682046)
+
+[node name="Balloon6" parent="BalloonManager" unique_id=1433995910 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1076221, 0.8758886, 5.682046)
+
+[node name="Balloon7" parent="BalloonManager" unique_id=1463804231 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.762543, 0.8758886, 2.469852)
+
+[node name="Balloon8" parent="BalloonManager" unique_id=1869455115 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.449169, 0.8758886, 2.469852)
+
+[node name="Balloon9" parent="BalloonManager" unique_id=451330652 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5191479, 0.8758886, 2.469852)
+
+[node name="Balloon10" parent="BalloonManager" unique_id=703743770 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9700961, 0.8758886, 0.54168606)
+
+[node name="Balloon11" parent="BalloonManager" unique_id=783270095 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9293275, 0.8758886, 0.18623114)
+
+[node name="Balloon12" parent="BalloonManager" unique_id=1927599285 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0081315, 0.8758886, -2.1246548)
+
+[node name="Balloon13" parent="BalloonManager" unique_id=1971481127 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6437416, 0.8758886, -2.1246548)
+
+[node name="Balloon14" parent="BalloonManager" unique_id=642744993 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.372055, 0.8758886, 0.19923306)
+
+[node name="Balloon15" parent="BalloonManager" unique_id=1681429822 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.688974, 0.8758886, 0.19923306)
+
+[node name="Balloon16" parent="BalloonManager" unique_id=1916771238 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.298761, 0.8758886, 0.19923306)
+
+[node name="Balloon17" parent="BalloonManager" unique_id=1467356117 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.030516, 0.8758886, 1.8293786)
+
+[node name="Balloon18" parent="BalloonManager" unique_id=770377594 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72371, 0.8758886, 1.8293786)
+
+[node name="Balloon19" parent="BalloonManager" unique_id=2066918031 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72371, 0.8758886, 5.7005115)
+
+[node name="Balloon20" parent="BalloonManager" unique_id=181608356 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.681849, 0.8758886, 5.7005115)
+
+[node name="Balloon21" parent="BalloonManager" unique_id=1771194960 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.681849, 0.8758886, 5.7005115)
+
+[node name="Balloon22" parent="BalloonManager" unique_id=1281116462 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.225518, 0.8758886, 5.7005115)
+
+[node name="Balloon23" parent="BalloonManager" unique_id=1670812378 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.423255, 0.8758886, 3.684289)
+
+[node name="Balloon24" parent="BalloonManager" unique_id=239678419 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.38465, 0.8758886, 1.4657059)
+
+[node name="Balloon25" parent="BalloonManager" unique_id=1185841593 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.399266, 0.8758886, -0.37440014)
+
+[node name="Balloon26" parent="BalloonManager" unique_id=188551318 instance=ExtResource("10_gk1y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.255472, 0.8758886, 7.7763586)
+
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]

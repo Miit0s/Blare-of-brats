@@ -42,8 +42,8 @@ var is_ready: bool = false
 var current_state: SelectionState = SelectionState.EMPTY
 var current_skin: PossibleSkin
 
-signal player_his_ready()
-signal player_no_more_ready()
+signal player_his_ready(controller_slot: ControllerSlot)
+signal player_no_more_ready(controller_slot: ControllerSlot)
 
 func _ready() -> void:
 	if back_player_right_sided:
@@ -79,12 +79,13 @@ func switch_to_character_selection(player_id: int):
 
 func switch_to_color_selection():
 	has_selected_character = true
+	is_ready = false
 	
 	back_player.hide()
 	selected_player.set_character_color_selection_state()
 	
 	if current_state == SelectionState.READY:
-		player_no_more_ready.emit()
+		player_no_more_ready.emit(self)
 	
 	current_state = SelectionState.COLOR_SELECTION
 
@@ -94,7 +95,7 @@ func switch_to_player_ready():
 	
 	current_state = SelectionState.READY
 	
-	player_his_ready.emit()
+	player_his_ready.emit(self)
 
 func swap_character_texture():
 	var new_skin: PossibleSkin = PossibleSkin.MAX if current_skin == PossibleSkin.ASH else PossibleSkin.ASH
@@ -148,3 +149,22 @@ func get_player_selection() -> PlayerCharacterSelection:
 	player_selection.skin = current_skin
 	
 	return player_selection
+
+func lock_color(color: CharacterColorResource):
+	if is_ready and get_player_selection().color_skin == color: return
+	
+	selected_player.lock_color(color)
+	
+	for color_option: ColorOptions in selected_player.color_picker.color_options_for_skin.values():
+		if color_option.get_current_color_skin() == color:
+			if color_option == selected_player.color_picker.current_color_option:
+				if not selected_player.apply_next_color():
+					selected_player.apply_previous_color()
+			else:
+				var new_back_player_color: CharacterColorResource = color_option.get_and_select_next_color()
+				if new_back_player_color == null:
+					new_back_player_color = color_option.get_and_select_previous_color()
+				back_player.apply_color_and_texture(new_back_player_color)
+
+func unlock_color(color: CharacterColorResource):
+	selected_player.unlock_color(color)

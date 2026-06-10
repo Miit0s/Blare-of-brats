@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://ccwaslq30aelh"]
+
+[ext_resource type="Script" uid="uid://63moyhrl1qmu" path="res://Scripts/UI/input_reminder.gd" id="1_0iifu"]
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="1_v1rqy"]
+[ext_resource type="Texture2D" uid="uid://jxdua4ndggn6" path="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png" id="3_igc5j"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="3_yadso"]
+
+[sub_resource type="Theme" id="Theme_8kbn7"]
+RichTextLabel/font_sizes/normal_font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1rqy"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_yadso"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="InputReminder" type="Control" unique_id=763382896]
+custom_minimum_size = Vector2(600, 840)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 840.0
+theme = SubResource("Theme_8kbn7")
+script = ExtResource("1_0iifu")
+prefix_text_move = "Up"
+prefix_text_attack = "Attack"
+prefix_text_pickup = "PickUp"
+prefix_text_dash = "Dash"
+prefix_text_throw = "Throw"
+text_move = "Move"
+text_attack = "Attack"
+text_pickup = "Pick Up"
+text_dash = "Dash"
+text_throw = "Throw"
+
+[node name="ControlsContainer" type="Control" parent="." unique_id=1580622531]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 681.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="ControlsContainer" unique_id=1017112748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ControlsContainer/ColorRect" unique_id=1348322630]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ControlsContainer/ColorRect/VBoxContainer2" unique_id=898286428]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_v1rqy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlsContainer/ColorRect/VBoxContainer2" unique_id=1731810180]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer" unique_id=1563604767]
+custom_minimum_size = Vector2(195.38, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer" unique_id=1988025463]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MoveRichTextLabel" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1281430263]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "{Up_0}Move"
+vertical_alignment = 1
+script = ExtResource("1_v1rqy")
+image_size_offset = 35
+raw_text = "{Up_0}Move"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="AttackRichTextLabel2" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1574985604]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "{Attack_0}Attack"
+vertical_alignment = 1
+script = ExtResource("1_v1rqy")
+image_size_offset = 35
+raw_text = "{Attack_0}Attack"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="PickupRichTextLabel3" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1188360958]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "{PickUp_0}Pick Up"
+vertical_alignment = 1
+script = ExtResource("1_v1rqy")
+image_size_offset = 35
+raw_text = "{PickUp_0}Pick Up"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="DashRichTextLabel4" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=748311883]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "{Dash_0}Dash"
+vertical_alignment = 1
+script = ExtResource("1_v1rqy")
+image_size_offset = 35
+raw_text = "{Dash_0}Dash"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="ThrowRichTextLabel5" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1389176349]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "{Throw_0}Throw"
+vertical_alignment = 1
+script = ExtResource("1_v1rqy")
+image_size_offset = 35
+raw_text = "{Throw_0}Throw"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="NotReady" type="TextureRect" parent="." unique_id=1840356756]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -159.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_yadso")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NotReady" unique_id=1046946671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -25.695
+offset_right = 92.0
+offset_bottom = 43.305
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ready ?"
+label_settings = SubResource("LabelSettings_yadso")
+
+[node name="Ready" type="TextureRect" parent="." unique_id=1989572250]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_igc5j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Ready" unique_id=416200031]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -52.165
+offset_right = 74.0
+offset_bottom = 16.835
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Ready"

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bn3lnrd8rlgo1"]
+
+[ext_resource type="Script" uid="uid://6sfwwu5huqqv" path="res://Scripts/Game/wolf_target.gd" id="1_oevxu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oevxu"]
+height = 0.5
+radius = 1.5
+
+[node name="WolfTarget" type="Node3D" unique_id=1343381387]
+script = ExtResource("1_oevxu")
+
+[node name="PlayerStunArea" type="Area3D" parent="." unique_id=1239140214]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerStunArea" unique_id=1599492533]
+shape = SubResource("CylinderShape3D_oevxu")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=172434695]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.1805458, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.0
+spot_range = 4.107014
+spot_angle = 41.0771
+spot_angle_attenuation = 0.09410126

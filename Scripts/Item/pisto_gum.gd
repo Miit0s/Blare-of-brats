@@ -12,6 +12,4 @@ func _perform_attack(_direction: Vector3):
 func _attack_player(player_hit: Player):
 	super._attack_player(player_hit)
 	
-	player_hit.apply_slow(player_speed_multiplier)
-	await get_tree().create_timer(slow_duration).timeout
-	player_hit.apply_slow(1)
+	player_hit.apply_slow(player_speed_multiplier, slow_duration)
