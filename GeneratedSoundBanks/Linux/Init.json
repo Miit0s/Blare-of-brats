@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{557A294A-30FF-877A-A2B9-232D3F4AA1E0}",
+    "Hash": "{C91B0D02-1DDC-B407-794D-ABF89616ED3B}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -178,6 +178,12 @@
       "GUID": "{6902E341-BDC2-4192-BB73-1D4CED233A7E}"
      },
      {
+      "Id": "2848349012",
+      "Name": "Crowd",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Crowd",
+      "GUID": "{B1D5B95D-5127-4A30-968F-68C908E80D57}"
+     },
+     {
       "Id": "2988444587",
       "Name": "High_Fct",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\High_Fct",
@@ -226,6 +232,28 @@
         "Name": "Phase_1",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "2848349012",
+      "Name": "CROWD",
+      "ObjectPath": "\\Switches\\Default Work Unit\\CROWD",
+      "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
+      "Switches": [
+       {
+        "Id": "888960820",
+        "Name": "Reaction",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Reaction",
+        "GUID": "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
+       },
+       {
+        "Id": "1836277870",
+        "Name": "Conitnious",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Conitnious",
+        "GUID": "{FD1A1761-B018-456D-A243-B338F6410620}"
        }
       ]
      }
@@ -709,6 +737,6 @@
     ]
    }
   ],
-  "FileHash": "{99DF39B3-B002-0BD4-A6F8-6DE4191CE097}"
+  "FileHash": "{9445F4F0-288D-687C-9E15-A6E52742E28A}"
  }
 }

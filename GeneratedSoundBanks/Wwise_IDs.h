@@ -52,9 +52,25 @@ namespace AK
 
     } // namespace STATES
 
+    namespace SWITCHES
+    {
+        namespace CROWD
+        {
+            static const AkUniqueID GROUP = 2848349012U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID CONITNIOUS = 1836277870U;
+                static const AkUniqueID REACTION = 888960820U;
+            } // namespace SWITCH
+        } // namespace CROWD
+
+    } // namespace SWITCHES
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID CHILDREN_ACTION = 3321746565U;
+        static const AkUniqueID CROWD = 2848349012U;
         static const AkUniqueID HIGH_FCT = 2988444587U;
         static const AkUniqueID LEAD = 54442139U;
         static const AkUniqueID LOW_FCT = 2785096631U;
