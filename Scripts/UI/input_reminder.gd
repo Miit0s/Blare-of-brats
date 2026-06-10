@@ -51,6 +51,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.device == player_input_id:
 		if event.is_action_pressed("JoinGame"):
 			input_reminder_ready()
+			get_viewport().set_input_as_handled()
 
 func input_reminder_ready():
 	if _is_player_ready: return

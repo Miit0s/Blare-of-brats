@@ -145,26 +145,6 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if _is_freeze or _is_stun: return
 	
-	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use:
-		dash()
-	
-	if Input.is_action_just_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
-		switch_item()
-	
-	if Input.is_action_just_pressed("PickUp" + _suffix) and not current_picked_item:
-		pick_up()
-	
-	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
-		if current_picked_item.is_attacking: cancel_animation()
-		_is_aiming = true
-		#throw_direction.show()
-	
-	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
-		throw(_current_direction)
-	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
-		attack(_current_direction if _current_direction else _last_direction)
-	
 	var aim_direction: Vector3 = Vector3.ZERO
 	aim_direction = _current_direction if _current_direction else _last_direction
 		
@@ -178,6 +158,27 @@ func _process(delta: float) -> void:
 	
 	if aim_direction != Vector3.ZERO:
 		throw_direction.look_at(throw_direction.global_position + aim_direction)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
+		dash()
+	
+	if event.is_action_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		switch_item()
+	
+	if event.is_action_pressed("PickUp" + _suffix) and not current_picked_item:
+		pick_up()
+	
+	if event.is_action_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		if current_picked_item.is_attacking: cancel_animation()
+		_is_aiming = true
+		#throw_direction.show()
+	
+	if event.is_action_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+		throw(_current_direction)
+	
+	if event.is_action_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
+		attack(_current_direction if _current_direction else _last_direction)
 
 func dash():
 	_dash_can_be_use = false
