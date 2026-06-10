@@ -9,7 +9,93 @@
 [ext_resource type="Texture2D" uid="uid://cuo8muvgbp055" path="res://Assets/SpriteUI/Menu/menu bg.png" id="3_oqads"]
 [ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="4_ejkra"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="4_s2f1d"]
+[ext_resource type="PackedScene" uid="uid://dfywcxkltec84" path="res://UI/ControlTool/interaction_reminder.tscn" id="5_klvvj"]
+[ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="6_hag5k"]
 [ext_resource type="PackedScene" uid="uid://b0odn7qlra422" path="res://Scene/chaos_scene.tscn" id="6_hptlk"]
+[ext_resource type="Script" uid="uid://bcd2lnrrewlvk" path="res://Scripts/UI/texture_button_focus_replace.gd" id="8_47k5r"]
+
+[sub_resource type="GDScript" id="GDScript_47k5r"]
+resource_name = "main_menu_button_tween"
+script/source = "extends VBoxContainer
+
+@onready var control_play: Control = $ControlPlay
+@onready var control_options: Control = $ControlOptions
+@onready var control_credits: Control = $ControlCredits
+@onready var control_exit: Control = $ControlExit
+
+@onready var play: TextureButtonFocusReplace = $ControlPlay/Play
+@onready var options: TextureButtonFocusReplace = $ControlOptions/Options
+@onready var credits: TextureButtonFocusReplace = $ControlCredits/Credits
+@onready var exit: TextureButtonFocusReplace = $ControlExit/Exit
+
+@export var tween_duration: float = 0.3
+@export var size_expand: float = 100
+
+@export_category(\"Theme\")
+@export var theme_on_focus: Theme
+@export var base_theme: Theme
+
+var _control_base_size: Vector2
+
+func _ready() -> void:
+	_control_base_size = control_play.custom_minimum_size
+	
+	play.focus_entered.connect(_on_button_play_focus_enter)
+	play.focus_exited.connect(_on_button_play_focus_exit)
+	
+	options.focus_entered.connect(_on_button_options_focus_enter)
+	options.focus_exited.connect(_on_button_options_focus_exit)
+	
+	credits.focus_entered.connect(_on_button_credits_focus_enter)
+	credits.focus_exited.connect(_on_button_credits_focus_exit)
+	
+	exit.focus_entered.connect(_on_button_exit_focus_enter)
+	exit.focus_exited.connect(_on_button_exit_focus_exit)
+
+func _on_button_play_focus_enter():
+	_zoom_in(control_play, play)
+
+func _on_button_play_focus_exit():
+	_zoom_out(control_play, play)
+
+func _on_button_options_focus_enter():
+	_zoom_in(control_options, options)
+
+func _on_button_options_focus_exit():
+	_zoom_out(control_options, options)
+
+func _on_button_credits_focus_enter():
+	_zoom_in(control_credits, credits)
+
+func _on_button_credits_focus_exit():
+	_zoom_out(control_credits, credits)
+
+func _on_button_exit_focus_enter():
+	_zoom_in(control_exit, exit)
+
+func _on_button_exit_focus_exit():
+	_zoom_out(control_exit, exit)
+
+func _zoom_in(control: Control, button: TextureButtonFocusReplace):
+	var final_size: Vector2 = Vector2(_control_base_size.x + size_expand, _control_base_size.y + (size_expand / 2))
+	
+	control.custom_minimum_size = final_size
+	control.theme = theme_on_focus
+	
+	var zoom_in: Tween = create_tween()
+	zoom_in.set_ease(Tween.EASE_OUT)
+	zoom_in.set_trans(Tween.TRANS_BACK)
+	zoom_in.tween_property(button, \"size\", final_size, tween_duration)
+
+func _zoom_out(control: Control, button: TextureButtonFocusReplace):
+	control.custom_minimum_size = _control_base_size
+	control.theme = base_theme
+	
+	var zoom_in: Tween = create_tween()
+	zoom_in.set_ease(Tween.EASE_OUT)
+	zoom_in.set_trans(Tween.TRANS_QUINT)
+	zoom_in.tween_property(button, \"size\", _control_base_size, tween_duration)
+"
 
 [node name="MainMenu" type="Node3D" unique_id=1265822772]
 
@@ -54,6 +140,24 @@ texture = ExtResource("3_oqads")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="InteractionReminder" parent="CanvasLayer/Menu" unique_id=1923161037 instance=ExtResource("5_klvvj")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -132.98499
+offset_right = 559.9137
+offset_bottom = -37.0
+grow_vertical = 0
+
+[node name="Control" parent="CanvasLayer/Menu/InteractionReminder/TextureRect" parent_id_path=PackedInt32Array(1923161037, 863170536) index="0" unique_id=1087615911]
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerIconParser" parent="CanvasLayer/Menu/InteractionReminder/TextureRect/Control" index="0" unique_id=1434483399]
+text = "{JoinGame} Select"
+raw_text = "{JoinGame} Select"
+
 [node name="MainButton" type="VBoxContainer" parent="CanvasLayer/Menu" unique_id=145311421]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 1
@@ -62,27 +166,38 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 133.0
 offset_top = -60.0
-offset_right = 483.0
-offset_bottom = 370.00012
+offset_right = 586.0
+offset_bottom = 401.0
 grow_vertical = 2
 theme_override_constants/separation = 10
+script = SubResource("GDScript_47k5r")
+theme_on_focus = ExtResource("6_hag5k")
+base_theme = ExtResource("2_yok32")
 
-[node name="Play" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=1543955564]
-custom_minimum_size = Vector2(0, 80)
+[node name="ControlPlay" type="Control" parent="CanvasLayer/Menu/MainButton" unique_id=1264740702]
+custom_minimum_size = Vector2(290, 80)
 layout_mode = 2
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/Menu/MainButton/ControlPlay" unique_id=1543955564]
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 1
+offset_right = 290.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../../ControlOptions/Options")
+focus_next = NodePath("../../ControlOptions/Options")
 focus_previous = NodePath(".")
 texture_normal = ExtResource("4_ejkra")
 texture_hover = ExtResource("4_s2f1d")
-texture_focused = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("8_47k5r")
+texture_focus_remplacement = ExtResource("4_s2f1d")
 
-[node name="Label" type="Label" parent="CanvasLayer/Menu/MainButton/Play" unique_id=354849746]
+[node name="Label" type="Label" parent="CanvasLayer/Menu/MainButton/ControlPlay/Play" unique_id=354849746]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,22 +214,30 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=1222185785]
-custom_minimum_size = Vector2(0, 80)
+[node name="ControlOptions" type="Control" parent="CanvasLayer/Menu/MainButton" unique_id=752626923]
+custom_minimum_size = Vector2(290, 80)
 layout_mode = 2
+
+[node name="Options" type="TextureButton" parent="CanvasLayer/Menu/MainButton/ControlOptions" unique_id=1222185785]
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 1
+offset_right = 290.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Play")
+focus_neighbor_top = NodePath("../../ControlPlay/Play")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Credits")
-focus_next = NodePath("../Credits")
-focus_previous = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../../ControlCredits/Credits")
+focus_next = NodePath("../../ControlCredits/Credits")
+focus_previous = NodePath("../../ControlPlay/Play")
 texture_normal = ExtResource("4_ejkra")
 texture_hover = ExtResource("4_s2f1d")
-texture_focused = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("8_47k5r")
+texture_focus_remplacement = ExtResource("4_s2f1d")
 
-[node name="Label2" type="Label" parent="CanvasLayer/Menu/MainButton/Options" unique_id=1996307831]
+[node name="Label2" type="Label" parent="CanvasLayer/Menu/MainButton/ControlOptions/Options" unique_id=1996307831]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,22 +254,30 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=784675985]
-custom_minimum_size = Vector2(0, 80)
+[node name="ControlCredits" type="Control" parent="CanvasLayer/Menu/MainButton" unique_id=1245731940]
+custom_minimum_size = Vector2(290, 80)
 layout_mode = 2
+
+[node name="Credits" type="TextureButton" parent="CanvasLayer/Menu/MainButton/ControlCredits" unique_id=784675985]
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 1
+offset_right = 290.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Options")
+focus_neighbor_top = NodePath("../../ControlOptions/Options")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Exit")
-focus_next = NodePath("../Exit")
-focus_previous = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../../ControlExit/Exit")
+focus_next = NodePath("../../ControlExit/Exit")
+focus_previous = NodePath("../../ControlOptions/Options")
 texture_normal = ExtResource("4_ejkra")
 texture_hover = ExtResource("4_s2f1d")
-texture_focused = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("8_47k5r")
+texture_focus_remplacement = ExtResource("4_s2f1d")
 
-[node name="Label3" type="Label" parent="CanvasLayer/Menu/MainButton/Credits" unique_id=1474114888]
+[node name="Label3" type="Label" parent="CanvasLayer/Menu/MainButton/ControlCredits/Credits" unique_id=1474114888]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,22 +294,30 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit" type="TextureButton" parent="CanvasLayer/Menu/MainButton" unique_id=2066980384]
-custom_minimum_size = Vector2(0, 80)
+[node name="ControlExit" type="Control" parent="CanvasLayer/Menu/MainButton" unique_id=469520463]
+custom_minimum_size = Vector2(290, 80)
 layout_mode = 2
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Menu/MainButton/ControlExit" unique_id=2066980384]
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 1
+offset_right = 290.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_top = NodePath("../../ControlCredits/Credits")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
-focus_previous = NodePath("../Credits")
+focus_previous = NodePath("../../ControlCredits/Credits")
 texture_normal = ExtResource("4_ejkra")
 texture_hover = ExtResource("4_s2f1d")
-texture_focused = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("8_47k5r")
+texture_focus_remplacement = ExtResource("4_s2f1d")
 
-[node name="Label4" type="Label" parent="CanvasLayer/Menu/MainButton/Exit" unique_id=593392593]
+[node name="Label4" type="Label" parent="CanvasLayer/Menu/MainButton/ControlExit/Exit" unique_id=593392593]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -209,9 +348,11 @@ layout_mode = 1
 
 [node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
 
-[connection signal="pressed" from="CanvasLayer/Menu/MainButton/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/MainButton/Options" to="CanvasLayer/Menu" method="_on_options_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/MainButton/Credits" to="CanvasLayer/Menu" method="_on_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/MainButton/Exit" to="CanvasLayer/Menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MainButton/ControlPlay/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MainButton/ControlOptions/Options" to="CanvasLayer/Menu" method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MainButton/ControlCredits/Credits" to="CanvasLayer/Menu" method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/MainButton/ControlExit/Exit" to="CanvasLayer/Menu" method="_on_exit_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/Menu/QuitPrompt" to="CanvasLayer/Menu" method="_on_quit_prompt_visibility_changed"]
 [connection signal="visibility_changed" from="CanvasLayer/Menu/Credits" to="CanvasLayer/Menu" method="_on_credits_visibility_changed"]
+
+[editable path="CanvasLayer/Menu/InteractionReminder"]

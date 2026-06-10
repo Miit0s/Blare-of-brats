@@ -3,6 +3,7 @@ extends RichTextLabel
 class_name ControllerIconParser
 
 @export var image_size_offset: int = 0
+@export var white_version: bool = false
 @export var raw_text: String = "":
 	set(new_value):
 		raw_text = new_value
@@ -27,7 +28,7 @@ func _update_display(_new_device_type: ControllerIconSet.PlatformName):
 	var matches_action = regex_action.search_all(raw_text)
 	for matche in matches_action:
 		var action_name = matche.get_string(1)
-		var path = ControllerTypeManager.get_icon_path_for_action(action_name)
+		var path = ControllerTypeManager.get_icon_path_for_action(action_name, white_version)
 		
 		var img_tag = img_tag_base + path + "[/img]"
 		final_text = final_text.replace("{" + action_name + "}", img_tag)

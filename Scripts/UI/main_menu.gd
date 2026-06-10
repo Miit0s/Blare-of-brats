@@ -1,9 +1,9 @@
 extends Control
 
-@onready var play_button: TextureButton = $MainButton/Play
-@onready var options_button: TextureButton = $MainButton/Options
-@onready var credits_button: TextureButton = $MainButton/Credits
-@onready var exit_button: TextureButton = $MainButton/Exit
+@onready var play_button: TextureButton = $MainButton/ControlPlay/Play
+@onready var options_button: TextureButton = $MainButton/ControlOptions/Options
+@onready var credits_button: TextureButton = $MainButton/ControlCredits/Credits
+@onready var exit_button: TextureButton = $MainButton/ControlExit/Exit
 
 @onready var quit_prompt: Control = $QuitPrompt
 @onready var credits: Control = $Credits
