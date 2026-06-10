@@ -11,10 +11,11 @@
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_bqawb"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_dywhy"]
 
-[node name="Map0" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager")]
+[node name="Map0" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_47v7b")
 player_spawn_system = NodePath("PlayerSpawnSystem")
 balloon_manager = NodePath("BalloonManager")
+item_spawn_system = NodePath("ItemSpawnSystem")
 
 [node name="BaseMap" parent="." unique_id=1917887806 instance=ExtResource("2_11dc0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0056273937, 0.021040916, -0.022873878)
@@ -74,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.977273, 1.1439927, 4.849495
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=93648664 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_bqawb")
-balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon4")]
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7"), NodePath("Balloon8"), NodePath("Balloon4")]
 
 [node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_dywhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5910367, 0.8758886, -0.27515283)
@@ -100,6 +101,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.693024, 0.98808837, 10.0735
 [node name="Balloon4" parent="BalloonManager" unique_id=1288528648 instance=ExtResource("10_dywhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.064918, 0.9880879, -0.17334777)
 
-[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
-[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]

@@ -11,10 +11,11 @@
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_b8f82"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_tmsqe"]
 
-[node name="Map6" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager")]
+[node name="Map6" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_as54u")
 player_spawn_system = NodePath("PlayerSpawnSystem")
 balloon_manager = NodePath("BalloonManager")
+item_spawn_system = NodePath("ItemSpawnSystem")
 
 [node name="BaseMap" parent="." unique_id=407588618 instance=ExtResource("2_hm7c5")]
 
@@ -73,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.812327, 1.1439927, 5.794306
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=458403854 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_b8f82")
-balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath(""), NodePath(""), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7"), NodePath("Balloon8"), NodePath("Balloon9"), NodePath("Balloon10"), NodePath("Balloon11"), NodePath("Balloon12"), NodePath("Balloon13")]
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7"), NodePath("Balloon8"), NodePath("Balloon9"), NodePath("Balloon10"), NodePath("Balloon11"), NodePath("Balloon12"), NodePath("Balloon13")]
 
 [node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_tmsqe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.783238, 0.87588906, -2.865614)
@@ -108,6 +109,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2888395, 0.87588763, 10.459
 [node name="Balloon13" parent="BalloonManager" unique_id=1304052924 instance=ExtResource("10_tmsqe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8178468, 0.8758886, 7.0269313)
 
-[connection signal="item_will_be_delete" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_item_will_be_delete"]
-[connection signal="new_item_spawn" from="ItemSpawnSystem" to="." method="_on_item_spawn_system_new_item_spawn"]
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]
