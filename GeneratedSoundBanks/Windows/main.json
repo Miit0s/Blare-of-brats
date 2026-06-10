@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{82AAC0CD-375E-C931-B893-508575CB2956}",
+    "Hash": "{A0A9275F-E211-8975-AEBF-26A183654319}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -38,14 +38,6 @@
       "Location": "Memory",
       "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_1.wav",
       "CachePath": "60/{6080526A-9468-68EE-E69C-AEAA6D253D12}.wem"
-     },
-     {
-      "Id": "61027230",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "loop_time_2.wav",
-      "CachePath": "95/{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem"
      },
      {
       "Id": "71385639",
@@ -80,14 +72,6 @@
       "CachePath": "BF/{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem"
      },
      {
-      "Id": "192332123",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "lead_P2.wav",
-      "CachePath": "98/{983FEB1C-1A52-4758-DE89-482538170A94}.wem"
-     },
-     {
       "Id": "195267026",
       "Language": "SFX",
       "Streaming": "false",
@@ -120,28 +104,12 @@
       "CachePath": "76/{76B5CBAF-BB66-F6BB-ECE5-66525308CF19}.wem"
      },
      {
-      "Id": "284610429",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "loop_time_1.wav",
-      "CachePath": "2E/{2EB655E3-6ABC-992B-A6BF-DEB6DC074192}.wem"
-     },
-     {
       "Id": "322956192",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "TakingDamage\\Voice_Boy_TakingDamage_2.wav",
       "CachePath": "6B/{6B8DCFB4-2548-7CBD-6108-D1A4FAA4ECA1}.wem"
-     },
-     {
-      "Id": "344145984",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "lead_P1.wav",
-      "CachePath": "4A/{4A0D7403-6F5B-51DA-77EE-9A0DA6B79065}.wem"
      },
      {
       "Id": "351924758",
@@ -166,14 +134,6 @@
       "Location": "Memory",
       "ShortName": "Voice_Girl_Win.wav",
       "CachePath": "47/{47FD76D2-77DE-94D9-EA97-E62D08BAFCCA}.wem"
-     },
-     {
-      "Id": "452965374",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "loop_time_3.wav",
-      "CachePath": "99/{999064A2-0085-7495-54FA-1C74904A1923}.wem"
      },
      {
       "Id": "475093794",
@@ -206,6 +166,14 @@
       "Location": "Memory",
       "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_2.wav",
       "CachePath": "69/{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem"
+     },
+     {
+      "Id": "543882894",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Rockstar_Phase3_97bpm.wav",
+      "CachePath": "3C/{3CEBCCC2-A76B-60DA-EE70-34D3DB23617A}.wem"
      },
      {
       "Id": "568806651",
@@ -304,28 +272,20 @@
       "CachePath": "8F/{8FFFBD4F-8ADB-E175-E317-B0347672CC4A}.wem"
      },
      {
-      "Id": "693540064",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Loop.wav",
-      "CachePath": "90/{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem"
-     },
-     {
-      "Id": "693680794",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "fill_parents_shh.wav",
-      "CachePath": "48/{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem"
-     },
-     {
       "Id": "703684940",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "swoosh_rotation_3.wav",
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
+     },
+     {
+      "Id": "753045005",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Rockstar_Phase1_97bpm.wav",
+      "CachePath": "A6/{A684019E-DE0C-1ED9-87F0-D4B1793122F6}.wem"
      },
      {
       "Id": "755145517",
@@ -408,6 +368,14 @@
       "CachePath": "12/{1224A23A-0612-625A-3490-9504E6BE07D1}.wem"
      },
      {
+      "Id": "962160485",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Rockstar_Phase2_97bpm.wav",
+      "CachePath": "19/{19601E91-AECA-21D9-3326-62C2C1F7B250}.wem"
+     },
+     {
       "Id": "976227419",
       "Language": "SFX",
       "Streaming": "false",
@@ -457,6 +425,14 @@
        "GUID": "{F3DA4897-6B47-4C44-B0DF-4382E4896578}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
+      },
+      {
+       "Id": "1028753363",
+       "Name": "Gain (Custom)",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\Music\\Music_Fight\\[Effect Slot [0]: (Gain)]\\Gain (Custom)",
+       "GUID": "{F1FA4D50-FE48-4C42-A3E5-1106F32EC7CF}",
+       "LibName": "Wwise Gain",
+       "LibId": "9109507"
       }
      ]
     },
@@ -754,42 +730,61 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "314125497",
-         "Id": "514064485",
+         "Id": "1622949422",
          "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
         },
         "MediaRefs": [
          {
-          "Id": "61027230"
-         },
-         {
-          "Id": "192332123"
-         },
-         {
-          "Id": "284610429"
-         },
-         {
-          "Id": "344145984"
-         },
-         {
-          "Id": "452965374"
-         },
-         {
-          "Id": "693540064"
+          "Id": "753045005"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1028753363"
+          }
+         ]
+        }
        },
        {
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "314125497",
-         "Id": "4261315644",
+         "Id": "1622949421",
          "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
         },
         "MediaRefs": [
          {
-          "Id": "693680794"
+          "Id": "962160485"
          }
-        ]
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1028753363"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "314125497",
+         "Id": "1622949420",
+         "GUID": "{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "543882894"
+         }
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1028753363"
+          }
+         ]
+        }
        }
       ]
      },
@@ -914,18 +909,6 @@
     ],
     "GameParameters": [
      {
-      "Id": "54442139",
-      "Name": "Lead",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Lead",
-      "GUID": "{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}"
-     },
-     {
-      "Id": "740280485",
-      "Name": "Round_Time",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Round_Time",
-      "GUID": "{7DA362F0-4F33-4B06-B6EF-54602E5F80BD}"
-     },
-     {
       "Id": "1629633035",
       "Name": "SoundBar_Value",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\SoundBar_Value",
@@ -940,28 +923,34 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
-        "Id": "514064485",
-        "Name": "Fight",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Fight",
-        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
-       },
-       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
         "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
        },
        {
-        "Id": "4261315644",
-        "Name": "Parents",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_3",
+        "GUID": "{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_2",
         "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
+        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{CD2C1F75-315C-587E-A853-94B93AA2B29B}"
+  "FileHash": "{AD680C6A-D3C0-8446-C7C6-AE63BF72D903}"
  }
 }

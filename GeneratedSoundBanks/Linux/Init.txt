@@ -2,9 +2,10 @@ State Group	ID	Name			Wwise Object Path	Notes
 	314125497	Round_State			\Default Work Unit\Round_State	
 
 State	ID	Name	State Group			Notes
-	514064485	Fight	Round_State			
 	748895195	None	Round_State			
-	4261315644	Parents	Round_State			
+	1622949420	Phase_3	Round_State			
+	1622949421	Phase_2	Round_State			
+	1622949422	Phase_1	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1006694123	Music_Volume			\Default Work Unit\Music_Volume	

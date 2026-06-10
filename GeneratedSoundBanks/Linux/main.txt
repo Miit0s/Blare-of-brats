@@ -26,43 +26,39 @@ State Group	ID	Name			Wwise Object Path	Notes
 	314125497	Round_State			\Default Work Unit\Round_State	
 
 State	ID	Name	State Group			Notes
-	514064485	Fight	Round_State			
 	748895195	None	Round_State			
-	4261315644	Parents	Round_State			
+	1622949420	Phase_3	Round_State			
+	1622949421	Phase_2	Round_State			
+	1622949422	Phase_1	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	54442139	Lead			\Default Work Unit\Lead	
-	740280485	Round_Time			\Default Work Unit\Round_Time	
 	1629633035	SoundBar_Value			\Default Work Unit\SoundBar_Value	
 
 Effect plug-ins	ID	Name	Type				Notes
 	747094273	Parametric EQ (Custom)	Wwise Parametric EQ			
+	1028753363	Gain (Custom)	Wwise Gain			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	16349992	hit_2	.cache\5E\{5E440C45-95D8-F00E-C688-96E12E779B55}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_2		84952
 	30562399	swoosh_rotation_2	.cache\6C\{6C97DB69-0B78-5DA8-C79D-47FFE0C22FD3}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_2		84104
 	31521035	Voice_Girl_TakingDamage_1	.cache\60\{6080526A-9468-68EE-E69C-AEAA6D253D12}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_1		77544
-	61027230	loop_time_2	.cache\95\{953870AE-7A2E-B8DC-BA8B-389E3503EE51}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_2		2841836
 	71385639	UI_Colors_Nav	.cache\B2\{B270214A-7885-4F88-B1A4-9CC94D413317}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\UI_Colors_Nav		11868
 	87882912	Voice_Boy_Attack1	.cache\89\{898B6F33-5F59-2F92-0B99-EB0599D769F5}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_Attack\Voice_Boy_Attack1		33928
 	108175889	Balloon_Idle	.cache\F3\{F3CA22C5-733D-F3EB-E778-B37E508690C3}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Idle\Balloon_Idle		104640
 	120430976	Voice_Boy_Attack_2	.cache\BF\{BF9E2800-25C4-B7F7-1125-A65D7C608D8F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_Attack\Voice_Boy_Attack_2		34820
-	192332123	lead_P2	.cache\98\{983FEB1C-1A52-4758-DE89-482538170A94}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\lead_P2		3538252
 	195267026	Menu_Back	.cache\20\{205513AB-2741-CB1F-8DB4-2D3F220CA1EA}.wem		\Containers\Blare_of_Brats\SFX\UI\Menu\Menu\Menu_Back		26892
 	206483376	L_Impact_3	.cache\A0\{A02F486A-55C7-A407-E679-0BE4A3D10450}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Layer_Impact\L_Impact_3		64704
 	225912809	swoosh_rotation_1	.cache\4B\{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_1		84952
 	263518998	Balloon_Idle_4	.cache\76\{76B5CBAF-BB66-F6BB-ECE5-66525308CF19}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Idle\Balloon_Idle_4		142980
-	284610429	loop_time_1	.cache\2E\{2EB655E3-6ABC-992B-A6BF-DEB6DC074192}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_1		2896964
 	322956192	Voice_Boy_TakingDamage_2	.cache\6B\{6B8DCFB4-2548-7CBD-6108-D1A4FAA4ECA1}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_TakingDamage\Voice_Boy_TakingDamage_2		62040
-	344145984	lead_P1	.cache\4A\{4A0D7403-6F5B-51DA-77EE-9A0DA6B79065}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\lead_P1		3567652
 	351924758	GrabObject	.cache\86\{86158DD1-5740-53E5-3F37-56E00C6D2D3D}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\GrabObject		50280
 	426434286	Balloon_pop_3	.cache\79\{79F1E6D7-A466-5C8F-7157-D8812884CEF7}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Pop\Balloon_pop_3		42512
 	431723951	Voice_Girl_Win	.cache\47\{47FD76D2-77DE-94D9-EA97-E62D08BAFCCA}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Voice_Girl_Win		232944
-	452965374	loop_time_3	.cache\99\{999064A2-0085-7495-54FA-1C74904A1923}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\loop_time_3		3398600
 	475093794	hit_4	.cache\9F\{9FB04671-814C-C49C-B116-E940755819C9}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_4		84952
 	477928144	hit_5	.cache\DF\{DFE68871-5C3E-E4EB-6FDF-1E72FB0E7F6E}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_5		84952
 	498530264	Menu_Select	.cache\3B\{3BB2BD53-4302-502D-5F69-29103BF83AA2}.wem		\Containers\Blare_of_Brats\SFX\UI\Menu\Menu\Menu_Select		30376
 	525872627	Voice_Girl_TakingDamage_2	.cache\69\{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_2		99816
+	543882894	Rockstar_Phase3_97bpm	.cache\3C\{3CEBCCC2-A76B-60DA-EE70-34D3DB23617A}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Phase_3\Rockstar_Phase3_97bpm\Rockstar_Phase3_97bpm		4661668
 	568806651	Balloon_pop_2	.cache\8B\{8BE35240-9F32-D63B-5DF4-84FB690F8C1C}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Pop\Balloon_pop_2		54780
 	570828258	Voice_Girl_TakingDamage_3	.cache\57\{5769F77B-A567-9A7E-4D50-00CC1FC745FD}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_3		107832
 	588687141	L_Impact_1	.cache\92\{9295DEDB-3777-DE67-49AD-14E4E8013EF5}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Layer_Impact\L_Impact_1		67812
@@ -75,9 +71,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	663880264	funny_boing_sound	.cache\66\{66FC4B06-40BD-6889-9ABA-8CECD5BA826F}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Boxing_glove\Boxing_Glove_Master\funny_boing_sound		198596
 	671088591	Voice_Girl_Attack_3	.cache\56\{5624A28E-EDAC-23FA-ABC1-9752192B8A21}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_Attacking\Voice_Girl_Attack_3		37692
 	675508919	SwitchObject	.cache\8F\{8FFFBD4F-8ADB-E175-E317-B0347672CC4A}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\SwitchObject		70868
-	693540064	Loop	.cache\90\{90DD8C55-4739-09C4-9C46-33941A1138F4}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Main_Loop\Loop\Loop		3066932
-	693680794	fill_parents_shh	.cache\48\{4891B856-1F5A-C377-4256-3E804E5E2CD1}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\fill_parents_shh\fill_parents_shh		546936
 	703684940	swoosh_rotation_3	.cache\5A\{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_3		84104
+	753045005	Rockstar_Phase1_97bpm	.cache\A6\{A684019E-DE0C-1ED9-87F0-D4B1793122F6}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Phase_1\Rockstar_Phase1_97bpm\Rockstar_Phase1_97bpm		2415100
 	755145517	Chara_Mov_Dash_v1	.cache\96\{962D14C9-5571-62B6-52A9-E81A6559C40E}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1		116008
 	790913363	Party_Countdown	.cache\81\{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\Party_Countdown		244984
 	793598172	Balloon_pop_1	.cache\41\{4195BFB8-B0AA-A53E-EB15-E223B8109860}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Pop\Balloon_pop_1		53016
@@ -88,6 +83,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	902723063	hit_3	.cache\55\{558F8925-7F39-AD20-0512-F64D720D4B63}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_3		84952
 	903468965	Pistogum_shoot_v2_01	.cache\AB\{ABE20E95-E4C4-66FD-581B-E88005795498}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Pistogum\Pistogum_Master\PistoGum_Shoot\Pistogum_shoot_v2_01		167208
 	930276617	hit_1	.cache\12\{1224A23A-0612-625A-3490-9504E6BE07D1}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_1		84952
+	962160485	Rockstar_Phase2_97bpm	.cache\19\{19601E91-AECA-21D9-3326-62C2C1F7B250}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Phase_2\Rockstar_Phase2_97bpm\Rockstar_Phase2_97bpm		2415100
 	976227419	Menu_Nav	.cache\EB\{EBC7D52A-311C-C012-673F-EC145881488E}.wem		\Containers\Blare_of_Brats\SFX\UI\Menu\Menu\Menu_Nav		24076
 	1005290781	Pistogum_shoot_v2	.cache\60\{6018DE96-F4C7-EA2F-385F-9E1D0DAFABA3}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Pistogum\Pistogum_Master\PistoGum_Shoot\Pistogum_shoot_v2		180552
 	1011003732	Voice_Girl_Attack_1	.cache\5A\{5AD7C8D1-EAF5-B5E2-F2C9-785EF99D85DB}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_Attacking\Voice_Girl_Attack_1		40396

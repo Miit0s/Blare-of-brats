@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{9EDFADB8-9DEF-909B-DBE9-56C5BD68B303}",
+    "Hash": "{FB89A64B-C84B-DA83-3DB7-088B15D37023}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -204,22 +204,28 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
-        "Id": "514064485",
-        "Name": "Fight",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Fight",
-        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
-       },
-       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
         "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
        },
        {
-        "Id": "4261315644",
-        "Name": "Parents",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_3",
+        "GUID": "{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_2",
         "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
+        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
        }
       ]
      }
@@ -703,6 +709,6 @@
     ]
    }
   ],
-  "FileHash": "{F3E830DC-8201-A55E-415E-9BCC94DEB125}"
+  "FileHash": "{18B0E471-CCCE-4392-DAC0-3728EF83BF96}"
  }
 }

@@ -45,9 +45,10 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID FIGHT = 514064485U;
                 static const AkUniqueID NONE = 748895195U;
-                static const AkUniqueID PARENTS = 4261315644U;
+                static const AkUniqueID PHASE_1 = 1622949422U;
+                static const AkUniqueID PHASE_2 = 1622949421U;
+                static const AkUniqueID PHASE_3 = 1622949420U;
             } // namespace STATE
         } // namespace ROUND_STATE
 
