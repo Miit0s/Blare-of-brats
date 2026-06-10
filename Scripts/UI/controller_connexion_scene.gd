@@ -152,8 +152,10 @@ func is_all_slot_pick() -> bool:
 
 func start_game():
 	var packed_game_scene: PackedScene
-	if GameOptions.saved_options.desactivate_on_boarding: packed_game_scene = load(game_scene_uid)
-	else: packed_game_scene = load(onboarding_scene_uid)
+	if GameOptions.have_played_tutorial and not GameOptions.saved_options.activate_on_boarding:
+		packed_game_scene = load(game_scene_uid)
+	else: 
+		packed_game_scene = load(onboarding_scene_uid)
 	
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	

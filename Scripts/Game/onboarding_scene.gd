@@ -51,6 +51,8 @@ func _ready() -> void:
 	setup_new_scene()
 
 func go_to_next_scene():
+	GameOptions.have_played_tutorial = true
+	
 	var packed_game_scene: PackedScene = load(next_scene_uid)
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	
