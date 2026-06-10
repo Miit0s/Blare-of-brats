@@ -49,7 +49,6 @@ offset_right = 307.0
 offset_bottom = 62.884995
 grow_horizontal = 2
 grow_vertical = 2
-number_of_lock_area = 3
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1746106151]
 layout_mode = 1
