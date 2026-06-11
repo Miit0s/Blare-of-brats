@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{A6E430BF-5AFF-D2CB-3C63-6892551229B5}",
+    "Hash": "{8C31FFAC-D59A-43FB-2DBA-153B9065D27C}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -166,10 +166,22 @@
       "GUID": "{3477CCB4-6515-45AE-A2BA-8F0F23C02B8D}"
      },
      {
+      "Id": "1629633035",
+      "Name": "SoundBar_Value",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SoundBar_Value",
+      "GUID": "{0DEE1858-2463-4550-BF6A-045447464530}"
+     },
+     {
       "Id": "2785096631",
       "Name": "Low_Fct",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Low_Fct",
       "GUID": "{6902E341-BDC2-4192-BB73-1D4CED233A7E}"
+     },
+     {
+      "Id": "2848349012",
+      "Name": "Crowd",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Crowd",
+      "GUID": "{B1D5B95D-5127-4A30-968F-68C908E80D57}"
      },
      {
       "Id": "2988444587",
@@ -198,22 +210,50 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
-        "Id": "514064485",
-        "Name": "Fight",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Fight",
-        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
-       },
-       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
         "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
        },
        {
-        "Id": "4261315644",
-        "Name": "Parents",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Parents",
+        "Id": "1622949420",
+        "Name": "Phase_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_3",
+        "GUID": "{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}"
+       },
+       {
+        "Id": "1622949421",
+        "Name": "Phase_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_2",
         "GUID": "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
+       },
+       {
+        "Id": "1622949422",
+        "Name": "Phase_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
+        "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "2848349012",
+      "Name": "CROWD",
+      "ObjectPath": "\\Switches\\Default Work Unit\\CROWD",
+      "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
+      "Switches": [
+       {
+        "Id": "888960820",
+        "Name": "Reaction",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Reaction",
+        "GUID": "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
+       },
+       {
+        "Id": "1836277870",
+        "Name": "Conitnious",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Conitnious",
+        "GUID": "{FD1A1761-B018-456D-A243-B338F6410620}"
        }
       ]
      }
@@ -697,6 +737,6 @@
     ]
    }
   ],
-  "FileHash": "{E49CA365-DB4D-F246-562F-D5DC0ABF5CE7}"
+  "FileHash": "{2CB4F743-8BE4-0D5D-CBE6-D31881AD43A5}"
  }
 }

@@ -30,6 +30,9 @@ enum PlatformName {
 @export var left_shoulder_btn: Texture2D
 @export var right_shoulder_btn: Texture2D
 
+@export var left_joystick: Texture2D
+@export var right_joystick: Texture2D
+
 func get_icon_for_joybutton(button_index: JoyButton) -> Texture2D:
 	match button_index:
 		JOY_BUTTON_A: return down_btn
@@ -47,5 +50,14 @@ func get_icon_for_joybutton(button_index: JoyButton) -> Texture2D:
 		JOY_BUTTON_DPAD_DOWN: return cross_down_btn
 		JOY_BUTTON_DPAD_LEFT: return cross_left_btn
 		JOY_BUTTON_DPAD_RIGHT: return cross_right_btn
+	
+	return null
+
+func get_icon_for_joyaxis(button_index: JoyAxis) -> Texture2D:
+	match button_index:
+		JOY_AXIS_LEFT_X: return left_joystick
+		JOY_AXIS_LEFT_Y: return left_joystick
+		JOY_AXIS_RIGHT_X: return right_joystick
+		JOY_AXIS_RIGHT_Y: return right_joystick
 	
 	return null

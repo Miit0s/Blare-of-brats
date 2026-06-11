@@ -1,0 +1,10 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2848349012	Crowd			\ALL_EVENTS\SFX\AMB\Crowd	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2848349012	CROWD			\Default Work Unit\CROWD	
+
+Switch	ID	Name	Switch Group			Notes
+	888960820	Reaction	CROWD			
+	1836277870	Conitnious	CROWD			
+

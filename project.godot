@@ -14,12 +14,12 @@ quick_scenes/quick_run_shortcut=Object(Shortcut,"resource_local_to_scene":false,
 ],"script":null)
 
 quick_scenes/selected_scene=0
-quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
+quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1", "uid://36tccmd3uybf")
 
 [application]
 
 config/name="Blare of Brats"
-config/version="0.2.1"
+config/version="0.3.2"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -46,7 +46,7 @@ window/vsync/vsync_mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/GPUTrail/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/spawn_area/plugin.cfg")
 
 [file_customization]
 
