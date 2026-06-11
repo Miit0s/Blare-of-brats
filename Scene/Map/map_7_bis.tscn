@@ -60,7 +60,7 @@ transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.77460
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("5_happx")
-spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint4")]
+spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint7")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("6_ji8u7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8544407, 0.8373332, 4.3754907)
