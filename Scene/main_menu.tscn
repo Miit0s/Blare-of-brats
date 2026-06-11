@@ -30,12 +30,14 @@ script/source = "extends VBoxContainer
 
 @export var tween_duration: float = 0.3
 @export var size_expand: float = 100
+@export var label_base_position: Vector2 = Vector2.ZERO
+@export var label_position_on_tween: Vector2 = Vector2.ZERO
 
 @export_category(\"Theme\")
 @export var theme_on_focus: Theme
 @export var base_theme: Theme
 
-var _control_base_size: Vector2
+var _control_base_size: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	_control_base_size = control_play.custom_minimum_size
@@ -82,19 +84,25 @@ func _zoom_in(control: Control, button: TextureButtonFocusReplace):
 	control.custom_minimum_size = final_size
 	control.theme = theme_on_focus
 	
+	var label_in_button: Label = button.get_child(0)
+	
 	var zoom_in: Tween = create_tween()
 	zoom_in.set_ease(Tween.EASE_OUT)
 	zoom_in.set_trans(Tween.TRANS_BACK)
 	zoom_in.tween_property(button, \"size\", final_size, tween_duration)
+	zoom_in.parallel().tween_property(label_in_button, \"position\", label_position_on_tween, tween_duration)
 
 func _zoom_out(control: Control, button: TextureButtonFocusReplace):
 	control.custom_minimum_size = _control_base_size
 	control.theme = base_theme
 	
+	var label_in_button: Label = button.get_child(0)
+	
 	var zoom_in: Tween = create_tween()
 	zoom_in.set_ease(Tween.EASE_OUT)
 	zoom_in.set_trans(Tween.TRANS_QUINT)
 	zoom_in.tween_property(button, \"size\", _control_base_size, tween_duration)
+	zoom_in.parallel().tween_property(label_in_button, \"position\", label_base_position, tween_duration)
 "
 
 [node name="MainMenu" type="Node3D" unique_id=1265822772]
@@ -105,7 +113,7 @@ load_on = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 
-[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463]
+[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463 node_paths=PackedStringArray("buttons_impacting_movement")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,25 +123,19 @@ grow_vertical = 2
 theme = ExtResource("2_yok32")
 script = ExtResource("1_wrubb")
 game_start_scene_uid = "uid://b1nchn1fbud6v"
-
-[node name="BackBackground" type="ColorRect" parent="CanvasLayer/Menu" unique_id=1529439020]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.019607844, 0.09411765, 0.18039216, 1)
+max_offset = 25.0
+lerp_speed = 8.0
+buttons_impacting_movement = [NodePath("MainButton/ControlPlay/Play"), NodePath("MainButton/ControlOptions/Options"), NodePath("MainButton/ControlCredits/Credits"), NodePath("MainButton/ControlExit/Exit")]
 
 [node name="Background" type="TextureRect" parent="CanvasLayer/Menu" unique_id=37604025]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -19.2
+offset_top = -10.8
+offset_right = 19.200073
+offset_bottom = 10.799927
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_oqads")
@@ -171,6 +173,8 @@ offset_bottom = 401.0
 grow_vertical = 2
 theme_override_constants/separation = 10
 script = SubResource("GDScript_47k5r")
+label_base_position = Vector2(0, -7)
+label_position_on_tween = Vector2(0, 24)
 theme_on_focus = ExtResource("6_hag5k")
 base_theme = ExtResource("2_yok32")
 
@@ -191,7 +195,6 @@ focus_neighbor_bottom = NodePath("../../ControlOptions/Options")
 focus_next = NodePath("../../ControlOptions/Options")
 focus_previous = NodePath(".")
 texture_normal = ExtResource("4_ejkra")
-texture_hover = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("8_47k5r")
@@ -199,17 +202,11 @@ texture_focus_remplacement = ExtResource("4_s2f1d")
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/MainButton/ControlPlay/Play" unique_id=354849746]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -34.5
-offset_right = 42.5
-offset_bottom = 24.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 7.0
+offset_bottom = 66.00003
 grow_horizontal = 2
-grow_vertical = 2
 text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -231,7 +228,6 @@ focus_neighbor_bottom = NodePath("../../ControlCredits/Credits")
 focus_next = NodePath("../../ControlCredits/Credits")
 focus_previous = NodePath("../../ControlPlay/Play")
 texture_normal = ExtResource("4_ejkra")
-texture_hover = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("8_47k5r")
@@ -239,17 +235,11 @@ texture_focus_remplacement = ExtResource("4_s2f1d")
 
 [node name="Label2" type="Label" parent="CanvasLayer/Menu/MainButton/ControlOptions/Options" unique_id=1996307831]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -34.5
-offset_right = 71.0
-offset_bottom = 24.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 7.0
+offset_bottom = 66.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -271,7 +261,6 @@ focus_neighbor_bottom = NodePath("../../ControlExit/Exit")
 focus_next = NodePath("../../ControlExit/Exit")
 focus_previous = NodePath("../../ControlOptions/Options")
 texture_normal = ExtResource("4_ejkra")
-texture_hover = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("8_47k5r")
@@ -279,17 +268,11 @@ texture_focus_remplacement = ExtResource("4_s2f1d")
 
 [node name="Label3" type="Label" parent="CanvasLayer/Menu/MainButton/ControlCredits/Credits" unique_id=1474114888]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -34.5
-offset_right = 68.0
-offset_bottom = 24.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 7.0
+offset_bottom = 66.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -311,7 +294,6 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath("../../ControlCredits/Credits")
 texture_normal = ExtResource("4_ejkra")
-texture_hover = ExtResource("4_s2f1d")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("8_47k5r")
@@ -319,17 +301,11 @@ texture_focus_remplacement = ExtResource("4_s2f1d")
 
 [node name="Label4" type="Label" parent="CanvasLayer/Menu/MainButton/ControlExit/Exit" unique_id=593392593]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -34.5
-offset_right = 175.0
-offset_bottom = 24.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 7.0
+offset_bottom = 66.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -22,10 +22,12 @@ extends Control
 var target_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	play_button.grab_focus()
+	target_offset = background.position
 	
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
+	
+	play_button.grab_focus()
 
 func _process(delta: float) -> void:
 	background.position = background.position.lerp(target_offset, lerp_speed * delta)
@@ -59,4 +61,4 @@ func _on_button_focus_entered(button: BaseButton) -> void:
 	var button_center = button.global_position + (button.size / 2)
 	var direction = (button_center - screen_center) / screen_center
 	
-	target_offset = -Vector2(0, direction.y) * max_offset
+	target_offset = (-Vector2(0, direction.y) * max_offset) + Vector2(target_offset.x, 0)
