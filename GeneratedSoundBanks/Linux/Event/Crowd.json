@@ -1,0 +1,126 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Linux",
+  "BasePlatform": "Linux",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "2848349012",
+    "Type": "Event",
+    "GUID": "{6F1DD123-BBF3-495C-BF87-230564992DCE}",
+    "Language": "SFX",
+    "Hash": "{DFDAA1D0-D88C-3C25-7B52-9E7109D5DDE6}",
+    "ObjectPath": "Crowd",
+    "ShortName": "Crowd",
+    "Path": "Event/Crowd.bnk",
+    "Media": [
+     {
+      "Id": "301837154",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd_ReactionHit_2.wav",
+      "Path": "Media/301837154.wem",
+      "CachePath": "C2/{C235BD25-2403-147D-3498-9760C5F50D8B}.wem"
+     },
+     {
+      "Id": "736343350",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd_ReactionHit_1.wav",
+      "Path": "Media/736343350.wem",
+      "CachePath": "2B/{2BB42316-A075-82B8-3C94-2B727369D672}.wem"
+     },
+     {
+      "Id": "752596094",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd_ReactionHit_3.wav",
+      "Path": "Media/752596094.wem",
+      "CachePath": "0F/{0FFC42BD-EBBA-CC05-9CB3-67E86D99D1CE}.wem"
+     },
+     {
+      "Id": "920348350",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "loop_crowd.wav",
+      "Path": "Media/920348350.wem",
+      "CachePath": "E6/{E6987DED-561C-5119-07C8-90D4A6A44E9F}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2848349012",
+      "Name": "Crowd",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\AMB\\Crowd",
+      "GUID": "{6F1DD123-BBF3-495C-BF87-230564992DCE}",
+      "Color": "2",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2848349012",
+         "Id": "888960820",
+         "GUID": "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "301837154"
+         },
+         {
+          "Id": "736343350"
+         },
+         {
+          "Id": "752596094"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2848349012",
+         "Id": "1836277870",
+         "GUID": "{FD1A1761-B018-456D-A243-B338F6410620}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "920348350"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "2848349012",
+      "Name": "CROWD",
+      "ObjectPath": "\\Switches\\Default Work Unit\\CROWD",
+      "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
+      "Switches": [
+       {
+        "Id": "888960820",
+        "Name": "Reaction",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Reaction",
+        "GUID": "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
+       },
+       {
+        "Id": "1836277870",
+        "Name": "Conitnious",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Conitnious",
+        "GUID": "{FD1A1761-B018-456D-A243-B338F6410620}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9D8AA140-C4A0-F36C-FD7B-9D615B8BCB2F}"
+ }
+}

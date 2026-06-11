@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{809827C8-E006-E45F-551C-A7346FD58014}",
+    "Hash": "{9BE3DDE7-9E1A-A181-A2E3-A66AD13F5776}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_2.wav",
-      "CachePath": "5D/{5DD6EC52-998A-C91F-67C2-301342BB53A4}.wem"
+      "CachePath": "EB/{EB04D2AD-54E3-CDFA-C375-9664AA9AA3B7}.wem"
      },
      {
       "Id": "30562399",
@@ -157,7 +157,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_3.wav",
-      "CachePath": "79/{79F1E6D7-A466-5C8F-7157-D8812884CEF7}.wem"
+      "CachePath": "E8/{E8907CAF-0CBD-263D-0116-C7E5E23D599B}.wem"
      },
      {
       "Id": "475093794",
@@ -165,7 +165,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_4.wav",
-      "CachePath": "F6/{F6BFDFA0-F438-F99E-542F-E30853A914E1}.wem"
+      "CachePath": "1A/{1AB89A43-300B-D01A-7EC4-65BB0EEC1EB6}.wem"
      },
      {
       "Id": "477928144",
@@ -173,7 +173,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_5.wav",
-      "CachePath": "07/{07561870-B43C-2489-1557-F1E545D46280}.wem"
+      "CachePath": "3D/{3D7BF6A8-7790-19C5-9205-C3AAB65801E5}.wem"
      },
      {
       "Id": "498530264",
@@ -205,7 +205,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_2.wav",
-      "CachePath": "8B/{8BE35240-9F32-D63B-5DF4-84FB690F8C1C}.wem"
+      "CachePath": "64/{649A0B4A-A769-60B1-2797-732B670AC6EB}.wem"
      },
      {
       "Id": "570828258",
@@ -301,7 +301,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_1.wav",
-      "CachePath": "41/{4195BFB8-B0AA-A53E-EB15-E223B8109860}.wem"
+      "CachePath": "9E/{9E96ED18-02D1-4EC6-A9F7-DBB4C236A38C}.wem"
      },
      {
       "Id": "863843509",
@@ -325,7 +325,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_3.wav",
-      "CachePath": "3A/{3A4F7B06-AF0F-FAE6-43AA-17E4B402B6B0}.wem"
+      "CachePath": "55/{559F4041-D39B-A8BD-11F4-0FE7CCE6BED0}.wem"
      },
      {
       "Id": "903468965",
@@ -341,7 +341,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "hit_1.wav",
-      "CachePath": "CA/{CAC240C9-F28C-E3B2-F91E-0D9F6B500E47}.wem"
+      "CachePath": "10/{10700F61-3094-DB02-9EAB-B8B0DCB9B52E}.wem"
      },
      {
       "Id": "959256509",
@@ -403,6 +403,14 @@
     "Plugins": {
      "Custom": [
       {
+       "Id": "692183022",
+       "Name": "RoomVerb (Custom)",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\Enviro\\Props\\[Effect Slot [0]: (RoomVerb)]\\RoomVerb (Custom)",
+       "GUID": "{3FE01A0F-8A0A-4709-912F-9F1993FDEC64}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
        "Id": "747094273",
        "Name": "Parametric EQ (Custom)",
        "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\Chara\\Items\\Pistogum\\Pistogum_Master\\PistoGum_Shoot\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
@@ -427,6 +435,7 @@
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Idle",
       "GUID": "{46F4235E-DDEB-44D1-86B8-5435EE37B9EC}",
       "Color": "2",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.5440579",
       "DurationMax": "0.8337348",
@@ -443,7 +452,14 @@
        {
         "Id": "658447030"
        }
-      ]
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "692183022"
+        }
+       ]
+      }
      },
      {
       "Id": "124719886",
@@ -451,9 +467,10 @@
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Enviro\\Balloon_Pop",
       "GUID": "{3525CD8A-23F0-48E7-B481-72CCC038AE44}",
       "Color": "2",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0.23360826",
-      "DurationMax": "0.3190837",
+      "DurationMin": "0.19806695",
+      "DurationMax": "0.21564983",
       "MediaRefs": [
        {
         "Id": "426434286"
@@ -464,7 +481,14 @@
        {
         "Id": "793598172"
        }
-      ]
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "692183022"
+        }
+       ]
+      }
      },
      {
       "Id": "1076559162",
@@ -622,6 +646,7 @@
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Hit_Wout_object",
       "GUID": "{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}",
       "Color": "2",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.39190477",
       "DurationMax": "0.39190477",
@@ -905,6 +930,6 @@
     ]
    }
   ],
-  "FileHash": "{5F55D532-3140-598C-0D67-B33FE3394952}"
+  "FileHash": "{45980ACF-8D60-139F-3C8A-F24A1F4A96C5}"
  }
 }
