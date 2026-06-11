@@ -67,7 +67,7 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("23_cbejr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7549782, 1.1439927, -0.92372274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8315692, 1.1439927, -1.4072003)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_cbejr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4941454, 1.1439927, 9.30706)
