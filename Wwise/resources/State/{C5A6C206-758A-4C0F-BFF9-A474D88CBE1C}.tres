@@ -1,11 +1,11 @@
-[gd_resource type="WwiseState" format=3 uid="uid://ccikl0u82ngk0"]
+[gd_resource type="WwiseState" format=3 uid="uid://dgoj7l3wcm4fk"]
 
 [ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_x07mb"]
 
 [resource]
 group_ref = ExtResource("1_x07mb")
 group_id = 314125497
-name = "Parents"
-id = 4261315644
+name = "Phase_2"
+id = 1622949421
 guid = "{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}"
 dummy = true

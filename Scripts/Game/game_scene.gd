@@ -20,7 +20,9 @@ class_name GameScene
 @export_category("Sound")
 @export var music_fight: WwiseEvent
 @export var lead: WwiseRTPC
-@export var round_state: WwiseState
+@export var round_start_state: WwiseState
+@export var second_phase_state: WwiseState
+@export var third_phase_state: WwiseState
 @export var danger_phase_start: WwiseEvent
 
 @export_category("Level")
@@ -45,11 +47,12 @@ func _ready() -> void:
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
 	game_bar.lifebar_value_change.connect(lifebar_value_change)
+	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
-	round_state.set_value()
+	round_start_state.set_value()
 	start_round_animation()
 
 func start_round_animation():
@@ -192,3 +195,10 @@ func _activate_the_danger_phase():
 	
 	_current_scene.activate_wolf_tracking_spot()
 	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
+
+func _on_soundbar_lock_area_pass(lock_phase: int):
+	print(lock_phase)
+	match lock_phase:
+		0: round_start_state.set_value()
+		1: second_phase_state.set_value()
+		2: third_phase_state.set_value()

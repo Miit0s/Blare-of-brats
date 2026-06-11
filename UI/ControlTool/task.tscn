@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="1_r2mic"]
 [ext_resource type="Texture2D" uid="uid://ct22ot813v1kw" path="res://Assets/MockSprite/check.png" id="2_hohlh"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="2_r2mic"]
 
 [node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text")]
 custom_minimum_size = Vector2(500, 80)
@@ -9,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_r2mic")
 task_text = NodePath("HBoxContainer/TaskText")
+on_completed_sound = ExtResource("2_r2mic")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=55320036]
 layout_mode = 1

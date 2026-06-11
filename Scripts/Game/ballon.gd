@@ -6,6 +6,7 @@ class_name Balloon
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
 @export var sound_on_pop: float = 5
+@export var pop_sound: WwiseEvent
 
 var _already_pop: bool = false
 
@@ -22,5 +23,6 @@ func _on_body_area_entered(_body: Node3D):
 	sound_emit.emit(sound_on_pop, global_position)
 	
 	gpu_particles_3d.restart()
+	pop_sound.post(self)
 	await gpu_particles_3d.finished
 	queue_free()
