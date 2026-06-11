@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{E97A4F9E-7E67-75A8-B57E-3A1E79B7FFD6}",
+    "Hash": "{0CE378D5-842D-CAFC-9031-2361FCC2F83A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -157,7 +157,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_3.wav",
-      "CachePath": "E8/{E8907CAF-0CBD-263D-0116-C7E5E23D599B}.wem"
+      "CachePath": "2C/{2C631083-36DB-CD70-01FF-390EA28882D2}.wem"
      },
      {
       "Id": "475093794",
@@ -213,7 +213,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_2.wav",
-      "CachePath": "64/{649A0B4A-A769-60B1-2797-732B670AC6EB}.wem"
+      "CachePath": "1C/{1C007772-27EE-1FA2-3EE3-26EE77431A66}.wem"
      },
      {
       "Id": "570828258",
@@ -301,7 +301,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Balloon_pop_1.wav",
-      "CachePath": "9E/{9E96ED18-02D1-4EC6-A9F7-DBB4C236A38C}.wem"
+      "CachePath": "CF/{CF2E3CD8-AE2F-739D-6213-E4D105E31E9B}.wem"
      },
      {
       "Id": "863843509",
@@ -568,6 +568,7 @@
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Mov\\Dash",
       "GUID": "{FD6B5828-0C6A-4B1D-91A0-9CF46C27DA57}",
       "Color": "2",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.35854155",
       "DurationMax": "0.66146094",
@@ -930,6 +931,6 @@
     ]
    }
   ],
-  "FileHash": "{9DEA7246-7011-8AE0-AFD5-2F4388651761}"
+  "FileHash": "{950B7C7D-6F50-6E09-640D-B2C4CD69B96A}"
  }
 }
