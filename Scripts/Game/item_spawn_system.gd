@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 class_name ItemSpawnSystem
 
@@ -9,6 +10,8 @@ class_name ItemSpawnSystem
 @export_category("Spawn")
 @export var spawn_points: Array[ItemSpawnPoint]
 
+@export_tool_button("Set SpawnPoint Into List") var action = _set_all_child_spawnpoint_into_list
+
 var _number_of_item_on_scene: int = 0
 var _item_that_need_to_spawn: int = 0
 
@@ -16,6 +19,8 @@ signal new_item_spawn(new_item: Item)
 signal item_will_be_delete(item: Item)
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	for i in nb_item_begin_spawn:
 		_trigger_spawn()
 
@@ -62,3 +67,8 @@ func _spawn_item_if_needed(item: Item):
 
 func _spawn_point_available(spawn_point: ItemSpawnPoint): 
 	return not spawn_point.is_item_currently_on_spawn
+
+func _set_all_child_spawnpoint_into_list():
+	spawn_points.clear()
+	for node in get_children():
+		spawn_points.append(node)

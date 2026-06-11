@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://6d56jb0v178f"]
+
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="1_t6mrn"]
+[ext_resource type="Script" uid="uid://bju2pll2wsybw" path="res://Scripts/UI/onboarding_text_display.gd" id="1_xlx4w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kmwn"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t6mrn"]
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kmwn"]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="OnboardingTextDisplay" type="Control" unique_id=994587446]
+custom_minimum_size = Vector2(1240, 475)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xlx4w")
+
+[node name="Background" type="ColorRect" parent="." unique_id=893550027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=35342825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1096330497]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_4kmwn")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer" unique_id=500751009]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[font_size=40][color=red]Caution[/color][/font_size]
+This is a test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="ColorRect" parent="." unique_id=1200048985]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -63.0
+offset_right = -4.999756
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.627451)
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="Continue" unique_id=284962601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Press {JoinGame} to pass"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_t6mrn")
+image_size_offset = 5
+raw_text = "Press {JoinGame} to pass"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="PageNumber" type="Label" parent="." unique_id=2037984679]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 14.0
+offset_right = -19.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "1/2"
+label_settings = SubResource("LabelSettings_t6mrn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoBack" type="ColorRect" parent="." unique_id=761343196]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -49.0
+offset_right = 152.0
+offset_bottom = -19.0
+grow_vertical = 0
+color = Color(0.33333334, 0.32941177, 0.32941177, 1)
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="GoBack" unique_id=708812732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "{Return} Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_t6mrn")
+image_size_offset = 5
+raw_text = "{Return} Back"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="Border" type="Panel" parent="." unique_id=823648917]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4kmwn")

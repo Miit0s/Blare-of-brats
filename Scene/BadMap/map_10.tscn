@@ -17,7 +17,7 @@ player_spawn_system = NodePath("PlayerSpawnSystem")
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_qpv7b")
-spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint5")]
+spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint5"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("21_1shqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.610018, 0.8373332, 3.7594876)

@@ -5,7 +5,7 @@
 [resource]
 group_ref = ExtResource("1_w4044")
 group_id = 314125497
-name = "Fight"
-id = 514064485
+name = "Phase_1"
+id = 1622949422
 guid = "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
 dummy = true

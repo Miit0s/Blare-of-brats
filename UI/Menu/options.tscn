@@ -84,9 +84,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DesactivateOnboarding" parent="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer" unique_id=1539490352 instance=ExtResource("1_0nk8f")]
+[node name="ActivateOnboarding" parent="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer" unique_id=1539490352 instance=ExtResource("1_0nk8f")]
 layout_mode = 2
-text = "Desactivate On-boarding"
+text = "Activate On-boarding"
 
 [node name="PlayerMarker" parent="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer" unique_id=1790333904 instance=ExtResource("1_0nk8f")]
 layout_mode = 2
@@ -250,7 +250,7 @@ text = "Close"
 
 [connection signal="desactivate_onboarding_value_changed" from="Control/VBoxContainer/TabContainer/Game" to="." method="_on_game_desactivate_onboarding_value_changed"]
 [connection signal="player_marker_value_changed" from="Control/VBoxContainer/TabContainer/Game" to="." method="_on_game_player_marker_value_changed"]
-[connection signal="button_toggled" from="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer/DesactivateOnboarding" to="Control/VBoxContainer/TabContainer/Game" method="_on_desactivate_onboarding_button_toggled"]
+[connection signal="button_toggled" from="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer/ActivateOnboarding" to="." method="_on_game_activate_onboarding_value_changed"]
 [connection signal="button_toggled" from="Control/VBoxContainer/TabContainer/Game/Control/VBoxContainer/PlayerMarker" to="Control/VBoxContainer/TabContainer/Game" method="_on_player_marker_button_toggled"]
 [connection signal="ambiance_value_changed" from="Control/VBoxContainer/TabContainer/Audio" to="." method="_on_audio_ambiance_value_changed"]
 [connection signal="general_value_changed" from="Control/VBoxContainer/TabContainer/Audio" to="." method="_on_audio_general_value_changed"]

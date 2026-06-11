@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
 
@@ -41,6 +42,7 @@ max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
 game_scene_uid = "uid://c53l85gqm0mi1"
+onboarding_scene_uid = "uid://36tccmd3uybf"
 stage_default = ExtResource("15_hhwhx")
 stage_ready = ExtResource("4_ho3je")
 
@@ -360,6 +362,14 @@ grow_horizontal = 2
 grow_vertical = 2
 hold_duration = 1.0
 text = ""
+
+[node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
+bank = ExtResource("22_ho3je")
+load_on = 1
+unload_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="." unique_id=763098049]
+is_spatial = false
 
 [connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
 [connection signal="hold_finish" from="ReadyTexture/RadialProgressBarWithText" to="." method="start_game"]
