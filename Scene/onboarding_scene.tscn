@@ -5,7 +5,9 @@
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
-[ext_resource type="PackedScene" uid="uid://cy40wk4ytaouk" path="res://Scene/Map/map_onboarding.tscn" id="5_hq2bc"]
+[ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/map_onboarding.tscn" id="5_hq2bc"]
+[ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="6_5q1ap"]
+[ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="7_v11op"]
 [ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
 [ext_resource type="PackedScene" uid="uid://6d56jb0v178f" path="res://UI/Onboarding/onboarding_text_display.tscn" id="14_nh8k7"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="17_a665e"]
@@ -64,7 +66,9 @@ tracking_spot_player_two = NodePath("TrackingSpot2")
 round_number = 1
 music_fight = ExtResource("2_ts878")
 lead = ExtResource("3_aongf")
-round_state = ExtResource("4_5felv")
+round_start_state = ExtResource("4_5felv")
+second_phase_state = ExtResource("6_5q1ap")
+third_phase_state = ExtResource("7_v11op")
 possible_level = Array[PackedScene]([ExtResource("5_hq2bc")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]

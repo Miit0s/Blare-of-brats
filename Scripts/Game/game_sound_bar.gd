@@ -18,8 +18,13 @@ var _lock_sound_bar: bool = false
 var _has_reach_target_value: bool = true
 var _current_lock_area: int = 0
 
+var _base_gradient: GradientTexture1D
+
 signal sound_bar_fill
 signal lock_area_pass(lock_phase: int)
+
+func _ready() -> void:
+	_base_gradient = sound_bar.material.get_shader_parameter("gradient_x")
 
 func _process(delta: float) -> void:
 	if _lock_sound_bar: return
@@ -46,6 +51,7 @@ func reset():
 	_game_sound_bar_volume = 0.0
 	_lock_sound_bar = false
 	_current_lock_area = 0
+	sound_bar.material.set_shader_parameter("gradient_x", _base_gradient)
 
 func _get_last_lock_area_passed() -> float:
 	var lock_area_part: float = float(sound_bar_max_volume) / float(number_of_lock_area)

@@ -4,6 +4,7 @@ class_name Task
 @onready var check: TextureRect = $HBoxContainer/CheckBox/Check
 
 @export var task_text: Label
+@export var on_completed_sound: WwiseEvent
 
 var is_task_complete: bool = false
 
@@ -17,6 +18,7 @@ func task_complete():
 	
 	is_task_complete = true
 	check.show()
+	on_completed_sound.post(self)
 	
 	task_marked_as_complete.emit()
 

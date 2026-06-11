@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cy40wk4ytaouk"]
+[gd_scene format=3 uid="uid://dsav2a7iciiw1"]
 
 [ext_resource type="Script" uid="uid://blig4i6jhvc5p" path="res://Scripts/Game/map_onboarding.gd" id="1_0var4"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="2_n8v3u"]

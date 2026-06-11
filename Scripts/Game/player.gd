@@ -470,6 +470,7 @@ func item_will_be_destroy(_item: Item):
 	_kill_current_animation()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+	current_item.hide()
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture

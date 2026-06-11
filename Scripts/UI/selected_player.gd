@@ -10,6 +10,9 @@ class_name MainCharacterSelection
 @onready var color_picker: CharacterColorPicker = $ColorPicker
 @onready var ready_state: Control = $ReadyState
 
+@export_category("SFX")
+@export var color_select_sound : WwiseEvent
+
 func _ready() -> void:
 	set_character_selection_state()
 
@@ -48,6 +51,8 @@ func set_ready_state():
 func set_new_character(texture: Texture2D, character_color: CharacterColorResource, skin: ControllerSlot.PossibleSkin):
 	apply_color_and_texture(character_color, texture)
 	color_picker.display_color_option_for_skin(skin)
+	
+	color_select_sound.post(self)
 
 ## Return if the apply was a success
 func apply_next_color() -> bool:
@@ -55,6 +60,7 @@ func apply_next_color() -> bool:
 	
 	if new_character_color:
 		apply_color_and_texture(new_character_color)
+		color_select_sound.post(self)
 		return true
 	return false
 
@@ -64,6 +70,7 @@ func apply_previous_color():
 	
 	if new_character_color:
 		apply_color_and_texture(new_character_color)
+		color_select_sound.post(self)
 		return true
 	return false
 
