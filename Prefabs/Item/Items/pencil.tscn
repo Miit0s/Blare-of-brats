@@ -11,7 +11,7 @@ resource_local_to_scene = true
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ujcen"]
 points = PackedVector3Array(0, 0, 1, -1, 0, -1, 1, 0, -1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_k0vxe"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_ujcen"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3tucb"]
 resource_local_to_scene = true
@@ -27,12 +27,14 @@ animations = [{
 
 [node name="Pencil" unique_id=2059959192 instance=ExtResource("1_onh0j")]
 script = ExtResource("2_ujcen")
-slash_arc_angle = 120.0
-damage = 3.0
+slash_arc_angle = 160.0
+attack_speed = 0.35
+damage = 2.5
+throw_damage = 1.5
 sound_on_attack = 3.0
 sound_on_throw = 5.0
 sound_on_break = 3.0
-durability = 3
+durability = 4
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
 transform = Transform3D(0.060894143, 0.07932152, 0, -0.07453784, 0.057221778, 0.034202013, 0.027129555, -0.020827021, 0.09396926, 0, 0, 0)
@@ -46,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_ujcen")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_k0vxe")
+mesh = SubResource("ImmediateMesh_ujcen")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

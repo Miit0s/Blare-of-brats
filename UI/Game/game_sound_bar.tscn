@@ -11,7 +11,7 @@ anchors_preset = 0
 offset_right = 445.0
 offset_bottom = 30.0
 script = ExtResource("1_a8aka")
-sound_bar_max_volume = 55
+sound_bar_max_volume = 75
 target_value_sync_speed = 1.0
 shrink_speed = 0.02
 
