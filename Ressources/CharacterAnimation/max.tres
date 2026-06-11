@@ -2,9 +2,9 @@
 
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="1_6mr03"]
 [ext_resource type="Script" uid="uid://cqnywcntyydc3" path="res://Scripts/Resources/character_animation.gd" id="1_t53rk"]
-[ext_resource type="Texture2D" uid="uid://bb65wtcrmrsja" path="res://Assets/Player/Max/Run/run--34back-left-animation-chara-1.png" id="3_0yglh"]
+[ext_resource type="Texture2D" uid="uid://c2rubtobfgvkq" path="res://Assets/Player/Max/Run/run--34back-left-animation-chara-1.png" id="3_0yglh"]
 [ext_resource type="Texture2D" uid="uid://dmqyv5g8qyntu" path="res://Assets/Player/Max/Run/run--back-animation-chara-1.png" id="4_dtaym"]
-[ext_resource type="Texture2D" uid="uid://dpsjunokgaejh" path="res://Assets/Player/Max/Run/run--34back-right-animation-chara-1.png" id="4_qq8qb"]
+[ext_resource type="Texture2D" uid="uid://oi7e5apltp6" path="res://Assets/Player/Max/Run/run--34back-right-animation-chara-1.png" id="4_qq8qb"]
 [ext_resource type="Texture2D" uid="uid://wmjpq4dg8v0s" path="res://Assets/Player/Max/Run/run--front-animation-chara-1.png" id="5_k7jos"]
 [ext_resource type="Texture2D" uid="uid://b4ferkjft3nd8" path="res://Assets/Player/Max/Run/run--34front-left-animation-chara-1-.png" id="6_0yglh"]
 [ext_resource type="Texture2D" uid="uid://beaexwaqg8mam" path="res://Assets/Player/Max/Run/run--side-left-animation-chara-1.png" id="6_6mr03"]

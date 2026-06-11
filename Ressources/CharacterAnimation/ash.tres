@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cqnywcntyydc3" path="res://Scripts/Resources/character_animation.gd" id="1_a6il4"]
 [ext_resource type="SpriteFrames" uid="uid://8ngev5u6m4uf" path="res://Ressources/CharacterAnimation/idles_ash.tres" id="1_chg6p"]
-[ext_resource type="Texture2D" uid="uid://d15kwt4223r2u" path="res://Assets/Player/Ash/Run/run--34back-left-animation-chara-2.png" id="3_f0d32"]
+[ext_resource type="Texture2D" uid="uid://djjv12rvpsjju" path="res://Assets/Player/Ash/Run/run--34back-left-animation-chara-2.png" id="3_f0d32"]
 [ext_resource type="Texture2D" uid="uid://c610l44nh34jg" path="res://Assets/Player/Ash/Run/run--back-animation-chara-2.png" id="4_chg6p"]
-[ext_resource type="Texture2D" uid="uid://b2h7mmv6exhhg" path="res://Assets/Player/Ash/Run/run--34back-right-animation-chara-2.png" id="4_snt6c"]
+[ext_resource type="Texture2D" uid="uid://bqhv326fdx2fq" path="res://Assets/Player/Ash/Run/run--34back-right-animation-chara-2.png" id="4_snt6c"]
 [ext_resource type="Texture2D" uid="uid://d1bcssgq30q5f" path="res://Assets/Player/Ash/Run/run--front-animation-chara-2.png" id="5_vtkus"]
 [ext_resource type="Texture2D" uid="uid://cvvv50rt4mll0" path="res://Assets/Player/Ash/Run/run--side-left-animation-chara-2.png" id="6_b2e55"]
-[ext_resource type="Texture2D" uid="uid://pa6rnuw0a0nq" path="res://Assets/Player/Ash/Run/run--34front-left-animation-chara-2-.png" id="6_nvceo"]
+[ext_resource type="Texture2D" uid="uid://colvp3vtdi33u" path="res://Assets/Player/Ash/Run/run--34front-left-animation-chara-2-.png" id="6_nvceo"]
 [ext_resource type="Texture2D" uid="uid://clal86awinyul" path="res://Assets/Player/Ash/Run/run--side-right-animation-chara-2.png" id="7_hlghn"]
-[ext_resource type="Texture2D" uid="uid://vql7qrgjpft6" path="res://Assets/Player/Ash/Run/run--34front-right-animation-chara-2.png" id="7_s1oed"]
+[ext_resource type="Texture2D" uid="uid://b8v84tbjjmqe7" path="res://Assets/Player/Ash/Run/run--34front-right-animation-chara-2.png" id="7_s1oed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj1gp"]
 atlas = ExtResource("4_chg6p")
