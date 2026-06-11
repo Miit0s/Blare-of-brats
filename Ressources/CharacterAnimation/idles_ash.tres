@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cxkvtn2eyxpwl" path="res://Assets/Player/Ash/Idle/idle-back-animation-chara-2.png" id="1_wsi6k"]
 [ext_resource type="Texture2D" uid="uid://dkr2i67lh2n8l" path="res://Assets/Player/Ash/Idle/idle-front-left-animation-chara-2.png" id="2_f2bpy"]
-[ext_resource type="Texture2D" uid="uid://bvvys24umy50h" path="res://Assets/Player/Ash/Idle/idle-front-right-animation-chara-2.png" id="3_ccmcr"]
+[ext_resource type="Texture2D" uid="uid://d32bbk2rjo8mr" path="res://Assets/Player/Ash/Idle/idle-front-right-animation-chara-2.png" id="3_ccmcr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnwtk"]
 atlas = ExtResource("1_wsi6k")
