@@ -33,7 +33,7 @@ func _ready() -> void:
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
-	round_state.set_value()
+	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
@@ -65,6 +65,7 @@ func go_to_next_scene():
 func _on_shared_life_bar_player_win(player_id: int) -> void:
 	var winner_data: PlayerCharacterSelection = _get_player_selection(player_id)
 	
+	music_fight.stop(self)
 	camera_controller.stop_tracking()
 	game_end_ui.show()
 	game_end_ui.start_animation(player_id, winner_data.color_skin.main_color, players_selection[0].player_id)
@@ -89,6 +90,7 @@ func _player_his_ready():
 	if player_number <= _number_player_ready:
 		camera_controller.start_tracking()
 		_trigger_dash_quest()
+		music_fight.post(self)
 
 func _show_sound_bar():
 	show_sound_bar.show()

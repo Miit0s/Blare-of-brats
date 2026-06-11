@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bna7hv7hl08j6"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "UI_Menu_Select"
+id = 3474566310
+guid = "{0ED4976A-854F-4128-AE55-AB976FEC9AA0}"
+dummy = true

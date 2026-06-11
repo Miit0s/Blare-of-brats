@@ -118,26 +118,21 @@ func get_player_id() -> int:
 	return _player_id
 
 func back(player_id: int):
-	
 	match current_state:
 		SelectionState.CHARACTER_SELECTION: switch_to_empty_slot()
 		SelectionState.COLOR_SELECTION: switch_to_character_selection(player_id)
 		SelectionState.READY: switch_to_color_selection()
+	
 	color_back_sound.post(self)
 
 func next_state(player_id: int):
-	color_select_sound.post(self)
-	match current_state:
-		SelectionState.EMPTY: 
-			switch_to_character_selection(player_id)
-			return
-		SelectionState.CHARACTER_SELECTION: 
-			switch_to_color_selection()
-			return
-		SelectionState.COLOR_SELECTION: 
-			switch_to_player_ready()
-			return
+	if not is_ready:
+		color_select_sound.post(self)
 	
+	match current_state:
+		SelectionState.EMPTY: switch_to_character_selection(player_id)
+		SelectionState.CHARACTER_SELECTION: switch_to_color_selection()
+		SelectionState.COLOR_SELECTION: switch_to_player_ready()
 
 func get_player_selection() -> PlayerCharacterSelection:
 	var player_selection: PlayerCharacterSelection = PlayerCharacterSelection.new()

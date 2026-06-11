@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
-[ext_resource type="WwiseEvent" uid="uid://b1wsdmul5127w" path="res://Wwise/resources/Event/{949583D9-CD37-426A-9A69-DFC38D00223C}.tres" id="21_17e3e"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
@@ -270,7 +269,6 @@ begin_skin = 1
 front_texture_begin_material = ExtResource("5_qbu2t")
 back_texture_begin_material = ExtResource("6_o70qx")
 back_player_right_sided = true
-color_select_sound = ExtResource("21_17e3e")
 
 [node name="ReadyTexture" type="TextureRect" parent="." unique_id=1902863830]
 visible = false
