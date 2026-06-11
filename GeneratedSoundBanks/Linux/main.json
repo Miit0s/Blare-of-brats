@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{9BE3DDE7-9E1A-A181-A2E3-A66AD13F5776}",
+    "Hash": "{E97A4F9E-7E67-75A8-B57E-3A1E79B7FFD6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -200,6 +200,14 @@
       "CachePath": "3C/{3CEBCCC2-A76B-60DA-EE70-34D3DB23617A}.wem"
      },
      {
+      "Id": "551855573",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_Colors_confirm_v2.wav",
+      "CachePath": "61/{61A7815A-9EA3-C92A-9D2B-80B2FF3FA06B}.wem"
+     },
+     {
       "Id": "568806651",
       "Language": "SFX",
       "Streaming": "false",
@@ -222,14 +230,6 @@
       "Location": "Memory",
       "ShortName": "L_Impact_1.wav",
       "CachePath": "92/{9295DEDB-3777-DE67-49AD-14E4E8013EF5}.wem"
-     },
-     {
-      "Id": "606337472",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "UI_Colors_select.wav",
-      "CachePath": "1B/{1B2407F7-E88F-940D-EF72-3D548A5E9EC4}.wem"
      },
      {
       "Id": "636428501",
@@ -832,11 +832,11 @@
       "GUID": "{949583D9-CD37-426A-9A69-DFC38D00223C}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "0.29321995",
-      "DurationMax": "0.29321995",
+      "DurationMin": "0.10231292",
+      "DurationMax": "0.10231292",
       "MediaRefs": [
        {
-        "Id": "606337472"
+        "Id": "551855573"
        }
       ]
      },
@@ -930,6 +930,6 @@
     ]
    }
   ],
-  "FileHash": "{34D31BF9-5306-C1B7-E4AA-8B2D5E84F78F}"
+  "FileHash": "{0C5B683A-979B-BE0E-F249-0FE4EF1B5624}"
  }
 }
