@@ -37,6 +37,10 @@ var current_durability: int = 0:
 		current_durability = new_value
 		has_loose_durability.emit(new_value)
 
+@export_category("Visual")
+@export var idle_animation: SpriteFrames
+@export var attack_animations: SpriteFrames
+
 @export_category("Instance")
 @export var collision_shape_3d: CollisionShape3D
 
