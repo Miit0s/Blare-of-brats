@@ -9,10 +9,26 @@ extends Control
 @onready var credits: Control = $Credits
 @onready var options: Control = $Options
 
+@onready var background: TextureRect = $Background
+@onready var screen_center: Vector2 = get_viewport_rect().size / 2
+
 @export var game_start_scene_uid: String
+
+@export_category("Background Move")
+@export var max_offset: float = 30.0
+@export var lerp_speed: float = 5.0
+@export var buttons_impacting_movement: Array[BaseButton]
+
+var target_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	play_button.grab_focus()
+	
+	for button in buttons_impacting_movement:
+		button.focus_entered.connect(_on_button_focus_entered.bind(button))
+
+func _process(delta: float) -> void:
+	background.position = background.position.lerp(target_offset, lerp_speed * delta)
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(game_start_scene_uid)
@@ -38,3 +54,9 @@ func _on_quit_prompt_visibility_changed() -> void:
 func _on_credits_visibility_changed() -> void:
 	if not credits.visible:
 		credits_button.grab_focus()
+
+func _on_button_focus_entered(button: BaseButton) -> void:
+	var button_center = button.global_position + (button.size / 2)
+	var direction = (button_center - screen_center) / screen_center
+	
+	target_offset = -Vector2(0, direction.y) * max_offset
