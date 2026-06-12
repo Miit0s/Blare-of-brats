@@ -22,6 +22,9 @@ class_name InputReminder
 @export var prefix_text_dash: String
 @export var prefix_text_throw: String
 
+@export_category("Tween")
+@export var ready_tween_duration: float = 0.2
+
 var _is_player_ready: bool = false
 
 signal player_ready
@@ -50,7 +53,14 @@ func input_reminder_ready():
 	if _is_player_ready: return
 	
 	not_ready.hide()
+	
+	ready_texture.scale = Vector2.ZERO
 	ready_texture.show()
+	
+	var ready_texture_tween: Tween = create_tween()
+	ready_texture_tween.set_ease(Tween.EASE_OUT)
+	ready_texture_tween.set_trans(Tween.TRANS_QUART)
+	ready_texture_tween.tween_property(ready_texture, "scale", Vector2.ONE, ready_tween_duration)
 	
 	_is_player_ready = true
 	player_ready.emit()
