@@ -288,7 +288,6 @@ func _kill_current_animation():
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
-	print("Player " + str(player_id) + " has take " + str(damage))
 	
 	_override_color_effect()
 	knockback(hit_direction)
@@ -467,9 +466,10 @@ func unfreeze():
 	player_animated_sprite_3d.play()
 
 func item_will_be_destroy(_item: Item):
-	_kill_current_animation()
-	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+	_item.will_be_destroy.disconnect(item_will_be_destroy)
+	
+	_kill_current_animation()
 	current_item.hide()
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):

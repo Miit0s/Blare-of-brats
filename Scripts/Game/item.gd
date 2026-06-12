@@ -142,6 +142,8 @@ func _perform_attack(_direction: Vector3):
 	push_error("Perform attack should always be override")
 
 func destroy():
+	will_be_destroy.emit(self)
+	
 	collision_layer = 0
 	collision_mask = 0
 	freeze = true
@@ -155,7 +157,6 @@ func destroy():
 	linear_velocity = Vector3.ZERO
 	
 	sound_made.emit(sound_on_break, global_position)
-	will_be_destroy.emit(self)
 	item_animation.hide()
 	item_visual.hide()
 	trail_renderer_3d.hide()
