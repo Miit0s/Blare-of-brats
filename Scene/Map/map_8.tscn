@@ -85,10 +85,10 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("23_3jxla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.097215, 1.1439927, -1.7462959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.742415, 1.1439927, -0.27025568)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_3jxla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49961, 1.1439927, 9.587938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.230349, 1.1439927, 9.496424)
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=575268045 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_ubqfm")
