@@ -14,6 +14,9 @@ class_name SharedLifeBar
 
 @export var shader_value_change_speed: float = 0.3
 
+@export_category("Sound")
+@export_range(0, 1, 0.01) var min_life_for_crowd_reaction: float = 0.1
+
 var target_progress_value: float = 0.5
 var progress_bar_value: float = 0.5:
 	set(new_value):
@@ -28,6 +31,7 @@ var _is_lock: bool = false
 
 signal player_win(player_id: int)
 signal lifebar_value_change(new_value: float)
+signal player_have_reach_min_life
 
 func _ready() -> void:
 	_progress_bar_value_changed(progress_bar_value)
@@ -46,6 +50,9 @@ func add_damage_to_player(player_id: int, damage: float):
 	
 	if player_id == left_player_id: target_progress_value -= damage / (player_health * 2)
 	elif player_id == right_player_id: target_progress_value += damage / (player_health * 2)
+	
+	if target_progress_value <= min_life_for_crowd_reaction or abs(target_progress_value - 1) <= min_life_for_crowd_reaction:
+		player_have_reach_min_life.emit()
 	
 	if target_progress_value <= 0: player_win.emit(get_player_id_with_most_health())
 	elif target_progress_value >= 1: player_win.emit(get_player_id_with_most_health())

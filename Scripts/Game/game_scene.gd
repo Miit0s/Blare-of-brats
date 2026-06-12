@@ -25,6 +25,10 @@ class_name GameScene
 @export var third_phase_state: WwiseState
 @export var danger_phase_start: WwiseEvent
 
+@export var crowd_reaction_duration: float = 1.5
+@export var continious_crowd_switch: WwiseSwitch
+@export var reaction_crowd_switch: WwiseSwitch
+
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
@@ -47,6 +51,7 @@ func _ready() -> void:
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
 	game_bar.lifebar_value_change.connect(lifebar_value_change)
+	game_bar.shared_life_bar.player_have_reach_min_life.connect(_trigger_crowd_reaction)
 	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
 	players_win.resize(player_number)
@@ -202,3 +207,8 @@ func _on_soundbar_lock_area_pass(lock_phase: int):
 		0: round_start_state.set_value()
 		1: second_phase_state.set_value()
 		2: third_phase_state.set_value()
+
+func _trigger_crowd_reaction():
+	reaction_crowd_switch.set_value(self)
+	await get_tree().create_timer(crowd_reaction_duration).timeout
+	continious_crowd_switch.set_value(self)
