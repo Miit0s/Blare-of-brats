@@ -6,7 +6,6 @@ extends GameScene
 
 @export var input_reminders: Array[InputReminder]
 @export var task_lists: Array[TaskList]
-@export var task_prefab: PackedScene
 
 @export_category("Text Tutorial")
 @export var sound_title: String = "Sound Bar"
@@ -41,6 +40,9 @@ func _ready() -> void:
 	
 	input_reminders[0].player_input_id = players_selection[0].player_id
 	input_reminders[1].player_input_id = players_selection[1].player_id
+	
+	task_lists[0].setup_color_for_task_list(players_selection[0].color_skin)
+	task_lists[1].setup_color_for_task_list(players_selection[1].color_skin)
 	
 	for input_reminder in input_reminders:
 		input_reminder.player_ready.connect(_player_his_ready)
@@ -133,7 +135,7 @@ func _trigger_dash_quest():
 	for i in task_lists.size():
 		task_lists[i].show()
 		
-		var task: Task = task_prefab.instantiate()
+		var task: Task = task_lists[i].task_prefab.instantiate()
 		task.task_text.text = "Make a Dash"
 		players[i].did_dash.connect(task.task_complete)
 		
@@ -145,6 +147,8 @@ func _trigger_item_quest():
 	
 	for i in task_lists.size():
 		task_lists[i].clear_task()
+		
+		var task_prefab: PackedScene = task_lists[i].task_prefab
 		
 		var pick_up_task: Task = task_prefab.instantiate()
 		pick_up_task.task_text.text = "Pick up a object"

@@ -1,9 +1,9 @@
 extends Control
 class_name Task
 
-@onready var check: TextureRect = $HBoxContainer/CheckBox/Check
+@onready var check: TextureRect = $CheckBox/Check
 
-@export var task_text: Label
+@export var task_text: RichTextLabel
 @export var on_completed_sound: WwiseEvent
 
 var is_task_complete: bool = false

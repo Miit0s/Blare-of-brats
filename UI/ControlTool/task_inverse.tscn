@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://dxbra0gmi7c5e"]
+[gd_scene format=3 uid="uid://crtjp8ublhglh"]
 
-[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_3xpjn"]
-[ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="1_r2mic"]
-[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="2_r2mic"]
-[ext_resource type="Texture2D" uid="uid://c28sm8ca1iih7" path="res://Assets/SpriteUI/Onboarding/banner_task_details.png" id="3_a0lag"]
-[ext_resource type="Texture2D" uid="uid://ctbfto0d5hgkb" path="res://Assets/SpriteUI/Onboarding/square_box.png" id="4_3xpjn"]
-[ext_resource type="Texture2D" uid="uid://bkjsqbeha7nxv" path="res://Assets/SpriteUI/Onboarding/mask_square.png" id="6_3xpjn"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_wvfmm"]
+[ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="2_pnaxi"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="3_n8jyg"]
+[ext_resource type="Texture2D" uid="uid://c28sm8ca1iih7" path="res://Assets/SpriteUI/Onboarding/banner_task_details.png" id="4_f8tuw"]
+[ext_resource type="Texture2D" uid="uid://ctbfto0d5hgkb" path="res://Assets/SpriteUI/Onboarding/square_box.png" id="5_2wvfy"]
+[ext_resource type="Texture2D" uid="uid://bkjsqbeha7nxv" path="res://Assets/SpriteUI/Onboarding/mask_square.png" id="6_km034"]
 
 [node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text")]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 3
 anchors_preset = 0
-theme = ExtResource("1_3xpjn")
-script = ExtResource("1_r2mic")
+theme = ExtResource("1_wvfmm")
+script = ExtResource("2_pnaxi")
 task_text = NodePath("TaskText")
-on_completed_sound = ExtResource("2_r2mic")
+on_completed_sound = ExtResource("3_n8jyg")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1755961929]
 layout_mode = 1
@@ -25,20 +25,24 @@ offset_top = 5.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_a0lag")
+texture = ExtResource("4_f8tuw")
 expand_mode = 1
 stretch_mode = 5
+flip_h = true
 
 [node name="CheckBox" type="Control" parent="." unique_id=1817019686]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -40.0
 offset_top = -40.0
 offset_right = 40.0
 offset_bottom = 40.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CheckBox" unique_id=1678318841]
@@ -48,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_3xpjn")
+texture = ExtResource("5_2wvfy")
 expand_mode = 1
 stretch_mode = 5
 
@@ -62,7 +66,7 @@ offset_right = -12.500008
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-texture = ExtResource("6_3xpjn")
+texture = ExtResource("6_km034")
 expand_mode = 1
 stretch_mode = 5
 
