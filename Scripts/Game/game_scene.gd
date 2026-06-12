@@ -119,6 +119,8 @@ func player_win(player_id: int):
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()
+	tracking_spot_player_one.target = null
+	tracking_spot_player_two.target = null
 	
 	music_fight.stop(self)
 	
