@@ -1,38 +1,32 @@
 [gd_scene format=3 uid="uid://ccwaslq30aelh"]
 
 [ext_resource type="Script" uid="uid://63moyhrl1qmu" path="res://Scripts/UI/input_reminder.gd" id="1_0iifu"]
-[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="1_v1rqy"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="2_4wunv"]
+[ext_resource type="Texture2D" uid="uid://c7kudi1v0xv4g" path="res://Assets/SpriteUI/Onboarding/background_controls.png" id="2_kpnbg"]
+[ext_resource type="Texture2D" uid="uid://clga46jtgtawu" path="res://Assets/SpriteUI/Onboarding/banner_violet.png" id="3_3tnbt"]
 [ext_resource type="Texture2D" uid="uid://jxdua4ndggn6" path="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png" id="3_igc5j"]
+[ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="3_tr8u0"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="3_yadso"]
+[ext_resource type="PackedScene" uid="uid://de5h0fbgrrk8" path="res://UI/Onboarding/input_label_onboarding.tscn" id="5_nmdph"]
 
-[sub_resource type="Theme" id="Theme_8kbn7"]
-RichTextLabel/font_sizes/normal_font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_v1rqy"]
-font_size = 80
-
-[sub_resource type="LabelSettings" id="LabelSettings_yadso"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
-
-[node name="InputReminder" type="Control" unique_id=763382896]
+[node name="InputReminder" type="Control" unique_id=763382896 node_paths=PackedStringArray("move_rich_text_label", "attack_rich_text_label_2", "pickup_rich_text_label_3", "dash_rich_text_label_4", "throw_rich_text_label_5")]
 custom_minimum_size = Vector2(600, 840)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 600.0
 offset_bottom = 840.0
-theme = SubResource("Theme_8kbn7")
+theme = ExtResource("2_4wunv")
 script = ExtResource("1_0iifu")
+move_rich_text_label = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding/TextureRect2/ControllerIconParser")
+attack_rich_text_label_2 = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding2/TextureRect2/ControllerIconParser")
+pickup_rich_text_label_3 = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding3/TextureRect2/ControllerIconParser")
+dash_rich_text_label_4 = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding4/TextureRect2/ControllerIconParser")
+throw_rich_text_label_5 = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding5/TextureRect2/ControllerIconParser")
 prefix_text_move = "Up"
 prefix_text_attack = "Attack"
 prefix_text_pickup = "PickUp"
 prefix_text_dash = "Dash"
 prefix_text_throw = "Throw"
-text_move = "Move"
-text_attack = "Attack"
-text_pickup = "Pick Up"
-text_dash = "Dash"
-text_throw = "Throw"
 
 [node name="ControlsContainer" type="Control" parent="." unique_id=1580622531]
 layout_mode = 1
@@ -41,98 +35,111 @@ anchor_right = 1.0
 offset_bottom = 681.0
 grow_horizontal = 2
 
-[node name="ColorRect" type="ColorRect" parent="ControlsContainer" unique_id=1017112748]
+[node name="Background" type="TextureRect" parent="ControlsContainer" unique_id=210987763]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
+texture = ExtResource("2_kpnbg")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ControlsContainer/ColorRect" unique_id=1348322630]
+[node name="TextureRect" type="TextureRect" parent="ControlsContainer" unique_id=1615948198]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -15.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme = ExtResource("2_4wunv")
+texture = ExtResource("3_3tnbt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ControlsContainer/TextureRect" unique_id=898286428]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -12.355
+offset_bottom = -12.354996
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="ControlsContainer/ColorRect/VBoxContainer2" unique_id=898286428]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
 text = "Controls"
-label_settings = SubResource("LabelSettings_v1rqy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlsContainer/ColorRect/VBoxContainer2" unique_id=1731810180]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer" unique_id=1563604767]
-custom_minimum_size = Vector2(195.38, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer" unique_id=1988025463]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsContainer" unique_id=1988025463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 115.0
+offset_right = -46.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="MoveRichTextLabel" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1281430263]
+[node name="InputLabelOnboarding" parent="ControlsContainer/VBoxContainer" unique_id=872344764 instance=ExtResource("5_nmdph")]
 layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "{Up_0}Move"
-vertical_alignment = 1
-script = ExtResource("1_v1rqy")
-image_size_offset = 35
-raw_text = "{Up_0}Move"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+size_flags_horizontal = 4
 
-[node name="AttackRichTextLabel2" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1574985604]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "{Attack_0}Attack"
-vertical_alignment = 1
-script = ExtResource("1_v1rqy")
-image_size_offset = 35
-raw_text = "{Attack_0}Attack"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+[node name="RichTextLabel" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding/Control/ColorRect" parent_id_path=PackedInt32Array(872344764, 1528212074) index="1" unique_id=993795995]
+text = "Move"
 
-[node name="PickupRichTextLabel3" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1188360958]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "{PickUp_0}Pick Up"
-vertical_alignment = 1
-script = ExtResource("1_v1rqy")
-image_size_offset = 35
-raw_text = "{PickUp_0}Pick Up"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+[node name="ControllerIconParser" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding/TextureRect2" parent_id_path=PackedInt32Array(872344764, 1533185150) index="0" unique_id=1862204954]
+text = "{Up_0}"
+raw_text = "{Up_0}"
 
-[node name="DashRichTextLabel4" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=748311883]
+[node name="InputLabelOnboarding2" parent="ControlsContainer/VBoxContainer" unique_id=564925295 instance=ExtResource("5_nmdph")]
 layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "{Dash_0}Dash"
-vertical_alignment = 1
-script = ExtResource("1_v1rqy")
-image_size_offset = 35
-raw_text = "{Dash_0}Dash"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+size_flags_horizontal = 4
 
-[node name="ThrowRichTextLabel5" type="RichTextLabel" parent="ControlsContainer/ColorRect/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1389176349]
+[node name="RichTextLabel" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding2/Control/ColorRect" parent_id_path=PackedInt32Array(564925295, 1528212074) index="1" unique_id=993795995]
+text = "Attack"
+
+[node name="ControllerIconParser" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding2/TextureRect2" parent_id_path=PackedInt32Array(564925295, 1533185150) index="0" unique_id=1862204954]
+text = "{Attack_0}"
+raw_text = "{Attack_0}"
+
+[node name="InputLabelOnboarding3" parent="ControlsContainer/VBoxContainer" unique_id=38030976 instance=ExtResource("5_nmdph")]
 layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "{Throw_0}Throw"
-vertical_alignment = 1
-script = ExtResource("1_v1rqy")
-image_size_offset = 35
-raw_text = "{Throw_0}Throw"
-metadata/_custom_type_script = "uid://0suax27ohuw"
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding3/Control/ColorRect" parent_id_path=PackedInt32Array(38030976, 1528212074) index="1" unique_id=993795995]
+text = "Pick Up"
+
+[node name="ControllerIconParser" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding3/TextureRect2" parent_id_path=PackedInt32Array(38030976, 1533185150) index="0" unique_id=1862204954]
+text = "{PickUp_0}"
+raw_text = "{PickUp_0}"
+
+[node name="InputLabelOnboarding4" parent="ControlsContainer/VBoxContainer" unique_id=1393989935 instance=ExtResource("5_nmdph")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding4/Control/ColorRect" parent_id_path=PackedInt32Array(1393989935, 1528212074) index="1" unique_id=993795995]
+text = "Dash"
+
+[node name="ControllerIconParser" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding4/TextureRect2" parent_id_path=PackedInt32Array(1393989935, 1533185150) index="0" unique_id=1862204954]
+text = "{Dash_0}"
+raw_text = "{Dash_0}"
+
+[node name="InputLabelOnboarding5" parent="ControlsContainer/VBoxContainer" unique_id=2020977926 instance=ExtResource("5_nmdph")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding5/Control/ColorRect" parent_id_path=PackedInt32Array(2020977926, 1528212074) index="1" unique_id=993795995]
+text = "Throw"
+
+[node name="ControllerIconParser" parent="ControlsContainer/VBoxContainer/InputLabelOnboarding5/TextureRect2" parent_id_path=PackedInt32Array(2020977926, 1533185150) index="0" unique_id=1862204954]
+text = "{Throw_0}"
+raw_text = "{Throw_0}"
 
 [node name="NotReady" type="TextureRect" parent="." unique_id=1840356756]
 layout_mode = 1
@@ -143,6 +150,7 @@ anchor_bottom = 1.0
 offset_top = -159.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_tr8u0")
 texture = ExtResource("3_yadso")
 expand_mode = 1
 stretch_mode = 5
@@ -161,7 +169,6 @@ offset_bottom = 43.305
 grow_horizontal = 2
 grow_vertical = 2
 text = "Ready ?"
-label_settings = SubResource("LabelSettings_yadso")
 
 [node name="Ready" type="TextureRect" parent="." unique_id=1989572250]
 visible = false
@@ -173,6 +180,7 @@ anchor_bottom = 1.0
 offset_top = -128.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_4wunv")
 texture = ExtResource("3_igc5j")
 expand_mode = 1
 stretch_mode = 5
@@ -190,5 +198,13 @@ offset_right = 74.0
 offset_bottom = 16.835
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 80
 text = "Ready"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="ControlsContainer/VBoxContainer/InputLabelOnboarding"]
+[editable path="ControlsContainer/VBoxContainer/InputLabelOnboarding2"]
+[editable path="ControlsContainer/VBoxContainer/InputLabelOnboarding3"]
+[editable path="ControlsContainer/VBoxContainer/InputLabelOnboarding4"]
+[editable path="ControlsContainer/VBoxContainer/InputLabelOnboarding5"]
