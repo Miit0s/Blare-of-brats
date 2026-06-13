@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crtjp8ublhglh" path="res://UI/ControlTool/task_inverse.tscn" id="2_2m8qp"]
 
 [node name="TaskList" unique_id=904087515 instance=ExtResource("1_rh37c")]
+is_reverse = true
 task_prefab = ExtResource("2_2m8qp")
 
 [node name="TextureRect" parent="." index="0" unique_id=104598256]

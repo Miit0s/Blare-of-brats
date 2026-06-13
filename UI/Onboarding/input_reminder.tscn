@@ -15,6 +15,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 600.0
 offset_bottom = 840.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = ExtResource("2_4wunv")
 script = ExtResource("1_0iifu")
 move_rich_text_label = NodePath("ControlsContainer/VBoxContainer/InputLabelOnboarding/TextureRect2/ControllerIconParser")

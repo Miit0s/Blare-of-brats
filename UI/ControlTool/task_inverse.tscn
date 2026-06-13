@@ -6,14 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://c28sm8ca1iih7" path="res://Assets/SpriteUI/Onboarding/banner_task_details.png" id="4_f8tuw"]
 [ext_resource type="Texture2D" uid="uid://ctbfto0d5hgkb" path="res://Assets/SpriteUI/Onboarding/square_box.png" id="5_2wvfy"]
 [ext_resource type="Texture2D" uid="uid://bkjsqbeha7nxv" path="res://Assets/SpriteUI/Onboarding/mask_square.png" id="6_km034"]
+[ext_resource type="Texture2D" uid="uid://bepwwn0lhui1t" path="res://Assets/SpriteUI/Onboarding/circle_binding.png" id="7_n8jyg"]
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="8_f8tuw"]
 
-[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text")]
+[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text", "controller_icon_parser")]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_wvfmm")
 script = ExtResource("2_pnaxi")
 task_text = NodePath("TaskText")
+controller_icon_parser = NodePath("Control/ControllerIconParser")
 on_completed_sound = ExtResource("3_n8jyg")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1755961929]
@@ -65,6 +68,7 @@ offset_left = 12.5
 offset_right = -12.500008
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 texture = ExtResource("6_km034")
 expand_mode = 1
@@ -81,3 +85,41 @@ size_flags_horizontal = 3
 text = "This is a task"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1254522525]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1354141688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_n8jyg")
+expand_mode = 5
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="Control" unique_id=1627085469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "{JoinGame}"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_f8tuw")
+image_size_offset = 20
+white_version = true
+raw_text = "{JoinGame}"
+metadata/_custom_type_script = "uid://0suax27ohuw"

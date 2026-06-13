@@ -14,6 +14,7 @@ offset_bottom = 230.0
 theme = ExtResource("1_owvbq")
 script = ExtResource("1_37qrt")
 task_prefab = ExtResource("4_7p0jw")
+spawn_tween_duration = 0.5
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=104598256]
 self_modulate = Color(0.3137255, 0.7176471, 0.4392157, 1)
