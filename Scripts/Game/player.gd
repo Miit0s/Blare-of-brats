@@ -452,22 +452,27 @@ func _change_player_sprite(new_sprite_frames: SpriteFrames, sprite_animation_nam
 	player_animated_sprite_3d.play()
 
 	var material_sprite: ShaderMaterial = player_animated_sprite_3d.material_override
-	var atlas_texture: AtlasTexture = new_sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
-	material_sprite.set_shader_parameter("main_texture", atlas_texture)
+	var texture = new_sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
+	material_sprite.set_shader_parameter("main_texture", texture)
 
 func _update_particle_to_current_sprite():
-	var atlas_texture: AtlasTexture = player_animated_sprite_3d.sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
+	var texture = player_animated_sprite_3d.sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
 	var material_dash: ShaderMaterial = dash_effect.material_override
 	
-	var atlas_size: Vector2 = atlas_texture.atlas.get_size()
-	var region: Rect2 = atlas_texture.region
-	
-	var uv_offset: Vector2 = region.position / atlas_size
-	var uv_scale: Vector2 = region.size / atlas_size
-	
-	material_dash.set_shader_parameter("main_texture", atlas_texture.atlas)
-	material_dash.set_shader_parameter("uv_offset", uv_offset)
-	material_dash.set_shader_parameter("uv_scale", uv_scale)
+	if texture is AtlasTexture:
+		var atlas_size: Vector2 = texture.atlas.get_size()
+		var region: Rect2 = texture.region
+
+		var uv_offset: Vector2 = region.position / atlas_size
+		var uv_scale: Vector2 = region.size / atlas_size
+
+		material_dash.set_shader_parameter("main_texture", texture.atlas)
+		material_dash.set_shader_parameter("uv_offset", uv_offset)
+		material_dash.set_shader_parameter("uv_scale", uv_scale)
+	else:
+		material_dash.set_shader_parameter("main_texture", texture)
+		material_dash.set_shader_parameter("uv_offset", Vector2.ZERO)
+		material_dash.set_shader_parameter("uv_scale", Vector2.ONE)
 
 func _detect_wall_bounce():
 	var collision: KinematicCollision3D = get_last_slide_collision()
