@@ -6,7 +6,10 @@ class_name TaskList
 
 @export var is_reverse: bool = false
 @export var task_prefab: PackedScene
-@export var spawn_tween_duration = 0.3
+
+@export_category("Tween")
+@export var spawn_tween_duration: float = 0.3
+@export var task_spawn_duration: float = 0.8
 
 var _task_completed: int = 0
 var _task_to_complete: int = 0
@@ -25,6 +28,7 @@ func setup_color_for_task_list(color: CharacterColorResource):
 func add_new_task(task_node: Task, task_info: TaskInfo, player_id: int):
 	task_node.task_marked_as_complete.connect(one_current_task_complete)
 	task_node.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	task_node.hide()
 	
 	var copy_task_info: TaskInfo = task_info.duplicate()
 	copy_task_info.action_input = "{" + task_info.action_input + "_" + str(player_id) + "}"
@@ -32,6 +36,17 @@ func add_new_task(task_node: Task, task_info: TaskInfo, player_id: int):
 	
 	task_container.add_child(task_node)
 	_task_to_complete += 1
+	
+	var final_position: Vector2 = task_node.position
+	task_node.position = task_node.position + Vector2(size.x, 0) if is_reverse else task_node.position - Vector2(size.x, 0)
+	
+	var task_spawn_tween: Tween = create_tween()
+	task_spawn_tween.set_ease(Tween.EASE_OUT)
+	task_spawn_tween.set_trans(Tween.TRANS_BACK)
+	task_spawn_tween.tween_property(task_node, "visible", true, 0)
+	task_spawn_tween.tween_property(task_node, "position", final_position, task_spawn_duration)
+	
+	#TODO: Fix this tween
 
 func clear_task():
 	_task_completed = 0
