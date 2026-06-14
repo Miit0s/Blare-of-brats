@@ -1,11 +1,12 @@
 extends Control
 class_name Task
 
-@onready var check: TextureRect = $CheckBox/Check
+@onready var check: TextureRect = $TaskContainer/CheckBox/Check
 
 @export_category("Instance")
 @export var task_text: RichTextLabel
 @export var controller_icon_parser: ControllerIconParser
+@export var task_container: Control
 
 @export_category("Sound")
 @export var on_completed_sound: WwiseEvent

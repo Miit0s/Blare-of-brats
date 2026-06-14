@@ -9,17 +9,26 @@
 [ext_resource type="Texture2D" uid="uid://bepwwn0lhui1t" path="res://Assets/SpriteUI/Onboarding/circle_binding.png" id="7_qyfq3"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="8_775m1"]
 
-[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text", "controller_icon_parser")]
+[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text", "controller_icon_parser", "task_container")]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_3xpjn")
 script = ExtResource("1_r2mic")
-task_text = NodePath("TaskText")
-controller_icon_parser = NodePath("Control/ControllerIconParser")
+task_text = NodePath("TaskContainer/TaskText")
+controller_icon_parser = NodePath("TaskContainer/Control/ControllerIconParser")
+task_container = NodePath("TaskContainer")
 on_completed_sound = ExtResource("2_r2mic")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1755961929]
+[node name="TaskContainer" type="Control" parent="." unique_id=1246412909]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TaskContainer" unique_id=1755961929]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +41,7 @@ texture = ExtResource("3_a0lag")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CheckBox" type="Control" parent="." unique_id=1817019686]
+[node name="CheckBox" type="Control" parent="TaskContainer" unique_id=1817019686]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 1
 anchors_preset = 4
@@ -44,7 +53,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CheckBox" unique_id=1678318841]
+[node name="TextureRect" type="TextureRect" parent="TaskContainer/CheckBox" unique_id=1678318841]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +64,7 @@ texture = ExtResource("4_3xpjn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Check" type="TextureRect" parent="CheckBox" unique_id=1291482582]
+[node name="Check" type="TextureRect" parent="TaskContainer/CheckBox" unique_id=1291482582]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +79,7 @@ texture = ExtResource("6_3xpjn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TaskText" type="RichTextLabel" parent="." unique_id=625241857]
+[node name="TaskText" type="RichTextLabel" parent="TaskContainer" unique_id=625241857]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,7 +91,7 @@ text = "This is a task"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="." unique_id=1057978301]
+[node name="Control" type="Control" parent="TaskContainer" unique_id=1057978301]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 1
 anchors_preset = 6
@@ -97,7 +106,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=756900608]
+[node name="TextureRect" type="TextureRect" parent="TaskContainer/Control" unique_id=756900608]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +116,7 @@ grow_vertical = 2
 texture = ExtResource("7_qyfq3")
 expand_mode = 5
 
-[node name="ControllerIconParser" type="RichTextLabel" parent="Control" unique_id=638680798]
+[node name="ControllerIconParser" type="RichTextLabel" parent="TaskContainer/Control" unique_id=638680798]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -37,16 +37,7 @@ func add_new_task(task_node: Task, task_info: TaskInfo, player_id: int):
 	task_container.add_child(task_node)
 	_task_to_complete += 1
 	
-	var final_position: Vector2 = task_node.position
-	task_node.position = task_node.position + Vector2(size.x, 0) if is_reverse else task_node.position - Vector2(size.x, 0)
-	
-	var task_spawn_tween: Tween = create_tween()
-	task_spawn_tween.set_ease(Tween.EASE_OUT)
-	task_spawn_tween.set_trans(Tween.TRANS_BACK)
-	task_spawn_tween.tween_property(task_node, "visible", true, 0)
-	task_spawn_tween.tween_property(task_node, "position", final_position, task_spawn_duration)
-	
-	#TODO: Fix this tween
+	_make_add_animation_for_task(task_node)
 
 func clear_task():
 	_task_completed = 0
@@ -80,3 +71,12 @@ func trigger_despawn_animation():
 	despawn_tween.tween_property(self, "position", final_position, spawn_tween_duration)
 	despawn_tween.tween_property(self, "visible", false, 0)
 	despawn_tween.finished.connect(despawn_anim_not_finish.emit)
+
+func _make_add_animation_for_task(task_node: Task):
+	task_node.task_container.position = task_node.position + Vector2(size.x, 0) if is_reverse else task_node.position - Vector2(size.x, 0)
+	
+	var task_spawn_tween: Tween = create_tween()
+	task_spawn_tween.set_ease(Tween.EASE_OUT)
+	task_spawn_tween.set_trans(Tween.TRANS_BACK)
+	task_spawn_tween.tween_property(task_node, "visible", true, 0)
+	task_spawn_tween.tween_property(task_node.task_container, "position", Vector2.ZERO, task_spawn_duration)
