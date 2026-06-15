@@ -327,7 +327,9 @@ func stun(duration: float):
 	await get_tree().create_timer(duration).timeout
 	_is_stun = false
 	
-	player_animated_sprite_3d.play()
+	if not _is_freeze:
+		player_animated_sprite_3d.play()
+	
 	stun_particle.hide()
 	stun_particle.emitting = false
 

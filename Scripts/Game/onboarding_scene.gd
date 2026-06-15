@@ -75,6 +75,10 @@ func _on_shared_life_bar_player_win(player_id: int) -> void:
 	var winner_data: PlayerCharacterSelection = _get_player_selection(player_id)
 	
 	game_bar.shared_life_bar.lock()
+	
+	for player in players:
+		player.freeze()
+	
 	music_fight.stop(self)
 	camera_controller.stop_tracking()
 	game_end_ui.show()
