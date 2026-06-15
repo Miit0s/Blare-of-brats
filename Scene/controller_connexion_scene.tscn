@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
-[ext_resource type="Texture2D" uid="uid://cj220f3jwhxbn" path="res://Assets/SpriteUI/CharacterSelection/background_sky.png" id="3_o70qx"]
+[ext_resource type="Texture2D" uid="uid://dm571r2xulc2d" path="res://Assets/SpriteUI/CharacterSelection/background_sky.png" id="3_o70qx"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_4l4xg"]
 [ext_resource type="Texture2D" uid="uid://cra8busntuw4u" path="res://Assets/SpriteUI/CharacterSelection/stage_light.png" id="4_ho3je"]
-[ext_resource type="Texture2D" uid="uid://coaxi5bj1cacl" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
-[ext_resource type="Texture2D" uid="uid://bwrhsc72pcr3g" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
+[ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
+[ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
 [ext_resource type="Texture2D" uid="uid://djnq07leg4gat" path="res://Assets/SpriteUI/CharacterSelection/flag_green.png" id="6_6oqsj"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
 [ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
-[ext_resource type="Texture2D" uid="uid://cf6tuohawa8dj" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
+[ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
@@ -360,7 +360,6 @@ offset_right = 27.5
 offset_bottom = 133.21002
 grow_horizontal = 2
 grow_vertical = 2
-hold_duration = 1.0
 text = ""
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
