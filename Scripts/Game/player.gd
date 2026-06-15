@@ -219,7 +219,7 @@ func pick_up(play_pickup_sound: bool = true):
 	if not closest_item: return
 	
 	current_picked_item = closest_item
-	current_picked_item.item_picked_up(player_id)
+	current_picked_item.item_picked_up(player_id, self)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
 	
 	current_item.scale = current_picked_item.item_visual.scale * 0.7

@@ -75,6 +75,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_0o2h0")
+mask_that_block_attack = 1
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
