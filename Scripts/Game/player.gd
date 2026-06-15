@@ -160,6 +160,8 @@ func _process(delta: float) -> void:
 		throw_direction.look_at(throw_direction.global_position + aim_direction)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _is_freeze or _is_stun: return
+	
 	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
 		dash()
 	
