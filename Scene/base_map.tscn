@@ -420,6 +420,12 @@ shaded = true
 alpha_cut = 1
 texture = ExtResource("3_pkc4b")
 
+[node name="Floor2" type="Sprite3D" parent="Sprite" unique_id=1131967576]
+transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.843, 0.225, 28.302)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_pkc4b")
+
 [node name="Floor_inside" type="Sprite3D" parent="Sprite" unique_id=684994138]
 transform = Transform3D(-1.0563079, 0, -9.234536e-08, 9.234536e-08, -4.617268e-08, -1.0563079, -4.0365444e-15, -1.0563079, 4.617268e-08, -0.9356458, 0.2536652, 3.7402468)
 modulate = Color(0.8192276, 0.81922776, 0.8192277, 1)
