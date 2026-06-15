@@ -192,4 +192,5 @@ func _player_have_finish_quest():
 		game_bar.shared_life_bar.unlock()
 		
 		for task_list in task_lists:
-			task_list.hide()
+			task_list.task_remove_anim_finish.connect(task_list.trigger_despawn_animation, ConnectFlags.CONNECT_ONE_SHOT)
+			task_list.clear_task()

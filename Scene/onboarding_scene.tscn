@@ -169,7 +169,6 @@ offset_right = 0.0
 offset_bottom = -100.0
 grow_horizontal = 0
 grow_vertical = 0
-spawn_tween_duration = 0.3
 
 [node name="ShowSoundBar" type="Panel" parent="CanvasLayer" unique_id=1443891398]
 visible = false
