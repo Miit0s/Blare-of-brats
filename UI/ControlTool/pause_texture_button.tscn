@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://n74tvc5001lj"]
+
+[ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="1_auqjx"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="2_olmh8"]
+
+[sub_resource type="GDScript" id="GDScript_auqjx"]
+resource_name = "change_color_on_over"
+script/source = "extends TextureButton
+
+@onready var label: Label = $Label
+
+func _on_focus_entered() -> void:
+	label.label_settings.font_color = Color(\"7a3ece\")
+
+
+func _on_focus_exited() -> void:
+	label.label_settings.font_color = Color(\"ffffffff\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_auqjx"]
+font_size = 45
+
+[node name="PauseTextureButton" type="TextureButton" unique_id=2021431068]
+custom_minimum_size = Vector2(500, 120)
+texture_normal = ExtResource("1_auqjx")
+texture_hover = ExtResource("2_olmh8")
+ignore_texture_size = true
+stretch_mode = 5
+script = SubResource("GDScript_auqjx")
+
+[node name="Label" type="Label" parent="." unique_id=35982695]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -34.39
+offset_right = 45.5
+offset_bottom = 28.610016
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+label_settings = SubResource("LabelSettings_auqjx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

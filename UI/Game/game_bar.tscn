@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dseh3ukvut8qj"]
+
+[ext_resource type="Script" uid="uid://depb482pew3fb" path="res://Scripts/UI/game_bar.gd" id="1_fs1sv"]
+[ext_resource type="Texture2D" uid="uid://x0tjmk0g5la0" path="res://Assets/SpriteUI/GameBar/ui_border_health_sound_bar.png" id="1_ibwid"]
+[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="2_t1itt"]
+[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="3_7nl3k"]
+[ext_resource type="PackedScene" uid="uid://pb1wrdhadmo0" path="res://UI/ControlTool/round_win_indicator.tscn" id="4_7nl3k"]
+[ext_resource type="Texture2D" uid="uid://cocrf8f0aivr7" path="res://Assets/SpriteUI/GameBar/mask_round_right.png" id="5_85yq0"]
+[ext_resource type="Texture2D" uid="uid://gy3dknjvs5td" path="res://Assets/MockSprite/player_indicator.png" id="6_mnl0s"]
+[ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="6_ymab0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymab0"]
+resource_local_to_scene = true
+shader = ExtResource("6_ymab0")
+shader_parameter/progress = 0.0
+shader_parameter/color_left = Color(1, 1, 1, 1)
+shader_parameter/color_right = Color(1, 1, 1, 1)
+shader_parameter/shear_angle = 0.17900005600250002
+
+[sub_resource type="LabelSettings" id="LabelSettings_fs1sv"]
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameBar" type="Control" unique_id=1611480018]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1536.0
+offset_bottom = 213.0
+script = ExtResource("1_fs1sv")
+player_health = 12.5
+sound_bar_max_volume = 75.0
+
+[node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("2_t1itt")]
+layout_mode = 1
+offset_left = -431.0
+offset_top = -52.5
+offset_right = 419.0
+offset_bottom = 2.5
+
+[node name="GameSoundBar" parent="." unique_id=1894340611 instance=ExtResource("3_7nl3k")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = 14.5
+offset_right = 307.0
+offset_bottom = 62.884995
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1746106151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ibwid")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RoundWinIndicatorLeft" parent="." unique_id=83471062 instance=ExtResource("4_7nl3k")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -45.0
+offset_right = -370.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="RoundWinIndicatorRight" parent="." unique_id=84957516 instance=ExtResource("4_7nl3k")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 435.0
+offset_top = -47.0
+offset_right = 565.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" parent="RoundWinIndicatorRight" index="0" unique_id=1060331592]
+material = SubResource("ShaderMaterial_ymab0")
+offset_top = 4.0
+offset_bottom = 4.0
+texture = ExtResource("5_85yq0")
+
+[node name="PlayerIndicatorLeft" type="TextureRect" parent="." unique_id=450559806]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("6_mnl0s")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlayerIndicatorLeft" unique_id=893964004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "P1"
+label_settings = SubResource("LabelSettings_fs1sv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerIndicatorRight" type="TextureRect" parent="." unique_id=1420761047]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+texture = ExtResource("6_mnl0s")
+expand_mode = 1
+flip_h = true
+
+[node name="Label2" type="Label" parent="PlayerIndicatorRight" unique_id=192328752]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "P2"
+label_settings = SubResource("LabelSettings_fs1sv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="RoundWinIndicatorRight"]

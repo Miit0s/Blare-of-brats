@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c7sp3sqengdxp" path="res://Prefabs/Player/Players/max.tscn" id="21_mp6w5"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="22_hn0ki"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="23_ybyvx"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="24_ct7ig"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="24_ct7ig"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="25_mc1yy"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="26_ghdab"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="27_5ilb8"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://6t84m8kgsqsb" path="res://Scripts/Tools/sprite_3d_with_bloom.gd" id="30_75m80"]
 [ext_resource type="Texture2D" uid="uid://dsndwpyn32b46" path="res://Assets/VFX/aura moon.png" id="30_57764"]
 [ext_resource type="Texture2D" uid="uid://brbbxe6jjqngp" path="res://Assets/cloud.png" id="31_57764"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)

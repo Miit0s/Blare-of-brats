@@ -1,17 +1,31 @@
 extends Control
 
-@onready var play_button: Button = $MainButton/Play
-@onready var options_button: Button = $MainButton/Options
-@onready var credits_button: Button = $MainButton/Credits
-@onready var exit_button: Button = $MainButton/Exit
+@onready var play_button: TextureButton = $MainStack/MainButton/ControlPlay/Play
+@onready var options_button: TextureButton = $MainStack/MainButton/ControlOptions/Options
+@onready var credits_button: TextureButton = $MainStack/MainButton/ControlCredits/Credits
+@onready var exit_button: TextureButton = $MainStack/MainButton/ControlExit/Exit
 
 @onready var quit_prompt: Control = $QuitPrompt
 @onready var credits: Control = $Credits
 @onready var options: Control = $Options
 
+@onready var background: TextureRect = $Background/ImageBackground
+@onready var screen_center: Vector2 = get_viewport_rect().size / 2
+
 @export var game_start_scene_uid: String
 
+@export_category("Background Move")
+@export var move_offset: float = 5.0
+@export var move_speed: float = 0.2
+@export var buttons_impacting_movement: Array[BaseButton]
+
+var _previous_button_pos: Vector2 = Vector2.ZERO
+var _move_tween: Tween = null
+
 func _ready() -> void:
+	for button in buttons_impacting_movement:
+		button.focus_entered.connect(_on_button_focus_entered.bind(button))
+	
 	play_button.grab_focus()
 
 func _on_play_pressed() -> void:
@@ -38,3 +52,20 @@ func _on_quit_prompt_visibility_changed() -> void:
 func _on_credits_visibility_changed() -> void:
 	if not credits.visible:
 		credits_button.grab_focus()
+
+func _on_button_focus_entered(button: BaseButton) -> void:
+	if _previous_button_pos == Vector2.ZERO:
+		_previous_button_pos = button.global_position
+		return
+	
+	var button_direction: float = button.global_position.y - _previous_button_pos.y
+	var y_offset = sign(button_direction) * move_offset
+	
+	_previous_button_pos = button.global_position
+	
+	_move_tween = create_tween()
+	_move_tween.set_ease(Tween.EASE_IN_OUT)
+	_move_tween.set_trans(Tween.TRANS_QUAD)
+	_move_tween.tween_property(background, "position", background.position + Vector2(0, y_offset), move_speed)
+	
+	_move_tween.finished.connect(func(): _move_tween = null)

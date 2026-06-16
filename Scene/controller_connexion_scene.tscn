@@ -4,10 +4,26 @@
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
+[ext_resource type="Texture2D" uid="uid://dm571r2xulc2d" path="res://Assets/SpriteUI/CharacterSelection/background_sky.png" id="3_o70qx"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_4l4xg"]
+[ext_resource type="Texture2D" uid="uid://cra8busntuw4u" path="res://Assets/SpriteUI/CharacterSelection/stage_light.png" id="4_ho3je"]
+[ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
+[ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
+[ext_resource type="Texture2D" uid="uid://djnq07leg4gat" path="res://Assets/SpriteUI/CharacterSelection/flag_green.png" id="6_6oqsj"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
+[ext_resource type="Texture2D" uid="uid://dydqf5wq4xm5g" path="res://Assets/SpriteUI/CharacterSelection/flag_orange.png" id="6_rx0xt"]
+[ext_resource type="Texture2D" uid="uid://d0qeornxm2adc" path="res://Assets/SpriteUI/CharacterSelection/flag_ping.png" id="7_8ccqg"]
+[ext_resource type="Texture2D" uid="uid://umuy6p285jxy" path="res://Assets/SpriteUI/CharacterSelection/flag_moon.png" id="9_geu80"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
+[ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
+[ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
+[ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
+[ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
+[ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
+[ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
+[ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
 
@@ -26,29 +42,222 @@ max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
 game_scene_uid = "uid://c53l85gqm0mi1"
+onboarding_scene_uid = "uid://36tccmd3uybf"
+stage_default = ExtResource("15_hhwhx")
+stage_ready = ExtResource("4_ho3je")
 
-[node name="ControllerSlotContainer" type="HBoxContainer" parent="." unique_id=1841648818]
+[node name="Visual" type="Control" parent="." unique_id=836811587]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_right = 400.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 800
 
-[node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
-layout_mode = 2
+[node name="Background" type="TextureRect" parent="Visual" unique_id=331385700]
+self_modulate = Color(0.66656864, 0.6665687, 0.66656864, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o70qx")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
-layout_mode = 2
-character_texture = Array[Texture2D]([ExtResource("3_gka6h"), ExtResource("4_4l4xg")])
-begin_skin = 1
-front_texture_begin_material = ExtResource("5_qbu2t")
-back_texture_begin_material = ExtResource("6_o70qx")
+[node name="Ground" type="TextureRect" parent="Visual" unique_id=1488847914]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_c66h4")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TopBorderBackground" type="Parallax2D" parent="Visual" unique_id=978732916]
+repeat_size = Vector2(1639.425, 0)
+autoscroll = Vector2(-50, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual/TopBorderBackground" unique_id=1724039704]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ob3uu")
+centered = false
+
+[node name="Wolve" type="TextureRect" parent="Visual" unique_id=899493319]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -661.0
+offset_right = 2234.508
+offset_bottom = 499.0
+grow_vertical = 2
+texture = ExtResource("13_ot06r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wolve2" type="TextureRect" parent="Visual" unique_id=715630394]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1321.0
+offset_top = -376.0
+offset_right = -89.26807
+offset_bottom = 314.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.0973214, 1.0973214)
+texture = ExtResource("11_0hkld")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag2" type="TextureRect" parent="Visual" unique_id=301474625]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 89.0
+offset_right = 226.0
+offset_bottom = 390.0
+texture = ExtResource("7_8ccqg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag3" type="TextureRect" parent="Visual" unique_id=1644314590]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -297.0
+offset_top = -66.0
+offset_right = 83.0
+offset_bottom = 503.0
+grow_horizontal = 0
+texture = ExtResource("6_rx0xt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag5" type="TextureRect" parent="Visual" unique_id=982192993]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 68.0
+offset_right = 363.0
+offset_bottom = 544.0
+texture = ExtResource("12_17e3e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag6" type="TextureRect" parent="Visual" unique_id=1194859703]
+layout_mode = 0
+offset_left = 1685.0
+offset_top = 39.0
+offset_right = 2098.0
+offset_bottom = 515.0
+texture = ExtResource("12_17e3e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopBorderForeground" type="Parallax2D" parent="Visual" unique_id=2082339658]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual/TopBorderForeground" unique_id=1144723916]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_q6hxw")
+centered = false
+
+[node name="Flag" type="TextureRect" parent="Visual" unique_id=688398711]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -27.0
+offset_right = 397.0
+offset_bottom = 381.0
+texture = ExtResource("6_6oqsj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag4" type="TextureRect" parent="Visual" unique_id=1178215938]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -392.0
+offset_top = -27.0
+offset_right = -56.0
+offset_bottom = 329.0
+grow_horizontal = 0
+texture = ExtResource("9_geu80")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Stand1" type="TextureRect" parent="Visual" unique_id=326042649]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.559
+anchor_right = 0.5
+anchor_bottom = 0.559
+offset_left = -835.08
+offset_top = 5.124939
+offset_right = -115.08002
+offset_bottom = 417.125
+grow_vertical = 0
+texture = ExtResource("15_hhwhx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Stand2" type="TextureRect" parent="Visual" unique_id=1653053628]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.559
+anchor_right = 0.5
+anchor_bottom = 0.559
+offset_left = 113.79004
+offset_top = 0.27996826
+offset_right = 833.79004
+offset_bottom = 412.27997
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("15_hhwhx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Foreground" type="TextureRect" parent="Visual" unique_id=215846062]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -461.94
+offset_bottom = 32.060303
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_bslv1")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="ForegroundMax" type="TextureRect" parent="Visual" unique_id=167344161]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -385.46002
+offset_bottom = 108.540405
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("11_fp572")
+expand_mode = 5
 
 [node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
 layout_mode = 1
@@ -62,6 +271,33 @@ offset_bottom = -20.0
 grow_vertical = 0
 hold_duration = 0.75
 text = "Go back to menu"
+
+[node name="ControllerSlotContainer" type="Control" parent="." unique_id=1309203772]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerSlot_0" parent="ControllerSlotContainer" unique_id=699056762 instance=ExtResource("1_bhesk")]
+layout_mode = 1
+offset_left = -361.0
+offset_top = -22.0
+offset_right = -361.0
+offset_bottom = -22.0
+
+[node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
+layout_mode = 1
+offset_left = 361.0
+offset_top = -22.0
+offset_right = 361.0
+offset_bottom = -22.0
+character_texture = Array[Texture2D]([ExtResource("3_gka6h"), ExtResource("4_4l4xg")])
+begin_skin = 1
+front_texture_begin_material = ExtResource("5_qbu2t")
+back_texture_begin_material = ExtResource("6_o70qx")
+back_player_right_sided = true
 
 [node name="ReadyTexture" type="TextureRect" parent="." unique_id=1902863830]
 visible = false
@@ -124,8 +360,15 @@ offset_right = 27.5
 offset_bottom = 133.21002
 grow_horizontal = 2
 grow_vertical = 2
-hold_duration = 1.0
 text = ""
+
+[node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
+bank = ExtResource("22_ho3je")
+load_on = 1
+unload_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="." unique_id=763098049]
+is_spatial = false
 
 [connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
 [connection signal="hold_finish" from="ReadyTexture/RadialProgressBarWithText" to="." method="start_game"]

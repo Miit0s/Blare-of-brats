@@ -18,8 +18,8 @@ func apply_options_to_menu():
 	video.apply_options(GameOptions.saved_options)
 
 
-func _on_game_desactivate_onboarding_value_changed(is_on_boarding_activate: bool) -> void:
-	GameOptions.saved_options.desactivate_on_boarding = !is_on_boarding_activate
+func _on_game_activate_onboarding_value_changed(is_on_boarding_activate: bool) -> void:
+	GameOptions.saved_options.activate_on_boarding = is_on_boarding_activate
 	GameOptions.save_options()
 
 

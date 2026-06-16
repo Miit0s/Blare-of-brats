@@ -4,13 +4,18 @@ class_name Player
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
 @onready var switch_sprite: Sprite3D = $SwitchSprite
-@onready var feet: Node3D = $Feet
+@onready var throw_direction: Node3D = $ThrowDirection
+@onready var current_item: Sprite3D = $CurrentItem
+@onready var stun_particle: GPUParticles3D = $StunParticle
 
 @export_range(0,3) var player_id: int = 0
 
 @export_category("Basic Movement")
 @export var speed: float = 8.0
 @export var fall_speed: float = 100.0
+@export var speed_change_transition: float = 0.2
+var _speed_multiplier: float = 1
+var _slow_tween: Tween = null
 
 @export_category("Dash")
 @export var dash_speed: float = 20.0
@@ -26,7 +31,6 @@ var _is_dashing: bool = false
 var _dash_can_be_use: bool = true
 
 @export_category("Attack")
-@export var slash_arc: float = 120
 @export var attack_move_speed: float = 20.0
 @export var attack_move_duration: float = 0.05
 @export var attack_cooldown: float = 1
@@ -35,7 +39,7 @@ var _is_attacking: bool = false
 var _is_making_attack_move: bool = false
 
 @export_category("Stun")
-@export var stun_duration: float = 1
+@export var knockback_stun_duration: float = 1
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
@@ -68,8 +72,9 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
 @export var dash_effect: GPUParticles3D
+@export var throw_arrow: Sprite3D
 
-var _current_direction: Vector3 = Vector3.RIGHT
+var _current_direction: Vector3 = Vector3.BACK
 var _last_direction: Vector3 = Vector3.BACK
 var _last_wall_hit_normal: Vector3 = Vector3.ZERO
 
@@ -81,10 +86,14 @@ var _is_invincible: bool = false
 var _is_aiming: bool = false
 var _is_freeze: bool = false
 
-var _attack_tween: Tween = null
 var _attack_move_timer: Tween = null
 
 signal has_been_hit(player_id: int, damage: float)
+
+signal did_dash()
+signal pick_up_object()
+signal did_attack()
+signal did_throw()
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
@@ -108,12 +117,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = _knockback_direction.normalized() * _knockback_speed_to_apply
 	elif _is_making_attack_move:
-		velocity = _last_direction.normalized() * attack_move_speed
+		if current_picked_item.reverse_attack_dash: velocity = -(_last_direction.normalized()) * attack_move_speed
+		else: velocity = _last_direction.normalized() * attack_move_speed
 	elif _is_dashing and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
 		var dash_direction: Vector3 = direction if direction else _last_direction
 		velocity = dash_direction.normalized() * _dash_speed_to_apply
 	elif direction and not _is_aiming and not _is_stun and not _is_attacking and not _is_freeze:
-		velocity = direction * speed
+		velocity = direction * (speed * _speed_multiplier)
 		_last_direction = direction
 	else:
 		velocity.x = 0
@@ -123,8 +133,9 @@ func _physics_process(delta: float) -> void:
 	if velocity_length > 0: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
 	
-	var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
-	_update_sprite(sprite_direction, velocity_length > 0)
+	if not _is_stun and not _is_freeze:
+		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
+		_update_sprite(sprite_direction, velocity_length > 0)
 	
 	move_and_slide()
 	
@@ -134,30 +145,42 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if _is_freeze or _is_stun: return
 	
-	if Input.is_action_just_pressed("Dash" + _suffix) and _dash_can_be_use:
-		dash()
-	
-	if Input.is_action_just_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
-		switch_item()
-	
-	if Input.is_action_just_pressed("PickUp" + _suffix) and not current_picked_item:
-		pick_up()
-	
-	if Input.is_action_just_pressed("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
-		_is_aiming = true
-	
-	if Input.is_action_just_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
-		throw(_current_direction)
-	
-	if Input.is_action_just_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
-		attack(_current_direction if _current_direction else _last_direction)
-	
-	if current_picked_item and (not current_picked_item.is_attacking or current_picked_item.distance):
-		var aim_direction: Vector3 = Vector3.ZERO
-		aim_direction = _current_direction if _current_direction else _last_direction
+	var aim_direction: Vector3 = Vector3.ZERO
+	aim_direction = _current_direction if _current_direction else _last_direction
 		
+	if current_picked_item and (not current_picked_item.is_attacking):
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
+		
+		if aim_direction != Vector3.ZERO:
+			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
+			#throw_direction.look_at(throw_direction.global_position + aim_direction)
+	
+	if aim_direction != Vector3.ZERO:
+		throw_direction.look_at(throw_direction.global_position + aim_direction)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _is_freeze or _is_stun: return
+	
+	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
+		dash()
+	
+	if event.is_action_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		switch_item()
+	
+	if event.is_action_pressed("PickUp" + _suffix) and not current_picked_item:
+		pick_up()
+	
+	if event.is_action_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		if current_picked_item.is_attacking: cancel_animation()
+		_is_aiming = true
+		#throw_direction.show()
+	
+	if event.is_action_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+		throw(_current_direction)
+	
+	if event.is_action_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
+		attack(_current_direction if _current_direction else _last_direction)
 
 func dash():
 	_dash_can_be_use = false
@@ -165,8 +188,12 @@ func dash():
 	_is_invincible = true
 	dash_effect.emitting = true
 	_dash_speed_to_apply = dash_speed
+	set_collision_layer_value(6, false)
+	set_collision_mask_value(6, false)
 	
 	_update_particle_to_current_sprite()
+	
+	did_dash.emit()
 	
 	var dash_speed_tween: Tween = create_tween()
 	dash_speed_tween.tween_property(self, "_dash_speed_to_apply", min_dash_speed, dash_duration)
@@ -178,6 +205,8 @@ func dash():
 		func(): 
 		_is_dashing = false
 		_is_invincible = false
+		set_collision_layer_value(6, true)
+		set_collision_mask_value(6, true)
 	)
 	
 	dash_sound.post(self)
@@ -190,8 +219,15 @@ func pick_up(play_pickup_sound: bool = true):
 	if not closest_item: return
 	
 	current_picked_item = closest_item
-	current_picked_item.item_picked_up(player_id)
+	current_picked_item.item_picked_up(player_id, self)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
+	
+	current_item.scale = current_picked_item.item_visual.scale * 0.7
+	current_item.rotation.z = current_picked_item.item_visual.rotation.z
+	current_item.texture = current_picked_item.item_visual.texture
+	current_item.show()
+	
+	pick_up_object.emit()
 	
 	if play_pickup_sound: pickup_sound.post(self)
 
@@ -219,59 +255,21 @@ func attack(direction: Vector3):
 	
 	_can_attack = false
 	
-	if current_picked_item.distance:
+	_is_attacking = true
+	_is_making_attack_move = true
+
+	_attack_move_timer = create_tween()
+	_attack_move_timer.tween_interval(attack_move_duration)
+	_attack_move_timer.tween_callback(func(): 
+		_is_making_attack_move = false
 		current_picked_item.attack(direction)
-	else:
-		_is_attacking = true
-		_is_making_attack_move = true
-		
-		_attack_move_timer = create_tween()
-		_attack_move_timer.tween_interval(attack_move_duration)
-		_attack_move_timer.tween_callback(func(): 
-			_is_making_attack_move = false
-			current_picked_item.slash_look_at(self.global_position)
-			_make_attack_movement(direction)
-			current_picked_item.attack(direction)
-			_attack_move_timer = null
-		)
+		_attack_move_timer = null
+	)
 	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): _can_attack = true)
 	get_tree().create_timer(current_picked_item.attack_speed).timeout.connect(func(): _is_attacking = false)
-
-func _make_attack_movement(direction: Vector3):
-	var base_angle: float = atan2(direction.x, direction.z)
 	
-	var start_angle: float
-	var end_angle: float
-	
-	var full_circle_angle = fposmod(base_angle, 2 * PI)
-	
-	if PI / 2 < full_circle_angle and full_circle_angle < PI + (PI / 2):
-		start_angle = base_angle + deg_to_rad(slash_arc / 2)
-		end_angle = base_angle - deg_to_rad(slash_arc / 2)
-	else:
-		start_angle = base_angle - deg_to_rad(slash_arc / 2)
-		end_angle = base_angle + deg_to_rad(slash_arc / 2)
-	
-	_animate_slash(start_angle)
-	
-	_attack_tween = create_tween() \
-		.set_trans(Tween.TRANS_QUART) \
-		.set_ease(Tween.EASE_OUT)
-	
-	_attack_tween.tween_method(
-		_animate_slash,
-		start_angle,
-		end_angle,
-		current_picked_item.attack_speed
-	)
-	
-	await _attack_tween.finished
-	_attack_tween = null
-
-func _animate_slash(current_angle: float):
-	var offset = Vector3(sin(current_angle), 0, cos(current_angle)) * picked_up_item_distance
-	current_picked_item.global_position = global_position + offset
+	did_attack.emit()
 
 func cancel_animation():
 	_kill_current_animation()
@@ -282,16 +280,16 @@ func cancel_animation():
 	_is_attacking = false
 	_is_making_attack_move = false
 	_is_aiming = false
+	
+	#throw_direction.hide()
 
 func _kill_current_animation():
-	if _attack_tween:
-		_attack_tween.kill()
 	if _attack_move_timer:
 		_attack_move_timer.kill()
+		_attack_move_timer = null
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
-	print("Player " + str(player_id) + " has take " + str(damage))
 	
 	_override_color_effect()
 	knockback(hit_direction)
@@ -308,26 +306,39 @@ func knockback(hit_direction: Vector3):
 	_knockback_speed_to_apply = knockback_speed
 	
 	var knockback_speed_tween: Tween = create_tween()
-	knockback_speed_tween.tween_property(self, "_knockback_speed_to_apply", min_dash_speed, knockback_duration)
 	knockback_speed_tween.set_trans(Tween.TRANS_CUBIC)
 	knockback_speed_tween.set_ease(Tween.EASE_OUT)
+	knockback_speed_tween.tween_property(self, "_knockback_speed_to_apply", min_dash_speed, knockback_duration)
 	
 	await knockback_speed_tween.finished
 	
-	stun()
+	stun(knockback_stun_duration)
 	_is_in_knockback = false
 	_has_hit_wall = false
 
-func stun():
+func stun(duration: float):
 	_is_stun = true
-	await get_tree().create_timer(stun_duration).timeout
+	
+	stun_particle.emitting = true
+	stun_particle.restart()
+	stun_particle.show()
+	_update_sprite(_last_direction, false)
+	
+	await get_tree().create_timer(duration).timeout
 	_is_stun = false
+	
+	if not _is_freeze:
+		player_animated_sprite_3d.play()
+	
+	stun_particle.hide()
+	stun_particle.emitting = false
 
 func switch_item():
 	if not _pickable_item_nearby(): return
 	
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.drop()
+	current_item.hide()
 	current_picked_item = null
 	
 	pick_up(false)
@@ -348,12 +359,16 @@ func switch_item():
 	switch_sound.post(self)
 
 func throw(direction: Vector3):
+	#throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item.throw(direction if direction else _last_direction)
+	current_item.hide()
 	current_picked_item = null
-	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
-	launch.post(self)
 	
+	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
+	
+	launch.post(self)
+	did_throw.emit()
 
 func _pickable_item_nearby() -> bool:
 	var item_in_range: Array[Node3D] = pick_up_area.get_overlapping_bodies()
@@ -381,20 +396,23 @@ func _override_color_effect():
 
 func _update_sprite(current_direction: Vector3, is_moving: bool):
 	if not is_moving:
-		var animations_index: int = _get_angle_zone(current_direction, character_animation.idle_animation.get_animation_names().size())
-		match animations_index:
-			0: _change_player_sprite(character_animation.idle_animation, "left")
-			1: _change_player_sprite(character_animation.idle_animation, "right")
-			2: _change_player_sprite(character_animation.idle_animation, "back")
+		if current_direction.z < 0:
+			_change_player_sprite(character_animation.idle_animation, "back")
+		elif current_direction.x < 0:
+			_change_player_sprite(character_animation.idle_animation, "left")
+		else:
+			_change_player_sprite(character_animation.idle_animation, "right")
 	else:
 		var animations_index: int = _get_angle_zone(current_direction, character_animation.run_animation.get_animation_names().size())
 		match animations_index:
 			0: _change_player_sprite(character_animation.run_animation, "front")
 			1: _change_player_sprite(character_animation.run_animation, "front_right")
 			2: _change_player_sprite(character_animation.run_animation, "side_right")
-			3: _change_player_sprite(character_animation.run_animation, "back")
-			4: _change_player_sprite(character_animation.run_animation, "side_left")
-			5: _change_player_sprite(character_animation.run_animation, "front_left")
+			3: _change_player_sprite(character_animation.run_animation, "back_right")
+			4: _change_player_sprite(character_animation.run_animation, "back")
+			5: _change_player_sprite(character_animation.run_animation, "back_left")
+			6: _change_player_sprite(character_animation.run_animation, "side_left")
+			7: _change_player_sprite(character_animation.run_animation, "front_left")
 
 func _get_angle_zone(direction: Vector3, steps: int) -> int:
 	var angle: float = atan2(direction.x, direction.z)
@@ -445,14 +463,18 @@ func _detect_wall_bounce():
 
 func freeze():
 	_is_freeze = true
+	player_animated_sprite_3d.pause()
 
 func unfreeze():
 	_is_freeze = false
+	player_animated_sprite_3d.play()
 
 func item_will_be_destroy(_item: Item):
-	_kill_current_animation()
-	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+	_item.will_be_destroy.disconnect(item_will_be_destroy)
+	
+	_kill_current_animation()
+	current_item.hide()
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture
@@ -463,3 +485,18 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
+	
+	throw_arrow.modulate = selection.color_skin.main_color
+
+func apply_slow(speed_multiplier: float, duration: float):
+	if _slow_tween:
+		_slow_tween.kill()
+		_slow_tween = null
+	
+	_slow_tween = create_tween()
+	_slow_tween.set_ease(Tween.EASE_IN)
+	_slow_tween.set_trans(Tween.TRANS_QUAD)
+	_slow_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)
+	_slow_tween.tween_interval(duration)
+	_slow_tween.tween_property(self, "_speed_multiplier", 1, speed_change_transition)
+	_slow_tween.finished.connect(func(): _slow_tween = null)

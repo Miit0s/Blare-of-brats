@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bnb0pprvuhql6"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "UI_Colors_Nav"
+id = 1604317996
+guid = "{9BD83C47-7024-49E9-A160-39AB9784E4B9}"
+dummy = true

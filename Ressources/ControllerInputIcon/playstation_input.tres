@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://c2oyulq57n146" path="res://Assets/ControllerSprite/Playstation/playstation_stick_side_l.png" id="6_eipj6"]
 [ext_resource type="Texture2D" uid="uid://cctubjplqjlfw" path="res://Assets/ControllerSprite/Playstation/playstation_stick_side_r.png" id="7_eag3o"]
 [ext_resource type="Texture2D" uid="uid://dg2n8i1fr8juj" path="res://Assets/ControllerSprite/Playstation/playstation_button_color_square.png" id="8_hm1ge"]
+[ext_resource type="Texture2D" uid="uid://dqay6mk35mih0" path="res://Assets/ControllerSprite/Playstation/playstation_stick_l.png" id="9_puake"]
 [ext_resource type="Texture2D" uid="uid://dgjv0da87mhgm" path="res://Assets/ControllerSprite/Playstation/playstation_trigger_l1_alternative.png" id="9_v55nd"]
 [ext_resource type="Texture2D" uid="uid://ceiscku3u5oo" path="res://Assets/ControllerSprite/Playstation/playstation_button_color_circle.png" id="10_l78n8"]
 [ext_resource type="Texture2D" uid="uid://bg61g8ok41ftr" path="res://Assets/ControllerSprite/Playstation/playstation_trigger_r1_alternative.png" id="11_gftry"]
+[ext_resource type="Texture2D" uid="uid://bqx2kwaqnqaek" path="res://Assets/ControllerSprite/Playstation/playstation_stick_r.png" id="12_7ipkp"]
 [ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="12_gd6lf"]
 [ext_resource type="Texture2D" uid="uid://cyt1chjdnuu5h" path="res://Assets/ControllerSprite/Playstation/playstation5_button_create.png" id="13_r1iax"]
 [ext_resource type="Texture2D" uid="uid://buddtewxwy8w6" path="res://Assets/ControllerSprite/Playstation/playstation5_button_options.png" id="14_nascq"]
@@ -32,4 +34,6 @@ joystick_left_btn = ExtResource("6_eipj6")
 joystick_right_btn = ExtResource("7_eag3o")
 left_shoulder_btn = ExtResource("9_v55nd")
 right_shoulder_btn = ExtResource("11_gftry")
+left_joystick = ExtResource("9_puake")
+right_joystick = ExtResource("12_7ipkp")
 metadata/_custom_type_script = "uid://ce5noloj2eese"

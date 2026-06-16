@@ -5,7 +5,7 @@ class_name RadialProgressBarWithText
 @onready var radial_progress_bar: ColorRect = $RadialProgressBar
 @onready var label: Label = $Label
 
-@export var hold_duration: float
+@export var hold_duration: float = 1.0
 
 @export_multiline var text = "Text":
 	set(new_value):
@@ -23,6 +23,8 @@ func _ready() -> void:
 	label.text = text
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	
 	if _player_his_holding_key and not _progress_finish:
 		_hold_time = move_toward(_hold_time, 1.0, delta / hold_duration)
 

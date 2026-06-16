@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bhmfwu2e856oa"]
+
+[ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_1qhbe"]
+[ext_resource type="Script" uid="uid://cxab38nb5nglb" path="res://Scripts/Item/fighting_glove.gd" id="2_okxgy"]
+[ext_resource type="Texture2D" uid="uid://dm27vejb7wcsk" path="res://Assets/MockSprite/SpriteSheetFightingGlove.png" id="3_ab0ye"]
+[ext_resource type="WwiseEvent" uid="uid://dkwv36grr47rk" path="res://Wwise/resources/Event/{8EEAA15B-A805-4909-9B85-FE3E1D889573}.tres" id="3_f7lnn"]
+[ext_resource type="Texture2D" uid="uid://dsh6ekwqw3wvl" path="res://Assets/MockSprite/boxing_glove_v2.png" id="3_okxgy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f7lnn"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ugyv"]
+resource_local_to_scene = true
+size = Vector3(0.5, 0.646, 0.5)
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_f7lnn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyeju"]
+atlas = ExtResource("3_ab0ye")
+region = Rect2(0, 0, 1320, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpq11"]
+atlas = ExtResource("3_ab0ye")
+region = Rect2(0, 216, 1320, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wea4h"]
+atlas = ExtResource("3_ab0ye")
+region = Rect2(0, 432, 1320, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3vie"]
+atlas = ExtResource("3_ab0ye")
+region = Rect2(0, 648, 1320, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h28yb"]
+atlas = ExtResource("3_ab0ye")
+region = Rect2(0, 864, 1320, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okxgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyeju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpq11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wea4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3vie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h28yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyeju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BoxingGlove" unique_id=2059959192 instance=ExtResource("1_1qhbe")]
+script = ExtResource("2_okxgy")
+min_collision_range = 0.5
+max_collision_range = 4.5
+attack_speed = 0.3
+damage = 4.5
+throw_damage = 3.0
+sound_on_attack = 3.0
+sound_on_throw = 1.0
+attack_sound = ExtResource("3_f7lnn")
+durability = 3
+
+[node name="ItemVisual" parent="." index="0" unique_id=512871286]
+transform = Transform3D(0.14223109, -0.14060697, 3.7252903e-09, 0.13212733, 0.13365349, 0.06840403, -0.048090417, -0.0486459, 0.18793853, 0, 0, 0)
+texture = ExtResource("3_okxgy")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
+shape = SubResource("SphereShape3D_f7lnn")
+
+[node name="AttackCollisionArea" parent="." index="2" unique_id=843248323]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="AttackCollisionArea" index="0" unique_id=1264135062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+shape = SubResource("BoxShape3D_0ugyv")
+
+[node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
+mesh = SubResource("ImmediateMesh_f7lnn")
+
+[node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+
+[node name="ItemAnimation" parent="VisualAnchor" index="1" unique_id=187442146]
+transform = Transform3D(0.2999998, 0, 0, 0, 0.29999992, 0, 0, 0, 0.2999999, 1.9999995, 0, 7.1054274e-15)
+cast_shadow = 0
+sprite_frames = SubResource("SpriteFrames_okxgy")
+frame = 5
+frame_progress = 1.0

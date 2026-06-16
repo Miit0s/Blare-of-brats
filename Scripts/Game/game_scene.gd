@@ -6,20 +6,24 @@ class_name GameScene
 @onready var game_end_ui: GameEnd = $CanvasLayer/GameEnd
 
 @export_category("Instance")
-@export var shared_life_bar: SharedLifeBar
-@export var game_sound_bar: GameSoundBar
+@export var game_bar: GameBar
 @export var camera_controller: CameraController
-@export var main_menu_scene_uid: String
+@export var next_scene_uid: String
+
+@export var tracking_spot_player_one: TrackingSpot
+@export var tracking_spot_player_two: TrackingSpot
 
 @export_category("PartySetup")
 @export var player_number: int = 2
 @export var round_number: int = 3
-@export var round_duration_sec: int = 300
 
 @export_category("Sound")
 @export var music_fight: WwiseEvent
 @export var lead: WwiseRTPC
-@export var round_state: WwiseState
+@export var round_start_state: WwiseState
+@export var second_phase_state: WwiseState
+@export var third_phase_state: WwiseState
+@export var danger_phase_start: WwiseEvent
 
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
@@ -38,20 +42,24 @@ func _ready() -> void:
 	round_start_ui.animation_finish.connect(round_start_ui.hide)
 	round_end_ui.animation_finish.connect(round_end_animaion_finish)
 	round_end_ui.next_round_button_pressed.connect(start_round_animation)
-	game_end_ui.to_main_menu_button_pressed.connect(return_to_main_menu)
+	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene)
+	
+	game_bar.player_win.connect(_on_shared_life_bar_player_win)
+	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
+	game_bar.lifebar_value_change.connect(lifebar_value_change)
+	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
-	round_state.set_value()
+	round_start_state.set_value()
 	start_round_animation()
 
 func start_round_animation():
 	round_end_ui.hide()
-	shared_life_bar.hide()
-	game_sound_bar.hide()
+	game_bar.hide()
 	
-	shared_life_bar.change_player_data(players_selection[0], players_selection[1])
+	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	
 	setup_new_scene()
@@ -59,19 +67,17 @@ func start_round_animation():
 	round_start_ui.start_animation()
 
 func start_round():
-	shared_life_bar.reset()
-	game_sound_bar.reset()
+	game_bar.reset_all_bar()
+	game_bar.shared_life_bar.unlock()
 	
 	_round_ended = false
 	
-	shared_life_bar.show()
-	game_sound_bar.show()
+	game_bar.show()
 	
 	for player in players:
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
-	game_sound_bar.start_timer(round_duration_sec)
 	
 	music_fight.post(self)
 
@@ -84,6 +90,7 @@ func setup_new_scene():
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
+	new_scene.balloon_pop.connect(_item_made_sound)
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	
@@ -93,7 +100,7 @@ func setup_new_scene():
 
 func round_end_animaion_finish():
 	var winner_data: PlayerCharacterSelection = _get_player_selection(_last_player_win_id)
-	shared_life_bar.add_player_win(_last_player_win_id, winner_data.color_skin.main_color)
+	game_bar.add_player_win(_last_player_win_id)
 	
 	if _check_if_game_end():
 		round_end_ui.hide()
@@ -109,27 +116,30 @@ func player_win(player_id: int):
 	players_win[player_id] += 1
 	_last_player_win_id = player_id
 	
+	game_bar.shared_life_bar.lock()
+	
 	for player in players:
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()
+	tracking_spot_player_one.target = null
+	tracking_spot_player_two.target = null
 	
 	music_fight.stop(self)
 	
 	round_end_ui.show()
 	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
 
-func return_to_main_menu():
-	get_tree().change_scene_to_file(main_menu_scene_uid)
+func go_to_next_scene():
+	get_tree().change_scene_to_file(next_scene_uid)
+
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:
-	print("No more health trigger")
 	player_win(player_id)
 
 
 func _on_game_sound_bar_sound_bar_fill() -> void:
-	print("Sound bar fill trigger")
-	player_win(shared_life_bar.get_player_id_with_most_health())
+	_activate_the_danger_phase()
 
 
 func lifebar_value_change(lifebar_value: float):
@@ -137,17 +147,28 @@ func lifebar_value_change(lifebar_value: float):
 
 
 func _on_map_item_will_be_delete(item: Item) -> void:
-	item.sound_made.disconnect(game_sound_bar.add_sound_to_bar)
+	item.sound_made.disconnect(_item_made_sound)
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
-	new_item.sound_made.connect(game_sound_bar.add_sound_to_bar)
+	new_item.sound_made.connect(_item_made_sound)
+
+
+func _item_made_sound(value: float, sound_global_position: Vector3):
+	game_bar.game_sound_bar.add_sound_to_bar(value)
+	_current_scene.sound_made_at_location(sound_global_position)
 
 
 func _on_map_new_player_spawn(player: Player) -> void:
-	player.freeze()
 	camera_controller.add_player(player)
-	player.has_been_hit.connect(shared_life_bar.add_damage_to_player)
+	
+	if tracking_spot_player_one.target:
+		tracking_spot_player_two.target = player
+	else:
+		tracking_spot_player_one.target = player
+	
+	player.freeze()
+	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)
 	
 	players.append(player)
 
@@ -170,3 +191,19 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 	if players_selection[0].player_id == player_id:
 		return players_selection[0]
 	return players_selection[1]
+
+func _activate_the_danger_phase():
+	_current_scene.activate_danger_phase()
+	#danger_phase_start.post(self)
+	
+	await get_tree().create_timer(2).timeout
+	
+	_current_scene.activate_wolf_tracking_spot()
+	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
+
+func _on_soundbar_lock_area_pass(lock_phase: int):
+	print(lock_phase)
+	match lock_phase:
+		0: round_start_state.set_value()
+		1: second_phase_state.set_value()
+		2: third_phase_state.set_value()
