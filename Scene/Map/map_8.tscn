@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_ubqfm"]
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_5630m"]
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_ubqfm"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_hl6t2"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="20_hl6t2"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_wwcvi"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_die3c"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_3jxla"]
+
 
 [node name="Map8" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_vx28m")
@@ -59,7 +60,7 @@ transform = Transform3D(-4.7919713e-09, 0, -0.031851538, 0, 0.19758703, 0, 0.109
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_hl6t2")
-spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint5")]
+spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint5"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("21_wwcvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5244417, 0.8373332, 5.092341)
@@ -85,10 +86,10 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("23_3jxla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.097215, 1.1439927, -1.7462959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.742415, 1.1439927, -0.27025568)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("23_3jxla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49961, 1.1439927, 9.587938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.230349, 1.1439927, 9.496424)
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=575268045 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_ubqfm")

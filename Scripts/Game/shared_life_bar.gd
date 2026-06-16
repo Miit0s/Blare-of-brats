@@ -7,8 +7,6 @@ class_name SharedLifeBar
 @onready var color_versus_container: Control = $LifeBarMask/ColorVersusContainer
 @onready var color_versus_animated_sprite_2d: AnimatedSprite2D = $LifeBarMask/ColorVersusContainer/ColorVersusAnimatedSprite2D
 
-@export var player_health: float = 100
-
 @export_range(0, 1, 0.01) var min_middle_bar_hide: float = 0.48
 @export_range(0, 1, 0.01) var max_middle_bar_hide: float = 0.52
 
@@ -16,6 +14,8 @@ class_name SharedLifeBar
 
 @export_category("Sound")
 @export_range(0, 1, 0.01) var min_life_for_crowd_reaction: float = 0.1
+
+var player_health: float = 100
 
 var target_progress_value: float = 0.5
 var progress_bar_value: float = 0.5:

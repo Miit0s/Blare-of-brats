@@ -29,15 +29,17 @@ animations = [{
 
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
 script = ExtResource("2_cg3nc")
-damage = 4.0
+player_speed_multiplier = 0.5
+slow_duration = 5.0
+attack_speed = 0.3
+damage = 3.8
 reverse_attack_dash = true
+throw_damage = 2.8
 sound_on_attack = 3.0
 sound_on_throw = 5.0
 attack_sound = ExtResource("2_fnye1")
 sound_always_made = true
 durability = 3
-player_speed_multiplier = 0.5
-slow_duration = 5.0
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
 transform = Transform3D(0.15, 0, 0, 0, 0.1409539, 0.05130302, 0, -0.05130302, 0.1409539, 0, 0, 0)

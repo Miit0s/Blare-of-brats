@@ -160,6 +160,8 @@ func _process(delta: float) -> void:
 		throw_direction.look_at(throw_direction.global_position + aim_direction)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _is_freeze or _is_stun: return
+	
 	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
 		dash()
 	
@@ -217,7 +219,7 @@ func pick_up(play_pickup_sound: bool = true):
 	if not closest_item: return
 	
 	current_picked_item = closest_item
-	current_picked_item.item_picked_up(player_id)
+	current_picked_item.item_picked_up(player_id, self)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
 	
 	current_item.scale = current_picked_item.item_visual.scale * 0.7
@@ -288,7 +290,6 @@ func _kill_current_animation():
 
 func hit(damage: float, hit_direction: Vector3):
 	if _is_invincible: return
-	print("Player " + str(player_id) + " has take " + str(damage))
 	
 	_override_color_effect()
 	knockback(hit_direction)
@@ -326,7 +327,9 @@ func stun(duration: float):
 	await get_tree().create_timer(duration).timeout
 	_is_stun = false
 	
-	player_animated_sprite_3d.play()
+	if not _is_freeze:
+		player_animated_sprite_3d.play()
+	
 	stun_particle.hide()
 	stun_particle.emitting = false
 
@@ -467,9 +470,10 @@ func unfreeze():
 	player_animated_sprite_3d.play()
 
 func item_will_be_destroy(_item: Item):
-	_kill_current_animation()
-	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
 	current_picked_item = null
+	_item.will_be_destroy.disconnect(item_will_be_destroy)
+	
+	_kill_current_animation()
 	current_item.hide()
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):

@@ -49,6 +49,7 @@ speed = 9.0
 dash_speed = 30.0
 min_dash_speed = 8.0
 picked_up_item_distance = 0.8
+attack_cooldown = 0.7
 knockback_stun_duration = 0.2
 knockback_speed = 25.0
 knockback_duration = 0.15

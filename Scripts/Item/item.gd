@@ -15,6 +15,7 @@ class_name Item
 @export var attack_speed: float = 0.5
 @export var damage: float = 1
 @export var reverse_attack_dash: bool = false
+@export_flags_3d_physics var mask_that_block_attack: int
 
 @export_category("Throw")
 @export var throw_force: float = 30.0
@@ -47,6 +48,7 @@ var current_durability: int = 0:
 
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
+var _owner_player: Player = null
 
 ##The minimal speed the item should have. When the speed is under this threshold, the speed is set to zero
 var minimal_speed: float = 2
@@ -55,8 +57,6 @@ var has_been_drop: bool = false
 
 var is_attacking: bool = false
 var is_already_pick: bool = false
-
-var camera: Camera3D = null
 
 var _attacked_players: Array[Player]
 
@@ -75,7 +75,6 @@ signal will_be_destroy(item: Item)
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	
-	camera = get_viewport().get_camera_3d()
 	current_durability = durability
 	
 	circle_spawn_particle.emitting = true
@@ -98,7 +97,7 @@ func _process(_delta: float) -> void:
 			if has_been_throw:
 				_collide_with_player(player_hit)
 			elif is_attacking:
-				_attack_player(player_hit)
+				if not _has_obstacle_between_collision(player_hit): _attack_player(player_hit)
 
 func throw(direction: Vector3):
 	_throw_direction = direction
@@ -110,6 +109,7 @@ func throw(direction: Vector3):
 	has_been_throw = true
 	is_already_pick = false
 	owner_player = -1
+	_owner_player = null
 	
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw, global_position)
@@ -142,6 +142,8 @@ func _perform_attack(_direction: Vector3):
 	push_error("Perform attack should always be override")
 
 func destroy():
+	will_be_destroy.emit(self)
+	
 	collision_layer = 0
 	collision_mask = 0
 	freeze = true
@@ -155,7 +157,6 @@ func destroy():
 	linear_velocity = Vector3.ZERO
 	
 	sound_made.emit(sound_on_break, global_position)
-	will_be_destroy.emit(self)
 	item_animation.hide()
 	item_visual.hide()
 	trail_renderer_3d.hide()
@@ -165,8 +166,9 @@ func destroy():
 	
 	queue_free()
 
-func item_picked_up(player_id: int):
+func item_picked_up(player_id: int, player: Player):
 	owner_player = player_id
+	_owner_player = player
 	is_already_pick = true
 	
 	item_visual.hide()
@@ -176,6 +178,7 @@ func drop():
 	has_been_drop = true
 	is_already_pick = false
 	owner_player = -1
+	_owner_player = null
 	
 	rotation = Vector3.ZERO
 	item_animation.hide()
@@ -239,3 +242,16 @@ func _force_check_collision_detection():
 	
 	if has_been_throw:
 		destroy()
+
+func _has_obstacle_between_collision(player: Player):
+	var self_position: Vector3 = Vector3(_owner_player.global_position.x, self.global_position.y, _owner_player.global_position.z)
+	var position_to_check: Vector3 = Vector3(player.global_position.x, self.global_position.y, player.global_position.z)
+	
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(self_position, position_to_check)
+	query.exclude = [self]
+	query.collision_mask = mask_that_block_attack
+	
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	return !result.is_empty()

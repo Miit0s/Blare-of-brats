@@ -8,6 +8,8 @@ class_name BalloonManager
 signal sound_emit(value: float, global_position: Vector3)
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	for balloon in balloons:
 		balloon.sound_emit.connect(_on_baloon_pop)
 

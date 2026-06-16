@@ -32,8 +32,8 @@ func _perform_attack(_direction: Vector3):
 	attack_collision_shape_3d.shape.size.x = min_collision_range
 	_extends_hitbox_tween = null
 
-func item_picked_up(player_id: int):
-	super.item_picked_up(player_id)
+func item_picked_up(player_id: int, player: Player):
+	super.item_picked_up(player_id, player)
 	
 	item_animation.rotate_x(deg_to_rad(-90))
 

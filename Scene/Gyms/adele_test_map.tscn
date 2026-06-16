@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://7a537xyiuyp3"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_yghy2"]
-[ext_resource type="Texture2D" uid="uid://cxe2bn6oa6rw4" path="res://Assets/EnvironmentSprite/star_item.png" id="2_6pmgv"]
 [ext_resource type="Texture2D" uid="uid://wllafbs8srb" path="res://Assets/EnvironmentSprite/floorv03.png" id="3_yghy2"]
 [ext_resource type="Texture2D" uid="uid://dqiv1ljmbjdsl" path="res://Assets/EnvironmentSprite/floor_insidev2.png" id="4_yghy2"]
-[ext_resource type="Texture2D" uid="uid://bq71d4oysn5oq" path="res://Assets/EnvironmentSprite/clouds_foreground.png" id="7_1k1nn"]
+[ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="5_03jmm"]
 [ext_resource type="Texture2D" uid="uid://ffrc0lye3c2c" path="res://Assets/EnvironmentSprite/cloud01.png" id="7_dsw8x"]
+[ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="7_kpkc6"]
 [ext_resource type="Texture2D" uid="uid://t4qtxr6s7ifo" path="res://Assets/EnvironmentSprite/barriere_01.png" id="8_8ieg1"]
 [ext_resource type="Texture2D" uid="uid://bhsgsqw21qcau" path="res://Assets/EnvironmentSprite/barriere_02.png" id="8_mt88d"]
 [ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="9_dsw8x"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c5g2meodm7dvp" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="11_pjvhq"]
 [ext_resource type="Texture2D" uid="uid://cgv5eip1me1i7" path="res://Assets/EnvironmentSprite/bush_01.png" id="12_6pmgv"]
 [ext_resource type="Texture2D" uid="uid://cwr307sxoyug" path="res://Assets/EnvironmentSprite/flag_green.png" id="12_dsw8x"]
+[ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="13_03jmm"]
 [ext_resource type="Texture2D" uid="uid://h36arh02nypq" path="res://Assets/EnvironmentSprite/book_01.png" id="13_6hbk0"]
 [ext_resource type="Texture2D" uid="uid://1okbuubfdao7" path="res://Assets/EnvironmentSprite/bush_02.png" id="13_d0mhm"]
 [ext_resource type="Texture2D" uid="uid://bdhlpduo4umda" path="res://Assets/EnvironmentSprite/book_02.png" id="13_yghy2"]
@@ -27,10 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://dtq73gg50cfhg" path="res://Assets/EnvironmentSprite/wolf01.png" id="18_gas3y"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="19_hj6gq"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="20_0v2uo"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="21_iifnc"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="21_iifnc"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="22_4onup"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="23_6xa74"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="24_bgjd0"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
@@ -419,24 +421,6 @@ spot_angle = 16.14
 
 [node name="Sprite" type="Node3D" parent="." unique_id=2099313172]
 
-[node name="shootingstar" type="Sprite3D" parent="Sprite" unique_id=428930177]
-transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 17.628372, 16.070663, -4.49298)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("2_6pmgv")
-
-[node name="shootingstar2" type="Sprite3D" parent="Sprite" unique_id=650260385]
-transform = Transform3D(0.240162, 0, -0.2376018, 0, 0.33783516, 0, 0.2376018, 0, 0.240162, 16.775745, 18.214012, -5.88391)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("2_6pmgv")
-
-[node name="shootingstar3" type="Sprite3D" parent="Sprite" unique_id=1037959665]
-transform = Transform3D(0.25152165, 0, 0.22887537, 0, 0.3400695, 0, -0.22887537, 0, 0.25152165, -13.786215, 18.214012, -5.88391)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("2_6pmgv")
-
 [node name="Floor" type="Sprite3D" parent="Sprite" unique_id=1932162832]
 transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.8429089, 0.22552514, 3.5785408)
 shaded = true
@@ -451,13 +435,13 @@ alpha_cut = 1
 texture = ExtResource("4_yghy2")
 
 [node name="Cloud01" type="Sprite3D" parent="Sprite" unique_id=809970351]
-transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -5.98839, 2.6013746, -5.499902)
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -6.0076337, 2.6118002, -5.513332)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="Cloud05" type="Sprite3D" parent="Sprite" unique_id=281362075]
-transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -17.544369, 2.7613125, 15.119185)
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, -18.544369, 2.7613125, 15.119185)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_dsw8x")
@@ -469,27 +453,42 @@ alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="Cloud09" type="Sprite3D" parent="Sprite" unique_id=303372018]
-transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, 11.268532, 2.365985, 14.379613)
+transform = Transform3D(-0.3830182, 8.375254e-16, -1.00453576e-07, 5.5409477e-09, 0.38243517, -0.021127017, 1.0030063e-07, -0.021127017, -0.38243517, 13.353409, 2.365985, 13.38841)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
-[node name="FGClouds" type="Sprite3D" parent="Sprite" unique_id=1079159434]
-transform = Transform3D(-0.7849508, 1.7164098e-15, -2.0586779e-07, 1.1355521e-08, 0.7837559, -0.043297336, 2.0555434e-07, -0.043297336, -0.7837559, 16.636501, 4.9117403, 13.451278)
+[node name="Cloud11" type="Sprite3D" parent="Sprite" unique_id=954018220]
+transform = Transform3D(-0.9796009, 2.1420407e-15, -2.5691838e-07, 1.4171434e-08, 0.9781098, -0.054034103, 2.5652722e-07, -0.054034103, -0.9781098, -0.9309752, 1.8962812, -5.6624455)
 shaded = true
 alpha_cut = 1
-texture = ExtResource("7_1k1nn")
-region_enabled = true
-region_rect = Rect2(-293.19434, 537.93835, 2188.3848, 1845.8937)
+texture = ExtResource("5_03jmm")
 
 [node name="FGClouds2" type="Sprite3D" parent="Sprite" unique_id=465173405]
-transform = Transform3D(-0.7748884, 0.12509178, -0.006910698, 0.12528251, 0.7737088, -0.04274227, 2.0555434e-07, -0.04329734, -0.7837559, -17.080416, 4.9117403, 12.740081)
+transform = Transform3D(-0.78077793, 0.26263344, -0.014508969, 0.26303387, 0.77958924, -0.04306709, 2.1601986e-07, -0.045445397, -0.8226394, -16.59365, 3.6604848, 12.740081)
 flip_h = true
 shaded = true
 alpha_cut = 1
-texture = ExtResource("7_1k1nn")
+texture = ExtResource("7_kpkc6")
 region_enabled = true
-region_rect = Rect2(-293.19434, 537.93835, 2188.3848, 1845.8937)
+region_rect = Rect2(40.66162, 36.99353, 1898.3137, 931.24817)
+
+[node name="FGClouds4" type="Sprite3D" parent="Sprite" unique_id=1357123002]
+transform = Transform3D(-0.8006673, -0.19395344, 0.010714433, -0.19424929, 0.7994484, -0.0441643, 2.131112e-07, -0.045445394, -0.8226393, 14.09417, 2.1847882, 12.740081)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_kpkc6")
+region_enabled = true
+region_rect = Rect2(40.66162, 36.99353, 1898.3137, 931.24817)
+
+[node name="FGClouds3" type="Sprite3D" parent="Sprite" unique_id=720610960]
+transform = Transform3D(-0.78077793, 0.26263344, -0.014508969, 0.26303387, 0.77958924, -0.04306709, 2.1601986e-07, -0.045445397, -0.8226394, -20.015182, 3.6604848, 14.628834)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_kpkc6")
+region_enabled = true
+region_rect = Rect2(40.66162, 36.99353, 1898.3137, 931.24817)
 
 [node name="Cloud08" type="Sprite3D" parent="Sprite" unique_id=1498184287]
 transform = Transform3D(-0.7702476, 1.6842592e-15, -2.020116e-07, 1.11428164e-08, 0.7690751, -0.042486317, 2.0170404e-07, -0.042486317, -0.7690751, -21.44979, 2.5991, 11.6871805)
@@ -527,7 +526,7 @@ alpha_cut = 1
 texture = ExtResource("8_mt88d")
 
 [node name="Barriere06" type="Sprite3D" parent="Sprite" unique_id=1708112381]
-transform = Transform3D(-0.37021935, 2.3406932e-15, -1.1105054e-07, 5.3557914e-09, 0.4227788, -0.023355732, 9.6949e-08, -0.023355734, -0.42277876, -1.3759177, 3.4672756, -3.4438798)
+transform = Transform3D(-0.37021935, 2.3406932e-15, -1.1105054e-07, 5.3557914e-09, 0.4227788, -0.023355732, 9.6949e-08, -0.023355734, -0.42277876, -1.3766856, 3.4778156, -3.4533231)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("8_8ieg1")
@@ -575,7 +574,7 @@ alpha_cut = 1
 texture = ExtResource("7_dsw8x")
 
 [node name="Cloud05Maria3" type="Sprite3D" parent="Sprite" unique_id=836190581]
-transform = Transform3D(-0.38301024, -0.0022223124, -0.001082411, -0.0021608688, 0.38245746, -0.020606358, 0.0012003871, -0.020599825, -0.38246205, 1.8327246, 2.0502, -7.9424906)
+transform = Transform3D(-0.37919855, -0.002200196, -0.001071639, -0.0021393641, 0.3786513, -0.020401286, 0.0011884411, -0.020394819, -0.37865585, 18.039253, 2.3721528, 13.277243)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("7_dsw8x")
@@ -635,6 +634,24 @@ texture = ExtResource("11_03jmm")
 region_enabled = true
 region_rect = Rect2(385.0183, -5.296463, 916.2749, 2006.0195)
 
+[node name="BannerMoon3" type="Sprite3D" parent="Sprite" unique_id=4922768]
+transform = Transform3D(-0.32266232, 1.783684e-15, -8.462412e-08, 4.6678057e-09, 0.32217115, -0.017797828, 8.449528e-08, -0.017797828, -0.32217115, -9.767349, 11.491887, -7.0645723)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_03jmm")
+region_enabled = true
+region_rect = Rect2(385.0183, -5.296463, 916.2749, 2006.0195)
+
+[node name="BannerMoon4" type="Sprite3D" parent="Sprite" unique_id=510704960]
+transform = Transform3D(-0.32266232, 1.783684e-15, -8.462412e-08, 4.6678057e-09, 0.32217115, -0.017797828, 8.449528e-08, -0.017797828, -0.32217115, 6.4444923, 11.491887, -7.0645723)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_03jmm")
+region_enabled = true
+region_rect = Rect2(385.0183, -5.296463, 916.2749, 2006.0195)
+
 [node name="BannerLong2" type="Sprite3D" parent="Sprite" unique_id=1900545204]
 transform = Transform3D(-0.327699, 1.811527e-15, -8.5945096e-08, 4.7406696e-09, 0.32720017, -0.018075647, 8.581423e-08, -0.018075647, -0.32720017, 11.913459, 14.764309, -6.583431)
 flip_h = true
@@ -662,7 +679,6 @@ transform = Transform3D(0.88524413, 0, 0, 0, 0.88524413, 0, 0, 0, 0.88524413, -1
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(217.85452, 369.687, 1335.0061, 1641.0806)
 
 [node name="BlueBook04" type="Sprite3D" parent="Sprite" unique_id=280088476]
@@ -670,7 +686,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.290854, 6.374593, 0.28293
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="BlueBook11" type="Sprite3D" parent="Sprite" unique_id=543477136]
@@ -678,7 +693,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.831917, 3.6369352, 10.181
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="Bush01" type="Sprite3D" parent="Sprite" unique_id=1391244170]
@@ -714,7 +728,7 @@ region_enabled = true
 region_rect = Rect2(1246.6362, 177.40613, 2406.9185, 1540.1411)
 
 [node name="Bush07" type="Sprite3D" parent="Sprite" unique_id=190685207]
-transform = Transform3D(0.9447018, 0, 0, 0, 0.9447018, 0, 0, 0, 0.9447018, -23.359772, 4.188562, -5.1896706)
+transform = Transform3D(0.9447018, 0, 0, 0, 0.9447018, 0, 0, 0, 0.9447018, -25.359772, 4.188562, -5.1896706)
 flip_h = true
 shaded = true
 alpha_cut = 1
@@ -742,6 +756,24 @@ region_rect = Rect2(1246.6362, 177.40613, 2406.9185, 1540.1411)
 
 [node name="Bush09" type="Sprite3D" parent="Sprite" unique_id=1479573685]
 transform = Transform3D(0.9447018, 0, 0, 0, 0.9447018, 0, 0, 0, 0.9447018, -16.30206, 4.188562, -9.5000305)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_d0mhm")
+region_enabled = true
+region_rect = Rect2(1246.6362, 177.40613, 2406.9185, 1540.1411)
+
+[node name="Bush12" type="Sprite3D" parent="Sprite" unique_id=376408759]
+transform = Transform3D(0.9447018, 0, 0, 0, 0.9447018, 0, 0, 0, 0.9447018, -26.112911, 4.188562, -10.834123)
+flip_h = true
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_d0mhm")
+region_enabled = true
+region_rect = Rect2(1246.6362, 177.40613, 2406.9185, 1540.1411)
+
+[node name="Bush13" type="Sprite3D" parent="Sprite" unique_id=1773274557]
+transform = Transform3D(0.9447018, 0, 0, 0, 0.9447018, 0, 0, 0, 0.9447018, 21.104147, 4.188562, -12.044997)
 flip_h = true
 shaded = true
 alpha_cut = 1
@@ -779,7 +811,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.077972, 6.0129027, 8.6426
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_yghy2")
-region_enabled = true
 region_rect = Rect2(1518.8472, 521.2516, 1418.3628, 1404.0356)
 
 [node name="PurpleBook14" type="Sprite3D" parent="Sprite" unique_id=46670022]
@@ -787,7 +818,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.676832, 3.5855098, 3.5125
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_yghy2")
-region_enabled = true
 region_rect = Rect2(1518.8472, 521.2516, 1418.3628, 1404.0356)
 
 [node name="BlueBook12" type="Sprite3D" parent="Sprite" unique_id=578683140]
@@ -795,16 +825,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.161583, 3.6369352, -0.991
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="BlueBook05" type="Sprite3D" parent="Sprite" unique_id=1524625686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.580683, 8.281327, 7.720867)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.881094, 8.281327, 9.818083)
 flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 
 [node name="BlueBook06" type="Sprite3D" parent="Sprite" unique_id=85897003]
 transform = Transform3D(0.88524413, 0, 0, 0, 0.88524413, 0, 0, 0, 0.88524413, 17.262306, 6.2317753, 6.4734583)
@@ -812,7 +840,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(217.85452, 369.687, 1335.0061, 1641.0806)
 
 [node name="BlueBook07" type="Sprite3D" parent="Sprite" unique_id=1853284283]
@@ -821,7 +848,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="BlueBook08" type="Sprite3D" parent="Sprite" unique_id=1087255364]
@@ -830,7 +856,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="BlueBook13" type="Sprite3D" parent="Sprite" unique_id=1263405899]
@@ -839,7 +864,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="PurpleBook15" type="Sprite3D" parent="Sprite" unique_id=586999721]
@@ -848,8 +872,7 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_yghy2")
-region_enabled = true
-region_rect = Rect2(1518.8472, 521.2516, 1418.3628, 1404.0356)
+region_rect = Rect2(709.2798, 647.4519, 2127.544, 637.54675)
 
 [node name="PurpleBook16" type="Sprite3D" parent="Sprite" unique_id=1349297806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.876518, 3.6347537, 3.7599144)
@@ -857,7 +880,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_yghy2")
-region_enabled = true
 region_rect = Rect2(1518.8472, 521.2516, 1418.3628, 1404.0356)
 
 [node name="BlueBook14" type="Sprite3D" parent="Sprite" unique_id=1717683371]
@@ -866,7 +888,6 @@ flip_h = true
 shaded = true
 alpha_cut = 1
 texture = ExtResource("13_6hbk0")
-region_enabled = true
 region_rect = Rect2(0, 468.02625, 1489.5068, 1626.1024)
 
 [node name="ObstacleComplete" parent="Sprite" unique_id=744248793 instance=ExtResource("16_1k1nn")]

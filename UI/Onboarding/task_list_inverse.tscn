@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6j6j6kuvtcud"]
+
+[ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="1_rh37c"]
+[ext_resource type="PackedScene" uid="uid://crtjp8ublhglh" path="res://UI/ControlTool/task_inverse.tscn" id="2_2m8qp"]
+
+[node name="TaskList" unique_id=904087515 instance=ExtResource("1_rh37c")]
+is_reverse = true
+task_prefab = ExtResource("2_2m8qp")
+
+[node name="TextureRect" parent="." index="0" unique_id=104598256]
+flip_h = true
+
+[node name="Label" parent="TextureRect" index="0" unique_id=1117413817]
+offset_left = 78.0
+offset_right = 0.0

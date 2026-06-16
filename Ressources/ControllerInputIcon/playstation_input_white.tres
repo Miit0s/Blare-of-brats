@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ControllerIconSet" format=3 uid="uid://bys3hkmr602oy"]
+
+[ext_resource type="Texture2D" uid="uid://bqwqwcylik34g" path="res://Assets/ControllerSprite/Playstation/playstation_dpad_down.png" id="1_5gobt"]
+[ext_resource type="Texture2D" uid="uid://gmensmtdo76e" path="res://Assets/ControllerSprite/Playstation/playstation_dpad_left.png" id="2_v4ipg"]
+[ext_resource type="Texture2D" uid="uid://i7suukt0iuy4" path="res://Assets/ControllerSprite/Playstation/playstation_dpad_right.png" id="3_fy7s8"]
+[ext_resource type="Texture2D" uid="uid://cdbtphnqj1o10" path="res://Assets/ControllerSprite/Playstation/playstation_dpad_up.png" id="4_2i2kx"]
+[ext_resource type="Texture2D" uid="uid://c7gw6txe62xm" path="res://Assets/ControllerSprite/Playstation/playstation_button_cross.png" id="5_5gobt"]
+[ext_resource type="Texture2D" uid="uid://c2oyulq57n146" path="res://Assets/ControllerSprite/Playstation/playstation_stick_side_l.png" id="6_snsmj"]
+[ext_resource type="Texture2D" uid="uid://cctubjplqjlfw" path="res://Assets/ControllerSprite/Playstation/playstation_stick_side_r.png" id="7_au1rc"]
+[ext_resource type="Texture2D" uid="uid://dftoufcxohk58" path="res://Assets/ControllerSprite/Playstation/playstation_button_square.png" id="8_v4ipg"]
+[ext_resource type="Texture2D" uid="uid://dqay6mk35mih0" path="res://Assets/ControllerSprite/Playstation/playstation_stick_l.png" id="9_tw37i"]
+[ext_resource type="Texture2D" uid="uid://dgjv0da87mhgm" path="res://Assets/ControllerSprite/Playstation/playstation_trigger_l1_alternative.png" id="10_gp7co"]
+[ext_resource type="Texture2D" uid="uid://cq5cfjdb4yunc" path="res://Assets/ControllerSprite/Playstation/playstation_button_circle.png" id="11_fy7s8"]
+[ext_resource type="Texture2D" uid="uid://bqx2kwaqnqaek" path="res://Assets/ControllerSprite/Playstation/playstation_stick_r.png" id="12_eqt73"]
+[ext_resource type="Texture2D" uid="uid://bg61g8ok41ftr" path="res://Assets/ControllerSprite/Playstation/playstation_trigger_r1_alternative.png" id="13_ccghk"]
+[ext_resource type="Script" uid="uid://ce5noloj2eese" path="res://Scripts/Resources/controller_icon_set.gd" id="14_mrfty"]
+[ext_resource type="Texture2D" uid="uid://cyt1chjdnuu5h" path="res://Assets/ControllerSprite/Playstation/playstation5_button_create.png" id="15_kc1da"]
+[ext_resource type="Texture2D" uid="uid://buddtewxwy8w6" path="res://Assets/ControllerSprite/Playstation/playstation5_button_options.png" id="16_1yf0d"]
+[ext_resource type="Texture2D" uid="uid://b4b0ug18gnxf" path="res://Assets/ControllerSprite/Playstation/playstation_button_triangle.png" id="17_2i2kx"]
+
+[resource]
+script = ExtResource("14_mrfty")
+start_btn = ExtResource("16_1yf0d")
+select_btn = ExtResource("15_kc1da")
+up_btn = ExtResource("17_2i2kx")
+down_btn = ExtResource("5_5gobt")
+left_btn = ExtResource("8_v4ipg")
+right_btn = ExtResource("11_fy7s8")
+cross_up_btn = ExtResource("4_2i2kx")
+cross_down_btn = ExtResource("1_5gobt")
+cross_left_btn = ExtResource("2_v4ipg")
+cross_right_btn = ExtResource("3_fy7s8")
+joystick_left_btn = ExtResource("6_snsmj")
+joystick_right_btn = ExtResource("7_au1rc")
+left_shoulder_btn = ExtResource("10_gp7co")
+right_shoulder_btn = ExtResource("13_ccghk")
+left_joystick = ExtResource("9_tw37i")
+right_joystick = ExtResource("12_eqt73")
+metadata/_custom_type_script = "uid://ce5noloj2eese"

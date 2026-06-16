@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://doki7jt3gmrse" path="res://Shader/radial_progress_bar.gdshader" id="2_bmoep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhe4"]
+resource_local_to_scene = true
 shader = ExtResource("2_bmoep")
 shader_parameter/base_color = Color(0, 1, 0, 1)
 shader_parameter/outer_bound = 0.4
@@ -13,6 +14,7 @@ shader_parameter/progress = 0.0
 
 [node name="RadialProgressBarWithText" type="HBoxContainer" unique_id=2147224469]
 script = ExtResource("1_rihet")
+hold_duration = 0.0
 
 [node name="RadialProgressBar" type="ColorRect" parent="." unique_id=1278139767]
 material = SubResource("ShaderMaterial_ifhe4")

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://de5h0fbgrrk8"]
+
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_01yhb"]
+[ext_resource type="Texture2D" uid="uid://c28sm8ca1iih7" path="res://Assets/SpriteUI/Onboarding/banner_task_details.png" id="1_clxo0"]
+[ext_resource type="Texture2D" uid="uid://bepwwn0lhui1t" path="res://Assets/SpriteUI/Onboarding/circle_binding.png" id="2_mobh4"]
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="3_mobh4"]
+
+[node name="InputLabelOnboarding" type="Control" unique_id=872344764]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 350.0
+offset_bottom = 70.0
+theme = ExtResource("1_01yhb")
+
+[node name="Control" type="Control" parent="." unique_id=1889486643]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 350.0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1528212074]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/ColorRect" unique_id=496401512]
+custom_minimum_size = Vector2(500, 70)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -35.0
+offset_right = 500.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture = ExtResource("1_clxo0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect" unique_id=993795995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1533185150]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -39.796
+offset_top = -5.0
+offset_right = 39.795834
+offset_bottom = 5.0
+grow_vertical = 2
+texture = ExtResource("2_mobh4")
+expand_mode = 3
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="TextureRect2" unique_id=1862204954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "{JoinGame}"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_mobh4")
+image_size_offset = 20
+white_version = true
+raw_text = "{JoinGame}"
+metadata/_custom_type_script = "uid://0suax27ohuw"
