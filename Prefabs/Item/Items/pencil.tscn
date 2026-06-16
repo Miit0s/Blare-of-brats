@@ -9,7 +9,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ujcen"]
-points = PackedVector3Array(0, 0, 1, -1, 0, -1, 1, 0, -1)
+points = PackedVector3Array(-1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_ujcen"]
 

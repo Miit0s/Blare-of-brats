@@ -49,10 +49,10 @@ speed = 8.5
 dash_speed = 30.0
 min_dash_speed = 8.0
 picked_up_item_distance = 0.8
-attack_cooldown = 0.7
+attack_cooldown = 0.6
 knockback_stun_duration = 0.2
-knockback_speed = 25.0
-knockback_duration = 0.15
+knockback_speed = 28.0
+knockback_duration = 0.2
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
@@ -70,7 +70,7 @@ visible = false
 texture = SubResource("CompressedTexture2D_4sfrm")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=932639487]
-transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0.003705293, 5.9604645e-08, 0.0003566742)
 material_override = ExtResource("14_ybo73")
 shaded = true
 alpha_cut = 1

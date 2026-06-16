@@ -156,11 +156,8 @@ guid = "{D2CDD101-3633-4337-AC40-1FC570903143}"
 id = 3991942870
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_lrto0"]
-path = "\\Busses\\Default Work Unit\\Main Audio Bus"
 children = [SubResource("WwiseTreeObject_yyrou"), SubResource("WwiseTreeObject_geu6g"), SubResource("WwiseTreeObject_5n8hf"), SubResource("WwiseTreeObject_tnib1"), SubResource("WwiseTreeObject_o7sea")]
-type = 2
 name = "Main Audio Bus"
-guid = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
 id = 2246998526
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_i5cxa"]
@@ -220,6 +217,7 @@ name = "Interac"
 id = 4127378449
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_5ppdk"]
+max_attenuation = 100.0
 max_duration = 0.66146094
 min_duration = 0.35854155
 path = "\\Events\\ALL_EVENTS\\SFX\\Chara\\Mov\\Dash"
@@ -407,8 +405,8 @@ guid = "{9BD83C47-7024-49E9-A160-39AB9784E4B9}"
 id = 1604317996
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_o035g"]
-max_duration = 0.29321995
-min_duration = 0.29321995
+max_duration = 0.10231292
+min_duration = 0.10231292
 path = "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\UI_Colors_Select"
 type = 3
 name = "UI_Colors_Select"

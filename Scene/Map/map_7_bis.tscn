@@ -23,10 +23,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088071823, -0.009381771, 
 [node name="Wall" type="Node3D" parent="." unique_id=993170080]
 
 [node name="ObstacleComplete" parent="Wall" unique_id=744248793 instance=ExtResource("3_mwwx1")]
-transform = Transform3D(1.9462306e-08, 0, -0.041012082, 0, 0.19758703, 0, 0.14841522, 0, 5.378085e-09, -6.8680964, 1.0559822, 4.284704)
+transform = Transform3D(8.304769e-09, 0, -0.041, 0, 0.198, 0, 0.11, 0, 3.0954141e-09, -6.8680964, 1.0559822, 4.284704)
 
 [node name="ObstacleComplete2" parent="Wall" unique_id=406358882 instance=ExtResource("3_mwwx1")]
-transform = Transform3D(1.9462306e-08, 0, -0.041012082, 0, 0.19758703, 0, 0.14841522, 0, 5.378085e-09, 3.4631472, 1.0559822, 4.284703)
+transform = Transform3D(8.304769e-09, 0, -0.041, 0, 0.198, 0, 0.11, 0, 3.0954141e-09, 3.4654396, 1.0559822, 4.1506987)
 
 [node name="ObstacleComplete3" parent="Wall" unique_id=722842246 instance=ExtResource("3_mwwx1")]
 transform = Transform3D(1.9462306e-08, 0, -0.041012082, 0, 0.19758703, 0, 0.14841522, 0, 5.378085e-09, 8.094591, 1.0559822, -1.5316602)
@@ -53,20 +53,17 @@ transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.77460
 transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7746084e-08, 0, 0.031851534, -5.798218, 0.36216927, 0.2737388)
 
 [node name="NewDemiMur3" parent="Wall" unique_id=1235539081 instance=ExtResource("4_yu06k")]
-transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7746084e-08, 0, 0.031851534, -5.798217, 0.36216927, 7.7023163)
+transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7746084e-08, 0, 0.031851534, -5.8623366, 0.36216927, 7.768467)
 
 [node name="NewDemiMur4" parent="Wall" unique_id=1442691785 instance=ExtResource("4_yu06k")]
-transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7746084e-08, 0, 0.031851534, 2.4823284, 0.36216927, 7.702315)
+transform = Transform3D(0.101495765, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7746084e-08, 0, 0.031851534, 2.5052922, 0.36216927, 7.7630596)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("5_happx")
-spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint7")]
+spawn_points = [NodePath("ItemSpawnPoint"), null, NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6"), NodePath("ItemSpawnPoint7")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("6_ji8u7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8544407, 0.8373332, 4.3754907)
-
-[node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=142864672 instance=ExtResource("6_ji8u7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0060291, 0.8373332, -2.3756733)
 
 [node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1520047895 instance=ExtResource("6_ji8u7")]
 transform = Transform3D(1, 0, 0, 0, 0.99993205, 0.011658535, 0, -0.011658535, 0.99993205, 0.24677324, 0.83733416, 9.729276)

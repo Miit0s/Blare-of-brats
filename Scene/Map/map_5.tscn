@@ -44,7 +44,7 @@ script = ExtResource("20_66474")
 spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint6")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("21_e8vyn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7260895, 0.8373332, -2.5830212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.468451, 0.8373332, 9.245314)
 
 [node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=142864672 instance=ExtResource("21_e8vyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6847005, 0.8373332, 0.7795434)
@@ -71,19 +71,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.455781, 1.1439927, -1.92598
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=766680472 node_paths=PackedStringArray("balloons")]
 script = ExtResource("9_3c1ga")
-balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon3"), NodePath("Balloon4"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7")]
+balloons = [NodePath("Balloon"), NodePath("Balloon2"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon7")]
 
 [node name="Balloon" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_sar5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.542378, 0.8758886, 1.877336)
 
 [node name="Balloon2" parent="BalloonManager" unique_id=1541360090 instance=ExtResource("10_sar5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7311487, 0.8758886, 0.3367604)
-
-[node name="Balloon3" parent="BalloonManager" unique_id=151316470 instance=ExtResource("10_sar5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0230353, 0.8758886, 6.13043)
-
-[node name="Balloon4" parent="BalloonManager" unique_id=1089691919 instance=ExtResource("10_sar5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06807089, 0.8758886, 6.13043)
 
 [node name="Balloon5" parent="BalloonManager" unique_id=1096473169 instance=ExtResource("10_sar5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.064245, 0.8758886, 6.13043)
