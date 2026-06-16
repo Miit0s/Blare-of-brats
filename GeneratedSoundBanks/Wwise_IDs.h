@@ -27,6 +27,7 @@ namespace AK
         static const AkUniqueID HIT_WOUT_OBJECT = 3713424412U;
         static const AkUniqueID LAUNCH = 17302528U;
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
+        static const AkUniqueID PENCIL_ATTACK = 3470720449U;
         static const AkUniqueID PISTOGUM_SHOOT = 2746646177U;
         static const AkUniqueID SOUNDBAR_LVL_1 = 1182307794U;
         static const AkUniqueID SOUNDBAR_LVL_2 = 1182307793U;
