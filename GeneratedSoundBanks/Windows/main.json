@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{77110E55-201E-1169-05ED-6C6292A0512B}",
+    "Hash": "{D398FD26-918E-C91B-EE98-4AFAD3F6506B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -120,6 +120,14 @@
       "CachePath": "C2/{C235BD25-2403-147D-3498-9760C5F50D8B}.wem"
      },
      {
+      "Id": "306065806",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl2_v1.wav",
+      "CachePath": "45/{45FFD480-8544-34E7-D8A8-A5AF336B5EA7}.wem"
+     },
+     {
       "Id": "315058539",
       "Language": "SFX",
       "Streaming": "false",
@@ -198,6 +206,14 @@
       "Location": "Memory",
       "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_2.wav",
       "CachePath": "69/{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem"
+     },
+     {
+      "Id": "542705990",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl1_v1.wav",
+      "CachePath": "A5/{A5FCD5C8-C673-4018-C03F-E3513FF9DDC1}.wem"
      },
      {
       "Id": "543882894",
@@ -374,6 +390,14 @@
       "Location": "Memory",
       "ShortName": "hit_1.wav",
       "CachePath": "10/{10700F61-3094-DB02-9EAB-B8B0DCB9B52E}.wem"
+     },
+     {
+      "Id": "936814795",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl3_v1.wav",
+      "CachePath": "18/{18155C62-A801-5D02-FC6A-EFD00B6EA5EC}.wem"
      },
      {
       "Id": "959256509",
@@ -872,6 +896,51 @@
       }
      },
      {
+      "Id": "1182307794",
+      "Name": "SoundBar_LVL_1",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\SoundBar\\SoundBar_LVL_1",
+      "GUID": "{379705D3-B374-4513-9155-CCCB5CB7D489}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.22956917",
+      "DurationMax": "0.22956917",
+      "MediaRefs": [
+       {
+        "Id": "542705990"
+       }
+      ]
+     },
+     {
+      "Id": "1182307793",
+      "Name": "SoundBar_LVL_2",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\SoundBar\\SoundBar_LVL_2",
+      "GUID": "{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2314966",
+      "DurationMax": "0.2314966",
+      "MediaRefs": [
+       {
+        "Id": "306065806"
+       }
+      ]
+     },
+     {
+      "Id": "1182307792",
+      "Name": "SoundBar_LVL_3",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\SoundBar\\SoundBar_LVL_3",
+      "GUID": "{19977D3E-9E36-4E33-906A-4A28E63846FF}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6135828",
+      "DurationMax": "0.6135828",
+      "MediaRefs": [
+       {
+        "Id": "936814795"
+       }
+      ]
+     },
+     {
       "Id": "2476125396",
       "Name": "SwitchObject",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\SwitchObject",
@@ -1028,6 +1097,6 @@
     ]
    }
   ],
-  "FileHash": "{9CACCF66-D1F4-B41A-C06E-061C4C8648A6}"
+  "FileHash": "{99BBE94B-FB62-0BC0-AFB1-12DFECC9594D}"
  }
 }
