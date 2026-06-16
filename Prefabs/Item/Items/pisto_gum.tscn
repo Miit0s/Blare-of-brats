@@ -16,7 +16,7 @@ radius = 0.45
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
 points = PackedVector3Array(0, 0, 1, -1.5, 0, -1, 0, 0, -1.5, 1.5, 0, -1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_7k04w"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_any3s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ydl1a"]
 resource_local_to_scene = true
@@ -60,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_7k04w")
+mesh = SubResource("ImmediateMesh_any3s")
 
 [node name="PistoGumShoot" parent="." index="7" unique_id=1130802044 instance=ExtResource("5_c51hn")]
 

@@ -431,28 +431,31 @@ func _display_idle_sprite_no_item(current_direction: Vector3):
 		_change_player_sprite(character_animation.idle_animation, "right")
 
 func _display_idle_sprite_with_item(current_direction: Vector3):
-	var number_of_side: int = current_picked_item.idle_animation.get_animation_names().size()
+	var idle_animation: SpriteFrames = current_picked_item.animations[skin].idle_animation
+	var number_of_side: int = idle_animation.get_animation_names().size()
 	var animations_index: int = _get_angle_zone(current_direction, number_of_side)
 	
 	if number_of_side == 2:
 		match animations_index:
-			0: _change_player_sprite(current_picked_item.idle_animation, "left")
-			1: _change_player_sprite(current_picked_item.idle_animation, "right")
+			0: _change_player_sprite(idle_animation, "left")
+			1: _change_player_sprite(idle_animation, "right")
 	else:
 		match animations_index:
-			0: _change_player_sprite(current_picked_item.idle_animation, "front")
-			1: _change_player_sprite(current_picked_item.idle_animation, "right")
-			2: _change_player_sprite(current_picked_item.idle_animation, "back")
-			3: _change_player_sprite(current_picked_item.idle_animation, "left")
+			0: _change_player_sprite(idle_animation, "front")
+			1: _change_player_sprite(idle_animation, "right")
+			2: _change_player_sprite(idle_animation, "back")
+			3: _change_player_sprite(idle_animation, "left")
 
 func _apply_attack_animation(attack_direction: Vector3):
 	_is_playing_attacking_animation = true
 	
-	var number_of_side: int = current_picked_item.idle_animation.get_animation_names().size()
-	var animations_index: int = _get_angle_zone(attack_direction, number_of_side, PI / 2)
+	var attack_animation: SpriteFrames = current_picked_item.animations[skin].attack_animations
+	var number_of_side: int = attack_animation.get_animation_names().size()
+	var animations_index: int = _get_angle_zone(attack_direction, number_of_side)
 	
 	var correct_anim_name: String = "default"
 	if number_of_side == 2:
+		animations_index = _get_angle_zone(attack_direction, number_of_side, PI / 2)
 		match animations_index:
 			0: correct_anim_name = "left"
 			1: correct_anim_name = "right"
@@ -463,7 +466,7 @@ func _apply_attack_animation(attack_direction: Vector3):
 			2: correct_anim_name = "back"
 			3: correct_anim_name = "left"
 	
-	_change_player_sprite(current_picked_item.attack_animations, correct_anim_name)
+	_change_player_sprite(attack_animation, correct_anim_name)
 
 
 func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) -> int:
