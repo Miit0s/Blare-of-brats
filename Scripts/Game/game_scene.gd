@@ -25,9 +25,13 @@ class_name GameScene
 @export var third_phase_state: WwiseState
 @export var danger_phase_start: WwiseEvent
 
+@export var soundbar_lvl1: WwiseEvent
+@export var soundbar_lvl2: WwiseEvent
+
 @export var crowd_reaction_duration: float = 1.5
 @export var continious_crowd_switch: WwiseSwitch
 @export var reaction_crowd_switch: WwiseSwitch
+@export var crowd_sound : WwiseEvent
 
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
@@ -85,6 +89,7 @@ func start_round():
 	camera_controller.start_tracking()
 	
 	music_fight.post(self)
+	crowd_sound.post(self)
 
 func setup_new_scene():
 	if _current_scene:
@@ -207,11 +212,15 @@ func _activate_the_danger_phase():
 	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
 
 func _on_soundbar_lock_area_pass(lock_phase: int):
-	print(lock_phase)
 	match lock_phase:
-		0: round_start_state.set_value()
-		1: second_phase_state.set_value()
-		2: third_phase_state.set_value()
+		0: 
+			round_start_state.set_value()
+		1: 
+			second_phase_state.set_value()
+			soundbar_lvl1.post(self)
+		2: 
+			third_phase_state.set_value()
+			soundbar_lvl2.post(self)
 
 func _trigger_crowd_reaction():
 	reaction_crowd_switch.set_value(self)

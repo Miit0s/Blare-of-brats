@@ -37,6 +37,7 @@ offset_left = -431.0
 offset_top = -52.5
 offset_right = 419.0
 offset_bottom = 2.5
+min_life_for_crowd_reaction = 0.3
 
 [node name="GameSoundBar" parent="." unique_id=1894340611 instance=ExtResource("3_7nl3k")]
 layout_mode = 1

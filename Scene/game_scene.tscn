@@ -12,9 +12,12 @@
 [ext_resource type="WwiseSwitch" uid="uid://b4b2cqrs243i8" path="res://Wwise/resources/Switch/{FD1A1761-B018-456D-A243-B338F6410620}.tres" id="7_7o1xo"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="WwiseSwitch" uid="uid://cl5vc46xtn65y" path="res://Wwise/resources/Switch/{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}.tres" id="7_hdg2p"]
+[ext_resource type="WwiseEvent" uid="uid://de3xap53vjjev" path="res://Wwise/resources/Event/{379705D3-B374-4513-9155-CCCB5CB7D489}.tres" id="7_tit5h"]
 [ext_resource type="PackedScene" uid="uid://dl8w1gvqk5wp5" path="res://Scene/Map/map_4.tscn" id="7_vk7uo"]
+[ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="8_cv58c"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
 [ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/map_5.tscn" id="8_walhf"]
+[ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="9_7o1xo"]
 [ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://ducxajit3e4m2" path="res://Scene/Map/map_8_bis.tscn" id="13_5qsl7"]
 [ext_resource type="PackedScene" uid="uid://demh3of0nydlv" path="res://Scene/Map/map_a2.tscn" id="14_7o1xo"]
@@ -55,8 +58,11 @@ lead = ExtResource("3_mlt6n")
 round_start_state = ExtResource("4_mlt6n")
 second_phase_state = ExtResource("5_tw2pt")
 third_phase_state = ExtResource("6_hdg2p")
+soundbar_lvl1 = ExtResource("7_tit5h")
+soundbar_lvl2 = ExtResource("8_cv58c")
 continious_crowd_switch = ExtResource("7_7o1xo")
 reaction_crowd_switch = ExtResource("7_hdg2p")
+crowd_sound = ExtResource("9_7o1xo")
 possible_level = Array[PackedScene]([ExtResource("19_vijqy"), ExtResource("6_g00sh"), ExtResource("7_vk7uo"), ExtResource("8_walhf"), ExtResource("18_7o1xo"), ExtResource("17_hdg2p"), ExtResource("13_5qsl7"), ExtResource("14_7o1xo"), ExtResource("15_vijqy"), ExtResource("16_ubkdv"), ExtResource("17_tit5h")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]

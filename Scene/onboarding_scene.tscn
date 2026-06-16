@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbhul4xaw6l4n" path="res://Scripts/Game/onboarding_scene.gd" id="1_d4n33"]
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
-[ext_resource type="Script" uid="uid://c02cnle76j6bl" path="res://Scripts/Resources/task_info_ressource.gd" id="2_v11op"]
+[ext_resource type="Script" path="res://Scripts/Resources/task_info_ressource.gd" id="2_v11op"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
 [ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/Map_Onboarding.tscn" id="5_hq2bc"]
