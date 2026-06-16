@@ -89,6 +89,8 @@ var _is_playing_attacking_animation: bool = false
 
 var _attack_move_timer: Tween = null
 
+var skin: ControllerSlot.PossibleSkin
+
 signal has_been_hit(player_id: int, damage: float)
 
 signal did_dash()
@@ -141,9 +143,6 @@ func _physics_process(delta: float) -> void:
 		if _is_playing_attacking_animation:
 			if not is_moving: return
 			else: _is_playing_attacking_animation = false
-		
-		if player_id == 0:
-			print(is_moving)
 		
 		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
 		_update_sprite(sprite_direction, is_moving)
@@ -540,6 +539,7 @@ func item_will_be_destroy(_item: Item):
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture
 	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d
+	skin = selection.skin
 	
 	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()
 	dash_material.set_shader_parameter("color_override", Color.WHITE)
