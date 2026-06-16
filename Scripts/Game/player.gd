@@ -85,6 +85,7 @@ var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
 var _is_freeze: bool = false
+var _is_playing_attacking_animation: bool = false
 
 var _attack_move_timer: Tween = null
 
@@ -97,6 +98,7 @@ signal did_throw()
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
+	player_animated_sprite_3d.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -130,12 +132,21 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 	
 	var velocity_length: float = velocity.length()
-	if velocity_length > 0: walk_smoke.emitting = true
+	var is_moving: bool = velocity_length > 0
+	
+	if is_moving: walk_smoke.emitting = true
 	else: walk_smoke.emitting = false
 	
 	if not _is_stun and not _is_freeze and not _is_attacking:
+		if _is_playing_attacking_animation:
+			if not is_moving: return
+			else: _is_playing_attacking_animation = false
+		
+		if player_id == 0:
+			print(is_moving)
+		
 		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
-		_update_sprite(sprite_direction, velocity_length > 0)
+		_update_sprite(sprite_direction, is_moving)
 	
 	move_and_slide()
 	
@@ -143,6 +154,8 @@ func _physics_process(delta: float) -> void:
 		_detect_wall_bounce()
 
 func _process(delta: float) -> void:
+	_update_material_to_current_texture()
+	
 	if _is_freeze or _is_stun: return
 	
 	var aim_direction: Vector3 = Vector3.ZERO
@@ -397,8 +410,7 @@ func _override_color_effect():
 
 func _update_sprite(current_direction: Vector3, is_moving: bool):
 	if not is_moving:
-		if current_picked_item: _display_idle_sprite_with_item(current_direction)
-		else: _display_idle_sprite_no_item(current_direction)
+		_display_idle_sprite_no_item(current_direction)
 	else:
 		var animations_index: int = _get_angle_zone(current_direction, character_animation.run_animation.get_animation_names().size())
 		match animations_index:
@@ -420,30 +432,43 @@ func _display_idle_sprite_no_item(current_direction: Vector3):
 		_change_player_sprite(character_animation.idle_animation, "right")
 
 func _display_idle_sprite_with_item(current_direction: Vector3):
-	var animations_index: int = _get_angle_zone(current_direction, current_picked_item.idle_animation.get_animation_names().size())
-	match animations_index:
-		0: _change_player_sprite(current_picked_item.idle_animation, "front")
-		1: _change_player_sprite(current_picked_item.idle_animation, "right")
-		2: _change_player_sprite(current_picked_item.idle_animation, "back")
-		3: _change_player_sprite(current_picked_item.idle_animation, "left")
+	var number_of_side: int = current_picked_item.idle_animation.get_animation_names().size()
+	var animations_index: int = _get_angle_zone(current_direction, number_of_side)
+	
+	if number_of_side == 2:
+		match animations_index:
+			0: _change_player_sprite(current_picked_item.idle_animation, "left")
+			1: _change_player_sprite(current_picked_item.idle_animation, "right")
+	else:
+		match animations_index:
+			0: _change_player_sprite(current_picked_item.idle_animation, "front")
+			1: _change_player_sprite(current_picked_item.idle_animation, "right")
+			2: _change_player_sprite(current_picked_item.idle_animation, "back")
+			3: _change_player_sprite(current_picked_item.idle_animation, "left")
 
 func _apply_attack_animation(attack_direction: Vector3):
-	var animations_index: int = _get_angle_zone(attack_direction, current_picked_item.attack_animations.get_animation_names().size())
+	_is_playing_attacking_animation = true
+	
+	var number_of_side: int = current_picked_item.idle_animation.get_animation_names().size()
+	var animations_index: int = _get_angle_zone(attack_direction, number_of_side, PI / 2)
+	
 	var correct_anim_name: String = "default"
-	match animations_index:
-		0: correct_anim_name = "front"
-		1: correct_anim_name = "right"
-		2: correct_anim_name = "back"
-		3: correct_anim_name = "left"
+	if number_of_side == 2:
+		match animations_index:
+			0: correct_anim_name = "left"
+			1: correct_anim_name = "right"
+	else:
+		match animations_index:
+			0: correct_anim_name = "front"
+			1: correct_anim_name = "right"
+			2: correct_anim_name = "back"
+			3: correct_anim_name = "left"
 	
 	_change_player_sprite(current_picked_item.attack_animations, correct_anim_name)
-	player_animated_sprite_3d.speed_scale = player_animated_sprite_3d.sprite_frames.get_frame_count(correct_anim_name) / current_picked_item.attack_speed
-	await get_tree().create_timer(current_picked_item.attack_speed).timeout
-	player_animated_sprite_3d.speed_scale = 1
 
 
-func _get_angle_zone(direction: Vector3, steps: int) -> int:
-	var angle: float = atan2(direction.x, direction.z)
+func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) -> int:
+	var angle: float = atan2(direction.x, direction.z) + angle_offset
 	angle += TAU if angle < 0.0 else 0.0
 	return wrapi(round(angle * steps / TAU), 0, steps)
 
@@ -453,9 +478,12 @@ func _change_player_sprite(new_sprite_frames: SpriteFrames, sprite_animation_nam
 	player_animated_sprite_3d.sprite_frames = new_sprite_frames
 	player_animated_sprite_3d.animation = sprite_animation_name
 	player_animated_sprite_3d.play()
+	
+	_update_material_to_current_texture()
 
+func _update_material_to_current_texture():
 	var material_sprite: ShaderMaterial = player_animated_sprite_3d.material_override
-	var texture = new_sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
+	var texture = player_animated_sprite_3d.sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
 	material_sprite.set_shader_parameter("main_texture", texture)
 
 func _update_particle_to_current_sprite():
