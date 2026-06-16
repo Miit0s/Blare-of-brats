@@ -68,6 +68,7 @@ func start_round_animation():
 
 func start_round():
 	game_bar.reset_all_bar()
+	game_bar.shared_life_bar.unlock()
 	
 	_round_ended = false
 	
@@ -115,10 +116,14 @@ func player_win(player_id: int):
 	players_win[player_id] += 1
 	_last_player_win_id = player_id
 	
+	game_bar.shared_life_bar.lock()
+	
 	for player in players:
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()
+	tracking_spot_player_one.target = null
+	tracking_spot_player_two.target = null
 	
 	music_fight.stop(self)
 	

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b11h5aa5vxcaf"]
 
 [ext_resource type="Script" uid="uid://bvmh4edtdn5hf" path="res://Scripts/UI/task_list.gd" id="1_37qrt"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_owvbq"]
+[ext_resource type="Texture2D" uid="uid://ca3aw26wkohvl" path="res://Assets/SpriteUI/Onboarding/banner_tasks.png" id="2_vkxd4"]
+[ext_resource type="PackedScene" uid="uid://dxbra0gmi7c5e" path="res://UI/ControlTool/task.tscn" id="4_7p0jw"]
 
 [node name="TaskList" type="Control" unique_id=904087515]
 custom_minimum_size = Vector2(500, 230)
@@ -8,22 +11,45 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 230.0
+theme = ExtResource("1_owvbq")
 script = ExtResource("1_37qrt")
+task_prefab = ExtResource("4_7p0jw")
+spawn_tween_duration = 0.5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1236751570]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=104598256]
+self_modulate = Color(0.3137255, 0.7176471, 0.4392157, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+texture = ExtResource("2_vkxd4")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1117413817]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -64.0
+offset_bottom = -17.62236
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+text = "Task"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1117413817]
+[node name="TaskContainer" type="VBoxContainer" parent="." unique_id=1967420849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 77.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Task" parent="TaskContainer" unique_id=1960353569 instance=ExtResource("4_7p0jw")]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "Task"
-
-[node name="TaskContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1967420849]
-layout_mode = 2
-size_flags_vertical = 3

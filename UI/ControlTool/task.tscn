@@ -1,27 +1,26 @@
 [gd_scene format=3 uid="uid://dxbra0gmi7c5e"]
 
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_3xpjn"]
 [ext_resource type="Script" uid="uid://bg8poy2xnqt5t" path="res://Scripts/UI/task.gd" id="1_r2mic"]
-[ext_resource type="Texture2D" uid="uid://ct22ot813v1kw" path="res://Assets/MockSprite/check.png" id="2_hohlh"]
 [ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="2_r2mic"]
+[ext_resource type="Texture2D" uid="uid://c28sm8ca1iih7" path="res://Assets/SpriteUI/Onboarding/banner_task_details.png" id="3_a0lag"]
+[ext_resource type="Texture2D" uid="uid://ctbfto0d5hgkb" path="res://Assets/SpriteUI/Onboarding/square_box.png" id="4_3xpjn"]
+[ext_resource type="Texture2D" uid="uid://bkjsqbeha7nxv" path="res://Assets/SpriteUI/Onboarding/mask_square.png" id="6_3xpjn"]
+[ext_resource type="Texture2D" uid="uid://bepwwn0lhui1t" path="res://Assets/SpriteUI/Onboarding/circle_binding.png" id="7_qyfq3"]
+[ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="8_775m1"]
 
-[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text")]
-custom_minimum_size = Vector2(500, 80)
+[node name="Task" type="Control" unique_id=1960353569 node_paths=PackedStringArray("task_text", "controller_icon_parser", "task_container")]
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_3xpjn")
 script = ExtResource("1_r2mic")
-task_text = NodePath("HBoxContainer/TaskText")
+task_text = NodePath("TaskContainer/TaskText")
+controller_icon_parser = NodePath("TaskContainer/Control/ControllerIconParser")
+task_container = NodePath("TaskContainer")
 on_completed_sound = ExtResource("2_r2mic")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=55320036]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.3137255)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2090353070]
+[node name="TaskContainer" type="Control" parent="." unique_id=1246412909]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,44 +28,106 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CheckBox" type="Control" parent="HBoxContainer" unique_id=1817019686]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/CheckBox" unique_id=350125842]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.33660764, 0.3366076, 0.3366076, 1)
-
-[node name="Check" type="TextureRect" parent="HBoxContainer/CheckBox" unique_id=1291482582]
-self_modulate = Color(0, 1, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="TaskContainer" unique_id=1755961929]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_hohlh")
+texture = ExtResource("3_a0lag")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer" unique_id=265601073]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
+[node name="CheckBox" type="Control" parent="TaskContainer" unique_id=1817019686]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_vertical = 2
 
-[node name="TaskText" type="Label" parent="HBoxContainer" unique_id=1672430373]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="TaskContainer/CheckBox" unique_id=1678318841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3xpjn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Check" type="TextureRect" parent="TaskContainer/CheckBox" unique_id=1291482582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.5
+offset_right = -12.500008
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+texture = ExtResource("6_3xpjn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TaskText" type="RichTextLabel" parent="TaskContainer" unique_id=625241857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
 text = "This is a task"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="TaskContainer" unique_id=1057978301]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TaskContainer/Control" unique_id=756900608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_qyfq3")
+expand_mode = 5
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="TaskContainer/Control" unique_id=638680798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "{JoinGame}"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_775m1")
+image_size_offset = 20
+white_version = true
+raw_text = "{JoinGame}"
+metadata/_custom_type_script = "uid://0suax27ohuw"

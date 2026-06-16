@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgxrik5ollgn3"]
 
-[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Game/item.gd" id="1_0o2h0"]
+[ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Item/item.gd" id="1_0o2h0"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
 [ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_t4ted"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
@@ -75,6 +75,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_0o2h0")
+mask_that_block_attack = 1
 collision_shape_3d = NodePath("CollisionShape3D")
 attack_collision_area = NodePath("AttackCollisionArea")
 attack_collision_shape_3d = NodePath("AttackCollisionArea/CollisionShape3D")
