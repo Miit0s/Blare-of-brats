@@ -61,12 +61,13 @@ func _ready() -> void:
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
-	round_start_state.set_value()
 	start_round_animation()
 
 func start_round_animation():
 	round_end_ui.hide()
 	game_bar.hide()
+	
+	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
