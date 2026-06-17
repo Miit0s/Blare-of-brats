@@ -1031,14 +1031,28 @@ texture = SubResource("GradientTexture2D_y0a5r")
 [node name="Particles" type="Node3D" parent="." unique_id=1784685170]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" unique_id=662395263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.48317, 8.305851, -0.6560383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.189556, 8.305851, -4.325344)
+amount = 500
+lifetime = 1.11
+process_material = SubResource("ParticleProcessMaterial_d1br4")
+draw_pass_1 = SubResource("QuadMesh_7145y")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="Particles" unique_id=1698780162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.329884, 8.305851, 8.100405)
 amount = 500
 lifetime = 1.11
 process_material = SubResource("ParticleProcessMaterial_d1br4")
 draw_pass_1 = SubResource("QuadMesh_7145y")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Particles" unique_id=1326223353]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.255169, 7.2497854, 1.5892467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.255169, 7.2497854, 1.5892467)
+amount = 500
+lifetime = 1.11
+process_material = SubResource("ParticleProcessMaterial_d1br4")
+draw_pass_1 = SubResource("QuadMesh_7145y")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="Particles" unique_id=1620629932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.94927, 7.2497854, 9.165083)
 amount = 500
 lifetime = 1.11
 process_material = SubResource("ParticleProcessMaterial_d1br4")
