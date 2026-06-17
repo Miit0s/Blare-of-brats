@@ -5,15 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://dm27vejb7wcsk" path="res://Assets/MockSprite/SpriteSheetFightingGlove.png" id="3_ab0ye"]
 [ext_resource type="WwiseEvent" uid="uid://dkwv36grr47rk" path="res://Wwise/resources/Event/{8EEAA15B-A805-4909-9B85-FE3E1D889573}.tres" id="3_f7lnn"]
 [ext_resource type="Texture2D" uid="uid://dsh6ekwqw3wvl" path="res://Assets/MockSprite/boxing_glove_v2.png" id="3_okxgy"]
+[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="4_jpq11"]
+[ext_resource type="Resource" uid="uid://dhwbqkafb7ek3" path="res://Ressources/ItemAnimation/boxing_glove_for_max.tres" id="5_wea4h"]
+[ext_resource type="Resource" uid="uid://rd1yryo4s7e4" path="res://Ressources/ItemAnimation/boxing_glove_for_ash.tres" id="6_o3vie"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_f7lnn"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_h28yb"]
 resource_local_to_scene = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ugyv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_x7kjt"]
 resource_local_to_scene = true
-size = Vector3(0.5, 0.646, 0.5)
+size = Vector3(0.8, 0.646, 1.1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_f7lnn"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_8lwek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeju"]
 atlas = ExtResource("3_ab0ye")
@@ -66,34 +69,38 @@ script = ExtResource("2_okxgy")
 min_collision_range = 0.5
 max_collision_range = 4.5
 attack_speed = 0.3
-damage = 4.5
+damage = 5.0
 throw_damage = 3.0
 sound_on_attack = 3.0
 sound_on_throw = 1.0
 attack_sound = ExtResource("3_f7lnn")
 durability = 3
+animations = Dictionary[int, ExtResource("4_jpq11")]({
+0: ExtResource("5_wea4h"),
+1: ExtResource("6_o3vie")
+})
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
 transform = Transform3D(0.14223109, -0.14060697, 3.7252903e-09, 0.13212733, 0.13365349, 0.06840403, -0.048090417, -0.0486459, 0.18793853, 0, 0, 0)
 texture = ExtResource("3_okxgy")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_f7lnn")
+shape = SubResource("SphereShape3D_h28yb")
 
 [node name="AttackCollisionArea" parent="." index="2" unique_id=843248323]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
-shape = SubResource("BoxShape3D_0ugyv")
+shape = SubResource("BoxShape3D_x7kjt")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_f7lnn")
+mesh = SubResource("ImmediateMesh_8lwek")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 
-[node name="ItemAnimation" parent="VisualAnchor" index="1" unique_id=187442146]
+[node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.2999998, 0, 0, 0, 0.29999992, 0, 0, 0, 0.2999999, 1.9999995, 0, 7.1054274e-15)
 cast_shadow = 0
 sprite_frames = SubResource("SpriteFrames_okxgy")

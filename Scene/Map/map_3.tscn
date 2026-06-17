@@ -38,7 +38,7 @@ transform = Transform3D(-0.09606989, 0, -0.035838332, 0, 0.19758704, 0, 0.096069
 transform = Transform3D(1.6183291e-08, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 4.1768238e-09, 3.0328245, 0.3300631, 6.857536)
 
 [node name="NewDemiMur2" parent="Wall" unique_id=685605646 instance=ExtResource("4_k8ti3")]
-transform = Transform3D(1.6183291e-08, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 4.1768238e-09, -5.781885, 0.3300631, 6.857536)
+transform = Transform3D(9.317209e-09, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 2.4047238e-09, -5.781885, 0.3300631, 6.857536)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_peal6")
@@ -60,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.578858, 0.8373332, 2.920974
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.346296, 0.8373313, 6.0725203)
 
 [node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=947071575 instance=ExtResource("21_rngld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3622298, 0.83733225, 9.104841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3781338, 0.83733225, 9.104841)
 
 [node name="PlayerSpawnSystem" type="Node3D" parent="." unique_id=877128500 node_paths=PackedStringArray("players_spawn", "player_parent_node")]
 script = ExtResource("22_peqgq")

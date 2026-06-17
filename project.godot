@@ -14,15 +14,16 @@ quick_scenes/quick_run_shortcut=Object(Shortcut,"resource_local_to_scene":false,
 ],"script":null)
 
 quick_scenes/selected_scene=0
-quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1", "uid://36tccmd3uybf")
+quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
 
 [application]
 
 config/name="Blare of Brats"
-config/version="0.3.2"
+config/version="0.2.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://du1b70k1hymft"
+config/windows_native_icon="res://bob-icon.ico"
 
 [audio]
 
@@ -41,7 +42,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-display_server/driver.linuxbsd="x11"
 window/vsync/vsync_mode=3
 
 [editor_plugins]
@@ -365,7 +365,6 @@ copy_path="res://MenuTemplate/"
 [physics]
 
 3d/physics_engine="Jolt Physics"
-common/physics_interpolation=true
 
 [rendering]
 
