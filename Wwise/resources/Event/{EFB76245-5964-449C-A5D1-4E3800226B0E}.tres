@@ -1,0 +1,7 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bb0oq2wjcu4q1"]
+
+[resource]
+name = "Pencil_Attack"
+id = 3470720449
+guid = "{EFB76245-5964-449C-A5D1-4E3800226B0E}"
+dummy = true

@@ -5,7 +5,7 @@ uniform float outer_bound : hint_range(0.0, 0.5, 0.05) = 0.4;
 uniform float inner_bound : hint_range(0.0, 0.4, 0.05) = 0.3;
 uniform float fill_direction : hint_range(-1.0, 1.0, 2.0) = 1.0;
 
-uniform float progress : hint_range(0.0, 1.0) = 1.0;
+uniform float progress : hint_range(0.0, 1.0, 0.01) = 0.0;
 
 void fragment() {
 	float outer_bound_alpha = 1.0 - step(outer_bound, distance(vec2(0.5), UV));

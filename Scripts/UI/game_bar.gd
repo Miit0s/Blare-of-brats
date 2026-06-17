@@ -8,6 +8,9 @@ class_name GameBar
 @onready var round_win_indicator_left: RoundWinIndicator = $RoundWinIndicatorLeft
 @onready var round_win_indicator_right: RoundWinIndicator = $RoundWinIndicatorRight
 
+@export var player_health: float = 20
+@export var sound_bar_max_volume: float = 100
+
 var left_player_id: int = -1
 var right_player_id: int = -1
 
@@ -18,6 +21,9 @@ signal lifebar_value_change(new_value: float)
 signal lock_area_pass(lock_phase: int)
 
 func _ready() -> void:
+	shared_life_bar.player_health = player_health
+	game_sound_bar.sound_bar_max_volume = sound_bar_max_volume
+	
 	game_sound_bar.sound_bar_fill.connect(_on_sound_bar_fill)
 	game_sound_bar.lock_area_pass.connect(lock_area_pass.emit)
 	shared_life_bar.player_win.connect(_on_player_win)

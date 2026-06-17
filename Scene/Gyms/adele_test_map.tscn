@@ -28,10 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://dtq73gg50cfhg" path="res://Assets/EnvironmentSprite/wolf01.png" id="18_gas3y"]
 [ext_resource type="Shader" uid="uid://ch7l2un68m4lb" path="res://Shader/god_ray_shader.gdshader" id="19_hj6gq"]
 [ext_resource type="Texture2D" uid="uid://c28sgxfw2q1s6" path="res://Assets/VFX/vfx_confetti_sprite3.png" id="20_0v2uo"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="21_iifnc"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="21_iifnc"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="22_4onup"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="23_6xa74"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="24_bgjd0"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)

@@ -4,9 +4,10 @@ extends GameScene
 @onready var show_life_bar: Panel = $CanvasLayer/ShowLifeBar
 @onready var onboarding_text_display: OnboardingTextDisplay = $CanvasLayer/OnboardingTextDisplay
 
+@export_category("Task")
 @export var input_reminders: Array[InputReminder]
 @export var task_lists: Array[TaskList]
-@export var task_prefab: PackedScene
+@export var task_info_in_order: Array[TaskInfo]
 
 @export_category("Text Tutorial")
 @export var sound_title: String = "Sound Bar"
@@ -42,13 +43,21 @@ func _ready() -> void:
 	input_reminders[0].player_input_id = players_selection[0].player_id
 	input_reminders[1].player_input_id = players_selection[1].player_id
 	
+	task_lists[0].setup_color_for_task_list(players_selection[0].color_skin)
+	task_lists[1].setup_color_for_task_list(players_selection[1].color_skin)
+	
 	for input_reminder in input_reminders:
-		input_reminder.player_ready.connect(_player_his_ready)
+		input_reminder.player_ready.connect(_player_his_ready, ConnectFlags.CONNECT_ONE_SHOT)
 	
 	for task_list in task_lists:
 		task_list.all_task_complete.connect(_player_have_finish_quest)
 	
 	setup_new_scene()
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	for input_reminder in input_reminders:
+		input_reminder.trigger_spawn_animation()
 
 func go_to_next_scene():
 	GameOptions.have_played_tutorial = true
@@ -64,6 +73,11 @@ func go_to_next_scene():
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:
 	var winner_data: PlayerCharacterSelection = _get_player_selection(player_id)
+	
+	game_bar.shared_life_bar.lock()
+	
+	for player in players:
+		player.freeze()
 	
 	music_fight.stop(self)
 	camera_controller.stop_tracking()
@@ -88,9 +102,15 @@ func _player_his_ready():
 	_number_player_ready += 1
 	
 	if player_number <= _number_player_ready:
+		for input_reminder in input_reminders:
+			input_reminder.trigger_despawn_animation()
+		
+		await get_tree().create_timer(input_reminders[0].ready_tween_duration).timeout
+		
 		camera_controller.start_tracking()
 		_trigger_dash_quest()
 		music_fight.post(self)
+		crowd_sound.post(self)
 
 func _show_sound_bar():
 	show_sound_bar.show()
@@ -124,43 +144,45 @@ func onboarding_text_finish():
 		player.unfreeze()
 
 func _trigger_dash_quest():
-	for input_reminder in input_reminders:
-		input_reminder.queue_free()
-	
 	for player in players:
 		player.unfreeze()
 	
 	for i in task_lists.size():
-		task_lists[i].show()
-		
-		var task: Task = task_prefab.instantiate()
-		task.task_text.text = "Make a Dash"
+		task_lists[i].trigger_spawn_animation()
+	await get_tree().create_timer(task_lists.front().spawn_tween_duration).timeout
+	
+	var task_info: TaskInfo = task_info_in_order.pop_front()
+	for i in task_lists.size():
+		var task: Task = task_lists[i].task_prefab.instantiate()
 		players[i].did_dash.connect(task.task_complete)
 		
-		task_lists[i].add_new_task(task)
+		task_lists[i].add_new_task(task, task_info, players[i].player_id)
 
 func _trigger_item_quest():
 	if _current_scene is MapOnboarding:
 		_current_scene.move_down_wall()
 	
+	var first_task: TaskInfo = task_info_in_order.pop_front()
+	var second_task: TaskInfo = task_info_in_order.pop_front()
+	var third_task: TaskInfo = task_info_in_order.pop_front()
+	
 	for i in task_lists.size():
 		task_lists[i].clear_task()
 		
+		var task_prefab: PackedScene = task_lists[i].task_prefab
+		
 		var pick_up_task: Task = task_prefab.instantiate()
-		pick_up_task.task_text.text = "Pick up a object"
 		players[i].pick_up_object.connect(pick_up_task.task_complete)
 		
 		var attack_task: Task = task_prefab.instantiate()
-		attack_task.task_text.text = "Attack"
 		players[i].did_attack.connect(attack_task.task_complete)
 		
 		var throw_task: Task = task_prefab.instantiate()
-		throw_task.task_text.text = "Throw the object"
 		players[i].did_throw.connect(throw_task.task_complete)
 		
-		task_lists[i].add_new_task(pick_up_task)
-		task_lists[i].add_new_task(attack_task)
-		task_lists[i].add_new_task(throw_task)
+		task_lists[i].add_new_task(pick_up_task, first_task, players[i].player_id)
+		task_lists[i].add_new_task(attack_task, second_task, players[i].player_id)
+		task_lists[i].add_new_task(throw_task, third_task, players[i].player_id)
 
 func _player_have_finish_quest():
 	_number_player_quest_complet += 1
@@ -176,4 +198,5 @@ func _player_have_finish_quest():
 		game_bar.shared_life_bar.unlock()
 		
 		for task_list in task_lists:
-			task_list.hide()
+			task_list.task_remove_anim_finish.connect(task_list.trigger_despawn_animation, ConnectFlags.CONNECT_ONE_SHOT)
+			task_list.clear_task()

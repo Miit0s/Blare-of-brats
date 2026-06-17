@@ -1,0 +1,73 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3470720449",
+    "Type": "Event",
+    "GUID": "{EFB76245-5964-449C-A5D1-4E3800226B0E}",
+    "Language": "SFX",
+    "Hash": "{85771E11-E77B-D65F-95A4-DFB6C358F812}",
+    "ObjectPath": "Pencil_Attack",
+    "ShortName": "Pencil_Attack",
+    "Path": "Event/Pencil_Attack.bnk",
+    "Media": [
+     {
+      "Id": "404573732",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swoosh_002.wav",
+      "Path": "Media/404573732.wem",
+      "CachePath": "CD/{CDBEFE21-323C-343A-D219-AF41B53E72BE}.wem"
+     },
+     {
+      "Id": "442247497",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swoosh_001.wav",
+      "Path": "Media/442247497.wem",
+      "CachePath": "54/{54BA0BB4-598A-A7F3-2091-7A428E4461A9}.wem"
+     },
+     {
+      "Id": "980030141",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swoosh_003.wav",
+      "Path": "Media/980030141.wem",
+      "CachePath": "D7/{D79D665D-B51C-BE13-3343-7013C2ED2A7A}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3470720449",
+      "Name": "Pencil_Attack",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Pencil\\Pencil_Attack",
+      "GUID": "{EFB76245-5964-449C-A5D1-4E3800226B0E}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.21048209",
+      "DurationMax": "0.2763508",
+      "MediaRefs": [
+       {
+        "Id": "404573732"
+       },
+       {
+        "Id": "442247497"
+       },
+       {
+        "Id": "980030141"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A39129E2-4B19-FE67-C88B-00585EA0E2D1}"
+ }
+}

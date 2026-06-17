@@ -1,36 +1,32 @@
 extends Control
 
-@onready var play_button: TextureButton = $MainButton/ControlPlay/Play
-@onready var options_button: TextureButton = $MainButton/ControlOptions/Options
-@onready var credits_button: TextureButton = $MainButton/ControlCredits/Credits
-@onready var exit_button: TextureButton = $MainButton/ControlExit/Exit
+@onready var play_button: TextureButton = $MainStack/MainButton/ControlPlay/Play
+@onready var options_button: TextureButton = $MainStack/MainButton/ControlOptions/Options
+@onready var credits_button: TextureButton = $MainStack/MainButton/ControlCredits/Credits
+@onready var exit_button: TextureButton = $MainStack/MainButton/ControlExit/Exit
 
 @onready var quit_prompt: Control = $QuitPrompt
 @onready var credits: Control = $Credits
 @onready var options: Control = $Options
 
-@onready var background: TextureRect = $Background
+@onready var background: TextureRect = $Background/ImageBackground
 @onready var screen_center: Vector2 = get_viewport_rect().size / 2
 
 @export var game_start_scene_uid: String
 
 @export_category("Background Move")
-@export var max_offset: float = 30.0
-@export var lerp_speed: float = 5.0
+@export var move_offset: float = 5.0
+@export var move_speed: float = 0.2
 @export var buttons_impacting_movement: Array[BaseButton]
 
-var target_offset: Vector2 = Vector2.ZERO
+var _previous_button_pos: Vector2 = Vector2.ZERO
+var _move_tween: Tween = null
 
 func _ready() -> void:
-	target_offset = background.position
-	
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
 	play_button.grab_focus()
-
-func _process(delta: float) -> void:
-	background.position = background.position.lerp(target_offset, lerp_speed * delta)
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(game_start_scene_uid)
@@ -58,7 +54,18 @@ func _on_credits_visibility_changed() -> void:
 		credits_button.grab_focus()
 
 func _on_button_focus_entered(button: BaseButton) -> void:
-	var button_center = button.global_position + (button.size / 2)
-	var direction = (button_center - screen_center) / screen_center
+	if _previous_button_pos == Vector2.ZERO:
+		_previous_button_pos = button.global_position
+		return
 	
-	target_offset = (-Vector2(0, direction.y) * max_offset) + Vector2(target_offset.x, 0)
+	var button_direction: float = button.global_position.y - _previous_button_pos.y
+	var y_offset = sign(button_direction) * move_offset
+	
+	_previous_button_pos = button.global_position
+	
+	_move_tween = create_tween()
+	_move_tween.set_ease(Tween.EASE_IN_OUT)
+	_move_tween.set_trans(Tween.TRANS_QUAD)
+	_move_tween.tween_property(background, "position", background.position + Vector2(0, y_offset), move_speed)
+	
+	_move_tween.finished.connect(func(): _move_tween = null)

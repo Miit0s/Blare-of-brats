@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dl8w1gvqk5wp5"]
+[gd_scene format=3 uid="uid://dqs5wv41trajr"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_rrmmq"]
 [ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_17qdp"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="8_t5h2n"]
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_mf6fu"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_w1516"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="20_u5l5f"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="20_u5l5f"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="21_uqnfj"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="22_y7bbm"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="23_x8kys"]
+
 
 [node name="Map4" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_rrmmq")
