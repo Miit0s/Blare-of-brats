@@ -59,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.578858, 0.8373332, 2.920974
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.346296, 0.8373313, 6.0725203)
 
 [node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=947071575 instance=ExtResource("21_rngld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3622298, 0.83733225, 9.104841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3781338, 0.83733225, 9.104841)
 
 [node name="PlayerSpawnSystem" type="Node3D" parent="." unique_id=877128500 node_paths=PackedStringArray("players_spawn", "player_parent_node")]
 script = ExtResource("22_peqgq")
