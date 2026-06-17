@@ -33,7 +33,6 @@
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="23_6xa74"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="24_bgjd0"]
 
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxqar"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
 sky_horizon_color = Color(0.2748403, 0.4835902, 0.8949217, 1)
@@ -427,6 +426,12 @@ shaded = true
 alpha_cut = 1
 texture = ExtResource("3_yghy2")
 
+[node name="Floor2" type="Sprite3D" parent="Sprite" unique_id=1028745666]
+transform = Transform3D(-1.1821827, 0, -1.03349684e-07, 1.03349684e-07, -5.1674842e-08, -1.1821827, -4.5175583e-15, -1.1821827, 5.1674842e-08, -1.843, 0.227, 28.23)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_yghy2")
+
 [node name="Floor_inside" type="Sprite3D" parent="Sprite" unique_id=958032237]
 transform = Transform3D(-1.0563079, 0, -9.234536e-08, 9.234536e-08, -4.617268e-08, -1.0563079, -4.0365444e-15, -1.0563079, 4.617268e-08, -0.9356458, 0.2536652, 3.7402468)
 shaded = true
@@ -458,7 +463,7 @@ alpha_cut = 1
 texture = ExtResource("5_03jmm")
 
 [node name="Cloud13" type="Sprite3D" parent="Sprite" unique_id=539180527]
-transform = Transform3D(-0.31095925, 6.79958e-16, -8.155479e-08, 4.498504e-09, 0.3104859, -0.017152295, 8.143062e-08, -0.017152295, -0.3104859, -7.052997, 0.96011347, 12.185485)
+transform = Transform3D(-0.31095925, 6.79958e-16, -8.155479e-08, 4.498504e-09, 0.3104859, -0.017152295, 8.143062e-08, -0.017152295, -0.3104859, -7.053, 0.96, 12.186)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_03jmm")
@@ -482,7 +487,7 @@ alpha_cut = 1
 texture = ExtResource("5_03jmm")
 
 [node name="Cloud14" type="Sprite3D" parent="Sprite" unique_id=1522667566]
-transform = Transform3D(-0.22132201, 4.83953e-16, -5.9891e-08, 3.2017635e-09, 0.22098511, -0.012596049, 5.7957397e-08, -0.012207968, -0.22801006, 7.022332, 1.5284213, 13.903961)
+transform = Transform3D(-0.22132201, 1.363294e-09, -3.4428563e-08, 3.2017635e-09, 0.22098511, -0.01259605, 3.324182e-08, -0.012207968, -0.22801006, 7.022, 1.527, 13.904)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_03jmm")
@@ -494,7 +499,7 @@ alpha_cut = 1
 texture = ExtResource("5_03jmm")
 
 [node name="Cloud16" type="Sprite3D" parent="Sprite" unique_id=951524734]
-transform = Transform3D(-0.22132201, 4.83953e-16, -5.8045774e-08, 3.2017635e-09, 0.22098511, -0.012207968, 5.7957397e-08, -0.012207968, -0.22098511, 23.9315, 1.5284213, 13.903961)
+transform = Transform3D(-0.22132201, 4.83953e-16, -5.8045774e-08, 3.2017635e-09, 0.22098511, -0.012207968, 5.7957397e-08, -0.012207968, -0.22098511, 23.931, 1.529, 13.904)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_03jmm")
