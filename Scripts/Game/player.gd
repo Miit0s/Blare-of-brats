@@ -71,6 +71,7 @@ var _knockback_speed_to_apply: float = 0
 
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
+@export var animated_sprite_3d_for_offset: AnimatedSprite3D
 @export var dash_effect: GPUParticles3D
 @export var throw_arrow: Sprite3D
 
@@ -85,7 +86,12 @@ var _is_stun: bool = false
 var _is_invincible: bool = false
 var _is_aiming: bool = false
 var _is_freeze: bool = false
-var _is_playing_attacking_animation: bool = false
+var _is_playing_attacking_animation: bool = false:
+	set(new_value):
+		_is_playing_attacking_animation = new_value
+		if not _is_playing_attacking_animation:
+			animated_sprite_3d_for_offset.hide()
+			player_animated_sprite_3d.show()
 
 var _attack_move_timer: Tween = null
 
@@ -100,7 +106,7 @@ signal did_throw()
 
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
-	player_animated_sprite_3d.animation_finished.connect(func(): _is_playing_attacking_animation = false)
+	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -153,14 +159,15 @@ func _physics_process(delta: float) -> void:
 		_detect_wall_bounce()
 
 func _process(delta: float) -> void:
-	_update_material_to_current_texture()
+	_update_material_to_current_texture(player_animated_sprite_3d)
+	_update_material_to_current_texture(animated_sprite_3d_for_offset)
 	
 	if _is_freeze or _is_stun: return
 	
 	var aim_direction: Vector3 = Vector3.ZERO
 	aim_direction = _current_direction if _current_direction else _last_direction
 		
-	if current_picked_item and (not current_picked_item.is_attacking):
+	if current_picked_item and not current_picked_item.is_attacking:
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		
@@ -297,6 +304,10 @@ func cancel_animation():
 	#throw_direction.hide()
 
 func _kill_current_animation():
+	animated_sprite_3d_for_offset.hide()
+	animated_sprite_3d_for_offset.stop()
+	player_animated_sprite_3d.show()
+	
 	if _attack_move_timer:
 		_attack_move_timer.kill()
 		_attack_move_timer = null
@@ -452,21 +463,34 @@ func _apply_attack_animation(attack_direction: Vector3):
 	var attack_animation: SpriteFrames = current_picked_item.animations[skin].attack_animations
 	var number_of_side: int = attack_animation.get_animation_names().size()
 	var animations_index: int = _get_angle_zone(attack_direction, number_of_side)
+	var sprite_offset: Vector2 = Vector2.ZERO
 	
 	var correct_anim_name: String = "default"
 	if number_of_side == 2:
 		animations_index = _get_angle_zone(attack_direction, number_of_side, PI / 2)
 		match animations_index:
-			0: correct_anim_name = "left"
-			1: correct_anim_name = "right"
+			0: 
+				correct_anim_name = "left"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_left
+			1: 
+				correct_anim_name = "right"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_right
 	else:
 		match animations_index:
-			0: correct_anim_name = "front"
-			1: correct_anim_name = "right"
-			2: correct_anim_name = "back"
-			3: correct_anim_name = "left"
+			0: 
+				correct_anim_name = "front"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_front
+			1: 
+				correct_anim_name = "right"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_right
+			2: 
+				correct_anim_name = "back"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_back
+			3: 
+				correct_anim_name = "left"
+				sprite_offset = current_picked_item.animations[skin].attack_offset_left
 	
-	_change_player_sprite(attack_animation, correct_anim_name)
+	_change_player_sprite(attack_animation, correct_anim_name, sprite_offset)
 
 
 func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) -> int:
@@ -474,18 +498,35 @@ func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) 
 	angle += TAU if angle < 0.0 else 0.0
 	return wrapi(round(angle * steps / TAU), 0, steps)
 
-func _change_player_sprite(new_sprite_frames: SpriteFrames, sprite_animation_name: String):
+func _change_player_sprite(new_sprite_frames: SpriteFrames, sprite_animation_name: String, sprite_offset: Vector2 = Vector2.ZERO):
 	if player_animated_sprite_3d.sprite_frames == new_sprite_frames and player_animated_sprite_3d.animation == sprite_animation_name: return
 	
-	player_animated_sprite_3d.sprite_frames = new_sprite_frames
-	player_animated_sprite_3d.animation = sprite_animation_name
-	player_animated_sprite_3d.play()
+	if sprite_offset != Vector2.ZERO:
+		animated_sprite_3d_for_offset.position = Vector3(sprite_offset.x, sprite_offset.y, 0)
+		animated_sprite_3d_for_offset.sprite_frames = new_sprite_frames
+		animated_sprite_3d_for_offset.animation = sprite_animation_name
+		
+		await get_tree().process_frame
+		
+		player_animated_sprite_3d.hide()
+		animated_sprite_3d_for_offset.show()
+		
+		animated_sprite_3d_for_offset.play()
+	else:
+		player_animated_sprite_3d.sprite_frames = new_sprite_frames
+		player_animated_sprite_3d.animation = sprite_animation_name
+		
+		animated_sprite_3d_for_offset.hide()
+		player_animated_sprite_3d.show()
+		
+		player_animated_sprite_3d.play()
 	
-	_update_material_to_current_texture()
+	_update_material_to_current_texture(player_animated_sprite_3d)
+	_update_material_to_current_texture(animated_sprite_3d_for_offset)
 
-func _update_material_to_current_texture():
-	var material_sprite: ShaderMaterial = player_animated_sprite_3d.material_override
-	var texture = player_animated_sprite_3d.sprite_frames.get_frame_texture(player_animated_sprite_3d.animation, player_animated_sprite_3d.frame)
+func _update_material_to_current_texture(animated_sprite: AnimatedSprite3D):
+	var material_sprite: ShaderMaterial = animated_sprite.material_override
+	var texture = animated_sprite.sprite_frames.get_frame_texture(animated_sprite.animation, animated_sprite.frame)
 	material_sprite.set_shader_parameter("main_texture", texture)
 
 func _update_particle_to_current_sprite():
