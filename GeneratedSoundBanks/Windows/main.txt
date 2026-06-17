@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	17302528	Launch			\ALL_EVENTS\SFX\Items\Launch	
 	17678017	UI_Menu_Nav			\ALL_EVENTS\SFX\UI\Menu\UI_Menu_Nav	
 	124719886	Balloon_Pop			\ALL_EVENTS\SFX\Enviro\Balloon_Pop	
+	352666449	stun			\ALL_EVENTS\SFX\Chara\Mov\stun	
 	628995931	Boy_TakingDamage			\ALL_EVENTS\SFX\Chara\Voice\Boy_TakingDamage	
 	763287926	Girl_Attack			\ALL_EVENTS\SFX\Chara\Voice\Girl_Attack	
 	922786755	UI_Menu_Back			\ALL_EVENTS\SFX\UI\Menu\UI_Menu_Back	
@@ -50,6 +51,7 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	16349992	hit_2	.cache\EB\{EB04D2AD-54E3-CDFA-C375-9664AA9AA3B7}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_2		34896
+	28070643	stun	.cache\B7\{B7416122-A2DB-3E2F-F3B7-A0D5B0F0807A}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\stun		255420
 	30562399	swoosh_rotation_2	.cache\6C\{6C97DB69-0B78-5DA8-C79D-47FFE0C22FD3}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_2		84104
 	31521035	Voice_Girl_TakingDamage_1	.cache\60\{6080526A-9468-68EE-E69C-AEAA6D253D12}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_1		77544
 	71385639	UI_Colors_Nav	.cache\B2\{B270214A-7885-4F88-B1A4-9CC94D413317}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\UI_Colors_Nav		11868

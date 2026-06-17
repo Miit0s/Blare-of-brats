@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{37274702-3CAA-2B20-1298-25F1761140AC}",
+    "Hash": "{B001F55D-FF4B-10E8-A695-0B31BB67E2CE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "hit_2.wav",
       "CachePath": "EB/{EB04D2AD-54E3-CDFA-C375-9664AA9AA3B7}.wem"
+     },
+     {
+      "Id": "28070643",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "stun.wav",
+      "CachePath": "B7/{B7416122-A2DB-3E2F-F3B7-A0D5B0F0807A}.wem"
      },
      {
       "Id": "30562399",
@@ -941,6 +949,21 @@
       ]
      },
      {
+      "Id": "352666449",
+      "Name": "stun",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Mov\\stun",
+      "GUID": "{B7E021BD-0229-492F-B110-F0B72000189C}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4062103",
+      "DurationMax": "1.489828",
+      "MediaRefs": [
+       {
+        "Id": "28070643"
+       }
+      ]
+     },
+     {
       "Id": "2476125396",
       "Name": "SwitchObject",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Chara\\Interac\\SwitchObject",
@@ -1097,6 +1120,6 @@
     ]
    }
   ],
-  "FileHash": "{E7B32335-47EE-CF4C-EA5C-67EA2322D86F}"
+  "FileHash": "{93605D7E-A6C9-A84C-AC4C-177AF8264B4E}"
  }
 }

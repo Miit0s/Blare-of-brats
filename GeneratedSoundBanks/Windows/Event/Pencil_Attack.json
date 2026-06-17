@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{EFB76245-5964-449C-A5D1-4E3800226B0E}",
     "Language": "SFX",
-    "Hash": "{0A3621C9-55C0-7367-D9AF-F5ED52562B1D}",
+    "Hash": "{85771E11-E77B-D65F-95A4-DFB6C358F812}",
     "ObjectPath": "Pencil_Attack",
     "ShortName": "Pencil_Attack",
     "Path": "Event/Pencil_Attack.bnk",
@@ -22,7 +22,7 @@
       "Location": "Loose",
       "ShortName": "swoosh_002.wav",
       "Path": "Media/404573732.wem",
-      "CachePath": "AC/{AC08B588-B58E-32B1-B3F2-6FC29A56B494}.wem"
+      "CachePath": "CD/{CDBEFE21-323C-343A-D219-AF41B53E72BE}.wem"
      },
      {
       "Id": "442247497",
@@ -31,7 +31,7 @@
       "Location": "Loose",
       "ShortName": "swoosh_001.wav",
       "Path": "Media/442247497.wem",
-      "CachePath": "8C/{8C436609-AE88-AD2A-E697-22D9732E0B03}.wem"
+      "CachePath": "54/{54BA0BB4-598A-A7F3-2091-7A428E4461A9}.wem"
      },
      {
       "Id": "980030141",
@@ -40,7 +40,7 @@
       "Location": "Loose",
       "ShortName": "swoosh_003.wav",
       "Path": "Media/980030141.wem",
-      "CachePath": "D9/{D900DDF8-B33C-24E7-6E33-02584CFC280D}.wem"
+      "CachePath": "D7/{D79D665D-B51C-BE13-3343-7013C2ED2A7A}.wem"
      }
     ],
     "Events": [
@@ -68,6 +68,6 @@
     ]
    }
   ],
-  "FileHash": "{506C2E78-0C9E-861C-1C79-F23F199D3C7F}"
+  "FileHash": "{A39129E2-4B19-FE67-C88B-00585EA0E2D1}"
  }
 }
