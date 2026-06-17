@@ -20,14 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://nxi08jaoj68g" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20016.png" id="17_mxhnj"]
 [ext_resource type="Texture2D" uid="uid://be3aiynhsyvx8" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20017.png" id="18_srgav"]
 [ext_resource type="Texture2D" uid="uid://c6s7gu6kk84ke" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20018.png" id="19_lfoh8"]
-[ext_resource type="Texture2D" uid="uid://b7822aqctdegv" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20019.png" id="20_mfvo8"]
-[ext_resource type="Texture2D" uid="uid://cxgrea67npc7d" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20020.png" id="21_af55q"]
-[ext_resource type="Texture2D" uid="uid://b1kog6o4xnhwr" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20021.png" id="22_7n4vh"]
-[ext_resource type="Texture2D" uid="uid://b6jut63i1bns5" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20022.png" id="23_2pyt4"]
-[ext_resource type="Texture2D" uid="uid://ca5j08j2qnu4a" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20023.png" id="24_a2rb4"]
-[ext_resource type="Texture2D" uid="uid://cpma6w3hi8eye" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20024.png" id="25_5bd0o"]
-[ext_resource type="Texture2D" uid="uid://y0815bvp31e6" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20025.png" id="26_gagr7"]
-[ext_resource type="Texture2D" uid="uid://khi18i42kytv" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Back/Pistogum-Attack-Back-Chara20026.png" id="27_gwr1s"]
 [ext_resource type="Texture2D" uid="uid://btfk0aoql78u5" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20000.png" id="28_8nuua"]
 [ext_resource type="Texture2D" uid="uid://c2t2433hf7p15" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20001.png" id="29_os0a5"]
 [ext_resource type="Texture2D" uid="uid://svclu5q7a03w" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20002.png" id="30_vl260"]
@@ -47,14 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://v7t87ibtjfs3" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20016.png" id="44_ngkbk"]
 [ext_resource type="Texture2D" uid="uid://by5pfovum50e3" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20017.png" id="45_51oqh"]
 [ext_resource type="Texture2D" uid="uid://bfe5j3pf1if3u" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20018.png" id="46_r05s4"]
-[ext_resource type="Texture2D" uid="uid://bf2ul4q32jxo8" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20019.png" id="47_qgqms"]
-[ext_resource type="Texture2D" uid="uid://cksp8s1agijjt" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20020.png" id="48_6xkam"]
-[ext_resource type="Texture2D" uid="uid://bo8v2bdd70dbt" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20021.png" id="49_seu64"]
-[ext_resource type="Texture2D" uid="uid://cd5ypxye35pd8" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20022.png" id="50_v3p5h"]
-[ext_resource type="Texture2D" uid="uid://bbi5ddycpwuol" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20023.png" id="51_y4gj7"]
-[ext_resource type="Texture2D" uid="uid://bhm2bda5thq6w" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20024.png" id="52_6ns1s"]
-[ext_resource type="Texture2D" uid="uid://cgd1dy6ia5yhh" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20025.png" id="53_lpbv6"]
-[ext_resource type="Texture2D" uid="uid://ujisfc5cjr6m" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Front/Pistogum-Attack-Front-Chara20026.png" id="54_68wp8"]
 [ext_resource type="Texture2D" uid="uid://c13praeo02vev" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20000.png" id="55_qkxwy"]
 [ext_resource type="Texture2D" uid="uid://ryo2ybdebnjc" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20001.png" id="56_arlj2"]
 [ext_resource type="Texture2D" uid="uid://cfnmin5bfamss" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20002.png" id="57_3osmj"]
@@ -74,15 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://c8l8dthrtvrg6" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20016.png" id="71_uy6u1"]
 [ext_resource type="Texture2D" uid="uid://mi7ufotq8a3r" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20017.png" id="72_shblc"]
 [ext_resource type="Texture2D" uid="uid://dk4bre30wuiag" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20018.png" id="73_ryd3c"]
-[ext_resource type="Texture2D" uid="uid://bywb287b27xt" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20019.png" id="74_ec8ja"]
-[ext_resource type="Texture2D" uid="uid://dyl3o2twck5gq" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20020.png" id="75_qqtpd"]
-[ext_resource type="Texture2D" uid="uid://db6omy0dfjprj" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20021.png" id="76_6eg3r"]
-[ext_resource type="Texture2D" uid="uid://c2xdli3dnhtvc" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20022.png" id="77_kyu3i"]
-[ext_resource type="Texture2D" uid="uid://bidpn0b5nx5jr" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20023.png" id="78_kmjhh"]
-[ext_resource type="Texture2D" uid="uid://dxmvp3nxl5a4" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20024.png" id="79_eo4xw"]
-[ext_resource type="Texture2D" uid="uid://co361f6ti8axi" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20025.png" id="80_eho1m"]
-[ext_resource type="Texture2D" uid="uid://pwdyif6bjoeb" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20026.png" id="81_pdlqo"]
-[ext_resource type="Texture2D" uid="uid://1v14h08ps4g4" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Left/Pistogum-Attack-Left-Chara20027.png" id="82_lgoy5"]
 [ext_resource type="Texture2D" uid="uid://d27wbkjuyl1j3" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20000.png" id="83_kav5m"]
 [ext_resource type="Texture2D" uid="uid://noaojlbh1gwm" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20001.png" id="84_qb0ii"]
 [ext_resource type="Texture2D" uid="uid://bavyvmpvggvx7" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20002.png" id="85_x05jk"]
@@ -102,15 +77,6 @@
 [ext_resource type="Texture2D" uid="uid://t77b0ejq4lhl" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20016.png" id="99_64ixh"]
 [ext_resource type="Texture2D" uid="uid://blnn1gtdwsmtc" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20017.png" id="100_jm2yh"]
 [ext_resource type="Texture2D" uid="uid://dh6yfqi3dyyt6" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20018.png" id="101_4k5dy"]
-[ext_resource type="Texture2D" uid="uid://l1eesgb6nphq" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20019.png" id="102_iabyb"]
-[ext_resource type="Texture2D" uid="uid://bxlf7vwg1n2c3" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20020.png" id="103_ob3dd"]
-[ext_resource type="Texture2D" uid="uid://dhsgh057w4j7d" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20021.png" id="104_18crg"]
-[ext_resource type="Texture2D" uid="uid://dk0ahg11vvx1p" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20022.png" id="105_2u5hj"]
-[ext_resource type="Texture2D" uid="uid://c06mu1k3bsolg" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20023.png" id="106_xjf5b"]
-[ext_resource type="Texture2D" uid="uid://di4momijtyjim" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20024.png" id="107_emttk"]
-[ext_resource type="Texture2D" uid="uid://6utubouiu5gc" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20025.png" id="108_4ax16"]
-[ext_resource type="Texture2D" uid="uid://dw1t4y4js8eo5" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20026.png" id="109_56exa"]
-[ext_resource type="Texture2D" uid="uid://cnutdixw7fobm" path="res://Assets/Item/Animation/Ash/Attack/Pistogum/Right/Pistogum-Attack-Right-Chara20027.png" id="110_asr0g"]
 [ext_resource type="Texture2D" uid="uid://bchv8yrufspa0" path="res://Assets/Item/Animation/Ash/Idle/Pistogum/Left/Pistogum-Idle-Left-Chara20000.png" id="111_wmiyi"]
 [ext_resource type="Texture2D" uid="uid://cicxsphkprrn6" path="res://Assets/Item/Animation/Ash/Idle/Pistogum/Left/Pistogum-Idle-Left-Chara20001.png" id="112_45rge"]
 [ext_resource type="Texture2D" uid="uid://kbtfis0jgo87" path="res://Assets/Item/Animation/Ash/Idle/Pistogum/Left/Pistogum-Idle-Left-Chara20002.png" id="113_ay84a"]
@@ -257,34 +223,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_lfoh8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_mfvo8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_af55q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_7n4vh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_2pyt4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_a2rb4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_5bd0o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_gagr7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_gwr1s")
 }],
 "loop": false,
 "name": &"back",
-"speed": 24.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -343,34 +285,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("46_r05s4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_qgqms")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_6xkam")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_seu64")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_v3p5h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_y4gj7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("52_6ns1s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53_lpbv6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("54_68wp8")
 }],
 "loop": false,
 "name": &"front",
-"speed": 24.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -429,37 +347,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("73_ryd3c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("74_ec8ja")
-}, {
-"duration": 1.0,
-"texture": ExtResource("75_qqtpd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("76_6eg3r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("77_kyu3i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("78_kmjhh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("79_eo4xw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("80_eho1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("81_pdlqo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("82_lgoy5")
 }],
 "loop": false,
 "name": &"left",
-"speed": 24.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -518,37 +409,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("101_4k5dy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("102_iabyb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("103_ob3dd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("104_18crg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("105_2u5hj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("106_xjf5b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("107_emttk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("108_4ax16")
-}, {
-"duration": 1.0,
-"texture": ExtResource("109_56exa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("110_asr0g")
 }],
 "loop": false,
 "name": &"right",
-"speed": 24.0
+"speed": 30.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8qcw"]
