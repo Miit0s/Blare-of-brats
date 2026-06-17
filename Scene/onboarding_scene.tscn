@@ -5,7 +5,7 @@
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
-[ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/map_onboarding.tscn" id="5_hq2bc"]
+[ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/Map_Onboarding.tscn" id="5_hq2bc"]
 [ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="6_5q1ap"]
 [ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="7_v11op"]
 [ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
@@ -56,7 +56,7 @@ script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
 task_prefab = ExtResource("2_qhsjr")
-sound_texts = Array[String](["[color=red]CAUTION ![/color][br]The Big Bad Wolf is coming after you when you [color=red]fill the sound bar[/color] !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color] !"])
+sound_texts = Array[String](["When the [color=red]Sound Bar is full[/color], the [color=red]eye of the [br] wolf is chasing you[/color] ! Don't be caught !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color]"])
 health_texts = Array[String](["You and your sibling share a [color=red]health bar[/color].[br]Whoever [color=red]fills it first[/color] wins !", "The health bar get [color=red]filled[/color] by [color=red]hitting[/color] your sibbling with [color=red]objects[/color] !"])
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")

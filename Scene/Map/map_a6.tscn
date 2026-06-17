@@ -25,7 +25,7 @@ item_spawn_system = NodePath("ItemSpawnSystem")
 transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -9.466546, 1.0760388, 4.7846975)
 
 [node name="ObstacleComplete8" parent="Wall" unique_id=1046873819 instance=ExtResource("3_pspxe")]
-transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -3.6212168, 1.0760388, 8.414383)
+transform = Transform3D(1.3589623e-08, 0, -0.039, 0, 0.198, 0, 0.18, 0, 2.9444183e-09, -3.6212168, 1.0760388, 8.283836)
 
 [node name="ObstacleComplete2" parent="Wall" unique_id=328230880 instance=ExtResource("3_pspxe")]
 transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -9.466547, 1.0760388, -0.810256)
@@ -44,9 +44,6 @@ transform = Transform3D(0.26301003, 0, 5.569099e-09, 0, 0.19758703, 0, -4.598613
 
 [node name="NewDemiMur2" parent="Wall" unique_id=1223777792 instance=ExtResource("4_vx8cy")]
 transform = Transform3D(0.10222579, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7873727e-08, 0, 0.031851534, 0.8973608, 0.4326024, 7.7766347)
-
-[node name="NewDemiMur3" parent="Wall" unique_id=1467962120 instance=ExtResource("4_vx8cy")]
-transform = Transform3D(0.10222579, 0, 5.569099e-09, 0, 0.19758703, 0, -1.7873727e-08, 0, 0.031851534, 7.9819016, 0.4326024, 7.7766333)
 
 [node name="NewDemiMur4" parent="Wall" unique_id=1306000219 instance=ExtResource("4_vx8cy")]
 transform = Transform3D(0.13147108, 0, 5.569099e-09, 0, 0.19758703, 0, -2.298714e-08, 0, 0.031851534, 9.49701, 0.4326024, 4.961557)
@@ -94,7 +91,7 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("8_eegrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.143878, 1.1439927, 0.25927114)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.143878, 1.1439927, 3.7309256)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("8_eegrb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.570147, 1.1439927, 9.35284)

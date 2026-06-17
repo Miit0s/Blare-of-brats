@@ -11,7 +11,7 @@ resource_local_to_scene = true
 radius = 0.45
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
-points = PackedVector3Array(-0.4, 0, 1, -1.5, 0, -1, 0, 0, -1.5, 1.5, 0, -1, 0.4, 0, 1)
+points = PackedVector3Array(-0.5, 0, 1, -1.8, 0, -1.5, 0, 0, -2.4, 1.8, 0, -1.5, 0.5, 0, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_7p1mr"]
 
@@ -30,7 +30,7 @@ animations = [{
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
 script = ExtResource("2_cg3nc")
 player_speed_multiplier = 0.5
-slow_duration = 5.0
+slow_duration = 4.0
 attack_speed = 0.3
 damage = 4.2
 reverse_attack_dash = true

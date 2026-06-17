@@ -37,7 +37,7 @@ transform = Transform3D(-0.09606989, 0, -0.035838332, 0, 0.19758704, 0, 0.096069
 transform = Transform3D(1.6183291e-08, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 4.1768238e-09, 3.0328245, 0.3300631, 6.857536)
 
 [node name="NewDemiMur2" parent="Wall" unique_id=685605646 instance=ExtResource("4_k8ti3")]
-transform = Transform3D(1.6183291e-08, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 4.1768238e-09, -5.781885, 0.3300631, 6.857536)
+transform = Transform3D(9.317209e-09, 0, -0.03185153, 0, 0.19758703, 0, 0.12341018, 0, 2.4047238e-09, -5.781885, 0.3300631, 6.857536)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_peal6")

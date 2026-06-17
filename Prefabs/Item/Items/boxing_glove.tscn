@@ -11,9 +11,9 @@ resource_local_to_scene = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ugyv"]
 resource_local_to_scene = true
-size = Vector3(0.6, 0.646, 0.8)
+size = Vector3(0.8, 0.646, 1.1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_f7lnn"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xyeju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeju"]
 atlas = ExtResource("3_ab0ye")
@@ -88,7 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 shape = SubResource("BoxShape3D_0ugyv")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_f7lnn")
+mesh = SubResource("ImmediateMesh_xyeju")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
