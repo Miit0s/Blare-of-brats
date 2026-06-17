@@ -7,12 +7,12 @@ class_name SharedLifeBar
 @onready var color_versus_container: Control = $LifeBarMask/ColorVersusContainer
 @onready var color_versus_animated_sprite_2d: AnimatedSprite2D = $LifeBarMask/ColorVersusContainer/ColorVersusAnimatedSprite2D
 
-@export var player_health: float = 100
-
 @export_range(0, 1, 0.01) var min_middle_bar_hide: float = 0.48
 @export_range(0, 1, 0.01) var max_middle_bar_hide: float = 0.52
 
 @export var shader_value_change_speed: float = 0.3
+
+var player_health: float = 100
 
 var target_progress_value: float = 0.5
 var progress_bar_value: float = 0.5:

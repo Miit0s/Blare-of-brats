@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="3_pjaks"]
 [ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="4_0ywx8"]
 [ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="5_m4jyr"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="6_ip304"]
+[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Item/item_spawn_system.gd" id="6_ip304"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="7_4m8jv"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="8_bdr6b"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="9_kjgnd"]
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="10_414f6"]
+
 
 [node name="Map8" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_xsi1s")
@@ -85,7 +86,7 @@ player_parent_node = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.118824, 1.1439927, -0.85857)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("9_kjgnd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49961, 1.1439927, 9.587938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.170516, 1.1439927, 9.587938)
 
 [node name="BalloonManager" type="Node3D" parent="." unique_id=575268045 node_paths=PackedStringArray("balloons")]
 script = ExtResource("10_414f6")

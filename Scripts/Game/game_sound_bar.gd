@@ -3,10 +3,11 @@ class_name GameSoundBar
 
 @onready var sound_bar: TextureRect = $SoundBar
 
-@export var sound_bar_max_volume: int = 100
 @export var target_value_sync_speed: float = 0.005
 @export var number_of_lock_area: int = 3
 @export var shrink_speed: float = 0.005
+
+var sound_bar_max_volume: float = 100
 
 var _game_sound_bar_volume: float = 0:
 	set(new_value):

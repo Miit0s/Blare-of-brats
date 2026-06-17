@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://dqr4d6rqfqhy0"]
+
+[ext_resource type="FontFile" uid="uid://dy1d0jn7rot0i" path="res://Assets/Font/GermaniaOne-Regular.ttf" id="1_xdrvr"]
+[ext_resource type="FontFile" uid="uid://dv1s6gy3yxc4r" path="res://Assets/Font/LilitaOne-Regular.ttf" id="2_w8h0o"]
+
+[resource]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_xdrvr")
+RichTextLabel/font_sizes/normal_font_size = 40
+RichTextLabel/fonts/normal_font = ExtResource("2_w8h0o")

@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
 [ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
+[ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
@@ -93,9 +94,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -540.0
-offset_right = 1920.0
-offset_bottom = 540.0
+offset_left = -169.0
+offset_top = -661.0
+offset_right = 2234.508
+offset_bottom = 499.0
 grow_vertical = 2
 texture = ExtResource("13_ot06r")
 expand_mode = 1
@@ -108,11 +110,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1920.0
-offset_top = -540.0
-offset_bottom = 540.0
+offset_left = -1321.0
+offset_top = -376.0
+offset_right = -89.26807
+offset_bottom = 314.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(1.0973214, 1.0973214)
 texture = ExtResource("11_0hkld")
 expand_mode = 1
 stretch_mode = 5
@@ -141,6 +145,26 @@ texture = ExtResource("6_rx0xt")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Flag5" type="TextureRect" parent="Visual" unique_id=982192993]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 68.0
+offset_right = 363.0
+offset_bottom = 544.0
+texture = ExtResource("12_17e3e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag6" type="TextureRect" parent="Visual" unique_id=1194859703]
+layout_mode = 0
+offset_left = 1685.0
+offset_top = 39.0
+offset_right = 2098.0
+offset_bottom = 515.0
+texture = ExtResource("12_17e3e")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="TopBorderForeground" type="Parallax2D" parent="Visual" unique_id=2082339658]
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(50, 0)
@@ -153,10 +177,10 @@ centered = false
 
 [node name="Flag" type="TextureRect" parent="Visual" unique_id=688398711]
 layout_mode = 0
-offset_left = -7.0
-offset_top = -51.0
-offset_right = 406.0
-offset_bottom = 425.0
+offset_left = 43.0
+offset_top = -27.0
+offset_right = 397.0
+offset_bottom = 381.0
 texture = ExtResource("6_6oqsj")
 expand_mode = 1
 stretch_mode = 5
@@ -166,10 +190,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -407.0
-offset_top = -29.0
-offset_right = -71.0
-offset_bottom = 327.0
+offset_left = -392.0
+offset_top = -27.0
+offset_right = -56.0
+offset_bottom = 329.0
 grow_horizontal = 0
 texture = ExtResource("9_geu80")
 expand_mode = 1
@@ -182,10 +206,10 @@ anchor_left = 0.5
 anchor_top = 0.559
 anchor_right = 0.5
 anchor_bottom = 0.559
-offset_left = -810.0
-offset_top = 0.27996826
-offset_right = -90.0
-offset_bottom = 412.27997
+offset_left = -835.08
+offset_top = 5.124939
+offset_right = -115.08002
+offset_bottom = 417.125
 grow_vertical = 0
 texture = ExtResource("15_hhwhx")
 expand_mode = 1
@@ -198,9 +222,9 @@ anchor_left = 0.5
 anchor_top = 0.559
 anchor_right = 0.5
 anchor_bottom = 0.559
-offset_left = 90.0
+offset_left = 113.79004
 offset_top = 0.27996826
-offset_right = 810.0
+offset_right = 833.79004
 offset_bottom = 412.27997
 grow_horizontal = 0
 grow_vertical = 0
@@ -210,25 +234,30 @@ stretch_mode = 5
 
 [node name="Foreground" type="TextureRect" parent="Visual" unique_id=215846062]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -461.94
+offset_bottom = 32.060303
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture = ExtResource("10_bslv1")
-expand_mode = 1
+expand_mode = 5
 stretch_mode = 6
 
 [node name="ForegroundMax" type="TextureRect" parent="Visual" unique_id=167344161]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -385.46002
+offset_bottom = 108.540405
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture = ExtResource("11_fp572")
-expand_mode = 1
-stretch_mode = 6
+expand_mode = 5
 
 [node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
 layout_mode = 1
@@ -331,7 +360,6 @@ offset_right = 27.5
 offset_bottom = 133.21002
 grow_horizontal = 2
 grow_vertical = 2
-hold_duration = 1.0
 text = ""
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]

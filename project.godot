@@ -22,7 +22,8 @@ config/name="Blare of Brats"
 config/version="0.2.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://du1b70k1hymft"
+config/windows_native_icon="res://bob-icon.ico"
 
 [audio]
 

@@ -28,6 +28,8 @@ anchors_preset = 0
 offset_right = 1536.0
 offset_bottom = 213.0
 script = ExtResource("1_fs1sv")
+player_health = 12.5
+sound_bar_max_volume = 75.0
 
 [node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("2_t1itt")]
 layout_mode = 1
