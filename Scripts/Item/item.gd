@@ -9,7 +9,6 @@ class_name Item
 
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
-@onready var gpu_trail_3d: GPUTrail3D = $VisualAnchor/GPUTrail3D
 
 @export_category("Attack")
 @export var attack_speed: float = 0.5
@@ -37,6 +36,10 @@ var current_durability: int = 0:
 	set(new_value):
 		current_durability = new_value
 		has_loose_durability.emit(new_value)
+
+@export_category("Visual")
+
+@export var animations: Dictionary[ControllerSlot.PossibleSkin, ItemAnimation]
 
 @export_category("Instance")
 @export var collision_shape_3d: CollisionShape3D
@@ -116,7 +119,6 @@ func throw(direction: Vector3):
 	
 	trail_renderer_3d.show()
 	rotation = Vector3.ZERO
-	item_animation.hide()
 	item_visual.show()
 	
 	_force_check_collision_detection()
@@ -157,7 +159,6 @@ func destroy():
 	linear_velocity = Vector3.ZERO
 	
 	sound_made.emit(sound_on_break, global_position)
-	item_animation.hide()
 	item_visual.hide()
 	trail_renderer_3d.hide()
 	explosion_particle.emitting = true
@@ -172,7 +173,6 @@ func item_picked_up(player_id: int, player: Player):
 	is_already_pick = true
 	
 	item_visual.hide()
-	item_animation.show()
 
 func drop():
 	has_been_drop = true
@@ -181,7 +181,6 @@ func drop():
 	_owner_player = null
 	
 	rotation = Vector3.ZERO
-	item_animation.hide()
 	item_visual.show()
 	
 	await get_tree().create_timer(0.1).timeout
@@ -227,9 +226,6 @@ func _collide_with_player(player_hit: Player):
 
 func cancel_animation():
 	is_attacking = false
-	
-	gpu_trail_3d.hide()
-	gpu_trail_3d.length = 0
 	
 	item_animation.stop()
 

@@ -3,19 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_nn2oi"]
 [ext_resource type="Script" uid="uid://bifwficr1athx" path="res://Scripts/Item/pisto_gum.gd" id="2_cg3nc"]
 [ext_resource type="WwiseEvent" uid="uid://b0ripsj8hfvvq" path="res://Wwise/resources/Event/{B3B07112-5F44-4E93-A723-73299493F2D2}.tres" id="2_fnye1"]
+[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="4_any3s"]
+[ext_resource type="Resource" uid="uid://bfdimdbf5xt51" path="res://Ressources/ItemAnimation/pistogum_for_max.tres" id="5_3qtxs"]
 [ext_resource type="Texture2D" uid="uid://b5mbyvry47gey" path="res://Assets/Item/pistogum.png" id="5_7p1mr"]
 [ext_resource type="PackedScene" uid="uid://b0gcwgvjo0376" path="res://Assets/Particle/pisto_gum_shoot.tscn" id="5_c51hn"]
+[ext_resource type="Resource" uid="uid://t6ndsaq0cmm1" path="res://Ressources/ItemAnimation/pistogum_for_ash.tres" id="6_so68n"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_c51hn"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_any3s"]
 resource_local_to_scene = true
 radius = 0.45
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
 points = PackedVector3Array(0, 0, 1, -1.5, 0, -1, 0, 0, -1.5, 1.5, 0, -1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_7p1mr"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3qtxs"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sw0vh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_so68n"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -40,26 +43,30 @@ sound_on_throw = 5.0
 attack_sound = ExtResource("2_fnye1")
 sound_always_made = true
 durability = 3
+animations = Dictionary[int, ExtResource("4_any3s")]({
+0: ExtResource("5_3qtxs"),
+1: ExtResource("6_so68n")
+})
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
 transform = Transform3D(0.15, 0, 0, 0, 0.1409539, 0.05130302, 0, -0.05130302, 0.1409539, 0, 0, 0)
 texture = ExtResource("5_7p1mr")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_c51hn")
+shape = SubResource("SphereShape3D_any3s")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_7p1mr")
+mesh = SubResource("ImmediateMesh_3qtxs")
 
 [node name="PistoGumShoot" parent="." index="7" unique_id=1130802044 instance=ExtResource("5_c51hn")]
 
 [node name="VisualAnchor" parent="." index="8" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="ItemAnimation" parent="VisualAnchor" index="1" unique_id=187442146]
+[node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-sprite_frames = SubResource("SpriteFrames_sw0vh")
+sprite_frames = SubResource("SpriteFrames_so68n")
