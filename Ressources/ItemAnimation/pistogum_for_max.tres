@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemAnimation" format=3 uid="uid://bfdimdbf5xt51"]
 
 [ext_resource type="Texture2D" uid="uid://cc43x3vvta1u" path="res://Assets/Item/Animation/Max/Attack/Pistogum/Back/Pistogum-Attack-Back0000.png" id="1_2yjs1"]
-[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="1_q5hr1"]
+[ext_resource type="Script" path="res://Scripts/Resources/item_animation.gd" id="1_q5hr1"]
 [ext_resource type="Texture2D" uid="uid://ddxjyaoxbhltl" path="res://Assets/Item/Animation/Max/Attack/Pistogum/Back/Pistogum-Attack-Back0001.png" id="2_p64xk"]
 [ext_resource type="Texture2D" uid="uid://bw5jnkxiubhee" path="res://Assets/Item/Animation/Max/Attack/Pistogum/Back/Pistogum-Attack-Back0002.png" id="3_72v7e"]
 [ext_resource type="Texture2D" uid="uid://cei80e30c4mq0" path="res://Assets/Item/Animation/Max/Attack/Pistogum/Back/Pistogum-Attack-Back0003.png" id="4_hp5b5"]

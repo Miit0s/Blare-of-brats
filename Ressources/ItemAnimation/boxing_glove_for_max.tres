@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cg813w36d88xc" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0000.png" id="1_4xaj7"]
 [ext_resource type="Texture2D" uid="uid://isltn17s6my5" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0000.png" id="1_7f54t"]
-[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="1_gxwsb"]
+[ext_resource type="Script" path="res://Scripts/Resources/item_animation.gd" id="1_gxwsb"]
 [ext_resource type="Texture2D" uid="uid://ctkm33gu0xhqn" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0001.png" id="2_f8orh"]
 [ext_resource type="Texture2D" uid="uid://c4lgftgxphv4l" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0001.png" id="2_wstf7"]
 [ext_resource type="Texture2D" uid="uid://cteu148u7j80x" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0002.png" id="3_1rty7"]

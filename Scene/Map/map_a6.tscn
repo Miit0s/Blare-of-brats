@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dn3cvaomvac61" path="res://Scene/base_map.tscn" id="2_cnllg"]
 [ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_pspxe"]
 [ext_resource type="PackedScene" uid="uid://onctnqhs8rge" path="res://Prefabs/Enviro/new_demi_mur.tscn" id="4_vx8cy"]
-[ext_resource type="Script" uid="uid://g3ik4gukh82c" path="res://Scripts/Game/item_spawn_system.gd" id="5_2jtc7"]
+[ext_resource type="Script" path="res://Scripts/Item/item_spawn_system.gd" id="5_2jtc7"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="6_3pxbm"]
 [ext_resource type="Script" uid="uid://cddr4svtef5qn" path="res://Scripts/Game/player_spawn_system.gd" id="7_3iq2k"]
 [ext_resource type="PackedScene" uid="uid://bh5am7bj2c0ag" path="res://Prefabs/Player/player_spawn.tscn" id="8_eegrb"]
@@ -18,6 +18,7 @@ balloon_manager = NodePath("BalloonManager")
 item_spawn_system = NodePath("ItemSpawnSystem")
 
 [node name="BaseMap" parent="." unique_id=997279873 instance=ExtResource("2_cnllg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010565758, 0, 0.0023622513)
 
 [node name="Wall" type="Node3D" parent="." unique_id=1893881732]
 
@@ -31,19 +32,19 @@ transform = Transform3D(1.3589623e-08, 0, -0.039, 0, 0.198, 0, 0.18, 0, 2.944418
 transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -9.466547, 1.0760388, -0.810256)
 
 [node name="ObstacleComplete4" parent="Wall" unique_id=588340545 instance=ExtResource("3_pspxe")]
-transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -3.6035469, 1.0760388, 2.9336739)
+transform = Transform3D(2.591041e-08, 0, -0.039131586, 0, 0.19758703, 0, 0.19758703, 0, 5.1314877e-09, -3.62, 1.076, 2.934)
 
 [node name="ObstacleComplete7" parent="Wall" unique_id=1128670540 instance=ExtResource("3_pspxe")]
-transform = Transform3D(-6.8904304e-09, 0, 0.039131586, 0, 0.19758703, 0, -0.15763468, 0, -1.710496e-09, 6.552285, 1.0760388, 8.4850235)
+transform = Transform3D(-6.8904304e-09, 0, 0.039131586, 0, 0.19758703, 0, -0.15763468, 0, -1.710496e-09, 6.397812, 1.0760388, 8.4850235)
 
 [node name="ObstacleComplete9" parent="Wall" unique_id=1783072275 instance=ExtResource("3_pspxe")]
 transform = Transform3D(-6.8904304e-09, 0, 0.039131586, 0, 0.19758703, 0, -0.15763468, 0, -1.710496e-09, 1.978075, 1.0760388, -0.92331296)
 
 [node name="NewDemiMur" parent="Wall" unique_id=1564136151 instance=ExtResource("4_vx8cy")]
-transform = Transform3D(0.15, 0, 5.5950586e-09, 0, 0.198, 0, -2.6226836e-08, 0, 0.032, 6.84433, 0.4326024, 3.0861557)
+transform = Transform3D(0.15, 0, 5.5950586e-09, 0, 0.198, 0, -2.6226836e-08, 0, 0.032, 6.552, 0.433, 3.086)
 
 [node name="NewDemiMur2" parent="Wall" unique_id=1223777792 instance=ExtResource("4_vx8cy")]
-transform = Transform3D(0.14, 0, 5.595059e-09, 0, 0.198, 0, -2.4478382e-08, 0, 0.032, 1.959765, 0.4326024, 7.7766347)
+transform = Transform3D(0.14, 0, 5.595059e-09, 0, 0.198, 0, -2.4478382e-08, 0, 0.032, 2.011, 0.433, 7.777)
 
 [node name="NewDemiMur4" parent="Wall" unique_id=1306000219 instance=ExtResource("4_vx8cy")]
 transform = Transform3D(0.13147108, 0, 5.569099e-09, 0, 0.19758703, 0, -2.298714e-08, 0, 0.031851534, 9.49701, 0.4326024, -0.5735321)
@@ -55,35 +56,35 @@ transform = Transform3D(0.11, 0, 5.5950595e-09, 0, 0.198, 0, -1.9233015e-08, 0, 
 transform = Transform3D(0.11, 0, 5.5950595e-09, 0, 0.198, 0, -1.9233015e-08, 0, 0.032, -2.0302892, 0.43260193, 4.2842007)
 
 [node name="NewDemiMur6" parent="Wall" unique_id=1876066922 instance=ExtResource("4_vx8cy")]
-transform = Transform3D(0.13428254, 0, 5.569099e-09, 0, 0.19758703, 0, -2.347871e-08, 0, 0.031851534, -9.747376, 0.4326024, 7.7393527)
+transform = Transform3D(0.13428254, 0, 5.569099e-09, 0, 0.19758703, 0, -2.347871e-08, 0, 0.031851534, -9.57, 0.433, 7.739)
 
 [node name="ItemSpawnSystem" type="Node3D" parent="." unique_id=438162107 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("5_2jtc7")
 spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint8"), NodePath("ItemSpawnPoint4"), NodePath("ItemSpawnPoint2"), NodePath("ItemSpawnPoint3"), NodePath("ItemSpawnPoint5"), NodePath("ItemSpawnPoint7"), NodePath("ItemSpawnPoint6")]
 
 [node name="ItemSpawnPoint" parent="ItemSpawnSystem" unique_id=635181024 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7689714, 0.8373332, 5.1831675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65, 0.837, 5.183)
 
 [node name="ItemSpawnPoint8" parent="ItemSpawnSystem" unique_id=1034567507 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9855194, 0.8373332, 5.1206846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.986, 0.837, 5.183)
 
 [node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=1096602684 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.537918, 0.8407073, -2.4757595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.37, 0.841, -2.43)
 
 [node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1520047895 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 0.99993205, 0.011658535, 0, -0.011658535, 0.99993205, -12.057737, 0.83733416, -2.438068)
+transform = Transform3D(1, 0, 0, 0, 0.99993205, 0.011658535, 0, -0.011658535, 0.99993205, -12.1, 0.837, -2.438)
 
 [node name="ItemSpawnPoint3" parent="ItemSpawnSystem" unique_id=1519627424 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9534283, 0.83733344, -2.280905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.081, 0.837, -2.281)
 
 [node name="ItemSpawnPoint5" parent="ItemSpawnSystem" unique_id=820580870 instance=ExtResource("6_3pxbm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.781761, 0.8373318, 9.723552)
 
 [node name="ItemSpawnPoint7" parent="ItemSpawnSystem" unique_id=818897565 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.301796, 0.8373313, -2.414808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.302, 0.837, -2.28)
 
 [node name="ItemSpawnPoint6" parent="ItemSpawnSystem" unique_id=947071575 instance=ExtResource("6_3pxbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0153317, 0.8373327, 8.555816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.011, 0.837, 8.556)
 
 [node name="PlayerSpawnSystem" type="Node3D" parent="." unique_id=877128500 node_paths=PackedStringArray("players_spawn", "player_parent_node")]
 script = ExtResource("7_3iq2k")
@@ -91,7 +92,7 @@ players_spawn = [NodePath("PlayerSpawn"), NodePath("PlayerSpawn2")]
 player_parent_node = NodePath("..")
 
 [node name="PlayerSpawn" parent="PlayerSpawnSystem" unique_id=89305068 instance=ExtResource("8_eegrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0107646, 1.1439927, 6.6950436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0107646, 1.1439927, 6.3300734)
 
 [node name="PlayerSpawn2" parent="PlayerSpawnSystem" unique_id=1122978233 instance=ExtResource("8_eegrb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.570147, 1.1439927, 9.35284)
@@ -101,34 +102,34 @@ script = ExtResource("9_q0wwh")
 balloons = [NodePath("Balloon3"), NodePath("Balloon4"), NodePath("Balloon5"), NodePath("Balloon6"), NodePath("Balloon8"), NodePath("Balloon9"), NodePath("Balloon12"), NodePath("Balloon13"), NodePath("Balloon14"), NodePath("Balloon16"), NodePath("Balloon21"), NodePath("Balloon23"), NodePath("Balloon24"), NodePath("Balloon25")]
 
 [node name="Balloon3" parent="BalloonManager" unique_id=2063603234 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6700478, 0.876, 5.155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.552, 0.876, 5.155)
 
 [node name="Balloon4" parent="BalloonManager" unique_id=770118517 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67, 0.876, 4.04)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.552, 0.876, 4.04)
 
 [node name="Balloon5" parent="BalloonManager" unique_id=1675570646 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.62977, 0.876, 0.4569373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3, 0.876, 0.457)
 
 [node name="Balloon6" parent="BalloonManager" unique_id=1433995910 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6404018, 0.8758886, 7.2554345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7109804, 0.8758886, 7.2554345)
 
 [node name="Balloon8" parent="BalloonManager" unique_id=1869455115 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.879249, 0.87588847, 1.4271698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.081037, 0.87588847, 1.1796176)
 
 [node name="Balloon9" parent="BalloonManager" unique_id=451330652 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38354516, 0.87588906, 7.2782345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41542578, 0.87588906, 7.2782345)
 
 [node name="Balloon12" parent="BalloonManager" unique_id=1927599285 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0883982, 0.87588906, -2.2756968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.088, 0.876, -2.28)
 
 [node name="Balloon13" parent="BalloonManager" unique_id=1971481127 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3270516, 0.8758886, -2.1522994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.327, 0.876, -2.43)
 
 [node name="Balloon14" parent="BalloonManager" unique_id=642744993 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.372055, 0.8758886, 0.19923306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.372, 0.876, -0.37)
 
 [node name="Balloon16" parent="BalloonManager" unique_id=1916771238 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7918587, 0.8758886, 3.6776433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65, 0.876, 3.678)
 
 [node name="Balloon21" parent="BalloonManager" unique_id=1771194960 instance=ExtResource("10_ccu0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6566553, 0.8758886, 10.068457)
@@ -137,9 +138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6566553, 0.8758886, 10.068
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.423255, 0.8758886, 3.684289)
 
 [node name="Balloon24" parent="BalloonManager" unique_id=239678419 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.38465, 0.8758886, 1.4657059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0.876, 1.466)
 
 [node name="Balloon25" parent="BalloonManager" unique_id=1185841593 instance=ExtResource("10_ccu0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.399266, 0.8758886, -0.37440014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4, 0.876, -0.374)
 
 [connection signal="new_player_spawn" from="PlayerSpawnSystem" to="." method="_on_player_spawn_system_new_player_spawn"]
