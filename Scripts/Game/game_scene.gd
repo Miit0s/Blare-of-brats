@@ -34,9 +34,11 @@ class_name GameScene
 @export var crowd_sound : WwiseEvent
 
 @export_category("Vibration")
+@export_group("Round Begin")
 @export_range(0, 1) var round_begin_vibration_force: float = 0.5
 @export var round_begin_vibration_duration: float = 0.2
 
+@export_group("Round End")
 @export_range(0, 1) var round_end_vibration_force: float = 0.5
 @export var round_end_vibration_duration: float = 0.5
 

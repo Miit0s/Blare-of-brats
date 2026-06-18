@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1nchn1fbud6v"]
 
 [ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="1_bhesk"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_hhwhx"]
 [ext_resource type="Script" uid="uid://cigy0c23pclij" path="res://Scripts/UI/controller_connexion_scene.gd" id="1_kla7w"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="3_cwclv"]
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
@@ -18,12 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
+[ext_resource type="Texture2D" uid="uid://cqbdefo16o3r1" path="res://Assets/SpriteUI/CharacterSelection/vs.png" id="19_ho3je"]
+[ext_resource type="Texture2D" uid="uid://ca3aw26wkohvl" path="res://Assets/SpriteUI/Onboarding/banner_tasks.png" id="20_17e3e"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ob3uu"]
-font_size = 50
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -32,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hhwhx")
 script = ExtResource("1_kla7w")
 max_player = 2
 controller_slot_prefab = ExtResource("1_bhesk")
@@ -236,61 +235,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_o70qx")
+texture = ExtResource("19_ho3je")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Label" type="Label" parent="ReadyTexture" unique_id=972162682]
+[node name="TextureRect" type="TextureRect" parent="ReadyTexture" unique_id=2095477604]
+self_modulate = Color(0.84897214, 0.000820148, 0.88944644, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -3.875
+offset_top = -136.48499
+offset_right = 600.125
+offset_bottom = -32.484497
+grow_vertical = 0
+texture = ExtResource("20_17e3e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReadyTexture/TextureRect" unique_id=1156460549]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.5
-offset_top = -34.5
-offset_right = 97.5
-offset_bottom = 34.5
+offset_left = -297.125
+offset_top = -46.000122
+offset_right = 217.875
+offset_bottom = 22.999878
 grow_horizontal = 2
 grow_vertical = 2
-text = "READY ?"
-label_settings = SubResource("LabelSettings_ob3uu")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ControllerIconParser" type="RichTextLabel" parent="ReadyTexture" unique_id=99086707]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -230.5
-offset_top = 34.960022
-offset_right = 230.5
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 25
-text = "Hold {JoinGame} to start"
-horizontal_alignment = 1
-script = ExtResource("9_o70qx")
-raw_text = "Hold {JoinGame} to start"
-metadata/_custom_type_script = "uid://0suax27ohuw"
-
-[node name="RadialProgressBarWithText" parent="ReadyTexture" unique_id=1846131576 instance=ExtResource("3_cwclv")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -27.5
-offset_top = 83.21002
-offset_right = 27.5
-offset_bottom = 133.21002
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RadialProgressBarWithText" parent="ReadyTexture/TextureRect/HBoxContainer" unique_id=1846131576 instance=ExtResource("3_cwclv")]
+layout_mode = 2
 hold_duration = 1.0
 text = ""
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="ReadyTexture/TextureRect/HBoxContainer" unique_id=99086707]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hold {JoinGame} to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_o70qx")
+white_version = true
+raw_text = "Hold {JoinGame} to start"
+metadata/_custom_type_script = "uid://0suax27ohuw"
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
 bank = ExtResource("22_ho3je")
@@ -301,4 +293,4 @@ unload_on = 3
 is_spatial = false
 
 [connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
-[connection signal="hold_finish" from="ReadyTexture/RadialProgressBarWithText" to="." method="start_game"]
+[connection signal="hold_finish" from="ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText" to="." method="start_game"]

@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhe4"]
 resource_local_to_scene = true
 shader = ExtResource("2_bmoep")
-shader_parameter/base_color = Color(0, 1, 0, 1)
+shader_parameter/base_color = Color(1, 1, 1, 1)
 shader_parameter/outer_bound = 0.4
 shader_parameter/inner_bound = 0.15000000223518
 shader_parameter/fill_direction = -1.0

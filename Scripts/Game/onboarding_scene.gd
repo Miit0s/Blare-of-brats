@@ -16,6 +16,15 @@ extends GameScene
 @export var health_title: String = "Health Bar"
 @export var health_texts: Array[String]
 
+@export_category("Vibration")
+@export_group("On Ready Set")
+@export_range(0, 1) var vibration_force_on_ready: float = 0.3
+@export var vibration_duration_on_ready: float = 0.1
+
+@export_group("On Wall Fall")
+@export_range(0, 1) var vibration_force_on_wall_fall: float = 0.3
+@export var vibration_duration_on_wall_fall: float = 1.0
+
 var has_already_made_sound: bool = false
 var has_already_hit_player: bool = false
 
@@ -42,6 +51,11 @@ func _ready() -> void:
 	
 	input_reminders[0].player_input_id = players_selection[0].player_id
 	input_reminders[1].player_input_id = players_selection[1].player_id
+	
+	input_reminders[0].vibration_force_on_ready = vibration_force_on_ready
+	input_reminders[0].vibration_duration_on_ready = vibration_duration_on_ready
+	input_reminders[1].vibration_force_on_ready = vibration_force_on_ready
+	input_reminders[1].vibration_duration_on_ready = vibration_duration_on_ready
 	
 	task_lists[0].setup_color_for_task_list(players_selection[0].color_skin)
 	task_lists[1].setup_color_for_task_list(players_selection[1].color_skin)
@@ -161,6 +175,8 @@ func _trigger_dash_quest():
 func _trigger_item_quest():
 	if _current_scene is MapOnboarding:
 		_current_scene.move_down_wall()
+		for player in players:
+			VibrationManager.start_joy_vibration(player.player_id, vibration_force_on_wall_fall, 0, vibration_duration_on_wall_fall)
 	
 	var first_task: TaskInfo = task_info_in_order.pop_front()
 	var second_task: TaskInfo = task_info_in_order.pop_front()

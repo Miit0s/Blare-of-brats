@@ -75,29 +75,29 @@ var _knockback_speed_to_apply: float = 0
 @export var vibration_duration_on_hit: float = 0.2
 
 @export_group("On Object Destroy")
-@export var vibration_force_on_objet_destroy: float = 0.8
+@export_range(0, 1) var vibration_force_on_objet_destroy: float = 0.8
 @export var vibration_duration_on_objet_destroy: float = 0.2
 
 @export_group("On Slow")
-@export var vibration_force_on_slow: float = 0.1
+@export_range(0, 1) var vibration_force_on_slow: float = 0.1
 
 @export_group("On Pick up")
-@export var vibration_force_on_pickup: float = 0.1
+@export_range(0, 1) var vibration_force_on_pickup: float = 0.1
 @export var vibration_duration_on_pickup: float = 0.1
 
 @export_group("On Hit other player")
-@export var vibration_force_on_hit_other_player: float = 0.8
+@export_range(0, 1) var vibration_force_on_hit_other_player: float = 0.8
 @export var vibration_duration_on_hit_other_player: float = 0.1
 
 @export_group("On Stun")
-@export var vibration_force_on_stun: float = 0.1
+@export_range(0, 1) var vibration_force_on_stun: float = 0.1
 
 @export_group("On Dash")
-@export var vibration_force_on_dash: float = 0.1
+@export_range(0, 1) var vibration_force_on_dash: float = 0.1
 @export var vibration_duration_on_dash: float = 0.3
 
 @export_group("On Throw")
-@export var vibration_force_on_throw: float = 0.3
+@export_range(0, 1) var vibration_force_on_throw: float = 0.3
 @export var vibration_duration_on_throw: float = 0.1
 
 @export_category("Instance")
