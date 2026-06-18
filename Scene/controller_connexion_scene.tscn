@@ -16,10 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
 [ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
-<<<<<<< HEAD
-=======
-[ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
@@ -293,6 +289,7 @@ offset_right = 27.5
 offset_bottom = 133.21002
 grow_horizontal = 2
 grow_vertical = 2
+hold_duration = 1.0
 text = ""
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
