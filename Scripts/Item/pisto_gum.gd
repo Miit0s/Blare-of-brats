@@ -10,6 +10,5 @@ func _perform_attack(_direction: Vector3):
 	pisto_gum_shoot.restart()
 
 func _attack_player(player_hit: Player):
-	super._attack_player(player_hit)
-	
 	player_hit.apply_slow(player_speed_multiplier, slow_duration)
+	super._attack_player(player_hit)

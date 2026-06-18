@@ -33,6 +33,13 @@ class_name GameScene
 @export var reaction_crowd_switch: WwiseSwitch
 @export var crowd_sound : WwiseEvent
 
+@export_category("Vibration")
+@export_range(0, 1) var round_begin_vibration_force: float = 0.5
+@export var round_begin_vibration_duration: float = 0.2
+
+@export_range(0, 1) var round_end_vibration_force: float = 0.5
+@export var round_end_vibration_duration: float = 0.5
+
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
@@ -85,6 +92,7 @@ func start_round():
 	game_bar.show()
 	
 	for player in players:
+		VibrationManager.start_joy_vibration(player.player_id, round_begin_vibration_force, 0, round_begin_vibration_duration)
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
@@ -130,6 +138,8 @@ func player_win(player_id: int):
 	game_bar.shared_life_bar.lock()
 	
 	for player in players:
+		player.reset_vibration()
+		VibrationManager.start_joy_vibration(player.player_id, round_end_vibration_force, 0, round_end_vibration_duration)
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()

@@ -6,6 +6,8 @@ class_name Balloon
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
 @export var sound_on_pop: float = 5
+@export var damage_on_pop: float = 0.5
+
 @export var pop_sound: WwiseEvent
 
 var _already_pop: bool = false
@@ -15,11 +17,15 @@ signal sound_emit(value: float, global_position: Vector3)
 func _ready() -> void:
 	area_3d.body_entered.connect(_on_body_area_entered)
 
-func _on_body_area_entered(_body: Node3D):
+func _on_body_area_entered(body: Node3D):
 	if _already_pop: return
-	
 	_already_pop = true
+	
 	sprite_3d.hide()
+	
+	if body is Player:
+		body.hit(damage_on_pop, Vector3.ZERO, false)
+	
 	sound_emit.emit(sound_on_pop, global_position)
 	
 	gpu_particles_3d.restart()
