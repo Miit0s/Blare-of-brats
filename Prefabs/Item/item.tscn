@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmhoup5aha2fm" path="res://Scripts/Item/item.gd" id="1_0o2h0"]
 [ext_resource type="Script" uid="uid://c2m87s7fgx1qk" path="res://addons/SimpleTrailRenderer3D/trail_renderer_3d.gd" id="3_fnt8b"]
-[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_t4ted"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Assets/Particle/item_hit_particles.tscn" id="3_t4ted"]
 [ext_resource type="Shader" uid="uid://dbjksw6fitrg0" path="res://addons/GPUTrail/shaders/trail.gdshader" id="4_6uwl0"]
 [ext_resource type="PackedScene" uid="uid://di44tfpbu5w8n" path="res://Assets/Particle/item_explosion_particle.tscn" id="4_t4ted"]
 [ext_resource type="Shader" uid="uid://c2uoqmhe3eg4o" path="res://addons/GPUTrail/shaders/trail_draw_pass_no_depth_test.gdshader" id="5_6uwl0"]

@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://ctpl3gtxygykm"]
+
+[ext_resource type="Texture2D" uid="uid://cvo20eyqcwen7" path="res://Assets/VFX/HitBox/box hit0000.png" id="1_tuq3n"]
+[ext_resource type="Texture2D" uid="uid://ds4pnebrtqp68" path="res://Assets/VFX/HitBox/box hit0001.png" id="2_xcx8a"]
+[ext_resource type="Texture2D" uid="uid://cmrlg444pr6fh" path="res://Assets/VFX/HitBox/box hit0002.png" id="3_og6fe"]
+[ext_resource type="Texture2D" uid="uid://7tfwmn0mu3ps" path="res://Assets/VFX/HitBox/box hit0003.png" id="4_a78ge"]
+[ext_resource type="Texture2D" uid="uid://0vlxy3gfs45u" path="res://Assets/VFX/HitBox/box hit0004.png" id="5_4pa1c"]
+[ext_resource type="Texture2D" uid="uid://d01wffjkydrpl" path="res://Assets/VFX/HitBox/box hit0005.png" id="6_ekquo"]
+[ext_resource type="Texture2D" uid="uid://dn1wa1jwq55qx" path="res://Assets/VFX/HitBox/box hit0006.png" id="7_csm76"]
+[ext_resource type="Texture2D" uid="uid://ddknmpab5u5ci" path="res://Assets/VFX/HitBox/box hit0007.png" id="8_rxh33"]
+[ext_resource type="Texture2D" uid="uid://cfbl20ffelvxs" path="res://Assets/VFX/HitBox/box hit0008.png" id="9_k78j2"]
+[ext_resource type="Texture2D" uid="uid://e2p7na608yeg" path="res://Assets/VFX/HitBox/box hit0009.png" id="10_j1egn"]
+[ext_resource type="Texture2D" uid="uid://btu5je5wu5w52" path="res://Assets/VFX/HitBox/box hit0010.png" id="11_wvwy1"]
+[ext_resource type="Texture2D" uid="uid://cirfgd02o7d3x" path="res://Assets/VFX/HitBox/box hit0011.png" id="12_ln0fe"]
+[ext_resource type="Texture2D" uid="uid://be8kpfphqvbwj" path="res://Assets/VFX/HitBox/box hit0012.png" id="13_u8nff"]
+[ext_resource type="Texture2D" uid="uid://bbl23lv4b7cfi" path="res://Assets/VFX/HitBox/box hit0013.png" id="14_uao7u"]
+[ext_resource type="Texture2D" uid="uid://bappn6abwapim" path="res://Assets/VFX/HitBox/box hit0014.png" id="15_wvokr"]
+[ext_resource type="Texture2D" uid="uid://bfhaxry4usrar" path="res://Assets/VFX/HitBox/box hit0015.png" id="16_xlfqy"]
+[ext_resource type="Texture2D" uid="uid://dwhu7ygj5hlu2" path="res://Assets/VFX/HitBox/box hit0016.png" id="17_eql4o"]
+[ext_resource type="Texture2D" uid="uid://b7i3vwtx0qhl0" path="res://Assets/VFX/HitBox/box hit0017.png" id="18_fo0bk"]
+[ext_resource type="Texture2D" uid="uid://jnkieriaoanp" path="res://Assets/VFX/HitBox/box hit0018.png" id="19_x2ydg"]
+[ext_resource type="Texture2D" uid="uid://dpy10n26ehfx3" path="res://Assets/VFX/HitBox/box hit0019.png" id="20_fqgjd"]
+[ext_resource type="Texture2D" uid="uid://dm0lh5pewc3dc" path="res://Assets/VFX/HitBox/box hit0020.png" id="21_sob8q"]
+[ext_resource type="Texture2D" uid="uid://dpjbhwor0a72q" path="res://Assets/VFX/HitBox/box hit0021.png" id="22_045r3"]
+[ext_resource type="Texture2D" uid="uid://bkfar7rkcy1rg" path="res://Assets/VFX/HitBox/box hit0022.png" id="23_d4rn0"]
+[ext_resource type="Texture2D" uid="uid://bgr448ubfba5e" path="res://Assets/VFX/HitBox/box hit0023.png" id="24_u3usm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u783q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tuq3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xcx8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_og6fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a78ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4pa1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ekquo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_csm76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rxh33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k78j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j1egn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wvwy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ln0fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_u8nff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uao7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wvokr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xlfqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_eql4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fo0bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x2ydg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fqgjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_sob8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_045r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_d4rn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u3usm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="ItemHitParticles" type="AnimatedSprite3D" unique_id=382626907]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+sprite_frames = SubResource("SpriteFrames_u783q")
+autoplay = "default"
+frame = 23
+frame_progress = 1.0
