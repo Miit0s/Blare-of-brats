@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6svdlqu6jdce"
-path="res://.godot/imported/Box-Attack-Front-Chara20026.png-2a474ca5b68bc07ffcf3de0f2b34d471.ctex"
+uid="uid://dx422inkaspp6"
+path.bptc="res://.godot/imported/Box-Attack-Front-Fixed0001.png-698442648d83930c4218f6f59aaec489.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Item/Animation/Ash/Attack/BoxingGlove/Front/Box-Attack-Front-Chara20026.png"
-dest_files=["res://.godot/imported/Box-Attack-Front-Chara20026.png-2a474ca5b68bc07ffcf3de0f2b34d471.ctex"]
+source_file="res://Assets/Item/Animation/Max/Attack/GlovingBox/Front/Box-Attack-Front-Fixed0001.png"
+dest_files=["res://.godot/imported/Box-Attack-Front-Fixed0001.png-698442648d83930c4218f6f59aaec489.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

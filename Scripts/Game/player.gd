@@ -631,7 +631,8 @@ func item_will_be_destroy(_item: Item):
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture
-	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d
+	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d.duplicate()
+	animated_sprite_3d_for_offset.material_override = selection.color_skin.color_shader_3d.duplicate()
 	skin = selection.skin
 	
 	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()

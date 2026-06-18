@@ -29,6 +29,8 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 0, 0, 1)
 shader_parameter/blend_delta = 0.0
+shader_parameter/emission_energy = 1.0
+shader_parameter/saturation = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yeag3"]
 resource_local_to_scene = true
@@ -50,7 +52,11 @@ texture = SubResource("CompressedTexture2D_3p83p")
 
 [node name="AnimatedSprite3D" parent="." index="1" unique_id=932639487]
 material_override = SubResource("ShaderMaterial_ueqey")
+animation = &"left"
 
-[node name="PlayerMarkerWithBloom" parent="." index="8" unique_id=1989972902]
+[node name="AnimatedSpriteForOffset" parent="." index="2" unique_id=268198128]
+material_override = SubResource("ShaderMaterial_ueqey")
+
+[node name="PlayerMarkerWithBloom" parent="." index="9" unique_id=1989972902]
 material_override = SubResource("StandardMaterial3D_t0k1w")
 texture = SubResource("CompressedTexture2D_yeag3")
