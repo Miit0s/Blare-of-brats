@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemAnimation" format=3 uid="uid://ca4ss6fkslm7b"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/item_animation.gd" id="1_2i6nl"]
+[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="1_2i6nl"]
 [ext_resource type="Texture2D" uid="uid://lui22uk80ajk" path="res://Assets/Item/Animation/Ash/Idle/Pencil/Left/Crayon-Idle-Left-Chara20000.png" id="1_mrq1m"]
 [ext_resource type="Texture2D" uid="uid://mgdt23tp4w8y" path="res://Assets/Item/Animation/Ash/Attack/Pencil/Left/Crayon-Attack-Left-Chara20000.png" id="1_olule"]
 [ext_resource type="Texture2D" uid="uid://bjgpi6gb0c3fl" path="res://Assets/Item/Animation/Ash/Attack/Pencil/Left/Crayon-Attack-Left-Chara20001.png" id="2_b0ejq"]
