@@ -16,6 +16,7 @@ class_name OptionsResource
 @export var resolution: Vector2i = Vector2i.ZERO
 @export var activate_v_sync: bool = true
 @export var activate_camera_shake: bool = true
+@export var activate_controller_vibration: bool = true
 #variable for daltonism here. Have to make a enum for that
 
 @export var text_size: int = 100

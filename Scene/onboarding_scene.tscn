@@ -22,11 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="19_frks1"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="20_2lo1k"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_ggapv"]
-[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="22_262ls"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="23_ixgyd"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="24_8name"]
-[ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="25_ski87"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_3s3gr"]
+[ext_resource type="PackedScene" uid="uid://dhr0ypg38gbc1" path="res://Prefabs/Enviro/camera_controller.tscn" id="23_d4n33"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="27_yqp28"]
 
 [sub_resource type="Resource" id="Resource_nvbbg"]
@@ -68,18 +64,6 @@ border_width_top = 39
 border_width_right = 530
 border_width_bottom = 965
 border_color = Color(0, 0, 0, 0.5882353)
-
-[sub_resource type="Resource" id="Resource_5qsl7"]
-script = ExtResource("24_8name")
-transition = 7
-ease = 1
-metadata/_custom_type_script = "uid://8umksf8e80fw"
-
-[sub_resource type="Resource" id="Resource_gwqyt"]
-script = ExtResource("24_8name")
-duration = 1.2
-transition = 10
-ease = 1
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_d4n33")
@@ -217,46 +201,8 @@ offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CameraController" type="Node3D" parent="." unique_id=1466141107]
+[node name="CameraController" parent="." unique_id=786363209 instance=ExtResource("23_d4n33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4, 30.37)
-script = ExtResource("22_262ls")
-
-[node name="FollowGroupPhantomCamera3D" type="Node3D" parent="CameraController" unique_id=1025208177]
-transform = Transform3D(1, 0, 0, 0, 0.8616292, 0.5075383, 0, -0.5075383, 0.8616292, 0, 22.4, 30.37)
-top_level = true
-script = ExtResource("23_ixgyd")
-follow_mode = 3
-tween_resource = SubResource("Resource_5qsl7")
-tween_on_load = false
-inactive_update_mode = 1
-camera_3d_resource = ExtResource("25_ski87")
-follow_damping = true
-auto_follow_distance = true
-auto_follow_distance_min = 14.0
-auto_follow_distance_max = 24.0
-
-[node name="GlobalScenePhantomCamera3D" type="Node3D" parent="CameraController" unique_id=53337214]
-transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 0, 0)
-script = ExtResource("23_ixgyd")
-priority = 1
-tween_resource = SubResource("Resource_gwqyt")
-tween_on_load = false
-camera_3d_resource = ExtResource("25_ski87")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="MainCamera3D" type="Camera3D" parent="CameraController" unique_id=481956209]
-transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 22.4, 30.37)
-top_level = true
-current = true
-fov = 45.0
-
-[node name="AkListener3D" type="AkListener3D" parent="CameraController/MainCamera3D" unique_id=1595129724]
-transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
-
-[node name="PhantomCameraHost" type="Node" parent="CameraController/MainCamera3D" unique_id=157906285]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("26_3s3gr")
 
 [node name="TrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("27_yqp28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 25, 0)

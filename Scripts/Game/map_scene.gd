@@ -11,11 +11,15 @@ signal new_player_spawn(player: Player)
 signal new_item_spawn(new_item: Item)
 signal item_will_be_delete(item: Item)
 signal balloon_pop(value: float, global_position: Vector3)
+signal wolf_has_hit_player
 
 func _enter_tree() -> void:
 	balloon_manager.sound_emit.connect(_on_balloon_manager_sound_emit)
 	item_spawn_system.new_item_spawn.connect(_on_item_spawn_system_new_item_spawn)
 	item_spawn_system.item_will_be_delete.connect(_on_item_spawn_system_item_will_be_delete)
+
+func _ready() -> void:
+	base_map.wolf_has_hit_player.connect(wolf_has_hit_player.emit)
 
 func _on_item_spawn_system_item_will_be_delete(item: Item) -> void:
 	item_will_be_delete.emit(item)

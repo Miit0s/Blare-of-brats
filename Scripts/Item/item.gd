@@ -72,8 +72,9 @@ var _throw_by: int = -1
 
 signal sound_made(value: float, global_position: Vector3)
 
-signal has_loose_durability()
+signal has_loose_durability
 signal will_be_destroy(item: Item)
+signal has_hit_player
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -203,13 +204,13 @@ func _add_hit_effect(target: Node3D):
 	var hit_point: Vector3 = _get_hit_point(target)
 	if hit_point == Vector3.ZERO: return
 	
-	var hit_particle: GPUParticles3D = hit_particle_prefab.instantiate()
+	var hit_particle: AnimatedSprite3D = hit_particle_prefab.instantiate()
 	add_child(hit_particle)
 	
 	hit_particle.global_position = hit_point
-	hit_particle.finished.connect(hit_particle.queue_free)
+	hit_particle.animation_finished.connect(hit_particle.queue_free)
 	
-	hit_particle.emitting = true
+
 
 func _attack_player(player_hit: Player):
 	if not sound_always_made:
@@ -218,6 +219,8 @@ func _attack_player(player_hit: Player):
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction)
 	_add_hit_effect(player_hit)
+	
+	has_hit_player.emit()
 
 func _collide_with_player(player_hit: Player):
 	_attacked_players.append(player_hit)

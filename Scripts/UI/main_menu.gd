@@ -19,14 +19,24 @@ extends Control
 @export var move_speed: float = 0.2
 @export var buttons_impacting_movement: Array[BaseButton]
 
+@export_category("Vibration")
+@export_range(0, 1) var vibration_force_on_button_change: float = 0.1
+@export var vibration_duration_on_button_change: float = 0.1
+
 var _previous_button_pos: Vector2 = Vector2.ZERO
 var _move_tween: Tween = null
+
+var _last_device_to_move: int = -1
 
 func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
 	play_button.grab_focus()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("ui_up") or event.is_action("ui_down") or event.is_action("ui_left") or event.is_action("ui_right"):
+		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(game_start_scene_uid)
@@ -54,6 +64,8 @@ func _on_credits_visibility_changed() -> void:
 		credits_button.grab_focus()
 
 func _on_button_focus_entered(button: BaseButton) -> void:
+	VibrationManager.start_joy_vibration(_last_device_to_move, vibration_force_on_button_change, 0, vibration_duration_on_button_change)
+	
 	if _previous_button_pos == Vector2.ZERO:
 		_previous_button_pos = button.global_position
 		return

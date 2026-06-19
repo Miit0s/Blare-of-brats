@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_dv0gy"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="2_d5jt0"]
-[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Prefabs/Item/item_hit_particles.tscn" id="3_7gx1u"]
+[ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Assets/Particle/item_hit_particles.tscn" id="3_7gx1u"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="4_4ay72"]
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="4_v7lpu"]
 [ext_resource type="PackedScene" uid="uid://0bbwwyp6o8jb" path="res://Prefabs/Item/Items/pencil.tscn" id="6_3fhmk"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://di44tfpbu5w8n" path="res://Assets/Particle/item_explosion_particle.tscn" id="17_84fsj"]
 [ext_resource type="PackedScene" uid="uid://ci1wlhg1v65n5" path="res://Assets/Particle/item_pop_spawn_particle.tscn" id="18_7xoa5"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="19_70qbo"]
+
 
 [sub_resource type="Animation" id="Animation_7irrw"]
 length = 0.001

@@ -330,11 +330,18 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="SelectedPlayer/ReadyState" unique_id=1376972120]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -44.815063
+offset_right = 135.0
+offset_bottom = 24.184937
 grow_horizontal = 2
 grow_vertical = 2
 text = "Ready"
 label_settings = SubResource("LabelSettings_f1ni1")
 horizontal_alignment = 1
+vertical_alignment = 1

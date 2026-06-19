@@ -12,9 +12,12 @@ class_name BaseMap
 @export var destination_reach_wait_time: float = 1
 @export var hit_player_wait_time: float = 5
 
+signal wolf_has_hit_player
+
 func _ready() -> void:
 	wolf_target.has_reach_destination.connect(wait_and_set_random_target)
 	wolf_target.has_hit_player.connect(reset_wolf_light)
+	wolf_target.has_hit_player.connect(wolf_has_hit_player.emit)
 
 func desactivate_light():
 	for light in lights_to_control:

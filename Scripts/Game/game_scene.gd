@@ -33,6 +33,15 @@ class_name GameScene
 @export var reaction_crowd_switch: WwiseSwitch
 @export var crowd_sound : WwiseEvent
 
+@export_category("Vibration")
+@export_group("Round Begin")
+@export_range(0, 1) var round_begin_vibration_force: float = 0.5
+@export var round_begin_vibration_duration: float = 0.2
+
+@export_group("Round End")
+@export_range(0, 1) var round_end_vibration_force: float = 0.5
+@export var round_end_vibration_duration: float = 0.5
+
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
@@ -85,6 +94,7 @@ func start_round():
 	game_bar.show()
 	
 	for player in players:
+		VibrationManager.start_joy_vibration(player.player_id, round_begin_vibration_force, 0, round_begin_vibration_duration)
 		player.unfreeze()
 	
 	camera_controller.start_tracking()
@@ -104,6 +114,8 @@ func setup_new_scene():
 	new_scene.balloon_pop.connect(_item_made_sound)
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
+	
+	new_scene.wolf_has_hit_player.connect(camera_controller.trigger_wolf_stun_shake)
 	
 	_current_scene = new_scene
 	
@@ -130,6 +142,8 @@ func player_win(player_id: int):
 	game_bar.shared_life_bar.lock()
 	
 	for player in players:
+		player.reset_vibration()
+		VibrationManager.start_joy_vibration(player.player_id, round_end_vibration_force, 0, round_end_vibration_duration)
 		player.freeze()
 	players.clear()
 	camera_controller.stop_tracking()
@@ -159,6 +173,7 @@ func lifebar_value_change(lifebar_value: float):
 
 func _on_map_item_will_be_delete(item: Item) -> void:
 	item.sound_made.disconnect(_item_made_sound)
+	camera_controller.trigger_objet_destruction_shake()
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
@@ -179,7 +194,7 @@ func _on_map_new_player_spawn(player: Player) -> void:
 		tracking_spot_player_one.target = player
 	
 	player.freeze()
-	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)
+	player.has_been_hit.connect(_player_has_been_hit)
 	
 	players.append(player)
 
@@ -227,3 +242,7 @@ func _trigger_crowd_reaction():
 	reaction_crowd_switch.set_value(self)
 	await get_tree().create_timer(crowd_reaction_duration).timeout
 	continious_crowd_switch.set_value(self)
+
+func _player_has_been_hit(player_id: int, damage: float, direction: Vector3):
+	game_bar.shared_life_bar.add_damage_to_player(player_id, damage)
+	camera_controller.trigger_hit_shake(direction, damage)

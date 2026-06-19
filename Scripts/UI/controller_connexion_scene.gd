@@ -4,7 +4,7 @@ extends Control
 @onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
 
 @onready var ready_texture: TextureRect = $ReadyTexture
-@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/RadialProgressBarWithText
+@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText
 
 @onready var stand_1: TextureRect = $Visual/Stand1
 @onready var stand_2: TextureRect = $Visual/Stand2
@@ -19,9 +19,23 @@ extends Control
 @export var stage_default: Texture2D
 @export var stage_ready: Texture2D
 
+@export_category("Vibration")
+@export_group("On Game Start")
+@export_range(0, 1) var vibration_force_on_game_start: float = 1.0
+@export var vibration_duration_on_game_start: float = 1.0
+
+@export_group("On Interaction")
+@export_range(0, 1) var vibration_force_on_interaction: float = 0.1
+@export var vibration_duration_on_interaction: float = 0.1
+
+@export_group("On Return to main menu")
+@export_range(0, 1) var vibration_force_on_return: float = 1.0
+
 var controller_slots: Array[ControllerSlot]
 
 var _player_ready: int = 0
+
+var _device_returning: int = -1
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
@@ -58,6 +72,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
 		if event.is_action_pressed("JoinGame"):
+			VibrationManager.start_joy_vibration(event.device, vibration_force_on_interaction, 0 , vibration_duration_on_interaction)
 			if is_device_already_connected(event.device):
 				get_controller_slot_for_device(event.device).next_state(event.device)
 				get_viewport().set_input_as_handled()
@@ -69,15 +84,20 @@ func _input(event: InputEvent) -> void:
 		
 		if event.is_action_pressed("Return") and is_device_already_connected(event.device):
 			get_controller_slot_for_device(event.device).back(event.device)
+			VibrationManager.start_joy_vibration(event.device, vibration_force_on_interaction, 0 , vibration_duration_on_interaction)
 			get_viewport().set_input_as_handled()
 			return
 		
 		if event.is_action_pressed("Return") and not is_device_already_connected(event.device):
 			return_radial_progress_bar.player_start_holding_key()
+			_device_returning = event.device
+			VibrationManager.start_joy_vibration(event.device, vibration_force_on_return, 0 )
 			get_viewport().set_input_as_handled()
 			return
 		elif event.is_action_released("Return") and not is_device_already_connected(event.device):
 			return_radial_progress_bar.player_stop_holding_key()
+			_device_returning = -1
+			VibrationManager.stop_joy_vibration(event.device)
 			get_viewport().set_input_as_handled()
 			return
 
@@ -161,6 +181,8 @@ func start_game():
 	
 	game_scene.players_selection.clear()
 	for controller_slot in controller_slots:
+		#TODO: Fix the vibration things
+		#VibrationManager.start_joy_vibration(controller_slot.get_player_id(), vibration_force_on_game_start, 0, vibration_duration_on_game_start)
 		game_scene.players_selection.append(controller_slot.get_player_selection())
 	
 	get_tree().change_scene_to_node(game_scene)
@@ -194,6 +216,7 @@ func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -
 
 
 func _on_return_radial_progress_bar_hold_finish() -> void:
+	VibrationManager.stop_joy_vibration(_device_returning)
 	get_tree().change_scene_to_file(main_menu_scene_uid)
 
 func _lock_color_for_all(color: CharacterColorResource):
