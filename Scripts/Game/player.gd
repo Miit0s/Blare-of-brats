@@ -69,6 +69,13 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Visual")
 @export var character_animation: CharacterAnimation
 
+@export_group("Squash and Stretch")
+@export var squash_force: float = 0.05
+@export var squash_duration: float = 0.1
+@export var stretch_force: float = 0.05
+@export var stretch_duration: float = 0.1
+@export var back_to_normal_duration: float = 0.1
+
 @export_category("Vibration")
 @export_group("On Hit")
 @export var damage_for_max_vibration: float = 5.0
@@ -417,6 +424,7 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	
 	if damage >= minimal_damage_for_trigger:
 		_freeze_frame_effect()
+		_squash_and_stretch_effect()
 
 func _freeze_frame_effect():
 	var freeze_frame_tween: Tween = create_tween()
@@ -424,6 +432,18 @@ func _freeze_frame_effect():
 	freeze_frame_tween.tween_property(get_tree(), "paused", true, 0)
 	freeze_frame_tween.tween_interval(freeze_frame_duration)
 	freeze_frame_tween.tween_property(get_tree(), "paused", false, 0)
+
+func _squash_and_stretch_effect():
+	var start_scale: Vector3 = player_animated_sprite_3d.scale
+	var squash_scale: Vector3 = Vector3(start_scale.x + squash_force, start_scale.y - squash_force, start_scale.z)
+	var stretch_scale: Vector3 = Vector3(start_scale.x - stretch_force, start_scale.y + stretch_force, start_scale.z)
+	
+	var squash_and_stretch_tween: Tween = create_tween()
+	squash_and_stretch_tween.set_ease(Tween.EASE_OUT)
+	squash_and_stretch_tween.set_trans(Tween.TRANS_QUART)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", squash_scale, squash_duration)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", stretch_scale, stretch_duration)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", start_scale, back_to_normal_duration)
 
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction
