@@ -77,7 +77,7 @@ material_override = ExtResource("14_ybo73")
 shaded = true
 alpha_cut = 1
 sprite_frames = ExtResource("8_tt850")
-animation = &"back"
+animation = &"left"
 
 [node name="AnimatedSpriteForOffset" type="AnimatedSprite3D" parent="." unique_id=268198128]
 transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
