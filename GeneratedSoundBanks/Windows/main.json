@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{FBA4DC05-EF73-D929-E5DD-CB5DBC246C31}",
+    "Hash": "{2E6099CA-5CBF-8DB0-09A2-21E7BA3ECC9B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -208,6 +208,14 @@
       "CachePath": "3D/{3D7BF6A8-7790-19C5-9205-C3AAB65801E5}.wem"
      },
      {
+      "Id": "480061588",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "HoldLoop_L2.wav",
+      "CachePath": "14/{145C819B-50C1-4D89-D820-B68153E5D4B5}.wem"
+     },
+     {
       "Id": "498530264",
       "Language": "SFX",
       "Streaming": "false",
@@ -278,6 +286,14 @@
       "Location": "Memory",
       "ShortName": "L_Impact_2.wav",
       "CachePath": "C3/{C321D281-82D0-950E-F9EC-F360157C70FA}.wem"
+     },
+     {
+      "Id": "647961867",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score.wav",
+      "CachePath": "09/{0963B838-A28D-730F-E2F1-AB41F08F808C}.wem"
      },
      {
       "Id": "654877243",
@@ -446,6 +462,14 @@
       "Location": "Memory",
       "ShortName": "Pistogum_shoot_v2.1.wav",
       "CachePath": "60/{6018DE96-F4C7-EA2F-385F-9E1D0DAFABA3}.wem"
+     },
+     {
+      "Id": "1007882477",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "HoldLoop_L1.wav",
+      "CachePath": "02/{023CF21B-46C1-01D2-76AA-A6F5D72C4695}.wem"
      },
      {
       "Id": "1011003732",
@@ -947,6 +971,21 @@
       }
      },
      {
+      "Id": "2398231425",
+      "Name": "Score",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\Score",
+      "GUID": "{86F1B91D-961C-4A2F-B6D7-F4A0A03E2462}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2277873",
+      "DurationMax": "1.3007953",
+      "MediaRefs": [
+       {
+        "Id": "647961867"
+       }
+      ]
+     },
+     {
       "Id": "1182307794",
       "Name": "SoundBar_LVL_1",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\SoundBar\\SoundBar_LVL_1",
@@ -1052,6 +1091,22 @@
       ]
      },
      {
+      "Id": "28914597",
+      "Name": "UI_Hold",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Hold",
+      "GUID": "{28FD923D-57AB-49D2-9F50-ECA45580125D}",
+      "Color": "2",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "480061588"
+       },
+       {
+        "Id": "1007882477"
+       }
+      ]
+     },
+     {
       "Id": "922786755",
       "Name": "UI_Menu_Back",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Menu_Back",
@@ -1103,6 +1158,12 @@
       "Name": "SoundBar_Value",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\SoundBar_Value",
       "GUID": "{0DEE1858-2463-4550-BF6A-045447464530}"
+     },
+     {
+      "Id": "2172078744",
+      "Name": "Hold_Fct",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Hold_Fct",
+      "GUID": "{B1AB8D75-38C1-4E2A-91D6-687A2CECB8CD}"
      }
     ],
     "StateGroups": [
@@ -1169,6 +1230,6 @@
     ]
    }
   ],
-  "FileHash": "{DDDD6F37-92C6-B881-04CB-AE355BD1B3C8}"
+  "FileHash": "{75331782-B999-7913-2DB3-6ED8EDD235BB}"
  }
 }

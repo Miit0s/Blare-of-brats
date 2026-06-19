@@ -29,6 +29,7 @@ namespace AK
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
         static const AkUniqueID PENCIL_ATTACK = 3470720449U;
         static const AkUniqueID PISTOGUM_SHOOT = 2746646177U;
+        static const AkUniqueID SCORE = 2398231425U;
         static const AkUniqueID SOUNDBAR_LVL_1 = 1182307794U;
         static const AkUniqueID SOUNDBAR_LVL_2 = 1182307793U;
         static const AkUniqueID SOUNDBAR_LVL_3 = 1182307792U;
@@ -36,6 +37,7 @@ namespace AK
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
         static const AkUniqueID UI_COLORS_NAV = 1604317996U;
         static const AkUniqueID UI_COLORS_SELECT = 2429118665U;
+        static const AkUniqueID UI_HOLD = 28914597U;
         static const AkUniqueID UI_MENU_BACK = 922786755U;
         static const AkUniqueID UI_MENU_NAV = 17678017U;
         static const AkUniqueID UI_MENU_SELECT = 3474566310U;
@@ -79,6 +81,7 @@ namespace AK
         static const AkUniqueID CHILDREN_ACTION = 3321746565U;
         static const AkUniqueID CROWD = 2848349012U;
         static const AkUniqueID HIGH_FCT = 2988444587U;
+        static const AkUniqueID HOLD_FCT = 2172078744U;
         static const AkUniqueID LEAD = 54442139U;
         static const AkUniqueID LOW_FCT = 2785096631U;
         static const AkUniqueID MASTER_VOLUME = 4179668880U;

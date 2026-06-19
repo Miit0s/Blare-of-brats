@@ -116,7 +116,7 @@ load_on = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 
-[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463 node_paths=PackedStringArray("buttons_impacting_movement")]
+[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,7 +125,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wrubb")
 game_start_scene_uid = "uid://b1nchn1fbud6v"
-buttons_impacting_movement = [NodePath("MainStack/MainButton/ControlPlay/Play"), NodePath("MainStack/MainButton/ControlOptions/Options"), NodePath("MainStack/MainButton/ControlCredits/Credits"), NodePath("MainStack/MainButton/ControlExit/Exit")]
 
 [node name="Background" type="Control" parent="CanvasLayer/Menu" unique_id=863405293]
 layout_mode = 1

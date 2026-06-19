@@ -3,6 +3,7 @@ State Group	ID	Name			Wwise Object Path	Notes
 
 State	ID	Name	State Group			Notes
 	748895195	None	Round_State			
+	1580246308	Phase_Danger	Round_State			
 	1622949420	Phase_3	Round_State			
 	1622949421	Phase_2	Round_State			
 	1622949422	Phase_1	Round_State			
