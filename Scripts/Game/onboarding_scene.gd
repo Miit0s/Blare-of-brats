@@ -10,11 +10,17 @@ extends GameScene
 @export var task_info_in_order: Array[TaskInfo]
 
 @export_category("Text Tutorial")
+@export_group("Sound Bar Tuto Text")
 @export var sound_title: String = "Sound Bar"
 @export var sound_texts: Array[String]
 
+@export_group("Health Bar Tuto Text")
 @export var health_title: String = "Health Bar"
 @export var health_texts: Array[String]
+
+@export_category("Wall Animation")
+@export var wall_down_by: float = 2
+@export var wall_down_duration: float = 1.2
 
 @export_category("Vibration")
 @export_group("On Ready Set")
@@ -24,6 +30,9 @@ extends GameScene
 @export_group("On Wall Fall")
 @export_range(0, 1) var vibration_force_on_wall_fall: float = 0.3
 @export var vibration_duration_on_wall_fall: float = 1.0
+
+@export_category("Camera Shake")
+@export var camera_shake_duration_on_wall_fall: float = 0.9
 
 var has_already_made_sound: bool = false
 var has_already_hit_player: bool = false
@@ -173,10 +182,7 @@ func _trigger_dash_quest():
 		task_lists[i].add_new_task(task, task_info, players[i].player_id)
 
 func _trigger_item_quest():
-	if _current_scene is MapOnboarding:
-		_current_scene.move_down_wall()
-		for player in players:
-			VibrationManager.start_joy_vibration(player.player_id, vibration_force_on_wall_fall, 0, vibration_duration_on_wall_fall)
+	_trigger_move_down_wall()
 	
 	var first_task: TaskInfo = task_info_in_order.pop_front()
 	var second_task: TaskInfo = task_info_in_order.pop_front()
@@ -216,3 +222,10 @@ func _player_have_finish_quest():
 		for task_list in task_lists:
 			task_list.task_remove_anim_finish.connect(task_list.trigger_despawn_animation, ConnectFlags.CONNECT_ONE_SHOT)
 			task_list.clear_task()
+
+func _trigger_move_down_wall():
+	if _current_scene is MapOnboarding:
+		_current_scene.move_down_wall()
+		for player in players:
+			VibrationManager.start_joy_vibration(player.player_id, vibration_force_on_wall_fall, 0, vibration_duration_on_wall_fall)
+		camera_controller.trigger_wall_fall_shake(camera_shake_duration_on_wall_fall)

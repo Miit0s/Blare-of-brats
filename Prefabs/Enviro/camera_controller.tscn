@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dhr0ypg38gbc1"]
+
+[ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="1_3n6vs"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_kqv8r"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hp74p"]
+[ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="4_oxbsc"]
+[ext_resource type="Script" uid="uid://ccmiitq0sdh7j" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_3d.gd" id="5_d5vg5"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="6_1ecf0"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_1v3ev"]
+
+[sub_resource type="Resource" id="Resource_5qsl7"]
+script = ExtResource("3_hp74p")
+transition = 7
+ease = 1
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_gwqyt"]
+script = ExtResource("3_hp74p")
+duration = 1.2
+transition = 10
+ease = 1
+
+[sub_resource type="Resource" id="Resource_tw2pt"]
+script = ExtResource("6_1ecf0")
+amplitude = 3.0
+frequency = 10.0
+noise_seed = 72
+positional_noise = true
+rotational_multiplier_x = 0.0
+rotational_multiplier_y = 0.0
+positional_multiplier_z = 0.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Resource" id="Resource_3n6vs"]
+script = ExtResource("6_1ecf0")
+amplitude = 1.0
+frequency = 15.0
+positional_noise = true
+rotational_multiplier_x = 0.0
+rotational_multiplier_y = 0.0
+positional_multiplier_x = 0.2
+positional_multiplier_z = 0.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[node name="CameraController" type="Node3D" unique_id=786363209]
+script = ExtResource("1_3n6vs")
+
+[node name="FollowGroupPhantomCamera3D" type="Node3D" parent="." unique_id=1590344283]
+transform = Transform3D(1, 0, 0, 0, 0.8616292, 0.5075383, 0, -0.5075383, 0.8616292, 0, 22.4, 30.37)
+top_level = true
+script = ExtResource("2_kqv8r")
+follow_mode = 3
+tween_resource = SubResource("Resource_5qsl7")
+tween_on_load = false
+inactive_update_mode = 1
+camera_3d_resource = ExtResource("4_oxbsc")
+follow_damping = true
+auto_follow_distance = true
+auto_follow_distance_min = 14.0
+auto_follow_distance_max = 24.0
+noise_emitter_layer = 1
+
+[node name="GlobalScenePhantomCamera3D" type="Node3D" parent="." unique_id=546448551]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 0, 0)
+script = ExtResource("2_kqv8r")
+priority = 1
+tween_resource = SubResource("Resource_gwqyt")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_oxbsc")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="HitPhantomCameraNoiseEmitter3D" type="Node3D" parent="." unique_id=274103291]
+script = ExtResource("5_d5vg5")
+noise = SubResource("Resource_tw2pt")
+duration = 0.2
+decay_time = 0.1
+metadata/_custom_type_script = "uid://ccmiitq0sdh7j"
+
+[node name="WallFallPhantomCameraNoiseEmitter3D" type="Node3D" parent="." unique_id=581433623]
+script = ExtResource("5_d5vg5")
+noise = SubResource("Resource_3n6vs")
+growth_time = 0.2
+decay_time = 0.2
+metadata/_custom_type_script = "uid://ccmiitq0sdh7j"
+
+[node name="MainCamera3D" type="Camera3D" parent="." unique_id=1007152682]
+transform = Transform3D(1, 0, 0, 0, 0.86162925, 0.50753826, 0, -0.50753826, 0.86162925, 0, 0, 0)
+top_level = true
+current = true
+fov = 45.0
+
+[node name="AkListener3D" type="AkListener3D" parent="MainCamera3D" unique_id=432826120]
+transform = Transform3D(1, 0, 0, 0, 0.99593484, -0.09007642, 0, 0.09007642, 0.99593484, 0, 0, 0)
+
+[node name="PhantomCameraHost" type="Node" parent="MainCamera3D" unique_id=584433591]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("7_1v3ev")

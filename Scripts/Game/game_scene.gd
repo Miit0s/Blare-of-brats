@@ -191,7 +191,7 @@ func _on_map_new_player_spawn(player: Player) -> void:
 		tracking_spot_player_one.target = player
 	
 	player.freeze()
-	player.has_been_hit.connect(game_bar.shared_life_bar.add_damage_to_player)
+	player.has_been_hit.connect(_player_has_been_hit)
 	
 	players.append(player)
 
@@ -239,3 +239,7 @@ func _trigger_crowd_reaction():
 	reaction_crowd_switch.set_value(self)
 	await get_tree().create_timer(crowd_reaction_duration).timeout
 	continious_crowd_switch.set_value(self)
+
+func _player_has_been_hit(player_id: int, damage: float, direction: Vector3):
+	game_bar.shared_life_bar.add_damage_to_player(player_id, damage)
+	camera_controller.trigger_shake(direction, damage)

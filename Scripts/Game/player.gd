@@ -139,7 +139,7 @@ var _attack_move_timer: Tween = null
 
 var skin: ControllerSlot.PossibleSkin
 
-signal has_been_hit(player_id: int, damage: float)
+signal has_been_hit(player_id: int, damage: float, direction: Vector3)
 
 signal did_dash()
 signal pick_up_object()
@@ -406,7 +406,7 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	if _is_attacking or _is_aiming:
 		cancel_animation()
 	
-	has_been_hit.emit(player_id, damage)
+	has_been_hit.emit(player_id, damage, hit_direction)
 	
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
