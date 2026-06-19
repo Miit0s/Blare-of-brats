@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{45D2DE59-FB2C-3F76-781D-9747303C18D9}",
+    "Hash": "{1FAB2810-1A69-FB71-6DA3-C7E3EF8DAD1E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -125,7 +125,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Crowd_ReactionHit_2.wav",
-      "CachePath": "C2/{C235BD25-2403-147D-3498-9760C5F50D8B}.wem"
+      "CachePath": "8E/{8EEEC602-1CE3-A1E8-D470-78191BDEA4CF}.wem"
      },
      {
       "Id": "306065806",
@@ -333,7 +333,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Crowd_ReactionHit_1.wav",
-      "CachePath": "2B/{2BB42316-A075-82B8-3C94-2B727369D672}.wem"
+      "CachePath": "AA/{AAAB7CC0-800F-AA87-A490-9088D016DCBC}.wem"
      },
      {
       "Id": "752596094",
@@ -341,7 +341,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Crowd_ReactionHit_3.wav",
-      "CachePath": "0F/{0FFC42BD-EBBA-CC05-9CB3-67E86D99D1CE}.wem"
+      "CachePath": "5D/{5DF1015B-7649-9ADB-CFFD-5C8278151916}.wem"
      },
      {
       "Id": "753045005",
@@ -1169,6 +1169,6 @@
     ]
    }
   ],
-  "FileHash": "{5194CB9A-7D9A-CB19-433C-60AB232FEE54}"
+  "FileHash": "{7F38FE9D-7655-6035-B430-8A4A2B09CFB9}"
  }
 }
