@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="1_t6mrn"]
 [ext_resource type="Script" uid="uid://bju2pll2wsybw" path="res://Scripts/UI/onboarding_text_display.gd" id="1_xlx4w"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="2_5al6d"]
+[ext_resource type="WwiseEvent" uid="uid://bynhxij07jj55" path="res://Wwise/resources/Event/{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}.tres" id="3_1i2wr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kmwn"]
 font_size = 48
@@ -24,6 +26,8 @@ custom_minimum_size = Vector2(1240, 475)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xlx4w")
+on_button_next = ExtResource("2_5al6d")
+on_button_back = ExtResource("3_1i2wr")
 
 [node name="Background" type="ColorRect" parent="." unique_id=893550027]
 layout_mode = 1

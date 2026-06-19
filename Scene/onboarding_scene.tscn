@@ -15,6 +15,7 @@
 [ext_resource type="WwiseSwitch" uid="uid://cl5vc46xtn65y" path="res://Wwise/resources/Switch/{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}.tres" id="11_el4mh"]
 [ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
 [ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="12_u823a"]
+[ext_resource type="WwiseSwitch" uid="uid://di8yyscq2ywpv" path="res://Wwise/resources/Switch/{63CB6B0B-90A3-4443-8423-6B8A560BED92}.tres" id="13_b8he2"]
 [ext_resource type="PackedScene" uid="uid://6d56jb0v178f" path="res://UI/Onboarding/onboarding_text_display.tscn" id="14_nh8k7"]
 [ext_resource type="PackedScene" uid="uid://6j6j6kuvtcud" path="res://UI/Onboarding/task_list_inverse.tscn" id="15_5q1ap"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="17_a665e"]
@@ -89,6 +90,7 @@ soundbar_lvl1 = ExtResource("8_ts878")
 soundbar_lvl2 = ExtResource("9_aongf")
 continious_crowd_switch = ExtResource("10_5felv")
 reaction_crowd_switch = ExtResource("11_el4mh")
+danger_phase_crowd_switch = ExtResource("13_b8he2")
 crowd_sound = ExtResource("12_u823a")
 possible_level = Array[PackedScene]([ExtResource("5_hq2bc")])
 

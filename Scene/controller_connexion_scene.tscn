@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
 [ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
+[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="6_aqpqj"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
 [ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
@@ -41,6 +42,7 @@ game_scene_uid = "uid://c53l85gqm0mi1"
 onboarding_scene_uid = "uid://36tccmd3uybf"
 stage_default = ExtResource("15_hhwhx")
 stage_ready = ExtResource("4_ho3je")
+music_sound = ExtResource("6_aqpqj")
 
 [node name="Visual" type="Control" parent="." unique_id=836811587]
 layout_mode = 1

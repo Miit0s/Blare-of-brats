@@ -8,7 +8,10 @@
 [ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="2_yok32"]
 [ext_resource type="Texture2D" uid="uid://ce2kyh0xs1xgo" path="res://Assets/SpriteUI/Menu/blue menu screen.png" id="3_4ckpx"]
 [ext_resource type="Texture2D" uid="uid://dh5s8y8u8ffyl" path="res://Assets/SpriteUI/Menu/splash menu.png" id="3_hag5k"]
+[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="3_hjh75"]
+[ext_resource type="WwiseEvent" uid="uid://dpx4ft0u3ellj" path="res://Wwise/resources/Event/{B028A76E-DF34-418D-AF44-603DF661B703}.tres" id="3_p1wrw"]
 [ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="4_ejkra"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="4_hjh75"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="4_s2f1d"]
 [ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="4_shpw1"]
 [ext_resource type="PackedScene" uid="uid://dfywcxkltec84" path="res://UI/ControlTool/interaction_reminder.tscn" id="5_klvvj"]
@@ -128,6 +131,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wrubb")
 game_start_scene_uid = "uid://b1nchn1fbud6v"
+main_menu_music = ExtResource("3_hjh75")
+on_button_focus = ExtResource("3_p1wrw")
+on_button_click = ExtResource("4_hjh75")
 
 [node name="Background" type="Control" parent="CanvasLayer/Menu" unique_id=863405293]
 layout_mode = 1

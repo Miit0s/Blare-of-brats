@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c7kudi1v0xv4g" path="res://Assets/SpriteUI/Onboarding/background_controls.png" id="2_kpnbg"]
 [ext_resource type="Texture2D" uid="uid://clga46jtgtawu" path="res://Assets/SpriteUI/Onboarding/banner_violet.png" id="3_3tnbt"]
 [ext_resource type="Texture2D" uid="uid://jxdua4ndggn6" path="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png" id="3_igc5j"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="3_nmdph"]
 [ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="3_tr8u0"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="3_yadso"]
 [ext_resource type="PackedScene" uid="uid://de5h0fbgrrk8" path="res://UI/Onboarding/input_label_onboarding.tscn" id="5_nmdph"]
@@ -28,6 +29,7 @@ prefix_text_attack = "Attack"
 prefix_text_pickup = "PickUp"
 prefix_text_dash = "Dash"
 prefix_text_throw = "Throw"
+on_ready_button_press = ExtResource("3_nmdph")
 
 [node name="ControlsContainer" type="Control" parent="." unique_id=1580622531]
 layout_mode = 1

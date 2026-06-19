@@ -75,6 +75,17 @@ namespace AK
             } // namespace SWITCH
         } // namespace CROWD
 
+        namespace STOP
+        {
+            static const AkUniqueID GROUP = 788884573U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace SWITCH
+        } // namespace STOP
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS

@@ -673,7 +673,29 @@ guid = "{59334D58-9A31-4E66-AF43-497496E02760}"
 id = 2848349012
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_w8b82"]
-children = [SubResource("WwiseTreeObject_aa1t5")]
+path = "\\Switches\\Default Work Unit\\Stop\\Off"
+type = 10
+name = "Off"
+guid = "{7C43D284-1A8D-4438-B730-9D436822430B}"
+id = 930712164
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_82afc"]
+path = "\\Switches\\Default Work Unit\\Stop\\On"
+type = 10
+name = "On"
+guid = "{DC459125-8573-4FAA-BC70-31EA85E37594}"
+id = 1651971902
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_dlb1b"]
+path = "\\Switches\\Default Work Unit\\Stop"
+children = [SubResource("WwiseTreeObject_w8b82"), SubResource("WwiseTreeObject_82afc")]
+type = 11
+name = "Stop"
+guid = "{E907D548-16CE-4113-8269-3289887D8D04}"
+id = 788884573
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_x2pta"]
+children = [SubResource("WwiseTreeObject_aa1t5"), SubResource("WwiseTreeObject_dlb1b")]
 name = "Default Work Unit"
 id = 125608783
 
@@ -684,4 +706,4 @@ bank_root = [SubResource("WwiseTreeObject_v560u")]
 event_root = [SubResource("WwiseTreeObject_44i7c")]
 game_parameter_root = [SubResource("WwiseTreeObject_hxqoe")]
 state_root = [SubResource("WwiseTreeObject_ersd2")]
-switch_root = [SubResource("WwiseTreeObject_w8b82")]
+switch_root = [SubResource("WwiseTreeObject_x2pta")]

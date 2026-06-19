@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{C97A047E-D61E-5F6F-8970-3632553CD75F}",
+    "Hash": "{106E25D9-7D32-EC58-AEDB-6AD5B26837C2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -249,6 +249,29 @@
      }
     ],
     "SwitchGroups": [
+     {
+      "Id": "788884573",
+      "Name": "Stop",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Stop",
+      "GUID": "{E907D548-16CE-4113-8269-3289887D8D04}",
+      "GameParameterRef": {
+       "Id": "2172078744"
+      },
+      "Switches": [
+       {
+        "Id": "930712164",
+        "Name": "Off",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Stop\\Off",
+        "GUID": "{7C43D284-1A8D-4438-B730-9D436822430B}"
+       },
+       {
+        "Id": "1651971902",
+        "Name": "On",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Stop\\On",
+        "GUID": "{DC459125-8573-4FAA-BC70-31EA85E37594}"
+       }
+      ]
+     },
      {
       "Id": "2848349012",
       "Name": "CROWD",
@@ -755,6 +778,6 @@
     ]
    }
   ],
-  "FileHash": "{6C53A4BF-813B-B868-1F83-310029F77896}"
+  "FileHash": "{3E3C08AA-D807-A739-1BAD-386F256C8AFB}"
  }
 }
