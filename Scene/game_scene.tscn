@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://curiv2kllrs5x" path="res://Scripts/Game/game_scene.gd" id="1_f38sd"]
 [ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ee6vw"]
+[ext_resource type="WwiseEvent" uid="uid://cqeer5ilf3afn" path="res://Wwise/resources/Event/{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}.tres" id="3_g00sh"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_mlt6n"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_mlt6n"]
 [ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="5_tw2pt"]
@@ -9,15 +10,13 @@
 [ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="6_hdg2p"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="6_ugwxx"]
 [ext_resource type="WwiseSwitch" uid="uid://b4b2cqrs243i8" path="res://Wwise/resources/Switch/{FD1A1761-B018-456D-A243-B338F6410620}.tres" id="7_7o1xo"]
+[ext_resource type="PackedScene" uid="uid://so2ab617u88q" path="res://Scene/Map/map_3_bis.tscn" id="7_8gx4v"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="7_b5oy1"]
 [ext_resource type="WwiseSwitch" uid="uid://cl5vc46xtn65y" path="res://Wwise/resources/Switch/{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}.tres" id="7_hdg2p"]
 [ext_resource type="WwiseEvent" uid="uid://de3xap53vjjev" path="res://Wwise/resources/Event/{379705D3-B374-4513-9155-CCCB5CB7D489}.tres" id="7_tit5h"]
-[ext_resource type="PackedScene" uid="uid://dl8w1gvqk5wp5" path="res://Scene/Map/map_4.tscn" id="7_vk7uo"]
 [ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="8_cv58c"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
-[ext_resource type="PackedScene" uid="uid://dfia36eaodd3r" path="res://Scene/Map/map_5.tscn" id="8_walhf"]
 [ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="9_7o1xo"]
-[ext_resource type="PackedScene" uid="uid://so2ab617u88q" path="res://Scene/Map/map_3_bis.tscn" id="7_8gx4v"]
 [ext_resource type="Script" uid="uid://blyfsoek11cef" path="res://Scripts/Game/camera_controller.gd" id="9_mlt6n"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="22_walhf"]
@@ -46,6 +45,7 @@ next_scene_uid = "uid://bnfprdiqbhq53"
 tracking_spot_player_one = NodePath("TrackingSpot")
 tracking_spot_player_two = NodePath("TrackingSpot2")
 music_fight = ExtResource("2_ee6vw")
+countdown = ExtResource("3_g00sh")
 lead = ExtResource("3_mlt6n")
 round_start_state = ExtResource("4_mlt6n")
 second_phase_state = ExtResource("5_tw2pt")

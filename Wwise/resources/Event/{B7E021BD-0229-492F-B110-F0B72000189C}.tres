@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://c1vm64mp3s1yr"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "stun"
+id = 352666449
+guid = "{B7E021BD-0229-492F-B110-F0B72000189C}"
+dummy = true

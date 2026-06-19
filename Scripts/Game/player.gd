@@ -60,6 +60,7 @@ var _knockback_speed_to_apply: float = 0
 @export var switch_sound : WwiseEvent
 @export var hit_wout_obj: WwiseEvent
 @export var launch : WwiseEvent
+@export var stun_sound : WwiseEvent
 
 @export_category("VFX")
 @export var hit_effect_duration: float = 0.2
@@ -342,6 +343,7 @@ func knockback(hit_direction: Vector3):
 
 func stun(duration: float):
 	_is_stun = true
+	stun_sound.post(self)
 	
 	stun_particle.emitting = true
 	stun_particle.restart()

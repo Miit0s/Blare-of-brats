@@ -8,6 +8,7 @@
 [ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_nad7g"]
 [ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_7m7dm"]
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
+[ext_resource type="WwiseEvent" uid="uid://c1vm64mp3s1yr" path="res://Wwise/resources/Event/{B7E021BD-0229-492F-B110-F0B72000189C}.tres" id="7_ybo73"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
 [ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="13_r08wf"]
@@ -59,6 +60,7 @@ dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
 hit_wout_obj = ExtResource("5_nad7g")
 launch = ExtResource("6_7m7dm")
+stun_sound = ExtResource("7_ybo73")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
 character_animation = ExtResource("8_4sfrm")
 player_animated_sprite_3d = NodePath("AnimatedSprite3D")

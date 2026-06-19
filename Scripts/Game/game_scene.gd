@@ -19,6 +19,7 @@ class_name GameScene
 
 @export_category("Sound")
 @export var music_fight: WwiseEvent
+@export var countdown: WwiseEvent
 @export var lead: WwiseRTPC
 @export var round_start_state: WwiseState
 @export var second_phase_state: WwiseState
@@ -67,6 +68,7 @@ func _ready() -> void:
 func start_round_animation():
 	round_end_ui.hide()
 	game_bar.hide()
+	countdown.post(self)
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
