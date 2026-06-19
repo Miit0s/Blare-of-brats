@@ -4,6 +4,8 @@ class_name CameraController
 @onready var follow_group_phantom_camera_3d: PhantomCamera3D = $FollowGroupPhantomCamera3D
 @onready var hit_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $HitPhantomCameraNoiseEmitter3D
 @onready var wall_fall_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $WallFallPhantomCameraNoiseEmitter3D
+@onready var wolve_stun_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $WolfStunPhantomCameraNoiseEmitter3D
+@onready var object_destroy_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $ObjectDestroyPhantomCameraNoiseEmitter3D
 
 @export var reset_position_duration: float = 1.5
 
@@ -49,3 +51,9 @@ func trigger_wall_fall_shake(duration: float):
 	wall_fall_phantom_camera_noise_emitter_3d.duration = duration
 	
 	wall_fall_phantom_camera_noise_emitter_3d.emit()
+
+func trigger_wolf_stun_shake():
+	wolve_stun_phantom_camera_noise_emitter_3d.emit()
+
+func trigger_objet_destruction_shake():
+	object_destroy_phantom_camera_noise_emitter_3d.emit()

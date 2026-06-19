@@ -115,6 +115,8 @@ func setup_new_scene():
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	
+	new_scene.wolf_has_hit_player.connect(camera_controller.trigger_wolf_stun_shake)
+	
 	_current_scene = new_scene
 	
 	add_child(new_scene)
@@ -171,6 +173,7 @@ func lifebar_value_change(lifebar_value: float):
 
 func _on_map_item_will_be_delete(item: Item) -> void:
 	item.sound_made.disconnect(_item_made_sound)
+	camera_controller.trigger_objet_destruction_shake()
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
@@ -242,4 +245,4 @@ func _trigger_crowd_reaction():
 
 func _player_has_been_hit(player_id: int, damage: float, direction: Vector3):
 	game_bar.shared_life_bar.add_damage_to_player(player_id, damage)
-	camera_controller.trigger_shake(direction, damage)
+	camera_controller.trigger_hit_shake(direction, damage)

@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="23_yaqu8"]
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
+[node name="GameScene2" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_f38sd")
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
