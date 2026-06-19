@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0g4y2ucabxen"
-path.s3tc="res://.godot/imported/moon.png-23fd7a4516d4c2b0f8a1b3d383d342a3.s3tc.ctex"
+uid="uid://cmjgdrf2iqy6"
+path.s3tc="res://.godot/imported/crown.png-287cbd97d2a6d2befc9c4ee39f09ace8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/VFX/moon.png"
-dest_files=["res://.godot/imported/moon.png-23fd7a4516d4c2b0f8a1b3d383d342a3.s3tc.ctex"]
+source_file="res://Assets/VFX/crown.png"
+dest_files=["res://.godot/imported/crown.png-287cbd97d2a6d2befc9c4ee39f09ace8.s3tc.ctex"]
 
 [params]
 

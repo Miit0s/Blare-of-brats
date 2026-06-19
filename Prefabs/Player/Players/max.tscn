@@ -3,12 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_rsbiw"]
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="2_3p83p"]
 [ext_resource type="Texture2D" uid="uid://blwpm6jjrv88f" path="res://Assets/Player/Max/Idle/idle-left-animation-chara-1.png" id="3_ueqey"]
+[ext_resource type="Texture2D" uid="uid://btjap5yqpk4vs" path="res://Assets/VFX/aura star.png" id="4_ueqey"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3p83p"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yeag3"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/pistogum.png-8e60fe42944d4464c52be86d364f24d6.bptc.ctex"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ueqey"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0k1w"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_3p83p")
@@ -32,31 +33,30 @@ shader_parameter/blend_delta = 0.0
 shader_parameter/emission_energy = 1.0
 shader_parameter/saturation = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yeag3"]
-resource_local_to_scene = true
-load_path = "res://.godot/imported/aura moon.png-347ee4c30c8b8a34a5150c5a771b6a71.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0k1w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmhds"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_yeag3")
+albedo_texture = ExtResource("4_ueqey")
 emission_enabled = true
-emission_energy_multiplier = 2.0
-emission_texture = SubResource("CompressedTexture2D_yeag3")
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("4_ueqey")
 
 [node name="Max" unique_id=382022037 instance=ExtResource("1_rsbiw")]
 
 [node name="CurrentItem" parent="." index="0" unique_id=578480651]
-texture = SubResource("CompressedTexture2D_3p83p")
+texture = SubResource("CompressedTexture2D_yeag3")
 
 [node name="AnimatedSprite3D" parent="." index="1" unique_id=932639487]
-material_override = SubResource("ShaderMaterial_ueqey")
-animation = &"left"
+material_override = SubResource("ShaderMaterial_t0k1w")
 
 [node name="AnimatedSpriteForOffset" parent="." index="2" unique_id=268198128]
-material_override = SubResource("ShaderMaterial_ueqey")
+material_override = SubResource("ShaderMaterial_t0k1w")
 
 [node name="PlayerMarkerWithBloom" parent="." index="9" unique_id=1989972902]
-material_override = SubResource("StandardMaterial3D_t0k1w")
-texture = SubResource("CompressedTexture2D_yeag3")
+transform = Transform3D(0.12, 0, 0, 0, -5.2453664e-09, -0.12, 0, 0.12, -5.2453664e-09, 0, -1, 0.15154731)
+material_override = SubResource("StandardMaterial3D_tmhds")
+flip_v = false
+
+[node name="Sprite3D" parent="PlayerMarkerWithBloom" index="0" unique_id=1924734937]
+transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, -1.4360409, 0)

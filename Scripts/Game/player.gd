@@ -725,8 +725,6 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
-	
-	throw_arrow.modulate = selection.color_skin.main_color
 
 func apply_slow(speed_multiplier: float, duration: float):
 	if _slow_tween:

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0g4y2ucabxen"
-path.s3tc="res://.godot/imported/moon.png-23fd7a4516d4c2b0f8a1b3d383d342a3.s3tc.ctex"
+uid="uid://box66bwktxqdh"
+path.bptc="res://.godot/imported/arrow_02.png-04f0550f3d787538af5a78a461319c79.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/VFX/moon.png"
-dest_files=["res://.godot/imported/moon.png-23fd7a4516d4c2b0f8a1b3d383d342a3.s3tc.ctex"]
+source_file="res://Assets/VFX/arrow_02.png"
+dest_files=["res://.godot/imported/arrow_02.png-04f0550f3d787538af5a78a461319c79.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
