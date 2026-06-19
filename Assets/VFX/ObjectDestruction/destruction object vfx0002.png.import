@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b85rr268sbmjr"
-path.s3tc="res://.godot/imported/aura 2.png-32d7fbf49f4c96e4b490cf8498081678.s3tc.ctex"
+uid="uid://wu37ilsoy7dl"
+path.s3tc="res://.godot/imported/destruction object vfx0002.png-2726d7ea59d911b81314f544b582b20f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/VFX/aura 2.png"
-dest_files=["res://.godot/imported/aura 2.png-32d7fbf49f4c96e4b490cf8498081678.s3tc.ctex"]
+source_file="res://Assets/VFX/ObjectDestruction/destruction object vfx0002.png"
+dest_files=["res://.godot/imported/destruction object vfx0002.png-2726d7ea59d911b81314f544b582b20f.s3tc.ctex"]
 
 [params]
 

@@ -204,13 +204,13 @@ func _add_hit_effect(target: Node3D):
 	var hit_point: Vector3 = _get_hit_point(target)
 	if hit_point == Vector3.ZERO: return
 	
-	var hit_particle: GPUParticles3D = hit_particle_prefab.instantiate()
+	var hit_particle: AnimatedSprite3D = hit_particle_prefab.instantiate()
 	add_child(hit_particle)
 	
 	hit_particle.global_position = hit_point
-	hit_particle.finished.connect(hit_particle.queue_free)
+	hit_particle.animation_finished.connect(hit_particle.queue_free)
 	
-	hit_particle.emitting = true
+
 
 func _attack_player(player_hit: Player):
 	if not sound_always_made:
