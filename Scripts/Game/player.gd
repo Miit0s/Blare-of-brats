@@ -100,6 +100,10 @@ var _knockback_speed_to_apply: float = 0
 @export_range(0, 1) var vibration_force_on_throw: float = 0.3
 @export var vibration_duration_on_throw: float = 0.1
 
+@export_category("Time change")
+@export var freeze_frame_duration: float = 0.05
+@export var minimal_damage_for_trigger: float = 1.5
+
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
 @export var animated_sprite_3d_for_offset: AnimatedSprite3D
@@ -410,6 +414,16 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
+	
+	if damage >= minimal_damage_for_trigger:
+		_freeze_frame_effect()
+
+func _freeze_frame_effect():
+	var freeze_frame_tween: Tween = create_tween()
+	freeze_frame_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	freeze_frame_tween.tween_property(get_tree(), "paused", true, 0)
+	freeze_frame_tween.tween_interval(freeze_frame_duration)
+	freeze_frame_tween.tween_property(get_tree(), "paused", false, 0)
 
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction

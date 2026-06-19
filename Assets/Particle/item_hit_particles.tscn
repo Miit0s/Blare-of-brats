@@ -106,10 +106,12 @@ animations = [{
 }]
 
 [node name="ItemHitParticles" type="AnimatedSprite3D" unique_id=382626907]
+process_mode = 3
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 top_level = true
 offset = Vector2(58.45, -40.535)
 billboard = 1
 no_depth_test = true
+render_priority = 1
 sprite_frames = SubResource("SpriteFrames_u783q")
 autoplay = "default"
