@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://jfjbig1iig6j"]
+
+[resource]
+name = "SoundBar_Value"
+id = 1629633035
+guid = "{0DEE1858-2463-4550-BF6A-045447464530}"
+dummy = true

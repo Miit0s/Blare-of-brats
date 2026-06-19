@@ -28,6 +28,7 @@ class_name GameScene
 @export var danger_phase_start: WwiseState
 @export var soundbar_lvl1: WwiseEvent
 @export var soundbar_lvl2: WwiseEvent
+@export var bar_volume_rtpc: WwiseRTPC
 @export_group("Crowd")
 @export var crowd_reaction_duration: float = 1.5
 @export var continious_crowd_switch: WwiseSwitch
@@ -73,6 +74,9 @@ func _ready() -> void:
 	players_win.fill(0)
 	
 	start_round_animation()
+
+func _process(_delta: float) -> void:
+	bar_volume_rtpc.set_value(self, game_bar.game_sound_bar._game_sound_bar_volume * 100)
 
 func start_round_animation():
 	round_end_ui.hide()
