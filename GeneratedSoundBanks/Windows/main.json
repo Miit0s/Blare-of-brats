@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{76CEADB2-B091-199E-E6EF-631456EC6189}",
+    "Hash": "{FBA4DC05-EF73-D929-E5DD-CB5DBC246C31}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -405,7 +405,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "loop_crowd.wav",
-      "CachePath": "E6/{E6987DED-561C-5119-07C8-90D4A6A44E9F}.wem"
+      "CachePath": "6C/{6C22F074-34C9-4E50-490D-0614BB1B2028}.wem"
      },
      {
       "Id": "930276617",
@@ -1169,6 +1169,6 @@
     ]
    }
   ],
-  "FileHash": "{7BBDC53A-4C2F-4F18-A4CB-F257C67321C4}"
+  "FileHash": "{DDDD6F37-92C6-B881-04CB-AE355BD1B3C8}"
  }
 }

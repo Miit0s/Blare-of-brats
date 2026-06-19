@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://b7dkxjh2b5vfv" path="res://Assets/SpriteUI/CharacterSelection/flag_pink2.png" id="12_17e3e"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
+[ext_resource type="WwiseEvent" uid="uid://bynhxij07jj55" path="res://Wwise/resources/Event/{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}.tres" id="19_dk8v4"]
+[ext_resource type="WwiseEvent" uid="uid://b1wsdmul5127w" path="res://Wwise/resources/Event/{949583D9-CD37-426A-9A69-DFC38D00223C}.tres" id="20_rgkik"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o70qx"]
@@ -286,6 +288,8 @@ offset_left = -361.0
 offset_top = -22.0
 offset_right = -361.0
 offset_bottom = -22.0
+color_select_sound = ExtResource("19_dk8v4")
+color_back_sound = ExtResource("20_rgkik")
 
 [node name="ControllerSlot_1" parent="ControllerSlotContainer" unique_id=143314147 instance=ExtResource("1_bhesk")]
 layout_mode = 1
