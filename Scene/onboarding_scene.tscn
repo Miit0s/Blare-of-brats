@@ -123,6 +123,8 @@ anchor_right = 0.5
 offset_left = -768.0
 offset_right = 768.0
 grow_horizontal = 2
+player_health = 6.0
+sound_bar_max_volume = 65.0
 
 [node name="RoundEnd" parent="CanvasLayer" unique_id=1185368454 instance=ExtResource("19_frks1")]
 visible = false
