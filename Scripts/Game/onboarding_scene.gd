@@ -110,6 +110,7 @@ func _player_his_ready():
 		camera_controller.start_tracking()
 		_trigger_dash_quest()
 		music_fight.post(self)
+		crowd_sound.post(self)
 
 func _show_sound_bar():
 	show_sound_bar.show()

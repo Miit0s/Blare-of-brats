@@ -1,0 +1,7 @@
+[gd_resource type="WwiseSwitchGroup" format=3 uid="uid://bt7pp13ccfh1t"]
+
+[resource]
+name = "CROWD"
+id = 2848349012
+guid = "{59334D58-9A31-4E66-AF43-497496E02760}"
+dummy = true

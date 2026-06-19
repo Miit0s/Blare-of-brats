@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://pho64d5e7r15"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Crowd"
+id = 2848349012
+guid = "{6F1DD123-BBF3-495C-BF87-230564992DCE}"
+dummy = true

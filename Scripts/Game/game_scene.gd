@@ -25,6 +25,14 @@ class_name GameScene
 @export var third_phase_state: WwiseState
 @export var danger_phase_start: WwiseEvent
 
+@export var soundbar_lvl1: WwiseEvent
+@export var soundbar_lvl2: WwiseEvent
+
+@export var crowd_reaction_duration: float = 1.5
+@export var continious_crowd_switch: WwiseSwitch
+@export var reaction_crowd_switch: WwiseSwitch
+@export var crowd_sound : WwiseEvent
+
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
@@ -47,17 +55,19 @@ func _ready() -> void:
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
 	game_bar.lifebar_value_change.connect(lifebar_value_change)
+	game_bar.shared_life_bar.player_have_reach_min_life.connect(_trigger_crowd_reaction)
 	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
-	round_start_state.set_value()
 	start_round_animation()
 
 func start_round_animation():
 	round_end_ui.hide()
 	game_bar.hide()
+	
+	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
@@ -80,6 +90,7 @@ func start_round():
 	camera_controller.start_tracking()
 	
 	music_fight.post(self)
+	crowd_sound.post(self)
 
 func setup_new_scene():
 	if _current_scene:
@@ -202,8 +213,17 @@ func _activate_the_danger_phase():
 	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
 
 func _on_soundbar_lock_area_pass(lock_phase: int):
-	print(lock_phase)
 	match lock_phase:
-		0: round_start_state.set_value()
-		1: second_phase_state.set_value()
-		2: third_phase_state.set_value()
+		0: 
+			round_start_state.set_value()
+		1: 
+			second_phase_state.set_value()
+			soundbar_lvl1.post(self)
+		2: 
+			third_phase_state.set_value()
+			soundbar_lvl2.post(self)
+
+func _trigger_crowd_reaction():
+	reaction_crowd_switch.set_value(self)
+	await get_tree().create_timer(crowd_reaction_duration).timeout
+	continious_crowd_switch.set_value(self)

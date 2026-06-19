@@ -93,6 +93,17 @@ var _is_playing_attacking_animation: bool = false:
 			animated_sprite_3d_for_offset.hide()
 			player_animated_sprite_3d.show()
 
+var _input_cooldown_duration: float = 0.1
+var _is_in_input_cooldown: bool = false
+var _input_cooldown: float = 0.0
+
+var _has_press_dash: bool = false
+var _has_press_attack: bool = false
+var _has_press_throw: bool = false
+var _has_release_throw: bool = false
+var _has_press_drop: bool = false
+var _has_press_pickup: bool = false
+
 var _attack_move_timer: Tween = null
 
 var skin: ControllerSlot.PossibleSkin
@@ -109,6 +120,8 @@ func _ready() -> void:
 	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
+	_process_action_with_priorities(delta)
+	
 	if not is_on_floor():
 		velocity.y = -fall_speed * delta
 	
@@ -178,28 +191,64 @@ func _process(delta: float) -> void:
 	if aim_direction != Vector3.ZERO:
 		throw_direction.look_at(throw_direction.global_position + aim_direction)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if _is_freeze or _is_stun: return
+func _process_action_with_priorities(delta: float) -> void:
+	if _is_in_input_cooldown:
+		_input_cooldown += delta
+		if _input_cooldown >= _input_cooldown_duration: 
+			_is_in_input_cooldown = false
+			_input_cooldown = 0.0
+		else:
+			_reset_requests()
+			return
 	
-	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
+	if _is_freeze or _is_stun:
+		_reset_requests()
+		return
+	
+	if _has_press_dash and _dash_can_be_use:
 		dash()
-	
-	if event.is_action_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
-		switch_item()
-	
-	if event.is_action_pressed("PickUp" + _suffix) and not current_picked_item:
-		pick_up()
-	
-	if event.is_action_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		_is_in_input_cooldown = true
+	elif _has_press_attack and _can_attack and not _is_aiming and current_picked_item:
+		attack(_current_direction if _current_direction else _last_direction)
+		_is_in_input_cooldown = true
+	elif _has_press_throw and current_picked_item and not _is_aiming:
 		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
-		#throw_direction.show()
-	
-	if event.is_action_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+		_is_in_input_cooldown = true
+	elif _has_release_throw and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
+		_is_in_input_cooldown = true
+	elif _has_press_pickup and not current_picked_item:
+		pick_up()
+		_is_in_input_cooldown = true
+	elif _has_press_drop and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		switch_item()
+		_is_in_input_cooldown = true
 	
-	if event.is_action_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
-		attack(_current_direction if _current_direction else _last_direction)
+	_reset_requests()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Dash" + _suffix):
+		_has_press_dash = true
+	elif event.is_action_pressed("Attack" + _suffix):
+		_has_press_attack = true
+	elif event.is_action_pressed("Throw" + _suffix):
+		_has_press_throw = true
+	elif event.is_action_released("Throw" + _suffix):
+		_has_release_throw = true
+	
+	if event.is_action_pressed("Drop" + _suffix):
+		_has_press_drop = true
+	if event.is_action_pressed("PickUp" + _suffix):
+		_has_press_pickup = true
+
+func _reset_requests() -> void:
+	_has_press_dash = false
+	_has_press_attack = false
+	_has_press_throw = false
+	_has_release_throw = false
+	_has_press_drop = false
+	_has_press_pickup = false
 
 func dash():
 	_dash_can_be_use = false
@@ -582,7 +631,8 @@ func item_will_be_destroy(_item: Item):
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture
-	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d
+	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d.duplicate()
+	animated_sprite_3d_for_offset.material_override = selection.color_skin.color_shader_3d.duplicate()
 	skin = selection.skin
 	
 	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()
