@@ -70,13 +70,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	195267026	Menu_Back	.cache\20\{205513AB-2741-CB1F-8DB4-2D3F220CA1EA}.wem		\Containers\Blare_of_Brats\SFX\UI\Menu\Menu\Menu_Back		26892
 	206483376	L_Impact_3	.cache\A0\{A02F486A-55C7-A407-E679-0BE4A3D10450}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Layer_Impact\L_Impact_3		64704
 	225912809	swoosh_rotation_1	.cache\4B\{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_1		84952
+	226803598	Wolf_phase_v3	.cache\D5\{D5EB9782-5EA0-A28A-E57B-D7FA0CF6D65A}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Danger\Wolf_phase_v3\Wolf_phase_v3		3241380
 	263518998	Balloon_Idle_4	.cache\76\{76B5CBAF-BB66-F6BB-ECE5-66525308CF19}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Idle\Balloon_Idle_4		142980
 	301837154	Crowd_ReactionHit_2	.cache\8E\{8EEEC602-1CE3-A1E8-D470-78191BDEA4CF}.wem		\Containers\Blare_of_Brats\SFX\AMB\CROWD\Crowd_Reaction\Crowd_ReactionHit_2		333664
 	315058539	Chara_Mov_Dash_v1	.cache\10\{10351083-9071-3F81-FDBE-1157C34EB1D3}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1		113456
 	322956192	Voice_Boy_TakingDamage_2	.cache\6B\{6B8DCFB4-2548-7CBD-6108-D1A4FAA4ECA1}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_TakingDamage\Voice_Boy_TakingDamage_2		62040
 	325203310	funny_boing_sound	.cache\D6\{D695EE6F-4988-A9ED-B909-B446A3510D11}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Boxing_glove\Boxing_Glove_Master\funny_boing_sound		72572
 	330575429	UI_SoundBar_lvl2_v1	.cache\DD\{DD89F985-E991-7BE2-C947-8D0F72C1CF91}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\Soundbar\SoundBar\UI_SoundBar_lvl2_v1		40932
-	334208441	Wolf_Phase	.cache\05\{05A91562-1816-CE8B-097C-1850F43B83F0}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Danger\Wolf_Phase\Wolf_Phase		2335816
 	337497980	GrabObject	.cache\24\{24A480EF-2AB0-E636-2FE4-8D47ABF40010}.wem		\Containers\Blare_of_Brats\SFX\Chara\Interac\Object_Interaction\GrabObject		53856
 	383210681	Chara_Mov_Dash_v1_02	.cache\DF\{DF366515-CEF3-CFCA-B052-980A4E945F82}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\Dash\Chara_Mov_Dash_v1_02		65196
 	426434286	Balloon_pop_3	.cache\2C\{2C631083-36DB-CD70-01FF-390EA28882D2}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Pop\Balloon_pop_3		36060
@@ -92,6 +92,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	570828258	Voice_Girl_TakingDamage_3	.cache\57\{5769F77B-A567-9A7E-4D50-00CC1FC745FD}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_3		107832
 	588687141	L_Impact_1	.cache\92\{9295DEDB-3777-DE67-49AD-14E4E8013EF5}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Layer_Impact\L_Impact_1		67812
 	636428501	L_Impact_2	.cache\C3\{C321D281-82D0-950E-F9EC-F360157C70FA}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Layer_Impact\L_Impact_2		69228
+	636570211	Fills_87bpm	.cache\03\{032F1A9E-8544-1522-FA8A-869D7F61306D}.wem		\Containers\Blare_of_Brats\Music\Music_Fight\Fills_87bpm\Fills_87bpm		1189008
 	647961867	Party_Score	.cache\09\{0963B838-A28D-730F-E2F1-AB41F08F808C}.wem		\Containers\Blare_of_Brats\SFX\UI\Party\Party_Score		223024
 	654877243	Voice_Boy_Attack_3	.cache\3F\{3F98F283-2818-5045-4EDF-5B4DA9CF0269}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Boy\Boy_Voice\Boy_Attack\Voice_Boy_Attack_3		36600
 	658206308	Balloon_Idle_2	.cache\E2\{E20BD138-8BEC-3DD9-368D-232AAB0BFC5D}.wem		\Containers\Blare_of_Brats\SFX\Enviro\Props\Balloon_Idle\Balloon_Idle_2		98880

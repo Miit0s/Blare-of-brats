@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{9275D6AD-6F68-8B5B-CB28-7161DF0AE250}",
+    "Hash": "{C82170FA-BCAC-1AC5-C558-50492767E75C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -128,6 +128,14 @@
       "CachePath": "4B/{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem"
      },
      {
+      "Id": "226803598",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wolf_phase_v3.wav",
+      "CachePath": "D5/{D5EB9782-5EA0-A28A-E57B-D7FA0CF6D65A}.wem"
+     },
+     {
       "Id": "263518998",
       "Language": "SFX",
       "Streaming": "false",
@@ -174,14 +182,6 @@
       "Location": "Memory",
       "ShortName": "UI_SoundBar_lvl2_v3.wav",
       "CachePath": "DD/{DD89F985-E991-7BE2-C947-8D0F72C1CF91}.wem"
-     },
-     {
-      "Id": "334208441",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wolf_Phase.wav",
-      "CachePath": "05/{05A91562-1816-CE8B-097C-1850F43B83F0}.wem"
      },
      {
       "Id": "337497980",
@@ -302,6 +302,14 @@
       "Location": "Memory",
       "ShortName": "L_Impact_2.wav",
       "CachePath": "C3/{C321D281-82D0-950E-F9EC-F360157C70FA}.wem"
+     },
+     {
+      "Id": "636570211",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Fills_87bpm.wav",
+      "CachePath": "03/{032F1A9E-8544-1522-FA8A-869D7F61306D}.wem"
      },
      {
       "Id": "647961867",
@@ -880,6 +888,11 @@
       "ObjectPath": "\\Events\\ALL_EVENTS\\Music\\Music_Fight",
       "GUID": "{37126D66-5473-4D4F-ADFA-6751DF78B6F7}",
       "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "636570211"
+       }
+      ],
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -950,7 +963,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "334208441"
+          "Id": "226803598"
          }
         ],
         "PluginRefs": {
@@ -1257,6 +1270,6 @@
     ]
    }
   ],
-  "FileHash": "{1BA70C03-84B8-4140-39EE-08537CF6F685}"
+  "FileHash": "{B473D008-920B-4A18-A05F-D6862B473EF2}"
  }
 }
