@@ -53,6 +53,6 @@ void fragment() {
 	final_rgb = mix(grayscale, final_rgb, saturation);
     
     ALBEDO = final_rgb;
-    ALPHA = tex_color.a;
-	EMISSION = final_rgb * emission_energy;
+    ALPHA = tex_color.a * COLOR.a;
+	EMISSION = final_rgb * emission_energy * ALPHA;
 }
