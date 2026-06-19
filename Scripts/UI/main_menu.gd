@@ -33,6 +33,8 @@ var _move_tween: Tween = null
 
 var _last_device_to_move: int = -1
 
+var _dont_trigger_next_focus: bool = false
+
 func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
@@ -61,16 +63,19 @@ func _on_play_pressed() -> void:
 func _on_options_pressed() -> void:
 	options.show()
 	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_credits_pressed() -> void:
 	credits.show()
 	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_exit_pressed() -> void:
 	quit_prompt.show()
 	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_quit_prompt_visibility_changed() -> void:
@@ -101,4 +106,7 @@ func _on_button_focus_entered(button: BaseButton) -> void:
 	
 	_move_tween.finished.connect(func(): _move_tween = null)
 	
-	on_button_focus.post(self)
+	if not _dont_trigger_next_focus:
+		on_button_focus.post(self)
+	else:
+		_dont_trigger_next_focus = false
