@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="8_l7xf8"]
 [ext_resource type="Texture2D" uid="uid://dfg66srmr0bs4" path="res://Assets/EnvironmentSprite/flag_orange.png" id="9_q5aaq"]
 [ext_resource type="Texture2D" uid="uid://l7d3fryhr0l1" path="res://Assets/EnvironmentSprite/banner_long01.png" id="9_tqdba"]
-[ext_resource type="Texture2D" uid="uid://c5g2meodm7dvp" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="10_82asv"]
+[ext_resource type="Texture2D" uid="uid://b1jkxl04d6c6y" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="10_82asv"]
 [ext_resource type="Texture2D" uid="uid://bdktmu4eilp8n" path="res://Assets/EnvironmentSprite/flag_moon.png" id="11_abqlf"]
 [ext_resource type="Texture2D" uid="uid://h36arh02nypq" path="res://Assets/EnvironmentSprite/book_01.png" id="11_mwxsb"]
 [ext_resource type="Texture2D" uid="uid://cgv5eip1me1i7" path="res://Assets/EnvironmentSprite/bush_01.png" id="12_20oi6"]
