@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn1wa1jwq55qx"
-path.s3tc="res://.godot/imported/box hit0006.png-4770f9b77d9097e96e40e82a5309e937.s3tc.ctex"
+path.bptc="res://.godot/imported/box hit0006.png-4770f9b77d9097e96e40e82a5309e937.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://Assets/VFX/HitBox/box hit0006.png"
-dest_files=["res://.godot/imported/box hit0006.png-4770f9b77d9097e96e40e82a5309e937.s3tc.ctex"]
+dest_files=["res://.godot/imported/box hit0006.png-4770f9b77d9097e96e40e82a5309e937.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
