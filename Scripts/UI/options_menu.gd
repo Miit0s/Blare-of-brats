@@ -1,10 +1,12 @@
 extends Control
+class_name OptionsUI
 
 @onready var game: GameMenu = $Control/VBoxContainer/TabContainer/Game
 @onready var audio: AudioMenu = $Control/VBoxContainer/TabContainer/Audio
 @onready var video: VideoMenu = $Control/VBoxContainer/TabContainer/Video
 
-
+var on_button_focus: WwiseEvent
+var on_button_click: WwiseEvent
 
 func _ready() -> void:
 	if not GameOptions.did_options_has_been_apply():

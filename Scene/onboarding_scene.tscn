@@ -93,6 +93,7 @@ possible_level = Array[PackedScene]([ExtResource("5_hq2bc")])
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("17_a665e")
 load_on = 1
+unload_on = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
 

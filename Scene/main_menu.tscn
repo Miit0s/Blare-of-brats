@@ -113,6 +113,9 @@ func _zoom_out(control: Control, button: TextureButtonFocusReplace):
 [node name="AkBank" type="AkBank" parent="." unique_id=587703091]
 bank = ExtResource("1_hptlk")
 load_on = 1
+unload_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="." unique_id=1788702252]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 

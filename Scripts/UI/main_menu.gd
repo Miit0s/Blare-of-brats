@@ -5,9 +5,9 @@ extends Control
 @onready var credits_button: TextureButton = $MainStack/MainButton/ControlCredits/Credits
 @onready var exit_button: TextureButton = $MainStack/MainButton/ControlExit/Exit
 
-@onready var quit_prompt: Control = $QuitPrompt
-@onready var credits: Control = $Credits
-@onready var options: Control = $Options
+@onready var quit_prompt: QuitPromptUI = $QuitPrompt
+@onready var credits: CreditsUI = $Credits
+@onready var options: OptionsUI = $Options
 
 @onready var background: TextureRect = $Background/ImageBackground
 @onready var screen_center: Vector2 = get_viewport_rect().size / 2
@@ -23,6 +23,11 @@ extends Control
 @export_range(0, 1) var vibration_force_on_button_change: float = 0.1
 @export var vibration_duration_on_button_change: float = 0.1
 
+@export_category("Sound")
+@export var main_menu_music: WwiseEvent
+@export var on_button_focus: WwiseEvent
+@export var on_button_click: WwiseEvent
+
 var _previous_button_pos: Vector2 = Vector2.ZERO
 var _move_tween: Tween = null
 
@@ -32,26 +37,40 @@ func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
+	credits.on_button_click = on_button_click
+	
+	quit_prompt.on_button_click = on_button_click
+	quit_prompt.on_button_focus = on_button_focus
+	
+	options.on_button_click = on_button_click
+	options.on_button_focus = on_button_focus
+	
 	play_button.grab_focus()
+	
+	main_menu_music.post(self)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_up") or event.is_action("ui_down") or event.is_action("ui_left") or event.is_action("ui_right"):
 		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
+	main_menu_music.stop(self)
 	get_tree().change_scene_to_file(game_start_scene_uid)
 
 
 func _on_options_pressed() -> void:
 	options.show()
+	on_button_click.post(self)
 
 
 func _on_credits_pressed() -> void:
 	credits.show()
+	on_button_click.post(self)
 
 
 func _on_exit_pressed() -> void:
 	quit_prompt.show()
+	on_button_click.post(self)
 
 
 func _on_quit_prompt_visibility_changed() -> void:
@@ -81,3 +100,5 @@ func _on_button_focus_entered(button: BaseButton) -> void:
 	_move_tween.tween_property(background, "position", background.position + Vector2(0, y_offset), move_speed)
 	
 	_move_tween.finished.connect(func(): _move_tween = null)
+	
+	on_button_focus.post(self)
