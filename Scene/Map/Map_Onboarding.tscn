@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_n4rxh"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_7fk2a"]
 
-
 [node name="MapOnboarding" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("walls_to_move", "player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_0var4")
 walls_to_move = [NodePath("Wall/ObstacleComplete12"), NodePath("Wall/ObstacleComplete13")]

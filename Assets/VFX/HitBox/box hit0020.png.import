@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b85rr268sbmjr"
-path.s3tc="res://.godot/imported/aura 2.png-32d7fbf49f4c96e4b490cf8498081678.s3tc.ctex"
+uid="uid://dm0lh5pewc3dc"
+path.bptc="res://.godot/imported/box hit0020.png-257658b62c9d9121634379cb3c4cc9f9.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/VFX/aura 2.png"
-dest_files=["res://.godot/imported/aura 2.png-32d7fbf49f4c96e4b490cf8498081678.s3tc.ctex"]
+source_file="res://Assets/VFX/HitBox/box hit0020.png"
+dest_files=["res://.godot/imported/box hit0020.png-257658b62c9d9121634379cb3c4cc9f9.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

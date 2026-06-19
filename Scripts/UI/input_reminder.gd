@@ -26,6 +26,9 @@ class_name InputReminder
 @export var self_spawn_tween_duration: float = 0.2
 @export var ready_tween_duration: float = 0.2
 
+var vibration_force_on_ready: float = 0.0
+var vibration_duration_on_ready: float = 0.1
+
 var _is_player_ready: bool = false
 
 signal player_ready
@@ -51,6 +54,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.device == player_input_id:
 		if event.is_action_pressed("JoinGame"):
 			input_reminder_ready()
+			VibrationManager.start_joy_vibration(player_input_id, vibration_force_on_ready, 0, vibration_duration_on_ready)
 			get_viewport().set_input_as_handled()
 
 func input_reminder_ready():
