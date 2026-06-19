@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{D7930BE6-82B1-C916-156A-37BF1123E77F}",
+    "Hash": "{9275D6AD-6F68-8B5B-CB28-7161DF0AE250}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "hit_2.wav",
       "CachePath": "EB/{EB04D2AD-54E3-CDFA-C375-9664AA9AA3B7}.wem"
+     },
+     {
+      "Id": "20560296",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_Shhh.wav",
+      "CachePath": "7B/{7B15812A-8901-5D2E-B933-6A78FA8EA862}.wem"
      },
      {
       "Id": "28070643",
@@ -685,6 +693,19 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2848349012",
+         "Id": "561016172",
+         "GUID": "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "20560296"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2848349012",
          "Id": "888960820",
          "GUID": "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
         },
@@ -1214,6 +1235,12 @@
       "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
       "Switches": [
        {
+        "Id": "561016172",
+        "Name": "Shh",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Shh",
+        "GUID": "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+       },
+       {
         "Id": "888960820",
         "Name": "Reaction",
         "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Reaction",
@@ -1230,6 +1257,6 @@
     ]
    }
   ],
-  "FileHash": "{F7D52810-9231-DD6E-ADF5-641685CD6491}"
+  "FileHash": "{0A43E18C-E7A5-FC9C-49A4-8D477F207C1A}"
  }
 }

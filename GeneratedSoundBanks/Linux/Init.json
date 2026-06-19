@@ -256,6 +256,12 @@
       "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
       "Switches": [
        {
+        "Id": "561016172",
+        "Name": "Shh",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Shh",
+        "GUID": "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+       },
+       {
         "Id": "888960820",
         "Name": "Reaction",
         "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Reaction",
@@ -749,6 +755,6 @@
     ]
    }
   ],
-  "FileHash": "{E9ACED9B-2310-93B5-0D30-1EA47A5A245D}"
+  "FileHash": "{442CE3E0-B7C9-E2FB-B28D-7DA61229497D}"
  }
 }

@@ -71,6 +71,7 @@ namespace AK
             {
                 static const AkUniqueID CONITNIOUS = 1836277870U;
                 static const AkUniqueID REACTION = 888960820U;
+                static const AkUniqueID SHH = 561016172U;
             } // namespace SWITCH
         } // namespace CROWD
 

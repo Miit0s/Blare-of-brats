@@ -156,11 +156,8 @@ guid = "{D2CDD101-3633-4337-AC40-1FC570903143}"
 id = 3991942870
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_lrto0"]
-path = "\\Busses\\Default Work Unit\\Main Audio Bus"
 children = [SubResource("WwiseTreeObject_yyrou"), SubResource("WwiseTreeObject_geu6g"), SubResource("WwiseTreeObject_5n8hf"), SubResource("WwiseTreeObject_tnib1"), SubResource("WwiseTreeObject_o7sea")]
-type = 2
 name = "Main Audio Bus"
-guid = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
 id = 2246998526
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_i5cxa"]
@@ -661,15 +658,22 @@ guid = "{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}"
 id = 888960820
 
 [sub_resource type="WwiseTreeObject" id="WwiseTreeObject_pasob"]
+path = "\\Switches\\Default Work Unit\\CROWD\\Shh"
+type = 10
+name = "Shh"
+guid = "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+id = 561016172
+
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_aa1t5"]
 path = "\\Switches\\Default Work Unit\\CROWD"
-children = [SubResource("WwiseTreeObject_0g0t2"), SubResource("WwiseTreeObject_jtj33")]
+children = [SubResource("WwiseTreeObject_0g0t2"), SubResource("WwiseTreeObject_jtj33"), SubResource("WwiseTreeObject_pasob")]
 type = 11
 name = "CROWD"
 guid = "{59334D58-9A31-4E66-AF43-497496E02760}"
 id = 2848349012
 
-[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_aa1t5"]
-children = [SubResource("WwiseTreeObject_pasob")]
+[sub_resource type="WwiseTreeObject" id="WwiseTreeObject_w8b82"]
+children = [SubResource("WwiseTreeObject_aa1t5")]
 name = "Default Work Unit"
 id = 125608783
 
@@ -680,4 +684,4 @@ bank_root = [SubResource("WwiseTreeObject_v560u")]
 event_root = [SubResource("WwiseTreeObject_44i7c")]
 game_parameter_root = [SubResource("WwiseTreeObject_hxqoe")]
 state_root = [SubResource("WwiseTreeObject_ersd2")]
-switch_root = [SubResource("WwiseTreeObject_aa1t5")]
+switch_root = [SubResource("WwiseTreeObject_w8b82")]

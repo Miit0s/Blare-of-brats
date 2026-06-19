@@ -31,6 +31,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	2848349012	CROWD			\Default Work Unit\CROWD	
 
 Switch	ID	Name	Switch Group			Notes
+	561016172	Shh	CROWD			
 	888960820	Reaction	CROWD			
 	1836277870	Conitnious	CROWD			
 
@@ -56,6 +57,7 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	16349992	hit_2	.cache\EB\{EB04D2AD-54E3-CDFA-C375-9664AA9AA3B7}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Hit_wout_object\Big_Impact\Hit\hit_2		34896
+	20560296	UI_SoundBar_Shhh	.cache\7B\{7B15812A-8901-5D2E-B933-6A78FA8EA862}.wem		\Containers\Blare_of_Brats\SFX\AMB\CROWD\UI_SoundBar_Shhh		335640
 	28070643	stun	.cache\67\{673CF113-030A-FEEB-0DC6-E9E2B9E51D27}.wem		\Containers\Blare_of_Brats\SFX\Chara\Mov\stun		255420
 	30562399	swoosh_rotation_2	.cache\6C\{6C97DB69-0B78-5DA8-C79D-47FFE0C22FD3}.wem		\Containers\Blare_of_Brats\SFX\Chara\Items\Launch\Launch\swoosh_rotation_2		84104
 	31521035	Voice_Girl_TakingDamage_1	.cache\60\{6080526A-9468-68EE-E69C-AEAA6D253D12}.wem		\Containers\Blare_of_Brats\SFX\Chara\Voice\Girl\Girl_Voice\Girl_TakingDamage\Voice_Girl_TakingDamage_1		77544
