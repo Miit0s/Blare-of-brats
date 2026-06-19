@@ -445,8 +445,8 @@ name = "SoundBar"
 id = 1396549701
 
 [sub_resource type="WwiseTreeObjectEvent" id="WwiseTreeObjectEvent_gsda7"]
-max_duration = 4.3559375
-min_duration = 4.3559375
+max_duration = 4.305938
+min_duration = 4.305938
 path = "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\Countdown"
 type = 3
 name = "Countdown"
