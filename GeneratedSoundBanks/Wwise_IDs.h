@@ -53,6 +53,7 @@ namespace AK
                 static const AkUniqueID PHASE_1 = 1622949422U;
                 static const AkUniqueID PHASE_2 = 1622949421U;
                 static const AkUniqueID PHASE_3 = 1622949420U;
+                static const AkUniqueID PHASE_DANGER = 1580246308U;
             } // namespace STATE
         } // namespace ROUND_STATE
 

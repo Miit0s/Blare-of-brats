@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{B001F55D-FF4B-10E8-A695-0B31BB67E2CE}",
+    "Hash": "{84DA37E2-4903-2786-36A9-8B23710C4420}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "stun.wav",
-      "CachePath": "B7/{B7416122-A2DB-3E2F-F3B7-A0D5B0F0807A}.wem"
+      "CachePath": "67/{673CF113-030A-FEEB-0DC6-E9E2B9E51D27}.wem"
      },
      {
       "Id": "30562399",
@@ -158,6 +158,14 @@
       "Location": "Memory",
       "ShortName": "GloveBox_Smash.wav",
       "CachePath": "D6/{D695EE6F-4988-A9ED-B909-B446A3510D11}.wem"
+     },
+     {
+      "Id": "334208441",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wolf_Phase.wav",
+      "CachePath": "05/{05A91562-1816-CE8B-097C-1850F43B83F0}.wem"
      },
      {
       "Id": "337497980",
@@ -312,6 +320,14 @@
       "CachePath": "5A/{5A7B0EC1-7971-7B51-D439-2B824A0843EF}.wem"
      },
      {
+      "Id": "725081483",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "321_97bpm.wav",
+      "CachePath": "75/{7530B503-51DE-50D7-6405-0F4756718FE2}.wem"
+     },
+     {
       "Id": "736343350",
       "Language": "SFX",
       "Streaming": "false",
@@ -334,14 +350,6 @@
       "Location": "Memory",
       "ShortName": "Rockstar_Phase1_97bpm.wav",
       "CachePath": "A6/{A684019E-DE0C-1ED9-87F0-D4B1793122F6}.wem"
-     },
-     {
-      "Id": "790913363",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Countdown_V1.wav",
-      "CachePath": "81/{81C0B934-E214-15E6-8FCB-7A4B89E7BB64}.wem"
      },
      {
       "Id": "793598172",
@@ -483,6 +491,14 @@
        "LibId": "6881283"
       },
       {
+       "Id": "783421837",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\SFX\\UI\\Party\\Party_Countdown\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{7D3776EE-ACEC-4638-8728-E96460BE5069}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
        "Id": "1028753363",
        "Name": "Gain (Custom)",
        "ObjectPath": "\\Containers\\Blare_of_Brats\\Music\\Music_Fight\\[Effect Slot [0]: (Gain)]\\Gain (Custom)",
@@ -618,13 +634,20 @@
       "GUID": "{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "1.3882539",
-      "DurationMax": "1.3882539",
+      "DurationMin": "4.1559377",
+      "DurationMax": "4.1559377",
       "MediaRefs": [
        {
-        "Id": "790913363"
+        "Id": "725081483"
        }
-      ]
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "783421837"
+        }
+       ]
+      }
      },
      {
       "Id": "2848349012",
@@ -872,6 +895,26 @@
           }
          ]
         }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "314125497",
+         "Id": "1580246308",
+         "GUID": "{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "334208441"
+         }
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1028753363"
+          }
+         ]
+        }
        }
       ]
      },
@@ -1076,6 +1119,12 @@
         "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
        },
        {
+        "Id": "1580246308",
+        "Name": "Phase_Danger",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_Danger",
+        "GUID": "{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}"
+       },
+       {
         "Id": "1622949420",
         "Name": "Phase_3",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_3",
@@ -1120,6 +1169,6 @@
     ]
    }
   ],
-  "FileHash": "{3622BC01-5854-53FA-94E5-18050C8E7741}"
+  "FileHash": "{1DADBFAE-97C8-19D6-9205-827507F79BC7}"
  }
 }
