@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{2E6099CA-5CBF-8DB0-09A2-21E7BA3ECC9B}",
+    "Hash": "{D7930BE6-82B1-C916-156A-37BF1123E77F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -72,6 +72,14 @@
       "CachePath": "F3/{F3CA22C5-733D-F3EB-E778-B37E508690C3}.wem"
      },
      {
+      "Id": "114852343",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl3_v3.wav",
+      "CachePath": "15/{1591CCEC-68D0-F71A-05BA-9384AC706492}.wem"
+     },
+     {
       "Id": "120430976",
       "Language": "SFX",
       "Streaming": "false",
@@ -128,14 +136,6 @@
       "CachePath": "8E/{8EEEC602-1CE3-A1E8-D470-78191BDEA4CF}.wem"
      },
      {
-      "Id": "306065806",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "UI_SoundBar_lvl2_v1.wav",
-      "CachePath": "45/{45FFD480-8544-34E7-D8A8-A5AF336B5EA7}.wem"
-     },
-     {
       "Id": "315058539",
       "Language": "SFX",
       "Streaming": "false",
@@ -158,6 +158,14 @@
       "Location": "Memory",
       "ShortName": "GloveBox_Smash.wav",
       "CachePath": "D6/{D695EE6F-4988-A9ED-B909-B446A3510D11}.wem"
+     },
+     {
+      "Id": "330575429",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl2_v3.wav",
+      "CachePath": "DD/{DD89F985-E991-7BE2-C947-8D0F72C1CF91}.wem"
      },
      {
       "Id": "334208441",
@@ -190,6 +198,14 @@
       "Location": "Memory",
       "ShortName": "Balloon_pop_3.wav",
       "CachePath": "2C/{2C631083-36DB-CD70-01FF-390EA28882D2}.wem"
+     },
+     {
+      "Id": "432116902",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_SoundBar_lvl1_v3.wav",
+      "CachePath": "67/{6751B572-96F8-19E8-61E9-B58F9F45398F}.wem"
      },
      {
       "Id": "475093794",
@@ -230,14 +246,6 @@
       "Location": "Memory",
       "ShortName": "TakingDamage\\Voice_Girl_TakingDamage_2.wav",
       "CachePath": "69/{69FFDF6E-4BE9-1D46-54A2-E8B6DAC2D046}.wem"
-     },
-     {
-      "Id": "542705990",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "UI_SoundBar_lvl1_v1.wav",
-      "CachePath": "A5/{A5FCD5C8-C673-4018-C03F-E3513FF9DDC1}.wem"
      },
      {
       "Id": "543882894",
@@ -374,14 +382,6 @@
       "Location": "Memory",
       "ShortName": "Balloon_pop_1.wav",
       "CachePath": "CF/{CF2E3CD8-AE2F-739D-6213-E4D105E31E9B}.wem"
-     },
-     {
-      "Id": "802483350",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "UI_SoundBar_lvl3_v2.wav",
-      "CachePath": "35/{35CFE444-085D-9A47-EC32-1ED1A1AF2418}.wem"
      },
      {
       "Id": "863843509",
@@ -992,11 +992,11 @@
       "GUID": "{379705D3-B374-4513-9155-CCCB5CB7D489}",
       "Color": "2",
       "DurationType": "OneShot",
-      "DurationMin": "0.22956917",
-      "DurationMax": "0.22956917",
+      "DurationMin": "0.23891157",
+      "DurationMax": "0.23891157",
       "MediaRefs": [
        {
-        "Id": "542705990"
+        "Id": "432116902"
        }
       ]
      },
@@ -1011,7 +1011,7 @@
       "DurationMax": "0.2314966",
       "MediaRefs": [
        {
-        "Id": "306065806"
+        "Id": "330575429"
        }
       ]
      },
@@ -1026,7 +1026,7 @@
       "DurationMax": "0.23548754",
       "MediaRefs": [
        {
-        "Id": "802483350"
+        "Id": "114852343"
        }
       ]
      },
@@ -1230,6 +1230,6 @@
     ]
    }
   ],
-  "FileHash": "{75331782-B999-7913-2DB3-6ED8EDD235BB}"
+  "FileHash": "{5126719B-489B-1532-5BC0-9DA580C273AE}"
  }
 }
