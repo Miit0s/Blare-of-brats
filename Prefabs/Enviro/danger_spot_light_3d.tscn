@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cka2ladhxbgw1"]
+
+[node name="DangerSpotLight3D" type="SpotLight3D" unique_id=396060415]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_energy = 2.0
+spot_range = 19.975542
+spot_angle = 64.42449
+spot_angle_attenuation = 0.0010396866

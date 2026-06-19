@@ -2,8 +2,9 @@ extends MapScene
 class_name MapOnboarding
 
 @export var walls_to_move: Array[Node3D]
-@export var wall_down_by: float = 2
-@export var wall_down_duration: float = 1.2
+
+var wall_down_by: float = 2
+var wall_down_duration: float = 1.2
 
 func move_down_wall():
 	var move_down_tween: Tween = create_tween()

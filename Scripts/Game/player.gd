@@ -70,6 +70,48 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Visual")
 @export var character_animation: CharacterAnimation
 
+@export_group("Squash and Stretch")
+@export var squash_force: float = 0.05
+@export var squash_duration: float = 0.1
+@export var stretch_force: float = 0.05
+@export var stretch_duration: float = 0.1
+@export var back_to_normal_duration: float = 0.1
+
+@export_category("Vibration")
+@export_group("On Hit")
+@export var damage_for_max_vibration: float = 5.0
+@export var vibration_duration_on_hit: float = 0.2
+
+@export_group("On Object Destroy")
+@export_range(0, 1) var vibration_force_on_objet_destroy: float = 0.8
+@export var vibration_duration_on_objet_destroy: float = 0.2
+
+@export_group("On Slow")
+@export_range(0, 1) var vibration_force_on_slow: float = 0.1
+
+@export_group("On Pick up")
+@export_range(0, 1) var vibration_force_on_pickup: float = 0.1
+@export var vibration_duration_on_pickup: float = 0.1
+
+@export_group("On Hit other player")
+@export_range(0, 1) var vibration_force_on_hit_other_player: float = 0.8
+@export var vibration_duration_on_hit_other_player: float = 0.1
+
+@export_group("On Stun")
+@export_range(0, 1) var vibration_force_on_stun: float = 0.1
+
+@export_group("On Dash")
+@export_range(0, 1) var vibration_force_on_dash: float = 0.1
+@export var vibration_duration_on_dash: float = 0.3
+
+@export_group("On Throw")
+@export_range(0, 1) var vibration_force_on_throw: float = 0.3
+@export var vibration_duration_on_throw: float = 0.1
+
+@export_category("Time change")
+@export var freeze_frame_duration: float = 0.05
+@export var minimal_damage_for_trigger: float = 1.5
+
 @export_category("Instance")
 @export var player_animated_sprite_3d: AnimatedSprite3D
 @export var animated_sprite_3d_for_offset: AnimatedSprite3D
@@ -94,11 +136,22 @@ var _is_playing_attacking_animation: bool = false:
 			animated_sprite_3d_for_offset.hide()
 			player_animated_sprite_3d.show()
 
+var _input_cooldown_duration: float = 0.05
+var _is_in_input_cooldown: bool = false
+var _input_cooldown: float = 0.0
+
+var _has_press_dash: bool = false
+var _has_press_attack: bool = false
+var _has_press_throw: bool = false
+var _has_release_throw: bool = false
+var _has_press_drop: bool = false
+var _has_press_pickup: bool = false
+
 var _attack_move_timer: Tween = null
 
 var skin: ControllerSlot.PossibleSkin
 
-signal has_been_hit(player_id: int, damage: float)
+signal has_been_hit(player_id: int, damage: float, direction: Vector3)
 
 signal did_dash()
 signal pick_up_object()
@@ -110,6 +163,8 @@ func _ready() -> void:
 	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
+	_process_action_with_priorities(delta)
+	
 	if not is_on_floor():
 		velocity.y = -fall_speed * delta
 	
@@ -179,28 +234,64 @@ func _process(delta: float) -> void:
 	if aim_direction != Vector3.ZERO:
 		throw_direction.look_at(throw_direction.global_position + aim_direction)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if _is_freeze or _is_stun: return
+func _process_action_with_priorities(delta: float) -> void:
+	if _is_in_input_cooldown:
+		_input_cooldown += delta
+		if _input_cooldown >= _input_cooldown_duration: 
+			_is_in_input_cooldown = false
+			_input_cooldown = 0.0
+		else:
+			_reset_requests()
+			return
 	
-	if event.is_action_pressed("Dash" + _suffix) and _dash_can_be_use:
+	if _is_freeze or _is_stun:
+		_reset_requests()
+		return
+	
+	if _has_press_dash and _dash_can_be_use:
 		dash()
-	
-	if event.is_action_pressed("Drop" + _suffix) and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
-		switch_item()
-	
-	if event.is_action_pressed("PickUp" + _suffix) and not current_picked_item:
-		pick_up()
-	
-	if event.is_action_pressed("Throw" + _suffix) and current_picked_item and not _is_aiming:
+		_is_in_input_cooldown = true
+	elif _has_press_attack and _can_attack and not _is_aiming and current_picked_item:
+		attack(_current_direction if _current_direction else _last_direction)
+		_is_in_input_cooldown = true
+	elif _has_press_throw and current_picked_item and not _is_aiming:
 		if current_picked_item.is_attacking: cancel_animation()
 		_is_aiming = true
-		#throw_direction.show()
-	
-	if event.is_action_released("Throw" + _suffix) and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
+		_is_in_input_cooldown = true
+	elif _has_release_throw and current_picked_item and not current_picked_item.is_attacking and _is_aiming:
 		throw(_current_direction)
+		_is_in_input_cooldown = true
+	elif _has_press_pickup and not current_picked_item:
+		pick_up()
+		_is_in_input_cooldown = true
+	elif _has_press_drop and current_picked_item and not current_picked_item.is_attacking and not _is_aiming:
+		switch_item()
+		_is_in_input_cooldown = true
 	
-	if event.is_action_pressed("Attack" + _suffix) and _can_attack and not _is_aiming and current_picked_item:
-		attack(_current_direction if _current_direction else _last_direction)
+	_reset_requests()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Dash" + _suffix):
+		_has_press_dash = true
+	elif event.is_action_pressed("Attack" + _suffix):
+		_has_press_attack = true
+	elif event.is_action_pressed("Throw" + _suffix):
+		_has_press_throw = true
+	elif event.is_action_released("Throw" + _suffix):
+		_has_release_throw = true
+	
+	if event.is_action_pressed("Drop" + _suffix):
+		_has_press_drop = true
+	if event.is_action_pressed("PickUp" + _suffix):
+		_has_press_pickup = true
+
+func _reset_requests() -> void:
+	_has_press_dash = false
+	_has_press_attack = false
+	_has_press_throw = false
+	_has_release_throw = false
+	_has_press_drop = false
+	_has_press_pickup = false
 
 func dash():
 	_dash_can_be_use = false
@@ -229,6 +320,7 @@ func dash():
 		set_collision_mask_value(6, true)
 	)
 	
+	VibrationManager.start_joy_vibration(player_id, vibration_force_on_dash, 0, vibration_duration_on_dash)
 	dash_sound.post(self)
 
 func pick_up(play_pickup_sound: bool = true):
@@ -241,6 +333,7 @@ func pick_up(play_pickup_sound: bool = true):
 	current_picked_item = closest_item
 	current_picked_item.item_picked_up(player_id, self)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
+	current_picked_item.has_hit_player.connect(_has_hit_other_player)
 	
 	current_item.scale = current_picked_item.item_visual.scale * 0.7
 	current_item.rotation.z = current_picked_item.item_visual.rotation.z
@@ -249,6 +342,7 @@ func pick_up(play_pickup_sound: bool = true):
 	
 	pick_up_object.emit()
 	
+	VibrationManager.start_joy_vibration(player_id, vibration_force_on_pickup, 0, vibration_duration_on_pickup)
 	if play_pickup_sound: pickup_sound.post(self)
 
 func _get_closest_item(item_in_range: Array[Node3D]) -> Item:
@@ -313,17 +407,44 @@ func _kill_current_animation():
 		_attack_move_timer.kill()
 		_attack_move_timer = null
 
-func hit(damage: float, hit_direction: Vector3):
+func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	if _is_invincible: return
 	
 	_override_color_effect()
-	knockback(hit_direction)
+	
+	if has_knockback:
+		knockback(hit_direction)
 	
 	if _is_attacking or _is_aiming:
 		cancel_animation()
 	
-	has_been_hit.emit(player_id, damage)
+	has_been_hit.emit(player_id, damage, hit_direction)
+	
+	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
+	
+	if damage >= minimal_damage_for_trigger:
+		_freeze_frame_effect()
+		_squash_and_stretch_effect()
+
+func _freeze_frame_effect():
+	var freeze_frame_tween: Tween = create_tween()
+	freeze_frame_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	freeze_frame_tween.tween_property(get_tree(), "paused", true, 0)
+	freeze_frame_tween.tween_interval(freeze_frame_duration)
+	freeze_frame_tween.tween_property(get_tree(), "paused", false, 0)
+
+func _squash_and_stretch_effect():
+	var start_scale: Vector3 = player_animated_sprite_3d.scale
+	var squash_scale: Vector3 = Vector3(start_scale.x + squash_force, start_scale.y - squash_force, start_scale.z)
+	var stretch_scale: Vector3 = Vector3(start_scale.x - stretch_force, start_scale.y + stretch_force, start_scale.z)
+	
+	var squash_and_stretch_tween: Tween = create_tween()
+	squash_and_stretch_tween.set_ease(Tween.EASE_OUT)
+	squash_and_stretch_tween.set_trans(Tween.TRANS_QUART)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", squash_scale, squash_duration)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", stretch_scale, stretch_duration)
+	squash_and_stretch_tween.tween_property(player_animated_sprite_3d, "scale", start_scale, back_to_normal_duration)
 
 func knockback(hit_direction: Vector3):
 	_knockback_direction = hit_direction
@@ -348,6 +469,10 @@ func stun(duration: float):
 	stun_particle.emitting = true
 	stun_particle.restart()
 	stun_particle.show()
+	
+	if duration >= 0.8:
+		VibrationManager.start_joy_vibration(player_id, vibration_force_on_stun, 0, duration)
+	
 	_update_sprite(_last_direction, false)
 	
 	await get_tree().create_timer(duration).timeout
@@ -363,6 +488,7 @@ func switch_item():
 	if not _pickable_item_nearby(): return
 	
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
+	current_picked_item.has_hit_player.disconnect(_has_hit_other_player)
 	current_picked_item.drop()
 	current_item.hide()
 	current_picked_item = null
@@ -387,12 +513,14 @@ func switch_item():
 func throw(direction: Vector3):
 	#throw_direction.hide()
 	current_picked_item.will_be_destroy.disconnect(item_will_be_destroy)
+	current_picked_item.has_hit_player.disconnect(_has_hit_other_player)
 	current_picked_item.throw(direction if direction else _last_direction)
 	current_item.hide()
 	current_picked_item = null
 	
 	get_tree().create_timer(lock_after_aim_duration).timeout.connect(func(): _is_aiming = false)
 	
+	VibrationManager.start_joy_vibration(player_id, vibration_force_on_throw, 0, vibration_duration_on_throw)
 	launch.post(self)
 	did_throw.emit()
 
@@ -575,16 +703,23 @@ func unfreeze():
 	_is_freeze = false
 	player_animated_sprite_3d.play()
 
+func reset_vibration():
+	VibrationManager.stop_joy_vibration(player_id)
+
 func item_will_be_destroy(_item: Item):
 	current_picked_item = null
 	_item.will_be_destroy.disconnect(item_will_be_destroy)
+	_item.has_hit_player.disconnect(_has_hit_other_player)
 	
 	_kill_current_animation()
 	current_item.hide()
+	
+	VibrationManager.start_joy_vibration(player_id, vibration_force_on_objet_destroy, 0, vibration_duration_on_objet_destroy)
 
 func apply_skin_and_color(selection: PlayerCharacterSelection):
 	character_animation = selection.character_texture
-	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d
+	player_animated_sprite_3d.material_override = selection.color_skin.color_shader_3d.duplicate()
+	animated_sprite_3d_for_offset.material_override = selection.color_skin.color_shader_3d.duplicate()
 	skin = selection.skin
 	
 	var dash_material: ShaderMaterial = selection.color_skin.color_shader_3d.duplicate()
@@ -592,18 +727,22 @@ func apply_skin_and_color(selection: PlayerCharacterSelection):
 	dash_material.set_shader_parameter("blend_delta", 0.5)
 	
 	dash_effect.material_override = dash_material
-	
-	throw_arrow.modulate = selection.color_skin.main_color
 
 func apply_slow(speed_multiplier: float, duration: float):
 	if _slow_tween:
 		_slow_tween.kill()
 		_slow_tween = null
 	
+	VibrationManager.start_joy_vibration(player_id, 0, vibration_force_on_slow, 0, true)
+	
 	_slow_tween = create_tween()
 	_slow_tween.set_ease(Tween.EASE_IN)
 	_slow_tween.set_trans(Tween.TRANS_QUAD)
 	_slow_tween.tween_property(self, "_speed_multiplier", speed_multiplier, speed_change_transition)
 	_slow_tween.tween_interval(duration)
+	_slow_tween.tween_callback(func(): VibrationManager.stop_joy_vibration(player_id))
 	_slow_tween.tween_property(self, "_speed_multiplier", 1, speed_change_transition)
 	_slow_tween.finished.connect(func(): _slow_tween = null)
+
+func _has_hit_other_player():
+	VibrationManager.start_joy_vibration(player_id, vibration_force_on_hit_other_player, 0, vibration_duration_on_hit_other_player)
