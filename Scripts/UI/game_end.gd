@@ -5,7 +5,13 @@ class_name GameEnd
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var winner: RichTextLabel = $Winner
 
+@export_category("Sound")
+@export var on_winner_reveal_sound: WwiseEvent
+
 signal to_main_menu_button_pressed()
+
+func _ready() -> void:
+	winner.visibility_changed.connect(_on_winner_visible)
 
 func start_animation(winner_id: int, winner_color: Color, left_player_id: int):
 	var display_num: int = 1 if winner_id == left_player_id else 2
@@ -20,3 +26,7 @@ func _on_to_main_menu_pressed() -> void:
 #Trigger in animation player
 func focus_on_return_menu_button():
 	to_main_menu.grab_focus()
+
+func _on_winner_visible():
+	if winner.visible:
+		on_winner_reveal_sound.post(self)

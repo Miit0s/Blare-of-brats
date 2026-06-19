@@ -21,17 +21,18 @@ class_name GameScene
 @export var music_fight: WwiseEvent
 @export var countdown: WwiseEvent
 @export var lead: WwiseRTPC
+@export_group("Soundbar related sound")
 @export var round_start_state: WwiseState
 @export var second_phase_state: WwiseState
 @export var third_phase_state: WwiseState
-@export var danger_phase_start: WwiseEvent
-
+@export var danger_phase_start: WwiseState
 @export var soundbar_lvl1: WwiseEvent
 @export var soundbar_lvl2: WwiseEvent
-
+@export_group("Crowd")
 @export var crowd_reaction_duration: float = 1.5
 @export var continious_crowd_switch: WwiseSwitch
 @export var reaction_crowd_switch: WwiseSwitch
+@export var danger_phase_crowd_switch: WwiseSwitch
 @export var crowd_sound : WwiseEvent
 
 @export_category("Vibration")
@@ -76,6 +77,7 @@ func _ready() -> void:
 func start_round_animation():
 	round_end_ui.hide()
 	game_bar.hide()
+	
 	countdown.post(self)
 	
 	round_start_state.set_value()
@@ -222,7 +224,8 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 
 func _activate_the_danger_phase():
 	_current_scene.activate_danger_phase()
-	#danger_phase_start.post(self)
+	danger_phase_start.set_value()
+	danger_phase_crowd_switch.set_value(self)
 	
 	await get_tree().create_timer(2).timeout
 	

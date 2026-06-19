@@ -12,6 +12,9 @@ class_name RoundEnd
 
 @onready var next_round: Button = $NextRound
 
+@export_category("Sound")
+@export var score_update_sound: WwiseEvent
+
 var left_player_id: int = -1
 var right_player_id: int = -1
 var _players_win: Array[int]
@@ -33,9 +36,12 @@ func start_animation(winner_id: int, players_win: Array[int], player_main_color:
 	
 	animation_finish.emit()
 
+# Fonction trigger dans l'animation player
 func update_score():
 	player_0.text = str(_players_win[left_player_id])
 	player_1.text = str(_players_win[right_player_id])
+	
+	score_update_sound.post(self)
 
 func show_next_round_button():
 	next_round.show()

@@ -31,6 +31,9 @@ extends Control
 @export_group("On Return to main menu")
 @export_range(0, 1) var vibration_force_on_return: float = 1.0
 
+@export_category("Sound")
+@export var music_sound: WwiseEvent
+
 var controller_slots: Array[ControllerSlot]
 
 var _player_ready: int = 0
@@ -39,6 +42,8 @@ var _device_returning: int = -1
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	
+	music_sound.post(self)
 	
 	for controller_slot in controller_slot_container.get_children():
 		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
@@ -171,6 +176,8 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
+	music_sound.stop(self)
+	
 	var packed_game_scene: PackedScene
 	if GameOptions.have_played_tutorial and not GameOptions.saved_options.activate_on_boarding:
 		packed_game_scene = load(game_scene_uid)
