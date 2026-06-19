@@ -11,6 +11,9 @@ class_name CameraController
 
 @export_category("Camera Shake")
 @export var damage_to_shake_frequency_multiplier: float = 2.0
+@export var damage_to_shake_movement_multiplier: float = 0.2
+@export var directionnal_movement_on_hit_transition_duration: float = 0.1
+@export var directionnal_movement_on_hit_back_transition_duration: float = 0.3
 
 var _temp_player: Array[Node3D]
 
@@ -34,14 +37,16 @@ func stop_tracking():
 
 func trigger_hit_shake(direction: Vector3, damage: float):
 	var normalized_direction: Vector3 = direction.normalized()
+	normalized_direction.z = 0.0
+	normalized_direction *= (damage * damage_to_shake_movement_multiplier)
 	
 	if normalized_direction != Vector3.ZERO:
-		#TODO: Need to test the case when the hit is comming from the left, because there is a chance that the noise multiplier will be set to zero instead of going to the left like inteaded
-		hit_phantom_camera_noise_emitter_3d.noise.positional_multiplier_x = normalized_direction.x
-		hit_phantom_camera_noise_emitter_3d.noise.positional_multiplier_y = normalized_direction.y
-	else:
-		hit_phantom_camera_noise_emitter_3d.noise.positional_multiplier_x = 1.0
-		hit_phantom_camera_noise_emitter_3d.noise.positional_multiplier_y = 1.0
+		var directionnal_shake: Tween = create_tween()
+		directionnal_shake.set_ease(Tween.EASE_OUT)
+		directionnal_shake.set_trans(Tween.TRANS_QUAD)
+		directionnal_shake.tween_property(follow_group_phantom_camera_3d, "follow_offset", normalized_direction, directionnal_movement_on_hit_transition_duration)
+		directionnal_shake.tween_interval(hit_phantom_camera_noise_emitter_3d.duration)
+		directionnal_shake.tween_property(follow_group_phantom_camera_3d, "follow_offset", Vector3.ZERO, directionnal_movement_on_hit_back_transition_duration)
 	
 	hit_phantom_camera_noise_emitter_3d.noise.frequency = _start_frequency_value + (damage * damage_to_shake_frequency_multiplier)
 	

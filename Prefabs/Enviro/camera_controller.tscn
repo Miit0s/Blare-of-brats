@@ -25,10 +25,8 @@ script = ExtResource("6_1ecf0")
 amplitude = 3.0
 frequency = 10.0
 noise_seed = 72
-positional_noise = true
 rotational_multiplier_x = 0.0
 rotational_multiplier_y = 0.0
-positional_multiplier_z = 0.0
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
 [sub_resource type="Resource" id="Resource_3n6vs"]
