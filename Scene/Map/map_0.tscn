@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://u1r8ow3lnb8q"]
+[gd_scene format=3 uid="uid://cv7efafwpag6g"]
 
 [ext_resource type="Script" uid="uid://dlcaoklj4fv1l" path="res://Scripts/Game/map_scene.gd" id="1_4h2nc"]
 [ext_resource type="PackedScene" uid="uid://btev0l7kfr5mw" path="res://Prefabs/Enviro/obstacle_complete.tscn" id="3_hndmx"]

@@ -80,8 +80,8 @@ ease = 1
 script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
-task_info_in_order = Array[ExtResource("2_v11op")]([SubResource("Resource_d4n33"), SubResource("Resource_jhpbt"), SubResource("Resource_b8he2"), SubResource("Resource_m65o1")])
-sound_texts = Array[String](["[color=red]CAUTION ![/color][br]The Big Bad Wolf is coming after you when you [color=red]fill the sound bar[/color] !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color] !"])
+task_prefab = ExtResource("2_qhsjr")
+sound_texts = Array[String](["When the [color=red]Sound Bar is full[/color], the [color=red]eye of the [br] wolf is chasing you[/color] ! Don't be caught !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color]"])
 health_texts = Array[String](["You and your sibling share a [color=red]health bar[/color].[br]Whoever [color=red]fills it first[/color] wins !", "The health bar get [color=red]filled[/color] by [color=red]hitting[/color] your sibbling with [color=red]objects[/color] !"])
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")

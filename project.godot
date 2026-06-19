@@ -14,7 +14,7 @@ quick_scenes/quick_run_shortcut=Object(Shortcut,"resource_local_to_scene":false,
 ],"script":null)
 
 quick_scenes/selected_scene=0
-quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1", "uid://36tccmd3uybf")
+quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1")
 
 [application]
 
@@ -22,7 +22,8 @@ config/name="Blare of Brats"
 config/version="0.3.2"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://du1b70k1hymft"
+config/windows_native_icon="res://bob-icon.ico"
 
 [audio]
 

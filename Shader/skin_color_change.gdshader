@@ -25,6 +25,10 @@ uniform vec2 uv_scale = vec2(1.0, 1.0);
 uniform vec4 color_override : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float blend_delta : hint_range(0.0, 1.0, 0.02) = 0.0;
 
+uniform float emission_energy : hint_range(0.0, 16.0) = 1.0;
+
+uniform float saturation : hint_range(0.0, 5.0) = 1.0;
+
 void fragment() {
 	vec2 real_uv = uv_offset + (UV * uv_scale);
     vec4 tex_color = texture(main_texture, real_uv);
@@ -42,7 +46,13 @@ void fragment() {
     }
 	
 	vec3 final_rgb = mix(current_rgb, color_override.rgb, blend_delta);
+	
+	float luminance = dot(final_rgb, vec3(0.299, 0.587, 0.114));
+	vec3 grayscale = vec3(luminance);
+	
+	final_rgb = mix(grayscale, final_rgb, saturation);
     
     ALBEDO = final_rgb;
     ALPHA = tex_color.a;
+	EMISSION = final_rgb * emission_energy;
 }
