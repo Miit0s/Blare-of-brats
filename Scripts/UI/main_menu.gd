@@ -33,13 +33,17 @@ func _ready() -> void:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
 	play_button.grab_focus()
+	
+	if LoadingPage.is_displaying:
+		LoadingPage.despawn_transtion()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_up") or event.is_action("ui_down") or event.is_action("ui_left") or event.is_action("ui_right"):
 		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file(game_start_scene_uid)
+	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(game_start_scene_uid)
 
 
 func _on_options_pressed() -> void:

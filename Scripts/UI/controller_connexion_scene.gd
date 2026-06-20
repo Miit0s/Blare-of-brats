@@ -34,8 +34,9 @@ extends Control
 var controller_slots: Array[ControllerSlot]
 
 var _player_ready: int = 0
-
 var _device_returning: int = -1
+
+var is_loading_transtion_finish: bool = false
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
@@ -44,6 +45,11 @@ func _ready() -> void:
 		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
 		controller_slot.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
 		controller_slots.append(controller_slot)
+	
+	LoadingPage.despawn_transtion()
+	await LoadingPage.transition_finish
+	
+	is_loading_transtion_finish = true
 
 func _process(_delta: float) -> void:
 	for i in max_player:
@@ -70,6 +76,8 @@ func _process(_delta: float) -> void:
 		radial_progress_bar_with_text.player_stop_holding_key()
 
 func _input(event: InputEvent) -> void:
+	if not is_loading_transtion_finish: return
+	
 	if event is InputEventJoypadButton:
 		if event.is_action_pressed("JoinGame"):
 			VibrationManager.start_joy_vibration(event.device, vibration_force_on_interaction, 0 , vibration_duration_on_interaction)
@@ -171,18 +179,20 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
-	var packed_game_scene: PackedScene
-	if GameOptions.have_played_tutorial and not GameOptions.saved_options.activate_on_boarding:
-		packed_game_scene = load(game_scene_uid)
-	else: 
-		packed_game_scene = load(onboarding_scene_uid)
+	for controller_slot in controller_slots:
+		VibrationManager.start_joy_vibration(controller_slot.get_player_id(), vibration_force_on_game_start, vibration_force_on_game_start / 2, vibration_duration_on_game_start)
 	
+	LoadingPage.packed_scene_loaded.connect(_setup_game_scene_and_change, ConnectFlags.CONNECT_ONE_SHOT)
+	if GameOptions.have_played_tutorial and not GameOptions.saved_options.activate_on_boarding:
+		LoadingPage.start_transtion_to_scene(game_scene_uid)
+	else:
+		LoadingPage.start_transtion_to_scene(onboarding_scene_uid)
+
+func _setup_game_scene_and_change(packed_game_scene: PackedScene):
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	
 	game_scene.players_selection.clear()
 	for controller_slot in controller_slots:
-		#TODO: Fix the vibration things
-		#VibrationManager.start_joy_vibration(controller_slot.get_player_id(), vibration_force_on_game_start, 0, vibration_duration_on_game_start)
 		game_scene.players_selection.append(controller_slot.get_player_selection())
 	
 	get_tree().change_scene_to_node(game_scene)
@@ -217,7 +227,9 @@ func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -
 
 func _on_return_radial_progress_bar_hold_finish() -> void:
 	VibrationManager.stop_joy_vibration(_device_returning)
-	get_tree().change_scene_to_file(main_menu_scene_uid)
+	
+	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(main_menu_scene_uid)
 
 func _lock_color_for_all(color: CharacterColorResource):
 	for controller_slot in controller_slots:
