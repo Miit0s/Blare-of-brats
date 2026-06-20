@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c02cnle76j6bl" path="res://Scripts/Resources/task_info_ressource.gd" id="2_v11op"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
 [ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
+[ext_resource type="WwiseEvent" uid="uid://cqeer5ilf3afn" path="res://Wwise/resources/Event/{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}.tres" id="4_jhpbt"]
 [ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/Map_Onboarding.tscn" id="5_hq2bc"]
 [ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="6_5q1ap"]
 [ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="7_v11op"]
@@ -65,7 +66,7 @@ border_width_right = 530
 border_width_bottom = 965
 border_color = Color(0, 0, 0, 0.5882353)
 
-[node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
+[node name="OnboardingGameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
@@ -79,6 +80,7 @@ tracking_spot_player_one = NodePath("TrackingSpot")
 tracking_spot_player_two = NodePath("TrackingSpot2")
 round_number = 1
 music_fight = ExtResource("2_ts878")
+countdown = ExtResource("4_jhpbt")
 lead = ExtResource("3_aongf")
 round_start_state = ExtResource("4_5felv")
 second_phase_state = ExtResource("6_5q1ap")

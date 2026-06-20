@@ -54,6 +54,7 @@ var players_selection: Array[PlayerCharacterSelection] = [preload("uid://4w1f5mg
 
 var _current_scene: MapScene
 var _round_ended: bool = false
+var _first_round_setup: bool = true
 
 func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
@@ -71,6 +72,11 @@ func _ready() -> void:
 	players_win.resize(player_number)
 	players_win.fill(0)
 	
+	setup_new_scene()
+	
+	LoadingPage.despawn_transtion()
+	await LoadingPage.transition_finish
+	
 	start_round_animation()
 
 func start_round_animation():
@@ -83,7 +89,11 @@ func start_round_animation():
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	
-	setup_new_scene()
+	if _first_round_setup:
+		_first_round_setup = false
+	else:
+		setup_new_scene()
+	
 	round_start_ui.show()
 	round_start_ui.start_animation()
 
@@ -158,7 +168,8 @@ func player_win(player_id: int):
 	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
 
 func go_to_next_scene():
-	get_tree().change_scene_to_file(next_scene_uid)
+	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(next_scene_uid)
 
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:

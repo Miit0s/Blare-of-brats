@@ -77,7 +77,8 @@ func _ready() -> void:
 	
 	setup_new_scene()
 	
-	await get_tree().create_timer(0.5).timeout
+	LoadingPage.despawn_transtion()
+	await LoadingPage.transition_finish
 	
 	for input_reminder in input_reminders:
 		input_reminder.trigger_spawn_animation()
@@ -85,7 +86,10 @@ func _ready() -> void:
 func go_to_next_scene():
 	GameOptions.have_played_tutorial = true
 	
-	var packed_game_scene: PackedScene = load(next_scene_uid)
+	LoadingPage.packed_scene_loaded.connect(_setup_game_scene_with_parameters, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(next_scene_uid)
+
+func _setup_game_scene_with_parameters(packed_game_scene: PackedScene):
 	var game_scene: GameScene = packed_game_scene.instantiate()
 	
 	game_scene.players_selection.clear()
