@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://uhduf12ydte6"]
 
-[ext_resource type="Shader" uid="uid://dyojie6fy44rt" path="res://Shader/game_sound_bar.gdshader" id="1_yncwp"]
+[ext_resource type="Shader" uid="uid://dyojie6fy44rt" path="res://Shader/simple_progress_bar.gdshader" id="1_yncwp"]
 
 [sub_resource type="Gradient" id="Gradient_jkyf7"]
 colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)

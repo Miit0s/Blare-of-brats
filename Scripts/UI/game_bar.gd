@@ -3,8 +3,6 @@ class_name GameBar
 
 @onready var shared_life_bar: SharedLifeBar = $SharedLifeBar
 @onready var game_sound_bar: GameSoundBar = $GameSoundBar
-@onready var player_indicator_left: TextureRect = $PlayerIndicatorLeft
-@onready var player_indicator_right: TextureRect = $PlayerIndicatorRight
 @onready var round_win_indicator_left: RoundWinIndicator = $RoundWinIndicatorLeft
 @onready var round_win_indicator_right: RoundWinIndicator = $RoundWinIndicatorRight
 
@@ -32,9 +30,6 @@ func _ready() -> void:
 func setup_color_and_texture(left: PlayerCharacterSelection, right: PlayerCharacterSelection):
 	left_player_id = left.player_id
 	right_player_id = right.player_id
-	
-	player_indicator_left.self_modulate = left.color_skin.main_color
-	player_indicator_right.self_modulate = right.color_skin.main_color
 	
 	round_win_indicator_left.apply_player_color(left.color_skin.main_color)
 	round_win_indicator_right.apply_player_color(right.color_skin.main_color)
