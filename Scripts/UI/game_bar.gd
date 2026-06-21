@@ -6,6 +6,9 @@ class_name GameBar
 @onready var round_win_indicator_left: RoundWinIndicator = $RoundWinIndicatorLeft
 @onready var round_win_indicator_right: RoundWinIndicator = $RoundWinIndicatorRight
 
+@onready var player_icon: PlayerIcon = $PlayerIcon
+@onready var player_icon_2: PlayerIcon = $PlayerIcon2
+
 @export var player_health: float = 20
 @export var sound_bar_max_volume: float = 100
 
@@ -30,6 +33,9 @@ func _ready() -> void:
 func setup_color_and_texture(left: PlayerCharacterSelection, right: PlayerCharacterSelection):
 	left_player_id = left.player_id
 	right_player_id = right.player_id
+	
+	player_icon.apply_texture_and_color(left.color_skin.color_shader_icon)
+	player_icon_2.apply_texture_and_color(right.color_skin.color_shader_icon)
 	
 	round_win_indicator_left.apply_player_color(left.color_skin.main_color)
 	round_win_indicator_right.apply_player_color(right.color_skin.main_color)
