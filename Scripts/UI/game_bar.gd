@@ -9,6 +9,8 @@ class_name GameBar
 @onready var player_icon: PlayerIcon = $PlayerIcon
 @onready var player_icon_2: PlayerIcon = $PlayerIcon2
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $SoundBarEffectContainer/AnimatedSprite2D
+
 @export var player_health: float = 20
 @export var sound_bar_max_volume: float = 100
 
@@ -63,3 +65,6 @@ func _on_player_win(player_id: int):
 
 func _on_lifebar_value_change(new_value: float):
 	lifebar_value_change.emit(new_value)
+	
+	if not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play("default")

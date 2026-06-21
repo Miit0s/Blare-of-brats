@@ -8,14 +8,60 @@
 [ext_resource type="Texture2D" uid="uid://cocrf8f0aivr7" path="res://Assets/SpriteUI/GameBar/mask_round_right.png" id="5_85yq0"]
 [ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="6_ymab0"]
 [ext_resource type="PackedScene" uid="uid://bph4a5m2b1hae" path="res://UI/Game/player_icon.tscn" id="8_ymab0"]
+[ext_resource type="Texture2D" uid="uid://5xr1wcstwkag" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0000.png" id="10_wrn37"]
+[ext_resource type="Texture2D" uid="uid://vxcrgl65n2wp" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0001.png" id="11_4qiuk"]
+[ext_resource type="Texture2D" uid="uid://dqk4fwdfl2tfc" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0002.png" id="12_rxykr"]
+[ext_resource type="Texture2D" uid="uid://cvqq5sayeqnme" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0003.png" id="13_je4uh"]
+[ext_resource type="Texture2D" uid="uid://byydvco5cq1e5" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0004.png" id="14_fmci8"]
+[ext_resource type="Texture2D" uid="uid://cj5d7dp5nm7fx" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0005.png" id="15_bf2hk"]
+[ext_resource type="Texture2D" uid="uid://cx8q5cw8e2517" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0006.png" id="16_hr53s"]
+[ext_resource type="Texture2D" uid="uid://dwxf30ih0lrmu" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0007.png" id="17_k3m07"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5803h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymab0"]
 resource_local_to_scene = true
 shader = ExtResource("6_ymab0")
 shader_parameter/progress = 0.0
 shader_parameter/color_left = Color(1, 1, 1, 1)
 shader_parameter/color_right = Color(1, 1, 1, 1)
 shader_parameter/shear_angle = 0.17900005600250002
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nuo1a"]
+load_path = "res://.godot/imported/sound bar vfx with stars0011.png-a5dd00f322078c62ced88d040dcdf08d.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2tjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_nuo1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wrn37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4qiuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rxykr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_je4uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fmci8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bf2hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hr53s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_k3m07")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="GameBar" type="Control" unique_id=1611480018]
 layout_mode = 3
@@ -94,7 +140,7 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" parent="RoundWinIndicatorRight" index="0" unique_id=1060331592]
-material = SubResource("ShaderMaterial_5803h")
+material = SubResource("ShaderMaterial_ymab0")
 offset_top = 4.0
 offset_bottom = 4.0
 texture = ExtResource("5_85yq0")
@@ -129,6 +175,26 @@ grow_vertical = 2
 
 [node name="TextureRect" parent="PlayerIcon2" index="0" unique_id=1383534951]
 flip_h = true
+
+[node name="SoundBarEffectContainer" type="Control" parent="." unique_id=2097070531]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 28.729996
+offset_right = -20.0
+offset_bottom = 28.729996
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SoundBarEffectContainer" unique_id=583659747]
+sprite_frames = SubResource("SpriteFrames_y2tjs")
+offset = Vector2(19.265, 0)
 
 [editable path="GameSoundBar"]
 [editable path="RoundWinIndicatorRight"]
