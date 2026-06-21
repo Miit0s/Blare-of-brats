@@ -55,7 +55,6 @@ func _ready() -> void:
 	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
-	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	game_bar.shared_life_bar.lock()
 	
 	input_reminders[0].player_input_id = players_selection[0].player_id

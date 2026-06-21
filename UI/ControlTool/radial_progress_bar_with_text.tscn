@@ -2,24 +2,30 @@
 
 [ext_resource type="Script" uid="uid://qb6rvvpdjgug" path="res://Scripts/UI/radial_pogress_bar_with_text.gd" id="1_rihet"]
 [ext_resource type="Shader" uid="uid://doki7jt3gmrse" path="res://Shader/radial_progress_bar.gdshader" id="2_bmoep"]
+[ext_resource type="Texture2D" uid="uid://4ac7be14xr56" path="res://Assets/VFX/radial_texture.png" id="3_ifhe4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhe4"]
 resource_local_to_scene = true
 shader = ExtResource("2_bmoep")
 shader_parameter/base_color = Color(1, 1, 1, 1)
 shader_parameter/outer_bound = 0.4
-shader_parameter/inner_bound = 0.15000000223518
+shader_parameter/inner_bound = 0.3
 shader_parameter/fill_direction = -1.0
+shader_parameter/is_round = false
 shader_parameter/progress = 0.0
 
 [node name="RadialProgressBarWithText" type="HBoxContainer" unique_id=2147224469]
+offset_right = 88.0
+offset_bottom = 50.0
 script = ExtResource("1_rihet")
 hold_duration = 0.0
 
-[node name="RadialProgressBar" type="ColorRect" parent="." unique_id=1278139767]
+[node name="RadialProgressBar" type="TextureRect" parent="." unique_id=902424112]
 material = SubResource("ShaderMaterial_ifhe4")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+texture = ExtResource("3_ifhe4")
+expand_mode = 5
 
 [node name="Label" type="Label" parent="." unique_id=1829241702]
 layout_mode = 2

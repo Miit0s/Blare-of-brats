@@ -2,7 +2,7 @@
 extends HBoxContainer
 class_name RadialProgressBarWithText
 
-@onready var radial_progress_bar: ColorRect = $RadialProgressBar
+@onready var radial_progress_bar: TextureRect = $RadialProgressBar
 @onready var label: Label = $Label
 
 @export var hold_duration: float = 1.0

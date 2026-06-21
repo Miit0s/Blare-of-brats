@@ -1,13 +1,15 @@
 extends Control
 
 @onready var controller_slot_container: Control = $ControllerSlotContainer
-@onready var return_radial_progress_bar: RadialProgressBarWithText = $ReturnRadialProgressBar
+@onready var return_radial_progress_bar: RadialProgressBarWithText = $TextureRect/HBoxContainer/ReturnRadialProgressBar
 
-@onready var ready_texture: TextureRect = $ReadyTexture
-@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText
+@onready var ready_screen: SubViewportContainer = $ReadyScreen
+@onready var radial_progress_bar_with_text: RadialProgressBarWithText = $ReadyScreen/SubViewport/ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText
 
 @onready var stand_1: TextureRect = $Visual/Stand1
 @onready var stand_2: TextureRect = $Visual/Stand2
+@onready var light_stand_1: TextureRect = $Visual/Stand1/LightStand1
+@onready var light_stand_2: TextureRect = $Visual/Stand2/LightStand2
 
 @export var max_player: int = 4
 @export var controller_slot_prefab: PackedScene
@@ -16,8 +18,13 @@ extends Control
 @export var game_scene_uid: String
 @export var onboarding_scene_uid: String
 
-@export var stage_default: Texture2D
+@export var stage_empty: Texture2D
+@export var stage_skin_pick: Texture2D
+@export var stage_color_pick: Texture2D
 @export var stage_ready: Texture2D
+
+@export_category("Tween")
+@export var ready_tween_transition_duration: float = 0.5
 
 @export_category("Vibration")
 @export_group("On Game Start")
@@ -37,13 +44,17 @@ var _player_ready: int = 0
 var _device_returning: int = -1
 
 var is_loading_transtion_finish: bool = false
+var is_ready_screen_transition_finish: bool = true
+
+var _is_ready_texture_display: bool = false
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
-	for controller_slot in controller_slot_container.get_children():
+	for controller_slot: ControllerSlot in controller_slot_container.get_children():
 		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
 		controller_slot.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
+		controller_slot.has_change_state.connect(_on_controller_slot_state_change)
 		controller_slots.append(controller_slot)
 	
 	LoadingPage.despawn_transtion()
@@ -70,13 +81,14 @@ func _process(_delta: float) -> void:
 			if player_slot.current_state == ControllerSlot.SelectionState.COLOR_SELECTION:
 				player_slot.previous_character_color()
 	
-	if ready_texture.visible and Input.is_action_just_pressed("JoinGame"):
+	if _is_ready_texture_display and Input.is_action_just_pressed("JoinGame"):
 		radial_progress_bar_with_text.player_start_holding_key()
-	if ready_texture.visible and Input.is_action_just_released("JoinGame"):
+	if _is_ready_texture_display and Input.is_action_just_released("JoinGame"):
 		radial_progress_bar_with_text.player_stop_holding_key()
 
 func _input(event: InputEvent) -> void:
 	if not is_loading_transtion_finish: return
+	if not is_ready_screen_transition_finish: return
 	
 	if event is InputEventJoypadButton:
 		if event.is_action_pressed("JoinGame"):
@@ -206,11 +218,39 @@ func _on_controller_slot_player_his_ready(controller_slot: ControllerSlot) -> vo
 	
 	_lock_color_for_all(controller_slot.get_player_selection().color_skin)
 	
-	if controller_slots[0] == controller_slot: stand_1.texture = stage_ready
-	else: stand_2.texture = stage_ready
-	
 	if _player_ready >= controller_slots.size():
-		ready_texture.show()
+		is_ready_screen_transition_finish = false
+		
+		var shader: ShaderMaterial = ready_screen.material
+		shader.set_shader_parameter("invert", true)
+		shader.set_shader_parameter("progress", 0.0)
+		
+		ready_screen.show()
+		
+		var spawn_transition: Tween = create_tween()
+		spawn_transition.set_ease(Tween.EASE_OUT)
+		spawn_transition.set_trans(Tween.TRANS_QUAD)
+		spawn_transition.tween_method(_update_ready_screen_transtion_progress_value, 0.0, 3.8, ready_tween_transition_duration)
+		
+		await spawn_transition.finished
+		
+		_is_ready_texture_display = true
+		is_ready_screen_transition_finish = true
+
+
+func _on_controller_slot_state_change(controller_slot_id: int, new_state: ControllerSlot.SelectionState):
+	var stand: TextureRect = stand_1 if controller_slot_id == 0 else stand_2
+	var stand_light: TextureRect = light_stand_1 if controller_slot_id == 0 else light_stand_2
+	
+	match new_state:
+		ControllerSlot.SelectionState.EMPTY: stand.texture = stage_empty
+		ControllerSlot.SelectionState.CHARACTER_SELECTION: stand.texture = stage_skin_pick
+		ControllerSlot.SelectionState.COLOR_SELECTION: 
+			stand.texture = stage_color_pick
+			stand_light.hide()
+		ControllerSlot.SelectionState.READY: 
+			stand.texture = stage_ready
+			stand_light.show()
 
 
 func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -> void:
@@ -218,11 +258,27 @@ func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -
 	
 	_unlock_color_for_all(controller_slot.get_player_selection().color_skin)
 	
-	if controller_slots[0] == controller_slot: stand_1.texture = stage_default
-	else: stand_2.texture = stage_default
-	
-	if _player_ready < controller_slots.size():
-		ready_texture.hide()
+	if _is_ready_texture_display:
+		is_ready_screen_transition_finish = false
+		_is_ready_texture_display = false
+		
+		var shader: ShaderMaterial = ready_screen.material
+		shader.set_shader_parameter("invert", false)
+		shader.set_shader_parameter("progress", 0.0)
+		
+		var despawn_transition: Tween = create_tween()
+		despawn_transition.set_ease(Tween.EASE_OUT)
+		despawn_transition.set_trans(Tween.TRANS_QUAD)
+		despawn_transition.tween_method(_update_ready_screen_transtion_progress_value, 0.0, 3.8, ready_tween_transition_duration)
+		
+		await despawn_transition.finished
+		
+		ready_screen.hide()
+		is_ready_screen_transition_finish = true
+
+func _update_ready_screen_transtion_progress_value(value: float):
+	var shader: ShaderMaterial = ready_screen.material
+	shader.set_shader_parameter("progress", value)
 
 
 func _on_return_radial_progress_bar_hold_finish() -> void:
