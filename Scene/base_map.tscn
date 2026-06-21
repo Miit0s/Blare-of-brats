@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="8_l7xf8"]
 [ext_resource type="Texture2D" uid="uid://dfg66srmr0bs4" path="res://Assets/EnvironmentSprite/flag_orange.png" id="9_q5aaq"]
 [ext_resource type="Texture2D" uid="uid://l7d3fryhr0l1" path="res://Assets/EnvironmentSprite/banner_long01.png" id="9_tqdba"]
-[ext_resource type="Texture2D" uid="uid://c5g2meodm7dvp" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="10_82asv"]
+[ext_resource type="Texture2D" uid="uid://b1jkxl04d6c6y" path="res://Assets/EnvironmentSprite/bigbanner_01.png" id="10_82asv"]
 [ext_resource type="Texture2D" uid="uid://bdktmu4eilp8n" path="res://Assets/EnvironmentSprite/flag_moon.png" id="11_abqlf"]
 [ext_resource type="Texture2D" uid="uid://h36arh02nypq" path="res://Assets/EnvironmentSprite/book_01.png" id="11_mwxsb"]
 [ext_resource type="Texture2D" uid="uid://cgv5eip1me1i7" path="res://Assets/EnvironmentSprite/bush_01.png" id="12_20oi6"]
@@ -935,7 +935,7 @@ is_raycast = false
 metadata/_custom_type_script = "uid://k2hs1xqqot34"
 
 [node name="WolfTrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("28_q5aaq")]
-transform = Transform3D(-0.13137755, -0.59775364, 0.7908417, 0, 0.7977563, 0.60298, -0.9913321, 0.07921806, -0.1048073, 5.7862525, 5.7164097, -7.9104514)
+transform = Transform3D(-0.13137743, -0.59775364, 0.7908417, 0, 0.7977563, 0.60298, -0.9913321, 0.07921799, -0.104807205, 5.7862525, 5.7164097, -7.9104514)
 visible = false
 target = NodePath("../WolfTarget")
 distance = 35.0
