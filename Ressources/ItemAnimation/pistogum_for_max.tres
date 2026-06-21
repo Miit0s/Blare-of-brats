@@ -224,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_4u0p7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"back",
 "speed": 30.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("46_7fvsd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"front",
 "speed": 30.0
 }, {
@@ -348,7 +348,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("73_t7egv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"left",
 "speed": 30.0
 }, {
@@ -410,7 +410,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("101_qgn1f")
 }],
-"loop": false,
+"loop": 0,
 "name": &"right",
 "speed": 30.0
 }]
@@ -547,7 +547,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("153_as6rv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 24.0
 }, {
@@ -681,7 +681,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("196_akllm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 24.0
 }]

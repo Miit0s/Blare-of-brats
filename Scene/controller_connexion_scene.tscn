@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_gka6h"]
 [ext_resource type="Texture2D" uid="uid://dm571r2xulc2d" path="res://Assets/SpriteUI/CharacterSelection/background_sky.png" id="3_o70qx"]
 [ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="4_4l4xg"]
+[ext_resource type="Texture2D" uid="uid://6lq0716b52dy" path="res://Assets/SpriteUI/CharacterSelection/stage_nolight_default.png" id="4_dk8v4"]
 [ext_resource type="Texture2D" uid="uid://cra8busntuw4u" path="res://Assets/SpriteUI/CharacterSelection/stage_light.png" id="4_ho3je"]
 [ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
 [ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
+[ext_resource type="Texture2D" uid="uid://c51iaiwjs04ys" path="res://Assets/SpriteUI/CharacterSelection/stage_1shadow.png" id="6_rgkik"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
 [ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
@@ -19,11 +21,42 @@
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
 [ext_resource type="Texture2D" uid="uid://l6yi7kmuwdny" path="res://Assets/SpriteUI/CharacterSelection/stage_default.png" id="15_hhwhx"]
+[ext_resource type="Texture2D" uid="uid://cgkdf8itctj6w" path="res://Assets/SpriteUI/CharacterSelection/spotlight_mask.png" id="15_p6y2j"]
 [ext_resource type="WwiseEvent" uid="uid://bynhxij07jj55" path="res://Wwise/resources/Event/{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}.tres" id="19_dk8v4"]
 [ext_resource type="Texture2D" uid="uid://cqbdefo16o3r1" path="res://Assets/SpriteUI/CharacterSelection/vs.png" id="19_ho3je"]
-[ext_resource type="Texture2D" uid="uid://ca3aw26wkohvl" path="res://Assets/SpriteUI/Onboarding/banner_tasks.png" id="20_17e3e"]
 [ext_resource type="WwiseEvent" uid="uid://b1wsdmul5127w" path="res://Wwise/resources/Event/{949583D9-CD37-426A-9A69-DFC38D00223C}.tres" id="20_rgkik"]
+[ext_resource type="Texture2D" uid="uid://bxb4wngr2uedn" path="res://Assets/SpriteUI/CharacterSelection/banniere_splash_versus.png" id="22_g8rj2"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
+[ext_resource type="Texture2D" uid="uid://dg1qn458xj686" path="res://Assets/SpriteUI/CharacterSelection/banniere_selection_buttons_bottom.png" id="23_rgkik"]
+[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys4ta"]
+shader = ExtResource("26_ys4ta")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(1, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(-1, 2)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(2, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
 
 [node name="ControllerConnexionScene" type="Control" unique_id=1109372958]
 layout_mode = 3
@@ -39,8 +72,19 @@ controller_slot_prefab = ExtResource("1_bhesk")
 main_menu_scene_uid = "uid://bnfprdiqbhq53"
 game_scene_uid = "uid://c53l85gqm0mi1"
 onboarding_scene_uid = "uid://36tccmd3uybf"
-stage_default = ExtResource("15_hhwhx")
+stage_empty = ExtResource("4_dk8v4")
+stage_skin_pick = ExtResource("15_hhwhx")
+stage_color_pick = ExtResource("6_rgkik")
 stage_ready = ExtResource("4_ho3je")
+ready_tween_transition_duration = 0.3
+
+[node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
+bank = ExtResource("22_ho3je")
+load_on = 1
+unload_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="." unique_id=763098049]
+is_spatial = false
 
 [node name="Visual" type="Control" parent="." unique_id=836811587]
 layout_mode = 1
@@ -118,6 +162,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TopBorderForeground" type="Parallax2D" parent="Visual" unique_id=2082339658]
+z_index = 2
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(50, 0)
 repeat_times = 5
@@ -139,8 +184,24 @@ offset_top = 5.124939
 offset_right = -115.08002
 offset_bottom = 417.125
 grow_vertical = 0
-texture = ExtResource("15_hhwhx")
+texture = ExtResource("4_dk8v4")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="LightStand1" type="TextureRect" parent="Visual/Stand1" unique_id=893929157]
+visible = false
+self_modulate = Color(1, 1, 1, 0.39215687)
+z_index = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -14.585
+offset_top = -517.995
+offset_right = -14.585022
+offset_bottom = 389.88586
+grow_horizontal = 2
+texture = ExtResource("15_p6y2j")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Stand2" type="TextureRect" parent="Visual" unique_id=1653053628]
@@ -157,12 +218,29 @@ offset_bottom = 412.27997
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(1802.21, 1882)
-texture = ExtResource("15_hhwhx")
+texture = ExtResource("4_dk8v4")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
+[node name="LightStand2" type="TextureRect" parent="Visual/Stand2" unique_id=2069323400]
+visible = false
+self_modulate = Color(1, 1, 1, 0.39215687)
+z_index = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -14.585
+offset_top = -517.995
+offset_right = -14.585022
+offset_bottom = 389.88586
+grow_horizontal = 2
+texture = ExtResource("15_p6y2j")
+expand_mode = 5
+stretch_mode = 5
+
 [node name="Foreground" type="TextureRect" parent="Visual" unique_id=215846062]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -177,6 +255,7 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="ForegroundMax" type="TextureRect" parent="Visual" unique_id=167344161]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -188,19 +267,6 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("11_fp572")
 expand_mode = 5
-
-[node name="ReturnRadialProgressBar" parent="." unique_id=2147224469 instance=ExtResource("3_cwclv")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -70.0
-offset_right = 206.0
-offset_bottom = -20.0
-grow_vertical = 0
-hold_duration = 0.75
-text = "Go back to menu"
 
 [node name="ControllerSlotContainer" type="Control" parent="." unique_id=1309203772]
 layout_mode = 1
@@ -230,21 +296,80 @@ begin_skin = 1
 front_texture_begin_material = ExtResource("5_qbu2t")
 back_texture_begin_material = ExtResource("6_o70qx")
 back_player_right_sided = true
+controller_slot_id = 1
 
-[node name="ReadyTexture" type="TextureRect" parent="." unique_id=1902863830]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=386533814]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -3.205
+offset_top = -145.44
+offset_right = 518.795
+offset_bottom = -52.439697
+grow_vertical = 0
+texture = ExtResource("23_rgkik")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect" unique_id=14291894]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.205
+offset_top = -43.06018
+offset_right = 455.205
+offset_bottom = 24.93982
+grow_vertical = 2
+
+[node name="ReturnRadialProgressBar" parent="TextureRect/HBoxContainer" unique_id=2147224469 instance=ExtResource("3_cwclv")]
+custom_minimum_size = Vector2(68, 0)
+layout_mode = 2
+hold_duration = 0.75
+text = ""
+
+[node name="ControllerIconParser" type="RichTextLabel" parent="TextureRect/HBoxContainer" unique_id=707111172]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Go back to menu {Return}"
+vertical_alignment = 1
+script = ExtResource("9_o70qx")
+white_version = true
+raw_text = "Go back to menu {Return}"
+metadata/_custom_type_script = "uid://0suax27ohuw"
+
+[node name="ReadyScreen" type="SubViewportContainer" parent="." unique_id=972782382]
 visible = false
+z_index = 2
+material = SubResource("ShaderMaterial_ys4ta")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="ReadyScreen" unique_id=1745572751]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
+
+[node name="ReadyTexture" type="TextureRect" parent="ReadyScreen/SubViewport" unique_id=1902863830]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hhwhx")
 texture = ExtResource("19_ho3je")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TextureRect" type="TextureRect" parent="ReadyTexture" unique_id=2095477604]
-self_modulate = Color(0.84897214, 0.000820148, 0.88944644, 1)
+[node name="TextureRect" type="TextureRect" parent="ReadyScreen/SubViewport/ReadyTexture" unique_id=2095477604]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -254,47 +379,40 @@ offset_top = -136.48499
 offset_right = 600.125
 offset_bottom = -32.484497
 grow_vertical = 0
-texture = ExtResource("20_17e3e")
+texture = ExtResource("22_g8rj2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ReadyTexture/TextureRect" unique_id=1156460549]
+[node name="HBoxContainer" type="HBoxContainer" parent="ReadyScreen/SubViewport/ReadyTexture/TextureRect" unique_id=1156460549]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -297.125
+offset_left = -238.125
 offset_top = -46.000122
 offset_right = 217.875
 offset_bottom = 22.999878
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="RadialProgressBarWithText" parent="ReadyTexture/TextureRect/HBoxContainer" unique_id=1846131576 instance=ExtResource("3_cwclv")]
+[node name="RadialProgressBarWithText" parent="ReadyScreen/SubViewport/ReadyTexture/TextureRect/HBoxContainer" unique_id=1846131576 instance=ExtResource("3_cwclv")]
+custom_minimum_size = Vector2(59, 0)
 layout_mode = 2
 hold_duration = 1.0
 text = ""
 
-[node name="ControllerIconParser" type="RichTextLabel" parent="ReadyTexture/TextureRect/HBoxContainer" unique_id=99086707]
+[node name="ControllerIconParser" type="RichTextLabel" parent="ReadyScreen/SubViewport/ReadyTexture/TextureRect/HBoxContainer" unique_id=99086707]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Hold {JoinGame} to start"
-horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_o70qx")
 white_version = true
 raw_text = "Hold {JoinGame} to start"
 metadata/_custom_type_script = "uid://0suax27ohuw"
 
-[node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
-bank = ExtResource("22_ho3je")
-load_on = 1
-unload_on = 3
-
-[node name="AkListener3D" type="AkListener3D" parent="." unique_id=763098049]
-is_spatial = false
-
-[connection signal="hold_finish" from="ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
-[connection signal="hold_finish" from="ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText" to="." method="start_game"]
+[connection signal="hold_finish" from="TextureRect/HBoxContainer/ReturnRadialProgressBar" to="." method="_on_return_radial_progress_bar_hold_finish"]
+[connection signal="hold_finish" from="ReadyScreen/SubViewport/ReadyTexture/TextureRect/HBoxContainer/RadialProgressBarWithText" to="." method="start_game"]

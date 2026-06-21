@@ -3,6 +3,7 @@ class_name WolfTarget
 
 @onready var player_stun_area: Area3D = $PlayerStunArea
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
+@onready var decal: Decal = $Decal
 
 @export var speed: float = 5
 @export var stun_duration: float = 2
@@ -58,10 +59,12 @@ func set_new_target_position(new_position: Vector3):
 func start_tracking():
 	_is_tracking = true
 	spot_light_3d.show()
+	decal.show()
 
 func stop_tracking():
 	_is_tracking = false
 	spot_light_3d.hide()
+	decal.hide()
 
 func _restart_move():
 	_has_finish_restart_move = false

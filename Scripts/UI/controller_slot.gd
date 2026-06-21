@@ -27,9 +27,14 @@ enum SelectionState {
 
 @export var back_player_right_sided: bool = false
 
+@export var controller_slot_id: int = 0
+
 @export_category("SFX")
 @export var color_select_sound : WwiseEvent
 @export var color_back_sound : WwiseEvent
+
+@export_category("Tween")
+@export var position_move_duration: float = 0.1
 
 
 var _player_id: int = -1
@@ -39,21 +44,31 @@ var is_slot_available: bool:
 var has_selected_character: bool = false
 var is_ready: bool = false
 
-var current_state: SelectionState = SelectionState.EMPTY
+var current_state: SelectionState = SelectionState.EMPTY:
+	set(new_value):
+		current_state = new_value
+		has_change_state.emit(controller_slot_id, current_state)
 var current_skin: PossibleSkin
+
+var _select_player_container_begin_position: Vector2
+var _is_in_center: bool = false
 
 signal player_his_ready(controller_slot: ControllerSlot)
 signal player_no_more_ready(controller_slot: ControllerSlot)
+signal has_change_state(controller_slot_id: int, new_state: SelectionState)
 
 func _ready() -> void:
 	if back_player_right_sided:
 		back_player.position.x = (back_player.position.x * -1) - back_player.size.x
+		controller_slot.position.x = (controller_slot.position.x * -1) - controller_slot.size.x + 50
 	
 	current_skin = begin_skin
 	switch_to_empty_slot()
 	
 	selected_player.set_new_character(character_texture[0], front_texture_begin_material, begin_skin)
 	back_player.apply_color_and_texture(back_texture_begin_material, character_texture[1])
+	
+	_select_player_container_begin_position = selected_player.position
 
 func switch_to_empty_slot():
 	_player_id = -1
@@ -76,6 +91,14 @@ func switch_to_character_selection(player_id: int):
 	back_player.show()
 	
 	current_state = SelectionState.CHARACTER_SELECTION
+	
+	if _is_in_center:
+		_is_in_center = false
+		
+		var position_tween: Tween = create_tween()
+		position_tween.set_ease(Tween.EASE_OUT)
+		position_tween.set_trans(Tween.TRANS_QUAD)
+		position_tween.tween_property(selected_player, "position", _select_player_container_begin_position, position_move_duration)
 
 func switch_to_color_selection():
 	has_selected_character = true
@@ -88,6 +111,19 @@ func switch_to_color_selection():
 		player_no_more_ready.emit(self)
 	
 	current_state = SelectionState.COLOR_SELECTION
+	
+	if not _is_in_center:
+		_is_in_center = true
+		
+		var select_player_next_position: Vector2 = _select_player_container_begin_position
+		var move_by: float = (selected_player.size.x / 2) - 50
+		select_player_next_position.x = selected_player.position.x + move_by if back_player_right_sided else selected_player.position.x - move_by
+		select_player_next_position.y -= 35
+
+		var position_tween: Tween = create_tween()
+		position_tween.set_ease(Tween.EASE_OUT)
+		position_tween.set_trans(Tween.TRANS_QUAD)
+		position_tween.tween_property(selected_player, "position", select_player_next_position, position_move_duration)
 
 func switch_to_player_ready():
 	selected_player.set_ready_state()

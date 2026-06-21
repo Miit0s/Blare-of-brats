@@ -63,7 +63,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -768.0
+offset_top = 22.435
 offset_right = 768.0
+offset_bottom = 235.435
 grow_horizontal = 2
 
 [node name="CameraController" parent="." unique_id=786363209 instance=ExtResource("18_wv74o")]

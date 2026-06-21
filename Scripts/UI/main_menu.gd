@@ -32,12 +32,23 @@ func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
-	play_button.grab_focus()
-	
 	if LoadingPage.is_displaying:
 		LoadingPage.despawn_transtion()
+	
+	if not GameOptions.have_launch_game:
+		grab_focus()
+	else:
+		play_button.grab_focus()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton and not GameOptions.have_launch_game:
+		GameOptions.have_launch_game = true
+		var menu_start_scene: MenuStartScreen = $MenuStartScreen
+		menu_start_scene.play_transtion_and_destroy()
+		get_viewport().set_input_as_handled()
+		
+		play_button.grab_focus()
+	
 	if event.is_action("ui_up") or event.is_action("ui_down") or event.is_action("ui_left") or event.is_action("ui_right"):
 		_last_device_to_move = event.device
 

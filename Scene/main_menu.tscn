@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0odn7qlra422" path="res://Scene/chaos_scene.tscn" id="6_hptlk"]
 [ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="7_34sut"]
 [ext_resource type="Script" uid="uid://bcd2lnrrewlvk" path="res://Scripts/UI/texture_button_focus_replace.gd" id="8_47k5r"]
+[ext_resource type="PackedScene" uid="uid://b66u1f50hodny" path="res://UI/Menu/menu_start_screen.tscn" id="16_fqtvk"]
 
 [sub_resource type="GDScript" id="GDScript_47k5r"]
 resource_name = "main_menu_button_tween"
@@ -368,6 +369,9 @@ layout_mode = 1
 
 [node name="Credits" parent="CanvasLayer/Menu" unique_id=572892282 instance=ExtResource("2_4hclx")]
 visible = false
+layout_mode = 1
+
+[node name="MenuStartScreen" parent="CanvasLayer/Menu" unique_id=1817293939 instance=ExtResource("16_fqtvk")]
 layout_mode = 1
 
 [node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
