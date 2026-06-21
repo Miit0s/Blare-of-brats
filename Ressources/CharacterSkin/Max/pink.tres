@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://bn30eps4jrde0" path="res://Assets/Material/MaxSkin/2D/pink.tres" id="1_diqsx"]
 [ext_resource type="Shader" uid="uid://jp8bkcsp4yad" path="res://Shader/skin_color_change.gdshader" id="2_eo7vr"]
 [ext_resource type="Texture2D" uid="uid://blwpm6jjrv88f" path="res://Assets/Player/Max/Idle/idle-left-animation-chara-1.png" id="3_ttasq"]
+[ext_resource type="Material" uid="uid://due571yepqxc3" path="res://Assets/Material/MaxSkin/Icon/pink_icon_max.tres" id="4_ttasq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_124jd"]
 resource_local_to_scene = true
@@ -34,4 +35,5 @@ script = ExtResource("1_5fak4")
 main_color = Color(0.7372549, 0.29411766, 0.5568628, 1)
 color_shader_2d = ExtResource("1_diqsx")
 color_shader_3d = SubResource("ShaderMaterial_124jd")
+color_shader_icon = ExtResource("4_ttasq")
 metadata/_custom_type_script = "uid://dranqulqe0dbp"

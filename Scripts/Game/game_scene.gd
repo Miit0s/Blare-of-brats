@@ -80,14 +80,13 @@ func _ready() -> void:
 	start_round_animation()
 
 func start_round_animation():
-	round_end_ui.hide()
+	round_end_ui.hide_animation()
 	game_bar.hide()
 	countdown.post(self)
 	
 	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
-	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	
 	if _first_round_setup:
 		_first_round_setup = false
@@ -165,7 +164,7 @@ func player_win(player_id: int):
 	music_fight.stop(self)
 	
 	round_end_ui.show()
-	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
+	round_end_ui.start_animation(players_win, _get_player_selection(player_id).color_skin)
 
 func go_to_next_scene():
 	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)

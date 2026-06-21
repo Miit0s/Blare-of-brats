@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://dranqulqe0dbp" path="res://Scripts/Resources/character_color_resource.gd" id="1_hvw0n"]
 [ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="1_jvbsv"]
 [ext_resource type="Material" uid="uid://dui8e4faikyy3" path="res://Assets/Material/AshSkin/3D/orange.tres" id="2_rn7k8"]
+[ext_resource type="Material" uid="uid://digion37bmgkc" path="res://Assets/Material/AshSkin/Icon/orange_icon_ash.tres" id="3_tm67w"]
 
 [resource]
 script = ExtResource("1_hvw0n")
 main_color = Color(0.9882353, 0.64705884, 0.5294118, 1)
 color_shader_2d = ExtResource("1_jvbsv")
 color_shader_3d = ExtResource("2_rn7k8")
+color_shader_icon = ExtResource("3_tm67w")
 metadata/_custom_type_script = "uid://dranqulqe0dbp"
