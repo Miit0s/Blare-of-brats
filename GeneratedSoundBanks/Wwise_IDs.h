@@ -41,6 +41,7 @@ namespace AK
         static const AkUniqueID UI_MENU_BACK = 922786755U;
         static const AkUniqueID UI_MENU_NAV = 17678017U;
         static const AkUniqueID UI_MENU_SELECT = 3474566310U;
+        static const AkUniqueID UI_START = 1219048826U;
     } // namespace EVENTS
 
     namespace STATES
@@ -95,6 +96,7 @@ namespace AK
     {
         static const AkUniqueID CHILDREN_ACTION = 3321746565U;
         static const AkUniqueID CROWD = 2848349012U;
+        static const AkUniqueID CROWD_SHH = 4224130602U;
         static const AkUniqueID HIGH_FCT = 2988444587U;
         static const AkUniqueID HOLD_FCT = 2172078744U;
         static const AkUniqueID LEAD = 54442139U;

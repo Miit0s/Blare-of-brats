@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{BA3F0AA9-40B8-EB1A-F0A0-289B0FBE113D}",
+    "Hash": "{6BCA5668-40E9-2B25-4C3B-375D68817A19}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -88,6 +88,14 @@
       "CachePath": "1F/{1FEE5EAD-EFBC-2306-548E-7EE5F762D4A9}.wem"
      },
      {
+      "Id": "112015911",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Start_Sound.wav",
+      "CachePath": "1D/{1DAF9E26-E61B-33FE-D4FF-6464D54CD80E}.wem"
+     },
+     {
       "Id": "114852343",
       "Language": "SFX",
       "Streaming": "false",
@@ -134,14 +142,6 @@
       "Location": "Memory",
       "ShortName": "swoosh_rotation_1.wav",
       "CachePath": "4B/{4B00635B-3C9D-AD63-169C-3A3D458C4C87}.wem"
-     },
-     {
-      "Id": "226803598",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Wolf_phase_v3.wav",
-      "CachePath": "D5/{D5EB9782-5EA0-A28A-E57B-D7FA0CF6D65A}.wem"
      },
      {
       "Id": "263518998",
@@ -358,6 +358,14 @@
       "Location": "Memory",
       "ShortName": "Attack\\Voice_Girl_Attack_3.wav",
       "CachePath": "56/{5624A28E-EDAC-23FA-ABC1-9752192B8A21}.wem"
+     },
+     {
+      "Id": "684045183",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Wolf_Phase_0.wav",
+      "CachePath": "DB/{DB1C2905-530D-1D80-B3BB-EB8756887F91}.wem"
      },
      {
       "Id": "703684940",
@@ -911,7 +919,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "753045005"
+          "Id": "684045183"
          }
         ],
         "PluginRefs": {
@@ -931,7 +939,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "962160485"
+          "Id": "753045005"
          }
         ],
         "PluginRefs": {
@@ -951,7 +959,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "543882894"
+          "Id": "962160485"
          }
         ],
         "PluginRefs": {
@@ -971,7 +979,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "226803598"
+          "Id": "543882894"
          }
         ],
         "PluginRefs": {
@@ -1232,6 +1240,21 @@
         "Id": "498530264"
        }
       ]
+     },
+     {
+      "Id": "1219048826",
+      "Name": "UI_Start",
+      "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Menu\\UI_Start",
+      "GUID": "{546CF159-592D-437F-BCD5-5273B38FFFED}",
+      "Color": "2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3592517",
+      "DurationMax": "1.3592517",
+      "MediaRefs": [
+       {
+        "Id": "112015911"
+       }
+      ]
      }
     ],
     "GameParameters": [
@@ -1246,6 +1269,12 @@
       "Name": "Hold_Fct",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Hold_Fct",
       "GUID": "{B1AB8D75-38C1-4E2A-91D6-687A2CECB8CD}"
+     },
+     {
+      "Id": "4224130602",
+      "Name": "Crowd_Shh",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Crowd_Shh",
+      "GUID": "{B407A180-AFF6-41D0-AF55-B4B727A200D3}"
      }
     ],
     "StateGroups": [
@@ -1336,6 +1365,6 @@
     ]
    }
   ],
-  "FileHash": "{4115C631-BE2C-A574-76EB-DF3ECCF60364}"
+  "FileHash": "{87928A73-556D-1740-27D2-5269C3D8BE80}"
  }
 }

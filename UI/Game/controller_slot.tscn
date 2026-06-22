@@ -16,9 +16,9 @@
 [ext_resource type="Resource" uid="uid://bv5wfucjjmow5" path="res://Ressources/CharacterAnimation/ash.tres" id="8_gk460"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="9_gk460"]
 [ext_resource type="PackedScene" uid="uid://c1nr8wgvag3dy" path="res://UI/ControllerConnection/color_options_ash.tscn" id="9_iow0i"]
-[ext_resource type="WwiseEvent" uid="uid://b1wsdmul5127w" path="res://Wwise/resources/Event/{949583D9-CD37-426A-9A69-DFC38D00223C}.tres" id="9_sp2xh"]
 [ext_resource type="WwiseEvent" uid="uid://bynhxij07jj55" path="res://Wwise/resources/Event/{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}.tres" id="10_0sif0"]
 [ext_resource type="Script" uid="uid://c4gvnsbllg6jh" path="res://Scripts/UI/character_selection.gd" id="10_gtj21"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="10_sp2xh"]
 [ext_resource type="WwiseEvent" uid="uid://bnb0pprvuhql6" path="res://Wwise/resources/Event/{9BD83C47-7024-49E9-A160-39AB9784E4B9}.tres" id="14_sp2xh"]
 [ext_resource type="Texture2D" uid="uid://ckskhtfi2xmli" path="res://Assets/SpriteUI/CharacterSelection/arrow_default.png" id="15_o2f5v"]
 [ext_resource type="Resource" uid="uid://cldrnyty3cg1a" path="res://Ressources/CharacterSkin/Max/blue.tres" id="15_q8gsb"]
@@ -49,7 +49,7 @@ character_animation_for_skin = Dictionary[int, ExtResource("6_d46oa")]({
 0: ExtResource("7_o2f5v"),
 1: ExtResource("8_gk460")
 })
-color_select_sound = ExtResource("9_sp2xh")
+color_select_sound = ExtResource("10_sp2xh")
 color_back_sound = ExtResource("10_0sif0")
 
 [node name="ControllerSlot" type="TextureRect" parent="." unique_id=699056762]

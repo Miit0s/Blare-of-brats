@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{106E25D9-7D32-EC58-AEDB-6AD5B26837C2}",
+    "Hash": "{84EBB0B3-B66C-733A-F1F7-F606A31A71F2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -206,6 +206,12 @@
       "Name": "Master_Volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Master_Volume",
       "GUID": "{7F904059-2BC2-4080-B2CD-01042F006706}"
+     },
+     {
+      "Id": "4224130602",
+      "Name": "Crowd_Shh",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Crowd_Shh",
+      "GUID": "{B407A180-AFF6-41D0-AF55-B4B727A200D3}"
      }
     ],
     "StateGroups": [
@@ -796,6 +802,6 @@
     ]
    }
   ],
-  "FileHash": "{90F66A26-2A18-9FC9-33D1-FC5D3003D7CB}"
+  "FileHash": "{C618DB31-76B9-2504-D8B5-2AD2FA4A548F}"
  }
 }
