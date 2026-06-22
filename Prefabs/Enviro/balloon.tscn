@@ -184,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("38_1wvf1")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 24.0
 }, {
@@ -279,7 +279,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("68_v53td")
 }],
-"loop": 0,
+"loop": false,
 "name": &"pop",
 "speed": 24.0
 }]

@@ -52,6 +52,7 @@ var current_durability: int = 0:
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
 var _owner_player: Player = null
+var _last_owner_id: int = -1
 
 ##The minimal speed the item should have. When the speed is under this threshold, the speed is set to zero
 var minimal_speed: float = 2
@@ -71,7 +72,8 @@ var _throw_start_point: Vector3 = Vector3.ZERO
 var _throw_by: int = -1
 
 signal sound_made(value: float, global_position: Vector3)
-
+signal sound_made_by(player_id: int, value: float)
+signal item_broke_by(player_id: int)
 signal has_loose_durability
 signal will_be_destroy(item: Item)
 signal has_hit_player
@@ -117,6 +119,7 @@ func throw(direction: Vector3):
 	
 	apply_central_impulse(direction.normalized() * throw_force)
 	sound_made.emit(sound_on_throw, global_position)
+	sound_made_by.emit(_last_owner_id, sound_on_throw)
 	
 	trail_renderer_3d.show()
 	rotation = Vector3.ZERO
@@ -134,6 +137,7 @@ func attack(direction: Vector3):
 		attack_sound.post(self)
 	if sound_always_made:
 		sound_made.emit(sound_on_attack, global_position)
+		sound_made_by.emit(_last_owner_id, sound_on_attack)
 	
 	await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
@@ -145,6 +149,10 @@ func _perform_attack(_direction: Vector3):
 	push_error("Perform attack should always be override")
 
 func destroy():
+	sound_made.emit(sound_on_break, global_position)
+	sound_made_by.emit(_last_owner_id, sound_on_break)
+	item_broke_by.emit(_last_owner_id)
+	
 	will_be_destroy.emit(self)
 	
 	collision_layer = 0
@@ -159,7 +167,6 @@ func destroy():
 	
 	linear_velocity = Vector3.ZERO
 	
-	sound_made.emit(sound_on_break, global_position)
 	item_visual.hide()
 	trail_renderer_3d.hide()
 	explosion_particle.emitting = true
@@ -170,6 +177,7 @@ func destroy():
 
 func item_picked_up(player_id: int, player: Player):
 	owner_player = player_id
+	_last_owner_id = player_id
 	_owner_player = player
 	is_already_pick = true
 	
@@ -215,6 +223,7 @@ func _add_hit_effect(target: Node3D):
 func _attack_player(player_hit: Player):
 	if not sound_always_made:
 		sound_made.emit(sound_on_attack, global_position)
+		sound_made_by.emit(_last_owner_id, sound_on_attack)
 	
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction)

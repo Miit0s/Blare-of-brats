@@ -263,7 +263,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0xs0i")
 }],
-"loop": 1,
+"loop": true,
 "name": &"back",
 "speed": 19.0
 }, {
@@ -322,7 +322,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oviau")
 }],
-"loop": 1,
+"loop": true,
 "name": &"left",
 "speed": 19.0
 }, {
@@ -381,7 +381,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_08b16")
 }],
-"loop": 1,
+"loop": true,
 "name": &"right",
 "speed": 19.0
 }]

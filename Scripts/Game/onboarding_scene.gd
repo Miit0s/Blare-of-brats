@@ -34,6 +34,9 @@ extends GameScene
 @export_category("Camera Shake")
 @export var camera_shake_duration_on_wall_fall: float = 0.9
 
+@export_category("GameEnd")
+@export var round_end_show_wait_duration: float = 1
+
 var has_already_made_sound: bool = false
 var has_already_hit_player: bool = false
 
@@ -48,9 +51,6 @@ func _ready() -> void:
 	
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.lifebar_value_change.connect(lifebar_value_change)
-	
-	players_win.resize(player_number)
-	players_win.fill(0)
 	
 	round_start_state.set_value()
 	
@@ -73,6 +73,12 @@ func _ready() -> void:
 	
 	for task_list in task_lists:
 		task_list.all_task_complete.connect(_player_have_finish_quest)
+	
+	for player_selection: PlayerCharacterSelection in players_selection:
+		var end_game_resource: EndGameResource = EndGameResource.new()
+		end_game_resource.character_color = player_selection.color_skin
+		
+		player_stats[player_selection.player_id] = end_game_resource
 	
 	setup_new_scene()
 	
@@ -98,8 +104,6 @@ func _setup_game_scene_with_parameters(packed_game_scene: PackedScene):
 	get_tree().change_scene_to_node(game_scene)
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:
-	var winner_data: PlayerCharacterSelection = _get_player_selection(player_id)
-	
 	game_bar.shared_life_bar.lock()
 	
 	for player in players:
@@ -107,8 +111,14 @@ func _on_shared_life_bar_player_win(player_id: int) -> void:
 	
 	music_fight.stop(self)
 	camera_controller.stop_tracking()
+	
+	player_stats[player_id].is_winner = true
+	player_stats[player_id].score = 1
+	
+	await get_tree().create_timer(round_end_show_wait_duration).timeout
+	
 	game_end_ui.show()
-	game_end_ui.start_animation(player_id, winner_data.color_skin.main_color, players_selection[0].player_id)
+	game_end_ui.setup_scene_and_start_animation(player_stats[players[0].player_id], player_stats[players[1].player_id])
 
 func _item_made_sound(value: float, sound_global_position: Vector3):
 	super._item_made_sound(value, sound_global_position)
