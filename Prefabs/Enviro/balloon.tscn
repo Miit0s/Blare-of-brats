@@ -184,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("38_1wvf1")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 24.0
 }, {
@@ -279,13 +279,15 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("68_v53td")
 }],
-"loop": 0,
+"loop": false,
 "name": &"pop",
 "speed": 24.0
 }]
 
 [node name="Balloon" type="Node3D" unique_id=1675570646]
 script = ExtResource("1_kcpt1")
+sound_on_pop = 7.5
+damage_on_pop = 0.7
 pop_sound = ExtResource("2_ddns0")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1919375436]

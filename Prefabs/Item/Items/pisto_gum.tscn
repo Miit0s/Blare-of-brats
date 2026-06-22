@@ -9,16 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://b0gcwgvjo0376" path="res://Assets/Particle/pisto_gum_shoot.tscn" id="5_c51hn"]
 [ext_resource type="Resource" uid="uid://t6ndsaq0cmm1" path="res://Ressources/ItemAnimation/pistogum_for_ash.tres" id="6_so68n"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_so68n"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_any3s"]
 resource_local_to_scene = true
 radius = 0.45
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
 points = PackedVector3Array(-0.5, 0, 1, -1.8, 0, -1.5, 0, 0, -2.4, 1.8, 0, -1.5, 0.5, 0, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_el3xv"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3qtxs"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7k04w"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_so68n"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -33,7 +33,7 @@ animations = [{
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
 script = ExtResource("2_cg3nc")
 player_speed_multiplier = 0.5
-slow_duration = 4.0
+slow_duration = 2.5
 vibration_force_on_shoot = 0.8
 vibration_duration_on_shoot = 0.1
 attack_speed = 0.3
@@ -55,14 +55,14 @@ transform = Transform3D(0.15, 0, 0, 0, 0.1409539, 0.05130302, 0, -0.05130302, 0.
 texture = ExtResource("5_7p1mr")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_so68n")
+shape = SubResource("SphereShape3D_any3s")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_el3xv")
+mesh = SubResource("ImmediateMesh_3qtxs")
 
 [node name="PistoGumShoot" parent="." index="7" unique_id=1130802044 instance=ExtResource("5_c51hn")]
 
@@ -71,4 +71,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-sprite_frames = SubResource("SpriteFrames_7k04w")
+sprite_frames = SubResource("SpriteFrames_so68n")

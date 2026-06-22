@@ -17,8 +17,17 @@
 [ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="8_cv58c"]
 [ext_resource type="PackedScene" uid="uid://bbd8fhv3fc1k3" path="res://UI/Game/game_end.tscn" id="8_k76w5"]
 [ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="9_7o1xo"]
+[ext_resource type="PackedScene" uid="uid://ck8weopbblctr" path="res://Scene/Map/map_6_bis.tscn" id="14_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://cngsdo46ho7ij" path="res://Scene/Map/map_7_bis.tscn" id="15_yaqu8"]
+[ext_resource type="PackedScene" uid="uid://ducxajit3e4m2" path="res://Scene/Map/map_8_bis.tscn" id="16_tw2pt"]
+[ext_resource type="PackedScene" uid="uid://b48lul6k3ccsj" path="res://Scene/Map/map_a3.tscn" id="17_hdg2p"]
+[ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/map_a4.tscn" id="18_7o1xo"]
 [ext_resource type="PackedScene" uid="uid://dhr0ypg38gbc1" path="res://Prefabs/Enviro/camera_controller.tscn" id="18_wv74o"]
+[ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/map_a5.tscn" id="19_vijqy"]
+[ext_resource type="PackedScene" uid="uid://b2sd3dxtv0hoy" path="res://Scene/Map/map_a6.tscn" id="20_ubkdv"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://bdj1stw8jmbuh" path="res://Scene/Map/map_a7.tscn" id="21_tit5h"]
+[ext_resource type="PackedScene" uid="uid://b72aqtc51yxt6" path="res://Scene/Map/map_a8.tscn" id="22_cv58c"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="23_yaqu8"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
@@ -39,7 +48,7 @@ soundbar_lvl2 = ExtResource("8_cv58c")
 continious_crowd_switch = ExtResource("7_7o1xo")
 reaction_crowd_switch = ExtResource("7_hdg2p")
 crowd_sound = ExtResource("9_7o1xo")
-possible_level = Array[PackedScene]([ExtResource("7_8gx4v")])
+possible_level = Array[PackedScene]([ExtResource("7_8gx4v"), ExtResource("14_2qcyb"), ExtResource("15_yaqu8"), ExtResource("16_tw2pt"), ExtResource("17_hdg2p"), ExtResource("18_7o1xo"), ExtResource("19_vijqy"), ExtResource("20_ubkdv"), ExtResource("21_tit5h"), ExtResource("22_cv58c")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")

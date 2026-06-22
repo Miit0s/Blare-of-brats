@@ -9,6 +9,7 @@ radius = 1.5
 
 [node name="WolfTarget" type="Node3D" unique_id=1343381387]
 script = ExtResource("1_oevxu")
+stun_duration = 2.8
 
 [node name="PlayerStunArea" type="Area3D" parent="." unique_id=1239140214]
 collision_layer = 0

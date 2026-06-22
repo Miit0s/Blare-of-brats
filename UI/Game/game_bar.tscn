@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cx8q5cw8e2517" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0006.png" id="16_hr53s"]
 [ext_resource type="Texture2D" uid="uid://dwxf30ih0lrmu" path="res://Assets/VFX/SoundBarGetFillAnimation/sound bar vfx with stars0007.png" id="17_k3m07"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymab0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuo1a"]
 resource_local_to_scene = true
 shader = ExtResource("6_ymab0")
 shader_parameter/progress = 0.0
@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_k3m07")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 24.0
 }]
@@ -67,7 +67,7 @@ offset_right = 1536.0
 offset_bottom = 213.0
 script = ExtResource("1_fs1sv")
 player_health = 12.5
-sound_bar_max_volume = 75.0
+sound_bar_max_volume = 50.0
 
 [node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("2_t1itt")]
 layout_mode = 1
@@ -137,7 +137,7 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" parent="RoundWinIndicatorRight" index="0" unique_id=1060331592]
-material = SubResource("ShaderMaterial_ymab0")
+material = SubResource("ShaderMaterial_nuo1a")
 offset_top = 4.0
 offset_bottom = 4.0
 texture = ExtResource("5_85yq0")

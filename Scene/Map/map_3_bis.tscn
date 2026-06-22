@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_xl3d6"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_moqdk"]
 
-
 [node name="Map3" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_aods2")
 player_spawn_system = NodePath("PlayerSpawnSystem")
@@ -29,7 +28,7 @@ transform = Transform3D(-0.19758707, 0, -5.5879354e-09, 0, 0.19758706, 0, 2.9802
 transform = Transform3D(-0.19758707, 0, -5.5879354e-09, 0, 0.19758706, 0, 2.9802322e-08, 0, -0.038618974, 8.17728, 1.1926945, 4.135224)
 
 [node name="ObstacleComplete5" parent="Wall" unique_id=982218586 instance=ExtResource("3_k1eql")]
-transform = Transform3D(5.0623864e-08, 0, -0.039, 0, 0.198, 0, 0.26, 0, 7.59358e-09, -1.32102, 1.193, 6.881401)
+transform = Transform3D(3.8941437e-08, 0, -0.039, 0, 0.198, 0, 0.2, 0, 7.59358e-09, -1.32102, 1.193, 5.9873343)
 
 [node name="ObstacleComplete3" parent="Wall" unique_id=600615127 instance=ExtResource("3_k1eql")]
 transform = Transform3D(-0.09606992, 0, 0.03583832, 0, 0.19758706, 0, -0.096069895, 0, -0.035838332, 1.1634922, 1.1926945, 1.0120397)
@@ -69,13 +68,13 @@ spawn_points = [NodePath("ItemSpawnPoint"), NodePath("ItemSpawnPoint4"), NodePat
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.941159, 0.8373332, 9.247381)
 
 [node name="ItemSpawnPoint4" parent="ItemSpawnSystem" unique_id=142864672 instance=ExtResource("6_3d8cv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.695383, 0.8373332, 2.4775581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.695, 0.837, 1.718)
 
 [node name="ItemSpawnPoint2" parent="ItemSpawnSystem" unique_id=1520047895 instance=ExtResource("6_3d8cv")]
 transform = Transform3D(1, 0, 0, 0, 0.99993205, 0.011658535, 0, -0.011658535, 0.99993205, 1.503515, 0.83733416, 8.960215)
 
 [node name="ItemSpawnPoint3" parent="ItemSpawnSystem" unique_id=1519627424 instance=ExtResource("6_3d8cv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.578858, 0.8373332, 2.9209743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.578858, 0.8373332, 1.7177739)
 
 [node name="ItemSpawnPoint5" parent="ItemSpawnSystem" unique_id=820580870 instance=ExtResource("6_3d8cv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0.837, 5.04)
