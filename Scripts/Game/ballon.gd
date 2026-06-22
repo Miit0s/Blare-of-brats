@@ -15,6 +15,7 @@ class_name Balloon
 var _already_pop: bool = false
 
 signal sound_emit(value: float, global_position: Vector3)
+signal sound_emit_by(player_id: int, value: float)
 
 func _ready() -> void:
 	area_3d.body_entered.connect(_on_body_area_entered)
@@ -27,6 +28,7 @@ func _on_body_area_entered(body: Node3D):
 	
 	if body is Player:
 		body.hit(damage_on_pop, Vector3.ZERO, false)
+		sound_emit_by.emit(body.player_id, sound_on_pop)
 	
 	sound_emit.emit(sound_on_pop, global_position)
 	

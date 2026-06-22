@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dranqulqe0dbp" path="res://Scripts/Resources/character_color_resource.gd" id="1_lov5q"]
 [ext_resource type="Material" uid="uid://c2r7u7ceeav2l" path="res://Assets/Material/AshSkin/3D/yellow.tres" id="2_31i1l"]
 [ext_resource type="Material" uid="uid://yvwk85gubs5j" path="res://Assets/Material/AshSkin/Icon/yellow_icon_ash.tres" id="3_l1scd"]
+[ext_resource type="Material" uid="uid://duugr5xiqpun5" path="res://Assets/Material/AshSkin/WinningLoosing/loosing_yellow.tres" id="4_ipiwc"]
+[ext_resource type="Material" uid="uid://rdjnkxb1xcad" path="res://Assets/Material/AshSkin/WinningLoosing/winning_yellow.tres" id="5_gy1ba"]
 
 [resource]
 script = ExtResource("1_lov5q")
@@ -11,4 +13,6 @@ main_color = Color(0.9882353, 0.93333334, 0.5294118, 1)
 color_shader_2d = ExtResource("1_6trb5")
 color_shader_3d = ExtResource("2_31i1l")
 color_shader_icon = ExtResource("3_l1scd")
+color_shader_winning = ExtResource("5_gy1ba")
+color_shader_loosing = ExtResource("4_ipiwc")
 metadata/_custom_type_script = "uid://dranqulqe0dbp"

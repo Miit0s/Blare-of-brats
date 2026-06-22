@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dx14q8xq3dcc4" path="res://Assets/SpriteUI/GameEndScreen/BG_character_win.png" id="1_6ncki"]
 [ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_odf6w"]
 [ext_resource type="Texture2D" uid="uid://bdktmu4eilp8n" path="res://Assets/EnvironmentSprite/flag_moon.png" id="2_2lndp"]
+[ext_resource type="Script" uid="uid://gmgcusk42qgd" path="res://Scripts/UI/side_end_screen.gd" id="2_psbj0"]
 [ext_resource type="Texture2D" uid="uid://cgkdf8itctj6w" path="res://Assets/SpriteUI/CharacterSelection/spotlight_mask.png" id="3_c4bkq"]
 [ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="3_wt0w4"]
 [ext_resource type="Texture2D" uid="uid://cwr307sxoyug" path="res://Assets/EnvironmentSprite/flag_green.png" id="4_yieyj"]
@@ -361,12 +362,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("96_mjxkk")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 24.0
 }]
 
-[node name="WinningSideEndScreen" type="Control" unique_id=442499130]
+[node name="WinningSideEndScreen" type="Control" unique_id=442499130 node_paths=PackedStringArray("node_to_color", "player")]
 layout_mode = 3
 anchors_preset = 13
 anchor_left = 0.5
@@ -375,6 +376,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_odf6w")
+script = ExtResource("2_psbj0")
+node_to_color = [NodePath("Background/Child/Hand")]
+player = NodePath("Background/Child")
+is_winning_scene = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=1173007988]
 layout_mode = 1

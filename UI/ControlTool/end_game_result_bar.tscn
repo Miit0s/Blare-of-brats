@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="2_wvek7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ucc50"]
+resource_local_to_scene = true
 shader = ExtResource("2_wvek7")
 shader_parameter/progress = 0.5
 shader_parameter/color_left = Color(0.9490196, 0.32156864, 0.9882353, 1)

@@ -18,6 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bqon1")
 script = ExtResource("1_st674")
+winning_scene = ExtResource("2_g0ltd")
+loosing_scene = ExtResource("3_52eux")
+anchor_preset = 13
+left_position = Vector2(310, 0)
+right_position = Vector2(-315, 0)
 
 [node name="LeftSideControl" type="Control" parent="." unique_id=1474572517]
 layout_mode = 1
@@ -27,8 +32,8 @@ grow_vertical = 2
 
 [node name="WinningSideEndScreen" parent="LeftSideControl" unique_id=442499130 instance=ExtResource("2_g0ltd")]
 layout_mode = 1
-offset_left = 312.735
-offset_right = 312.735
+offset_left = 310.0
+offset_right = 310.0
 
 [node name="RightSideControl" type="Control" parent="." unique_id=1226034531]
 layout_mode = 1
@@ -41,8 +46,8 @@ grow_vertical = 2
 
 [node name="LooserSideEndScreen" parent="RightSideControl" unique_id=1618318397 instance=ExtResource("3_52eux")]
 layout_mode = 1
-offset_left = -328.76
-offset_right = -328.76
+offset_left = -315.0
+offset_right = -315.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1812176409]
 layout_mode = 1
@@ -111,7 +116,7 @@ grow_horizontal = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/StatsHolder/HBoxContainer" unique_id=555704106]
+[node name="ScoreLeft" type="Label" parent="HBoxContainer/StatsHolder/HBoxContainer" unique_id=555704106]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -119,7 +124,7 @@ theme_override_font_sizes/font_size = 180
 text = "0"
 vertical_alignment = 1
 
-[node name="Score2" type="Label" parent="HBoxContainer/StatsHolder/HBoxContainer" unique_id=1824480362]
+[node name="ScoreRight" type="Label" parent="HBoxContainer/StatsHolder/HBoxContainer" unique_id=1824480362]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -146,27 +151,28 @@ offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EndGameResultBar" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=264163620 instance=ExtResource("7_1frxu")]
+[node name="DamageEndGameResultBar" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=264163620 instance=ExtResource("7_1frxu")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Damages"
 
-[node name="EndGameResultBar2" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=87409731 instance=ExtResource("7_1frxu")]
+[node name="ItemBrokenEndGameResultBar" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=87409731 instance=ExtResource("7_1frxu")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Number of item broken"
 
-[node name="EndGameResultBar3" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=1349394802 instance=ExtResource("7_1frxu")]
+[node name="NoiseMadeEndGameResultBar" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=1349394802 instance=ExtResource("7_1frxu")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Noise made"
 
-[node name="EndGameResultBar4" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=2125888985 instance=ExtResource("7_1frxu")]
+[node name="BallonPopEndGameResultBar" parent="HBoxContainer/StatsHolder/StatsContainer" unique_id=2125888985 instance=ExtResource("7_1frxu")]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Ballons popped"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer/StatsHolder" unique_id=319591605]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -178,6 +184,7 @@ offset_top = -275.0
 offset_right = 307.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/separation = 20
 
 [node name="RestartButton" parent="HBoxContainer/StatsHolder/ButtonContainer" unique_id=117943362 instance=ExtResource("8_5uw6r")]
@@ -201,7 +208,7 @@ text = "Restart"
 layout_mode = 2
 size_flags_horizontal = 4
 label_base_position = Vector2(25, -10)
-label_position_on_tween = Vector2(20, 32)
+label_position_on_tween = Vector2(19.3, 32)
 
 [node name="TextureButton" parent="HBoxContainer/StatsHolder/ButtonContainer/ToMainMenuButton" index="0" unique_id=1166033296]
 focus_neighbor_left = NodePath("../../RestartButton/TextureButton")
