@@ -217,8 +217,8 @@
       "States": [
        {
         "Id": "505373590",
-        "Name": "ReadyScreen",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\ReadyScreen",
+        "Name": "Readyscreen",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Readyscreen",
         "GUID": "{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}"
        },
        {
@@ -252,10 +252,16 @@
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
        },
        {
-        "Id": "2607556080",
-        "Name": "Menu",
-        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Menu",
+        "Id": "2005704188",
+        "Name": "Main_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Main_Menu",
         "GUID": "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
+       },
+       {
+        "Id": "2977420043",
+        "Name": "Start_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Start_Menu",
+        "GUID": "{3DAFFAEC-BC03-4044-BFDD-E0171B0CDA46}"
        }
       ]
      }
@@ -790,6 +796,6 @@
     ]
    }
   ],
-  "FileHash": "{D21F9A6E-1691-8BBA-F177-49282C18F48D}"
+  "FileHash": "{90F66A26-2A18-9FC9-33D1-FC5D3003D7CB}"
  }
 }

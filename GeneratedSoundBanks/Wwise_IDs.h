@@ -51,13 +51,14 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID MENU = 2607556080U;
+                static const AkUniqueID MAIN_MENU = 2005704188U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID PHASE_1 = 1622949422U;
                 static const AkUniqueID PHASE_2 = 1622949421U;
                 static const AkUniqueID PHASE_3 = 1622949420U;
                 static const AkUniqueID PHASE_DANGER = 1580246308U;
                 static const AkUniqueID READYSCREEN = 505373590U;
+                static const AkUniqueID START_MENU = 2977420043U;
             } // namespace STATE
         } // namespace ROUND_STATE
 
