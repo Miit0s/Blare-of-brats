@@ -288,8 +288,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _reset_requests() -> void:
 	_has_press_dash = false
 	_has_press_attack = false
+	if not _has_press_throw:       #Si throw a été presser, on laisse l'action release log
+		_has_release_throw = false
 	_has_press_throw = false
-	_has_release_throw = false
 	_has_press_drop = false
 	_has_press_pickup = false
 
