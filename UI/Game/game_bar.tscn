@@ -25,14 +25,11 @@ shader_parameter/color_left = Color(1, 1, 1, 1)
 shader_parameter/color_right = Color(1, 1, 1, 1)
 shader_parameter/shear_angle = 0.17900005600250002
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nuo1a"]
-load_path = "res://.godot/imported/sound bar vfx with stars0011.png-a5dd00f322078c62ced88d040dcdf08d.ctex"
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_y2tjs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_nuo1a")
+"texture": ExtResource("17_k3m07")
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_wrn37")
