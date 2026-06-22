@@ -171,6 +171,8 @@ func player_win(player_id: int):
 	
 	var players_win_array: Array[int] = [player_stats[players[0].player_id].score, player_stats[players[1].player_id].score]
 	
+	_current_scene.base_map.desactivate_wolf_light()
+	
 	for player in players:
 		player.reset_vibration()
 		VibrationManager.start_joy_vibration(player.player_id, round_end_vibration_force, 0, round_end_vibration_duration)
