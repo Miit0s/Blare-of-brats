@@ -41,8 +41,8 @@ func _process(delta: float) -> void:
 		_hold_time = move_toward(_hold_time, 0.0, delta / hold_duration)
 	
 	if _hold_time <= 0.0 and not _have_trigger_sound_stop:
-		_have_trigger_sound_stop = true
 		hold_sound_trigger.stop(self)
+		_have_trigger_sound_stop = true
 	
 	hold_rtpc.set_value(self, _hold_time * 100.0)
 	radial_progress_bar.material.set_shader_parameter("progress", _hold_time)
@@ -50,8 +50,9 @@ func _process(delta: float) -> void:
 func player_start_holding_key():
 	_player_his_holding_key = true
 	
-	hold_sound_trigger.post(self)
-	_have_trigger_sound_stop = false
+	if _have_trigger_sound_stop:
+		hold_sound_trigger.post(self)
+		_have_trigger_sound_stop = false
 
 func player_stop_holding_key():
 	_player_his_holding_key = false

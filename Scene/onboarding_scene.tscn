@@ -13,6 +13,7 @@
 [ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="9_aongf"]
 [ext_resource type="WwiseSwitch" uid="uid://b4b2cqrs243i8" path="res://Wwise/resources/Switch/{FD1A1761-B018-456D-A243-B338F6410620}.tres" id="10_5felv"]
 [ext_resource type="WwiseSwitch" uid="uid://cl5vc46xtn65y" path="res://Wwise/resources/Switch/{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}.tres" id="11_el4mh"]
+[ext_resource type="WwiseRTPC" uid="uid://jfjbig1iig6j" path="res://Wwise/resources/Game Parameter/{0DEE1858-2463-4550-BF6A-045447464530}.tres" id="11_m65o1"]
 [ext_resource type="PackedScene" uid="uid://b11h5aa5vxcaf" path="res://UI/Onboarding/task_list.tscn" id="12_u0bvv"]
 [ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="12_u823a"]
 [ext_resource type="WwiseSwitch" uid="uid://di8yyscq2ywpv" path="res://Wwise/resources/Switch/{63CB6B0B-90A3-4443-8423-6B8A560BED92}.tres" id="13_b8he2"]
@@ -88,6 +89,7 @@ second_phase_state = ExtResource("6_5q1ap")
 third_phase_state = ExtResource("7_v11op")
 soundbar_lvl1 = ExtResource("8_ts878")
 soundbar_lvl2 = ExtResource("9_aongf")
+bar_volume_rtpc = ExtResource("11_m65o1")
 continious_crowd_switch = ExtResource("10_5felv")
 reaction_crowd_switch = ExtResource("11_el4mh")
 danger_phase_crowd_switch = ExtResource("13_b8he2")
