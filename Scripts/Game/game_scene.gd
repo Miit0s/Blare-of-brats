@@ -46,6 +46,9 @@ class_name GameScene
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
+@export_category("Danger Phase")
+@export var wait_duration_after_cutscene_end_to_trigger_wolf: float = 0.5
+
 var players: Array[Player]
 var players_win: Array[int]
 var _last_player_win_id: int = -1
@@ -231,10 +234,30 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 	return players_selection[1]
 
 func _activate_the_danger_phase():
-	_current_scene.activate_danger_phase()
+	var controller_id: Array[int] = []
+	for player in players:
+		controller_id.append(player.player_id)
+	
+	_current_scene.activate_danger_phase(controller_id)
+	
 	#danger_phase_start.post(self)
 	
-	await get_tree().create_timer(2).timeout
+	if not GameOptions.have_see_wolf_cutscene:
+		for player in players:
+			player.freeze()
+		game_bar.hide()
+		
+		await _current_scene.wolf_cutscene_finish
+		
+		GameOptions.have_see_wolf_cutscene = true
+		
+		for player in players:
+			player.unfreeze()
+		game_bar.show()
+		
+		await get_tree().create_timer(wait_duration_after_cutscene_end_to_trigger_wolf).timeout
+	else:
+		await _current_scene.wolf_cutscene_finish
 	
 	_current_scene.activate_wolf_tracking_spot()
 	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))

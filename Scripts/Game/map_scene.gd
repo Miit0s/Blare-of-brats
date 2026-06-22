@@ -12,6 +12,7 @@ signal new_item_spawn(new_item: Item)
 signal item_will_be_delete(item: Item)
 signal balloon_pop(value: float, global_position: Vector3)
 signal wolf_has_hit_player
+signal wolf_cutscene_finish
 
 func _enter_tree() -> void:
 	balloon_manager.sound_emit.connect(_on_balloon_manager_sound_emit)
@@ -20,6 +21,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	base_map.wolf_has_hit_player.connect(wolf_has_hit_player.emit)
+	base_map.cutscene_finish.connect(wolf_cutscene_finish.emit)
 
 func _on_item_spawn_system_item_will_be_delete(item: Item) -> void:
 	item_will_be_delete.emit(item)
@@ -36,8 +38,11 @@ func _on_player_spawn_system_new_player_spawn(player: Player) -> void:
 func _on_balloon_manager_sound_emit(value: float, balloon_global_position: Vector3) -> void:
 	balloon_pop.emit(value, balloon_global_position)
 
-func activate_danger_phase():
-	base_map.desactivate_light()
+func activate_danger_phase(controller_id_for_vibration: Array[int] = []):
+	if not GameOptions.have_see_wolf_cutscene:
+		base_map.start_wolf_cutscene(controller_id_for_vibration)
+	else:
+		base_map.start_simple_cutscene(controller_id_for_vibration)
 
 func activate_wolf_tracking_spot():
 	base_map.activate_wolf_light()

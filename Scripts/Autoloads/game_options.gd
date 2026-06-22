@@ -6,6 +6,7 @@ var saved_options: OptionsResource
 
 var have_played_tutorial: bool = false
 var have_launch_game: bool = false
+var have_see_wolf_cutscene: bool = false
 
 var _did_options_has_been_apply: bool = false
 

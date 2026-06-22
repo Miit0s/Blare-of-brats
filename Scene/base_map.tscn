@@ -30,6 +30,10 @@
 [ext_resource type="PackedScene" uid="uid://bn3lnrd8rlgo1" path="res://Prefabs/Enviro/wolf_target.tscn" id="27_tax4x"]
 [ext_resource type="Script" uid="uid://k2hs1xqqot34" path="res://addons/spawn_area/game/spawn_area_3D.gd" id="28_l7xf8"]
 [ext_resource type="PackedScene" uid="uid://bsrm5tspv37qd" path="res://Prefabs/Enviro/wolf_tracking_spot.tscn" id="28_q5aaq"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="31_gxhwj"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="32_0tl14"]
+[ext_resource type="Resource" uid="uid://bodqys0276bd6" path="res://Ressources/Camera/camera_3d_settings.tres" id="33_m6ivv"]
+[ext_resource type="Texture2D" uid="uid://q0fj1yfyid7r" path="res://Assets/MockSprite/star.png" id="34_0tl14"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q5aaq"]
 sky_top_color = Color(0.20859659, 0.3891564, 0.85845184, 1)
@@ -173,6 +177,56 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_dvrfc"]
 material = SubResource("StandardMaterial3D_ycds1")
 size = Vector2(2, 2)
+
+[sub_resource type="Resource" id="Resource_jm4kh"]
+script = ExtResource("32_0tl14")
+duration = 0.5
+transition = 2
+
+[sub_resource type="Curve" id="Curve_0tl14"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8525346, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gxhwj"]
+curve = SubResource("Curve_0tl14")
+
+[sub_resource type="Curve" id="Curve_jm4kh"]
+_limits = [0.0, 2.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 11.175095, 0, 0, Vector2(0.13364056, 1.8820226), 2.8648877, 2.8648877, 0, 0, Vector2(0.35483873, 2.5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_vt83b"]
+_data = [Vector2(0, 0), 0.0, 14.629211, 0, 0, Vector2(0.27649772, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dvrfc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jm4kh"]
+curve_x = SubResource("Curve_jm4kh")
+curve_y = SubResource("Curve_vt83b")
+curve_z = SubResource("Curve_dvrfc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2tjs"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_jm4kh")
+alpha_curve = SubResource("CurveTexture_gxhwj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehpwy"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("34_0tl14")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_qmhjr"]
+material = SubResource("StandardMaterial3D_ehpwy")
+size = Vector2(1.5, 1.5)
 
 [node name="BaseMap" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("lights_to_control")]
 script = ExtResource("1_edfmf")
@@ -948,3 +1002,21 @@ color = Color(1, 0, 0, 0.19607843)
 [node name="CenterOfMap" type="Marker3D" parent="." unique_id=1496687447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3752398, 0.5137117, 3.4649181)
 gizmo_extents = 1.0
+
+[node name="CutscenePhantomCamera3D" type="Node3D" parent="." unique_id=1179228347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8462644, 5.6196675, -2.4575872)
+script = ExtResource("31_gxhwj")
+tween_resource = SubResource("Resource_jm4kh")
+tween_on_load = false
+camera_3d_resource = ExtResource("33_m6ivv")
+noise_emitter_layer = 1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WolfEyesWakeUp" type="GPUParticles3D" parent="." unique_id=2061490053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8300743, 5.6568637, -7.423055)
+emitting = false
+amount = 1
+lifetime = 1.5999999999999999
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y2tjs")
+draw_pass_1 = SubResource("QuadMesh_qmhjr")
