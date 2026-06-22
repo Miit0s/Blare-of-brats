@@ -31,30 +31,37 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not _is_tracking: return
 	
-	if global_position.is_equal_approx(_target_position) and not _has_reach_destination:
+	var dist_to_target: float = global_position.distance_to(_target_position)
+	if dist_to_target < 0.01 and not _has_reach_destination:
 		_has_reach_destination = true
 		has_reach_destination.emit()
 	
-	if global_position.distance_to(_target_position) <= distance_for_slow_down and _slow_down_tween == null:
+	if dist_to_target <= distance_for_slow_down and _slow_down_tween == null and _has_finish_restart_move:
 		_slow_down_tween = create_tween()
 		_slow_down_tween.set_ease(Tween.EASE_OUT)
 		_slow_down_tween.set_trans(Tween.TRANS_QUAD)
 		_slow_down_tween.tween_property(self, "global_position", _target_position, slow_down_duration)
-	elif _has_finish_restart_move:
+	elif _has_finish_restart_move and _slow_down_tween == null:
 		global_position = global_position.move_toward(_target_position, delta * speed)
 
 func set_new_target_position(new_position: Vector3):
 	var adjusted_position: Vector3 = Vector3(new_position.x, global_position.y, new_position.z)
 	_target_position = adjusted_position
 	
+	if _slow_down_tween:
+		_slow_down_tween.kill()
+		_slow_down_tween = null
+	
+	if _speed_up_tween:
+		_speed_up_tween.kill()
+		_speed_up_tween = null
+	
+	_has_finish_restart_move = true
+	
 	if _has_reach_destination:
 		_restart_move()
 	
 	_has_reach_destination = false
-	
-	if _slow_down_tween:
-		_slow_down_tween.kill()
-		_slow_down_tween = null
 
 func start_tracking():
 	_is_tracking = true
@@ -69,13 +76,19 @@ func stop_tracking():
 func _restart_move():
 	_has_finish_restart_move = false
 	
-	var point_ratio_to_destination: float = distance_for_speed_up / global_position.distance_to(_target_position)
-	var speed_up_destination_point: Vector3 = lerp(global_position, _target_position, point_ratio_to_destination)
+	var dist_to_target: float = global_position.distance_to(_target_position)
+	var speed_up_destination_point: Vector3
+	
+	if dist_to_target <= distance_for_speed_up or dist_to_target == 0.0:
+		speed_up_destination_point = _target_position
+	else:
+		var point_ratio_to_destination: float = distance_for_speed_up / dist_to_target
+		speed_up_destination_point = lerp(global_position, _target_position, point_ratio_to_destination)
 	
 	_speed_up_tween = create_tween()
 	_speed_up_tween.set_ease(Tween.EASE_IN)
 	_speed_up_tween.set_trans(Tween.TRANS_QUAD)
-	_speed_up_tween.tween_property(self, "global_position", speed_up_destination_point, slow_down_duration)
+	_speed_up_tween.tween_property(self, "global_position", speed_up_destination_point, speed_up_duration)
 	_speed_up_tween.finished.connect(func():
 		_has_finish_restart_move = true
 		_speed_up_tween = null

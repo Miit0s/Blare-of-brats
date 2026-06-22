@@ -20,6 +20,8 @@ class_name BaseMap
 @export var eyes_wake_up_vibration_force: float = 1.0
 @export var eyes_wake_up_vibration_duration: float = 0.5
 
+var _random_position_wait_tween: Tween = null
+
 signal wolf_has_hit_player
 signal cutscene_finish
 
@@ -65,6 +67,10 @@ func desactivate_wolf_light():
 	wolf_target.go_directly_to(wolf_eye_start_target.global_position)
 
 func set_new_wolf_eye_target(new_position: Vector3):
+	if _random_position_wait_tween:
+		_random_position_wait_tween.kill()
+		_random_position_wait_tween = null
+	
 	wolf_target.set_new_target_position(new_position)
 
 func set_random_target_for_wolf():
@@ -77,8 +83,12 @@ func reset_wolf_light():
 	activate_wolf_light()
 
 func wait_and_set_random_target():
-	await get_tree().create_timer(destination_reach_wait_time).timeout
-	set_random_target_for_wolf()
+	if _random_position_wait_tween:
+		_random_position_wait_tween.kill()
+	
+	_random_position_wait_tween = create_tween()
+	_random_position_wait_tween.tween_interval(destination_reach_wait_time)
+	_random_position_wait_tween.tween_callback(set_random_target_for_wolf)
 
 func _trigger_wolf_eyes_vibration(controller_id_for_vibration: Array[int]):
 	for id in controller_id_for_vibration:
