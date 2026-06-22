@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b0odn7qlra422"]
 
-[ext_resource type="PackedScene" uid="uid://dx4tdd5dj8w6p" path="res://Prefabs/Player/player.tscn" id="1_dv0gy"]
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="2_d5jt0"]
 [ext_resource type="PackedScene" uid="uid://ctpl3gtxygykm" path="res://Assets/Particle/item_hit_particles.tscn" id="3_7gx1u"]
 [ext_resource type="PackedScene" uid="uid://cbj5wjrxw0e1" path="res://Prefabs/Item/item_spawn_point.tscn" id="4_4ay72"]
@@ -9,16 +8,33 @@
 [ext_resource type="PackedScene" uid="uid://bhmfwu2e856oa" path="res://Prefabs/Item/Items/boxing_glove.tscn" id="7_v7lpu"]
 [ext_resource type="PackedScene" uid="uid://csrdjas8rt3ri" path="res://Prefabs/Item/Items/pisto_gum.tscn" id="8_k5wng"]
 [ext_resource type="PackedScene" uid="uid://bkj8meb4l8f3x" path="res://UI/Game/controller_slot.tscn" id="9_ot4os"]
-[ext_resource type="PackedScene" uid="uid://5k41jagbqylw" path="res://UI/Game/game_sound_bar.tscn" id="10_3fhmk"]
-[ext_resource type="PackedScene" uid="uid://dg75blg8sgpuf" path="res://UI/Game/shared_life_bar.tscn" id="11_v7lpu"]
 [ext_resource type="PackedScene" uid="uid://b3183fatppyxn" path="res://UI/ControlTool/radial_progress_bar_with_text.tscn" id="12_3fhmk"]
-[ext_resource type="PackedScene" uid="uid://dwtgkjjo7d1q5" path="res://Assets/Particle/confetti_particle.tscn" id="14_k5wng"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="15_7irrw"]
+[ext_resource type="PackedScene" uid="uid://fr4llv25pgj5" path="res://Prefabs/Player/Players/ash.tscn" id="16_s2yg2"]
 [ext_resource type="PackedScene" uid="uid://r5jprl3f0qrb" path="res://Assets/Particle/item_circle_spawn_particle.tscn" id="16_tfh8t"]
 [ext_resource type="PackedScene" uid="uid://di44tfpbu5w8n" path="res://Assets/Particle/item_explosion_particle.tscn" id="17_84fsj"]
+[ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="17_s2yg2"]
+[ext_resource type="PackedScene" uid="uid://c7sp3sqengdxp" path="res://Prefabs/Player/Players/max.tscn" id="17_tpyrp"]
+[ext_resource type="PackedScene" uid="uid://b0gcwgvjo0376" path="res://Assets/Particle/pisto_gum_shoot.tscn" id="18_7irrw"]
 [ext_resource type="PackedScene" uid="uid://ci1wlhg1v65n5" path="res://Assets/Particle/item_pop_spawn_particle.tscn" id="18_7xoa5"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="19_70qbo"]
+[ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="19_tfh8t"]
+[ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="20_70qbo"]
+[ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="21_65jih"]
+[ext_resource type="PackedScene" uid="uid://bsrm5tspv37qd" path="res://Prefabs/Enviro/wolf_tracking_spot.tscn" id="22_7cnje"]
+[ext_resource type="PackedScene" uid="uid://bn3lnrd8rlgo1" path="res://Prefabs/Enviro/wolf_target.tscn" id="23_70h5j"]
+[ext_resource type="PackedScene" uid="uid://c2gtbo41y8x1r" path="res://UI/ControlTool/end_game_result_bar.tscn" id="24_65jih"]
 
+[sub_resource type="GDScript" id="GDScript_7cnje"]
+resource_name = "freeze_player"
+script/source = "extends Node3D
+
+@export var players: Array[Player]
+
+func _ready() -> void:
+	for player in players:
+		player.freeze()
+"
 
 [sub_resource type="Animation" id="Animation_7irrw"]
 length = 0.001
@@ -33,6 +49,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StunParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ot4os"]
@@ -65,7 +93,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GameSoundBar:visible")
+tracks/2/path = NodePath("RadialProgressBarWithText:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -77,31 +105,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SharedLifeBar:visible")
+tracks/3/path = NodePath("WallBounceParticle:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RadialProgressBarWithText:visible")
+tracks/4/path = NodePath("DashEffect:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("WallBounceParticle:emitting")
+tracks/5/path = NodePath("CircleSpawnParticle:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -113,7 +141,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ConfettiParticle:emitting")
+tracks/6/path = NodePath("ExplosionParticle:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -125,31 +153,31 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ConfettiParticle:visible")
+tracks/7/path = NodePath("OtherSpawnParticle:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("DashEffect:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WalkSmoke:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CircleSpawnParticle:emitting")
+tracks/9/path = NodePath("PistoGumShoot:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -161,34 +189,10 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ExplosionParticle:emitting")
+tracks/10/path = NodePath("StunParticle:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("OtherSpawnParticle:emitting")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("WalkSmoke:emitting")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.1667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -201,12 +205,20 @@ _data = {
 &"Start": SubResource("Animation_ot4os")
 }
 
-[node name="ChaosScene" type="Node3D" unique_id=1673437573]
+[sub_resource type="GDScript" id="GDScript_65jih"]
+resource_name = "steal_all_input"
+script/source = "extends Node
+
+func _unhandled_input(_event: InputEvent) -> void:
+	get_viewport().set_input_as_handled()
+"
+
+[node name="ChaosScene" type="Node3D" unique_id=1673437573 node_paths=PackedStringArray("players")]
+script = SubResource("GDScript_7cnje")
+players = [NodePath("Ash"), NodePath("Max")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=333018492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="Player" parent="." unique_id=382022037 instance=ExtResource("1_dv0gy")]
 
 [node name="Item" parent="." unique_id=2059959192 instance=ExtResource("2_d5jt0")]
 
@@ -218,7 +230,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Item2" parent="." unique_id=585653132 instance=ExtResource("6_3fhmk")]
 sound_on_throw = 5
-break_on_throw = true
 
 [node name="Item3" parent="." unique_id=2000954409 instance=ExtResource("7_v7lpu")]
 sound_on_throw = 5
@@ -227,19 +238,14 @@ sound_on_throw = 5
 sound_on_throw = 5
 
 [node name="ControllerSlot" parent="." unique_id=699056762 instance=ExtResource("9_ot4os")]
-
-[node name="GameSoundBar" parent="." unique_id=1894340611 instance=ExtResource("10_3fhmk")]
-
-[node name="SharedLifeBar" parent="." unique_id=1316874460 instance=ExtResource("11_v7lpu")]
+visible = false
 
 [node name="RadialProgressBarWithText" parent="." unique_id=2147224469 instance=ExtResource("12_3fhmk")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1949731566]
 libraries/ = SubResource("AnimationLibrary_3fhmk")
 autoplay = &"Start"
-
-[node name="ConfettiParticle" parent="." unique_id=759648193 instance=ExtResource("14_k5wng")]
-emitting = true
 
 [node name="DashEffect" parent="." unique_id=2051336107 instance=ExtResource("15_7irrw")]
 
@@ -251,3 +257,35 @@ emitting = true
 
 [node name="WalkSmoke" parent="." unique_id=1166528601 instance=ExtResource("19_70qbo")]
 emitting = true
+
+[node name="Ash" parent="." unique_id=382022037 instance=ExtResource("16_s2yg2")]
+
+[node name="Max" parent="." unique_id=1903293176 instance=ExtResource("17_tpyrp")]
+
+[node name="GameBar" parent="." unique_id=1611480018 instance=ExtResource("17_s2yg2")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_top = 22.435
+offset_right = 768.0
+offset_bottom = 235.435
+grow_horizontal = 2
+
+[node name="PistoGumShoot" parent="." unique_id=1130802044 instance=ExtResource("18_7irrw")]
+
+[node name="StunParticle" parent="." unique_id=1759464147 instance=ExtResource("19_tfh8t")]
+
+[node name="Balloon" parent="." unique_id=1675570646 instance=ExtResource("20_70qbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="TrackingSpot" parent="." unique_id=1921504836 instance=ExtResource("21_65jih")]
+
+[node name="WolfTrackingSpot" parent="." unique_id=687076127 instance=ExtResource("22_7cnje")]
+
+[node name="WolfTarget" parent="." unique_id=1343381387 instance=ExtResource("23_70h5j")]
+
+[node name="EndGameResultBar" parent="." unique_id=264163620 instance=ExtResource("24_65jih")]
+
+[node name="StealAllInput" type="Node" parent="." unique_id=1247132791]
+script = SubResource("GDScript_65jih")

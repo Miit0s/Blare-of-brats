@@ -115,6 +115,8 @@ func _zoom_out(control: Control, button: TextureButtonFocusReplace):
 bank = ExtResource("1_hptlk")
 load_on = 1
 
+[node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 
 [node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463 node_paths=PackedStringArray("buttons_impacting_movement")]
@@ -373,8 +375,6 @@ layout_mode = 1
 
 [node name="MenuStartScreen" parent="CanvasLayer/Menu" unique_id=1817293939 instance=ExtResource("16_fqtvk")]
 layout_mode = 1
-
-[node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
 
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlPlay/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlOptions/Options" to="CanvasLayer/Menu" method="_on_options_pressed"]

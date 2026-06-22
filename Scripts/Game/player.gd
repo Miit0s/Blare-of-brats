@@ -227,12 +227,12 @@ func _process(delta: float) -> void:
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		
-		if aim_direction != Vector3.ZERO:
+		if not aim_direction.is_equal_approx(Vector3.ZERO):
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
-			#throw_direction.look_at(throw_direction.global_position + aim_direction)
 	
-	if aim_direction != Vector3.ZERO:
-		throw_direction.look_at(throw_direction.global_position + aim_direction)
+	var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
+	if not aim_direction.is_equal_approx(Vector3.ZERO) or throw_direction.global_position.is_equal_approx(throw_aim_destination):
+		throw_direction.look_at(throw_aim_destination)
 
 func _process_action_with_priorities(delta: float) -> void:
 	if _is_in_input_cooldown:
