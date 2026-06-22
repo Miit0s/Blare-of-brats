@@ -14,8 +14,6 @@ class_name RoundEnd
 @export var reveal_wait_duration: float = 0.5
 @export var icon_and_win_text_grow_duration: float = 0.2
 
-var left_player_id: int = -1
-var right_player_id: int = -1
 var _players_win: Array[int]
 
 var round_number: int = 0
@@ -61,14 +59,17 @@ func start_animation(players_win: Array[int], player_color: CharacterColorResour
 	animation_finish.emit()
 
 func hide_animation():
+	next_round_button.hide()
+	
 	var hide_animation_tween: Tween = create_tween()
 	hide_animation_tween.set_ease(Tween.EASE_IN)
 	hide_animation_tween.set_trans(Tween.TRANS_QUAD)
 	hide_animation_tween.tween_property(round_info, "scale", Vector2.ZERO, info_grow_duration)
 	hide_animation_tween.tween_callback(self.hide)
+	hide_animation_tween.tween_callback(animation_finish.emit)
 
 func update_score():
-	score_rich_label.text = str(_players_win[left_player_id]) + " - " + str(_players_win[right_player_id])
+	score_rich_label.text = str(_players_win[0]) + " - " + str(_players_win[1])
 
 func show_next_round_button():
 	next_round_button.show()

@@ -4,6 +4,8 @@
 [ext_resource type="Material" uid="uid://oeihvdoded2e" path="res://Assets/Material/MaxSkin/2D/green.tres" id="1_phpou"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="2_s75m5"]
 [ext_resource type="Material" uid="uid://c4t2an3ka7sgu" path="res://Assets/Material/MaxSkin/Icon/green_icon_max.tres" id="3_fqo1k"]
+[ext_resource type="Material" uid="uid://dub1ttv3xjfto" path="res://Assets/Material/MaxSkin/WinningLoosing/loosing_green.tres" id="4_lqmda"]
+[ext_resource type="Material" uid="uid://hvhynn3vp7f2" path="res://Assets/Material/MaxSkin/WinningLoosing/winning_green.tres" id="5_uoc70"]
 
 [resource]
 script = ExtResource("1_ekeda")
@@ -11,4 +13,6 @@ main_color = Color(0.5921569, 0.75686276, 0.39607844, 1)
 color_shader_2d = ExtResource("1_phpou")
 color_shader_3d = ExtResource("2_s75m5")
 color_shader_icon = ExtResource("3_fqo1k")
+color_shader_winning = ExtResource("5_uoc70")
+color_shader_loosing = ExtResource("4_lqmda")
 metadata/_custom_type_script = "uid://dranqulqe0dbp"

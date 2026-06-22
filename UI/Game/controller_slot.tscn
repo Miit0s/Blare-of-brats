@@ -302,6 +302,7 @@ NodePath("VBoxContainer/ColorSelector3"): ExtResource("21_1icc5")
 
 [node name="ReadyState" type="Control" parent="SelectedPlayer" unique_id=29938384]
 visible = false
+z_index = 1
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 1
 anchors_preset = 7

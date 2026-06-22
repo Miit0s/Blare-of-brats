@@ -35,6 +35,7 @@ script = ExtResource("1_f38sd")
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 next_scene_uid = "uid://bnfprdiqbhq53"
+restart_game_scene_uid = "uid://c53l85gqm0mi1"
 tracking_spot_player_one = NodePath("TrackingSpot")
 tracking_spot_player_two = NodePath("TrackingSpot2")
 music_fight = ExtResource("2_ee6vw")
