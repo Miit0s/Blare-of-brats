@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c223igx0dvj5h"
-path="res://.godot/imported/ROUND WIN.png-596d53cee89a8f687bf99eee5dfb4471.ctex"
+uid="uid://dcxp303a8tvw"
+path="res://.godot/imported/wolf eye lose0010.png-aa0e181afe14c9363c479061fe9a8e17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteUI/ROUND WIN.png"
-dest_files=["res://.godot/imported/ROUND WIN.png-596d53cee89a8f687bf99eee5dfb4471.ctex"]
+source_file="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0010.png"
+dest_files=["res://.godot/imported/wolf eye lose0010.png-aa0e181afe14c9363c479061fe9a8e17.ctex"]
 
 [params]
 

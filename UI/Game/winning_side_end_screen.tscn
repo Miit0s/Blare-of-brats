@@ -1,0 +1,607 @@
+[gd_scene format=3 uid="uid://dwfvjojmjj0ql"]
+
+[ext_resource type="Texture2D" uid="uid://dx14q8xq3dcc4" path="res://Assets/SpriteUI/GameEndScreen/BG_character_win.png" id="1_6ncki"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_odf6w"]
+[ext_resource type="Texture2D" uid="uid://bdktmu4eilp8n" path="res://Assets/EnvironmentSprite/flag_moon.png" id="2_2lndp"]
+[ext_resource type="Texture2D" uid="uid://cgkdf8itctj6w" path="res://Assets/SpriteUI/CharacterSelection/spotlight_mask.png" id="3_c4bkq"]
+[ext_resource type="Texture2D" uid="uid://wqd12bo16g7b" path="res://Assets/EnvironmentSprite/flag_ping.png" id="3_wt0w4"]
+[ext_resource type="Texture2D" uid="uid://cwr307sxoyug" path="res://Assets/EnvironmentSprite/flag_green.png" id="4_yieyj"]
+[ext_resource type="Texture2D" uid="uid://dydqf5wq4xm5g" path="res://Assets/SpriteUI/CharacterSelection/flag_orange.png" id="5_1b1bs"]
+[ext_resource type="Texture2D" uid="uid://cra8busntuw4u" path="res://Assets/SpriteUI/CharacterSelection/stage_light.png" id="6_yieyj"]
+[ext_resource type="Texture2D" uid="uid://bg0fpdrk7lbje" path="res://Assets/SpriteUI/GameEndScreen/ground shadow pink stand.png" id="7_1b1bs"]
+[ext_resource type="Texture2D" uid="uid://dr038rbx0ejt" path="res://Assets/SpriteUI/GameEndScreen/brother win.png" id="8_yftxp"]
+[ext_resource type="Texture2D" uid="uid://56spu52xqhm2" path="res://Assets/SpriteUI/GameEndScreen/trophy.png" id="9_8fq40"]
+[ext_resource type="Texture2D" uid="uid://irdaof6w8o1c" path="res://Assets/SpriteUI/GameEndScreen/child_hand_over_trophy.png" id="9_rb3vl"]
+[ext_resource type="Texture2D" uid="uid://c44kp4m5e6ugl" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0000.png" id="11_deli3"]
+[ext_resource type="Texture2D" uid="uid://d20cttk4vnjxf" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0001.png" id="12_qv608"]
+[ext_resource type="Texture2D" uid="uid://deo5pyvscr7cg" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0002.png" id="13_odf6w"]
+[ext_resource type="Texture2D" uid="uid://cqotgnl8terld" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0003.png" id="14_c4bkq"]
+[ext_resource type="Texture2D" uid="uid://dl2w5kepsj0u8" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0004.png" id="15_psbj0"]
+[ext_resource type="Texture2D" uid="uid://c0kbfpqjo5sfu" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0005.png" id="16_d413j"]
+[ext_resource type="Texture2D" uid="uid://dcbm35pcb1wit" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0006.png" id="17_umpng"]
+[ext_resource type="Texture2D" uid="uid://dee16uci28145" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0007.png" id="18_irteo"]
+[ext_resource type="Texture2D" uid="uid://bsiq416trfmd2" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0008.png" id="19_7g1p8"]
+[ext_resource type="Texture2D" uid="uid://clkasunli21mb" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0009.png" id="20_ohw40"]
+[ext_resource type="Texture2D" uid="uid://bjnnpmxu75eyx" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0010.png" id="21_4ito3"]
+[ext_resource type="Texture2D" uid="uid://biixposiy4hn" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0011.png" id="22_rhgn1"]
+[ext_resource type="Texture2D" uid="uid://dw5gwaeklk8qk" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0012.png" id="23_4snv6"]
+[ext_resource type="Texture2D" uid="uid://cnj6mm0vd2wun" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0013.png" id="24_u86om"]
+[ext_resource type="Texture2D" uid="uid://dw8bdvkmg53fo" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0014.png" id="25_xf0y8"]
+[ext_resource type="Texture2D" uid="uid://vxhyejvwiqe3" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0015.png" id="26_bgnhf"]
+[ext_resource type="Texture2D" uid="uid://ccxlyqyqpp7r0" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0016.png" id="27_cjmod"]
+[ext_resource type="Texture2D" uid="uid://dv8qpsfu161sx" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0017.png" id="28_qd8u1"]
+[ext_resource type="Texture2D" uid="uid://dajvi0boxap7o" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0018.png" id="29_3cw1d"]
+[ext_resource type="Texture2D" uid="uid://bmsgm8t1jq0n1" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0019.png" id="30_go1ik"]
+[ext_resource type="Texture2D" uid="uid://cmf14fas2uxig" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0020.png" id="31_0m2uu"]
+[ext_resource type="Texture2D" uid="uid://dep2u35y0cohy" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0021.png" id="32_qpy2g"]
+[ext_resource type="Texture2D" uid="uid://dskttr6mqn07e" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0022.png" id="33_dkh1x"]
+[ext_resource type="Texture2D" uid="uid://dc7bmqmjedkjo" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0023.png" id="34_knkim"]
+[ext_resource type="Texture2D" uid="uid://dwx3oeg1jp0ab" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0024.png" id="35_8neds"]
+[ext_resource type="Texture2D" uid="uid://dhpnfpt6kgur6" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0025.png" id="36_fc35n"]
+[ext_resource type="Texture2D" uid="uid://2te576ioraum" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0026.png" id="37_hq1gb"]
+[ext_resource type="Texture2D" uid="uid://c58fx5mcxcf3c" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0027.png" id="38_twjvq"]
+[ext_resource type="Texture2D" uid="uid://ca5d1faqliwga" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0028.png" id="39_jaawy"]
+[ext_resource type="Texture2D" uid="uid://d0r466o3mt1hw" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0029.png" id="40_s1lqb"]
+[ext_resource type="Texture2D" uid="uid://cgaeg7lfnnuox" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0030.png" id="41_tu3oq"]
+[ext_resource type="Texture2D" uid="uid://c5ymx0y52sjnd" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0031.png" id="42_72ik8"]
+[ext_resource type="Texture2D" uid="uid://cykt8vkx5b1mv" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0032.png" id="43_h1pdq"]
+[ext_resource type="Texture2D" uid="uid://tqss6ctq36wq" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0033.png" id="44_8ah85"]
+[ext_resource type="Texture2D" uid="uid://fbik8qgcjc4y" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0034.png" id="45_6brsn"]
+[ext_resource type="Texture2D" uid="uid://cp7fsa2b0umh" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0035.png" id="46_yighr"]
+[ext_resource type="Texture2D" uid="uid://dsaoq305j7rob" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0036.png" id="47_2flqw"]
+[ext_resource type="Texture2D" uid="uid://baaqj6bagkv0f" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0037.png" id="48_14woj"]
+[ext_resource type="Texture2D" uid="uid://b2f7a6u7qughg" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0038.png" id="49_e42e3"]
+[ext_resource type="Texture2D" uid="uid://bopu038sjiwk3" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0039.png" id="50_06jt5"]
+[ext_resource type="Texture2D" uid="uid://b7n1yxijobnki" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0040.png" id="51_tj6hh"]
+[ext_resource type="Texture2D" uid="uid://c37n0xumaekji" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0041.png" id="52_po84j"]
+[ext_resource type="Texture2D" uid="uid://bct354736ryy3" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0042.png" id="53_0pidx"]
+[ext_resource type="Texture2D" uid="uid://dq1s6hws1mxe0" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0043.png" id="54_y836m"]
+[ext_resource type="Texture2D" uid="uid://3nllk5v8qbiw" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0044.png" id="55_hphkm"]
+[ext_resource type="Texture2D" uid="uid://cp3gyisxdexk" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0045.png" id="56_ibk7n"]
+[ext_resource type="Texture2D" uid="uid://qgwjofj15sei" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0046.png" id="57_p6lyb"]
+[ext_resource type="Texture2D" uid="uid://crl0sq8hgr7nf" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0047.png" id="58_p2eck"]
+[ext_resource type="Texture2D" uid="uid://dxn5g0bekbr0" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0048.png" id="59_cmkhu"]
+[ext_resource type="Texture2D" uid="uid://bndx4yu6e8we0" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0049.png" id="60_jmcjo"]
+[ext_resource type="Texture2D" uid="uid://35fw7myi7sao" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0050.png" id="61_ak2ns"]
+[ext_resource type="Texture2D" uid="uid://cyji6gc2wj2ej" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0051.png" id="62_wdydc"]
+[ext_resource type="Texture2D" uid="uid://dstd4n3l1m60d" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0052.png" id="63_fikrn"]
+[ext_resource type="Texture2D" uid="uid://ck250b1hqb06r" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0053.png" id="64_01iiy"]
+[ext_resource type="Texture2D" uid="uid://bigmf8p13kx67" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0054.png" id="65_qlawc"]
+[ext_resource type="Texture2D" uid="uid://dtt17f16h8wdv" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0055.png" id="66_mvjjv"]
+[ext_resource type="Texture2D" uid="uid://cp7tynknic7re" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0056.png" id="67_lmt3h"]
+[ext_resource type="Texture2D" uid="uid://bwkrkhl7kwpef" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0057.png" id="68_585rc"]
+[ext_resource type="Texture2D" uid="uid://bkodgd7yhk6bu" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0058.png" id="69_21cj2"]
+[ext_resource type="Texture2D" uid="uid://cuso0naianoac" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0059.png" id="70_qgwoh"]
+[ext_resource type="Texture2D" uid="uid://3mg6vgwul1qr" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0060.png" id="71_k3hqy"]
+[ext_resource type="Texture2D" uid="uid://xq31nrfknygx" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0061.png" id="72_ylywy"]
+[ext_resource type="Texture2D" uid="uid://dwfgphwnv4f5e" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0062.png" id="73_skks5"]
+[ext_resource type="Texture2D" uid="uid://0duwn2kmd1ce" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0063.png" id="74_tdtra"]
+[ext_resource type="Texture2D" uid="uid://7vtgwntw4tmh" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0064.png" id="75_j68rp"]
+[ext_resource type="Texture2D" uid="uid://cxc5e75386tlc" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0065.png" id="76_1yv8j"]
+[ext_resource type="Texture2D" uid="uid://ceecbswlg3tr3" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0066.png" id="77_0vbws"]
+[ext_resource type="Texture2D" uid="uid://byknhg0d0cqoq" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0067.png" id="78_l8qbe"]
+[ext_resource type="Texture2D" uid="uid://be1ls63d8gk0l" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0068.png" id="79_v4ecu"]
+[ext_resource type="Texture2D" uid="uid://ddpcp2jfkho1q" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0069.png" id="80_byyfk"]
+[ext_resource type="Texture2D" uid="uid://in6cc3vjqrnt" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0070.png" id="81_n14hl"]
+[ext_resource type="Texture2D" uid="uid://dbxko66tuqj4l" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0071.png" id="82_n5c48"]
+[ext_resource type="Texture2D" uid="uid://ctx6qp5uuivkb" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0072.png" id="83_jg7ph"]
+[ext_resource type="Texture2D" uid="uid://c2f8lwk62lwta" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0073.png" id="84_u8pn6"]
+[ext_resource type="Texture2D" uid="uid://bh4onfwofn7qq" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0074.png" id="85_xrpvh"]
+[ext_resource type="Texture2D" uid="uid://dau3lhw2rbu22" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0075.png" id="86_nt47k"]
+[ext_resource type="Texture2D" uid="uid://dbr5jaxg5uviu" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0076.png" id="87_wfij5"]
+[ext_resource type="Texture2D" uid="uid://3t7r6cu5muk5" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0077.png" id="88_4l7gc"]
+[ext_resource type="Texture2D" uid="uid://c1xq3srruwv8n" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0078.png" id="89_us5y6"]
+[ext_resource type="Texture2D" uid="uid://dv7w5lrydoodo" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0079.png" id="90_cl2k7"]
+[ext_resource type="Texture2D" uid="uid://dra4kskgv8i4j" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0080.png" id="91_c2mbl"]
+[ext_resource type="Texture2D" uid="uid://4h5dbtmoqfbh" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0081.png" id="92_env1u"]
+[ext_resource type="Texture2D" uid="uid://b4m0pp765ukyc" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0082.png" id="93_cvjp7"]
+[ext_resource type="Texture2D" uid="uid://b7e7nc3umiu51" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0083.png" id="94_kx5bv"]
+[ext_resource type="Texture2D" uid="uid://bnk7lgpwirfad" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0084.png" id="95_yugqf"]
+[ext_resource type="Texture2D" uid="uid://b2aj41ib5454e" path="res://Assets/SpriteUI/GameEndScreen/SparkleWin/sparkle win0085.png" id="96_mjxkk"]
+[ext_resource type="Texture2D" uid="uid://cjlayio6ype07" path="res://Assets/SpriteUI/GameEndScreen/banner orange winner.png" id="97_qv608"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2tjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_deli3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qv608")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_odf6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c4bkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_psbj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d413j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_umpng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_irteo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7g1p8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ohw40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4ito3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_rhgn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_4snv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u86om")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xf0y8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bgnhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cjmod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qd8u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_3cw1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_go1ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0m2uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qpy2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dkh1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_knkim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_8neds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_fc35n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_hq1gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_twjvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_jaawy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_s1lqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_tu3oq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_72ik8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_h1pdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_8ah85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_6brsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_yighr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_2flqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_14woj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_e42e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_06jt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_tj6hh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_po84j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_0pidx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_y836m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_hphkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ibk7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_p6lyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_p2eck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_cmkhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_jmcjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_ak2ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_wdydc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_fikrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_01iiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_qlawc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_mvjjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_lmt3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_585rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_21cj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_qgwoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_k3hqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_ylywy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_skks5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_tdtra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_j68rp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_1yv8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_0vbws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_l8qbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_v4ecu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_byyfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_n14hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_n5c48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_jg7ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_u8pn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_xrpvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_nt47k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_wfij5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_4l7gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_us5y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_cl2k7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_c2mbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_env1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_cvjp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_kx5bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_yugqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_mjxkk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="WinningSideEndScreen" type="Control" unique_id=442499130]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_odf6w")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1173007988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ncki")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Light2" type="TextureRect" parent="Background" unique_id=860257884]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -397.305
+offset_top = -9.14
+offset_right = 361.37372
+offset_bottom = 954.62164
+grow_horizontal = 0
+rotation = 0.15707964
+pivot_offset_ratio = Vector2(0.5, 0)
+texture = ExtResource("3_c4bkq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Light" type="TextureRect" parent="Background" unique_id=226399710]
+self_modulate = Color(0.8194045, 0.3592127, 1, 1)
+layout_mode = 1
+offset_left = -385.974
+offset_top = -5.4570007
+offset_right = 325.61487
+offset_bottom = 898.4851
+rotation = -0.15707964
+pivot_offset_ratio = Vector2(0.5, 0)
+texture = ExtResource("3_c4bkq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag1" type="TextureRect" parent="Background" unique_id=1235987680]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -526.0
+offset_top = -140.0
+offset_right = -43.0
+offset_bottom = 590.8793
+grow_horizontal = 2
+texture = ExtResource("2_2lndp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag2" type="TextureRect" parent="Background" unique_id=802281212]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = -312.0
+offset_right = 27.0
+offset_bottom = 490.0
+grow_horizontal = 2
+texture = ExtResource("3_wt0w4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag4" type="TextureRect" parent="Background" unique_id=125619234]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.21001
+offset_top = -269.0
+offset_right = 226.79028
+offset_bottom = 533.0
+grow_horizontal = 2
+texture = ExtResource("4_yieyj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flag3" type="TextureRect" parent="Background" unique_id=237971471]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.51001
+offset_top = -200.0
+offset_right = 432.48993
+offset_bottom = 602.0
+grow_horizontal = 2
+texture = ExtResource("5_1b1bs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Stand" type="TextureRect" parent="Background" unique_id=888907]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -268.75
+offset_top = -273.78497
+offset_right = 268.7505
+offset_bottom = 44.689453
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_yieyj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Shadow" type="TextureRect" parent="Background/Stand" unique_id=2061718131]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 26.412659
+offset_top = -219.0
+offset_right = -132.47528
+offset_bottom = -19.45227
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1b1bs")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Child" type="TextureRect" parent="Background" unique_id=1379071683]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -677.0
+offset_right = 215.99945
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_yftxp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hand" type="TextureRect" parent="Background/Child" unique_id=1002192141]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -6.0
+offset_right = 68.0
+offset_bottom = 43.0
+grow_vertical = 2
+texture = ExtResource("9_rb3vl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Trophy" type="TextureRect" parent="Background" unique_id=1231550067]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -417.0
+offset_right = 46.0
+offset_bottom = -167.4856
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_8fq40")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationHolder" type="Control" parent="Background" unique_id=838253923]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 82.79999
+offset_top = -156.905
+offset_right = 82.79999
+offset_bottom = -156.905
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/AnimationHolder" unique_id=1723102547]
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_y2tjs")
+autoplay = "default"
+
+[node name="TextHolder" type="TextureRect" parent="Background" unique_id=939050450]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -281.0
+offset_top = 216.0
+offset_right = 280.26038
+offset_bottom = 337.765
+grow_horizontal = 2
+texture = ExtResource("97_qv608")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Background/TextHolder" unique_id=789631165]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.63019
+offset_top = -54.735016
+offset_right = 208.36981
+offset_bottom = 33.264984
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "Winner"
+horizontal_alignment = 1
+vertical_alignment = 1

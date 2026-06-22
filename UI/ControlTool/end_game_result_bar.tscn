@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c2gtbo41y8x1r"]
+
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_5q0aa"]
+[ext_resource type="Script" uid="uid://cintnovrthawu" path="res://Scripts/UI/end_game_result_bar.gd" id="2_0cqsj"]
+[ext_resource type="Texture2D" uid="uid://csysom8y32eb7" path="res://Assets/SpriteUI/GameEndScreen/mask_stats.png" id="2_ucc50"]
+[ext_resource type="Shader" uid="uid://c3y03w6twvbi2" path="res://Shader/shared_health_bar.gdshader" id="2_wvek7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucc50"]
+shader = ExtResource("2_wvek7")
+shader_parameter/progress = 0.5
+shader_parameter/color_left = Color(0.9490196, 0.32156864, 0.9882353, 1)
+shader_parameter/color_right = Color(0.44705883, 0.8784314, 0.7764706, 1)
+shader_parameter/shear_angle = 0.0800000513000001
+
+[node name="EndGameResultBar" type="Control" unique_id=264163620 node_paths=PackedStringArray("rich_text_label", "texture_rect")]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_5q0aa")
+script = ExtResource("2_0cqsj")
+rich_text_label = NodePath("VBoxContainer/RichTextLabel")
+texture_rect = NodePath("VBoxContainer/TextureRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=63324786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=257269657]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1770974733]
+material = SubResource("ShaderMaterial_ucc50")
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ucc50")
+expand_mode = 1
+stretch_mode = 5

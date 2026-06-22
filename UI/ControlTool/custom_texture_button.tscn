@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dyno3tjl23ce8"]
+
+[ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="1_u0mh8"]
+[ext_resource type="Script" uid="uid://brmcjmd8yjsu3" path="res://Scripts/UI/custom_texture_button.gd" id="1_y17lq"]
+[ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="2_tiink"]
+[ext_resource type="Script" uid="uid://bcd2lnrrewlvk" path="res://Scripts/UI/texture_button_focus_replace.gd" id="3_p4jt5"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="3_pjyjw"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="4_p4jt5"]
+
+[node name="CustomTextureButton" type="Control" unique_id=117943362]
+custom_minimum_size = Vector2(266.2373, 77)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 266.2373
+offset_bottom = 77.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("3_pjyjw")
+script = ExtResource("1_y17lq")
+label_base_position = Vector2(28, -10)
+label_position_on_tween = Vector2(28, 32)
+theme_on_focus = ExtResource("2_tiink")
+base_theme = ExtResource("3_pjyjw")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1166033296]
+custom_minimum_size = Vector2(266.2373, 77)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_u0mh8")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_p4jt5")
+texture_focus_remplacement = ExtResource("4_p4jt5")
+metadata/_custom_type_script = "uid://bcd2lnrrewlvk"
+
+[node name="Label" type="Label" parent="." unique_id=1088821610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.11865
+offset_top = -33.5
+offset_right = 105.88135
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
