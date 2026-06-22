@@ -37,7 +37,7 @@ transparency = 1
 cull_mode = 2
 albedo_texture = ExtResource("15_sf0qn")
 emission_enabled = true
-emission_energy_multiplier = 1.5
+emission_energy_multiplier = 0.6
 emission_texture = ExtResource("15_sf0qn")
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "animated_sprite_3d_for_offset", "dash_effect", "throw_arrow")]
@@ -125,7 +125,7 @@ material_override = SubResource("StandardMaterial3D_j7wlx")
 flip_v = true
 texture = ExtResource("15_sf0qn")
 script = ExtResource("16_sf0qn")
-bloom_force = 1.5
+bloom_force = 0.6
 metadata/_custom_type_script = "uid://6t84m8kgsqsb"
 
 [node name="Sprite3D" type="Sprite3D" parent="PlayerMarkerWithBloom" unique_id=1924734937]
