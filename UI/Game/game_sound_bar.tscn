@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("34_ri81q")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 24.0
 }]
@@ -180,8 +180,10 @@ stretch_mode = 5
 
 [node name="SoundBarAnimation" type="AnimatedSprite2D" parent="Mask" unique_id=1744021881]
 material = SubResource("ShaderMaterial_is0rl")
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7147488, 0.5)
 sprite_frames = SubResource("SpriteFrames_lflmt")
 autoplay = "default"
+frame = 9
+frame_progress = 0.6016325
 centered = false
 offset = Vector2(0, -14)
