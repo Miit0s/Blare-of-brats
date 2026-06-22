@@ -216,6 +216,12 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
+        "Id": "505373590",
+        "Name": "ReadyScreen",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\ReadyScreen",
+        "GUID": "{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
@@ -244,6 +250,12 @@
         "Name": "Phase_1",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       },
+       {
+        "Id": "2607556080",
+        "Name": "Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Menu",
+        "GUID": "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
        }
       ]
      }
@@ -778,6 +790,6 @@
     ]
    }
   ],
-  "FileHash": "{3E3C08AA-D807-A739-1BAD-386F256C8AFB}"
+  "FileHash": "{D21F9A6E-1691-8BBA-F177-49282C18F48D}"
  }
 }

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DBC33C85-3306-4001-8737-DF1B637FB7C7}",
     "Language": "SFX",
-    "Hash": "{EB78E205-92A6-24F7-C523-575AD498A91D}",
+    "Hash": "{89E6F29C-F048-A28D-12FC-59B757AE4291}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
     "ShortName": "main",
     "Path": "main.bnk",
@@ -78,6 +78,14 @@
       "Location": "Memory",
       "ShortName": "Balloon_Idle.wav",
       "CachePath": "F3/{F3CA22C5-733D-F3EB-E778-B37E508690C3}.wem"
+     },
+     {
+      "Id": "110599142",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Music_Menu.wav",
+      "CachePath": "1F/{1FEE5EAD-EFBC-2306-548E-7EE5F762D4A9}.wem"
      },
      {
       "Id": "114852343",
@@ -541,7 +549,7 @@
       {
        "Id": "1028753363",
        "Name": "Gain (Custom)",
-       "ObjectPath": "\\Containers\\Blare_of_Brats\\Music\\Music_Fight\\[Effect Slot [0]: (Gain)]\\Gain (Custom)",
+       "ObjectPath": "\\Containers\\Blare_of_Brats\\Music\\ALL_Music\\[Effect Slot [0]: (Gain)]\\Gain (Custom)",
        "GUID": "{F1FA4D50-FE48-4C42-A3E5-1106F32EC7CF}",
        "LibName": "Wwise Gain",
        "LibId": "9109507"
@@ -973,6 +981,26 @@
           }
          ]
         }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "314125497",
+         "Id": "2607556080",
+         "GUID": "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "110599142"
+         }
+        ],
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1028753363"
+          }
+         ]
+        }
        }
       ]
      },
@@ -1208,6 +1236,12 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
+        "Id": "505373590",
+        "Name": "ReadyScreen",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\ReadyScreen",
+        "GUID": "{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
@@ -1236,6 +1270,12 @@
         "Name": "Phase_1",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       },
+       {
+        "Id": "2607556080",
+        "Name": "Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Menu",
+        "GUID": "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
        }
       ]
      }
@@ -1270,6 +1310,6 @@
     ]
    }
   ],
-  "FileHash": "{07022435-940C-672E-3ADF-3045DFB253EE}"
+  "FileHash": "{5ECEC0FA-074E-951C-BCDC-98C716F2C508}"
  }
 }
