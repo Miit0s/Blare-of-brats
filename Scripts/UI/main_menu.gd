@@ -35,7 +35,7 @@ func _ready() -> void:
 	if LoadingPage.is_displaying:
 		LoadingPage.despawn_transtion()
 	
-	if not GameOptions.have_launch_game:
+	if GameOptions.have_launch_game:
 		play_button.grab_focus()
 
 func _input(event: InputEvent) -> void:
