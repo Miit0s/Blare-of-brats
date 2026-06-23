@@ -75,8 +75,8 @@ stage_empty = ExtResource("4_dk8v4")
 stage_skin_pick = ExtResource("15_hhwhx")
 stage_color_pick = ExtResource("6_rgkik")
 stage_ready = ExtResource("4_ho3je")
-music_sound = ExtResource("6_aqpqj")
 ready_tween_transition_duration = 0.3
+music_sound = ExtResource("6_aqpqj")
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
 bank = ExtResource("22_ho3je")
@@ -297,6 +297,7 @@ back_player_right_sided = true
 controller_slot_id = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=386533814]
+z_index = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
