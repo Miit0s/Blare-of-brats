@@ -12,14 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_ob3uu"]
 [ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_q6hxw"]
 [ext_resource type="Resource" uid="uid://bgipp50vaeglb" path="res://Ressources/CharacterSkin/Ash/orange.tres" id="5_qbu2t"]
-[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="6_aqpqj"]
 [ext_resource type="Resource" uid="uid://brtpa7ht0f8n3" path="res://Ressources/CharacterSkin/Max/green.tres" id="6_o70qx"]
 [ext_resource type="Texture2D" uid="uid://c51iaiwjs04ys" path="res://Assets/SpriteUI/CharacterSelection/stage_1shadow.png" id="6_rgkik"]
-[ext_resource type="WwiseState" uid="uid://dwksdscblo3f2" path="res://Wwise/resources/State/{2822E57F-FB30-4B00-A92D-63C40685CB78}.tres" id="9_1f0jf"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
 [ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
-[ext_resource type="WwiseState" uid="uid://wcgk5hoepkr7" path="res://Wwise/resources/State/{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}.tres" id="10_xtoam"]
 [ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
@@ -27,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://cgkdf8itctj6w" path="res://Assets/SpriteUI/CharacterSelection/spotlight_mask.png" id="15_p6y2j"]
 [ext_resource type="Texture2D" uid="uid://cqbdefo16o3r1" path="res://Assets/SpriteUI/CharacterSelection/vs.png" id="19_ho3je"]
 [ext_resource type="Texture2D" uid="uid://bxb4wngr2uedn" path="res://Assets/SpriteUI/CharacterSelection/banniere_splash_versus.png" id="22_g8rj2"]
-[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 [ext_resource type="Texture2D" uid="uid://dg1qn458xj686" path="res://Assets/SpriteUI/CharacterSelection/banniere_selection_buttons_bottom.png" id="23_rgkik"]
 [ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
 
@@ -78,14 +74,6 @@ stage_skin_pick = ExtResource("15_hhwhx")
 stage_color_pick = ExtResource("6_rgkik")
 stage_ready = ExtResource("4_ho3je")
 ready_tween_transition_duration = 0.3
-music_sound = ExtResource("6_aqpqj")
-player_pick_state = ExtResource("9_1f0jf")
-ready_screen_state = ExtResource("10_xtoam")
-
-[node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
-bank = ExtResource("22_ho3je")
-load_on = 1
-unload_on = 3
 
 [node name="AkListener3D" type="AkListener3D" parent="." unique_id=763098049]
 is_spatial = false
