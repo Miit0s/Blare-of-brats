@@ -56,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_7p1mr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -124,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_hicys")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -174,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -185,6 +185,7 @@ player_speed_multiplier = 0.5
 slow_duration = 2.5
 vibration_force_on_shoot = 0.8
 vibration_duration_on_shoot = 0.1
+trail_effect_distance = 20.0
 item_type = 1
 attack_speed = 0.3
 damage = 4.2
@@ -213,6 +214,12 @@ shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
 mesh = SubResource("ImmediateMesh_hqovg")
+
+[node name="CircleSpawnParticle" parent="." index="5" unique_id=1667071481]
+transform_align_channel_filter = 1
+
+[node name="OtherSpawnParticle" parent="." index="6" unique_id=1689987180]
+transform_align_channel_filter = 1
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
