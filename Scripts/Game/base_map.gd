@@ -21,6 +21,12 @@ class_name BaseMap
 @export var eyes_wake_up_vibration_duration: float = 0.5
 
 var _random_position_wait_tween: Tween = null
+var _reset_wolf_light_wait_tween: Tween = null
+
+var _wolf_cutscene_tween: Tween = null
+var _wolf_simple_cutscene_tween: Tween = null
+
+var _wolf_light_stopped: bool = false
 
 signal wolf_has_hit_player
 signal cutscene_finish
@@ -31,25 +37,37 @@ func _ready() -> void:
 	wolf_target.has_hit_player.connect(wolf_has_hit_player.emit)
 
 func start_wolf_cutscene(controller_id_for_vibration: Array[int]):
-	var wolf_cutscene_tween: Tween = create_tween()
-	wolf_cutscene_tween.tween_callback(desactivate_light)
-	wolf_cutscene_tween.tween_interval(wait_duration_before_camera_change)
-	wolf_cutscene_tween.tween_callback(func(): cutscene_phantom_camera_3d.priority = 2)
-	wolf_cutscene_tween.tween_interval(wait_duration_before_eyes_animation)
-	wolf_cutscene_tween.tween_callback(wolf_eyes_wake_up.restart)
-	wolf_cutscene_tween.tween_callback(_trigger_wolf_eyes_vibration.bind(controller_id_for_vibration))
-	wolf_cutscene_tween.tween_interval(wolf_eyes_wake_up.lifetime)
-	wolf_cutscene_tween.tween_callback(func(): cutscene_phantom_camera_3d.priority = 0)
-	wolf_cutscene_tween.tween_callback(cutscene_finish.emit)
+	if _wolf_light_stopped: return
+	
+	_wolf_cutscene_tween = create_tween()
+	_wolf_cutscene_tween.tween_callback(desactivate_light)
+	_wolf_cutscene_tween.tween_interval(wait_duration_before_camera_change)
+	_wolf_cutscene_tween.tween_callback(func(): cutscene_phantom_camera_3d.priority = 2)
+	_wolf_cutscene_tween.tween_interval(wait_duration_before_eyes_animation)
+	_wolf_cutscene_tween.tween_callback(wolf_eyes_wake_up.restart)
+	_wolf_cutscene_tween.tween_callback(_trigger_wolf_eyes_vibration.bind(controller_id_for_vibration))
+	_wolf_cutscene_tween.tween_interval(wolf_eyes_wake_up.lifetime)
+	_wolf_cutscene_tween.tween_callback(func(): cutscene_phantom_camera_3d.priority = 0)
+	_wolf_cutscene_tween.tween_callback(cutscene_finish.emit)
+	
+	await _wolf_cutscene_tween.finished
+	
+	_wolf_cutscene_tween = null
 
 func start_simple_cutscene(controller_id_for_vibration: Array[int]):
-	var wolf_cutscene_tween: Tween = create_tween()
-	wolf_cutscene_tween.tween_callback(desactivate_light)
-	wolf_cutscene_tween.tween_interval(wait_duration_before_camera_change)
-	wolf_cutscene_tween.tween_callback(wolf_eyes_wake_up.restart)
-	wolf_cutscene_tween.tween_callback(_trigger_wolf_eyes_vibration.bind(controller_id_for_vibration))
-	wolf_cutscene_tween.tween_interval(wolf_eyes_wake_up.lifetime)
-	wolf_cutscene_tween.tween_callback(cutscene_finish.emit)
+	if _wolf_light_stopped: return
+	
+	_wolf_simple_cutscene_tween = create_tween()
+	_wolf_simple_cutscene_tween.tween_callback(desactivate_light)
+	_wolf_simple_cutscene_tween.tween_interval(wait_duration_before_camera_change)
+	_wolf_simple_cutscene_tween.tween_callback(wolf_eyes_wake_up.restart)
+	_wolf_simple_cutscene_tween.tween_callback(_trigger_wolf_eyes_vibration.bind(controller_id_for_vibration))
+	_wolf_simple_cutscene_tween.tween_interval(wolf_eyes_wake_up.lifetime)
+	_wolf_simple_cutscene_tween.tween_callback(cutscene_finish.emit)
+	
+	await _wolf_simple_cutscene_tween.finished
+	
+	_wolf_simple_cutscene_tween = null
 
 func desactivate_light():
 	for light in lights_to_control:
@@ -66,6 +84,24 @@ func desactivate_wolf_light():
 	wolf_tracking_spot.hide()
 	wolf_target.go_directly_to(wolf_eye_start_target.global_position)
 
+func stop_wolf_light():
+	_wolf_light_stopped = true
+	
+	if _reset_wolf_light_wait_tween:
+		_reset_wolf_light_wait_tween.kill()
+		_reset_wolf_light_wait_tween = null
+	
+	if _wolf_cutscene_tween:
+		_wolf_cutscene_tween.kill()
+		_wolf_cutscene_tween = null
+		cutscene_phantom_camera_3d.priority = 0
+	
+	if _wolf_simple_cutscene_tween:
+		_wolf_simple_cutscene_tween.kill()
+		_wolf_simple_cutscene_tween = null
+	
+	desactivate_wolf_light()
+
 func set_new_wolf_eye_target(new_position: Vector3):
 	if _random_position_wait_tween:
 		_random_position_wait_tween.kill()
@@ -79,8 +115,17 @@ func set_random_target_for_wolf():
 
 func reset_wolf_light():
 	desactivate_wolf_light()
-	await get_tree().create_timer(hit_player_wait_time).timeout
-	activate_wolf_light()
+	
+	if _reset_wolf_light_wait_tween:
+		_reset_wolf_light_wait_tween.kill()
+	
+	_reset_wolf_light_wait_tween = create_tween()
+	_reset_wolf_light_wait_tween.tween_interval(hit_player_wait_time)
+	_reset_wolf_light_wait_tween.tween_callback(activate_wolf_light)
+	
+	await _reset_wolf_light_wait_tween.finished
+	
+	_reset_wolf_light_wait_tween = null
 
 func wait_and_set_random_target():
 	if _random_position_wait_tween:
@@ -89,6 +134,10 @@ func wait_and_set_random_target():
 	_random_position_wait_tween = create_tween()
 	_random_position_wait_tween.tween_interval(destination_reach_wait_time)
 	_random_position_wait_tween.tween_callback(set_random_target_for_wolf)
+	
+	await _random_position_wait_tween.finished
+	
+	_random_position_wait_tween = null
 
 func _trigger_wolf_eyes_vibration(controller_id_for_vibration: Array[int]):
 	for id in controller_id_for_vibration:
