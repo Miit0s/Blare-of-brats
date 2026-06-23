@@ -3,7 +3,6 @@ class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
-@onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var throw_direction: Node3D = $ThrowDirection
 @onready var current_item: Sprite3D = $CurrentItem
 
@@ -11,6 +10,9 @@ class_name Player
 @onready var pistogum_hit: AnimatedSprite3D = $PistogumHit
 @onready var pencil_hit: AnimatedSprite3D = $PencilHit
 @onready var slow_animation: AnimatedSprite3D = $SlowAnimation
+
+@onready var switch_crown: Sprite3D = $SwitchCrown
+@onready var switch_sprite: Sprite3D = $SwitchCrown/SwitchSprite
 
 @export_range(0,3) var player_id: int = 0
 
@@ -506,14 +508,14 @@ func switch_item():
 	var sprite_with_new_rotation: Vector3 = switch_sprite.rotation
 	sprite_with_new_rotation.z += deg_to_rad(180)
 	
-	switch_sprite.show()
+	switch_crown.show()
 	var switch_tween: Tween = create_tween()
 	switch_tween.set_trans(Tween.TRANS_BACK)
 	switch_tween.set_ease(Tween.EASE_OUT)
 	switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
 	switch_tween.tween_callback(func():
 		await get_tree().create_timer(0.2).timeout
-		switch_sprite.hide()
+		switch_crown.hide()
 	)
 	
 	switch_sound.post(self)

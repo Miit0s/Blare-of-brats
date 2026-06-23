@@ -7,16 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://cvjugr8ia7an" path="res://Assets/Particle/wall_bounce_particle.tscn" id="5_4sfrm"]
 [ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_nad7g"]
 [ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_7m7dm"]
-[ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
 [ext_resource type="WwiseEvent" uid="uid://c1vm64mp3s1yr" path="res://Wwise/resources/Event/{B7E021BD-0229-492F-B110-F0B72000189C}.tres" id="7_ybo73"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
 [ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="13_r08wf"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
+[ext_resource type="Texture2D" uid="uid://rc72v0itbjqf" path="res://Assets/VFX/ObjectSwap/swap_arrow.png" id="15_mr5a6"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
 [ext_resource type="Texture2D" uid="uid://btjap5yqpk4vs" path="res://Assets/VFX/aura star.png" id="15_sf0qn"]
 [ext_resource type="Texture2D" uid="uid://cmjgdrf2iqy6" path="res://Assets/VFX/crown.png" id="16_j7wlx"]
 [ext_resource type="Script" uid="uid://6t84m8kgsqsb" path="res://Scripts/Tools/sprite_3d_with_bloom.gd" id="16_sf0qn"]
+[ext_resource type="Texture2D" uid="uid://bkt6ckyhujwc0" path="res://Assets/VFX/ObjectSwap/crown.png" id="16_ssjws"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
 [ext_resource type="Texture2D" uid="uid://box66bwktxqdh" path="res://Assets/VFX/arrow_02.png" id="18_sf0qn"]
 [ext_resource type="Texture2D" uid="uid://lh78f8jxf83k" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0000.png" id="20_mddg3"]
@@ -213,28 +214,28 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("54_dvg66")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("55_41rxi")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("56_yjtsr")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("57_jg6gs")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("58_kds1a")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("59_8bmyt")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("60_vo632")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("61_f5xy3")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": ExtResource("62_bsnd1")
 }],
 "loop": false,
@@ -368,10 +369,14 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.015, 0.05)
 visible = false
 render_priority = 1
 
-[node name="SwitchSprite" type="Sprite3D" parent="." unique_id=2090515683]
-transform = Transform3D(-0.10606601, -0.10606601, 0, 0.10606601, -0.10606601, 0, 0, 0, 0.14999999, 0, 1.065298, 0)
+[node name="SwitchCrown" type="Sprite3D" parent="." unique_id=1975590688]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.3105822, 0)
 visible = false
-texture = ExtResource("7_juxdh")
+texture = ExtResource("16_ssjws")
+
+[node name="SwitchSprite" type="Sprite3D" parent="SwitchCrown" unique_id=2090515683]
+transform = Transform3D(0.74999994, 0, 0, 0, 0.74999994, 0, 0, 0, 0.74999994, 0, 0, 0)
+texture = ExtResource("15_mr5a6")
 
 [node name="PlayerMarkerWithBloom" type="Sprite3D" parent="." unique_id=1989972902]
 transform = Transform3D(0.12, 0, 0, 0, -5.2453664e-09, -0.12, 0, 0.12, -5.2453664e-09, 0, -1, -0.2662536)
