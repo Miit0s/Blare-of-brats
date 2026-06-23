@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://b66u1f50hodny"]
+
+[ext_resource type="Texture2D" uid="uid://ce2kyh0xs1xgo" path="res://Assets/SpriteUI/Menu/blue menu screen.png" id="1_fdoxt"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_ky2oo"]
+[ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="2_6oy4x"]
+[ext_resource type="Shader" uid="uid://bgwirr4aqh8jr" path="res://Shader/wolf_transition_shader.gdshader" id="2_08v3c"]
+[ext_resource type="Script" uid="uid://d0obvm3ajw4b0" path="res://Scripts/UI/menu_start_screen.gd" id="2_wepc4"]
+[ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="3_0a64t"]
+[ext_resource type="Texture2D" uid="uid://b1cj3dx5lhybi" path="res://Assets/SpriteUI/Menu/mask animation logo et menu.png" id="3_suhbi"]
+[ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_y0yp3"]
+[ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_ky2oo"]
+[ext_resource type="VideoStream" uid="uid://diq2svv7cotsg" path="res://Assets/SpriteUI/Menu/WolfTransitionAnimation/wolf_transition.ogv" id="10_w5gka"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_08v3c"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2oo"]
+resource_local_to_scene = true
+shader = ExtResource("2_08v3c")
+shader_parameter/video_mask = SubResource("ViewportTexture_08v3c")
+shader_parameter/green_threshold = 0.1
+shader_parameter/green_smoothing = 0.1
+shader_parameter/white_threshold = 0.4
+shader_parameter/white_smoothing = 0.1
+
+[node name="MenuStartScreen" type="Control" unique_id=1817293939]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_wepc4")
+
+[node name="SceneContainer" type="SubViewportContainer" parent="." unique_id=901451815]
+material = SubResource("ShaderMaterial_ky2oo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SceneContainer" unique_id=961262610]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SceneContainer/SubViewport" unique_id=37052454]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ky2oo")
+
+[node name="Background" type="TextureRect" parent="SceneContainer/SubViewport/Control" unique_id=1344616358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fdoxt")
+expand_mode = 1
+
+[node name="Mask" type="TextureRect" parent="SceneContainer/SubViewport/Control" unique_id=2031254689]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1003.0
+grow_vertical = 2
+texture = ExtResource("3_suhbi")
+expand_mode = 3
+
+[node name="Parallax2D2" type="Parallax2D" parent="SceneContainer/SubViewport/Control/Mask" unique_id=2124205203]
+repeat_size = Vector2(609.66, 304.56)
+autoscroll = Vector2(15, 15)
+repeat_times = 15
+screen_offset = Vector2(800, 800)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneContainer/SubViewport/Control/Mask/Parallax2D2" unique_id=1284867942]
+self_modulate = Color(0.011764706, 0.11764706, 0.29411766, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0a64t")
+
+[node name="TopBorderBackground" type="Parallax2D" parent="SceneContainer/SubViewport/Control" unique_id=835096478]
+repeat_size = Vector2(1639.425, 0)
+autoscroll = Vector2(-50, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneContainer/SubViewport/Control/TopBorderBackground" unique_id=641521080]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_y0yp3")
+centered = false
+
+[node name="TopBorderForeground" type="Parallax2D" parent="SceneContainer/SubViewport/Control" unique_id=396862464]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneContainer/SubViewport/Control/TopBorderForeground" unique_id=1972347070]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ky2oo")
+centered = false
+
+[node name="Logo" type="TextureRect" parent="SceneContainer/SubViewport/Control" unique_id=1524474917]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6oy4x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SceneContainer/SubViewport/Control" unique_id=454617698]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -458.5
+offset_top = -179.52002
+offset_right = 458.5
+offset_bottom = -69.52002
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Press anywhere to start"
+horizontal_alignment = 1
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1223243967]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport" unique_id=1460701836]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("10_w5gka")
+expand = true

@@ -33,7 +33,7 @@ animations = [{
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
 script = ExtResource("2_cg3nc")
 player_speed_multiplier = 0.5
-slow_duration = 4.0
+slow_duration = 2.5
 vibration_force_on_shoot = 0.8
 vibration_duration_on_shoot = 0.1
 attack_speed = 0.3

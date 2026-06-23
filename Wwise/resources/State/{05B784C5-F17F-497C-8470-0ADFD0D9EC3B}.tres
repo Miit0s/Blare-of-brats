@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" format=3 uid="uid://wcgk5hoepkr7"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_paf1y"]
+
+[resource]
+group_ref = ExtResource("1_paf1y")
+group_id = 314125497
+name = "Readyscreen"
+id = 505373590
+guid = "{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}"
+dummy = true

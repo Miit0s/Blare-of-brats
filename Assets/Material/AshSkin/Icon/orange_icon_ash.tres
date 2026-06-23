@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://digion37bmgkc"]
+
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_u4fha"]
+[ext_resource type="Texture2D" uid="uid://c8q1vtmcymuwq" path="res://Assets/SpriteUI/PlayerIcon/ash ui.png" id="2_8inb0"]
+
+[resource]
+shader = ExtResource("1_u4fha")
+shader_parameter/main_texture = ExtResource("2_8inb0")
+shader_parameter/original_0 = Color(0.9882353, 0.64705884, 0.5294118, 1)
+shader_parameter/original_1 = Color(0.88235295, 0.4862745, 0.3137255, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.9882353, 0.64705884, 0.5294118, 1)
+shader_parameter/replace_1 = Color(0.88235295, 0.4862745, 0.3137255, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.150000007125
+shader_parameter/softness = 0.05

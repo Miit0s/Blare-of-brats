@@ -1,0 +1,560 @@
+[gd_scene format=3 uid="uid://cs0352i2ynsi4"]
+
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_8203t"]
+[ext_resource type="Texture2D" uid="uid://by2oco77w3eqx" path="res://Assets/SpriteUI/GameEndScreen/BG_character_loose.png" id="1_h6h00"]
+[ext_resource type="Texture2D" uid="uid://cq8eol5wgojrb" path="res://Assets/SpriteUI/GameEndScreen/wolf_BG.png" id="2_3rneb"]
+[ext_resource type="Script" uid="uid://gmgcusk42qgd" path="res://Scripts/UI/side_end_screen.gd" id="2_h1gk1"]
+[ext_resource type="Texture2D" uid="uid://dvkipesajkatq" path="res://Assets/SpriteUI/GameEndScreen/wolf_FG.png" id="3_bor3x"]
+[ext_resource type="Texture2D" uid="uid://ccjsmewedafp2" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0000.png" id="4_8rce2"]
+[ext_resource type="Texture2D" uid="uid://6lq0716b52dy" path="res://Assets/SpriteUI/CharacterSelection/stage_nolight_default.png" id="4_n2tal"]
+[ext_resource type="Texture2D" uid="uid://dpbuj1v8xe2ky" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0001.png" id="5_jpcex"]
+[ext_resource type="Texture2D" uid="uid://c1yg2ibdo2q5g" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0002.png" id="6_goik1"]
+[ext_resource type="Texture2D" uid="uid://dfvqq6vln0cx5" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0003.png" id="7_xsghy"]
+[ext_resource type="Texture2D" uid="uid://ch4onh7prlxf6" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0004.png" id="8_8203t"]
+[ext_resource type="Texture2D" uid="uid://c83dcyg0eh0h0" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0005.png" id="9_h1gk1"]
+[ext_resource type="Texture2D" uid="uid://b73fbqigmp5c5" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0006.png" id="10_t5l4p"]
+[ext_resource type="Texture2D" uid="uid://cwbpivk0k5an5" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0007.png" id="11_miwlj"]
+[ext_resource type="Texture2D" uid="uid://c21t0qqua0l4c" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0008.png" id="12_e36h4"]
+[ext_resource type="Texture2D" uid="uid://c2n534453vjoy" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0009.png" id="13_haddl"]
+[ext_resource type="Texture2D" uid="uid://dcxp303a8tvw" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0010.png" id="14_wd61c"]
+[ext_resource type="Texture2D" uid="uid://bs58mknm82d2k" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0011.png" id="15_sb5f8"]
+[ext_resource type="Texture2D" uid="uid://c7yoc4c42gqs" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0012.png" id="16_ijxfw"]
+[ext_resource type="Texture2D" uid="uid://dqemui6cxjdkw" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0013.png" id="17_6jaou"]
+[ext_resource type="Texture2D" uid="uid://dplrk0gntye5b" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0014.png" id="18_nf3nn"]
+[ext_resource type="Texture2D" uid="uid://dwwum0l3cxv48" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0015.png" id="19_dp8as"]
+[ext_resource type="Texture2D" uid="uid://lqhfvqr6oy67" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0016.png" id="20_srrps"]
+[ext_resource type="Texture2D" uid="uid://dj8h3pusy8h62" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0017.png" id="21_w3tos"]
+[ext_resource type="Texture2D" uid="uid://mq23oo8y3h0v" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0018.png" id="22_fb4t4"]
+[ext_resource type="Texture2D" uid="uid://bawhck6r64opu" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0019.png" id="23_1g3dy"]
+[ext_resource type="Texture2D" uid="uid://cq0jaotl3a0r2" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0020.png" id="24_llhtl"]
+[ext_resource type="Texture2D" uid="uid://crkegpft6cimn" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0021.png" id="25_5j4lm"]
+[ext_resource type="Texture2D" uid="uid://b1f3ba22ovt6b" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0022.png" id="26_lkxol"]
+[ext_resource type="Texture2D" uid="uid://brt1772bca162" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0023.png" id="27_dvi4r"]
+[ext_resource type="Texture2D" uid="uid://sky1q1wtnykf" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0024.png" id="28_t63l5"]
+[ext_resource type="Texture2D" uid="uid://ee7sg5ufnhdw" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0025.png" id="29_1pl7j"]
+[ext_resource type="Texture2D" uid="uid://dfrcgdkpo8l2i" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0026.png" id="30_clmcl"]
+[ext_resource type="Texture2D" uid="uid://ds35w30kp81n0" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0027.png" id="31_e8g3g"]
+[ext_resource type="Texture2D" uid="uid://cmgm0emtlcc50" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0028.png" id="32_lfueb"]
+[ext_resource type="Texture2D" uid="uid://bqnvuy2lpr50k" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0029.png" id="33_h2jjv"]
+[ext_resource type="Texture2D" uid="uid://dul480rss1u1w" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0030.png" id="34_4tqc1"]
+[ext_resource type="Texture2D" uid="uid://dsqox2he3tdo1" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0031.png" id="35_f0sx8"]
+[ext_resource type="Texture2D" uid="uid://bm3j1cgrvs7cf" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0032.png" id="36_amt11"]
+[ext_resource type="Texture2D" uid="uid://1dw1au7vhxwi" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0033.png" id="37_ltdxj"]
+[ext_resource type="Texture2D" uid="uid://bkrhcu46f5328" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0034.png" id="38_w2wwn"]
+[ext_resource type="Texture2D" uid="uid://bjhkbw8n054gw" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0035.png" id="39_1pj8r"]
+[ext_resource type="Texture2D" uid="uid://dmtxarnc5k1s5" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0036.png" id="40_ndfbh"]
+[ext_resource type="Texture2D" uid="uid://d3unock6dkhmv" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0037.png" id="41_jth5l"]
+[ext_resource type="Texture2D" uid="uid://yypf82dfiglv" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0038.png" id="42_8j3ii"]
+[ext_resource type="Texture2D" uid="uid://34qr578lxmo7" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0039.png" id="43_efhmv"]
+[ext_resource type="Texture2D" uid="uid://blu2u0tkgmevj" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0040.png" id="44_p2ys6"]
+[ext_resource type="Texture2D" uid="uid://ceabuxdumyu4d" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0041.png" id="45_5ogqd"]
+[ext_resource type="Texture2D" uid="uid://dusiofm5g0kn8" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0042.png" id="46_bw083"]
+[ext_resource type="Texture2D" uid="uid://cno4g7yxqxgwl" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0043.png" id="47_xf05j"]
+[ext_resource type="Texture2D" uid="uid://dlkuosp0nuqnd" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0044.png" id="48_ibw4h"]
+[ext_resource type="Texture2D" uid="uid://dtgve5ennfvjt" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0045.png" id="49_0j3sq"]
+[ext_resource type="Texture2D" uid="uid://b70w81cmjbj44" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0046.png" id="50_en6qe"]
+[ext_resource type="Texture2D" uid="uid://bmhfmfxwmc0b1" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0047.png" id="51_4t40k"]
+[ext_resource type="Texture2D" uid="uid://bhj8y814ve0u0" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0048.png" id="52_oxahe"]
+[ext_resource type="Texture2D" uid="uid://defbfv0t64b8g" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0049.png" id="53_0jvwg"]
+[ext_resource type="Texture2D" uid="uid://b78y60653inf1" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0050.png" id="54_bakoo"]
+[ext_resource type="Texture2D" uid="uid://cnkvkl17c023l" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0051.png" id="55_6kgfw"]
+[ext_resource type="Texture2D" uid="uid://bouxbrij4dr36" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0052.png" id="56_ptboc"]
+[ext_resource type="Texture2D" uid="uid://bxtj3k7tiw47" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0053.png" id="57_fpuk1"]
+[ext_resource type="Texture2D" uid="uid://b41u788lywm6j" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0054.png" id="58_43y4f"]
+[ext_resource type="Texture2D" uid="uid://c0ju5qtpnhbop" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0055.png" id="59_nggy4"]
+[ext_resource type="Texture2D" uid="uid://crouwlj0fwxxj" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0056.png" id="60_guyvu"]
+[ext_resource type="Texture2D" uid="uid://8q7lpbybvb5h" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0057.png" id="61_je171"]
+[ext_resource type="Texture2D" uid="uid://dm01l6einbow5" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0058.png" id="62_rj0cq"]
+[ext_resource type="Texture2D" uid="uid://bphahtnapgxrv" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0059.png" id="63_jc4ny"]
+[ext_resource type="Texture2D" uid="uid://ckxqsf3dglp52" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0060.png" id="64_qrndn"]
+[ext_resource type="Texture2D" uid="uid://dpxkn46c6gu5u" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0061.png" id="65_j1ws2"]
+[ext_resource type="Texture2D" uid="uid://6x6n3vpmocsp" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0062.png" id="66_x0xvv"]
+[ext_resource type="Texture2D" uid="uid://dkcoq78lxee3u" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0063.png" id="67_1aoo8"]
+[ext_resource type="Texture2D" uid="uid://brur7rvatcad3" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0064.png" id="68_vndlg"]
+[ext_resource type="Texture2D" uid="uid://cb1pvtkla20di" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0065.png" id="69_tiavk"]
+[ext_resource type="Texture2D" uid="uid://c5jiurrctffy4" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0066.png" id="70_jf02h"]
+[ext_resource type="Texture2D" uid="uid://dqqo5p8j72yp0" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0067.png" id="71_1jpjc"]
+[ext_resource type="Texture2D" uid="uid://b63vp77l1ilbi" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0068.png" id="72_kued8"]
+[ext_resource type="Texture2D" uid="uid://bqu2gd6orr5v6" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0069.png" id="73_h7jly"]
+[ext_resource type="Texture2D" uid="uid://c1iykmanyo0x1" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0070.png" id="74_3bbkm"]
+[ext_resource type="Texture2D" uid="uid://qj6fir38lark" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0071.png" id="75_7korm"]
+[ext_resource type="Texture2D" uid="uid://bfxbhh1ehp3hb" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0072.png" id="76_0l7vy"]
+[ext_resource type="Texture2D" uid="uid://h3v5x8wb17t8" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0073.png" id="77_2tgxt"]
+[ext_resource type="Texture2D" uid="uid://dy16ifnmswiew" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0074.png" id="78_kawxv"]
+[ext_resource type="Texture2D" uid="uid://dij5nk4t7pja0" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0075.png" id="79_0hqsl"]
+[ext_resource type="Texture2D" uid="uid://buumg7re8ar7u" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0076.png" id="80_3rcn5"]
+[ext_resource type="Texture2D" uid="uid://b4py04he6fk6c" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0077.png" id="81_g5sbf"]
+[ext_resource type="Texture2D" uid="uid://bpgfxj147npwq" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0078.png" id="82_ms8og"]
+[ext_resource type="Texture2D" uid="uid://clwlc70bs45bc" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0079.png" id="83_k3cf0"]
+[ext_resource type="Texture2D" uid="uid://dhv2s2jwhxaeb" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0080.png" id="84_jq0et"]
+[ext_resource type="Texture2D" uid="uid://bw83h0o00gmpa" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0081.png" id="85_2ysb8"]
+[ext_resource type="Texture2D" uid="uid://wm4bxhux43sd" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0082.png" id="86_mlq6s"]
+[ext_resource type="Texture2D" uid="uid://31ima544wsu4" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0083.png" id="87_oq74a"]
+[ext_resource type="Texture2D" uid="uid://dn3u4p0yqe6xd" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0084.png" id="88_xcyb3"]
+[ext_resource type="Texture2D" uid="uid://dh1f3ccrknff" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0085.png" id="89_pfkef"]
+[ext_resource type="Texture2D" uid="uid://cxsafki77sryc" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0086.png" id="90_c1t5m"]
+[ext_resource type="Texture2D" uid="uid://er3wdcoq5yir" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0087.png" id="91_et1yo"]
+[ext_resource type="Texture2D" uid="uid://bxuhdtelhwqbi" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0088.png" id="92_ei5sk"]
+[ext_resource type="Texture2D" uid="uid://d0rjv5rao77sg" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0089.png" id="93_maqkc"]
+[ext_resource type="Texture2D" uid="uid://cbgudcc4qlcmw" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0090.png" id="94_g8875"]
+[ext_resource type="Texture2D" uid="uid://h2kyo7ojtwsv" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0091.png" id="95_dlq5g"]
+[ext_resource type="Texture2D" uid="uid://ybilaw006dab" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0092.png" id="96_pd3tq"]
+[ext_resource type="Texture2D" uid="uid://dt3tf1cggcdj4" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0093.png" id="97_bioqg"]
+[ext_resource type="Texture2D" uid="uid://dkmf4glrcubrd" path="res://Assets/SpriteUI/GameEndScreen/WolfEyeAnimation/wolf eye lose0094.png" id="98_0uqv3"]
+[ext_resource type="Texture2D" uid="uid://b7eboqitnp44g" path="res://Assets/SpriteUI/GameEndScreen/ground shadow purple stand.png" id="100_jpcex"]
+[ext_resource type="Texture2D" uid="uid://cy0iw7r58182m" path="res://Assets/SpriteUI/GameEndScreen/sister lose.png" id="101_goik1"]
+[ext_resource type="Texture2D" uid="uid://bwuo2rko6vmcj" path="res://Assets/SpriteUI/GameEndScreen/banner purple loser.png" id="103_h1gk1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2tjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8rce2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jpcex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_goik1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xsghy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8203t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h1gk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t5l4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_miwlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e36h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_haddl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wd61c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sb5f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ijxfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6jaou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nf3nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dp8as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_srrps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_w3tos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fb4t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1g3dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_llhtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_5j4lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_lkxol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_dvi4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_t63l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1pl7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_clmcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_e8g3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_lfueb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_h2jjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4tqc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_f0sx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_amt11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ltdxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_w2wwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_1pj8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ndfbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_jth5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_8j3ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_efhmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_p2ys6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_5ogqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_bw083")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_xf05j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ibw4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_0j3sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_en6qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_4t40k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_oxahe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_0jvwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_bakoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_6kgfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ptboc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_fpuk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_43y4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_nggy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_guyvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_je171")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_rj0cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_jc4ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_qrndn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_j1ws2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_x0xvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_1aoo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_vndlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_tiavk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_jf02h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_1jpjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_kued8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_h7jly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_3bbkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_7korm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_0l7vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_2tgxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_kawxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_0hqsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_3rcn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_g5sbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_ms8og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_k3cf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_jq0et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_2ysb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_mlq6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_oq74a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_xcyb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_pfkef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_c1t5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_et1yo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_ei5sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_maqkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_g8875")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_dlq5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_pd3tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_bioqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_0uqv3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="LooserSideEndScreen" type="Control" unique_id=1618318397 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8203t")
+script = ExtResource("2_h1gk1")
+player = NodePath("Background/Player")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1757429419]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h6h00")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Wolf1" type="TextureRect" parent="Background" unique_id=669084899]
+layout_mode = 1
+offset_left = -0.25
+offset_top = -54.97
+offset_right = 550.75
+offset_bottom = 593.6481
+texture = ExtResource("2_3rneb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wolf2" type="TextureRect" parent="Background" unique_id=1755328597]
+layout_mode = 1
+offset_left = -171.55
+offset_top = 220.02
+offset_right = 431.2
+offset_bottom = 929.5564
+texture = ExtResource("2_3rneb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wolf3" type="TextureRect" parent="Background" unique_id=1223384]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -963.576
+offset_top = -808.88
+offset_right = 152.46771
+offset_bottom = 1.1193848
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_bor3x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationContainer" type="Control" parent="Background/Wolf3" unique_id=35068085]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.940125
+offset_top = -248.75969
+offset_right = 94.940125
+offset_bottom = -248.75969
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/Wolf3/AnimationContainer" unique_id=791629830]
+sprite_frames = SubResource("SpriteFrames_y2tjs")
+autoplay = "default"
+frame_progress = 0.77351207
+
+[node name="Stand" type="TextureRect" parent="Background" unique_id=185445336]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -285.33398
+offset_top = -291.45502
+offset_right = 285.33386
+offset_bottom = 51.61609
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_n2tal")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Shadow" type="TextureRect" parent="Background/Stand" unique_id=1893770873]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 86.333984
+offset_top = -238.07552
+offset_right = -184.14606
+offset_bottom = 7.9244843
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("100_jpcex")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Player" type="TextureRect" parent="Background" unique_id=528101860]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -524.0
+offset_right = 148.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("101_goik1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextHolder" type="TextureRect" parent="Background" unique_id=1830269239]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.00003
+offset_top = 232.0
+offset_right = 247.54346
+offset_bottom = 329.0
+grow_horizontal = 2
+texture = ExtResource("103_h1gk1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Background/TextHolder" unique_id=1912868029]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -47.5
+offset_right = 175.99998
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loser"
+horizontal_alignment = 1
+vertical_alignment = 1

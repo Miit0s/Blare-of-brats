@@ -14,11 +14,14 @@
 [ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="4_hjh75"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="4_s2f1d"]
 [ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="4_shpw1"]
+[ext_resource type="WwiseState" uid="uid://ilgvcw2jqfjq" path="res://Wwise/resources/State/{3DAFFAEC-BC03-4044-BFDD-E0171B0CDA46}.tres" id="5_ewjfp"]
 [ext_resource type="PackedScene" uid="uid://dfywcxkltec84" path="res://UI/ControlTool/interaction_reminder.tscn" id="5_klvvj"]
 [ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="6_hag5k"]
 [ext_resource type="PackedScene" uid="uid://b0odn7qlra422" path="res://Scene/chaos_scene.tscn" id="6_hptlk"]
+[ext_resource type="WwiseState" uid="uid://dwksdscblo3f2" path="res://Wwise/resources/State/{2822E57F-FB30-4B00-A92D-63C40685CB78}.tres" id="6_rmux6"]
 [ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="7_34sut"]
 [ext_resource type="Script" uid="uid://bcd2lnrrewlvk" path="res://Scripts/UI/texture_button_focus_replace.gd" id="8_47k5r"]
+[ext_resource type="PackedScene" uid="uid://b66u1f50hodny" path="res://UI/Menu/menu_start_screen.tscn" id="16_fqtvk"]
 
 [sub_resource type="GDScript" id="GDScript_47k5r"]
 resource_name = "main_menu_button_tween"
@@ -120,6 +123,8 @@ unload_on = 3
 
 [node name="AkListener3D" type="AkListener3D" parent="." unique_id=1788702252]
 
+[node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1574965212]
 
 [node name="Menu" type="Control" parent="CanvasLayer" unique_id=1142648463 node_paths=PackedStringArray("buttons_impacting_movement")]
@@ -133,6 +138,8 @@ script = ExtResource("1_wrubb")
 game_start_scene_uid = "uid://b1nchn1fbud6v"
 buttons_impacting_movement = [NodePath("MainStack/MainButton/ControlPlay/Play"), NodePath("MainStack/MainButton/ControlOptions/Options"), NodePath("MainStack/MainButton/ControlCredits/Credits"), NodePath("MainStack/MainButton/ControlExit/Exit")]
 main_menu_music = ExtResource("3_hjh75")
+start_screen_state = ExtResource("5_ewjfp")
+main_menu_screen_state = ExtResource("6_rmux6")
 on_button_focus = ExtResource("3_p1wrw")
 on_button_click = ExtResource("4_hjh75")
 
@@ -379,7 +386,8 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="ChaosScene" parent="." unique_id=1673437573 instance=ExtResource("6_hptlk")]
+[node name="MenuStartScreen" parent="CanvasLayer/Menu" unique_id=1817293939 instance=ExtResource("16_fqtvk")]
+layout_mode = 1
 
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlPlay/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlOptions/Options" to="CanvasLayer/Menu" method="_on_options_pressed"]
