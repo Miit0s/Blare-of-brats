@@ -1,6 +1,7 @@
 extends Item
 
-@onready var pisto_gum_shoot: GPUParticles3D = $PistoGumShoot
+@onready var pistogum_explosion: AnimatedSprite3D = $PistogumExplosion
+@onready var pistogum_trail: AnimatedSprite3D = $PistogumTrail
 
 @export var player_speed_multiplier: float = 0.5
 @export var slow_duration: float = 1
@@ -12,7 +13,16 @@ extends Item
 
 func _perform_attack(_direction: Vector3):
 	current_durability -= 1
-	pisto_gum_shoot.restart()
+	
+	pistogum_explosion.global_position = self.global_position
+	pistogum_trail.global_position = self.global_position
+	pistogum_trail.look_at(self.global_position - self.global_basis.z)
+	pistogum_trail.global_rotation.y += deg_to_rad(90)
+	pistogum_trail.global_rotation.x += deg_to_rad(90)
+	
+	pistogum_explosion.play("default")
+	pistogum_trail.play("default")
+	
 	VibrationManager.start_joy_vibration(owner_player, vibration_force_on_shoot, 0, vibration_duration_on_shoot)
 
 func _attack_player(player_hit: Player):
