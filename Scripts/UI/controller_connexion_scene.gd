@@ -40,6 +40,8 @@ extends Control
 
 @export_category("Sound")
 @export var music_sound: WwiseEvent
+@export var player_pick_state: WwiseState
+@export var ready_screen_state: WwiseState
 
 var controller_slots: Array[ControllerSlot]
 
@@ -55,6 +57,7 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
 	music_sound.post(self)
+	player_pick_state.set_value()
 
 	for controller_slot: ControllerSlot in controller_slot_container.get_children():
 		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
@@ -243,6 +246,8 @@ func _on_controller_slot_player_his_ready(controller_slot: ControllerSlot) -> vo
 		
 		_is_ready_texture_display = true
 		is_ready_screen_transition_finish = true
+		
+		ready_screen_state.set_value()
 
 
 func _on_controller_slot_state_change(controller_slot_id: int, new_state: ControllerSlot.SelectionState):
@@ -282,6 +287,8 @@ func _on_controller_slot_player_no_more_ready(controller_slot: ControllerSlot) -
 		
 		ready_screen.hide()
 		is_ready_screen_transition_finish = true
+		
+		player_pick_state.set_value()
 
 func _update_ready_screen_transtion_progress_value(value: float):
 	var shader: ShaderMaterial = ready_screen.material

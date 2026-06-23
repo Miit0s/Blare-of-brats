@@ -25,6 +25,8 @@ extends Control
 
 @export_category("Sound")
 @export var main_menu_music: WwiseEvent
+@export var start_screen_state: WwiseState
+@export var main_menu_screen_state: WwiseState
 @export var on_button_focus: WwiseEvent
 @export var on_button_click: WwiseEvent
 
@@ -54,6 +56,9 @@ func _ready() -> void:
 	
 	if GameOptions.have_launch_game:
 		play_button.grab_focus()
+		main_menu_screen_state.set_value()
+	else:
+		start_screen_state.set_value()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and not GameOptions.have_launch_game:
@@ -63,6 +68,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		
 		play_button.grab_focus()
+		main_menu_screen_state.set_value()
 	elif not GameOptions.have_launch_game:
 		get_viewport().set_input_as_handled()
 	
