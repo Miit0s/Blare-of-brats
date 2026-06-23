@@ -65,7 +65,7 @@ func _ready() -> void:
 	current_skin = begin_skin
 	switch_to_empty_slot()
 	
-	selected_player.set_new_character(character_texture[0], front_texture_begin_material, begin_skin)
+	selected_player.set_new_character(character_texture[0], front_texture_begin_material, begin_skin, true)
 	back_player.apply_color_and_texture(back_texture_begin_material, character_texture[1])
 	
 	_select_player_container_begin_position = selected_player.position

@@ -48,11 +48,12 @@ func set_ready_state():
 	
 	ready_state.show()
 
-func set_new_character(texture: Texture2D, character_color: CharacterColorResource, skin: ControllerSlot.PossibleSkin):
+func set_new_character(texture: Texture2D, character_color: CharacterColorResource, skin: ControllerSlot.PossibleSkin, no_sound: bool = false):
 	apply_color_and_texture(character_color, texture)
 	color_picker.display_color_option_for_skin(skin)
 	
-	color_select_sound.post(self)
+	if not no_sound:
+		color_select_sound.post(self)
 
 ## Return if the apply was a success
 func apply_next_color() -> bool:
