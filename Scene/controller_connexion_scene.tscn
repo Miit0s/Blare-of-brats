@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="9_o70qx"]
 [ext_resource type="Texture2D" uid="uid://chpyxl1kv8mwi" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground.png" id="10_bslv1"]
 [ext_resource type="Texture2D" uid="uid://dh8mwj4a0uffu" path="res://Assets/SpriteUI/CharacterSelection/ground.png" id="10_c66h4"]
-[ext_resource type="WwiseState" uid="uid://wcgk5hoepkr7" path="res://Wwise/resources/State/{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}.tres" id="10_xtoam"]
 [ext_resource type="Texture2D" uid="uid://cgqwgxsmxhnww" path="res://Assets/SpriteUI/CharacterSelection/wolf_02.png" id="11_0hkld"]
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="11_fp572"]
 [ext_resource type="Texture2D" uid="uid://i4ww8wdhhr7t" path="res://Assets/SpriteUI/CharacterSelection/wolf_01.png" id="13_ot06r"]
@@ -29,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bxb4wngr2uedn" path="res://Assets/SpriteUI/CharacterSelection/banniere_splash_versus.png" id="22_g8rj2"]
 [ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="22_ho3je"]
 [ext_resource type="Texture2D" uid="uid://dg1qn458xj686" path="res://Assets/SpriteUI/CharacterSelection/banniere_selection_buttons_bottom.png" id="23_rgkik"]
-[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
+[ext_resource type="Shader" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ys4ta"]
 shader = ExtResource("26_ys4ta")
@@ -80,7 +79,6 @@ stage_ready = ExtResource("4_ho3je")
 ready_tween_transition_duration = 0.3
 music_sound = ExtResource("6_aqpqj")
 player_pick_state = ExtResource("9_1f0jf")
-ready_screen_state = ExtResource("10_xtoam")
 
 [node name="AkBank" type="AkBank" parent="." unique_id=1755696028]
 bank = ExtResource("22_ho3je")
