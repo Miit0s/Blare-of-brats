@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b1cj3dx5lhybi" path="res://Assets/SpriteUI/Menu/mask animation logo et menu.png" id="3_suhbi"]
 [ext_resource type="Texture2D" uid="uid://cis40e3kd8vft" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen_under.png" id="4_y0yp3"]
 [ext_resource type="Texture2D" uid="uid://benj67pt60i00" path="res://Assets/SpriteUI/CharacterSelection/banner_topscreen.png" id="5_ky2oo"]
+[ext_resource type="VideoStream" uid="uid://diq2svv7cotsg" path="res://Assets/SpriteUI/Menu/WolfTransitionAnimation/wolf_transition.ogv" id="10_w5gka"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_08v3c"]
 viewport_path = NodePath("SubViewport")
@@ -21,9 +22,6 @@ shader_parameter/green_threshold = 0.1
 shader_parameter/green_smoothing = 0.1
 shader_parameter/white_threshold = 0.4
 shader_parameter/white_smoothing = 0.1
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_y2tjs"]
-file = "res://Assets/SpriteUI/Menu/WolfTransitionAnimation/wolf_transition.ogg"
 
 [node name="MenuStartScreen" type="Control" unique_id=1817293939]
 layout_mode = 3
@@ -157,5 +155,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = SubResource("VideoStreamTheora_y2tjs")
+stream = ExtResource("10_w5gka")
 expand = true
