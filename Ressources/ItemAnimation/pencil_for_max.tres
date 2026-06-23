@@ -168,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_wwsl8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"left",
 "speed": 30.0
 }, {
@@ -245,7 +245,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("48_t2g0i")
 }],
-"loop": false,
+"loop": 0,
 "name": &"right",
 "speed": 30.0
 }]
@@ -382,7 +382,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("91_ocas8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 24.0
 }, {
@@ -516,7 +516,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("91_ocas8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 24.0
 }]
