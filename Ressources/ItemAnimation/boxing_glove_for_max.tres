@@ -49,12 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://do5iu7yae41kb" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0022.png" id="23_ahjjh"]
 [ext_resource type="Texture2D" uid="uid://bnemqjmt6mx4" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0023.png" id="24_5uyws"]
 [ext_resource type="Texture2D" uid="uid://opo6tohh2ieu" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0023.png" id="24_ijwq5"]
-[ext_resource type="Texture2D" uid="uid://wwxcebjq5a8f" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0024.png" id="25_23m71"]
 [ext_resource type="Texture2D" uid="uid://c0xk8k4mk6qii" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0024.png" id="25_tqe0l"]
-[ext_resource type="Texture2D" uid="uid://r43n0n2aofn5" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0025.png" id="26_3tuwa"]
 [ext_resource type="Texture2D" uid="uid://8suas4fq145u" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Left/Box-Idle-Left0025.png" id="26_pyjba"]
 [ext_resource type="Texture2D" uid="uid://ungdwp1c4mb6" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Right/Box-Idle-Right0000.png" id="27_2q4fn"]
-[ext_resource type="Texture2D" uid="uid://bqhwm1lubdp45" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Back/Box-Attack-Back0026.png" id="27_l6smm"]
 [ext_resource type="Texture2D" uid="uid://ckotbo4o7yeu8" path="res://Assets/Item/Animation/Max/Attack/GlovingBox/Front/Box-Attack-Front-Fixed0000.png" id="28_4xaj7"]
 [ext_resource type="Texture2D" uid="uid://bnj1c1tnl7gqh" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Right/Box-Idle-Right0001.png" id="28_33wq4"]
 [ext_resource type="Texture2D" uid="uid://br07hdw4jtvyu" path="res://Assets/Item/Animation/Max/Idle/GlovingBox/Right/Box-Idle-Right0002.png" id="29_f4wxc"]
@@ -232,15 +229,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("24_5uyws")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_23m71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_3tuwa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_l6smm")
 }],
 "loop": false,
 "name": &"back",
@@ -667,7 +655,7 @@ script = ExtResource("1_gxwsb")
 idle_animation = SubResource("SpriteFrames_5icvo")
 attack_animations = SubResource("SpriteFrames_gxwsb")
 attack_offset_left = Vector2(-1.4, 0)
-attack_offset_right = Vector2(1.5, 0)
+attack_offset_right = Vector2(1.95, -0.2)
 attack_offset_front = Vector2(-0.26, -0.7)
-attack_offset_back = Vector2(0.2, 0.3)
+attack_offset_back = Vector2(-0.25, 0.3)
 metadata/_custom_type_script = "uid://3tnlxh0ot626"
