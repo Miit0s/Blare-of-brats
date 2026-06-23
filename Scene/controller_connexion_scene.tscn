@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cqbdefo16o3r1" path="res://Assets/SpriteUI/CharacterSelection/vs.png" id="19_ho3je"]
 [ext_resource type="Texture2D" uid="uid://bxb4wngr2uedn" path="res://Assets/SpriteUI/CharacterSelection/banniere_splash_versus.png" id="22_g8rj2"]
 [ext_resource type="Texture2D" uid="uid://dg1qn458xj686" path="res://Assets/SpriteUI/CharacterSelection/banniere_selection_buttons_bottom.png" id="23_rgkik"]
-[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
+[ext_resource type="Shader" path="res://Shader/universal_transition_shader.gdshader" id="26_ys4ta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ys4ta"]
 shader = ExtResource("26_ys4ta")

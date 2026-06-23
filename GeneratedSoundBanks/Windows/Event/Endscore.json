@@ -31,7 +31,7 @@
       "Name": "Endscore",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\UI\\Party\\Endscore",
       "GUID": "{556B0D20-ADA7-46E4-A933-AA2B51A11C4A}",
-      "Color": "2",
+      "Color": "19",
       "DurationType": "OneShot",
       "DurationMin": "0.09854883",
       "DurationMax": "0.09854883",
@@ -44,6 +44,6 @@
     ]
    }
   ],
-  "FileHash": "{4F3CA993-B2F0-B946-3049-39EA8BCEDE3D}"
+  "FileHash": "{5851AFFF-3EAD-E66B-306E-D735C2FC0A84}"
  }
 }
