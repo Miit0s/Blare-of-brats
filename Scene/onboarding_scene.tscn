@@ -68,7 +68,7 @@ border_width_right = 530
 border_width_bottom = 965
 border_color = Color(0, 0, 0, 0.5882353)
 
-[node name="OnboardingScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
+[node name="OnboardingGameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("input_reminders", "task_lists", "game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
 script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
@@ -112,16 +112,22 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -768.0
+offset_top = 22.435
 offset_right = 768.0
+offset_bottom = 235.435
 grow_horizontal = 2
-player_health = 6.0
-sound_bar_max_volume = 65.0
+player_health = 5.0
+sound_bar_max_volume = 45.0
 
 [node name="RoundEnd" parent="CanvasLayer" unique_id=1185368454 instance=ExtResource("19_frks1")]
 visible = false
 
 [node name="GameEnd" parent="CanvasLayer" unique_id=748037380 instance=ExtResource("20_2lo1k")]
 visible = false
+only_next_scene_button = true
+
+[node name="ToMainMenuButton" parent="CanvasLayer/GameEnd/HBoxContainer/StatsHolder/ButtonContainer" parent_id_path=PackedInt32Array(748037380, 319591605) index="1" unique_id=698485499]
+label_position_on_tween = Vector2(-14, 32)
 
 [node name="InputReminder" parent="CanvasLayer" unique_id=763382896 instance=ExtResource("17_bkpdd")]
 anchors_preset = 8
@@ -216,3 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 25, 0)
 
 [node name="TrackingSpot2" parent="." unique_id=705377044 instance=ExtResource("27_yqp28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 25, 0)
+
+[editable path="CanvasLayer/GameEnd"]
+[editable path="CanvasLayer/GameEnd/HBoxContainer/StatsHolder/ButtonContainer/RestartButton"]
+[editable path="CanvasLayer/GameEnd/HBoxContainer/StatsHolder/ButtonContainer/ToMainMenuButton"]

@@ -8,6 +8,7 @@ uniform vec4 color_right: source_color = vec4(1, 0, 0, 1);
 uniform float shear_angle : hint_range(-1.0, 1.0) = 0.0;
 
 void fragment() {
+	vec4 base_modulate = COLOR;
 	vec4 texture_color = texture(TEXTURE, UV);
 	
 	float adjusted_x = UV.x + (UV.y - 0.5) * shear_angle;
@@ -17,6 +18,6 @@ void fragment() {
 	
 	vec4 final_color = mix(color_right, color_left, edge);
 	
-	COLOR = final_color;
-	COLOR.a = texture_color.a;
+	COLOR = final_color * base_modulate;
+	COLOR.a *= texture_color.a;
 }

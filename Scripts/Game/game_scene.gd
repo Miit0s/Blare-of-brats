@@ -9,6 +9,7 @@ class_name GameScene
 @export var game_bar: GameBar
 @export var camera_controller: CameraController
 @export var next_scene_uid: String
+@export var restart_game_scene_uid: String
 
 @export var tracking_spot_player_one: TrackingSpot
 @export var tracking_spot_player_two: TrackingSpot
@@ -48,21 +49,25 @@ class_name GameScene
 @export_category("Level")
 @export var possible_level: Array[PackedScene]
 
+@export_category("Danger Phase")
+@export var wait_duration_after_cutscene_end_to_trigger_wolf: float = 0.5
+
 var players: Array[Player]
-var players_win: Array[int]
+var player_stats: Dictionary[int, EndGameResource]
 var _last_player_win_id: int = -1
 
 var players_selection: Array[PlayerCharacterSelection] = [preload("uid://4w1f5mgj2e5s"), preload("uid://cligadeo7a6fk")]
 
 var _current_scene: MapScene
 var _round_ended: bool = false
+var _first_round_setup: bool = true
 
 func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
 	round_start_ui.animation_finish.connect(round_start_ui.hide)
-	round_end_ui.animation_finish.connect(round_end_animaion_finish)
 	round_end_ui.next_round_button_pressed.connect(start_round_animation)
 	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene)
+	game_end_ui.restart_button_pressed.connect(restart_new_game)
 	
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)
@@ -70,8 +75,16 @@ func _ready() -> void:
 	game_bar.shared_life_bar.player_have_reach_min_life.connect(_trigger_crowd_reaction)
 	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
-	players_win.resize(player_number)
-	players_win.fill(0)
+	for player_selection: PlayerCharacterSelection in players_selection:
+		var end_game_resource: EndGameResource = EndGameResource.new()
+		end_game_resource.character_color = player_selection.color_skin
+		
+		player_stats[player_selection.player_id] = end_game_resource
+	
+	setup_new_scene()
+	
+	LoadingPage.despawn_transtion()
+	await LoadingPage.transition_finish
 	
 	start_round_animation()
 
@@ -79,17 +92,21 @@ func _process(_delta: float) -> void:
 	bar_volume_rtpc.set_value(self, game_bar.game_sound_bar._game_sound_bar_volume * 100)
 
 func start_round_animation():
-	round_end_ui.hide()
-	game_bar.hide()
+	if round_end_ui.visible:
+		round_end_ui.hide_animation()
+		await round_end_ui.animation_finish
 	
 	countdown.post(self)
 	
 	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
-	round_end_ui.change_player_data(players_selection[0], players_selection[1])
 	
-	setup_new_scene()
+	if _first_round_setup:
+		_first_round_setup = false
+	else:
+		setup_new_scene()
+	
 	round_start_ui.show()
 	round_start_ui.start_animation()
 
@@ -114,12 +131,16 @@ func setup_new_scene():
 	if _current_scene:
 		_current_scene.queue_free()
 	
+	players.clear()
+	
 	var new_scene: MapScene = possible_level.pick_random().instantiate()
 	
 	new_scene.item_will_be_delete.connect(_on_map_item_will_be_delete)
 	new_scene.new_item_spawn.connect(_on_map_new_item_spawn)
 	new_scene.new_player_spawn.connect(_on_map_new_player_spawn)
 	new_scene.balloon_pop.connect(_item_made_sound)
+	new_scene.balloon_pop_by.connect(_player_have_made_sound)
+	new_scene.balloon_pop_by.connect(func(player_id: int, _value: float): _player_have_pop_ballon(player_id))
 	
 	new_scene.player_spawn_system.spawn_players(players_selection)
 	
@@ -130,13 +151,16 @@ func setup_new_scene():
 	add_child(new_scene)
 
 func round_end_animaion_finish():
-	var winner_data: PlayerCharacterSelection = _get_player_selection(_last_player_win_id)
 	game_bar.add_player_win(_last_player_win_id)
 	
 	if _check_if_game_end():
+		player_stats[_last_player_win_id].is_winner = true
+		
+		await get_tree().create_timer(1.0).timeout
+		
 		round_end_ui.hide()
 		game_end_ui.show()
-		game_end_ui.start_animation(_last_player_win_id, winner_data.color_skin.main_color, players_selection[0].player_id)
+		game_end_ui.setup_scene_and_start_animation(player_stats[players[0].player_id], player_stats[players[1].player_id])
 	else:
 		round_end_ui.show_next_round_button()
 
@@ -144,28 +168,47 @@ func player_win(player_id: int):
 	if _round_ended: return
 	
 	_round_ended = true
-	players_win[player_id] += 1
+	player_stats[player_id].score += 1
 	_last_player_win_id = player_id
 	
+	game_bar.hide()
 	game_bar.shared_life_bar.lock()
+	
+	var players_win_array: Array[int] = [player_stats[players[0].player_id].score, player_stats[players[1].player_id].score]
+	
+	_current_scene.base_map.stop_wolf_light()
 	
 	for player in players:
 		player.reset_vibration()
 		VibrationManager.start_joy_vibration(player.player_id, round_end_vibration_force, 0, round_end_vibration_duration)
 		player.freeze()
-	players.clear()
+	
 	camera_controller.stop_tracking()
 	tracking_spot_player_one.target = null
 	tracking_spot_player_two.target = null
 	
 	music_fight.stop(self)
 	
+	round_end_ui.animation_finish.connect(round_end_animaion_finish, ConnectFlags.CONNECT_ONE_SHOT)
 	round_end_ui.show()
-	round_end_ui.start_animation(player_id, players_win, _get_player_selection(player_id).color_skin.main_color)
+	round_end_ui.start_animation(players_win_array, _get_player_selection(player_id).color_skin)
 
 func go_to_next_scene():
-	get_tree().change_scene_to_file(next_scene_uid)
+	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(next_scene_uid)
 
+func restart_new_game():
+	LoadingPage.packed_scene_loaded.connect(_setup_game_scene_with_parameters, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(restart_game_scene_uid)
+
+func _setup_game_scene_with_parameters(packed_game_scene: PackedScene):
+	var game_scene: GameScene = packed_game_scene.instantiate()
+	
+	game_scene.players_selection.clear()
+	for player_selection in players_selection:
+		game_scene.players_selection.append(player_selection)
+	
+	get_tree().change_scene_to_node(game_scene)
 
 func _on_shared_life_bar_player_win(player_id: int) -> void:
 	player_win(player_id)
@@ -181,11 +224,15 @@ func lifebar_value_change(lifebar_value: float):
 
 func _on_map_item_will_be_delete(item: Item) -> void:
 	item.sound_made.disconnect(_item_made_sound)
+	item.sound_made_by.disconnect(_player_have_made_sound)
+	item.item_broke_by.disconnect(_player_have_broke_his_item)
 	camera_controller.trigger_objet_destruction_shake()
 
 
 func _on_map_new_item_spawn(new_item: Item) -> void:
 	new_item.sound_made.connect(_item_made_sound)
+	new_item.sound_made_by.connect(_player_have_made_sound)
+	new_item.item_broke_by.connect(_player_have_broke_his_item)
 
 
 func _item_made_sound(value: float, sound_global_position: Vector3):
@@ -207,13 +254,15 @@ func _on_map_new_player_spawn(player: Player) -> void:
 	players.append(player)
 
 func _check_if_game_end() -> bool:
+	var players_score: Array[int]
 	var rounds_played: int = 0
-	for score in players_win: 
-		rounds_played += score
+	for player_stat: EndGameResource in player_stats.values(): 
+		rounds_played += player_stat.score
+		players_score.append(player_stat.score)
 	
 	var missing_round = round_number - rounds_played
 	
-	var players_win_sorted: Array[int] = players_win.duplicate()
+	var players_win_sorted: Array[int] = players_score.duplicate()
 	players_win_sorted.sort_custom(func(a, b): return a > b)
 	
 	if (players_win_sorted[0] - players_win_sorted[1]) > missing_round: return true
@@ -227,11 +276,31 @@ func _get_player_selection(player_id: int) -> PlayerCharacterSelection:
 	return players_selection[1]
 
 func _activate_the_danger_phase():
-	_current_scene.activate_danger_phase()
+	var controller_id: Array[int] = []
+	for player in players:
+		controller_id.append(player.player_id)
+	
+	_current_scene.activate_danger_phase(controller_id)
+	
 	danger_phase_start.set_value()
 	danger_phase_crowd_switch.set_value(self)
 	
-	await get_tree().create_timer(2).timeout
+	if not GameOptions.have_see_wolf_cutscene:
+		for player in players:
+			player.freeze()
+		game_bar.hide()
+		
+		await _current_scene.wolf_cutscene_finish
+		
+		GameOptions.have_see_wolf_cutscene = true
+		
+		for player in players:
+			player.unfreeze()
+		game_bar.show()
+		
+		await get_tree().create_timer(wait_duration_after_cutscene_end_to_trigger_wolf).timeout
+	else:
+		await _current_scene.wolf_cutscene_finish
 	
 	_current_scene.activate_wolf_tracking_spot()
 	game_bar.change_sound_bar_color(Color(1.0, 0.0, 0.0, 1.0))
@@ -253,5 +322,17 @@ func _trigger_crowd_reaction():
 	continious_crowd_switch.set_value(self)
 
 func _player_has_been_hit(player_id: int, damage: float, direction: Vector3):
+	var reverse_id: int = 0 if player_id == 1 else 1
+	player_stats[reverse_id].damage += damage
+	
 	game_bar.shared_life_bar.add_damage_to_player(player_id, damage)
 	camera_controller.trigger_hit_shake(direction, damage)
+
+func _player_have_broke_his_item(player_id: int):
+	player_stats[player_id].item_broken += 1
+
+func _player_have_pop_ballon(player_id: int):
+	player_stats[player_id].ballon_popped += 1
+
+func _player_have_made_sound(player_id: int, value: float):
+	player_stats[player_id].noise_made += value

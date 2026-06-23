@@ -3,10 +3,13 @@ class_name GameBar
 
 @onready var shared_life_bar: SharedLifeBar = $SharedLifeBar
 @onready var game_sound_bar: GameSoundBar = $GameSoundBar
-@onready var player_indicator_left: TextureRect = $PlayerIndicatorLeft
-@onready var player_indicator_right: TextureRect = $PlayerIndicatorRight
 @onready var round_win_indicator_left: RoundWinIndicator = $RoundWinIndicatorLeft
 @onready var round_win_indicator_right: RoundWinIndicator = $RoundWinIndicatorRight
+
+@onready var player_icon: PlayerIcon = $PlayerIcon
+@onready var player_icon_2: PlayerIcon = $PlayerIcon2
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $SoundBarEffectContainer/AnimatedSprite2D
 
 @export var player_health: float = 20
 @export var sound_bar_max_volume: float = 100
@@ -33,8 +36,8 @@ func setup_color_and_texture(left: PlayerCharacterSelection, right: PlayerCharac
 	left_player_id = left.player_id
 	right_player_id = right.player_id
 	
-	player_indicator_left.self_modulate = left.color_skin.main_color
-	player_indicator_right.self_modulate = right.color_skin.main_color
+	player_icon.apply_texture_and_color(left.color_skin.color_shader_icon)
+	player_icon_2.apply_texture_and_color(right.color_skin.color_shader_icon)
 	
 	round_win_indicator_left.apply_player_color(left.color_skin.main_color)
 	round_win_indicator_right.apply_player_color(right.color_skin.main_color)
@@ -62,3 +65,6 @@ func _on_player_win(player_id: int):
 
 func _on_lifebar_value_change(new_value: float):
 	lifebar_value_change.emit(new_value)
+	
+	if not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play("default")

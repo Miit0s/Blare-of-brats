@@ -2,53 +2,292 @@
 
 [ext_resource type="Script" uid="uid://dtqco0haeddqb" path="res://Scripts/Game/ballon.gd" id="1_kcpt1"]
 [ext_resource type="WwiseEvent" uid="uid://qoily6b5y3ge" path="res://Wwise/resources/Event/{3525CD8A-23F0-48E7-B481-72CCC038AE44}.tres" id="2_ddns0"]
-[ext_resource type="Texture2D" uid="uid://div85yjn8rl0h" path="res://Assets/EnvironmentSprite/ph_balloon.png" id="2_grvbi"]
-[ext_resource type="Texture2D" uid="uid://u5tg4lhx1rm" path="res://Assets/MockSprite/balloon_pop.png" id="3_grvbi"]
+[ext_resource type="Texture2D" uid="uid://bfnslgcgl5mxw" path="res://Assets/VFX/Balloon/BALLOON VFX0000.png" id="3_qqj5s"]
+[ext_resource type="Texture2D" uid="uid://bbufw350uea38" path="res://Assets/VFX/Balloon/BALLOON VFX0001.png" id="4_s7o5t"]
+[ext_resource type="Texture2D" uid="uid://cv4rhtrvu8iuo" path="res://Assets/VFX/Balloon/BALLOON VFX0002.png" id="5_sxhsk"]
+[ext_resource type="Texture2D" uid="uid://cl3os55hpvupe" path="res://Assets/VFX/Balloon/BALLOON VFX0003.png" id="6_8qbde"]
+[ext_resource type="Texture2D" uid="uid://dhawr0c2cmq3y" path="res://Assets/VFX/Balloon/BALLOON VFX0004.png" id="7_bupin"]
+[ext_resource type="Texture2D" uid="uid://bxpaaethkjq64" path="res://Assets/VFX/Balloon/BALLOON VFX0005.png" id="8_apkpa"]
+[ext_resource type="Texture2D" uid="uid://dd8uyjqcsgcgx" path="res://Assets/VFX/Balloon/BALLOON VFX0006.png" id="9_hxilr"]
+[ext_resource type="Texture2D" uid="uid://cr1yb3x1quy46" path="res://Assets/VFX/Balloon/BALLOON VFX0007.png" id="10_l848o"]
+[ext_resource type="Texture2D" uid="uid://d4fyn3i0ho8jp" path="res://Assets/VFX/Balloon/BALLOON VFX0008.png" id="11_aidyd"]
+[ext_resource type="Texture2D" uid="uid://cw078w8c2qynq" path="res://Assets/VFX/Balloon/BALLOON VFX0009.png" id="12_d6yyu"]
+[ext_resource type="Texture2D" uid="uid://dju45vk1wevqx" path="res://Assets/VFX/Balloon/BALLOON VFX0010.png" id="13_8o4dd"]
+[ext_resource type="Texture2D" uid="uid://b5r3p8cpefqfy" path="res://Assets/VFX/Balloon/BALLOON VFX0011.png" id="14_3wwfj"]
+[ext_resource type="Texture2D" uid="uid://dd1bi3fsjrwcy" path="res://Assets/VFX/Balloon/BALLOON VFX0012.png" id="15_isocw"]
+[ext_resource type="Texture2D" uid="uid://bkcokow1jvbsq" path="res://Assets/VFX/Balloon/BALLOON VFX0013.png" id="16_72yf3"]
+[ext_resource type="Texture2D" uid="uid://cmpxcppe5fket" path="res://Assets/VFX/Balloon/BALLOON VFX0014.png" id="17_hk1ec"]
+[ext_resource type="Texture2D" uid="uid://xkw2xuli1ofe" path="res://Assets/VFX/Balloon/BALLOON VFX0015.png" id="18_24g8i"]
+[ext_resource type="Texture2D" uid="uid://7g3st2nmqx5q" path="res://Assets/VFX/Balloon/BALLOON VFX0016.png" id="19_l73f1"]
+[ext_resource type="Texture2D" uid="uid://bruotul7impgr" path="res://Assets/VFX/Balloon/BALLOON VFX0017.png" id="20_jgak7"]
+[ext_resource type="Texture2D" uid="uid://bip4fvpg21olw" path="res://Assets/VFX/Balloon/BALLOON VFX0018.png" id="21_gn3m1"]
+[ext_resource type="Texture2D" uid="uid://b8yqgbjntwayu" path="res://Assets/VFX/Balloon/BALLOON VFX0019.png" id="22_cn31j"]
+[ext_resource type="Texture2D" uid="uid://ds2g45twdqddf" path="res://Assets/VFX/Balloon/BALLOON VFX0020.png" id="23_rjn8x"]
+[ext_resource type="Texture2D" uid="uid://ddgbo50ec4pcn" path="res://Assets/VFX/Balloon/BALLOON VFX0021.png" id="24_ah8sb"]
+[ext_resource type="Texture2D" uid="uid://khcaej0av5fy" path="res://Assets/VFX/Balloon/BALLOON VFX0022.png" id="25_4l80y"]
+[ext_resource type="Texture2D" uid="uid://dgj8385jrd8u8" path="res://Assets/VFX/Balloon/BALLOON VFX0023.png" id="26_1i7af"]
+[ext_resource type="Texture2D" uid="uid://dvdk5q0nngcm8" path="res://Assets/VFX/Balloon/BALLOON VFX0024.png" id="27_0l3ku"]
+[ext_resource type="Texture2D" uid="uid://ci2e6lvmo4fuh" path="res://Assets/VFX/Balloon/BALLOON VFX0025.png" id="28_3alhy"]
+[ext_resource type="Texture2D" uid="uid://dg5ktxlgxs5a4" path="res://Assets/VFX/Balloon/BALLOON VFX0026.png" id="29_do7fo"]
+[ext_resource type="Texture2D" uid="uid://pekwsiit21ew" path="res://Assets/VFX/Balloon/BALLOON VFX0027.png" id="30_obvnp"]
+[ext_resource type="Texture2D" uid="uid://cu5ivecdifg42" path="res://Assets/VFX/Balloon/BALLOON VFX0028.png" id="31_12bpy"]
+[ext_resource type="Texture2D" uid="uid://bji21dax4w5sv" path="res://Assets/VFX/Balloon/BALLOON VFX0029.png" id="32_hwwpv"]
+[ext_resource type="Texture2D" uid="uid://dbyns7gff3jtv" path="res://Assets/VFX/Balloon/BALLOON VFX0030.png" id="33_fipmm"]
+[ext_resource type="Texture2D" uid="uid://nb1fbh6p6qxl" path="res://Assets/VFX/Balloon/BALLOON VFX0031.png" id="34_oxrgx"]
+[ext_resource type="Texture2D" uid="uid://dv04qtfa3a2ok" path="res://Assets/VFX/Balloon/BALLOON VFX0032.png" id="35_akp63"]
+[ext_resource type="Texture2D" uid="uid://c0jnuf0btju7x" path="res://Assets/VFX/Balloon/BALLOON VFX0033.png" id="36_5u2bt"]
+[ext_resource type="Texture2D" uid="uid://dv7mrr167nqv4" path="res://Assets/VFX/Balloon/BALLOON VFX0034.png" id="37_njgp3"]
+[ext_resource type="Texture2D" uid="uid://djo6gfyaykmx1" path="res://Assets/VFX/Balloon/BALLOON VFX0035.png" id="38_1wvf1"]
+[ext_resource type="Texture2D" uid="uid://fyg3i6vbxtdy" path="res://Assets/VFX/Balloon/BALLOON VFX0036.png" id="39_q6ukf"]
+[ext_resource type="Texture2D" uid="uid://wmdrrxs7e5aj" path="res://Assets/VFX/Balloon/BALLOON VFX0037.png" id="40_52ng4"]
+[ext_resource type="Texture2D" uid="uid://00la5o37twf8" path="res://Assets/VFX/Balloon/BALLOON VFX0038.png" id="41_bmdbt"]
+[ext_resource type="Texture2D" uid="uid://dglx34o80qjur" path="res://Assets/VFX/Balloon/BALLOON VFX0039.png" id="42_xqpvv"]
+[ext_resource type="Texture2D" uid="uid://bim7exishl7ib" path="res://Assets/VFX/Balloon/BALLOON VFX0040.png" id="43_2e8it"]
+[ext_resource type="Texture2D" uid="uid://c5hq0gkt4m3sl" path="res://Assets/VFX/Balloon/BALLOON VFX0041.png" id="44_t5584"]
+[ext_resource type="Texture2D" uid="uid://bj832fwwhppr5" path="res://Assets/VFX/Balloon/BALLOON VFX0042.png" id="45_m7o3x"]
+[ext_resource type="Texture2D" uid="uid://boddfvhj82mii" path="res://Assets/VFX/Balloon/BALLOON VFX0043.png" id="46_vekic"]
+[ext_resource type="Texture2D" uid="uid://dtnmv70g0sfkn" path="res://Assets/VFX/Balloon/BALLOON VFX0044.png" id="47_g302t"]
+[ext_resource type="Texture2D" uid="uid://datdh8k5th24x" path="res://Assets/VFX/Balloon/BALLOON VFX0045.png" id="48_ve5yk"]
+[ext_resource type="Texture2D" uid="uid://81xac2whyc4c" path="res://Assets/VFX/Balloon/BALLOON VFX0046.png" id="49_l2ret"]
+[ext_resource type="Texture2D" uid="uid://b8x7ff3lx8fag" path="res://Assets/VFX/Balloon/BALLOON VFX0047.png" id="50_grcft"]
+[ext_resource type="Texture2D" uid="uid://5tm1634vwwuh" path="res://Assets/VFX/Balloon/BALLOON VFX0048.png" id="51_1axqu"]
+[ext_resource type="Texture2D" uid="uid://b8pw38bocr8fr" path="res://Assets/VFX/Balloon/BALLOON VFX0049.png" id="52_ixw34"]
+[ext_resource type="Texture2D" uid="uid://bsq17hdfddbgc" path="res://Assets/VFX/Balloon/BALLOON VFX0050.png" id="53_jsibj"]
+[ext_resource type="Texture2D" uid="uid://3c0hbtau1ya3" path="res://Assets/VFX/Balloon/BALLOON VFX0051.png" id="54_2vw6v"]
+[ext_resource type="Texture2D" uid="uid://bid7yto7xadw3" path="res://Assets/VFX/Balloon/BALLOON VFX0052.png" id="55_6mc3h"]
+[ext_resource type="Texture2D" uid="uid://ct6wxktvjp18o" path="res://Assets/VFX/Balloon/BALLOON VFX0053.png" id="56_0qnrj"]
+[ext_resource type="Texture2D" uid="uid://2h03sq2dv5gu" path="res://Assets/VFX/Balloon/BALLOON VFX0054.png" id="57_44l1a"]
+[ext_resource type="Texture2D" uid="uid://br0fif6gqnuxc" path="res://Assets/VFX/Balloon/BALLOON VFX0055.png" id="58_hpgkr"]
+[ext_resource type="Texture2D" uid="uid://ca6fuuicjwhs6" path="res://Assets/VFX/Balloon/BALLOON VFX0056.png" id="59_jed7t"]
+[ext_resource type="Texture2D" uid="uid://tse7njjdilcm" path="res://Assets/VFX/Balloon/BALLOON VFX0057.png" id="60_k1ceb"]
+[ext_resource type="Texture2D" uid="uid://dmwuud2ia71ni" path="res://Assets/VFX/Balloon/BALLOON VFX0058.png" id="61_s6vej"]
+[ext_resource type="Texture2D" uid="uid://bakbcqj60oe0" path="res://Assets/VFX/Balloon/BALLOON VFX0059.png" id="62_mrmbd"]
+[ext_resource type="Texture2D" uid="uid://k15ka72bhrup" path="res://Assets/VFX/Balloon/BALLOON VFX0060.png" id="63_ew8ss"]
+[ext_resource type="Texture2D" uid="uid://b118p4qj2f12k" path="res://Assets/VFX/Balloon/BALLOON VFX0061.png" id="64_7wvqw"]
+[ext_resource type="Texture2D" uid="uid://c54ka108a2qwh" path="res://Assets/VFX/Balloon/BALLOON VFX0062.png" id="65_v851q"]
+[ext_resource type="Texture2D" uid="uid://caa6a3idq3xbw" path="res://Assets/VFX/Balloon/BALLOON VFX0063.png" id="66_rrq8v"]
+[ext_resource type="Texture2D" uid="uid://cvr37qdtb12yu" path="res://Assets/VFX/Balloon/BALLOON VFX0064.png" id="67_hj3sv"]
+[ext_resource type="Texture2D" uid="uid://cdmjj10cxdj4w" path="res://Assets/VFX/Balloon/BALLOON VFX0065.png" id="68_v53td"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4huuw"]
 height = 1.0
 radius = 0.25
 
-[sub_resource type="Curve" id="Curve_grvbi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7364865, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_ddns0"]
-curve = SubResource("Curve_grvbi")
-
-[sub_resource type="Curve" id="Curve_kcpt1"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5405406, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_grvbi"]
-curve = SubResource("Curve_kcpt1")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ddns0"]
-angle_min = 1.0728835e-05
-angle_max = 360.00003
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_grvbi")
-color = Color(1, 0.78431374, 0.12156863, 1)
-alpha_curve = SubResource("CurveTexture_ddns0")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1m7e"]
-render_priority = 1
-transparency = 1
-no_depth_test = true
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_grvbi")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_p0kg1"]
-material = SubResource("StandardMaterial3D_r1m7e")
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2tjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qqj5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s7o5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxhsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8qbde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bupin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_apkpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hxilr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l848o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_aidyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d6yyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8o4dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3wwfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_isocw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_72yf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hk1ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_24g8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l73f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jgak7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gn3m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cn31j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rjn8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ah8sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4l80y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_1i7af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0l3ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3alhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_do7fo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_obvnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_12bpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hwwpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fipmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_oxrgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_akp63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5u2bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_njgp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_1wvf1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_q6ukf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_52ng4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_bmdbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_xqpvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_2e8it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_t5584")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_m7o3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_vekic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_g302t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ve5yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_l2ret")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_grcft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_1axqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_ixw34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_jsibj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_2vw6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_6mc3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_0qnrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_44l1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_hpgkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_jed7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_k1ceb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_s6vej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_mrmbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ew8ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_7wvqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_v851q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_rrq8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_hj3sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_v53td")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 24.0
+}]
 
 [node name="Balloon" type="Node3D" unique_id=1675570646]
 script = ExtResource("1_kcpt1")
+sound_on_pop = 7.5
+damage_on_pop = 0.7
 pop_sound = ExtResource("2_ddns0")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1919375436]
@@ -59,18 +298,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1544902365]
 shape = SubResource("CylinderShape3D_4huuw")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=474496724]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
-texture = ExtResource("2_grvbi")
-region_enabled = true
-region_rect = Rect2(634.61865, 46.058136, 388.02393, 653.3639)
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=649053400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21020913, 0)
-cast_shadow = 0
-emitting = false
-amount = 1
-lifetime = 0.3
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_ddns0")
-draw_pass_1 = SubResource("QuadMesh_p0kg1")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1857349350]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.09192705, -0.017546237, 0)
+sprite_frames = SubResource("SpriteFrames_y2tjs")

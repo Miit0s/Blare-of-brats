@@ -19,8 +19,17 @@
 [ext_resource type="WwiseEvent" uid="uid://pho64d5e7r15" path="res://Wwise/resources/Event/{6F1DD123-BBF3-495C-BF87-230564992DCE}.tres" id="9_7o1xo"]
 [ext_resource type="WwiseRTPC" uid="uid://jfjbig1iig6j" path="res://Wwise/resources/Game Parameter/{0DEE1858-2463-4550-BF6A-045447464530}.tres" id="10_05i87"]
 [ext_resource type="WwiseSwitch" uid="uid://di8yyscq2ywpv" path="res://Wwise/resources/Switch/{63CB6B0B-90A3-4443-8423-6B8A560BED92}.tres" id="13_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://ck8weopbblctr" path="res://Scene/Map/map_6_bis.tscn" id="14_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://cngsdo46ho7ij" path="res://Scene/Map/map_7_bis.tscn" id="15_yaqu8"]
+[ext_resource type="PackedScene" uid="uid://ducxajit3e4m2" path="res://Scene/Map/map_8_bis.tscn" id="16_tw2pt"]
+[ext_resource type="PackedScene" uid="uid://b48lul6k3ccsj" path="res://Scene/Map/map_a3.tscn" id="17_hdg2p"]
+[ext_resource type="PackedScene" uid="uid://dfnxlodhsx1xm" path="res://Scene/Map/map_a4.tscn" id="18_7o1xo"]
 [ext_resource type="PackedScene" uid="uid://dhr0ypg38gbc1" path="res://Prefabs/Enviro/camera_controller.tscn" id="18_wv74o"]
+[ext_resource type="PackedScene" uid="uid://dcsf5isp333xv" path="res://Scene/Map/map_a5.tscn" id="19_vijqy"]
+[ext_resource type="PackedScene" uid="uid://b2sd3dxtv0hoy" path="res://Scene/Map/map_a6.tscn" id="20_ubkdv"]
 [ext_resource type="PackedScene" uid="uid://dseh3ukvut8qj" path="res://UI/Game/game_bar.tscn" id="21_2qcyb"]
+[ext_resource type="PackedScene" uid="uid://bdj1stw8jmbuh" path="res://Scene/Map/map_a7.tscn" id="21_tit5h"]
+[ext_resource type="PackedScene" uid="uid://b72aqtc51yxt6" path="res://Scene/Map/map_a8.tscn" id="22_cv58c"]
 [ext_resource type="PackedScene" uid="uid://dyfln07itxma8" path="res://Prefabs/Enviro/tracking_spot.tscn" id="23_yaqu8"]
 
 [node name="GameScene" type="Node3D" unique_id=1646683385 node_paths=PackedStringArray("game_bar", "camera_controller", "tracking_spot_player_one", "tracking_spot_player_two")]
@@ -28,6 +37,7 @@ script = ExtResource("1_f38sd")
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 next_scene_uid = "uid://bnfprdiqbhq53"
+restart_game_scene_uid = "uid://c53l85gqm0mi1"
 tracking_spot_player_one = NodePath("TrackingSpot")
 tracking_spot_player_two = NodePath("TrackingSpot2")
 music_fight = ExtResource("2_ee6vw")
@@ -43,7 +53,7 @@ continious_crowd_switch = ExtResource("7_7o1xo")
 reaction_crowd_switch = ExtResource("7_hdg2p")
 danger_phase_crowd_switch = ExtResource("13_2qcyb")
 crowd_sound = ExtResource("9_7o1xo")
-possible_level = Array[PackedScene]([ExtResource("7_8gx4v")])
+possible_level = Array[PackedScene]([ExtResource("7_8gx4v"), ExtResource("14_2qcyb"), ExtResource("15_yaqu8"), ExtResource("16_tw2pt"), ExtResource("17_hdg2p"), ExtResource("18_7o1xo"), ExtResource("19_vijqy"), ExtResource("20_ubkdv"), ExtResource("21_tit5h"), ExtResource("22_cv58c")])
 
 [node name="AkBank" type="AkBank" parent="." unique_id=753158615]
 bank = ExtResource("6_ugwxx")
@@ -67,7 +77,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -768.0
+offset_top = 22.435
 offset_right = 768.0
+offset_bottom = 235.435
 grow_horizontal = 2
 
 [node name="CameraController" parent="." unique_id=786363209 instance=ExtResource("18_wv74o")]

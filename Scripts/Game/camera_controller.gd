@@ -6,12 +6,15 @@ class_name CameraController
 @onready var wall_fall_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $WallFallPhantomCameraNoiseEmitter3D
 @onready var wolve_stun_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $WolfStunPhantomCameraNoiseEmitter3D
 @onready var object_destroy_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $ObjectDestroyPhantomCameraNoiseEmitter3D
+@onready var small_hit_phantom_camera_noise_emitter_3d: PhantomCameraNoiseEmitter3D = $SmallHitPhantomCameraNoiseEmitter3D
 
 @export var reset_position_duration: float = 1.5
 
 @export_category("Camera Shake")
+@export_group("Player Hit")
 @export var damage_to_shake_frequency_multiplier: float = 2.0
 @export var damage_to_shake_movement_multiplier: float = 0.2
+@export var threshold_for_big_shake_hit_trigger: float = 1.0
 @export var directionnal_movement_on_hit_transition_duration: float = 0.1
 @export var directionnal_movement_on_hit_back_transition_duration: float = 0.3
 
@@ -36,6 +39,10 @@ func stop_tracking():
 	_temp_player.clear()
 
 func trigger_hit_shake(direction: Vector3, damage: float):
+	if damage < threshold_for_big_shake_hit_trigger: 
+		small_hit_phantom_camera_noise_emitter_3d.emit()
+		return
+	
 	var normalized_direction: Vector3 = direction.normalized()
 	normalized_direction.z = 0.0
 	normalized_direction *= (damage * damage_to_shake_movement_multiplier)

@@ -47,17 +47,32 @@ func _ready() -> void:
 	options.on_button_click = on_button_click
 	options.on_button_focus = on_button_focus
 	
-	play_button.grab_focus()
-	
 	main_menu_music.post(self)
+	
+	if LoadingPage.is_displaying:
+		LoadingPage.despawn_transtion()
+	
+	if GameOptions.have_launch_game:
+		play_button.grab_focus()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton and not GameOptions.have_launch_game:
+		GameOptions.have_launch_game = true
+		var menu_start_scene: MenuStartScreen = $MenuStartScreen
+		menu_start_scene.play_transtion_and_destroy()
+		get_viewport().set_input_as_handled()
+		
+		play_button.grab_focus()
+	elif not GameOptions.have_launch_game:
+		get_viewport().set_input_as_handled()
+	
 	if event.is_action("ui_up") or event.is_action("ui_down") or event.is_action("ui_left") or event.is_action("ui_right"):
 		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
 	main_menu_music.stop(self)
-	get_tree().change_scene_to_file(game_start_scene_uid)
+	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
+	LoadingPage.start_transtion_to_scene(game_start_scene_uid)
 
 
 func _on_options_pressed() -> void:

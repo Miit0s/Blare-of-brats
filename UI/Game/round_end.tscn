@@ -1,141 +1,13 @@
 [gd_scene format=3 uid="uid://tk4btg4c6rlc"]
 
 [ext_resource type="Script" uid="uid://55up60dl4l06" path="res://Scripts/UI/round_end.gd" id="1_6h5qp"]
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_xb7ea"]
+[ext_resource type="Texture2D" uid="uid://s7sp8dxq2s67" path="res://Assets/SpriteUI/RoundEndScreen/decor_screen.png" id="3_3ylbo"]
+[ext_resource type="Texture2D" uid="uid://bir8dry1xixu2" path="res://Assets/SpriteUI/RoundEndScreen/score_title_holder.png" id="4_3ylbo"]
+[ext_resource type="PackedScene" uid="uid://bph4a5m2b1hae" path="res://UI/Game/player_icon.tscn" id="5_xhwmt"]
+[ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="7_i6sca"]
+[ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="8_a8uyj"]
 [ext_resource type="WwiseEvent" uid="uid://cdannm0xnbn3y" path="res://Wwise/resources/Event/{86F1B91D-961C-4A2F-B6D7-F4A0A03E2462}.tres" id="2_3ylbo"]
-[ext_resource type="Texture2D" uid="uid://4tqeaa0e2m54" path="res://Assets/Player/Max/front.png" id="2_wx704"]
-[ext_resource type="Texture2D" uid="uid://csfefkuxh08s1" path="res://Assets/Player/Ash/front.png" id="3_xb7ea"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ubh67"]
-font_size = 50
-
-[sub_resource type="Animation" id="Animation_6h5qp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RoundEnd:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RoundWinner:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NextRound:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ubh67"]
-resource_name = "round_finish"
-length = 5.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RoundEnd:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RoundWinner:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(4.0666666),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"update_score"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NextRound:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h5qp"]
-_data = {
-&"RESET": SubResource("Animation_6h5qp"),
-&"round_finish": SubResource("Animation_ubh67")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_wx704"]
-font_size = 50
-
-[sub_resource type="LabelSettings" id="LabelSettings_xb7ea"]
-font_size = 50
 
 [node name="RoundEnd" type="Control" unique_id=1185368454]
 layout_mode = 3
@@ -144,50 +16,112 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xb7ea")
 script = ExtResource("1_6h5qp")
 score_update_sound = ExtResource("2_3ylbo")
+info_grow_duration = 0.5
 
-[node name="RoundEnd" type="Label" parent="." unique_id=2009046954]
+[node name="RoundInfo" type="TextureRect" parent="." unique_id=1163814296]
 visible = false
+custom_minimum_size = Vector2(1600, 677.655)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -11.5
-offset_right = 42.0
-offset_bottom = 11.5
+offset_left = -838.0
+offset_top = -396.61798
+offset_right = 838.0
+offset_bottom = 312.8271
 grow_horizontal = 2
 grow_vertical = 2
-text = "Round End"
-label_settings = SubResource("LabelSettings_ubh67")
-horizontal_alignment = 1
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_3ylbo")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="RoundWinner" type="RichTextLabel" parent="." unique_id=728329521]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="RoundInfo" unique_id=1139577386]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -287.0
-offset_top = -34.5
-offset_right = 287.0
-offset_bottom = 34.5
+offset_left = -471.0
+offset_top = -72.53
+offset_right = 471.0
+offset_bottom = 245.19702
 grow_horizontal = 2
-grow_vertical = 2
+texture = ExtResource("4_3ylbo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreRichLabel" type="RichTextLabel" parent="RoundInfo/TextureRect" unique_id=779981864]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 10.14798
+offset_right = 170.0
+offset_bottom = 67.14798
+grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
-text = "Player X win the round !"
+text = "0 - 0"
+scroll_active = false
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2007299986]
-libraries/ = SubResource("AnimationLibrary_6h5qp")
+[node name="RoundRichLabel" type="RichTextLabel" parent="RoundInfo/TextureRect" unique_id=1354454852]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -93.57904
+offset_right = 172.0
+offset_bottom = -35.57904
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 50
+text = "Round 0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Control" type="Control" parent="." unique_id=446112245]
+[node name="WinTextLabel" type="Label" parent="RoundInfo/TextureRect" unique_id=1442288466]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -75.21553
+offset_right = 277.0
+offset_bottom = 53.78447
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 110
+text = "WIN !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerIcon" parent="RoundInfo/TextureRect" unique_id=834422434 instance=ExtResource("5_xhwmt")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 143.315
+offset_top = -154.7205
+offset_right = 408.47003
+offset_bottom = 110.434525
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="FinishLabel" type="Label" parent="." unique_id=353457450]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -195,64 +129,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
+offset_left = -288.0
+offset_top = -116.5
+offset_right = 288.0
+offset_bottom = 116.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Finish !"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=502247179]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=783302663]
-layout_mode = 2
-text = "Score"
-label_settings = SubResource("LabelSettings_wx704")
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1608726340]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="TextureRectLeft" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1102759986]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("2_wx704")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Player0" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=887528659]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "0"
-label_settings = SubResource("LabelSettings_xb7ea")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Player1" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=1854141513]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "0"
-label_settings = SubResource("LabelSettings_xb7ea")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRectRight" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1456166768]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("3_xb7ea")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NextRound" type="Button" parent="." unique_id=1189595702]
+[node name="NextRoundButton" type="TextureButton" parent="." unique_id=2129854004]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -260,13 +146,30 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -89.5
-offset_top = -130.0
-offset_right = 89.5
-offset_bottom = -80.0
+offset_left = -254.71698
+offset_top = -225.505
+offset_right = 254.71619
+offset_bottom = -49.693604
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Next Round"
+texture_normal = ExtResource("8_a8uyj")
+ignore_texture_size = true
+stretch_mode = 5
 
-[connection signal="pressed" from="NextRound" to="." method="_on_next_round_pressed"]
+[node name="Label" type="Label" parent="NextRoundButton" unique_id=1314722329]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.71661
+offset_top = -44.90515
+offset_right = 175.5
+offset_bottom = 73.09485
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_i6sca")
+text = "Next Round"
+horizontal_alignment = 1
+vertical_alignment = 1
