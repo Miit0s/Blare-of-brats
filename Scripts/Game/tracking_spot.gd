@@ -18,23 +18,33 @@ class_name TrackingSpot extends Node3D
 func _ready() -> void:
 	if target and create_a_temp_target:
 		target.tree_exiting.connect(_on_target_exit.bind(target.global_position))
+	
+	_update_objet_with_new_parameters()
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if target and target.is_inside_tree():
 		if target.global_position.z == 0 and target.global_position.x == 0:
 			look_at(target.global_position)
 		else:
 			look_at(target.global_position, Vector3.UP)
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		_update_objet_with_new_parameters()
+
+func _update_objet_with_new_parameters():
 	light.spot_angle = angle
 	light.spot_range = distance
+	light.light_color = color
+	
 	var cylinder : CylinderMesh = mesh.mesh
 	cylinder.height = distance
 	mesh.position.z = -distance/2
 	cylinder.top_radius = start_radius
 	cylinder.bottom_radius = distance * tan(deg_to_rad(angle)) if not use_given_end_radius else end_radius
-	var mat : StandardMaterial3D = cylinder.material
-	mat.albedo_color = color
-	light.light_color = color
+	
+	var cylinder_material : StandardMaterial3D = cylinder.material
+	cylinder_material.albedo_color = color
 
 func _on_target_exit(exit_position: Vector3):
 	if not is_inside_tree(): return

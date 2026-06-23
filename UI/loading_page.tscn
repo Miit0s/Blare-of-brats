@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://eaguygk13xv0"]
+
+[ext_resource type="Texture2D" uid="uid://ce2kyh0xs1xgo" path="res://Assets/SpriteUI/Menu/blue menu screen.png" id="1_qjrnr"]
+[ext_resource type="Script" uid="uid://dx1bej358tqrr" path="res://Scripts/UI/loading_page.gd" id="2_ptlei"]
+[ext_resource type="Texture2D" uid="uid://b1cj3dx5lhybi" path="res://Assets/SpriteUI/Menu/mask animation logo et menu.png" id="2_vak4j"]
+[ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="3_mfjuo"]
+[ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="4_r4hep"]
+[ext_resource type="Texture2D" uid="uid://clgtvb2iesfci" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0000.png" id="5_m3ohj"]
+[ext_resource type="Texture2D" uid="uid://c1t1tae4keatk" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0001.png" id="6_hf1oe"]
+[ext_resource type="Texture2D" uid="uid://c16t6xxv60hp8" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0002.png" id="7_ptlei"]
+[ext_resource type="Texture2D" uid="uid://bmoooqt4t1n40" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0003.png" id="8_swcs8"]
+[ext_resource type="Texture2D" uid="uid://4bkrqieqdl5d" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0004.png" id="9_cdi4y"]
+[ext_resource type="Texture2D" uid="uid://c22fdgtcynbp5" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0005.png" id="10_pu7yr"]
+[ext_resource type="Texture2D" uid="uid://cnyltjkd85uj2" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0006.png" id="11_jkyjq"]
+[ext_resource type="Texture2D" uid="uid://dxsonu5txdpo3" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0007.png" id="12_75a2o"]
+[ext_resource type="Texture2D" uid="uid://wpb1umimwpvs" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0008.png" id="13_tjm2p"]
+[ext_resource type="Texture2D" uid="uid://vfoetwecbxd7" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0009.png" id="14_4wmqx"]
+[ext_resource type="Texture2D" uid="uid://dovou8waij12v" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0010.png" id="15_ft3qv"]
+[ext_resource type="Texture2D" uid="uid://dltqh2hh6rnad" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0011.png" id="16_vcsov"]
+[ext_resource type="Texture2D" uid="uid://unqmqn4c2bo2" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0012.png" id="17_rliw2"]
+[ext_resource type="Texture2D" uid="uid://bm4dkjmc864bw" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0013.png" id="18_4encp"]
+[ext_resource type="Texture2D" uid="uid://dusapm3qnnb1w" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0014.png" id="19_eepdv"]
+[ext_resource type="Texture2D" uid="uid://cwpkmxe0ssyhl" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0015.png" id="20_1n36h"]
+[ext_resource type="Texture2D" uid="uid://di37sfv5dwyu8" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0016.png" id="21_o4osy"]
+[ext_resource type="Texture2D" uid="uid://c7jx8okl7d18c" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0017.png" id="22_mfj2o"]
+[ext_resource type="Texture2D" uid="uid://bwk75qn2qe4kf" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0018.png" id="23_6k5xc"]
+[ext_resource type="Texture2D" uid="uid://duwkbmiqesaf7" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0019.png" id="24_vv6ml"]
+[ext_resource type="Texture2D" uid="uid://bprmwffp5ml6q" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0020.png" id="25_46osq"]
+[ext_resource type="Texture2D" uid="uid://dipvtffpw7rsx" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0021.png" id="26_xtymw"]
+[ext_resource type="Texture2D" uid="uid://nboadap4yacg" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0022.png" id="27_q4084"]
+[ext_resource type="Texture2D" uid="uid://bacieldho0tj5" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0023.png" id="28_0fqgn"]
+[ext_resource type="Texture2D" uid="uid://oqyr11plg4p1" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0024.png" id="29_e884u"]
+[ext_resource type="Texture2D" uid="uid://dvp58ci0ipoh5" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0025.png" id="30_nk3iv"]
+[ext_resource type="Texture2D" uid="uid://8dgjtaj5ca0l" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0026.png" id="31_xjad8"]
+[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="32_hf1oe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hf1oe"]
+resource_local_to_scene = true
+shader = ExtResource("32_hf1oe")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(0.4, 3)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.030000001425
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iloya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_m3ohj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hf1oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ptlei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_swcs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cdi4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pu7yr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jkyjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_75a2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tjm2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4wmqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ft3qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vcsov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rliw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4encp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_eepdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1n36h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o4osy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mfj2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_6k5xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vv6ml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_46osq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xtymw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_q4084")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0fqgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_e884u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_nk3iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xjad8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xjad8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xjad8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xjad8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xjad8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="LoadingPage" type="CanvasLayer" unique_id=905105484]
+layer = 5
+script = ExtResource("2_ptlei")
+
+[node name="LoadingPage" type="SubViewportContainer" parent="." unique_id=1975262862]
+material = SubResource("ShaderMaterial_hf1oe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="LoadingPage" unique_id=992752853]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="LoadingPage/SubViewport" unique_id=2060839185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="LoadingPage/SubViewport/Control" unique_id=1545464175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qjrnr")
+
+[node name="Mask" type="TextureRect" parent="LoadingPage/SubViewport/Control" unique_id=564669454]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1003.0
+grow_vertical = 2
+texture = ExtResource("2_vak4j")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Parallax2D2" type="Parallax2D" parent="LoadingPage/SubViewport/Control/Mask" unique_id=857832842]
+repeat_size = Vector2(609.66, 304.56)
+autoscroll = Vector2(15, 15)
+repeat_times = 15
+screen_offset = Vector2(800, 800)
+
+[node name="Sprite2D" type="Sprite2D" parent="LoadingPage/SubViewport/Control/Mask/Parallax2D2" unique_id=452790345]
+self_modulate = Color(0.011764706, 0.11764706, 0.29411766, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mfjuo")
+
+[node name="Logo" type="TextureRect" parent="LoadingPage/SubViewport/Control" unique_id=1261052357]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -226.0
+offset_right = 253.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r4hep")
+
+[node name="Control" type="Control" parent="LoadingPage/SubViewport/Control" unique_id=1314758910]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -90.0
+offset_right = -70.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LoadingPage/SubViewport/Control/Control" unique_id=1827980199]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_iloya")
+autoplay = "default"

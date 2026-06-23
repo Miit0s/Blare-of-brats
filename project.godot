@@ -19,10 +19,11 @@ quick_scenes/scene_list=PackedStringArray("uid://c53l85gqm0mi1", "uid://36tccmd3
 [application]
 
 config/name="Blare of Brats"
-config/version="0.3.2"
+config/version="0.4.0"
 run/main_scene="uid://bnfprdiqbhq53"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://du1b70k1hymft"
+config/windows_native_icon="res://bob-icon.ico"
 
 [audio]
 
@@ -32,8 +33,10 @@ buses/default_bus_layout="uid://c381lrnwn0b16"
 
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 GameOptions="*uid://cnmbx5iaeo7g"
-ControllerTypeManager="*uid://jahsyrcq7etx"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+ControllerTypeManager="*uid://jahsyrcq7etx"
+VibrationManager="*uid://dnmg6hglxd65v"
+LoadingPage="*uid://eaguygk13xv0"
 
 [display]
 

@@ -7,7 +7,11 @@ var icon_sets: Dictionary = {
 	ControllerIconSet.PlatformName.PLAYSTATION: preload("uid://bc17i7ioqxosn"),
 	ControllerIconSet.PlatformName.XBOX: preload("uid://br26gdxuc7iu4"),
 	ControllerIconSet.PlatformName.STEAM: preload("uid://civbv4rh0yifp"),
-	ControllerIconSet.PlatformName.NINTENDO: preload("uid://ce577jeai8fsd")
+	ControllerIconSet.PlatformName.NINTENDO: preload("uid://ce577jeai8fsd"),
+	ControllerIconSet.PlatformName.PLAYSTATION_WHITE: preload("uid://bys3hkmr602oy"),
+	ControllerIconSet.PlatformName.XBOX_WHITE: preload("uid://d1js6711sev57"),
+	ControllerIconSet.PlatformName.STEAM_WHITE: preload("uid://civbv4rh0yifp"),
+	ControllerIconSet.PlatformName.NINTENDO_WHITE: preload("uid://ce577jeai8fsd")
 }
 
 signal device_changed(device_type: ControllerIconSet.PlatformName)
@@ -46,12 +50,13 @@ func _input(event: InputEvent) -> void:
 			current_device = new_device
 			device_changed.emit(current_device)
 
-func get_icon_path_for_action(action_name: String) -> String:
+func get_icon_path_for_action(action_name: String, white_version: bool = false) -> String:
 	var event: InputEvent = InputMap.action_get_events(action_name)[0]
 	
 	var icon: Texture2D
 	if event is InputEventJoypadButton:
-		icon = icon_sets[current_device].get_icon_for_joybutton(event.button_index)
+		if white_version: icon = icon_sets[_get_current_device_white_edition_id()].get_icon_for_joybutton(event.button_index)
+		else: icon = icon_sets[current_device].get_icon_for_joybutton(event.button_index)
 	else:
 		icon = icon_sets[current_device].get_icon_for_joyaxis(event.axis)
 	return icon.resource_path
@@ -59,3 +64,11 @@ func get_icon_path_for_action(action_name: String) -> String:
 func get_icon_path_for_input(input_name: JoyButton) -> String:
 	var icon: Texture2D = icon_sets[current_device].get_icon_for_joybutton(input_name)
 	return icon.resource_path
+
+func _get_current_device_white_edition_id() -> ControllerIconSet.PlatformName:
+	match current_device:
+		ControllerIconSet.PlatformName.PLAYSTATION: return ControllerIconSet.PlatformName.PLAYSTATION_WHITE
+		ControllerIconSet.PlatformName.XBOX: return ControllerIconSet.PlatformName.XBOX_WHITE
+		ControllerIconSet.PlatformName.NINTENDO: return ControllerIconSet.PlatformName.NINTENDO_WHITE
+		ControllerIconSet.PlatformName.STEAM: return ControllerIconSet.PlatformName.STEAM_WHITE
+	return ControllerIconSet.PlatformName.PLAYSTATION_WHITE

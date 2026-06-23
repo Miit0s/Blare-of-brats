@@ -24,3 +24,5 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/color_override = Color(1, 0, 0, 1)
 shader_parameter/blend_delta = 0.0
+shader_parameter/emission_energy = 1.0000000475
+shader_parameter/saturation = 1.1600000551

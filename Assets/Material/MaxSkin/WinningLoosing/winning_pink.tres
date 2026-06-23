@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://m5tmcbeo5gan"]
+
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_y6skt"]
+[ext_resource type="Texture2D" uid="uid://dr038rbx0ejt" path="res://Assets/SpriteUI/GameEndScreen/brother win.png" id="2_kiwcr"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_y6skt")
+shader_parameter/main_texture = ExtResource("2_kiwcr")
+shader_parameter/original_0 = Color(0.5921569, 0.75686276, 0.39607844, 1)
+shader_parameter/original_1 = Color(0.89411765, 0.98039216, 0.44313726, 1)
+shader_parameter/original_2 = Color(0.4117647, 0.57254905, 0.25882354, 1)
+shader_parameter/original_3 = Color(0.53333336, 0.6901961, 0.38431373, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.7372549, 0.29411766, 0.5568628, 1)
+shader_parameter/replace_1 = Color(1, 0.61960787, 0.8509804, 1)
+shader_parameter/replace_2 = Color(0.47058824, 0.19607843, 0.36078432, 1)
+shader_parameter/replace_3 = Color(0.72156864, 0.35686275, 0.5764706, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.050000002375
+shader_parameter/softness = 0.05

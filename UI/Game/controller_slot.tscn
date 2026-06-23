@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bkj8meb4l8f3x"]
 
+[ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_0sif0"]
 [ext_resource type="Script" uid="uid://djijj42sivaq6" path="res://Scripts/UI/controller_slot.gd" id="1_ud3kx"]
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="4_0tve0"]
 [ext_resource type="Material" uid="uid://thgstxxmaoxl" path="res://Assets/Material/AshSkin/2D/orange.tres" id="4_5et8s"]
@@ -29,9 +30,6 @@
 [ext_resource type="Resource" uid="uid://0ituf8tnbe8u" path="res://Ressources/CharacterSkin/Ash/violet.tres" id="21_1icc5"]
 [ext_resource type="Texture2D" uid="uid://jxdua4ndggn6" path="res://Assets/SpriteUI/CharacterSelection/ready_banniere.png" id="27_1icc5"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_f1ni1"]
-font_size = 48
-
 [node name="Control" type="Control" unique_id=1811407478]
 layout_mode = 3
 anchors_preset = 8
@@ -41,6 +39,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_0sif0")
 script = ExtResource("1_ud3kx")
 character_texture = Array[Texture2D]([ExtResource("4_f1ni1"), ExtResource("4_x1yx4")])
 front_texture_begin_material = ExtResource("4_q8gsb")
@@ -54,17 +53,16 @@ color_back_sound = ExtResource("10_0sif0")
 
 [node name="ControllerSlot" type="TextureRect" parent="." unique_id=699056762]
 visible = false
-custom_minimum_size = Vector2(350, 350)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -336.0
-offset_top = -175.0
-offset_right = 336.0
-offset_bottom = 175.0
+offset_left = -347.66
+offset_top = -218.5
+offset_right = 170.5773
+offset_bottom = -36.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -75,15 +73,13 @@ stretch_mode = 5
 [node name="RichLabel" type="RichTextLabel" parent="ControllerSlot" unique_id=213948769]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -142.5
-offset_top = -71.025
-offset_right = 142.5
-offset_bottom = 104.47513
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 50.0
+offset_right = -86.237305
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.9999998, 0.32291448, 0.7420243, 1)
@@ -306,14 +302,18 @@ NodePath("VBoxContainer/ColorSelector3"): ExtResource("21_1icc5")
 
 [node name="ReadyState" type="Control" parent="SelectedPlayer" unique_id=29938384]
 visible = false
-custom_minimum_size = Vector2(0, 100)
+z_index = 1
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 13.815002
-offset_bottom = 113.81506
+offset_left = -310.126
+offset_top = 7.0150146
+offset_right = 310.1262
+offset_bottom = 167.04004
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -330,11 +330,18 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="SelectedPlayer/ReadyState" unique_id=1376972120]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.00012
+offset_top = -78.03253
+offset_right = 234.99988
+offset_bottom = 41.96747
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 90
 text = "Ready"
-label_settings = SubResource("LabelSettings_f1ni1")
 horizontal_alignment = 1
+vertical_alignment = 1

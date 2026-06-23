@@ -46,6 +46,11 @@ func _ready() -> void:
 	current_selected_resolution = GameOptions.saved_options.resolution
 	setup_resolution_list()
 
+func _force_update_of_settings(option_resource: OptionsResource):
+	_on_fullscreen_button_toggled(option_resource.fullscreen)
+	_on_v_sync_button_toggled(option_resource.activate_v_sync)
+	refresh_resolution()
+
 
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if toggled_on else Window.MODE_WINDOWED
@@ -142,6 +147,8 @@ func apply_options(option_ressource: OptionsResource):
 	#Text Size
 	toggle_hud.set_toggle_button(option_ressource.desactivate_hud)
 	#HUD Size
+	
+	_force_update_of_settings(option_ressource)
 
 
 func _on_camera_shake_button_toggled(toggled_on: bool) -> void:

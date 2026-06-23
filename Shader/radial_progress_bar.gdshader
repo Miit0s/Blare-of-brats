@@ -5,7 +5,9 @@ uniform float outer_bound : hint_range(0.0, 0.5, 0.05) = 0.4;
 uniform float inner_bound : hint_range(0.0, 0.4, 0.05) = 0.3;
 uniform float fill_direction : hint_range(-1.0, 1.0, 2.0) = 1.0;
 
-uniform float progress : hint_range(0.0, 1.0) = 1.0;
+uniform bool is_round = true;
+
+uniform float progress : hint_range(0.0, 1.0, 0.01) = 0.0;
 
 void fragment() {
 	float outer_bound_alpha = 1.0 - step(outer_bound, distance(vec2(0.5), UV));
@@ -16,6 +18,11 @@ void fragment() {
 	// normalize the radial position to [0, 1] range and compare it to the progress
 	radial_position = step((radial_position + PI) / (2.0 * PI), progress); 
 	
-	COLOR.a = min(inner_bound_alpha, min(outer_bound_alpha, radial_position));
+	if (is_round) {
+		COLOR.a = min(inner_bound_alpha, min(outer_bound_alpha, radial_position)) * COLOR.a;
+	} else {
+		COLOR.a = radial_position * COLOR.a;
+	}
+	
 	COLOR.rgb = base_color;
 }

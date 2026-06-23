@@ -6,7 +6,7 @@ class_name OptionsResource
 @export var activate_player_marker: bool = true
 
 #Audio Page
-@export var general_volume: float = 100
+@export var general_volume: float = 50
 @export var music_volume: float = 100
 @export var sound_design_volume: float = 100
 @export var ambiance_volume: float = 100
@@ -16,6 +16,7 @@ class_name OptionsResource
 @export var resolution: Vector2i = Vector2i.ZERO
 @export var activate_v_sync: bool = true
 @export var activate_camera_shake: bool = true
+@export var activate_controller_vibration: bool = true
 #variable for daltonism here. Have to make a enum for that
 
 @export var text_size: int = 100

@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://duugr5xiqpun5"]
+
+[ext_resource type="Shader" uid="uid://b0gbgus177d5q" path="res://Shader/skin_color_change_2d.gdshader" id="1_hnjaq"]
+[ext_resource type="Texture2D" uid="uid://cy0iw7r58182m" path="res://Assets/SpriteUI/GameEndScreen/sister lose.png" id="2_hnjaq"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_hnjaq")
+shader_parameter/main_texture = ExtResource("2_hnjaq")
+shader_parameter/original_0 = Color(0.9882353, 0.64705884, 0.5294118, 1)
+shader_parameter/original_1 = Color(0.9607843, 0.31764707, 0.5254902, 1)
+shader_parameter/original_2 = Color(0.8627451, 0.45882353, 0.28235295, 1)
+shader_parameter/original_3 = Color(1, 0.57254905, 0.42352942, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.9882353, 0.93333334, 0.5294118, 1)
+shader_parameter/replace_1 = Color(0.8627451, 0.45882353, 0.9607843, 1)
+shader_parameter/replace_2 = Color(0.8980392, 0.7058824, 0.3882353, 1)
+shader_parameter/replace_3 = Color(0.9999998, 0.86494946, 0.39332116, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.0800000038
+shader_parameter/softness = 0.05

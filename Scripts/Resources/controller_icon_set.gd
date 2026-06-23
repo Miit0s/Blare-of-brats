@@ -6,6 +6,10 @@ enum PlatformName {
 	XBOX,
 	STEAM,
 	NINTENDO,
+	PLAYSTATION_WHITE,
+	XBOX_WHITE,
+	STEAM_WHITE,
+	NINTENDO_WHITE,
 }
 
 @export var platform_name: PlatformName

@@ -3,17 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://cgxrik5ollgn3" path="res://Prefabs/Item/item.tscn" id="1_onh0j"]
 [ext_resource type="Texture2D" uid="uid://cfbfodawjxe41" path="res://Assets/MockSprite/pencil.png" id="2_njkn3"]
 [ext_resource type="Script" uid="uid://dakbg62ohoa68" path="res://Scripts/Item/pencil.gd" id="2_ujcen"]
+[ext_resource type="WwiseEvent" uid="uid://bb0oq2wjcu4q1" path="res://Wwise/resources/Event/{EFB76245-5964-449C-A5D1-4E3800226B0E}.tres" id="3_k0vxe"]
+[ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="3_l2yxx"]
 [ext_resource type="Texture2D" uid="uid://ny0p73fe5p5r" path="res://Assets/Item/pencil.png" id="4_k0vxe"]
+[ext_resource type="Resource" uid="uid://doq45oym56nm" path="res://Ressources/ItemAnimation/pencil_for_max.tres" id="4_murkp"]
+[ext_resource type="Resource" uid="uid://ca4ss6fkslm7b" path="res://Ressources/ItemAnimation/pencil_for_ash.tres" id="5_qah6i"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ujcen"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qah6i"]
 resource_local_to_scene = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ujcen"]
-points = PackedVector3Array(0, 0, 1, -1, 0, -1, 1, 0, -1)
+points = PackedVector3Array(-2, 0, 1, -1, 0, -1, 1, 0, -1, 2, 0, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_ujcen"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_murkp"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3tucb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wul3"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -27,36 +31,38 @@ animations = [{
 
 [node name="Pencil" unique_id=2059959192 instance=ExtResource("1_onh0j")]
 script = ExtResource("2_ujcen")
-slash_arc_angle = 160.0
 attack_speed = 0.35
-damage = 2.5
-throw_damage = 1.5
+damage = 2.7
+mask_that_block_attack = 0
+throw_damage = 2.3
 sound_on_attack = 3.0
 sound_on_throw = 5.0
 sound_on_break = 3.0
+attack_sound = ExtResource("3_k0vxe")
 durability = 4
+animations = Dictionary[int, ExtResource("3_l2yxx")]({
+0: ExtResource("4_murkp"),
+1: ExtResource("5_qah6i")
+})
 
 [node name="ItemVisual" parent="." index="0" unique_id=512871286]
 transform = Transform3D(0.060894143, 0.07932152, 0, -0.07453784, 0.057221778, 0.034202013, 0.027129555, -0.020827021, 0.09396926, 0, 0, 0)
 texture = ExtResource("4_k0vxe")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_ujcen")
+shape = SubResource("SphereShape3D_qah6i")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_ujcen")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_ujcen")
+mesh = SubResource("ImmediateMesh_murkp")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="GPUTrail3D" parent="VisualAnchor" index="0" unique_id=1052939116]
-transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 1, 0, 0)
-
-[node name="ItemAnimation" parent="VisualAnchor" index="1" unique_id=187442146]
+[node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.04461978, 0.089493446, 0, -0.089493446, 0.04461978, 0, 0, 0, 0.1, 0.9550742, 0, 0)
 flip_h = true
-sprite_frames = SubResource("SpriteFrames_3tucb")
+sprite_frames = SubResource("SpriteFrames_0wul3")

@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://cqeer5ilf3afn"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Countdown"
+id = 1505888634
+guid = "{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}"
+dummy = true

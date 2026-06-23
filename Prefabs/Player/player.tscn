@@ -8,14 +8,17 @@
 [ext_resource type="WwiseEvent" uid="uid://kmug6jbw3m36" path="res://Wwise/resources/Event/{5CB1B9BD-0D88-43AA-B296-299D77A79FF7}.tres" id="5_nad7g"]
 [ext_resource type="WwiseEvent" uid="uid://bnvwgrkmx8xka" path="res://Wwise/resources/Event/{43D23B9E-50D4-45DF-BE14-732C45FFFF8A}.tres" id="6_7m7dm"]
 [ext_resource type="Texture2D" uid="uid://wiku0shyyeh4" path="res://Assets/MockSprite/circle_arrow.png" id="7_juxdh"]
+[ext_resource type="WwiseEvent" uid="uid://c1vm64mp3s1yr" path="res://Wwise/resources/Event/{B7E021BD-0229-492F-B110-F0B72000189C}.tres" id="7_ybo73"]
 [ext_resource type="Resource" uid="uid://cg1ubyp5pe4gg" path="res://Ressources/CharacterAnimation/max.tres" id="8_4sfrm"]
 [ext_resource type="SpriteFrames" uid="uid://cnesqd613cmy2" path="res://Ressources/CharacterAnimation/idles_max.tres" id="8_tt850"]
 [ext_resource type="PackedScene" uid="uid://tgo2cn1siwst" path="res://Assets/Particle/stun_particle.tscn" id="13_r08wf"]
-[ext_resource type="Texture2D" uid="uid://8s2jtu04kkm1" path="res://Assets/MockSprite/arrow.svg" id="14_4sfrm"]
 [ext_resource type="Material" uid="uid://bidpsc14w06tn" path="res://Assets/Material/MaxSkin/3D/green.tres" id="14_ybo73"]
 [ext_resource type="PackedScene" uid="uid://cdxrb6oauddef" path="res://Assets/Particle/walk_smoke.tscn" id="15_r08wf"]
+[ext_resource type="Texture2D" uid="uid://btjap5yqpk4vs" path="res://Assets/VFX/aura star.png" id="15_sf0qn"]
+[ext_resource type="Texture2D" uid="uid://cmjgdrf2iqy6" path="res://Assets/VFX/crown.png" id="16_j7wlx"]
 [ext_resource type="Script" uid="uid://6t84m8kgsqsb" path="res://Scripts/Tools/sprite_3d_with_bloom.gd" id="16_sf0qn"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
+[ext_resource type="Texture2D" uid="uid://box66bwktxqdh" path="res://Assets/VFX/arrow_02.png" id="18_sf0qn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4sfrm"]
 resource_local_to_scene = true
@@ -28,39 +31,43 @@ height = 2.05
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wxv7"]
 radius = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ybo73"]
-resource_local_to_scene = true
-load_path = "res://.godot/imported/aura moon.png-347ee4c30c8b8a34a5150c5a771b6a71.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7wlx"]
 resource_local_to_scene = true
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("CompressedTexture2D_ybo73")
+albedo_texture = ExtResource("15_sf0qn")
 emission_enabled = true
-emission_energy_multiplier = 2.0
-emission_texture = SubResource("CompressedTexture2D_ybo73")
+emission_energy_multiplier = 0.6
+emission_texture = ExtResource("15_sf0qn")
 
-[node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "dash_effect", "throw_arrow")]
+[node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "animated_sprite_3d_for_offset", "dash_effect", "throw_arrow")]
 collision_layer = 34
 collision_mask = 49
 script = ExtResource("1_y6xdh")
-speed = 9.0
+speed = 8.5
 dash_speed = 30.0
 min_dash_speed = 8.0
+dash_cooldown = 0.8
 picked_up_item_distance = 0.8
-attack_cooldown = 0.7
+attack_cooldown = 0.6
 knockback_stun_duration = 0.2
-knockback_speed = 25.0
-knockback_duration = 0.15
+knockback_speed = 34.0
+knockback_duration = 0.21
 pickup_sound = ExtResource("2_2nftw")
 dash_sound = ExtResource("3_knrd4")
 switch_sound = ExtResource("4_knrd4")
 hit_wout_obj = ExtResource("5_nad7g")
 launch = ExtResource("6_7m7dm")
+stun_sound = ExtResource("7_ybo73")
 wall_bounce_particle_prefab = ExtResource("5_4sfrm")
 character_animation = ExtResource("8_4sfrm")
+vibration_force_on_objet_destroy = 0.82
+vibration_duration_on_objet_destroy = 0.15
+vibration_force_on_pickup = 0.2
+vibration_force_on_hit_other_player = 0.9
+vibration_force_on_stun = 1.0
 player_animated_sprite_3d = NodePath("AnimatedSprite3D")
+animated_sprite_3d_for_offset = NodePath("AnimatedSpriteForOffset")
 dash_effect = NodePath("DashEffect")
 throw_arrow = NodePath("ThrowDirection/ThrowArrow")
 
@@ -70,7 +77,16 @@ visible = false
 texture = SubResource("CompressedTexture2D_4sfrm")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=932639487]
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0.003705293, 5.9604645e-08, 0.0003566742)
+material_override = ExtResource("14_ybo73")
+shaded = true
+alpha_cut = 1
+sprite_frames = ExtResource("8_tt850")
+animation = &"left"
+
+[node name="AnimatedSpriteForOffset" type="AnimatedSprite3D" parent="." unique_id=268198128]
 transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
+visible = false
 material_override = ExtResource("14_ybo73")
 shaded = true
 alpha_cut = 1
@@ -104,17 +120,22 @@ visible = false
 texture = ExtResource("7_juxdh")
 
 [node name="PlayerMarkerWithBloom" type="Sprite3D" parent="." unique_id=1989972902]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, -1, 0)
+transform = Transform3D(0.12, 0, 0, 0, -5.2453664e-09, -0.12, 0, 0.12, -5.2453664e-09, 0, -1, -0.2662536)
 material_override = SubResource("StandardMaterial3D_j7wlx")
 flip_v = true
-texture = SubResource("CompressedTexture2D_ybo73")
+texture = ExtResource("15_sf0qn")
 script = ExtResource("16_sf0qn")
-bloom_force = 2.0
+bloom_force = 0.6
 metadata/_custom_type_script = "uid://6t84m8kgsqsb"
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayerMarkerWithBloom" unique_id=1924734937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5242095, 0)
+flip_v = true
+texture = ExtResource("16_j7wlx")
 
 [node name="ThrowDirection" type="Node3D" parent="." unique_id=460067933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="ThrowArrow" type="Sprite3D" parent="ThrowDirection" unique_id=1758288301]
-transform = Transform3D(-8.742278e-09, 0.2, -8.742278e-09, 0, -8.742278e-09, -0.2, -0.2, -8.742278e-09, 3.821371e-16, 0, 0, -1.8971508)
-texture = ExtResource("14_4sfrm")
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, 0, -1.8971508)
+texture = ExtResource("18_sf0qn")

@@ -1,30 +1,29 @@
 extends Control
 class_name GameSoundBar
 
-@onready var sound_bar: TextureRect = $SoundBar
+@onready var sound_bar_animation: AnimatedSprite2D = $Mask/SoundBarAnimation
 
-@export var sound_bar_max_volume: int = 100
 @export var target_value_sync_speed: float = 0.005
 @export var number_of_lock_area: int = 3
 @export var shrink_speed: float = 0.005
 
+var sound_bar_max_volume: float = 100
+
 var _game_sound_bar_volume: float = 0:
 	set(new_value):
 		_game_sound_bar_volume = clampf(new_value, 0.0, 1.0)
-		sound_bar.material.set_shader_parameter("value", _game_sound_bar_volume)
+		sound_bar_animation.material.set_shader_parameter("progress", _game_sound_bar_volume)
 
 var _target_value: float = 0
 var _lock_sound_bar: bool = false
 var _has_reach_target_value: bool = true
 var _current_lock_area: int = 0
 
-var _base_gradient: GradientTexture1D
-
 signal sound_bar_fill
 signal lock_area_pass(lock_phase: int)
 
 func _ready() -> void:
-	_base_gradient = sound_bar.material.get_shader_parameter("gradient_x")
+	sound_bar_animation.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _process(delta: float) -> void:
 	if _lock_sound_bar: return
@@ -51,7 +50,8 @@ func reset():
 	_game_sound_bar_volume = 0.0
 	_lock_sound_bar = false
 	_current_lock_area = 0
-	sound_bar.material.set_shader_parameter("gradient_x", _base_gradient)
+	
+	sound_bar_animation.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _get_last_lock_area_passed() -> float:
 	var lock_area_part: float = float(sound_bar_max_volume) / float(number_of_lock_area)
@@ -66,9 +66,4 @@ func _check_if_last_lock_pass():
 		lock_area_pass.emit(new_lock_area)
 
 func change_sound_bar_color(color: Color):
-	var new_gradient: GradientTexture1D = GradientTexture1D.new()
-	new_gradient.gradient = Gradient.new()
-	new_gradient.gradient.set_color(0, color)
-	new_gradient.gradient.set_color(1, color)
-	
-	sound_bar.material.set_shader_parameter("gradient_x", new_gradient)
+	sound_bar_animation.self_modulate = color
