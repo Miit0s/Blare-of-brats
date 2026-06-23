@@ -98,7 +98,7 @@ func setup_scene_and_start_animation(left_player_info: EndGameResource, right_pl
 	
 	spawn_animation.tween_callback(score_left.show)
 	spawn_animation.parallel().tween_callback(score_right.show)
-	spawn_animation.parallel().tween_callback(on_winner_reveal_sound.post(self))
+	spawn_animation.parallel().tween_callback(on_winner_reveal_sound.post.bind(self))
 	spawn_animation.tween_interval(wait_delay_before_stage_reveal)
 	spawn_animation.tween_callback(left_side_control.show)
 	spawn_animation.parallel().tween_callback(right_side_control.show)
