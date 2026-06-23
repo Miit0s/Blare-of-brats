@@ -10,7 +10,7 @@ enum ItemType {
 
 @onready var item_visual: Sprite3D = $ItemVisual
 @onready var item_animation: AnimatedSprite3D = $VisualAnchor/ItemAnimation
-@onready var explosion_particle: GPUParticles3D = $ExplosionParticle
+@onready var explosion_particle: AnimatedSprite3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 @onready var visual_anchor: Marker3D = $VisualAnchor
 
@@ -178,9 +178,9 @@ func destroy():
 	
 	item_visual.hide()
 	trail_renderer_3d.hide()
-	explosion_particle.emitting = true
+	explosion_particle.play("default")
 	
-	await explosion_particle.finished
+	await explosion_particle.animation_finished
 	
 	queue_free()
 
