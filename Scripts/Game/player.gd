@@ -6,7 +6,11 @@ class_name Player
 @onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var throw_direction: Node3D = $ThrowDirection
 @onready var current_item: Sprite3D = $CurrentItem
-@onready var stun_particle: GPUParticles3D = $StunParticle
+
+@onready var stun_particle: AnimatedSprite3D = $StunParticle
+@onready var pistogum_hit: AnimatedSprite3D = $PistogumHit
+@onready var pencil_hit: AnimatedSprite3D = $PencilHit
+@onready var slow_animation: AnimatedSprite3D = $SlowAnimation
 
 @export_range(0,3) var player_id: int = 0
 
@@ -408,7 +412,7 @@ func _kill_current_animation():
 		_attack_move_timer.kill()
 		_attack_move_timer = null
 
-func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
+func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true, item_type: Item.ItemType = Item.ItemType.NONE):
 	if _is_invincible: return
 	
 	_override_color_effect()
@@ -423,6 +427,10 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
+	
+	match item_type:
+		Item.ItemType.PISTO_GUM: pistogum_hit.play("default")
+		Item.ItemType.PENCIL: pencil_hit.play("default")
 	
 	if damage >= minimal_damage_for_trigger:
 		_freeze_frame_effect()
@@ -467,8 +475,7 @@ func stun(duration: float):
 	_is_stun = true
 	stun_sound.post(self)
 	
-	stun_particle.emitting = true
-	stun_particle.restart()
+	stun_particle.play("default")
 	stun_particle.show()
 	
 	if duration >= 0.8:
@@ -483,7 +490,7 @@ func stun(duration: float):
 		player_animated_sprite_3d.play()
 	
 	stun_particle.hide()
-	stun_particle.emitting = false
+	stun_particle.stop()
 
 func switch_item():
 	if not _pickable_item_nearby(): return
@@ -733,8 +740,13 @@ func apply_slow(speed_multiplier: float, duration: float):
 	if _slow_tween:
 		_slow_tween.kill()
 		_slow_tween = null
+		
+		slow_animation.hide()
+		slow_animation.stop()
 	
 	VibrationManager.start_joy_vibration(player_id, 0, vibration_force_on_slow, 0, true)
+	slow_animation.play("default")
+	slow_animation.show()
 	
 	_slow_tween = create_tween()
 	_slow_tween.set_ease(Tween.EASE_IN)
@@ -743,7 +755,11 @@ func apply_slow(speed_multiplier: float, duration: float):
 	_slow_tween.tween_interval(duration)
 	_slow_tween.tween_callback(func(): VibrationManager.stop_joy_vibration(player_id))
 	_slow_tween.tween_property(self, "_speed_multiplier", 1, speed_change_transition)
-	_slow_tween.finished.connect(func(): _slow_tween = null)
+	_slow_tween.finished.connect(func(): 
+		_slow_tween = null
+		slow_animation.hide()
+		slow_animation.stop()
+	)
 
 func _has_hit_other_player():
 	VibrationManager.start_joy_vibration(player_id, vibration_force_on_hit_other_player, 0, vibration_duration_on_hit_other_player)

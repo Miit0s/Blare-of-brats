@@ -9,14 +9,14 @@
 [ext_resource type="Resource" uid="uid://rd1yryo4s7e4" path="res://Ressources/ItemAnimation/boxing_glove_for_ash.tres" id="6_o3vie"]
 [ext_resource type="Texture2D" uid="uid://cij8l07xtwoqy" path="res://Assets/Item/glovebox.png" id="7_jpq11"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wea4h"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_jpq11"]
 resource_local_to_scene = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o3vie"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wea4h"]
 resource_local_to_scene = true
 size = Vector3(0.8, 0.646, 1.1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_wea4h"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_o3vie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeju"]
 atlas = ExtResource("3_ab0ye")
@@ -68,6 +68,7 @@ animations = [{
 script = ExtResource("2_okxgy")
 min_collision_range = 0.5
 max_collision_range = 4.5
+item_type = 3
 attack_speed = 0.3
 damage = 5.0
 throw_damage = 3.0
@@ -85,17 +86,17 @@ transform = Transform3D(0.05788751, 0.05521808, 0, -0.051888023, 0.054396465, 0.
 texture = ExtResource("7_jpq11")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_wea4h")
+shape = SubResource("SphereShape3D_jpq11")
 
 [node name="AttackCollisionArea" parent="." index="2" unique_id=843248323]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
-shape = SubResource("BoxShape3D_o3vie")
+shape = SubResource("BoxShape3D_wea4h")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_wea4h")
+mesh = SubResource("ImmediateMesh_o3vie")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)

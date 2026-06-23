@@ -19,6 +19,63 @@
 [ext_resource type="Script" uid="uid://6t84m8kgsqsb" path="res://Scripts/Tools/sprite_3d_with_bloom.gd" id="16_sf0qn"]
 [ext_resource type="PackedScene" uid="uid://uhk7j57jg8s" path="res://Assets/Particle/dash_effect.tscn" id="16_ybo73"]
 [ext_resource type="Texture2D" uid="uid://box66bwktxqdh" path="res://Assets/VFX/arrow_02.png" id="18_sf0qn"]
+[ext_resource type="Texture2D" uid="uid://lh78f8jxf83k" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0000.png" id="20_mddg3"]
+[ext_resource type="Texture2D" uid="uid://beuhbfj748pk1" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0001.png" id="21_o5p2r"]
+[ext_resource type="Texture2D" uid="uid://dbacmo32uqbxe" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0002.png" id="22_w02yu"]
+[ext_resource type="Texture2D" uid="uid://cphp15gkmjp7s" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0003.png" id="23_loqe7"]
+[ext_resource type="Texture2D" uid="uid://b3n43wlt52yes" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0004.png" id="24_ly5p4"]
+[ext_resource type="Texture2D" uid="uid://ckofr347gdu7g" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0005.png" id="25_ne3cn"]
+[ext_resource type="Texture2D" uid="uid://cnig5f2j81w0v" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0006.png" id="26_i13u1"]
+[ext_resource type="Texture2D" uid="uid://d1b37l1wehiyd" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0007.png" id="27_8jhjw"]
+[ext_resource type="Texture2D" uid="uid://dw001quvqw8ye" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0008.png" id="28_qx7dm"]
+[ext_resource type="Texture2D" uid="uid://d11kw1w62ysi0" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0009.png" id="29_mib1m"]
+[ext_resource type="Texture2D" uid="uid://danlijh6jqgqi" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0010.png" id="30_m52j7"]
+[ext_resource type="Texture2D" uid="uid://bra128nh4w31x" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0011.png" id="31_fbh0s"]
+[ext_resource type="Texture2D" uid="uid://dwbn7cgcnpkvj" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0012.png" id="32_w6yw5"]
+[ext_resource type="Texture2D" uid="uid://bxtppcngpugj1" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0013.png" id="33_43tx1"]
+[ext_resource type="Texture2D" uid="uid://doa0briqkrs50" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0014.png" id="34_g8c4m"]
+[ext_resource type="Texture2D" uid="uid://0w2kv5tvxuwe" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0015.png" id="35_n5i1s"]
+[ext_resource type="Texture2D" uid="uid://n2wtoyowddu3" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0016.png" id="36_3ta24"]
+[ext_resource type="Texture2D" uid="uid://svh1ie1euia8" path="res://Assets/VFX/PistoGum/Explosion/explosion vfx pistogtum0017.png" id="37_ef3nr"]
+[ext_resource type="Texture2D" uid="uid://m4b6qm5pbbdu" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0000.png" id="38_oobj1"]
+[ext_resource type="Texture2D" uid="uid://biubjd7ly5fv0" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0001.png" id="39_0latd"]
+[ext_resource type="Texture2D" uid="uid://05i1ve3r7q77" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0002.png" id="40_hfruy"]
+[ext_resource type="Texture2D" uid="uid://ckwag2godn1o6" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0003.png" id="41_hn06p"]
+[ext_resource type="Texture2D" uid="uid://cgogy21sv17l6" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0004.png" id="42_sc3rs"]
+[ext_resource type="Texture2D" uid="uid://cqqauj1lhgavt" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0005.png" id="43_6ugmq"]
+[ext_resource type="Texture2D" uid="uid://0uknjv28kq1b" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0006.png" id="44_g2dil"]
+[ext_resource type="Texture2D" uid="uid://beff8v0bf4t1n" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0007.png" id="45_vnihn"]
+[ext_resource type="Texture2D" uid="uid://cq3wjsqtkksnu" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0008.png" id="46_yr7lc"]
+[ext_resource type="Texture2D" uid="uid://5q68sl001xy6" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0009.png" id="47_ry7r8"]
+[ext_resource type="Texture2D" uid="uid://bvht4muh3gqc4" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0010.png" id="48_tvtig"]
+[ext_resource type="Texture2D" uid="uid://dmc4iwgx7bifr" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0011.png" id="49_52a8a"]
+[ext_resource type="Texture2D" uid="uid://d1uauavke80c2" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0012.png" id="50_gd52t"]
+[ext_resource type="Texture2D" uid="uid://0fb573qcg1a4" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0013.png" id="51_a2f4c"]
+[ext_resource type="Texture2D" uid="uid://b2ps4e4vv4dh5" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0014.png" id="52_mr5a6"]
+[ext_resource type="Texture2D" uid="uid://d3j5ambk7iuce" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0015.png" id="53_ssjws"]
+[ext_resource type="Texture2D" uid="uid://btrsu5u8l0fgv" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0016.png" id="54_dvg66"]
+[ext_resource type="Texture2D" uid="uid://baqa0mle18fng" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0017.png" id="55_41rxi"]
+[ext_resource type="Texture2D" uid="uid://dlhwreceq8lr4" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0018.png" id="56_yjtsr"]
+[ext_resource type="Texture2D" uid="uid://cvojyvqynjxu5" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0019.png" id="57_jg6gs"]
+[ext_resource type="Texture2D" uid="uid://dhi54t550b1b" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0020.png" id="58_kds1a"]
+[ext_resource type="Texture2D" uid="uid://cyi4kujjg7njo" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0021.png" id="59_8bmyt"]
+[ext_resource type="Texture2D" uid="uid://4voj4jihif84" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0022.png" id="60_vo632"]
+[ext_resource type="Texture2D" uid="uid://dfu3xjnifkndn" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0023.png" id="61_f5xy3"]
+[ext_resource type="Texture2D" uid="uid://b1fxepgnrpmiv" path="res://Assets/VFX/PencilOnPlayerHit/crayon splash 0024.png" id="62_bsnd1"]
+[ext_resource type="Texture2D" uid="uid://dlldg0wb1ayeo" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0000.png" id="63_mr5a6"]
+[ext_resource type="Texture2D" uid="uid://bwf3fjy7yqwmm" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0001.png" id="64_ssjws"]
+[ext_resource type="Texture2D" uid="uid://clo0pfaw2gq6u" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0002.png" id="65_dvg66"]
+[ext_resource type="Texture2D" uid="uid://bnwjuw60g0f7a" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0003.png" id="66_41rxi"]
+[ext_resource type="Texture2D" uid="uid://87eifxcs5kcc" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0004.png" id="67_yjtsr"]
+[ext_resource type="Texture2D" uid="uid://dd6w0b54evlw6" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0005.png" id="68_jg6gs"]
+[ext_resource type="Texture2D" uid="uid://lrjjbd6leook" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0006.png" id="69_kds1a"]
+[ext_resource type="Texture2D" uid="uid://ck8f44nkjf74c" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0007.png" id="70_8bmyt"]
+[ext_resource type="Texture2D" uid="uid://dts6jlidraekd" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0008.png" id="71_vo632"]
+[ext_resource type="Texture2D" uid="uid://bxe0gfwpvtbgh" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0009.png" id="72_f5xy3"]
+[ext_resource type="Texture2D" uid="uid://4kif6hqxr61y" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0010.png" id="73_bsnd1"]
+[ext_resource type="Texture2D" uid="uid://bqx8a4ereic8p" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0011.png" id="74_yb01a"]
+[ext_resource type="Texture2D" uid="uid://5mwfvnvavrf" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0012.png" id="75_g330f"]
+[ext_resource type="Texture2D" uid="uid://bkvsnlkcxb3kh" path="res://Assets/VFX/PistoGum/SlowedEffect/delay vfx pistogum0013.png" id="76_anc6w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4sfrm"]
 resource_local_to_scene = true
@@ -39,6 +96,201 @@ albedo_texture = ExtResource("15_sf0qn")
 emission_enabled = true
 emission_energy_multiplier = 0.6
 emission_texture = ExtResource("15_sf0qn")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsjma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_mddg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o5p2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_w02yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_loqe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ly5p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ne3cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_i13u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8jhjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qx7dm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_mib1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_m52j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_fbh0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_w6yw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_43tx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_g8c4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_n5i1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3ta24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ef3nr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yb01a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_oobj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_0latd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_hfruy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_hn06p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_sc3rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_6ugmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_g2dil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vnihn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_yr7lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ry7r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_tvtig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_52a8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_gd52t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_a2f4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_mr5a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ssjws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_dvg66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_41rxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_yjtsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_jg6gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_kds1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_8bmyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_vo632")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_f5xy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_bsnd1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pnyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_mr5a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_ssjws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_dvg66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_41rxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_yjtsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_jg6gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_kds1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_8bmyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_vo632")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_f5xy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_bsnd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_yb01a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_g330f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_anc6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Player" type="CharacterBody3D" unique_id=382022037 node_paths=PackedStringArray("player_animated_sprite_3d", "animated_sprite_3d_for_offset", "dash_effect", "throw_arrow")]
 collision_layer = 34
@@ -77,7 +329,7 @@ visible = false
 texture = SubResource("CompressedTexture2D_4sfrm")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=932639487]
-transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0.003705293, 5.9604645e-08, 0.0003566742)
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
 material_override = ExtResource("14_ybo73")
 shaded = true
 alpha_cut = 1
@@ -112,7 +364,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6114786, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04046938, -0.10652523)
 
 [node name="StunParticle" parent="." unique_id=1759464147 instance=ExtResource("13_r08wf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0154343, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.015, 0.05)
+visible = false
+render_priority = 1
 
 [node name="SwitchSprite" type="Sprite3D" parent="." unique_id=2090515683]
 transform = Transform3D(-0.10606601, -0.10606601, 0, 0.10606601, -0.10606601, 0, 0, 0, 0.14999999, 0, 1.065298, 0)
@@ -139,3 +393,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 [node name="ThrowArrow" type="Sprite3D" parent="ThrowDirection" unique_id=1758288301]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, 0, -1.8971508)
 texture = ExtResource("18_sf0qn")
+
+[node name="PistogumHit" type="AnimatedSprite3D" parent="." unique_id=854875634]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.121, 0.05)
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_vsjma")
+frame = 17
+frame_progress = 1.0
+
+[node name="PencilHit" type="AnimatedSprite3D" parent="." unique_id=954645047]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.296, 0.05)
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_yb01a")
+frame = 24
+frame_progress = 1.0
+
+[node name="SlowAnimation" type="AnimatedSprite3D" parent="." unique_id=574348107]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, -0.87, 0.05)
+visible = false
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_5pnyt")
