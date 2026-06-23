@@ -1,17 +1,12 @@
 [gd_scene format=3 uid="uid://36tccmd3uybf"]
 
 [ext_resource type="Script" uid="uid://cbhul4xaw6l4n" path="res://Scripts/Game/onboarding_scene.gd" id="1_d4n33"]
-[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="2_ts878"]
 [ext_resource type="Script" uid="uid://c02cnle76j6bl" path="res://Scripts/Resources/task_info_ressource.gd" id="2_v11op"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
-[ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="4_5felv"]
 [ext_resource type="WwiseEvent" uid="uid://cqeer5ilf3afn" path="res://Wwise/resources/Event/{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}.tres" id="4_jhpbt"]
 [ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/Map_Onboarding.tscn" id="5_hq2bc"]
-[ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="6_5q1ap"]
-[ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="7_v11op"]
 [ext_resource type="WwiseEvent" uid="uid://de3xap53vjjev" path="res://Wwise/resources/Event/{379705D3-B374-4513-9155-CCCB5CB7D489}.tres" id="8_ts878"]
 [ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="9_aongf"]
-[ext_resource type="WwiseState" uid="uid://dg8rpoh37x2lx" path="res://Wwise/resources/State/{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}.tres" id="9_ts878"]
 [ext_resource type="WwiseSwitch" uid="uid://b4b2cqrs243i8" path="res://Wwise/resources/Switch/{FD1A1761-B018-456D-A243-B338F6410620}.tres" id="10_5felv"]
 [ext_resource type="WwiseSwitch" uid="uid://cl5vc46xtn65y" path="res://Wwise/resources/Switch/{D4AC3F36-3F9D-47BC-9386-77441B03C5E3}.tres" id="11_el4mh"]
 [ext_resource type="WwiseRTPC" uid="uid://jfjbig1iig6j" path="res://Wwise/resources/Game Parameter/{0DEE1858-2463-4550-BF6A-045447464530}.tres" id="11_m65o1"]
@@ -20,7 +15,6 @@
 [ext_resource type="WwiseSwitch" uid="uid://di8yyscq2ywpv" path="res://Wwise/resources/Switch/{63CB6B0B-90A3-4443-8423-6B8A560BED92}.tres" id="13_b8he2"]
 [ext_resource type="PackedScene" uid="uid://6d56jb0v178f" path="res://UI/Onboarding/onboarding_text_display.tscn" id="14_nh8k7"]
 [ext_resource type="PackedScene" uid="uid://6j6j6kuvtcud" path="res://UI/Onboarding/task_list_inverse.tscn" id="15_5q1ap"]
-[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="17_a665e"]
 [ext_resource type="PackedScene" uid="uid://ccwaslq30aelh" path="res://UI/Onboarding/input_reminder.tscn" id="17_bkpdd"]
 [ext_resource type="PackedScene" uid="uid://dspy1cm7huayj" path="res://UI/Game/round_start.tscn" id="18_cou5v"]
 [ext_resource type="PackedScene" uid="uid://tk4btg4c6rlc" path="res://UI/Game/round_end.tscn" id="19_frks1"]
@@ -82,26 +76,16 @@ next_scene_uid = "uid://c53l85gqm0mi1"
 tracking_spot_player_one = NodePath("TrackingSpot")
 tracking_spot_player_two = NodePath("TrackingSpot2")
 round_number = 1
-music_fight = ExtResource("2_ts878")
 countdown = ExtResource("4_jhpbt")
 lead = ExtResource("3_aongf")
-round_start_state = ExtResource("4_5felv")
-second_phase_state = ExtResource("6_5q1ap")
-third_phase_state = ExtResource("7_v11op")
-danger_phase_start = ExtResource("9_ts878")
 soundbar_lvl1 = ExtResource("8_ts878")
 soundbar_lvl2 = ExtResource("9_aongf")
 bar_volume_rtpc = ExtResource("11_m65o1")
+crowd_sound = ExtResource("12_u823a")
 continious_crowd_switch = ExtResource("10_5felv")
 reaction_crowd_switch = ExtResource("11_el4mh")
 danger_phase_crowd_switch = ExtResource("13_b8he2")
-crowd_sound = ExtResource("12_u823a")
 possible_level = Array[PackedScene]([ExtResource("5_hq2bc")])
-
-[node name="AkBank" type="AkBank" parent="." unique_id=753158615]
-bank = ExtResource("17_a665e")
-load_on = 1
-unload_on = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2132268522]
 

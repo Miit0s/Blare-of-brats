@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mhlblibjoivj"]
+
+[ext_resource type="Script" uid="uid://bklwinf6c4xxj" path="res://Scripts/Tools/main_music_manager.gd" id="1_5vxhr"]
+[ext_resource type="WwiseBank" uid="uid://cw3t40vfgx025" path="res://Wwise/resources/SoundBank/{DBC33C85-3306-4001-8737-DF1B637FB7C7}.tres" id="2_y7dwb"]
+[ext_resource type="WwiseEvent" uid="uid://b7sn5ck047w0g" path="res://Wwise/resources/Event/{37126D66-5473-4D4F-ADFA-6751DF78B6F7}.tres" id="3_6dw3r"]
+[ext_resource type="WwiseState" uid="uid://ilgvcw2jqfjq" path="res://Wwise/resources/State/{3DAFFAEC-BC03-4044-BFDD-E0171B0CDA46}.tres" id="4_73w0a"]
+[ext_resource type="WwiseState" uid="uid://dwksdscblo3f2" path="res://Wwise/resources/State/{2822E57F-FB30-4B00-A92D-63C40685CB78}.tres" id="5_q5gxi"]
+[ext_resource type="WwiseState" uid="uid://wcgk5hoepkr7" path="res://Wwise/resources/State/{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}.tres" id="6_knnat"]
+[ext_resource type="WwiseState" uid="uid://beojcn14o85ts" path="res://Wwise/resources/State/{4CA0D303-4A05-4FDD-919A-17EF7B89834F}.tres" id="7_pl8yy"]
+[ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="8_x3kbn"]
+[ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="9_5hvxi"]
+[ext_resource type="WwiseState" uid="uid://dg8rpoh37x2lx" path="res://Wwise/resources/State/{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}.tres" id="10_d3eva"]
+
+[node name="MainMusicManager" type="Node" unique_id=1974987802]
+script = ExtResource("1_5vxhr")
+bank = ExtResource("2_y7dwb")
+main_music_event = ExtResource("3_6dw3r")
+start_menu = ExtResource("4_73w0a")
+main_menu = ExtResource("5_q5gxi")
+sound_stop = ExtResource("6_knnat")
+phase_1 = ExtResource("7_pl8yy")
+phase_2 = ExtResource("8_x3kbn")
+phase_3 = ExtResource("9_5hvxi")
+phase_danger = ExtResource("10_d3eva")

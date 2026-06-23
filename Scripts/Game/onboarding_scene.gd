@@ -108,7 +108,7 @@ func _on_shared_life_bar_player_win(player_id: int) -> void:
 	for player in players:
 		player.freeze()
 	
-	music_fight.stop(self)
+	MainMusicManager.set_sound_stop_state()
 	camera_controller.stop_tracking()
 	
 	player_stats[player_id].is_winner = true
@@ -145,10 +145,7 @@ func _player_his_ready():
 		camera_controller.start_tracking()
 		_trigger_dash_quest()
 		
-		music_fight.post(self)
-		crowd_sound.post(self)
-		
-		round_start_state.set_value()
+		MainMusicManager.set_phase_1_state()
 
 func _show_sound_bar():
 	show_sound_bar.show()
