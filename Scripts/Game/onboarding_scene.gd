@@ -52,10 +52,9 @@ func _ready() -> void:
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.lifebar_value_change.connect(lifebar_value_change)
 	
-	round_start_state.set_value()
-	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	game_bar.shared_life_bar.lock()
+	game_bar.lock_area_pass.connect(_on_soundbar_lock_area_pass)
 	
 	input_reminders[0].player_input_id = players_selection[0].player_id
 	input_reminders[1].player_input_id = players_selection[1].player_id
@@ -109,7 +108,7 @@ func _on_shared_life_bar_player_win(player_id: int) -> void:
 	for player in players:
 		player.freeze()
 	
-	music_fight.stop(self)
+	MainMusicManager.set_sound_stop_state()
 	camera_controller.stop_tracking()
 	
 	player_stats[player_id].is_winner = true
@@ -145,8 +144,8 @@ func _player_his_ready():
 		
 		camera_controller.start_tracking()
 		_trigger_dash_quest()
-		music_fight.post(self)
-		crowd_sound.post(self)
+		
+		MainMusicManager.set_phase_1_state()
 
 func _show_sound_bar():
 	show_sound_bar.show()

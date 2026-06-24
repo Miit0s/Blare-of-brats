@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwfvjojmjj0ql" path="res://UI/Game/winning_side_end_screen.tscn" id="2_g0ltd"]
 [ext_resource type="Texture2D" uid="uid://cmfejiias0e3a" path="res://Assets/SpriteUI/GameEndScreen/BG_stat_holder.png" id="2_st674"]
 [ext_resource type="PackedScene" uid="uid://cs0352i2ynsi4" path="res://UI/Game/looser_side_end_screen.tscn" id="3_52eux"]
+[ext_resource type="WwiseEvent" uid="uid://flttrtd6euco" path="res://Wwise/resources/Event/{556B0D20-ADA7-46E4-A933-AA2B51A11C4A}.tres" id="5_h1mgp"]
 [ext_resource type="Texture2D" uid="uid://o2vklcgf4m3n" path="res://Assets/SpriteUI/GameEndScreen/text_holder_results.png" id="6_1frxu"]
 [ext_resource type="PackedScene" uid="uid://c2gtbo41y8x1r" path="res://UI/ControlTool/end_game_result_bar.tscn" id="7_1frxu"]
 [ext_resource type="PackedScene" uid="uid://dyno3tjl23ce8" path="res://UI/ControlTool/custom_texture_button.tscn" id="8_5uw6r"]
@@ -23,6 +24,7 @@ loosing_scene = ExtResource("3_52eux")
 anchor_preset = 13
 left_position = Vector2(310, 0)
 right_position = Vector2(-315, 0)
+score_increment_sound = ExtResource("5_h1mgp")
 
 [node name="LeftSideControl" type="Control" parent="." unique_id=1474572517]
 layout_mode = 1

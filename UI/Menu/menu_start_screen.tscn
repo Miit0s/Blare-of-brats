@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ce2kyh0xs1xgo" path="res://Assets/SpriteUI/Menu/blue menu screen.png" id="1_fdoxt"]
 [ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_ky2oo"]
 [ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="2_6oy4x"]
-[ext_resource type="Shader" uid="uid://bgwirr4aqh8jr" path="res://Shader/wolf_transition_shader.gdshader" id="2_08v3c"]
+[ext_resource type="Shader" path="res://Shader/wolf_transition_shader.gdshader" id="2_08v3c"]
+[ext_resource type="WwiseEvent" uid="uid://c4c3s6spnvdwh" path="res://Wwise/resources/Event/{546CF159-592D-437F-BCD5-5273B38FFFED}.tres" id="2_40cu3"]
 [ext_resource type="Script" uid="uid://d0obvm3ajw4b0" path="res://Scripts/UI/menu_start_screen.gd" id="2_wepc4"]
 [ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="3_0a64t"]
 [ext_resource type="Texture2D" uid="uid://b1cj3dx5lhybi" path="res://Assets/SpriteUI/Menu/mask animation logo et menu.png" id="3_suhbi"]
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wepc4")
+start_anim_sound = ExtResource("2_40cu3")
 
 [node name="SceneContainer" type="SubViewportContainer" parent="." unique_id=901451815]
 material = SubResource("ShaderMaterial_ky2oo")

@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" format=3 uid="uid://dfjtchgm0quxi"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_o5c5j"]
+
+[resource]
+group_ref = ExtResource("1_o5c5j")
+group_id = 314125497
+name = "Win"
+id = 979765101
+guid = "{938C3D71-E8BF-4464-9B84-6CD5CDCBCD62}"
+dummy = true

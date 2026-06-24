@@ -40,6 +40,7 @@ var _is_making_attack_move: bool = false
 
 @export_category("Stun")
 @export var knockback_stun_duration: float = 1
+@export var min_stun_for_feedback: float = 1.0
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
@@ -54,7 +55,7 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
 
-@export_category("SFX")
+@export_category("Sound")
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
@@ -69,7 +70,6 @@ var _knockback_speed_to_apply: float = 0
 
 @export_category("Visual")
 @export var character_animation: CharacterAnimation
-
 @export_group("Squash and Stretch")
 @export var squash_force: float = 0.05
 @export var squash_duration: float = 0.1
@@ -81,29 +81,22 @@ var _knockback_speed_to_apply: float = 0
 @export_group("On Hit")
 @export var damage_for_max_vibration: float = 5.0
 @export var vibration_duration_on_hit: float = 0.2
-
 @export_group("On Object Destroy")
 @export_range(0, 1) var vibration_force_on_objet_destroy: float = 0.8
 @export var vibration_duration_on_objet_destroy: float = 0.2
-
 @export_group("On Slow")
 @export_range(0, 1) var vibration_force_on_slow: float = 0.1
-
 @export_group("On Pick up")
 @export_range(0, 1) var vibration_force_on_pickup: float = 0.1
 @export var vibration_duration_on_pickup: float = 0.1
-
 @export_group("On Hit other player")
 @export_range(0, 1) var vibration_force_on_hit_other_player: float = 0.8
 @export var vibration_duration_on_hit_other_player: float = 0.1
-
 @export_group("On Stun")
 @export_range(0, 1) var vibration_force_on_stun: float = 0.1
-
 @export_group("On Dash")
 @export_range(0, 1) var vibration_force_on_dash: float = 0.1
 @export var vibration_duration_on_dash: float = 0.3
-
 @export_group("On Throw")
 @export_range(0, 1) var vibration_force_on_throw: float = 0.3
 @export var vibration_duration_on_throw: float = 0.1
@@ -465,14 +458,14 @@ func knockback(hit_direction: Vector3):
 
 func stun(duration: float):
 	_is_stun = true
-	stun_sound.post(self)
 	
 	stun_particle.emitting = true
 	stun_particle.restart()
 	stun_particle.show()
 	
-	if duration >= 0.8:
+	if duration >= min_stun_for_feedback:
 		VibrationManager.start_joy_vibration(player_id, vibration_force_on_stun, 0, duration)
+		stun_sound.post(self)
 	
 	_update_sprite(_last_direction, false)
 	

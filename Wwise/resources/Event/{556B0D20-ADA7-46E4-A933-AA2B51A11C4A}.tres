@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://flttrtd6euco"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Endscore"
+id = 3060637458
+guid = "{556B0D20-ADA7-46E4-A933-AA2B51A11C4A}"
+dummy = true

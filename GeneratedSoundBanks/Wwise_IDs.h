@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID COUNTDOWN = 1505888634U;
         static const AkUniqueID CROWD = 2848349012U;
         static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID ENDSCORE = 3060637458U;
         static const AkUniqueID GIRL_ATTACK = 763287926U;
         static const AkUniqueID GIRL_TAKINGDAMAGE = 3981149377U;
         static const AkUniqueID GRABOBJECT = 1719710198U;
@@ -29,6 +30,7 @@ namespace AK
         static const AkUniqueID MUSIC_FIGHT = 962867917U;
         static const AkUniqueID PENCIL_ATTACK = 3470720449U;
         static const AkUniqueID PISTOGUM_SHOOT = 2746646177U;
+        static const AkUniqueID SCORE = 2398231425U;
         static const AkUniqueID SOUNDBAR_LVL_1 = 1182307794U;
         static const AkUniqueID SOUNDBAR_LVL_2 = 1182307793U;
         static const AkUniqueID SOUNDBAR_LVL_3 = 1182307792U;
@@ -36,9 +38,13 @@ namespace AK
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
         static const AkUniqueID UI_COLORS_NAV = 1604317996U;
         static const AkUniqueID UI_COLORS_SELECT = 2429118665U;
+        static const AkUniqueID UI_CROWN = 3383241051U;
+        static const AkUniqueID UI_HOLD = 28914597U;
         static const AkUniqueID UI_MENU_BACK = 922786755U;
         static const AkUniqueID UI_MENU_NAV = 17678017U;
         static const AkUniqueID UI_MENU_SELECT = 3474566310U;
+        static const AkUniqueID UI_START = 1219048826U;
+        static const AkUniqueID UI_WOLF_ANIM = 233644730U;
     } // namespace EVENTS
 
     namespace STATES
@@ -49,11 +55,15 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID MAIN_MENU = 2005704188U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID PHASE_1 = 1622949422U;
                 static const AkUniqueID PHASE_2 = 1622949421U;
                 static const AkUniqueID PHASE_3 = 1622949420U;
                 static const AkUniqueID PHASE_DANGER = 1580246308U;
+                static const AkUniqueID READYSCREEN = 505373590U;
+                static const AkUniqueID START_MENU = 2977420043U;
+                static const AkUniqueID WIN = 979765101U;
             } // namespace STATE
         } // namespace ROUND_STATE
 
@@ -69,8 +79,20 @@ namespace AK
             {
                 static const AkUniqueID CONITNIOUS = 1836277870U;
                 static const AkUniqueID REACTION = 888960820U;
+                static const AkUniqueID SHH = 561016172U;
             } // namespace SWITCH
         } // namespace CROWD
+
+        namespace STOP
+        {
+            static const AkUniqueID GROUP = 788884573U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace SWITCH
+        } // namespace STOP
 
     } // namespace SWITCHES
 
@@ -78,7 +100,9 @@ namespace AK
     {
         static const AkUniqueID CHILDREN_ACTION = 3321746565U;
         static const AkUniqueID CROWD = 2848349012U;
+        static const AkUniqueID CROWD_SHH = 4224130602U;
         static const AkUniqueID HIGH_FCT = 2988444587U;
+        static const AkUniqueID HOLD_FCT = 2172078744U;
         static const AkUniqueID LEAD = 54442139U;
         static const AkUniqueID LOW_FCT = 2785096631U;
         static const AkUniqueID MASTER_VOLUME = 4179668880U;

@@ -5,9 +5,9 @@ extends Control
 @onready var credits_button: TextureButton = $MainStack/MainButton/ControlCredits/Credits
 @onready var exit_button: TextureButton = $MainStack/MainButton/ControlExit/Exit
 
-@onready var quit_prompt: Control = $QuitPrompt
-@onready var credits: Control = $Credits
-@onready var options: Control = $Options
+@onready var quit_prompt: QuitPromptUI = $QuitPrompt
+@onready var credits: CreditsUI = $Credits
+@onready var options: OptionsUI = $Options
 
 @onready var background: TextureRect = $Background/ImageBackground
 @onready var screen_center: Vector2 = get_viewport_rect().size / 2
@@ -23,29 +23,48 @@ extends Control
 @export_range(0, 1) var vibration_force_on_button_change: float = 0.1
 @export var vibration_duration_on_button_change: float = 0.1
 
+@export_category("Sound")
+@export var on_button_focus: WwiseEvent
+@export var on_button_click: WwiseEvent
+
 var _previous_button_pos: Vector2 = Vector2.ZERO
 var _move_tween: Tween = null
 
 var _last_device_to_move: int = -1
 
+var _dont_trigger_next_focus: bool = false
+
 func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
+	
+	credits.on_button_click = on_button_click
+	
+	quit_prompt.on_button_click = on_button_click
+	quit_prompt.on_button_focus = on_button_focus
+	
+	options.on_button_click = on_button_click
+	options.on_button_focus = on_button_focus
 	
 	if LoadingPage.is_displaying:
 		LoadingPage.despawn_transtion()
 	
 	if GameOptions.have_launch_game:
 		play_button.grab_focus()
+		MainMusicManager.set_main_menu_state()
+	else:
+		MainMusicManager.set_start_menu_state()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and not GameOptions.have_launch_game:
 		GameOptions.have_launch_game = true
+		
 		var menu_start_scene: MenuStartScreen = $MenuStartScreen
 		menu_start_scene.play_transtion_and_destroy()
 		get_viewport().set_input_as_handled()
 		
 		play_button.grab_focus()
+		MainMusicManager.set_main_menu_state()
 	elif not GameOptions.have_launch_game:
 		get_viewport().set_input_as_handled()
 	
@@ -53,20 +72,27 @@ func _input(event: InputEvent) -> void:
 		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
+	on_button_click.post(self)
 	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
 	LoadingPage.start_transtion_to_scene(game_start_scene_uid)
 
 
 func _on_options_pressed() -> void:
 	options.show()
+	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_credits_pressed() -> void:
 	credits.show()
+	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_exit_pressed() -> void:
 	quit_prompt.show()
+	on_button_click.post(self)
+	_dont_trigger_next_focus = true
 
 
 func _on_quit_prompt_visibility_changed() -> void:
@@ -96,3 +122,8 @@ func _on_button_focus_entered(button: BaseButton) -> void:
 	_move_tween.tween_property(background, "position", background.position + Vector2(0, y_offset), move_speed)
 	
 	_move_tween.finished.connect(func(): _move_tween = null)
+	
+	if not _dont_trigger_next_focus:
+		on_button_focus.post(self)
+	else:
+		_dont_trigger_next_focus = false

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{867C9089-19D1-47D4-5503-AABC5BC51D71}",
+    "Hash": "{84EBB0B3-B66C-733A-F1F7-F606A31A71F2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -172,6 +172,12 @@
       "GUID": "{0DEE1858-2463-4550-BF6A-045447464530}"
      },
      {
+      "Id": "2172078744",
+      "Name": "Hold_Fct",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Hold_Fct",
+      "GUID": "{B1AB8D75-38C1-4E2A-91D6-687A2CECB8CD}"
+     },
+     {
       "Id": "2785096631",
       "Name": "Low_Fct",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Low_Fct",
@@ -200,6 +206,12 @@
       "Name": "Master_Volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Master_Volume",
       "GUID": "{7F904059-2BC2-4080-B2CD-01042F006706}"
+     },
+     {
+      "Id": "4224130602",
+      "Name": "Crowd_Shh",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Crowd_Shh",
+      "GUID": "{B407A180-AFF6-41D0-AF55-B4B727A200D3}"
      }
     ],
     "StateGroups": [
@@ -210,10 +222,22 @@
       "GUID": "{E29410EB-05F8-4439-B5AC-0F469BC05E75}",
       "States": [
        {
+        "Id": "505373590",
+        "Name": "Readyscreen",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Readyscreen",
+        "GUID": "{05B784C5-F17F-497C-8470-0ADFD0D9EC3B}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\None",
         "GUID": "{FA89A466-5473-4F41-A477-B2A048641C7A}"
+       },
+       {
+        "Id": "979765101",
+        "Name": "Win",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Win",
+        "GUID": "{938C3D71-E8BF-4464-9B84-6CD5CDCBCD62}"
        },
        {
         "Id": "1580246308",
@@ -238,17 +262,58 @@
         "Name": "Phase_1",
         "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Phase_1",
         "GUID": "{4CA0D303-4A05-4FDD-919A-17EF7B89834F}"
+       },
+       {
+        "Id": "2005704188",
+        "Name": "Main_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Main_Menu",
+        "GUID": "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
+       },
+       {
+        "Id": "2977420043",
+        "Name": "Start_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Round_State\\Start_Menu",
+        "GUID": "{3DAFFAEC-BC03-4044-BFDD-E0171B0CDA46}"
        }
       ]
      }
     ],
     "SwitchGroups": [
      {
+      "Id": "788884573",
+      "Name": "Stop",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Stop",
+      "GUID": "{E907D548-16CE-4113-8269-3289887D8D04}",
+      "GameParameterRef": {
+       "Id": "2172078744"
+      },
+      "Switches": [
+       {
+        "Id": "930712164",
+        "Name": "Off",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Stop\\Off",
+        "GUID": "{7C43D284-1A8D-4438-B730-9D436822430B}"
+       },
+       {
+        "Id": "1651971902",
+        "Name": "On",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Stop\\On",
+        "GUID": "{DC459125-8573-4FAA-BC70-31EA85E37594}"
+       }
+      ]
+     },
+     {
       "Id": "2848349012",
       "Name": "CROWD",
       "ObjectPath": "\\Switches\\Default Work Unit\\CROWD",
       "GUID": "{59334D58-9A31-4E66-AF43-497496E02760}",
       "Switches": [
+       {
+        "Id": "561016172",
+        "Name": "Shh",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CROWD\\Shh",
+        "GUID": "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+       },
        {
         "Id": "888960820",
         "Name": "Reaction",
@@ -743,6 +808,6 @@
     ]
    }
   ],
-  "FileHash": "{850F2215-2404-12F5-A68F-6916D242F5FF}"
+  "FileHash": "{79AC335D-679F-2992-4142-B2F2A56AE323}"
  }
 }

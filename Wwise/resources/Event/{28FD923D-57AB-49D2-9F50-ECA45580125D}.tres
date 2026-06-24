@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bkt67dcyevg4i"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "UI_Hold"
+id = 28914597
+guid = "{28FD923D-57AB-49D2-9F50-ECA45580125D}"
+dummy = true
