@@ -190,6 +190,13 @@ func item_picked_up(player_id: int, player: Player):
 	_owner_player = player
 	is_already_pick = true
 	
+	if has_been_throw:
+		has_been_throw = false
+		set_collision_layer_value(4, false)
+		set_collision_mask_value(4, false)
+		_throw_by = -1
+		trail_renderer_3d.hide()
+	
 	item_visual.hide()
 
 func drop():
