@@ -22,48 +22,48 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	for i in nb_item_begin_spawn:
-		_trigger_spawn()
+		_request_spawn()
 
 func _item_has_loose_durability(new_durability: int):
 	if new_durability == minimal_durability:
-		_trigger_spawn()
+		_request_spawn()
 
 func _item_destroy(item: Item):
 	item.has_loose_durability.disconnect(_item_has_loose_durability)
 	item.will_be_destroy.disconnect(_item_destroy)
 	
 	item_will_be_delete.emit(item)
-	
 	_number_of_item_on_scene -= 1
-	_spawn_item_if_needed(item)
-
-func _trigger_spawn():
-	if _number_of_item_on_scene >= nb_item_max_spawn: 
-		_item_that_need_to_spawn += 1
-		return
-	elif _item_that_need_to_spawn > 0:
-		_item_that_need_to_spawn -= 1
 	
-	var possible_spawn_points: Array[ItemSpawnPoint] = spawn_points.filter(_spawn_point_available)
-	if possible_spawn_points.is_empty(): return
-	
-	var item_spawn_position: ItemSpawnPoint = possible_spawn_points.pick_random()
-	
-	var item_spawned: Item = item_spawn_position.spawn_random_item()
-	item_spawned.has_loose_durability.connect(_item_has_loose_durability)
-	item_spawned.will_be_destroy.connect(_item_destroy)
-	
-	new_item_spawn.emit(item_spawned)
-	
-	_number_of_item_on_scene += 1
-
-func _spawn_item_if_needed(item: Item):
 	if item.current_durability > minimal_durability:
-		_trigger_spawn()
-	elif _item_that_need_to_spawn <= 0:
-		return
-	else:
-		_trigger_spawn()
+		_item_that_need_to_spawn += 1
+	
+	await get_tree().physics_frame #Attent la next frame pour être sûr que les Area soit à jour
+	_process_spawn_queue()
+
+func _request_spawn():
+	_item_that_need_to_spawn += 1
+	_process_spawn_queue()
+
+func _process_spawn_queue():
+	var available_slots: int = nb_item_max_spawn - _number_of_item_on_scene
+	var spawn_count: int = min(_item_that_need_to_spawn, available_slots)
+	
+	for i in spawn_count:
+		var possible_spawn_points: Array[ItemSpawnPoint] = spawn_points.filter(_spawn_point_available)
+		
+		if possible_spawn_points.is_empty(): break
+		
+		_item_that_need_to_spawn -= 1
+		_number_of_item_on_scene += 1
+		
+		var item_spawn_position: ItemSpawnPoint = possible_spawn_points.pick_random()
+		var item_spawned: Item = item_spawn_position.spawn_random_item()
+		
+		item_spawned.has_loose_durability.connect(_item_has_loose_durability)
+		item_spawned.will_be_destroy.connect(_item_destroy)
+		
+		new_item_spawn.emit(item_spawned)
 
 func _spawn_point_available(spawn_point: ItemSpawnPoint): 
 	return not spawn_point.is_item_currently_on_spawn
