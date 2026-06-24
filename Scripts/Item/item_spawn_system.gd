@@ -5,7 +5,7 @@ class_name ItemSpawnSystem
 @export_category("Parameters")
 @export var nb_item_begin_spawn: int = 4
 @export var nb_item_max_spawn: int = 5
-@export var minimal_durability: int = 3
+@export var minimal_durability: int = 2
 
 @export_category("Spawn")
 @export var spawn_points: Array[ItemSpawnPoint]
