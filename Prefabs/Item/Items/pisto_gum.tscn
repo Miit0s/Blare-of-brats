@@ -6,19 +6,50 @@
 [ext_resource type="Script" uid="uid://3tnlxh0ot626" path="res://Scripts/Resources/item_animation.gd" id="4_any3s"]
 [ext_resource type="Resource" uid="uid://bfdimdbf5xt51" path="res://Ressources/ItemAnimation/pistogum_for_max.tres" id="5_3qtxs"]
 [ext_resource type="Texture2D" uid="uid://b5mbyvry47gey" path="res://Assets/Item/pistogum.png" id="5_7p1mr"]
-[ext_resource type="PackedScene" uid="uid://b0gcwgvjo0376" path="res://Assets/Particle/pisto_gum_shoot.tscn" id="5_c51hn"]
 [ext_resource type="Resource" uid="uid://t6ndsaq0cmm1" path="res://Ressources/ItemAnimation/pistogum_for_ash.tres" id="6_so68n"]
+[ext_resource type="Texture2D" uid="uid://csrrrdjxo2xi" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0000.png" id="9_eoxcr"]
+[ext_resource type="Texture2D" uid="uid://b326tw1jrkx8e" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0001.png" id="10_7mioq"]
+[ext_resource type="Texture2D" uid="uid://dykadkl1s4nde" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0002.png" id="11_enlul"]
+[ext_resource type="Texture2D" uid="uid://dbs1ed5lm86ph" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0003.png" id="12_6b3ry"]
+[ext_resource type="Texture2D" uid="uid://b5p2hn2xveilk" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0004.png" id="13_2e5of"]
+[ext_resource type="Texture2D" uid="uid://drakqt2mkmdo5" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0005.png" id="14_6r76d"]
+[ext_resource type="Texture2D" uid="uid://bemgglgs21sf" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0006.png" id="15_qayge"]
+[ext_resource type="Texture2D" uid="uid://bmltuvct3rs" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0007.png" id="16_14y6g"]
+[ext_resource type="Texture2D" uid="uid://l5ox63kt62dq" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0008.png" id="17_hh2vd"]
+[ext_resource type="Texture2D" uid="uid://drv875fcxqbud" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0009.png" id="18_ent1d"]
+[ext_resource type="Texture2D" uid="uid://nq2d5w2codex" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0010.png" id="19_rehs2"]
+[ext_resource type="Texture2D" uid="uid://b8j1j0phhx4oh" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0011.png" id="20_pyl25"]
+[ext_resource type="Texture2D" uid="uid://u4xvc20ps76n" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0012.png" id="21_hqovg"]
+[ext_resource type="Texture2D" uid="uid://bquungva8wvwf" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0013.png" id="22_nnpi5"]
+[ext_resource type="Texture2D" uid="uid://r58r83336wkm" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0014.png" id="23_p3j2d"]
+[ext_resource type="Texture2D" uid="uid://vy5nmp4r7ynb" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0015.png" id="24_vic6g"]
+[ext_resource type="Texture2D" uid="uid://brl4h4t3kes3y" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0016.png" id="25_uhxe6"]
+[ext_resource type="Texture2D" uid="uid://b2111eemglejp" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0017.png" id="26_p38u7"]
+[ext_resource type="Texture2D" uid="uid://dpxbpd81hmr5e" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0018.png" id="27_roxn2"]
+[ext_resource type="Texture2D" uid="uid://bevrbv61b6eyh" path="res://Assets/VFX/PistoGum/Launch/launch vfx pistogum0019.png" id="28_hicys"]
+[ext_resource type="Texture2D" uid="uid://334s7bqohet1" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0000.png" id="29_hqovg"]
+[ext_resource type="Texture2D" uid="uid://cqfsqs1bdtqyf" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0001.png" id="30_nnpi5"]
+[ext_resource type="Texture2D" uid="uid://qxwndc74osoh" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0002.png" id="31_p3j2d"]
+[ext_resource type="Texture2D" uid="uid://cvpylxqfrywh6" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0003.png" id="32_vic6g"]
+[ext_resource type="Texture2D" uid="uid://cmv8ccwom4aqq" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0004.png" id="33_uhxe6"]
+[ext_resource type="Texture2D" uid="uid://bv24n134b3qwm" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0005.png" id="34_p38u7"]
+[ext_resource type="Texture2D" uid="uid://fn1tk4j4te6v" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0006.png" id="35_roxn2"]
+[ext_resource type="Texture2D" uid="uid://cjxdrllbpfkbv" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0007.png" id="36_hicys"]
+[ext_resource type="Texture2D" uid="uid://b24yup8vq02hl" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0008.png" id="37_bmq8e"]
+[ext_resource type="Texture2D" uid="uid://bjqehw1kqxyvl" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0009.png" id="38_parqk"]
+[ext_resource type="Texture2D" uid="uid://bg43ovroe8cpa" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0010.png" id="39_1gcri"]
+[ext_resource type="Texture2D" uid="uid://b21aa73sasj3f" path="res://Assets/VFX/PistoGum/Trail/trail vfx pistogum 0011.png" id="40_lk5fk"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_any3s"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_pyl25"]
 resource_local_to_scene = true
 radius = 0.45
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
 points = PackedVector3Array(-0.5, 0, 1, -1.8, 0, -1.5, 0, 0, -2.4, 1.8, 0, -1.5, 0.5, 0, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_3qtxs"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_pyl25"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_so68n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnpi5"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -30,12 +61,132 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmq8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_eoxcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7mioq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_enlul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6b3ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2e5of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6r76d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qayge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_14y6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hh2vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ent1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rehs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pyl25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hqovg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_nnpi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_p3j2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vic6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_uhxe6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_p38u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_roxn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_hicys")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkba2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_hqovg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_nnpi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_p3j2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vic6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_uhxe6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_p38u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_roxn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_hicys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bmq8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_parqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_1gcri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_lk5fk")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
 script = ExtResource("2_cg3nc")
 player_speed_multiplier = 0.5
 slow_duration = 2.5
 vibration_force_on_shoot = 0.8
 vibration_duration_on_shoot = 0.1
+trail_effect_distance = 1.0
+item_type = 1
 attack_speed = 0.3
 damage = 4.2
 reverse_attack_dash = true
@@ -55,20 +206,31 @@ transform = Transform3D(0.15, 0, 0, 0, 0.1409539, 0.05130302, 0, -0.05130302, 0.
 texture = ExtResource("5_7p1mr")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_any3s")
+shape = SubResource("SphereShape3D_pyl25")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_3qtxs")
+mesh = SubResource("ImmediateMesh_pyl25")
 
-[node name="PistoGumShoot" parent="." index="7" unique_id=1130802044 instance=ExtResource("5_c51hn")]
-
-[node name="VisualAnchor" parent="." index="8" unique_id=1131579775]
+[node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-sprite_frames = SubResource("SpriteFrames_so68n")
+sprite_frames = SubResource("SpriteFrames_nnpi5")
+
+[node name="PistogumExplosion" type="AnimatedSprite3D" parent="." index="8" unique_id=1591045717]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+top_level = true
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_bmq8e")
+
+[node name="PistogumTrail" type="AnimatedSprite3D" parent="." index="9" unique_id=1003135576]
+transform = Transform3D(-1.3113417e-08, 0.29999998, -1.3113417e-08, 0, -1.3113416e-08, -0.3, -0.3, -1.3113416e-08, 5.7320567e-16, 0, 0, 0)
+top_level = true
+centered = false
+offset = Vector2(-500, -168.385)
+sprite_frames = SubResource("SpriteFrames_mkba2")

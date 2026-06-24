@@ -11,12 +11,10 @@ extends GameScene
 
 @export_category("Text Tutorial")
 @export_group("Sound Bar Tuto Text")
-@export var sound_title: String = "Sound Bar"
-@export var sound_texts: Array[String]
+@export var sound_datas: Array[OnboardingHelpBoxContent]
 
 @export_group("Health Bar Tuto Text")
-@export var health_title: String = "Health Bar"
-@export var health_texts: Array[String]
+@export var health_datas: Array[OnboardingHelpBoxContent]
 
 @export_category("Wall Animation")
 @export var wall_down_by: float = 2
@@ -154,8 +152,7 @@ func _show_sound_bar():
 	for player in players:
 		player.freeze()
 	
-	onboarding_text_display.title.text = sound_title
-	onboarding_text_display.add_texts_page(sound_texts)
+	onboarding_text_display.add_texts_page(sound_datas)
 	onboarding_text_display.show()
 
 func _show_health_bar():
@@ -165,8 +162,7 @@ func _show_health_bar():
 	for player in players:
 		player.freeze()
 	
-	onboarding_text_display.title.text = health_title
-	onboarding_text_display.add_texts_page(health_texts)
+	onboarding_text_display.add_texts_page(health_datas)
 	onboarding_text_display.show()
 
 func onboarding_text_finish():

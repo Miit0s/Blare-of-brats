@@ -1,29 +1,93 @@
 [gd_scene format=3 uid="uid://tgo2cn1siwst"]
 
-[ext_resource type="Texture2D" uid="uid://b05mgb3rwimgh" path="res://Assets/MockSprite/vortex.png" id="1_sermh"]
+[ext_resource type="Texture2D" uid="uid://cy75iy065btwl" path="res://Assets/VFX/Stun/stun vfx0000.png" id="1_3gwpf"]
+[ext_resource type="Texture2D" uid="uid://vurdw3jnr5gw" path="res://Assets/VFX/Stun/stun vfx0001.png" id="2_hlge1"]
+[ext_resource type="Texture2D" uid="uid://cui20wfbnb4ks" path="res://Assets/VFX/Stun/stun vfx0002.png" id="3_fuylc"]
+[ext_resource type="Texture2D" uid="uid://wea85nr5kbco" path="res://Assets/VFX/Stun/stun vfx0003.png" id="4_0ao3b"]
+[ext_resource type="Texture2D" uid="uid://bainaqu8d0dbg" path="res://Assets/VFX/Stun/stun vfx0004.png" id="5_krxww"]
+[ext_resource type="Texture2D" uid="uid://beisx7o2am0yr" path="res://Assets/VFX/Stun/stun vfx0005.png" id="6_8lnn2"]
+[ext_resource type="Texture2D" uid="uid://bdu1rsrbntbde" path="res://Assets/VFX/Stun/stun vfx0006.png" id="7_ryuqi"]
+[ext_resource type="Texture2D" uid="uid://bq1p4wqrq7jvd" path="res://Assets/VFX/Stun/stun vfx0007.png" id="8_wfuhr"]
+[ext_resource type="Texture2D" uid="uid://42wua2d3wrw0" path="res://Assets/VFX/Stun/stun vfx0008.png" id="9_tnt7r"]
+[ext_resource type="Texture2D" uid="uid://bw4hompde3fo5" path="res://Assets/VFX/Stun/stun vfx0009.png" id="10_etfh5"]
+[ext_resource type="Texture2D" uid="uid://dd4rxvo6mce76" path="res://Assets/VFX/Stun/stun vfx0010.png" id="11_t0jdh"]
+[ext_resource type="Texture2D" uid="uid://pobvur1pygh8" path="res://Assets/VFX/Stun/stun vfx0011.png" id="12_if5di"]
+[ext_resource type="Texture2D" uid="uid://cyuduejc18vb7" path="res://Assets/VFX/Stun/stun vfx0012.png" id="13_6qkws"]
+[ext_resource type="Texture2D" uid="uid://8plfbkg5q4vv" path="res://Assets/VFX/Stun/stun vfx0013.png" id="14_kq7dv"]
+[ext_resource type="Texture2D" uid="uid://dnp4ekoxo286s" path="res://Assets/VFX/Stun/stun vfx0014.png" id="15_83bo7"]
+[ext_resource type="Texture2D" uid="uid://bynmnnb8m4730" path="res://Assets/VFX/Stun/stun vfx0015.png" id="16_cpjfi"]
+[ext_resource type="Texture2D" uid="uid://cj83y40j6wnek" path="res://Assets/VFX/Stun/stun vfx0016.png" id="17_rp2jm"]
+[ext_resource type="Texture2D" uid="uid://di6h7yb3umrfe" path="res://Assets/VFX/Stun/stun vfx0017.png" id="18_2slmm"]
+[ext_resource type="Texture2D" uid="uid://dls31nd0tnniv" path="res://Assets/VFX/Stun/stun vfx0018.png" id="19_621g4"]
+[ext_resource type="Texture2D" uid="uid://b7s2y62s46wvn" path="res://Assets/VFX/Stun/stun vfx0019.png" id="20_ynk8s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybo73"]
-transparency = 1
-albedo_color = Color(0.38997233, 0.0009976542, 0.5596093, 1)
-albedo_texture = ExtResource("1_sermh")
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfpsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3gwpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hlge1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fuylc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ao3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_krxww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8lnn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ryuqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wfuhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tnt7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_etfh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t0jdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_if5di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6qkws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kq7dv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_83bo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cpjfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rp2jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2slmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_621g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ynk8s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sf0qn"]
-particle_flag_rotate_y = true
-angle_min = 1.0728835e-05
-angle_max = 1.0728835e-05
-angular_velocity_min = 359.99997
-angular_velocity_max = 359.99997
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_j7wlx"]
-
-[node name="StunParticle" type="GPUParticles3D" unique_id=1759464147]
-visible = false
-material_override = SubResource("StandardMaterial3D_ybo73")
-emitting = false
-amount = 1
-lifetime = 10.0
-process_material = SubResource("ParticleProcessMaterial_sf0qn")
-draw_pass_1 = SubResource("PlaneMesh_j7wlx")
+[node name="StunParticle" type="AnimatedSprite3D" unique_id=479552201]
+sprite_frames = SubResource("SpriteFrames_xfpsy")

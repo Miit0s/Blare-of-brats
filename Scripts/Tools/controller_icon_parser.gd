@@ -4,6 +4,7 @@ class_name ControllerIconParser
 
 @export var image_size_offset: int = 0
 @export var white_version: bool = false
+@export var color_for_white_version: Color = Color(1.0, 1.0, 1.0, 1.0)
 @export var raw_text: String = "":
 	set(new_value):
 		raw_text = new_value
@@ -20,7 +21,13 @@ func _update_display(_new_device_type: ControllerIconSet.PlatformName):
 	var final_text = raw_text
 	
 	var current_font_size: int = get_theme_font_size("normal_font_size")
-	var img_tag_base = "[img=" + str(current_font_size + image_size_offset) + "x" + str(current_font_size + image_size_offset) + "]"
+	var img_size: int = current_font_size + image_size_offset
+	var img_color : String = ""
+	
+	if white_version:
+		img_color = " color=%s" % [color_for_white_version.to_html()]
+	
+	var img_tag_base: String = "[img=%dx%d%s]" % [img_size, img_size, img_color]
 	
 	var regex_action = RegEx.new()
 	regex_action.compile("\\{(.*?)\\}")

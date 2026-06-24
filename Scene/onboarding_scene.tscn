@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cbhul4xaw6l4n" path="res://Scripts/Game/onboarding_scene.gd" id="1_d4n33"]
 [ext_resource type="Script" uid="uid://c02cnle76j6bl" path="res://Scripts/Resources/task_info_ressource.gd" id="2_v11op"]
+[ext_resource type="Script" uid="uid://boubphqexip6n" path="res://Scripts/Resources/onboarding_help_box_content.gd" id="3_5felv"]
 [ext_resource type="WwiseRTPC" uid="uid://ink3bmui4ts" path="res://Wwise/resources/Game Parameter/{DA5A8D3C-E12A-45B1-B2D9-4CAD42C349CA}.tres" id="3_aongf"]
+[ext_resource type="Resource" uid="uid://bjb2w2t8rhqy1" path="res://Ressources/OnboardingData/soundbar_1.tres" id="4_el4mh"]
 [ext_resource type="WwiseEvent" uid="uid://cqeer5ilf3afn" path="res://Wwise/resources/Event/{6F25AD62-E2CE-4A7C-A12E-9A83C562DEDC}.tres" id="4_jhpbt"]
 [ext_resource type="PackedScene" uid="uid://dsav2a7iciiw1" path="res://Scene/Map/Map_Onboarding.tscn" id="5_hq2bc"]
+[ext_resource type="Resource" uid="uid://oulde8blnorg" path="res://Ressources/OnboardingData/soundbar_2.tres" id="5_u823a"]
+[ext_resource type="Resource" uid="uid://bc0cvftis75jw" path="res://Ressources/OnboardingData/healthbar_1.tres" id="6_nvbbg"]
+[ext_resource type="Resource" uid="uid://djaojd5vwc7pp" path="res://Ressources/OnboardingData/healthbar_2.tres" id="7_042mj"]
 [ext_resource type="WwiseEvent" uid="uid://de3xap53vjjev" path="res://Wwise/resources/Event/{379705D3-B374-4513-9155-CCCB5CB7D489}.tres" id="8_ts878"]
 [ext_resource type="WwiseEvent" uid="uid://bj0r665al3n30" path="res://Wwise/resources/Event/{8DA8C114-4332-4DD6-AEFA-8C314AF989F3}.tres" id="9_aongf"]
 [ext_resource type="WwiseSwitch" uid="uid://b4b2cqrs243i8" path="res://Wwise/resources/Switch/{FD1A1761-B018-456D-A243-B338F6410620}.tres" id="10_5felv"]
@@ -68,8 +73,8 @@ script = ExtResource("1_d4n33")
 input_reminders = [NodePath("CanvasLayer/InputReminder"), NodePath("CanvasLayer/InputReminder2")]
 task_lists = [NodePath("CanvasLayer/TaskList"), NodePath("CanvasLayer/TaskList2")]
 task_info_in_order = Array[ExtResource("2_v11op")]([SubResource("Resource_nvbbg"), SubResource("Resource_0f3cc"), SubResource("Resource_042mj"), SubResource("Resource_mk21a")])
-sound_texts = Array[String](["When the [color=red]Sound Bar is full[/color], the [color=red]eye of the [br] wolf is chasing you[/color] ! Don't be caught !", "The sound bar get filled by using [color=red]objects[/color] and when they [color=red]broke[/color]"])
-health_texts = Array[String](["You and your sibling share a [color=red]health bar[/color].[br]Whoever [color=red]fills it first[/color] wins !", "The health bar get [color=red]filled[/color] by [color=red]hitting[/color] your sibbling with [color=red]objects[/color] !"])
+sound_datas = Array[ExtResource("3_5felv")]([ExtResource("4_el4mh"), ExtResource("5_u823a")])
+health_datas = Array[ExtResource("3_5felv")]([ExtResource("6_nvbbg"), ExtResource("7_042mj")])
 game_bar = NodePath("CanvasLayer/GameBar")
 camera_controller = NodePath("CameraController")
 next_scene_uid = "uid://c53l85gqm0mi1"

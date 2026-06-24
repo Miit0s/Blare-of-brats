@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OnboardingHelpBoxContent" format=3 uid="uid://djaojd5vwc7pp"]
+
+[ext_resource type="Script" uid="uid://boubphqexip6n" path="res://Scripts/Resources/onboarding_help_box_content.gd" id="1_fmd67"]
+[ext_resource type="Texture2D" uid="uid://cn233gn4anuid" path="res://Assets/SpriteUI/Onboarding/TutoBarOnboarding/fithing_siblings_illustration.png" id="1_wyiif"]
+
+[resource]
+script = ExtResource("1_fmd67")
+title = "Health Bar"
+text = "The health bar gets [color=#bf1e43]filled[/color] by [color=#bf1e43]hitting[/color] your sibling with [color=#bf1e43]objects[/color]!"
+image_linked = ExtResource("1_wyiif")
+metadata/_custom_type_script = "uid://boubphqexip6n"
