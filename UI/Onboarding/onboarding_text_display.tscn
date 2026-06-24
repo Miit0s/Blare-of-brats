@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://0suax27ohuw" path="res://Scripts/Tools/controller_icon_parser.gd" id="1_t6mrn"]
 [ext_resource type="Script" uid="uid://bju2pll2wsybw" path="res://Scripts/UI/onboarding_text_display.gd" id="1_xlx4w"]
 [ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="4_5al6d"]
+[ext_resource type="Texture2D" uid="uid://b1e4rujo5u67b" path="res://Assets/SpriteUI/Onboarding/TutoBarOnboarding/wolf_illustration.png" id="5_1i2wr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlx4w"]
 load_path = "res://.godot/imported/onboarding_bg.png-75d4718d35f842696fa4328bac3d24e2.ctex"
@@ -73,7 +74,6 @@ vertical_alignment = 1
 script = ExtResource("1_t6mrn")
 image_size_offset = 5
 white_version = true
-color_for_white_version = null
 raw_text = "Press {JoinGame} to pass"
 metadata/_custom_type_script = "uid://0suax27ohuw"
 
@@ -151,13 +151,11 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 25.0
-offset_top = -347.0
-offset_right = -25.0
-offset_bottom = 3.0
+offset_right = -26.0
 grow_horizontal = 2
 grow_vertical = 0
-expand_mode = 1
-stretch_mode = 6
+texture = ExtResource("5_1i2wr")
+expand_mode = 5
 
 [node name="PageNumberBackground" type="TextureRect" parent="." unique_id=1233864608]
 layout_mode = 1

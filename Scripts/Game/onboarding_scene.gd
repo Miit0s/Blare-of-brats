@@ -163,7 +163,7 @@ func _show_health_bar():
 	for player in players:
 		player.freeze()
 	
-	onboarding_text_display.add_texts_page(sound_datas)
+	onboarding_text_display.add_texts_page(health_datas)
 	onboarding_text_display.show()
 
 func onboarding_text_finish():
