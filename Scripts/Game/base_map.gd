@@ -20,6 +20,9 @@ class_name BaseMap
 @export var eyes_wake_up_vibration_force: float = 1.0
 @export var eyes_wake_up_vibration_duration: float = 0.5
 
+@export_category("Sound")
+@export var wolf_sound_anim: WwiseEvent
+
 var _random_position_wait_tween: Tween = null
 var _reset_wolf_light_wait_tween: Tween = null
 
@@ -43,6 +46,7 @@ func start_wolf_cutscene(controller_id_for_vibration: Array[int]):
 	_wolf_cutscene_tween.tween_callback(desactivate_light)
 	_wolf_cutscene_tween.tween_interval(wait_duration_before_camera_change)
 	_wolf_cutscene_tween.tween_callback(func(): cutscene_phantom_camera_3d.priority = 2)
+	_wolf_cutscene_tween.tween_callback(wolf_sound_anim.post.bind(self))
 	_wolf_cutscene_tween.tween_interval(wait_duration_before_eyes_animation)
 	_wolf_cutscene_tween.tween_callback(wolf_eyes_wake_up.restart)
 	_wolf_cutscene_tween.tween_callback(_trigger_wolf_eyes_vibration.bind(controller_id_for_vibration))

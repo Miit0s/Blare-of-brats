@@ -4,6 +4,9 @@ extends CanvasLayer
 
 @export var transition_duration: float = 0.5
 
+@export var crown_sound: WwiseEvent
+@export var triggger_sound_duration: float = 0.2
+
 var is_displaying: bool = false
 
 var _end_value: float = 2.75
@@ -65,3 +68,7 @@ func despawn_transtion():
 func _update_shader_with_tween_value(value: float):
 	var shader: ShaderMaterial = loading_page.material
 	shader.set_shader_parameter("progress", value)
+	
+
+func trigger_crown_sound():
+	pass

@@ -10,6 +10,7 @@
 [ext_resource type="WwiseState" uid="uid://dgoj7l3wcm4fk" path="res://Wwise/resources/State/{C5A6C206-758A-4C0F-BFF9-A474D88CBE1C}.tres" id="8_x3kbn"]
 [ext_resource type="WwiseState" uid="uid://bxovrjquhprtc" path="res://Wwise/resources/State/{6AB87BBD-27D3-42AE-8F50-36FDFA45E163}.tres" id="9_5hvxi"]
 [ext_resource type="WwiseState" uid="uid://dg8rpoh37x2lx" path="res://Wwise/resources/State/{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}.tres" id="10_d3eva"]
+[ext_resource type="WwiseState" uid="uid://dfjtchgm0quxi" path="res://Wwise/resources/State/{938C3D71-E8BF-4464-9B84-6CD5CDCBCD62}.tres" id="11_6dw3r"]
 
 [node name="MainMusicManager" type="Node" unique_id=1974987802]
 script = ExtResource("1_5vxhr")
@@ -22,3 +23,4 @@ phase_1 = ExtResource("7_pl8yy")
 phase_2 = ExtResource("8_x3kbn")
 phase_3 = ExtResource("9_5hvxi")
 phase_danger = ExtResource("10_d3eva")
+win = ExtResource("11_6dw3r")

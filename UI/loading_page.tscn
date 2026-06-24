@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ce2kyh0xs1xgo" path="res://Assets/SpriteUI/Menu/blue menu screen.png" id="1_qjrnr"]
 [ext_resource type="Script" uid="uid://dx1bej358tqrr" path="res://Scripts/UI/loading_page.gd" id="2_ptlei"]
+[ext_resource type="WwiseEvent" uid="uid://7crc74doiw75" path="res://Wwise/resources/Event/{B24A5324-1684-45C8-8FE1-9FB0E05A9B51}.tres" id="2_swcs8"]
 [ext_resource type="Texture2D" uid="uid://b1cj3dx5lhybi" path="res://Assets/SpriteUI/Menu/mask animation logo et menu.png" id="2_vak4j"]
 [ext_resource type="Texture2D" uid="uid://wx7dx2l65uf0" path="res://Assets/SpriteUI/Menu/stars_moon_pattern_tileable.png" id="3_mfjuo"]
 [ext_resource type="Texture2D" uid="uid://p6154poia0m7" path="res://Assets/SpriteUI/Menu/logo menu.png" id="4_r4hep"]
@@ -32,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://oqyr11plg4p1" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0024.png" id="29_e884u"]
 [ext_resource type="Texture2D" uid="uid://dvp58ci0ipoh5" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0025.png" id="30_nk3iv"]
 [ext_resource type="Texture2D" uid="uid://8dgjtaj5ca0l" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0026.png" id="31_xjad8"]
-[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="32_hf1oe"]
+[ext_resource type="Shader" path="res://Shader/universal_transition_shader.gdshader" id="32_hf1oe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hf1oe"]
 resource_local_to_scene = true
@@ -159,7 +160,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_xjad8")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 24.0
 }]
@@ -167,6 +168,7 @@ animations = [{
 [node name="LoadingPage" type="CanvasLayer" unique_id=905105484]
 layer = 5
 script = ExtResource("2_ptlei")
+crown_sound = ExtResource("2_swcs8")
 
 [node name="LoadingPage" type="SubViewportContainer" parent="." unique_id=1975262862]
 material = SubResource("ShaderMaterial_hf1oe")

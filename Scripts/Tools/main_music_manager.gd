@@ -11,6 +11,7 @@ extends Node
 @export var phase_2: WwiseState
 @export var phase_3: WwiseState
 @export var phase_danger: WwiseState
+@export var win: WwiseState
 
 func _enter_tree() -> void:
 	bank.load()
@@ -42,3 +43,6 @@ func set_phase_3_state():
 
 func set_phase_danger_state():
 	phase_danger.set_value()
+
+func set_win_state():
+	win.set_value()
