@@ -226,7 +226,7 @@ func _process(delta: float) -> void:
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		
-		if not aim_direction.is_equal_approx(Vector3.ZERO):
+		if aim_direction.length_squared() > 0.001:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
 	
 	var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
