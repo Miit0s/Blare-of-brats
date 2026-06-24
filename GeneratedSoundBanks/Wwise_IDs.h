@@ -38,11 +38,13 @@ namespace AK
         static const AkUniqueID SWITCHOBJECT = 2476125396U;
         static const AkUniqueID UI_COLORS_NAV = 1604317996U;
         static const AkUniqueID UI_COLORS_SELECT = 2429118665U;
+        static const AkUniqueID UI_CROWN = 3383241051U;
         static const AkUniqueID UI_HOLD = 28914597U;
         static const AkUniqueID UI_MENU_BACK = 922786755U;
         static const AkUniqueID UI_MENU_NAV = 17678017U;
         static const AkUniqueID UI_MENU_SELECT = 3474566310U;
         static const AkUniqueID UI_START = 1219048826U;
+        static const AkUniqueID UI_WOLF_ANIM = 233644730U;
     } // namespace EVENTS
 
     namespace STATES
@@ -61,6 +63,7 @@ namespace AK
                 static const AkUniqueID PHASE_DANGER = 1580246308U;
                 static const AkUniqueID READYSCREEN = 505373590U;
                 static const AkUniqueID START_MENU = 2977420043U;
+                static const AkUniqueID WIN = 979765101U;
             } // namespace STATE
         } // namespace ROUND_STATE
 
