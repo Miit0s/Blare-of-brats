@@ -703,6 +703,8 @@ func _detect_wall_bounce():
 func freeze():
 	_is_freeze = true
 	player_animated_sprite_3d.pause()
+	
+	if _is_aiming: _is_aiming = false
 
 func unfreeze():
 	_is_freeze = false
