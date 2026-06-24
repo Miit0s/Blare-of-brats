@@ -478,6 +478,8 @@ func stun(duration: float):
 	
 	_update_sprite(_last_direction, false)
 	
+	if _is_aiming: _is_aiming = false
+	
 	await get_tree().create_timer(duration).timeout
 	_is_stun = false
 	
