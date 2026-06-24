@@ -61,8 +61,8 @@ func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
 	round_start_ui.animation_finish.connect(round_start_ui.hide)
 	round_end_ui.next_round_button_pressed.connect(start_round_animation)
-	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene)
-	game_end_ui.restart_button_pressed.connect(restart_new_game)
+	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene, ConnectFlags.CONNECT_ONE_SHOT)
+	game_end_ui.restart_button_pressed.connect(restart_new_game, ConnectFlags.CONNECT_ONE_SHOT)
 	
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)
 	game_bar.sound_bar_fill.connect(_on_game_sound_bar_sound_bar_fill)

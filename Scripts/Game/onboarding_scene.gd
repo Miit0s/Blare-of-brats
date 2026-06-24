@@ -44,7 +44,7 @@ var _dash_quest_completed: bool = false
 var _item_quest_completed: bool = false
 
 func _ready() -> void:
-	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene)
+	game_end_ui.to_main_menu_button_pressed.connect(go_to_next_scene, ConnectFlags.CONNECT_ONE_SHOT)
 	onboarding_text_display.onboarding_text_display_finish.connect(onboarding_text_finish)
 	
 	game_bar.player_win.connect(_on_shared_life_bar_player_win)

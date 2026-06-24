@@ -377,7 +377,6 @@ layout_mode = 1
 [node name="MenuStartScreen" parent="CanvasLayer/Menu" unique_id=1817293939 instance=ExtResource("16_fqtvk")]
 layout_mode = 1
 
-[connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlPlay/Play" to="CanvasLayer/Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlOptions/Options" to="CanvasLayer/Menu" method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlCredits/Credits" to="CanvasLayer/Menu" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/MainStack/MainButton/ControlExit/Exit" to="CanvasLayer/Menu" method="_on_exit_pressed"]

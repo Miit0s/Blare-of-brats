@@ -16,6 +16,7 @@ var _end_value: float = 2.75
 var _next_scene_name: String = ""
 var _start_transtion_finish: bool = false
 var _packed_loaded_event_send: bool = false
+var _is_already_loading_scene: bool = false
 
 var _trigger_crown_sound_tween: Tween = null
 
@@ -36,10 +37,14 @@ func _process(_delta: float) -> void:
 		var new_scene: PackedScene = ResourceLoader.load_threaded_get(_next_scene_name)
 		packed_scene_loaded.emit(new_scene)
 		_next_scene_name = ""
+		_is_already_loading_scene = false
 
 func start_transtion_to_scene(scene_name: String):
+	if _is_already_loading_scene: return
+	
 	ResourceLoader.load_threaded_request(scene_name)
 	_next_scene_name = scene_name
+	_is_already_loading_scene = true
 	
 	spawn_transtion()
 	

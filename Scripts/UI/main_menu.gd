@@ -38,6 +38,8 @@ func _ready() -> void:
 	for button in buttons_impacting_movement:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
+	play_button.pressed.connect(_on_play_pressed, ConnectFlags.CONNECT_ONE_SHOT)
+	
 	credits.on_button_click = on_button_click
 	
 	quit_prompt.on_button_click = on_button_click
