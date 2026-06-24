@@ -39,6 +39,7 @@ func _ready() -> void:
 		button.focus_entered.connect(_on_button_focus_entered.bind(button))
 	
 	play_button.pressed.connect(_on_play_pressed, ConnectFlags.CONNECT_ONE_SHOT)
+	options.visibility_changed.connect(_on_settings_visibility_change)
 	
 	credits.on_button_click = on_button_click
 	
@@ -105,6 +106,10 @@ func _on_quit_prompt_visibility_changed() -> void:
 func _on_credits_visibility_changed() -> void:
 	if not credits.visible:
 		credits_button.grab_focus()
+
+func _on_settings_visibility_change():
+	if not options.visible:
+		options_button.grab_focus()
 
 func _on_button_focus_entered(button: BaseButton) -> void:
 	VibrationManager.start_joy_vibration(_last_device_to_move, vibration_force_on_button_change, 0, vibration_duration_on_button_change)
