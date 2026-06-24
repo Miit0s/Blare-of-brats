@@ -22,10 +22,13 @@ func _perform_attack(_direction: Vector3):
 	pistogum_trail.global_rotation.y += deg_to_rad(90)
 	pistogum_trail.global_rotation.x += deg_to_rad(90)
 	
+	var forward_direction: Vector3 = -global_transform.basis.z
+	var target_position: Vector3 = self.global_position + (forward_direction * trail_effect_distance)
+	
 	var trail_tween: Tween = create_tween()
 	trail_tween.set_ease(Tween.EASE_OUT)
 	trail_tween.set_trans(Tween.TRANS_QUAD)
-	trail_tween.tween_property(pistogum_trail, "global_position:z", global_position.z + trail_effect_distance, attack_speed)
+	trail_tween.tween_property(pistogum_trail, "global_position", target_position, attack_speed)
 	
 	pistogum_explosion.play("default")
 	pistogum_trail.play("default")

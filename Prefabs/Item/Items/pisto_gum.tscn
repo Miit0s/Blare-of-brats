@@ -47,7 +47,7 @@ radius = 0.45
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg3nc"]
 points = PackedVector3Array(-0.5, 0, 1, -1.8, 0, -1.5, 0, 0, -2.4, 1.8, 0, -1.5, 0.5, 0, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_hqovg"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_pyl25"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnpi5"]
 resource_local_to_scene = true
@@ -56,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_7p1mr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -124,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_hicys")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 24.0
 }]
@@ -174,9 +174,9 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
-"speed": 24.0
+"speed": 30.0
 }]
 
 [node name="PistoGum" unique_id=2059959192 instance=ExtResource("1_nn2oi")]
@@ -185,7 +185,7 @@ player_speed_multiplier = 0.5
 slow_duration = 2.5
 vibration_force_on_shoot = 0.8
 vibration_duration_on_shoot = 0.1
-trail_effect_distance = 20.0
+trail_effect_distance = 1.0
 item_type = 1
 attack_speed = 0.3
 damage = 4.2
@@ -213,13 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_cg3nc")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_hqovg")
-
-[node name="CircleSpawnParticle" parent="." index="5" unique_id=1667071481]
-transform_align_channel_filter = 1
-
-[node name="OtherSpawnParticle" parent="." index="6" unique_id=1689987180]
-transform_align_channel_filter = 1
+mesh = SubResource("ImmediateMesh_pyl25")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -238,5 +232,5 @@ sprite_frames = SubResource("SpriteFrames_bmq8e")
 transform = Transform3D(-1.3113417e-08, 0.29999998, -1.3113417e-08, 0, -1.3113416e-08, -0.3, -0.3, -1.3113416e-08, 5.7320567e-16, 0, 0, 0)
 top_level = true
 centered = false
-offset = Vector2(-162.45, -168.385)
+offset = Vector2(-500, -168.385)
 sprite_frames = SubResource("SpriteFrames_mkba2")
