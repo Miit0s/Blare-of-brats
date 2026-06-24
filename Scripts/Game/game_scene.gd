@@ -57,6 +57,8 @@ var _current_scene: MapScene
 var _round_ended: bool = false
 var _first_round_setup: bool = true
 
+var _crow_reaction_wait_tween: Tween = null
+
 func _ready() -> void:
 	round_start_ui.start_round.connect(start_round)
 	round_start_ui.animation_finish.connect(round_start_ui.hide)
@@ -314,9 +316,15 @@ func _on_soundbar_lock_area_pass(lock_phase: int):
 			soundbar_lvl2.post(self)
 
 func _trigger_crowd_reaction():
-	reaction_crowd_switch.set_value(self)
-	await get_tree().create_timer(crowd_reaction_duration).timeout
-	continious_crowd_switch.set_value(self)
+	if _crow_reaction_wait_tween:
+		_crow_reaction_wait_tween.kill()
+		_crow_reaction_wait_tween = null
+	
+	_crow_reaction_wait_tween = create_tween()
+	_crow_reaction_wait_tween.tween_callback(reaction_crowd_switch.set_value.bind(self))
+	_crow_reaction_wait_tween.tween_interval(crowd_reaction_duration)
+	_crow_reaction_wait_tween.tween_callback(continious_crowd_switch.set_value.bind(self))
+	_crow_reaction_wait_tween.tween_callback(func(): _crow_reaction_wait_tween = null)
 
 func _player_has_been_hit(player_id: int, damage: float, direction: Vector3):
 	var reverse_id: int = 0 if player_id == 1 else 1
