@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://oqyr11plg4p1" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0024.png" id="29_e884u"]
 [ext_resource type="Texture2D" uid="uid://dvp58ci0ipoh5" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0025.png" id="30_nk3iv"]
 [ext_resource type="Texture2D" uid="uid://8dgjtaj5ca0l" path="res://Assets/SpriteUI/LoadingScreen/CrownAnimation/crown loading screen vfx0026.png" id="31_xjad8"]
-[ext_resource type="Shader" path="res://Shader/universal_transition_shader.gdshader" id="32_hf1oe"]
+[ext_resource type="Shader" uid="uid://b6sbv87y2uqnp" path="res://Shader/universal_transition_shader.gdshader" id="32_hf1oe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hf1oe"]
 resource_local_to_scene = true

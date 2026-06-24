@@ -72,6 +72,7 @@ func _input(event: InputEvent) -> void:
 		_last_device_to_move = event.device
 
 func _on_play_pressed() -> void:
+	on_button_click.post(self)
 	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
 	LoadingPage.start_transtion_to_scene(game_start_scene_uid)
 

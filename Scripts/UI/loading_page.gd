@@ -1,13 +1,15 @@
 extends CanvasLayer
 
 @onready var loading_page: SubViewportContainer = $LoadingPage
+@onready var animated_sprite_2d: AnimatedSprite2D = $LoadingPage/SubViewport/Control/Control/AnimatedSprite2D
 
 @export var transition_duration: float = 0.5
 
 @export var crown_sound: WwiseEvent
-@export var triggger_sound_duration: float = 0.2
+@export var triggger_sound_wait_duration: float = 0.2
 
 var is_displaying: bool = false
+var can_play_sound: bool = false
 
 var _end_value: float = 2.75
 
@@ -15,8 +17,13 @@ var _next_scene_name: String = ""
 var _start_transtion_finish: bool = false
 var _packed_loaded_event_send: bool = false
 
+var _trigger_crown_sound_tween: Tween = null
+
 signal transition_finish
 signal packed_scene_loaded(scene: PackedScene)
+
+func _ready() -> void:
+	animated_sprite_2d.animation_looped.connect(_trigger_crown_sound)
 
 func _process(_delta: float) -> void:
 	if not _start_transtion_finish: return
@@ -47,10 +54,15 @@ func spawn_transtion():
 	spawn_tween.set_ease(Tween.EASE_IN)
 	spawn_tween.set_trans(Tween.TRANS_QUAD)
 	spawn_tween.tween_method(_update_shader_with_tween_value, start_value, end_value, transition_duration)
-	spawn_tween.tween_callback(func(): is_displaying = true)
+	spawn_tween.tween_callback(func():
+		can_play_sound = true
+		is_displaying = true
+	)
 	spawn_tween.tween_callback(transition_finish.emit)
 
 func despawn_transtion():
+	can_play_sound = false
+	
 	var start_value: float = _end_value
 	var end_value: float = 0.0
 	
@@ -70,5 +82,10 @@ func _update_shader_with_tween_value(value: float):
 	shader.set_shader_parameter("progress", value)
 	
 
-func trigger_crown_sound():
-	pass
+func _trigger_crown_sound():
+	_trigger_crown_sound_tween = create_tween()
+	_trigger_crown_sound_tween.tween_interval(triggger_sound_wait_duration)
+	_trigger_crown_sound_tween.tween_callback(func():
+		if not can_play_sound: return
+		crown_sound.post(self)
+	)
