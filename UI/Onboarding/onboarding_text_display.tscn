@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bju2pll2wsybw" path="res://Scripts/UI/onboarding_text_display.gd" id="1_xlx4w"]
 [ext_resource type="Texture2D" uid="uid://cgas0ud6jnaef" path="res://Assets/SpriteUI/PauseMenu/button_menu.png" id="4_5al6d"]
 [ext_resource type="Texture2D" uid="uid://b1e4rujo5u67b" path="res://Assets/SpriteUI/Onboarding/TutoBarOnboarding/wolf_illustration.png" id="5_1i2wr"]
+[ext_resource type="WwiseEvent" uid="uid://bna7hv7hl08j6" path="res://Wwise/resources/Event/{0ED4976A-854F-4128-AE55-AB976FEC9AA0}.tres" id="2_5al6d"]
+[ext_resource type="WwiseEvent" uid="uid://bynhxij07jj55" path="res://Wwise/resources/Event/{8392ADD8-C8E1-4B32-A3A1-46778B8CA394}.tres" id="3_1i2wr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlx4w"]
 load_path = "res://.godot/imported/onboarding_bg.png-75d4718d35f842696fa4328bac3d24e2.ctex"
@@ -23,6 +25,8 @@ offset_right = 1240.0
 offset_bottom = 559.0
 theme = ExtResource("1_6s67n")
 script = ExtResource("1_xlx4w")
+on_button_next = ExtResource("2_5al6d")
+on_button_back = ExtResource("3_1i2wr")
 
 [node name="Background" type="TextureRect" parent="." unique_id=274745700]
 layout_mode = 1

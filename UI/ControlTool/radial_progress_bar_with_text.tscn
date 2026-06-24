@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://qb6rvvpdjgug" path="res://Scripts/UI/radial_pogress_bar_with_text.gd" id="1_rihet"]
 [ext_resource type="Shader" uid="uid://doki7jt3gmrse" path="res://Shader/radial_progress_bar.gdshader" id="2_bmoep"]
+[ext_resource type="WwiseEvent" uid="uid://bkt67dcyevg4i" path="res://Wwise/resources/Event/{28FD923D-57AB-49D2-9F50-ECA45580125D}.tres" id="2_vldpa"]
 [ext_resource type="Texture2D" uid="uid://4ac7be14xr56" path="res://Assets/VFX/radial_texture.png" id="3_ifhe4"]
+[ext_resource type="WwiseRTPC" uid="uid://l2jp0fi4kke1" path="res://Wwise/resources/Game Parameter/{B1AB8D75-38C1-4E2A-91D6-687A2CECB8CD}.tres" id="3_tmntv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhe4"]
 resource_local_to_scene = true
@@ -19,6 +21,8 @@ offset_right = 88.0
 offset_bottom = 50.0
 script = ExtResource("1_rihet")
 hold_duration = 0.0
+hold_sound_trigger = ExtResource("2_vldpa")
+hold_rtpc = ExtResource("3_tmntv")
 
 [node name="RadialProgressBar" type="TextureRect" parent="." unique_id=902424112]
 material = SubResource("ShaderMaterial_ifhe4")

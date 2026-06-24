@@ -19,21 +19,18 @@ class_name GameScene
 @export var round_number: int = 3
 
 @export_category("Sound")
-@export var music_fight: WwiseEvent
 @export var countdown: WwiseEvent
 @export var lead: WwiseRTPC
-@export var round_start_state: WwiseState
-@export var second_phase_state: WwiseState
-@export var third_phase_state: WwiseState
-@export var danger_phase_start: WwiseEvent
-
+@export_group("Soundbar related sound")
 @export var soundbar_lvl1: WwiseEvent
 @export var soundbar_lvl2: WwiseEvent
-
+@export var bar_volume_rtpc: WwiseRTPC
+@export_group("Crowd")
 @export var crowd_reaction_duration: float = 1.5
+@export var crowd_sound : WwiseEvent
 @export var continious_crowd_switch: WwiseSwitch
 @export var reaction_crowd_switch: WwiseSwitch
-@export var crowd_sound : WwiseEvent
+@export var danger_phase_crowd_switch: WwiseSwitch
 
 @export_category("Vibration")
 @export_group("Round Begin")
@@ -86,14 +83,15 @@ func _ready() -> void:
 	
 	start_round_animation()
 
+func _process(_delta: float) -> void:
+	bar_volume_rtpc.set_value(self, game_bar.game_sound_bar._game_sound_bar_volume * 100)
+
 func start_round_animation():
 	if round_end_ui.visible:
 		round_end_ui.hide_animation()
 		await round_end_ui.animation_finish
 	
 	countdown.post(self)
-	
-	round_start_state.set_value()
 	
 	game_bar.setup_color_and_texture(players_selection[0], players_selection[1])
 	
@@ -119,7 +117,7 @@ func start_round():
 	
 	camera_controller.start_tracking()
 	
-	music_fight.post(self)
+	MainMusicManager.set_phase_1_state()
 	crowd_sound.post(self)
 
 func setup_new_scene():
@@ -182,17 +180,21 @@ func player_win(player_id: int):
 	tracking_spot_player_one.target = null
 	tracking_spot_player_two.target = null
 	
-	music_fight.stop(self)
+	MainMusicManager.set_sound_stop_state()
 	
 	round_end_ui.animation_finish.connect(round_end_animaion_finish, ConnectFlags.CONNECT_ONE_SHOT)
 	round_end_ui.show()
 	round_end_ui.start_animation(players_win_array, _get_player_selection(player_id).color_skin)
 
 func go_to_next_scene():
+	crowd_sound.stop(self)
+	
 	LoadingPage.packed_scene_loaded.connect(get_tree().change_scene_to_packed, ConnectFlags.CONNECT_ONE_SHOT)
 	LoadingPage.start_transtion_to_scene(next_scene_uid)
 
 func restart_new_game():
+	crowd_sound.stop(self)
+	
 	LoadingPage.packed_scene_loaded.connect(_setup_game_scene_with_parameters, ConnectFlags.CONNECT_ONE_SHOT)
 	LoadingPage.start_transtion_to_scene(restart_game_scene_uid)
 
@@ -277,7 +279,8 @@ func _activate_the_danger_phase():
 	
 	_current_scene.activate_danger_phase(controller_id)
 	
-	#danger_phase_start.post(self)
+	MainMusicManager.set_phase_danger_state()
+	danger_phase_crowd_switch.set_value(self)
 	
 	if not GameOptions.have_see_wolf_cutscene:
 		for player in players:
@@ -302,12 +305,12 @@ func _activate_the_danger_phase():
 func _on_soundbar_lock_area_pass(lock_phase: int):
 	match lock_phase:
 		0: 
-			round_start_state.set_value()
+			MainMusicManager.set_phase_1_state()
 		1: 
-			second_phase_state.set_value()
+			MainMusicManager.set_phase_2_state()
 			soundbar_lvl1.post(self)
 		2: 
-			third_phase_state.set_value()
+			MainMusicManager.set_phase_3_state()
 			soundbar_lvl2.post(self)
 
 func _trigger_crowd_reaction():

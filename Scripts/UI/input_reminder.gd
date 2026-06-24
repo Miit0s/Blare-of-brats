@@ -26,6 +26,9 @@ class_name InputReminder
 @export var self_spawn_tween_duration: float = 0.2
 @export var ready_tween_duration: float = 0.2
 
+@export_category("Sound")
+@export var on_ready_button_press: WwiseEvent
+
 var vibration_force_on_ready: float = 0.0
 var vibration_duration_on_ready: float = 0.1
 
@@ -69,6 +72,8 @@ func input_reminder_ready():
 	ready_texture_tween.set_ease(Tween.EASE_OUT)
 	ready_texture_tween.set_trans(Tween.TRANS_QUART)
 	ready_texture_tween.tween_property(ready_texture, "scale", Vector2.ONE, ready_tween_duration)
+	
+	on_ready_button_press.post(self)
 	
 	await ready_texture_tween.finished
 	

@@ -50,7 +50,7 @@ var _is_ready_texture_display: bool = false
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
-	
+
 	for controller_slot: ControllerSlot in controller_slot_container.get_children():
 		controller_slot.player_his_ready.connect(_on_controller_slot_player_his_ready)
 		controller_slot.player_no_more_ready.connect(_on_controller_slot_player_no_more_ready)
@@ -191,6 +191,8 @@ func is_all_slot_pick() -> bool:
 	return true
 
 func start_game():
+	MainMusicManager.set_sound_stop_state()
+
 	for controller_slot in controller_slots:
 		VibrationManager.start_joy_vibration(controller_slot.get_player_id(), vibration_force_on_game_start, vibration_force_on_game_start / 2, vibration_duration_on_game_start)
 	

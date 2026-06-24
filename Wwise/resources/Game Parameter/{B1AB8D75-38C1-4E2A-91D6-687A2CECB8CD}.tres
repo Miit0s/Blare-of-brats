@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://l2jp0fi4kke1"]
+
+[resource]
+name = "Hold_Fct"
+id = 2172078744
+guid = "{B1AB8D75-38C1-4E2A-91D6-687A2CECB8CD}"
+dummy = true

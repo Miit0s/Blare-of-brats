@@ -9,6 +9,10 @@ class_name OnboardingTextDisplay
 
 @onready var page_number: RichTextLabel = $PageNumberBackground/PageNumber
 
+@export_category("Sound")
+@export var on_button_next: WwiseEvent
+@export var on_button_back: WwiseEvent
+
 var _datas: Array[OnboardingHelpBoxContent]
 
 var _current_page: int = 0
@@ -41,6 +45,8 @@ func update_page():
 	page_number.text = str(_current_page + 1) + " / " + str(_datas.size())
 
 func next_page():
+	on_button_next.post(self)
+	
 	if _current_page >= _datas.size() - 1: 
 		onboarding_text_display_finish.emit()
 		return
@@ -57,6 +63,8 @@ func previous_page():
 	
 	display_current_page()
 	update_page()
+	
+	on_button_back.post(self)
 
 func reset():
 	_current_page = 0

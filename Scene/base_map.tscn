@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1yjclxqsurb3" path="res://Scripts/Game/base_map.gd" id="1_edfmf"]
 [ext_resource type="PackedScene" uid="uid://cka2ladhxbgw1" path="res://Prefabs/Enviro/danger_spot_light_3d.tscn" id="2_abqlf"]
+[ext_resource type="WwiseEvent" uid="uid://cg1ydl73x05kj" path="res://Wwise/resources/Event/{50004631-488A-4D3A-B646-A1A811464A98}.tres" id="2_m6ivv"]
 [ext_resource type="Texture2D" uid="uid://wllafbs8srb" path="res://Assets/EnvironmentSprite/floorv03.png" id="3_pkc4b"]
 [ext_resource type="Texture2D" uid="uid://dqiv1ljmbjdsl" path="res://Assets/EnvironmentSprite/floor_insidev2.png" id="4_nb8nd"]
 [ext_resource type="Texture2D" uid="uid://wr68lhkpl6oq" path="res://Assets/SpriteUI/CharacterSelection/clouds_foreground_max.png" id="5_j2can"]
@@ -250,6 +251,7 @@ size = Vector2(1.5, 1.5)
 [node name="BaseMap" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("lights_to_control")]
 script = ExtResource("1_edfmf")
 lights_to_control = [NodePath("DirectionalLight3D"), NodePath("Light/SpotLight3D2"), NodePath("Light/SpotLight3D3"), NodePath("Light/SpotLight3D"), NodePath("Light/SpotLight3D4"), NodePath("Light/SpotLight3D5"), NodePath("Light/SpotLight3D9"), NodePath("Light/SpotLight3D7"), NodePath("Light/SpotLight3D8"), NodePath("Light/SpotLight3D6")]
+wolf_sound_anim = ExtResource("2_m6ivv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=707504107]
 environment = SubResource("Environment_abqlf")

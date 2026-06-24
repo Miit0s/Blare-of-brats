@@ -32,6 +32,10 @@ class_name GameEnd
 @export_category("Onboarding")
 @export var only_next_scene_button: bool = false
 
+@export_category("Sound")
+@export var score_increment_sound: WwiseEvent
+
+
 signal restart_button_pressed
 signal to_main_menu_button_pressed
 
@@ -92,9 +96,11 @@ func setup_scene_and_start_animation(left_player_info: EndGameResource, right_pl
 		var delay = i * bar_spawn_animation_stagger_delay
 		
 		spawn_animation.parallel().tween_property(child, "modulate:a", 1.0, bar_alpha_transition_duration).set_delay(delay)
+		spawn_animation.parallel().tween_callback(score_increment_sound.post.bind(self)).set_delay(delay)
 	
 	spawn_animation.tween_callback(score_left.show)
 	spawn_animation.parallel().tween_callback(score_right.show)
+	spawn_animation.parallel().tween_callback(MainMusicManager.set_win_state)
 	spawn_animation.tween_interval(wait_delay_before_stage_reveal)
 	spawn_animation.tween_callback(left_side_control.show)
 	spawn_animation.parallel().tween_callback(right_side_control.show)

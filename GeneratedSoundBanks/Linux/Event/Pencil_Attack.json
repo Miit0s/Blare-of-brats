@@ -49,7 +49,7 @@
       "Name": "Pencil_Attack",
       "ObjectPath": "\\Events\\ALL_EVENTS\\SFX\\Items\\Pencil\\Pencil_Attack",
       "GUID": "{EFB76245-5964-449C-A5D1-4E3800226B0E}",
-      "Color": "2",
+      "Color": "12",
       "DurationType": "OneShot",
       "DurationMin": "0.21048209",
       "DurationMax": "0.2763508",
@@ -68,6 +68,6 @@
     ]
    }
   ],
-  "FileHash": "{46757A57-7BB0-02EF-A1A7-1944F0EBA400}"
+  "FileHash": "{41D8843E-4796-88E3-ECE8-2CCA8BEB707A}"
  }
 }

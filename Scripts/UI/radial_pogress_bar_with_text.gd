@@ -13,9 +13,15 @@ class_name RadialProgressBarWithText
 		if label:
 			label.text = text
 
+@export_category("Sound")
+@export var hold_sound_trigger: WwiseEvent
+@export var hold_rtpc: WwiseRTPC
+
 var _player_his_holding_key: bool = false
 var _hold_time: float = 0
 var _progress_finish: bool = false
+
+var _have_trigger_sound_stop: bool = true
 
 signal hold_finish
 
@@ -27,17 +33,26 @@ func _process(delta: float) -> void:
 	
 	if _player_his_holding_key and not _progress_finish:
 		_hold_time = move_toward(_hold_time, 1.0, delta / hold_duration)
-
+		
 		if _hold_time >= 1:
 			_progress_finish = true
 			hold_finish.emit()
 	elif not _progress_finish:
 		_hold_time = move_toward(_hold_time, 0.0, delta / hold_duration)
 	
+	if _hold_time <= 0.0 and not _have_trigger_sound_stop:
+		hold_sound_trigger.stop(self)
+		_have_trigger_sound_stop = true
+	
+	hold_rtpc.set_value(self, _hold_time * 100.0)
 	radial_progress_bar.material.set_shader_parameter("progress", _hold_time)
 
 func player_start_holding_key():
 	_player_his_holding_key = true
+	
+	if _have_trigger_sound_stop:
+		hold_sound_trigger.post(self)
+		_have_trigger_sound_stop = false
 
 func player_stop_holding_key():
 	_player_his_holding_key = false
