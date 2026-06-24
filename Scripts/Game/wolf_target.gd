@@ -97,6 +97,14 @@ func _restart_move():
 func go_directly_to(location: Vector3):
 	var adjusted_position: Vector3 = Vector3(location.x, global_position.y, location.z)
 	global_position = adjusted_position
+	
+	if _slow_down_tween:
+		_slow_down_tween.kill()
+		_slow_down_tween = null
+	
+	if _speed_up_tween:
+		_speed_up_tween.kill()
+		_speed_up_tween = null
 
 func _on_player_stun_area_body_entered(body: Node3D):
 	if _is_tracking:
