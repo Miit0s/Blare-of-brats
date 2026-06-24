@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" format=3 uid="uid://dwksdscblo3f2"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_5sf2s"]
+
+[resource]
+group_ref = ExtResource("1_5sf2s")
+group_id = 314125497
+name = "Main_Menu"
+id = 2005704188
+guid = "{2822E57F-FB30-4B00-A92D-63C40685CB78}"
+dummy = true

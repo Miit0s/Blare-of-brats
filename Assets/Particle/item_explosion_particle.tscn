@@ -1,55 +1,105 @@
 [gd_scene format=3 uid="uid://di44tfpbu5w8n"]
 
-[sub_resource type="Gradient" id="Gradient_okjcq"]
-offsets = PackedFloat32Array(0, 0.37142858, 0.71428573, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.49411765, 0, 1, 1, 1, 0, 0.50980395, 1, 1, 1, 0)
+[ext_resource type="Texture2D" uid="uid://b8uaifb01sdf" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0000.png" id="1_dn8ma"]
+[ext_resource type="Texture2D" uid="uid://bl83xdi1a28cr" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0001.png" id="2_2dy03"]
+[ext_resource type="Texture2D" uid="uid://wu37ilsoy7dl" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0002.png" id="3_1b42u"]
+[ext_resource type="Texture2D" uid="uid://dpka7xmmatnbo" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0003.png" id="4_1ks5t"]
+[ext_resource type="Texture2D" uid="uid://401rymqe24pl" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0004.png" id="5_boo8s"]
+[ext_resource type="Texture2D" uid="uid://mqyd44y52bfm" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0005.png" id="6_kg6gr"]
+[ext_resource type="Texture2D" uid="uid://cf5xwx24pfn0g" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0006.png" id="7_mn81b"]
+[ext_resource type="Texture2D" uid="uid://1ylamuahig16" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0007.png" id="8_c0yrj"]
+[ext_resource type="Texture2D" uid="uid://x2s5v107blot" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0008.png" id="9_nj2ik"]
+[ext_resource type="Texture2D" uid="uid://b11mqyvhrt28o" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0009.png" id="10_bsm20"]
+[ext_resource type="Texture2D" uid="uid://djfxo0qhwoh0f" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0010.png" id="11_t6lnb"]
+[ext_resource type="Texture2D" uid="uid://b01kiwmfm6w5g" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0011.png" id="12_t88wf"]
+[ext_resource type="Texture2D" uid="uid://dgtpweqwugap3" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0012.png" id="13_772vb"]
+[ext_resource type="Texture2D" uid="uid://cisx5g2trwfr" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0013.png" id="14_trsje"]
+[ext_resource type="Texture2D" uid="uid://tvbgcghypl85" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0014.png" id="15_kr72f"]
+[ext_resource type="Texture2D" uid="uid://hdxlsyy3osqi" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0015.png" id="16_iuvti"]
+[ext_resource type="Texture2D" uid="uid://dyqlpmop5pk7e" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0016.png" id="17_j8oic"]
+[ext_resource type="Texture2D" uid="uid://dlvu4orqy7shd" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0017.png" id="18_blgn2"]
+[ext_resource type="Texture2D" uid="uid://bojj7lar15nxl" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0018.png" id="19_n478m"]
+[ext_resource type="Texture2D" uid="uid://bxasrmha415fc" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0019.png" id="20_24hia"]
+[ext_resource type="Texture2D" uid="uid://yqyxt4ai6b76" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0020.png" id="21_u48mc"]
+[ext_resource type="Texture2D" uid="uid://bmo5pjwi5hmbe" path="res://Assets/VFX/ObjectDestruction/destruction object vfx0021.png" id="22_xg11a"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0o2h0"]
-gradient = SubResource("Gradient_okjcq")
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8i6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dn8ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2dy03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1b42u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1ks5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_boo8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kg6gr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mn81b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c0yrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nj2ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bsm20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t6lnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t88wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_772vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_trsje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kr72f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_iuvti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_j8oic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_blgn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_n478m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_24hia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_u48mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xg11a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
-[sub_resource type="Curve" id="Curve_dnd63"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.4975124, 0.64044946), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_t4ted"]
-curve = SubResource("Curve_dnd63")
-
-[sub_resource type="Curve" id="Curve_6uwl0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50248754, 0.47191018), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_qif1d"]
-curve = SubResource("Curve_6uwl0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_okjcq"]
-direction = Vector3(0, 1, 0)
-spread = 180.0
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-scale_min = 0.19999999
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_qif1d")
-color_ramp = SubResource("GradientTexture1D_0o2h0")
-emission_curve = SubResource("CurveTexture_t4ted")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufmye"]
-transparency = 1
-vertex_color_use_as_albedo = true
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_fnt8b"]
-material = SubResource("StandardMaterial3D_ufmye")
-
-[node name="ExplosionParticle" type="GPUParticles3D" unique_id=1197128601]
+[node name="ExplosionParticle" type="AnimatedSprite3D" unique_id=437991387]
 cast_shadow = 0
-emitting = false
-amount = 100
-lifetime = 0.3
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_okjcq")
-draw_pass_1 = SubResource("QuadMesh_fnt8b")
+offset = Vector2(-41.115, 13.005)
+billboard = 1
+no_depth_test = true
+sprite_frames = SubResource("SpriteFrames_u8i6w")

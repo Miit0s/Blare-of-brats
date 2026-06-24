@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://cg1ydl73x05kj"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "UI_Wolf_Anim"
+id = 233644730
+guid = "{50004631-488A-4D3A-B646-A1A811464A98}"
+dummy = true

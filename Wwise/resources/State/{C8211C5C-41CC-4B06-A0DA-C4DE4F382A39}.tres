@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" format=3 uid="uid://dg8rpoh37x2lx"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://spvdjk05dgym" path="res://Wwise/resources/State Group/{E29410EB-05F8-4439-B5AC-0F469BC05E75}.tres" id="1_o5qeb"]
+
+[resource]
+group_ref = ExtResource("1_o5qeb")
+group_id = 314125497
+name = "Phase_Danger"
+id = 1580246308
+guid = "{C8211C5C-41CC-4B06-A0DA-C4DE4F382A39}"
+dummy = true

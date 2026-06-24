@@ -3,10 +3,16 @@ class_name Player
 
 @onready var pick_up_area: Area3D = $PickUpArea
 @onready var walk_smoke: GPUParticles3D = $WalkSmoke
-@onready var switch_sprite: Sprite3D = $SwitchSprite
 @onready var throw_direction: Node3D = $ThrowDirection
 @onready var current_item: Sprite3D = $CurrentItem
-@onready var stun_particle: GPUParticles3D = $StunParticle
+
+@onready var stun_particle: AnimatedSprite3D = $StunParticle
+@onready var pistogum_hit: AnimatedSprite3D = $PistogumHit
+@onready var pencil_hit: AnimatedSprite3D = $PencilHit
+@onready var slow_animation: AnimatedSprite3D = $SlowAnimation
+
+@onready var switch_crown: Sprite3D = $SwitchCrown
+@onready var switch_sprite: Sprite3D = $SwitchCrown/SwitchSprite
 
 @export_range(0,3) var player_id: int = 0
 
@@ -40,6 +46,7 @@ var _is_making_attack_move: bool = false
 
 @export_category("Stun")
 @export var knockback_stun_duration: float = 1
+@export var min_stun_for_feedback: float = 1.0
 
 @export_category("Knockback")
 @export var knockback_speed: float = 20.0
@@ -54,7 +61,7 @@ var _knockback_speed_to_apply: float = 0
 @export_category("Aim")
 @export var lock_after_aim_duration: float = 0.1
 
-@export_category("SFX")
+@export_category("Sound")
 @export var pickup_sound : WwiseEvent
 @export var dash_sound : WwiseEvent
 @export var switch_sound : WwiseEvent
@@ -69,7 +76,6 @@ var _knockback_speed_to_apply: float = 0
 
 @export_category("Visual")
 @export var character_animation: CharacterAnimation
-
 @export_group("Squash and Stretch")
 @export var squash_force: float = 0.05
 @export var squash_duration: float = 0.1
@@ -81,29 +87,22 @@ var _knockback_speed_to_apply: float = 0
 @export_group("On Hit")
 @export var damage_for_max_vibration: float = 5.0
 @export var vibration_duration_on_hit: float = 0.2
-
 @export_group("On Object Destroy")
 @export_range(0, 1) var vibration_force_on_objet_destroy: float = 0.8
 @export var vibration_duration_on_objet_destroy: float = 0.2
-
 @export_group("On Slow")
 @export_range(0, 1) var vibration_force_on_slow: float = 0.1
-
 @export_group("On Pick up")
 @export_range(0, 1) var vibration_force_on_pickup: float = 0.1
 @export var vibration_duration_on_pickup: float = 0.1
-
 @export_group("On Hit other player")
 @export_range(0, 1) var vibration_force_on_hit_other_player: float = 0.8
 @export var vibration_duration_on_hit_other_player: float = 0.1
-
 @export_group("On Stun")
 @export_range(0, 1) var vibration_force_on_stun: float = 0.1
-
 @export_group("On Dash")
 @export_range(0, 1) var vibration_force_on_dash: float = 0.1
 @export var vibration_duration_on_dash: float = 0.3
-
 @export_group("On Throw")
 @export_range(0, 1) var vibration_force_on_throw: float = 0.3
 @export var vibration_duration_on_throw: float = 0.1
@@ -408,7 +407,7 @@ func _kill_current_animation():
 		_attack_move_timer.kill()
 		_attack_move_timer = null
 
-func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
+func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true, item_type: Item.ItemType = Item.ItemType.NONE):
 	if _is_invincible: return
 	
 	_override_color_effect()
@@ -423,6 +422,10 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true):
 	
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
+	
+	match item_type:
+		Item.ItemType.PISTO_GUM: pistogum_hit.play("default")
+		Item.ItemType.PENCIL: pencil_hit.play("default")
 	
 	if damage >= minimal_damage_for_trigger:
 		_freeze_frame_effect()
@@ -465,14 +468,13 @@ func knockback(hit_direction: Vector3):
 
 func stun(duration: float):
 	_is_stun = true
-	stun_sound.post(self)
 	
-	stun_particle.emitting = true
-	stun_particle.restart()
+	stun_particle.play("default")
 	stun_particle.show()
 	
-	if duration >= 0.8:
+	if duration >= min_stun_for_feedback:
 		VibrationManager.start_joy_vibration(player_id, vibration_force_on_stun, 0, duration)
+		stun_sound.post(self)
 	
 	_update_sprite(_last_direction, false)
 	
@@ -483,7 +485,7 @@ func stun(duration: float):
 		player_animated_sprite_3d.play()
 	
 	stun_particle.hide()
-	stun_particle.emitting = false
+	stun_particle.stop()
 
 func switch_item():
 	if not _pickable_item_nearby(): return
@@ -499,14 +501,14 @@ func switch_item():
 	var sprite_with_new_rotation: Vector3 = switch_sprite.rotation
 	sprite_with_new_rotation.z += deg_to_rad(180)
 	
-	switch_sprite.show()
+	switch_crown.show()
 	var switch_tween: Tween = create_tween()
 	switch_tween.set_trans(Tween.TRANS_BACK)
 	switch_tween.set_ease(Tween.EASE_OUT)
 	switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
 	switch_tween.tween_callback(func():
 		await get_tree().create_timer(0.2).timeout
-		switch_sprite.hide()
+		switch_crown.hide()
 	)
 	
 	switch_sound.post(self)
@@ -733,8 +735,13 @@ func apply_slow(speed_multiplier: float, duration: float):
 	if _slow_tween:
 		_slow_tween.kill()
 		_slow_tween = null
+		
+		slow_animation.hide()
+		slow_animation.stop()
 	
 	VibrationManager.start_joy_vibration(player_id, 0, vibration_force_on_slow, 0, true)
+	slow_animation.play("default")
+	slow_animation.show()
 	
 	_slow_tween = create_tween()
 	_slow_tween.set_ease(Tween.EASE_IN)
@@ -743,7 +750,11 @@ func apply_slow(speed_multiplier: float, duration: float):
 	_slow_tween.tween_interval(duration)
 	_slow_tween.tween_callback(func(): VibrationManager.stop_joy_vibration(player_id))
 	_slow_tween.tween_property(self, "_speed_multiplier", 1, speed_change_transition)
-	_slow_tween.finished.connect(func(): _slow_tween = null)
+	_slow_tween.finished.connect(func(): 
+		_slow_tween = null
+		slow_animation.hide()
+		slow_animation.stop()
+	)
 
 func _has_hit_other_player():
 	VibrationManager.start_joy_vibration(player_id, vibration_force_on_hit_other_player, 0, vibration_duration_on_hit_other_player)

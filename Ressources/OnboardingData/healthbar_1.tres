@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OnboardingHelpBoxContent" format=3 uid="uid://bc0cvftis75jw"]
+
+[ext_resource type="Script" uid="uid://boubphqexip6n" path="res://Scripts/Resources/onboarding_help_box_content.gd" id="1_fokfb"]
+[ext_resource type="Texture2D" uid="uid://cg1rhs60drpcf" path="res://Assets/SpriteUI/Onboarding/TutoBarOnboarding/health_bar_illustration.png" id="1_gke1p"]
+
+[resource]
+script = ExtResource("1_fokfb")
+title = "Health Bar"
+text = "You and your sibling share a [color=#bf1e43]health bar[/color].[br]The first one to fill it wins!"
+image_linked = ExtResource("1_gke1p")
+metadata/_custom_type_script = "uid://boubphqexip6n"

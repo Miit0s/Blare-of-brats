@@ -9,15 +9,15 @@
 [ext_resource type="Resource" uid="uid://doq45oym56nm" path="res://Ressources/ItemAnimation/pencil_for_max.tres" id="4_murkp"]
 [ext_resource type="Resource" uid="uid://ca4ss6fkslm7b" path="res://Ressources/ItemAnimation/pencil_for_ash.tres" id="5_qah6i"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qah6i"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_murkp"]
 resource_local_to_scene = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ujcen"]
 points = PackedVector3Array(-2, 0, 1, -1, 0, -1, 1, 0, -1, 2, 0, 1)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_murkp"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_qah6i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0wul3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7112m"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -31,6 +31,7 @@ animations = [{
 
 [node name="Pencil" unique_id=2059959192 instance=ExtResource("1_onh0j")]
 script = ExtResource("2_ujcen")
+item_type = 2
 attack_speed = 0.35
 damage = 2.7
 mask_that_block_attack = 0
@@ -50,14 +51,14 @@ transform = Transform3D(0.060894143, 0.07932152, 0, -0.07453784, 0.057221778, 0.
 texture = ExtResource("4_k0vxe")
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1358719798]
-shape = SubResource("SphereShape3D_qah6i")
+shape = SubResource("SphereShape3D_murkp")
 
 [node name="CollisionShape3D" parent="AttackCollisionArea" parent_id_path=PackedInt32Array(843248323) index="0" unique_id=1264135062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_ujcen")
 
 [node name="TrailRenderer3D" parent="." index="4" unique_id=1404749388]
-mesh = SubResource("ImmediateMesh_murkp")
+mesh = SubResource("ImmediateMesh_qah6i")
 
 [node name="VisualAnchor" parent="." index="7" unique_id=1131579775]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -65,4 +66,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="ItemAnimation" parent="VisualAnchor" index="0" unique_id=187442146]
 transform = Transform3D(0.04461978, 0.089493446, 0, -0.089493446, 0.04461978, 0, 0, 0, 0.1, 0.9550742, 0, 0)
 flip_h = true
-sprite_frames = SubResource("SpriteFrames_0wul3")
+sprite_frames = SubResource("SpriteFrames_7112m")

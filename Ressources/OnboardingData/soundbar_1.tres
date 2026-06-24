@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OnboardingHelpBoxContent" format=3 uid="uid://bjb2w2t8rhqy1"]
+
+[ext_resource type="Texture2D" uid="uid://b1e4rujo5u67b" path="res://Assets/SpriteUI/Onboarding/TutoBarOnboarding/wolf_illustration.png" id="1_dq8kr"]
+[ext_resource type="Script" uid="uid://boubphqexip6n" path="res://Scripts/Resources/onboarding_help_box_content.gd" id="1_k82f7"]
+
+[resource]
+script = ExtResource("1_k82f7")
+title = "Sound Bar"
+text = "When the [color=#bf1e43]Sound Bar is full[/color], the [color=#bf1e43]Eye of the [br] Wolf will chase you[/color]! Don't get caught!"
+image_linked = ExtResource("1_dq8kr")
+metadata/_custom_type_script = "uid://boubphqexip6n"

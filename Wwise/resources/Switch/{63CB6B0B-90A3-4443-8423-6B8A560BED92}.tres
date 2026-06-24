@@ -1,0 +1,11 @@
+[gd_resource type="WwiseSwitch" format=3 uid="uid://di8yyscq2ywpv"]
+
+[ext_resource type="WwiseSwitchGroup" uid="uid://bt7pp13ccfh1t" path="res://Wwise/resources/Switch Group/{59334D58-9A31-4E66-AF43-497496E02760}.tres" id="1_evefp"]
+
+[resource]
+group_ref = ExtResource("1_evefp")
+group_id = 2848349012
+name = "Shh"
+id = 561016172
+guid = "{63CB6B0B-90A3-4443-8423-6B8A560BED92}"
+dummy = true

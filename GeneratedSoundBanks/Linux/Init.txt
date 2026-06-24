@@ -1,11 +1,22 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	788884573	Stop			\Default Work Unit\Stop	
+
+Switch	ID	Name	Switch Group			Notes
+	930712164	Off	Stop			
+	1651971902	On	Stop			
+
 State Group	ID	Name			Wwise Object Path	Notes
 	314125497	Round_State			\Default Work Unit\Round_State	
 
 State	ID	Name	State Group			Notes
+	505373590	Readyscreen	Round_State			
 	748895195	None	Round_State			
+	1580246308	Phase_Danger	Round_State			
 	1622949420	Phase_3	Round_State			
 	1622949421	Phase_2	Round_State			
 	1622949422	Phase_1	Round_State			
+	2005704188	Main_Menu	Round_State			
+	2977420043	Start_Menu	Round_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1006694123	Music_Volume			\Default Work Unit\Music_Volume	

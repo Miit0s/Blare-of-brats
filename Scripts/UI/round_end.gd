@@ -14,6 +14,9 @@ class_name RoundEnd
 @export var reveal_wait_duration: float = 0.5
 @export var icon_and_win_text_grow_duration: float = 0.2
 
+@export_category("Sound")
+@export var score_update_sound: WwiseEvent
+
 var _players_win: Array[int]
 
 var round_number: int = 0
@@ -49,6 +52,7 @@ func start_animation(players_win: Array[int], player_color: CharacterColorResour
 	animation_tween.tween_property(round_info, "scale", Vector2.ONE, info_grow_duration)
 	animation_tween.tween_interval(reveal_wait_duration)
 	animation_tween.tween_callback(update_score)
+	animation_tween.tween_callback(score_update_sound.post.bind(self))
 	animation_tween.tween_interval(0.1)
 	animation_tween.set_trans(Tween.TRANS_QUAD)
 	animation_tween.tween_property(win_text_label, "scale", Vector2.ONE, icon_and_win_text_grow_duration)

@@ -63,6 +63,7 @@ shape = SubResource("SphereShape3D_okjcq")
 debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
 
 [node name="ExplosionParticle" parent="." unique_id=1197128601 instance=ExtResource("4_t4ted")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="TrailRenderer3D" type="MeshInstance3D" parent="." unique_id=1404749388]
 visible = false

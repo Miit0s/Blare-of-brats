@@ -1,14 +1,23 @@
 extends RigidBody3D
 class_name Item
 
+enum ItemType {
+	NONE,
+	PISTO_GUM,
+	PENCIL,
+	BOXING_GLOVE
+}
+
 @onready var item_visual: Sprite3D = $ItemVisual
 @onready var item_animation: AnimatedSprite3D = $VisualAnchor/ItemAnimation
-@onready var explosion_particle: GPUParticles3D = $ExplosionParticle
+@onready var explosion_particle: AnimatedSprite3D = $ExplosionParticle
 @onready var trail_renderer_3d: TrailRenderer3D = $TrailRenderer3D
 @onready var visual_anchor: Marker3D = $VisualAnchor
 
 @onready var circle_spawn_particle: GPUParticles3D = $CircleSpawnParticle
 @onready var other_spawn_particle: GPUParticles3D = $OtherSpawnParticle
+
+@export var item_type: ItemType = ItemType.NONE
 
 @export_category("Attack")
 @export var attack_speed: float = 0.5
@@ -169,9 +178,9 @@ func destroy():
 	
 	item_visual.hide()
 	trail_renderer_3d.hide()
-	explosion_particle.emitting = true
+	explosion_particle.play("default")
 	
-	await explosion_particle.finished
+	await explosion_particle.animation_finished
 	
 	queue_free()
 
@@ -226,14 +235,14 @@ func _attack_player(player_hit: Player):
 		sound_made_by.emit(_last_owner_id, sound_on_attack)
 	
 	_attacked_players.append(player_hit)
-	player_hit.hit(damage, _attack_direction)
+	player_hit.hit(damage, _attack_direction, true, item_type)
 	_add_hit_effect(player_hit)
 	
 	has_hit_player.emit()
 
 func _collide_with_player(player_hit: Player):
 	_attacked_players.append(player_hit)
-	player_hit.hit(throw_damage, _throw_direction)
+	player_hit.hit(throw_damage, _throw_direction, true, item_type)
 	destroy()
 
 func cancel_animation():

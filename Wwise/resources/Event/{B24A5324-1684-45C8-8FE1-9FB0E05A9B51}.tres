@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://7crc74doiw75"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "UI_Crown"
+id = 3383241051
+guid = "{B24A5324-1684-45C8-8FE1-9FB0E05A9B51}"
+dummy = true
