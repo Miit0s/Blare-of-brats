@@ -1029,7 +1029,7 @@ is_raycast = false
 metadata/_custom_type_script = "uid://k2hs1xqqot34"
 
 [node name="WolfTrackingSpot" parent="." unique_id=1921504836 node_paths=PackedStringArray("target") instance=ExtResource("28_q5aaq")]
-transform = Transform3D(-0.13137743, -0.59775364, 0.7908417, 0, 0.7977563, 0.60298, -0.9913321, 0.07921799, -0.104807205, 5.7862525, 5.7164097, -7.9104514)
+transform = Transform3D(-0.13137755, -0.59775364, 0.7908417, 0, 0.7977563, 0.60298, -0.9913321, 0.07921806, -0.1048073, 5.7862525, 5.7164097, -7.9104514)
 visible = false
 target = NodePath("../WolfTarget")
 distance = 35.0

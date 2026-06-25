@@ -147,6 +147,7 @@ var _has_press_drop: bool = false
 var _has_press_pickup: bool = false
 
 var _attack_move_timer: Tween = null
+var _switch_tween: Tween = null
 
 var skin: ControllerSlot.PossibleSkin
 
@@ -160,6 +161,7 @@ signal did_throw()
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
 	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
+	player_animated_sprite_3d.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
 	_process_action_with_priorities(delta)
@@ -201,12 +203,15 @@ func _physics_process(delta: float) -> void:
 	else: walk_smoke.emitting = false
 	
 	if not _is_stun and not _is_freeze and not _is_attacking:
-		if _is_playing_attacking_animation:
-			if not is_moving: return
-			else: _is_playing_attacking_animation = false
+		var can_update_sprite: bool = true
 		
-		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
-		_update_sprite(sprite_direction, is_moving)
+		if _is_playing_attacking_animation:
+			if is_moving: _is_playing_attacking_animation = false
+			else: can_update_sprite = false
+		
+		if can_update_sprite:
+			var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
+			_update_sprite(sprite_direction, is_moving)
 	
 	move_and_slide()
 	
@@ -226,11 +231,11 @@ func _process(delta: float) -> void:
 		var item_position: Vector3 = self.global_position + aim_direction.normalized() * picked_up_item_distance
 		current_picked_item.global_position = lerp(current_picked_item.global_position, item_position, delta * picked_up_movement_smoothing_factor)
 		
-		if not aim_direction.is_equal_approx(Vector3.ZERO):
+		if aim_direction.length_squared() > 0.001:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
 	
-	var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
-	if not aim_direction.is_equal_approx(Vector3.ZERO) or throw_direction.global_position.is_equal_approx(throw_aim_destination):
+	if aim_direction.length_squared() > 0.001:
+		var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
 		throw_direction.look_at(throw_aim_destination)
 
 func _process_action_with_priorities(delta: float) -> void:
@@ -420,6 +425,7 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true, item
 	
 	has_been_hit.emit(player_id, damage, hit_direction)
 	
+	VibrationManager.stop_joy_vibration(player_id)
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
 	
@@ -478,6 +484,8 @@ func stun(duration: float):
 	
 	_update_sprite(_last_direction, false)
 	
+	if _is_aiming: _is_aiming = false
+	
 	await get_tree().create_timer(duration).timeout
 	_is_stun = false
 	
@@ -498,17 +506,23 @@ func switch_item():
 	
 	pick_up(false)
 	
+	if _switch_tween:
+		_switch_tween.kill()
+		_switch_tween = null
+		switch_sprite.rotation = Vector3.ZERO
+	
 	var sprite_with_new_rotation: Vector3 = switch_sprite.rotation
 	sprite_with_new_rotation.z += deg_to_rad(180)
 	
 	switch_crown.show()
-	var switch_tween: Tween = create_tween()
-	switch_tween.set_trans(Tween.TRANS_BACK)
-	switch_tween.set_ease(Tween.EASE_OUT)
-	switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
-	switch_tween.tween_callback(func():
-		await get_tree().create_timer(0.2).timeout
+	_switch_tween = create_tween()
+	_switch_tween.set_trans(Tween.TRANS_BACK)
+	_switch_tween.set_ease(Tween.EASE_OUT)
+	_switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
+	_switch_tween.tween_interval(0.2)
+	_switch_tween.tween_callback(func():
 		switch_crown.hide()
+		_switch_tween = null
 	)
 	
 	switch_sound.post(self)
@@ -625,7 +639,6 @@ func _apply_attack_animation(attack_direction: Vector3):
 	
 	_change_player_sprite(attack_animation, correct_anim_name, sprite_offset)
 
-
 func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) -> int:
 	var angle: float = atan2(direction.x, direction.z) + angle_offset
 	angle += TAU if angle < 0.0 else 0.0
@@ -701,6 +714,8 @@ func _detect_wall_bounce():
 func freeze():
 	_is_freeze = true
 	player_animated_sprite_3d.pause()
+	
+	if _is_aiming: _is_aiming = false
 
 func unfreeze():
 	_is_freeze = false

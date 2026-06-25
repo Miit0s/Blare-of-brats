@@ -5,10 +5,14 @@ class_name OptionsUI
 @onready var audio: AudioMenu = $Control/VBoxContainer/TabContainer/Audio
 @onready var video: VideoMenu = $Control/VBoxContainer/TabContainer/Video
 
+@onready var close: Button = $Control/VBoxContainer/Close
+
 var on_button_focus: WwiseEvent
 var on_button_click: WwiseEvent
 
 func _ready() -> void:
+	visibility_changed.connect(_on_visibility_changed)
+	
 	if not GameOptions.did_options_has_been_apply():
 		apply_options_to_menu()
 		GameOptions.options_has_been_apply()
@@ -77,3 +81,7 @@ func _on_video_v_sync_change(is_vsync_activate: bool) -> void:
 
 func _on_close_pressed() -> void:
 	hide()
+
+func _on_visibility_changed():
+	if visible:
+		close.grab_focus()
