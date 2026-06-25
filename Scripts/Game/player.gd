@@ -160,6 +160,7 @@ signal did_throw()
 func _ready() -> void:
 	_suffix = "_" + str(player_id)
 	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
+	player_animated_sprite_3d.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 
 func _physics_process(delta: float) -> void:
 	_process_action_with_priorities(delta)
@@ -201,12 +202,15 @@ func _physics_process(delta: float) -> void:
 	else: walk_smoke.emitting = false
 	
 	if not _is_stun and not _is_freeze and not _is_attacking:
-		if _is_playing_attacking_animation:
-			if not is_moving: return
-			else: _is_playing_attacking_animation = false
+		var can_update_sprite: bool = true
 		
-		var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
-		_update_sprite(sprite_direction, is_moving)
+		if _is_playing_attacking_animation:
+			if is_moving: _is_playing_attacking_animation = false
+			else: can_update_sprite = false
+		
+		if can_update_sprite:
+			var sprite_direction: Vector3 = _last_direction if direction == Vector3.ZERO else direction
+			_update_sprite(sprite_direction, is_moving)
 	
 	move_and_slide()
 	
@@ -229,8 +233,8 @@ func _process(delta: float) -> void:
 		if aim_direction.length_squared() > 0.001:
 			current_picked_item.look_at(current_picked_item.global_position + aim_direction)
 	
-	var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
-	if not aim_direction.is_equal_approx(Vector3.ZERO) or throw_direction.global_position.is_equal_approx(throw_aim_destination):
+	if aim_direction.length_squared() > 0.001:
+		var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
 		throw_direction.look_at(throw_aim_destination)
 
 func _process_action_with_priorities(delta: float) -> void:
@@ -626,7 +630,6 @@ func _apply_attack_animation(attack_direction: Vector3):
 				sprite_offset = current_picked_item.animations[skin].attack_offset_left
 	
 	_change_player_sprite(attack_animation, correct_anim_name, sprite_offset)
-
 
 func _get_angle_zone(direction: Vector3, steps: int, angle_offset: float = 0.0) -> int:
 	var angle: float = atan2(direction.x, direction.z) + angle_offset
