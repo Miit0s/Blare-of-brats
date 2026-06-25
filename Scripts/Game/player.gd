@@ -147,6 +147,7 @@ var _has_press_drop: bool = false
 var _has_press_pickup: bool = false
 
 var _attack_move_timer: Tween = null
+var _switch_tween: Tween = null
 
 var skin: ControllerSlot.PossibleSkin
 
@@ -504,17 +505,23 @@ func switch_item():
 	
 	pick_up(false)
 	
+	if _switch_tween:
+		_switch_tween.kill()
+		_switch_tween = null
+		switch_sprite.rotation = Vector3.ZERO
+	
 	var sprite_with_new_rotation: Vector3 = switch_sprite.rotation
 	sprite_with_new_rotation.z += deg_to_rad(180)
 	
 	switch_crown.show()
-	var switch_tween: Tween = create_tween()
-	switch_tween.set_trans(Tween.TRANS_BACK)
-	switch_tween.set_ease(Tween.EASE_OUT)
-	switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
-	switch_tween.tween_callback(func():
-		await get_tree().create_timer(0.2).timeout
+	_switch_tween = create_tween()
+	_switch_tween.set_trans(Tween.TRANS_BACK)
+	_switch_tween.set_ease(Tween.EASE_OUT)
+	_switch_tween.tween_property(switch_sprite, "rotation", sprite_with_new_rotation, switch_effect_duration)
+	_switch_tween.tween_interval(0.2)
+	_switch_tween.tween_callback(func():
 		switch_crown.hide()
+		_switch_tween = null
 	)
 	
 	switch_sound.post(self)
