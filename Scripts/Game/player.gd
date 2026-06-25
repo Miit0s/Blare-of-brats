@@ -425,6 +425,7 @@ func hit(damage: float, hit_direction: Vector3, has_knockback: bool = true, item
 	
 	has_been_hit.emit(player_id, damage, hit_direction)
 	
+	VibrationManager.stop_joy_vibration(player_id)
 	VibrationManager.start_joy_vibration(player_id, inverse_lerp(0, damage_for_max_vibration, damage), 0, vibration_duration_on_hit)
 	hit_wout_obj.post(self)
 	
