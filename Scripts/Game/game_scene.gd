@@ -56,6 +56,7 @@ var players_selection: Array[PlayerCharacterSelection] = [preload("uid://4w1f5mg
 var _current_scene: MapScene
 var _round_ended: bool = false
 var _first_round_setup: bool = true
+var _have_see_wolf_cutscene_is_this_game: bool = false
 
 var _crow_reaction_wait_tween: Tween = null
 
@@ -279,19 +280,19 @@ func _activate_the_danger_phase():
 	for player in players:
 		controller_id.append(player.player_id)
 	
-	_current_scene.activate_danger_phase(controller_id)
+	_current_scene.activate_danger_phase(!_have_see_wolf_cutscene_is_this_game, controller_id)
 	
 	MainMusicManager.set_phase_danger_state()
 	danger_phase_crowd_switch.set_value(self)
 	
-	if not GameOptions.have_see_wolf_cutscene:
+	if not _have_see_wolf_cutscene_is_this_game:
 		for player in players:
 			player.freeze()
 		game_bar.hide()
 		
 		await _current_scene.wolf_cutscene_finish
 		
-		GameOptions.have_see_wolf_cutscene = true
+		_have_see_wolf_cutscene_is_this_game = true
 		
 		for player in players:
 			player.unfreeze()
