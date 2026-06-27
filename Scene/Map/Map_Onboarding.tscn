@@ -11,9 +11,10 @@
 [ext_resource type="Script" uid="uid://bia4ppbrylfo" path="res://Scripts/Game/balloon_manager.gd" id="9_n4rxh"]
 [ext_resource type="PackedScene" uid="uid://daqijaacdpn45" path="res://Prefabs/Enviro/balloon.tscn" id="10_7fk2a"]
 
-[node name="MapOnboarding" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("walls_to_move", "player_spawn_system", "balloon_manager", "item_spawn_system")]
+[node name="MapOnboarding" type="Node3D" unique_id=1814952881 node_paths=PackedStringArray("first_walls_to_move", "second_walls_to_move", "player_spawn_system", "balloon_manager", "item_spawn_system")]
 script = ExtResource("1_0var4")
-walls_to_move = [NodePath("Wall/ObstacleComplete12"), NodePath("Wall/ObstacleComplete13")]
+first_walls_to_move = [NodePath("Wall/ObstacleComplete12"), NodePath("Wall/ObstacleComplete13")]
+second_walls_to_move = [NodePath("Wall/ObstacleComplete14")]
 player_spawn_system = NodePath("PlayerSpawnSystem")
 balloon_manager = NodePath("BalloonManager")
 item_spawn_system = NodePath("ItemSpawnSystem")
@@ -31,6 +32,9 @@ transform = Transform3D(6.1628387e-09, 0, -0.028999997, 0, 0.198, 0, 0.08162928,
 
 [node name="ObstacleComplete13" parent="Wall" unique_id=240043 instance=ExtResource("3_87akg")]
 transform = Transform3D(6.1628387e-09, 0, -0.028999997, 0, 0.198, 0, 0.08162928, 0, 2.1894389e-09, 4.1196237, 1.186, 4.5419965)
+
+[node name="ObstacleComplete14" parent="Wall" unique_id=1119897027 instance=ExtResource("3_87akg")]
+transform = Transform3D(8.101758e-09, 0, -0.028999997, 0, 0.198, 0, 0.107311055, 0, 2.1894389e-09, -1.2639657, 1.186, 1.6289334)
 
 [node name="ObstacleComplete2" parent="Wall" unique_id=301861605 instance=ExtResource("3_87akg")]
 transform = Transform3D(1.472209e-08, 0, -0.029, 0, 0.198, 0, 0.195, 0, 2.189439e-09, -6.637288, 1.186, 8.394163)
