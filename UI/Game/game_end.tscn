@@ -223,6 +223,22 @@ focus_previous = NodePath("../../RestartButton/TextureButton")
 [node name="Label" parent="HBoxContainer/StatsHolder/ButtonContainer/ToMainMenuButton" index="1" unique_id=1088821610]
 text = "Menu"
 
+[node name="EGSToolTips" type="Label" parent="HBoxContainer/StatsHolder" unique_id=1591497643]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -59.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Return to the menu to replay the tutorial"
+vertical_alignment = 2
+
 [node name="Control2" type="Control" parent="HBoxContainer" unique_id=120816891]
 custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
