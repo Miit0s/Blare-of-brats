@@ -190,7 +190,7 @@ func _trigger_dash_quest():
 		task_lists[i].add_new_task(task, task_info, players[i].player_id)
 
 func _trigger_item_quest():
-	_trigger_move_down_wall()
+	_trigger_move_down_first_walls()
 	
 	var first_task: TaskInfo = task_info_in_order.pop_front()
 	var second_task: TaskInfo = task_info_in_order.pop_front()
@@ -230,10 +230,20 @@ func _player_have_finish_quest():
 		for task_list in task_lists:
 			task_list.task_remove_anim_finish.connect(task_list.trigger_despawn_animation, ConnectFlags.CONNECT_ONE_SHOT)
 			task_list.clear_task()
+		
+		_trigger_move_down_seconds_walls()
 
-func _trigger_move_down_wall():
+func _trigger_move_down_first_walls():
 	if _current_scene is MapOnboarding:
-		_current_scene.move_down_wall()
-		for player in players:
-			VibrationManager.start_joy_vibration(player.player_id, vibration_force_on_wall_fall, 0, vibration_duration_on_wall_fall)
+		_current_scene.move_down_first_walls()
+		_trigger_move_down_wall_effect()
+
+func _trigger_move_down_seconds_walls():
+	if _current_scene is MapOnboarding:
+		_current_scene.move_down_second_walls()
+		_trigger_move_down_wall_effect()
+
+func _trigger_move_down_wall_effect():
+	for player in players:
+		VibrationManager.start_joy_vibration(player.player_id, vibration_force_on_wall_fall, 0, vibration_duration_on_wall_fall)
 		camera_controller.trigger_wall_fall_shake(camera_shake_duration_on_wall_fall)

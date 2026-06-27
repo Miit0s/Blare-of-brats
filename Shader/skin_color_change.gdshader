@@ -8,12 +8,16 @@ uniform vec4 original_1 : source_color;
 uniform vec4 original_2 : source_color;
 uniform vec4 original_3 : source_color;
 uniform vec4 original_4 : source_color;
+uniform vec4 original_5 : source_color;
+uniform vec4 original_6 : source_color;
 
 uniform vec4 replace_0 : source_color;
 uniform vec4 replace_1 : source_color;
 uniform vec4 replace_2 : source_color;
 uniform vec4 replace_3 : source_color;
 uniform vec4 replace_4 : source_color;
+uniform vec4 replace_5 : source_color;
+uniform vec4 replace_6 : source_color;
 
 // Contrôle de la détection
 uniform float tolerance : hint_range(0.0, 1.0) = 0.1;
@@ -33,13 +37,15 @@ void fragment() {
 	vec2 real_uv = uv_offset + (UV * uv_scale);
     vec4 tex_color = texture(main_texture, real_uv);
 	
+	vec3 base_pixel_rgb = tex_color.rgb;
+	
     vec3 current_rgb = tex_color.rgb;
     
-    vec4 originals[5] = vec4[5](original_0, original_1, original_2, original_3, original_4);
-    vec4 replacements[5] = vec4[5](replace_0, replace_1, replace_2, replace_3, replace_4);
+    vec4 originals[7] = vec4[7](original_0, original_1, original_2, original_3, original_4, original_5, original_6);
+    vec4 replacements[7] = vec4[7](replace_0, replace_1, replace_2, replace_3, replace_4, replace_5, replace_6);
     
-    for (int i = 0; i < 5; i++) {
-        float d = distance(current_rgb, originals[i].rgb);
+    for (int i = 0; i < 7; i++) {
+        float d = distance(base_pixel_rgb, originals[i].rgb);
         float mask = 1.0 - smoothstep(tolerance - softness, tolerance + softness, d);
 		
         current_rgb = mix(current_rgb, replacements[i].rgb, mask);

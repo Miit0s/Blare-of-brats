@@ -40,8 +40,8 @@ func _on_player_spawn_system_new_player_spawn(player: Player) -> void:
 func _on_balloon_manager_sound_emit(value: float, balloon_global_position: Vector3) -> void:
 	balloon_pop.emit(value, balloon_global_position)
 
-func activate_danger_phase(controller_id_for_vibration: Array[int] = []):
-	if not GameOptions.have_see_wolf_cutscene:
+func activate_danger_phase(activate_cutscene: bool, controller_id_for_vibration: Array[int] = []):
+	if activate_cutscene:
 		base_map.start_wolf_cutscene(controller_id_for_vibration)
 	else:
 		base_map.start_simple_cutscene(controller_id_for_vibration)

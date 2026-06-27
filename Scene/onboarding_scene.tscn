@@ -120,6 +120,9 @@ only_next_scene_button = true
 [node name="ToMainMenuButton" parent="CanvasLayer/GameEnd/HBoxContainer/StatsHolder/ButtonContainer" parent_id_path=PackedInt32Array(748037380, 319591605) index="1" unique_id=698485499]
 label_position_on_tween = Vector2(-14, 32)
 
+[node name="EGSToolTips" parent="CanvasLayer/GameEnd/HBoxContainer/StatsHolder" parent_id_path=PackedInt32Array(748037380, 862790387) index="4" unique_id=1591497643]
+visible = false
+
 [node name="InputReminder" parent="CanvasLayer" unique_id=763382896 instance=ExtResource("17_bkpdd")]
 anchors_preset = 8
 anchor_left = 0.5
