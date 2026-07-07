@@ -50,6 +50,7 @@ func add_player_win(player_id: int):
 	elif player_id == right_player_id:
 		round_win_indicator_right.new_round_win()
 
+
 func reset_all_bar():
 	shared_life_bar.reset()
 	game_sound_bar.reset()

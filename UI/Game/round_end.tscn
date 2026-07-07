@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://55up60dl4l06" path="res://Scripts/UI/round_end.gd" id="1_6h5qp"]
 [ext_resource type="Theme" uid="uid://dqr4d6rqfqhy0" path="res://Ressources/Theme/main_theme.tres" id="1_xb7ea"]
+[ext_resource type="WwiseEvent" uid="uid://cdannm0xnbn3y" path="res://Wwise/resources/Event/{86F1B91D-961C-4A2F-B6D7-F4A0A03E2462}.tres" id="2_3ylbo"]
 [ext_resource type="Texture2D" uid="uid://s7sp8dxq2s67" path="res://Assets/SpriteUI/RoundEndScreen/decor_screen.png" id="3_3ylbo"]
 [ext_resource type="Texture2D" uid="uid://bir8dry1xixu2" path="res://Assets/SpriteUI/RoundEndScreen/score_title_holder.png" id="4_3ylbo"]
 [ext_resource type="PackedScene" uid="uid://bph4a5m2b1hae" path="res://UI/Game/player_icon.tscn" id="5_xhwmt"]
 [ext_resource type="Theme" uid="uid://ob8sqx5irh38" path="res://Ressources/Theme/focused_theme.tres" id="7_i6sca"]
 [ext_resource type="Texture2D" uid="uid://cobxcfunq7pf" path="res://Assets/SpriteUI/PauseMenu/button_menu_hover.png" id="8_a8uyj"]
-[ext_resource type="WwiseEvent" uid="uid://cdannm0xnbn3y" path="res://Wwise/resources/Event/{86F1B91D-961C-4A2F-B6D7-F4A0A03E2462}.tres" id="2_3ylbo"]
 
 [node name="RoundEnd" type="Control" unique_id=1185368454]
 layout_mode = 3
@@ -18,8 +18,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xb7ea")
 script = ExtResource("1_6h5qp")
-score_update_sound = ExtResource("2_3ylbo")
 info_grow_duration = 0.5
+score_update_sound = ExtResource("2_3ylbo")
 
 [node name="RoundInfo" type="TextureRect" parent="." unique_id=1163814296]
 visible = false

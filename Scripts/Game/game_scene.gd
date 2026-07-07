@@ -122,6 +122,21 @@ func start_round():
 	
 	MainMusicManager.set_phase_1_state()
 	crowd_sound.post(self)
+	
+	
+	
+	var v_gauche = game_bar.round_win_indicator_left.round_win
+	var v_droite = game_bar.round_win_indicator_right.round_win
+	var round_actuel = v_gauche + v_droite + 1
+	
+	# 2. On fige le fichier CSV pour ce round précis (Dossier Datas + Date/Heure)
+	TelemetryManager.preparer_fichier(round_actuel)
+	
+	# 3. On enregistre le chrono de départ pour la colonne "temps"
+	TelemetryManager.temps_debut_round = Time.get_ticks_msec()
+	
+	# 4. On démarre enfin le Timer de capture (10 fois par seconde)
+	TelemetryManager.game_timer.start()
 
 func setup_new_scene():
 	if _current_scene:
@@ -162,6 +177,9 @@ func round_end_animaion_finish():
 
 func player_win(player_id: int):
 	if _round_ended: return
+	
+	TelemetryManager.game_timer.stop()
+	print("Fin du round détectée : Arrêt de l'enregistrement.")
 	
 	_round_ended = true
 	player_stats[player_id].score += 1

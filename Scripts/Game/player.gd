@@ -162,6 +162,7 @@ func _ready() -> void:
 	_suffix = "_" + str(player_id)
 	animated_sprite_3d_for_offset.animation_finished.connect(func(): _is_playing_attacking_animation = false)
 	player_animated_sprite_3d.animation_finished.connect(func(): _is_playing_attacking_animation = false)
+	TelemetryManager.enregistrer_joueur(player_id, self)
 
 func _physics_process(delta: float) -> void:
 	_process_action_with_priorities(delta)
