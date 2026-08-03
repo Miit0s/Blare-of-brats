@@ -58,6 +58,8 @@ var current_durability: int = 0:
 
 @export var hit_particle_prefab: PackedScene
 
+
+
 ##The id of the player currently holding the item. It goes from 1 to 4, and is -1 if there is no one owning it
 var owner_player: int = -1
 var _owner_player: Player = null
@@ -113,6 +115,7 @@ func _process(_delta: float) -> void:
 				_collide_with_player(player_hit)
 			elif is_attacking:
 				if not _has_obstacle_between_collision(player_hit): _attack_player(player_hit)
+	
 
 func throw(direction: Vector3):
 	_throw_direction = direction
@@ -236,6 +239,8 @@ func _add_hit_effect(target: Node3D):
 	
 
 
+
+
 func _attack_player(player_hit: Player):
 	if not sound_always_made:
 		sound_made.emit(sound_on_attack, global_position)
@@ -244,7 +249,7 @@ func _attack_player(player_hit: Player):
 	_attacked_players.append(player_hit)
 	player_hit.hit(damage, _attack_direction, true, item_type)
 	_add_hit_effect(player_hit)
-	
+	#TelemetryManager.objet_utiliser(player_hit.player_id, item_type)
 	has_hit_player.emit()
 
 func _collide_with_player(player_hit: Player):

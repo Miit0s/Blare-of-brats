@@ -46,6 +46,10 @@ func _progress_bar_value_changed(new_value):
 func _get_life_bar_shader_material() -> ShaderMaterial:
 	return life_bar.material
 
+func _process(delta: float) -> void:
+	
+	TelemetryManager.get_health(target_progress_value)
+	
 func add_damage_to_player(player_id: int, damage: float):
 	if _is_lock: return
 	

@@ -172,7 +172,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mbbkn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 24.0
 }]
@@ -192,7 +192,6 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcs32")
-player_health = 12.5
 
 [node name="LifeBar" type="TextureRect" parent="." unique_id=336857432]
 material = ExtResource("1_flkbr")

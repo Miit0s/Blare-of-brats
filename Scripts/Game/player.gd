@@ -238,6 +238,14 @@ func _process(delta: float) -> void:
 	if aim_direction.length_squared() > 0.001:
 		var throw_aim_destination: Vector3 = throw_direction.global_position + aim_direction
 		throw_direction.look_at(throw_aim_destination)
+		
+	
+	
+	if player_id == 0:
+		TelemetryManager.objet_utiliser(0,current_picked_item)
+	else:
+		TelemetryManager.objet_utiliser(1,current_picked_item)
+	
 
 func _process_action_with_priorities(delta: float) -> void:
 	if _is_in_input_cooldown:
@@ -340,7 +348,6 @@ func pick_up(play_pickup_sound: bool = true):
 	current_picked_item.item_picked_up(player_id, self)
 	current_picked_item.will_be_destroy.connect(item_will_be_destroy)
 	current_picked_item.has_hit_player.connect(_has_hit_other_player)
-	
 	current_item.scale = current_picked_item.item_visual.scale * 0.7
 	current_item.rotation.z = current_picked_item.item_visual.rotation.z
 	current_item.texture = current_picked_item.item_visual.texture
@@ -369,7 +376,10 @@ func _get_closest_item(item_in_range: Array[Node3D]) -> Item:
 			closest_item = item
 	
 	return closest_item
-
+func call_item_selected():
+	TelemetryManager.item_selected(0,current_picked_item)
+	TelemetryManager.objet_utiliser(1,current_picked_item)
+	
 func attack(direction: Vector3):
 	if current_picked_item == null: return
 	

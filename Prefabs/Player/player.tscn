@@ -155,7 +155,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("37_ef3nr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -238,7 +238,7 @@ animations = [{
 "duration": 0.3,
 "texture": ExtResource("62_bsnd1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -288,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("76_anc6w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 24.0
 }]
