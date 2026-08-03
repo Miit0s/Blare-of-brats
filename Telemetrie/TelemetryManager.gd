@@ -8,6 +8,8 @@ var chemin_fichier: String = ""
 var game_timer: Timer # Déclaration de la variable
 var item_actuel = {}
 var health : float = 0.5
+var sound_volume : float = 0.0
+
 
 func _ready() -> void:
 	# On crée le Timer
@@ -28,6 +30,12 @@ func objet_utiliser(player_id, item_type) :
 
 func get_health(health_global):
 	health = health_global
+	
+	
+func get_sound_bar_value(sound_volume_global):
+	sound_volume = sound_volume_global
+	
+	
 
 func preparer_fichier(num_round: int):
 	var dossier = "user://Datas/"
@@ -44,7 +52,7 @@ func preparer_fichier(num_round: int):
 	# creation fichier + en-tete
 	mon_fichier = FileAccess.open(chemin_fichier, FileAccess.WRITE)
 	if mon_fichier:
-		mon_fichier.store_line("temps,p1_x,p1_y,p1_item,p2_x,p2_y,p2_item")
+		mon_fichier.store_line("temps,p1_x,p1_y,p1_health, p1_item, p2_x, p2_y,p2_health, p2_item, sound_bar_value")
 		mon_fichier.close() # On ferme pour libérer le fichier
 		print("Fichier initialisé avec succès : ", chemin_fichier)
 
@@ -66,13 +74,13 @@ func _recolter_donnees():
 	var j2_x = j2.global_position.x
 	var j2_y = j2.global_position.y
 	
-	var j1_item = item_actuel[0]
-	var j2_item = item_actuel[1]
+	var j1_item = str(item_actuel[0]).split(":")[0]
+	var j2_item = str(item_actuel[1]).split(":")[0]
 	
 	var j1_health = health
 	var j2_health = 1 - health
-	
-	var ligne = "%f,%f,%f,%f, %s,%f,%f,%f ,%s " % [temps_ecoule, j1_x, j1_y, j1_health, j1_item, j2_x, j2_y, j2_health, j2_item]
+	var sound = sound_volume
+	var ligne = " %f, %f, %f, %f, %s, %f, %f, %f, %s, %f " % [temps_ecoule, j1_x, j1_y, j1_health, j1_item, j2_x, j2_y, j2_health, j2_item, sound]
 	
 	mon_fichier = FileAccess.open(chemin_fichier, FileAccess.READ_WRITE)
 	if mon_fichier:

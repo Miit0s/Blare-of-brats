@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		_has_reach_target_value = true
 		var value_to_reach: float = _get_last_lock_area_passed() / sound_bar_max_volume
 		_game_sound_bar_volume = move_toward(_game_sound_bar_volume, value_to_reach, shrink_speed * delta)
+	TelemetryManager.get_sound_bar_value(_game_sound_bar_volume)
 
 func add_sound_to_bar(sound_volume: float):
 	var boost = sound_volume / sound_bar_max_volume
