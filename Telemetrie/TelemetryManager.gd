@@ -9,7 +9,7 @@ var game_timer: Timer # Déclaration de la variable
 var item_actuel = {}
 var health : float = 0.5
 var sound_volume : float = 0.0
-
+var scene = ""
 
 func _ready() -> void:
 	# On crée le Timer
@@ -19,6 +19,12 @@ func _ready() -> void:
 	game_timer.wait_time = 0.2 # Capture toutes les 0.2s
 	game_timer.one_shot = false
 	game_timer.timeout.connect(_recolter_donnees)
+
+
+
+func get_scene(scene_played):
+	scene = str(scene_played).split(":")[0]
+	print(scene)	
 	
 func enregistrer_joueur(id_joueur, noeud_joueur):
 	joueurs_actifs[id_joueur] = noeud_joueur
@@ -52,7 +58,7 @@ func preparer_fichier(num_round: int):
 	# creation fichier + en-tete
 	mon_fichier = FileAccess.open(chemin_fichier, FileAccess.WRITE)
 	if mon_fichier:
-		mon_fichier.store_line("temps,p1_x,p1_y,p1_health, p1_item, p2_x, p2_y,p2_health, p2_item, sound_bar_value")
+		mon_fichier.store_line("temps,p1_x,p1_y,p1_health, p1_item, p2_x, p2_y,p2_health, p2_item, sound_bar_value, map = %s" % scene)
 		mon_fichier.close() # On ferme pour libérer le fichier
 		print("Fichier initialisé avec succès : ", chemin_fichier)
 
